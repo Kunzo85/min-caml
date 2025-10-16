@@ -1,0 +1,20 @@
+(LET REC f:(Int -> (Int * Int)) a:Int =
+  (LET Ti5:Int =
+    (LET Ti4:Int =
+      1
+    IN
+    (ADD a Ti4))
+  IN
+  (a Ti5))
+IN
+(LET Tt3:(Int * Int) =
+  (LET Ti1:Int =
+    1
+  IN
+  (LET Ti2:Int =
+    2
+  IN
+  (Ti1 Ti2)))
+IN
+(LET (x:Int y:Int) = Tt3 IN
+  ())))

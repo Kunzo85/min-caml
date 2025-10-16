@@ -1,0 +1,34 @@
+(LET REC fib:(Int -> Int) n:Int =
+  (LET Ti3:Int =
+    1
+  IN
+  (IF (LE n Ti3) THEN
+    n
+  ELSE
+    (LET Ti6:Int =
+      (LET Ti5:Int =
+        (LET Ti4:Int =
+          1
+        IN
+        (SUB n Ti4))
+      IN
+      (fib Ti5))
+    IN
+    (LET Ti9:Int =
+      (LET Ti8:Int =
+        (LET Ti7:Int =
+          2
+        IN
+        (SUB n Ti7))
+      IN
+      (fib Ti8))
+    IN
+    (ADD Ti6 Ti9)))))
+IN
+(LET Ti2:Int =
+  (LET Ti1:Int =
+    30
+  IN
+  (fib Ti1))
+IN
+print_int Ti2))
