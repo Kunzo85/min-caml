@@ -176,7 +176,7 @@ let rec g env = function (* K正規化ルーチン本体 (caml2html: knormal_g) 
             (fun y -> insert_let (g env e3)
                 (fun z -> Put(x, y, z), Type.Unit)))
 
-let indent_cnt = ref 0
+(* let indent_cnt = ref 0
 let indent () = String.make (!indent_cnt * 2) ' '
 let push_indent () = incr indent_cnt
 let pop_indent () = if !indent_cnt > 0 then decr indent_cnt
@@ -187,9 +187,9 @@ let with_indent f =
     try f () with e -> pop_indent (); raise e
   in
   pop_indent ();
-  r
+  r *)
 
-let rec output = function
+let rec output p = function
   | Unit -> "()"
   | Int(i) -> string_of_int i
   | Float(d) -> string_of_float d
@@ -203,31 +203,31 @@ let rec output = function
   | FDiv(x, y) -> Printf.sprintf "(FDIV %s %s)" x y
   | IfEq(x, y, e1, e2) ->
       (* Printf.sprintf "(IF (EQ %s %s) THEN\n%s\n%sELSE\n%s)" x y (incr_indent () ^ (output e1)) (decr_indent ()) (incr_indent () ^ (output e2)) *)
-      let then_str = with_indent (fun () -> indent () ^ (output e1)) in
-      let else_str = with_indent (fun () -> indent () ^ (output e2)) in
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
       Printf.sprintf 
         "(IF (EQ %s %s) THEN\n%s\n%sELSE\n%s)" 
-        x y then_str (indent ()) else_str
+        x y then_str (Indent.indent p) else_str
   | IfLE(x, y, e1, e2) ->
       (* Printf.sprintf "(IF (LE %s %s) THEN\n%s\n%sELSE\n%s)" x y (incr_indent () ^ (output e1)) (decr_indent ()) (incr_indent () ^ (output e2)) *)
-      let then_str = with_indent (fun () -> indent () ^ (output e1)) in
-      let else_str = with_indent (fun () -> indent () ^ (output e2)) in
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
       Printf.sprintf 
         "(IF (LE %s %s) THEN\n%s\n%sELSE\n%s)" 
-        x y then_str (indent ()) else_str
+        x y then_str (Indent.indent p) else_str
   | Let((x, t), e1, e2) ->
       (* Printf.sprintf "(LET %s:%s =\n%s\n%sIN\n%s)" x (Type.output t) (incr_indent () ^ output e1) (decr_indent ()) (indent () ^ output e2) *)
-      let e1_str = with_indent (fun () -> indent () ^ output e1) in
-      let e2_str = indent () ^ output e2 in
+      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
+      let e2_str = Indent.indent p ^ output p e2 in
       Printf.sprintf 
         "(LET %s:%s =\n%s\n%sIN\n%s)"
-        x (Type.output t) e1_str (indent ()) e2_str
+        x (Type.output t) e1_str (Indent.indent p) e2_str
   | Var(x) -> x
   | LetRec({ name = (x, t); args = yts; body = e1 }, e2) ->
       let args_str = String.concat " " (List.map (fun (y, t) -> Printf.sprintf "%s:%s" y (Type.output t)) yts) in
       (* Printf.sprintf "(LET REC %s:%s %s = %s IN %s)" x (Type.output t) args_str (output e1) (output e2) *)
-      let e1_str = with_indent (fun () -> indent () ^ output e1) in
-      let e2_str = indent () ^ output e2 in
+      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
+      let e2_str = Indent.indent p ^ output p e2 in
       Printf.sprintf 
         "(LET REC %s:%s %s =\n%s\nIN\n%s)"
         x (Type.output t) args_str e1_str e2_str
@@ -240,7 +240,7 @@ let rec output = function
   | LetTuple(xts, y, e) ->
       let xts_str = String.concat " " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.output t)) xts) in
       (* Printf.sprintf "(LET (%s) = %s IN %s)" xts_str y (output e) *)
-      let e_str = with_indent (fun () -> indent () ^ output e) in
+      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e) in
       Printf.sprintf 
         "(LET (%s) = %s IN\n%s)"
         xts_str y e_str
@@ -253,10 +253,10 @@ let rec output = function
 
 let print filename t =
   let outchan = open_out (filename ^ ".normalized") in
-  let _ = output_string outchan (output t ^ "\n") in
-  close_out outchan
-
-let f filename e = 
-  let t = fst (g M.empty e) in
-  print filename t;
+  let p = Indent.create_indent () in
+  let _ = output_string outchan (output p t ^ "\n") in
+  close_out outchan;
   t
+
+let f e = fst (g M.empty e)
+  

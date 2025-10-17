@@ -30,6 +30,9 @@ module Emit = Dune__exe__Emit
 (** @canonical Dune__exe.Id *)
 module Id = Dune__exe__Id
 
+(** @canonical Dune__exe.Indent *)
+module Indent = Dune__exe__Indent
+
 (** @canonical Dune__exe.Inline *)
 module Inline = Dune__exe__Inline
 
