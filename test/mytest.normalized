@@ -1,20 +1,20 @@
-(LET REC f:(Int -> (Int * Int)) a:Int =
-  (LET Ti5:Int =
-    (LET Ti4:Int =
+(LetRec f:(Int -> (Int * Int)) a:Int =
+  (Let Ti5:Int =
+    (Let Ti4:Int =
       1
-    IN
-    (ADD a Ti4))
-  IN
-  (a Ti5))
-IN
-(LET Tt3:(Int * Int) =
-  (LET Ti1:Int =
+    In
+    (Add a Ti4))
+  In
+  (Tuple a, Ti5))
+In
+(Let Tt3:(Int * Int) =
+  (Let Ti1:Int =
     1
-  IN
-  (LET Ti2:Int =
+  In
+  (Let Ti2:Int =
     2
-  IN
-  (Ti1 Ti2)))
-IN
-(LET (x:Int y:Int) = Tt3 IN
+  In
+  (Tuple Ti1, Ti2)))
+In
+(Let (x:Int, y:Int) = Tt3 In
   ())))

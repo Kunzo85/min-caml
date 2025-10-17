@@ -176,77 +176,59 @@ let rec g env = function (* K正規化ルーチン本体 (caml2html: knormal_g) 
             (fun y -> insert_let (g env e3)
                 (fun z -> Put(x, y, z), Type.Unit)))
 
-(* let indent_cnt = ref 0
-let indent () = String.make (!indent_cnt * 2) ' '
-let push_indent () = incr indent_cnt
-let pop_indent () = if !indent_cnt > 0 then decr indent_cnt
-
-let with_indent f =
-  push_indent ();
-  let r =
-    try f () with e -> pop_indent (); raise e
-  in
-  pop_indent ();
-  r *)
-
 let rec output p = function
   | Unit -> "()"
   | Int(i) -> string_of_int i
   | Float(d) -> string_of_float d
-  | Neg(x) -> Printf.sprintf "(NEG %s)" x
-  | Add(x, y) -> Printf.sprintf "(ADD %s %s)" x y
-  | Sub(x, y) -> Printf.sprintf "(SUB %s %s)" x y
-  | FNeg(x) -> Printf.sprintf "(FNEG %s)" x
-  | FAdd(x, y) -> Printf.sprintf "(FADD %s %s)" x y
-  | FSub(x, y) -> Printf.sprintf "(FSUB %s %s)" x y
-  | FMul(x, y) -> Printf.sprintf "(FMUL %s %s)" x y
-  | FDiv(x, y) -> Printf.sprintf "(FDIV %s %s)" x y
+  | Neg(x) -> Printf.sprintf "(Neg %s)" x
+  | Add(x, y) -> Printf.sprintf "(Add %s %s)" x y
+  | Sub(x, y) -> Printf.sprintf "(Sub %s %s)" x y
+  | FNeg(x) -> Printf.sprintf "(FNeg %s)" x
+  | FAdd(x, y) -> Printf.sprintf "(FAdd %s %s)" x y
+  | FSub(x, y) -> Printf.sprintf "(FSub %s %s)" x y
+  | FMul(x, y) -> Printf.sprintf "(FMul %s %s)" x y
+  | FDiv(x, y) -> Printf.sprintf "(FDiv %s %s)" x y
   | IfEq(x, y, e1, e2) ->
-      (* Printf.sprintf "(IF (EQ %s %s) THEN\n%s\n%sELSE\n%s)" x y (incr_indent () ^ (output e1)) (decr_indent ()) (incr_indent () ^ (output e2)) *)
       let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
       let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
       Printf.sprintf 
-        "(IF (EQ %s %s) THEN\n%s\n%sELSE\n%s)" 
+        "(If (EQ %s %s) Then\n%s\n%sElse\n%s)" 
         x y then_str (Indent.indent p) else_str
   | IfLE(x, y, e1, e2) ->
-      (* Printf.sprintf "(IF (LE %s %s) THEN\n%s\n%sELSE\n%s)" x y (incr_indent () ^ (output e1)) (decr_indent ()) (incr_indent () ^ (output e2)) *)
       let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
       let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
       Printf.sprintf 
-        "(IF (LE %s %s) THEN\n%s\n%sELSE\n%s)" 
+        "(If (LE %s %s) Then\n%s\n%sElse\n%s)"
         x y then_str (Indent.indent p) else_str
   | Let((x, t), e1, e2) ->
-      (* Printf.sprintf "(LET %s:%s =\n%s\n%sIN\n%s)" x (Type.output t) (incr_indent () ^ output e1) (decr_indent ()) (indent () ^ output e2) *)
       let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
       let e2_str = Indent.indent p ^ output p e2 in
       Printf.sprintf 
-        "(LET %s:%s =\n%s\n%sIN\n%s)"
+        "(Let %s:%s =\n%s\n%sIn\n%s)"
         x (Type.output t) e1_str (Indent.indent p) e2_str
   | Var(x) -> x
   | LetRec({ name = (x, t); args = yts; body = e1 }, e2) ->
       let args_str = String.concat " " (List.map (fun (y, t) -> Printf.sprintf "%s:%s" y (Type.output t)) yts) in
-      (* Printf.sprintf "(LET REC %s:%s %s = %s IN %s)" x (Type.output t) args_str (output e1) (output e2) *)
       let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
       let e2_str = Indent.indent p ^ output p e2 in
       Printf.sprintf 
-        "(LET REC %s:%s %s =\n%s\nIN\n%s)"
+        "(LetRec %s:%s %s =\n%s\nIn\n%s)"
         x (Type.output t) args_str e1_str e2_str
   | App(x, ys) ->
       let ys_str = String.concat " " ys in
       Printf.sprintf "(%s %s)" x ys_str
   | Tuple(xs) ->
-      let xs_str = String.concat " " xs in
-      Printf.sprintf "(%s)" xs_str
+      let xs_str = String.concat ", " xs in
+      Printf.sprintf "(Tuple %s)" xs_str
   | LetTuple(xts, y, e) ->
-      let xts_str = String.concat " " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.output t)) xts) in
-      (* Printf.sprintf "(LET (%s) = %s IN %s)" xts_str y (output e) *)
+      let xts_str = String.concat ", " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.output t)) xts) in
       let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e) in
       Printf.sprintf 
-        "(LET (%s) = %s IN\n%s)"
+        "(Let (%s) = %s In\n%s)"
         xts_str y e_str
   | Get(x, y) -> Printf.sprintf "(%s.(%s))" x y
   | Put(x, y, z) -> Printf.sprintf "(%s.(%s) <- %s)" x y z
-  | ExtArray(x) -> Printf.sprintf "EXT_ARRAY %s" x
+  | ExtArray(x) -> Printf.sprintf "Ext_Array %s" x
   | ExtFunApp(f, xs) ->
       let xs_str = String.concat " " xs in
       Printf.sprintf "%s %s" f xs_str

@@ -1,4 +1,4 @@
-# dune exec mincaml test/fib
+# dune exec mincaml test/mytest
 # OCAMLPARAM: unset
 # Shared cache: enabled-except-user-rules
 # Shared cache location: /Users/yuyatanaka/.cache/dune/db
@@ -13,4 +13,4 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /Users/yuyatanaka/.opam/default/bin/ocamlc.opt -config > /var/folders/h3/2g03nycn4fn3wd5z3qg7zkfm0000gn/T/dune_25aaf9_output
+$ /Users/yuyatanaka/.opam/default/bin/ocamlc.opt -config > /var/folders/h3/2g03nycn4fn3wd5z3qg7zkfm0000gn/T/dune_8f59e8_output

@@ -1,0 +1,13 @@
+(LetRec f:Var(?) a:Var(?) =
+  (Tuple
+    a,
+    (Add
+      a
+      1))
+In
+(LetTuple (x:Var(?), y:Var(?)) =
+  (Tuple
+    1,
+    2)
+In
+()))

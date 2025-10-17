@@ -1,0 +1,25 @@
+(LetRec fib:Var(?) n:Var(?) =
+  (If
+    (LE
+      n
+      1)
+  Then
+    n
+  Else
+    (Add
+      (App
+        fib
+        (Sub
+          n
+          1))
+      (App
+        fib
+        (Sub
+          n
+          2))))
+In
+(App
+  print_int
+  (App
+    fib
+    30)))

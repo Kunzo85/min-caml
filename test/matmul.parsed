@@ -1,0 +1,319 @@
+(LetRec mul:Var(?) l:Var(?) m:Var(?) n:Var(?) a:Var(?) b:Var(?) c:Var(?) =
+  (LetRec loop1:Var(?) i:Var(?) =
+    (If
+      (Not
+        (LE
+          0
+          i))
+    Then
+      ()
+    Else
+      (LetRec loop2:Var(?) j:Var(?) =
+        (If
+          (Not
+            (LE
+              0
+              j))
+        Then
+          ()
+        Else
+          (LetRec loop3:Var(?) k:Var(?) =
+            (If
+              (Not
+                (LE
+                  0
+                  k))
+            Then
+              ()
+            Else
+              (Let Tu1:Unit =
+                (Put
+                  (Get
+                    c
+                    i)
+                  j
+                  (FAdd
+                    (Get
+                      (Get
+                        c
+                        i)
+                      j)
+                    (FMul
+                      (Get
+                        (Get
+                          a
+                          i)
+                        k)
+                      (Get
+                        (Get
+                          b
+                          k)
+                        j))))
+              In
+              (App
+                loop3
+                (Sub
+                  k
+                  1))))
+          In
+          (Let Tu2:Unit =
+            (App
+              loop3
+              (Sub
+                m
+                1))
+          In
+          (App
+            loop2
+            (Sub
+              j
+              1)))))
+      In
+      (Let Tu3:Unit =
+        (App
+          loop2
+          (Sub
+            n
+            1))
+      In
+      (App
+        loop1
+        (Sub
+          i
+          1)))))
+  In
+  (App
+    loop1
+    (Sub
+      l
+      1)))
+In
+(Let dummy:Var(?) =
+  (Array
+    0
+    0.)
+In
+(LetRec make:Var(?) m:Var(?) n:Var(?) =
+  (Let mat:Var(?) =
+    (Array
+      m
+      dummy)
+  In
+  (LetRec init:Var(?) i:Var(?) =
+    (If
+      (Not
+        (LE
+          0
+          i))
+    Then
+      ()
+    Else
+      (Let Tu4:Unit =
+        (Put
+          mat
+          i
+          (Array
+            n
+            0.))
+      In
+      (App
+        init
+        (Sub
+          i
+          1))))
+  In
+  (Let Tu5:Unit =
+    (App
+      init
+      (Sub
+        m
+        1))
+  In
+  mat)))
+In
+(Let a:Var(?) =
+  (App
+    make
+    2
+    3)
+In
+(Let b:Var(?) =
+  (App
+    make
+    3
+    2)
+In
+(Let c:Var(?) =
+  (App
+    make
+    2
+    2)
+In
+(Let Tu25:Unit =
+  (Put
+    (Get
+      a
+      0)
+    0
+    1.)
+In
+(Let Tu24:Unit =
+  (Put
+    (Get
+      a
+      0)
+    1
+    2.)
+In
+(Let Tu23:Unit =
+  (Put
+    (Get
+      a
+      0)
+    2
+    3.)
+In
+(Let Tu22:Unit =
+  (Put
+    (Get
+      a
+      1)
+    0
+    4.)
+In
+(Let Tu21:Unit =
+  (Put
+    (Get
+      a
+      1)
+    1
+    5.)
+In
+(Let Tu20:Unit =
+  (Put
+    (Get
+      a
+      1)
+    2
+    6.)
+In
+(Let Tu19:Unit =
+  (Put
+    (Get
+      b
+      0)
+    0
+    7.)
+In
+(Let Tu18:Unit =
+  (Put
+    (Get
+      b
+      0)
+    1
+    8.)
+In
+(Let Tu17:Unit =
+  (Put
+    (Get
+      b
+      1)
+    0
+    9.)
+In
+(Let Tu16:Unit =
+  (Put
+    (Get
+      b
+      1)
+    1
+    10.)
+In
+(Let Tu15:Unit =
+  (Put
+    (Get
+      b
+      2)
+    0
+    11.)
+In
+(Let Tu14:Unit =
+  (Put
+    (Get
+      b
+      2)
+    1
+    12.)
+In
+(Let Tu13:Unit =
+  (App
+    mul
+    2
+    3
+    2
+    a
+    b
+    c)
+In
+(Let Tu12:Unit =
+  (App
+    print_int
+    (App
+      truncate
+      (Get
+        (Get
+          c
+          0)
+        0)))
+In
+(Let Tu11:Unit =
+  (App
+    print_newline
+    ())
+In
+(Let Tu10:Unit =
+  (App
+    print_int
+    (App
+      truncate
+      (Get
+        (Get
+          c
+          0)
+        1)))
+In
+(Let Tu9:Unit =
+  (App
+    print_newline
+    ())
+In
+(Let Tu8:Unit =
+  (App
+    print_int
+    (App
+      truncate
+      (Get
+        (Get
+          c
+          1)
+        0)))
+In
+(Let Tu7:Unit =
+  (App
+    print_newline
+    ())
+In
+(Let Tu6:Unit =
+  (App
+    print_int
+    (App
+      truncate
+      (Get
+        (Get
+          c
+          1)
+        1)))
+In
+(App
+  print_newline
+  ())))))))))))))))))))))))))))

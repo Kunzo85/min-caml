@@ -1,25 +1,25 @@
-(LET REC sum:(Int -> Int) x:Int =
-  (LET Ti3:Int =
+(LetRec sum:(Int -> Int) x:Int =
+  (Let Ti3:Int =
     0
-  IN
-  (IF (LE x Ti3) THEN
+  In
+  (If (LE x Ti3) Then
     0
-  ELSE
-    (LET Ti6:Int =
-      (LET Ti5:Int =
-        (LET Ti4:Int =
+  Else
+    (Let Ti6:Int =
+      (Let Ti5:Int =
+        (Let Ti4:Int =
           1
-        IN
-        (SUB x Ti4))
-      IN
+        In
+        (Sub x Ti4))
+      In
       (sum Ti5))
-    IN
-    (ADD Ti6 x))))
-IN
-(LET Ti2:Int =
-  (LET Ti1:Int =
+    In
+    (Add Ti6 x))))
+In
+(Let Ti2:Int =
+  (Let Ti1:Int =
     10000
-  IN
+  In
   (sum Ti1))
-IN
+In
 print_int Ti2))

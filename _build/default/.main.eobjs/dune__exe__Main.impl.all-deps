@@ -7,6 +7,7 @@ dune__exe__ConstFold
 dune__exe__Elim
 dune__exe__Emit
 dune__exe__Id
+dune__exe__Indent
 dune__exe__Inline
 dune__exe__KNormal
 dune__exe__M
