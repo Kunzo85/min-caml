@@ -237,8 +237,9 @@ let print filename t =
   let outchan = open_out (filename ^ ".normalized") in
   let p = Indent.create_indent () in
   let _ = output_string outchan (output p t ^ "\n") in
-  close_out outchan;
-  t
+  close_out outchan
 
-let f e = fst (g M.empty e)
-  
+let f filename e = 
+  let t = fst (g M.empty e) in
+  print filename t;
+  t
