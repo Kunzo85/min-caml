@@ -7,12 +7,12 @@ dune__exe__ConstFold
 dune__exe__Elim
 dune__exe__Emit
 dune__exe__Id
-dune__exe__Indent
 dune__exe__Inline
 dune__exe__KNormal
 dune__exe__M
 dune__exe__MyLexer
 dune__exe__MyParser
+dune__exe__ParseRunner
 dune__exe__RegAlloc
 dune__exe__S
 dune__exe__Simm

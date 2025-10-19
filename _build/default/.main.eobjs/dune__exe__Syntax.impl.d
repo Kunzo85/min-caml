@@ -1,1 +1,1 @@
-syntax.ml: Id Indent List Printf String Type
+syntax.ml: Id Type

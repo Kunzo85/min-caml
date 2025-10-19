@@ -684,83 +684,80 @@ let yyact = [|
                : Syntax.t))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 140 "myParser.mly"
-    ( failwith
-        (Printf.sprintf "parse error near characters %d-%d"
-           (Parsing.symbol_start ())
-           (Parsing.symbol_end ())) )
-# 693 "myParser.ml"
+# 144 "myParser.mly"
+    ( raise (Error.Syntax_error (Parsing.symbol_start_pos (), Parsing.symbol_end_pos (), "Syntax_error")) )
+# 690 "myParser.ml"
                : Syntax.t))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 3 : Id.t) in
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'formal_args) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : Syntax.t) in
     Obj.repr(
-# 147 "myParser.mly"
+# 148 "myParser.mly"
     ( { name = addtyp _1; args = _2; body = _4 } )
-# 702 "myParser.ml"
+# 699 "myParser.ml"
                : 'fundef))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : Id.t) in
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'formal_args) in
     Obj.repr(
-# 151 "myParser.mly"
+# 152 "myParser.mly"
     ( addtyp _1 :: _2 )
-# 710 "myParser.ml"
+# 707 "myParser.ml"
                : 'formal_args))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : Id.t) in
     Obj.repr(
-# 153 "myParser.mly"
+# 154 "myParser.mly"
     ( [addtyp _1] )
-# 717 "myParser.ml"
+# 714 "myParser.ml"
                : 'formal_args))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'actual_args) in
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'simple_exp) in
     Obj.repr(
-# 158 "myParser.mly"
+# 159 "myParser.mly"
     ( _1 @ [_2] )
-# 725 "myParser.ml"
+# 722 "myParser.ml"
                : 'actual_args))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'simple_exp) in
     Obj.repr(
-# 161 "myParser.mly"
+# 162 "myParser.mly"
     ( [_1] )
-# 732 "myParser.ml"
+# 729 "myParser.ml"
                : 'actual_args))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'elems) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : Syntax.t) in
     Obj.repr(
-# 165 "myParser.mly"
+# 166 "myParser.mly"
     ( _1 @ [_3] )
-# 740 "myParser.ml"
+# 737 "myParser.ml"
                : 'elems))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Syntax.t) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : Syntax.t) in
     Obj.repr(
-# 167 "myParser.mly"
+# 168 "myParser.mly"
     ( [_1; _3] )
-# 748 "myParser.ml"
+# 745 "myParser.ml"
                : 'elems))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'pat) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : Id.t) in
     Obj.repr(
-# 171 "myParser.mly"
+# 172 "myParser.mly"
     ( _1 @ [addtyp _3] )
-# 756 "myParser.ml"
+# 753 "myParser.ml"
                : 'pat))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Id.t) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : Id.t) in
     Obj.repr(
-# 173 "myParser.mly"
+# 174 "myParser.mly"
     ( [addtyp _1; addtyp _3] )
-# 764 "myParser.ml"
+# 761 "myParser.ml"
                : 'pat))
 (* Entry exp *)
 ; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))

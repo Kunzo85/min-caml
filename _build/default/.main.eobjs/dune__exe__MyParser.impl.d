@@ -1,1 +1,1 @@
-myParser.ml: Id Lexing Obj Parsing Printf Syntax Type
+myParser.ml: Error Id Lexing Obj Parsing Syntax Type

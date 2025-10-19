@@ -27,6 +27,9 @@ module Elim = Dune__exe__Elim
 (** @canonical Dune__exe.Emit *)
 module Emit = Dune__exe__Emit
 
+(** @canonical Dune__exe.Error *)
+module Error = Dune__exe__Error
+
 (** @canonical Dune__exe.Id *)
 module Id = Dune__exe__Id
 
@@ -50,6 +53,9 @@ module MyLexer = Dune__exe__MyLexer
 
 (** @canonical Dune__exe.MyParser *)
 module MyParser = Dune__exe__MyParser
+
+(** @canonical Dune__exe.ParseRunner *)
+module ParseRunner = Dune__exe__ParseRunner
 
 (** @canonical Dune__exe.RegAlloc *)
 module RegAlloc = Dune__exe__RegAlloc

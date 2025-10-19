@@ -26,7 +26,7 @@ type t = (* MinCamlの構文を表現するデータ型 (caml2html: syntax_t) *)
   | Put of t * t * t
 and fundef = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }
 
-let rec output p = function
+(* let rec output p = function
   | Unit -> "()" 
   | Bool(b) -> string_of_bool b
   | Int(i) -> string_of_int i
@@ -126,4 +126,4 @@ let print filename e =
   let p = Indent.create_indent () in
   let _ = output_string outchan (output p e ^ "\n") in
   close_out outchan;
-  e
+  e *)
