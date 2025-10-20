@@ -1,6 +1,7 @@
 %{
 (* parserが利用する変数、関数、型などの定義 *)
 open Syntax
+open Location
 let addtyp x = (x, Type.gentyp ())
 let loc_of_rule () = { start_pos = Parsing.symbol_start_pos (); end_pos = Parsing.symbol_end_pos ()}
 let add_loc t' = { node = t'; loc = loc_of_rule () }

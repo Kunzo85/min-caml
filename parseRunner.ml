@@ -1,4 +1,5 @@
 open Syntax
+open Location
 
 let rec output p = function
   | {node = Unit; _} -> "()" 

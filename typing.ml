@@ -1,6 +1,7 @@
 (* type inference/reconstruction *)
 
 open Syntax
+open Location
 
 exception Unify_error of Type.t * Type.t
 (* exception Error of t * Type.t * Type.t *)

@@ -1,6 +1,4 @@
-type loc = { start_pos : Lexing.position; end_pos : Lexing.position }
-
-type 'a with_loc = { node : 'a; loc : loc }
+open Location
 
 type t' = (* MinCamlの構文を表現するデータ型 (caml2html: syntax_t) *)
   | Unit
