@@ -2,8 +2,8 @@
 
 open Syntax
 
-exception Unify of Type.t * Type.t
-exception Error of t * Type.t * Type.t
+exception Unify_error of Type.t * Type.t
+(* exception Error of t * Type.t * Type.t *)
 
 let extenv = ref M.empty
 
@@ -21,33 +21,37 @@ let rec deref_typ = function (* 型変数を中身でおきかえる関数 (caml
       r := Some(t');
       t'
   | t -> t
-let rec deref_id_typ (x, t) = (x, deref_typ t)
-let rec deref_term = function
-  | Not(e) -> Not(deref_term e)
-  | Neg(e) -> Neg(deref_term e)
-  | Add(e1, e2) -> Add(deref_term e1, deref_term e2)
-  | Sub(e1, e2) -> Sub(deref_term e1, deref_term e2)
-  | Eq(e1, e2) -> Eq(deref_term e1, deref_term e2)
-  | LE(e1, e2) -> LE(deref_term e1, deref_term e2)
-  | FNeg(e) -> FNeg(deref_term e)
-  | FAdd(e1, e2) -> FAdd(deref_term e1, deref_term e2)
-  | FSub(e1, e2) -> FSub(deref_term e1, deref_term e2)
-  | FMul(e1, e2) -> FMul(deref_term e1, deref_term e2)
-  | FDiv(e1, e2) -> FDiv(deref_term e1, deref_term e2)
-  | If(e1, e2, e3) -> If(deref_term e1, deref_term e2, deref_term e3)
-  | Let(xt, e1, e2) -> Let(deref_id_typ xt, deref_term e1, deref_term e2)
-  | LetRec({ name = xt; args = yts; body = e1 }, e2) ->
-      LetRec({ name = deref_id_typ xt;
-               args = List.map deref_id_typ yts;
-               body = deref_term e1 },
-             deref_term e2)
-  | App(e, es) -> App(deref_term e, List.map deref_term es)
-  | Tuple(es) -> Tuple(List.map deref_term es)
-  | LetTuple(xts, e1, e2) -> LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2)
-  | Array(e1, e2) -> Array(deref_term e1, deref_term e2)
-  | Get(e1, e2) -> Get(deref_term e1, deref_term e2)
-  | Put(e1, e2, e3) -> Put(deref_term e1, deref_term e2, deref_term e3)
-  | e -> e
+let deref_id_typ (x, t) = (x, deref_typ t)
+let rec deref_term e =
+  match e.node with
+  | Not(e) -> Syntax.make_t (Not(deref_term e)) e.loc
+  | Neg(e) -> Syntax.make_t (Neg(deref_term e)) e.loc
+  | Add(e1, e2) -> Syntax.make_t (Add(deref_term e1, deref_term e2)) e.loc
+  | Sub(e1, e2) -> Syntax.make_t (Sub(deref_term e1, deref_term e2)) e.loc
+  | Eq(e1, e2) -> Syntax.make_t (Eq(deref_term e1, deref_term e2)) e.loc
+  | LE(e1, e2) -> Syntax.make_t (LE(deref_term e1, deref_term e2)) e.loc
+  | FNeg(e) -> Syntax.make_t (FNeg(deref_term e)) e.loc
+  | FAdd(e1, e2) -> Syntax.make_t (FAdd(deref_term e1, deref_term e2)) e.loc
+  | FSub(e1, e2) -> Syntax.make_t (FSub(deref_term e1, deref_term e2)) e.loc
+  | FMul(e1, e2) -> Syntax.make_t (FMul(deref_term e1, deref_term e2)) e.loc
+  | FDiv(e1, e2) -> Syntax.make_t (FDiv(deref_term e1, deref_term e2)) e.loc
+  | If(e1, e2, e3) -> Syntax.make_t (If(deref_term e1, deref_term e2, deref_term e3)) e.loc
+  | Let(xt, e1, e2) -> Syntax.make_t (Let(deref_id_typ xt, deref_term e1, deref_term e2)) e.loc
+  | LetRec({ node = { name = xt; args = yts; body = e1 }; _}, e2) ->
+      Syntax.make_t 
+            (LetRec({ node = 
+                { name = deref_id_typ xt;
+                  args = List.map deref_id_typ yts;
+                  body = deref_term e1 }; loc = e.loc},
+             deref_term e2)) 
+            e.loc
+  | App(e, es) -> Syntax.make_t (App(deref_term e, List.map deref_term es)) e.loc
+  | Tuple(es) -> Syntax.make_t (Tuple(List.map deref_term es)) e.loc
+  | LetTuple(xts, e1, e2) -> Syntax.make_t (LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2)) e.loc
+  | Array(e1, e2) -> Syntax.make_t (Array(deref_term e1, deref_term e2)) e.loc
+  | Get(e1, e2) -> Syntax.make_t (Get(deref_term e1, deref_term e2)) e.loc
+  | Put(e1, e2, e3) -> Syntax.make_t (Put(deref_term e1, deref_term e2, deref_term e3)) e.loc
+  | _ -> e
 
 let rec occur r1 = function (* occur check (caml2html: typing_occur) *)
   | Type.Fun(t2s, t2) -> List.exists (occur r1) t2s || occur r1 t2
@@ -63,26 +67,26 @@ let rec unify t1 t2 = (* 型が合うように、型変数への代入をする 
   | Type.Unit, Type.Unit | Type.Bool, Type.Bool | Type.Int, Type.Int | Type.Float, Type.Float -> ()
   | Type.Fun(t1s, t1'), Type.Fun(t2s, t2') ->
       (try List.iter2 unify t1s t2s
-      with Invalid_argument(_) -> raise (Unify(t1, t2)));
+      with Invalid_argument(_) -> raise (Unify_error(t1, t2)));
       unify t1' t2'
   | Type.Tuple(t1s), Type.Tuple(t2s) ->
       (try List.iter2 unify t1s t2s
-      with Invalid_argument(_) -> raise (Unify(t1, t2)))
+      with Invalid_argument(_) -> raise (Unify_error(t1, t2)))
   | Type.Array(t1), Type.Array(t2) -> unify t1 t2
   | Type.Var(r1), Type.Var(r2) when r1 == r2 -> ()
   | Type.Var({ contents = Some(t1') }), _ -> unify t1' t2
   | _, Type.Var({ contents = Some(t2') }) -> unify t1 t2'
   | Type.Var({ contents = None } as r1), _ -> (* 一方が未定義の型変数の場合 (caml2html: typing_undef) *)
-      if occur r1 t2 then raise (Unify(t1, t2));
+      if occur r1 t2 then raise (Unify_error(t1, t2));
       r1 := Some(t2)
   | _, Type.Var({ contents = None } as r2) ->
-      if occur r2 t1 then raise (Unify(t1, t2));
+      if occur r2 t1 then raise (Unify_error(t1, t2));
       r2 := Some(t1)
-  | _, _ -> raise (Unify(t1, t2))
+  | _, _ -> raise (Unify_error(t1, t2))
 
 let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
   try
-    match e with
+    match e.node with
     | Unit -> Type.Unit
     | Bool(_) -> Type.Bool
     | Int(_) -> Type.Int
@@ -123,7 +127,7 @@ let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
         let t = Type.gentyp () in
         extenv := M.add x t !extenv;
         t
-    | LetRec({ name = (x, t); args = yts; body = e1 }, e2) -> (* let recの型推論 (caml2html: typing_letrec) *)
+    | LetRec({node = { name = (x, t); args = yts; body = e1 }; _}, e2) -> (* let recの型推論 (caml2html: typing_letrec) *)
         let env = M.add x t env in
         unify t (Type.Fun(List.map snd yts, g (M.add_list yts env) e1));
         g env e2
@@ -148,7 +152,7 @@ let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
         unify (Type.Array(t)) (g env e1);
         unify Type.Int (g env e2);
         Type.Unit
-  with Unify(t1, t2) -> raise (Error(deref_term e, deref_typ t1, deref_typ t2))
+  with Unify_error(t1, t2) -> raise (Error.Typing_error(deref_term e, deref_typ t1, deref_typ t2, "cannot unify types"))
 
 let f e =
   extenv := M.empty;
@@ -157,7 +161,9 @@ let f e =
   | Type.Unit -> ()
   | _ -> Format.eprintf "warning: final result does not have type unit@.");
 *)
-  (try unify Type.Unit (g M.empty e)
-  with Unify _ -> failwith "top level does not have type unit");
+  (try unify Type.Unit 
+    (try g M.empty e with
+    | e -> Error.handle_exn e)
+  with Unify_error _ -> failwith "top level does not have type unit");
   extenv := M.map deref_typ !extenv;
   deref_term e
