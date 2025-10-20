@@ -21,6 +21,14 @@ let lexbuf outchan l filename = (* バッファをコンパイルしてチャン
                         (Typing.f
                           (ParseRunner.f filename MyParser.exp MyLexer.token l)))))))))
 
+(* let test l filename =
+  Id.counter := 0;
+  Typing.extenv := M.empty;
+  (KNormal.f' filename
+    (Typing.f
+      (ParseRunner.f filename MyParser.exp MyLexer.token l))) *)
+
+
 let string s = lexbuf stdout (Lexing.from_string s) "" (* 文字列をコンパイルして標準出力に表示する (caml2html: main_string) *)
 
 let file f = (* ファイルをコンパイルしてファイルに出力する (caml2html: main_file) *)
@@ -28,6 +36,7 @@ let file f = (* ファイルをコンパイルしてファイルに出力する 
   let outchan = open_out (f ^ ".s") in
   try
     lexbuf outchan (Lexing.from_channel inchan) f;
+    (* let _ = test (Lexing.from_channel inchan) f in *)
     close_in inchan;
     close_out outchan;
   with e -> (close_in inchan; close_out outchan; raise e)
