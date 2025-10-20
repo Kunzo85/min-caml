@@ -2,6 +2,9 @@
 (* parserが利用する変数、関数、型などの定義 *)
 open Syntax
 let addtyp x = (x, Type.gentyp ())
+let loc_of_rule () = { start_pos = Parsing.symbol_start_pos (); end_pos = Parsing.symbol_end_pos ()}
+let add_loc t' = { node = t'; loc = loc_of_rule () }
+let update_loc t = { node = t.node; loc = loc_of_rule () }
 %}
 
 /* (* 字句を表すデータ型の定義 (caml2html: parser_token) *) */
@@ -60,92 +63,92 @@ let addtyp x = (x, Type.gentyp ())
 
 simple_exp: /* (* 括弧をつけなくても関数の引数になれる式 (caml2html: parser_simple) *) */
 | LPAREN exp RPAREN
-    { $2 }
+    { update_loc $2 }
 | LPAREN RPAREN
-    { Unit }
+    { add_loc Unit }
 | BOOL
-    { Bool($1) }
+    { add_loc (Bool($1)) }
 | INT
-    { Int($1) }
+    { add_loc (Int($1)) }
 | FLOAT
-    { Float($1) }
+    { add_loc (Float($1)) }
 | IDENT
-    { Var($1) }
+    { add_loc (Var($1)) }
 | simple_exp DOT LPAREN exp RPAREN
-    { Get($1, $4) }
+    { add_loc (Get($1, $4)) }
 
 exp: /* (* 一般の式 (caml2html: parser_exp) *) */
 | simple_exp
     { $1 }
 | NOT exp
     %prec prec_app
-    { Not($2) }
+    { add_loc (Not($2)) }
 | MINUS exp
     %prec prec_unary_minus
     { match $2 with
-    | Float(f) -> Float(-.f) (* -1.23などは型エラーではないので別扱い *)
-    | e -> Neg(e) }
+    | { node = Float(f); _ } -> { node = Float(-.f); loc = loc_of_rule () } (* -1.23などは型エラーではないので別扱い *)
+    | e -> add_loc (Neg(e)) }
 | exp PLUS exp /* (* 足し算を構文解析するルール (caml2html: parser_add) *) */
-    { Add($1, $3) }
+    { add_loc (Add($1, $3)) }
 | exp MINUS exp
-    { Sub($1, $3) }
+    { add_loc (Sub($1, $3)) }
 | exp EQUAL exp
-    { Eq($1, $3) }
+    { add_loc (Eq($1, $3)) }
 | exp LESS_GREATER exp
-    { Not(Eq($1, $3)) (* some float comparisons differ from OCaml for NaN; see: https://github.com/esumii/min-caml/issues/13#issuecomment-1147032750 *) }
+    { add_loc (Not(add_loc (Eq($1, $3))))  (* some float comparisons differ from OCaml for NaN; see: https://github.com/esumii/min-caml/issues/13#issuecomment-1147032750 *) }
 | exp LESS exp
-    { Not(LE($3, $1)) }
+    { add_loc (Not(add_loc (LE($3, $1)))) }
 | exp GREATER exp
-    { Not(LE($1, $3)) }
+    { add_loc (Not(add_loc (LE($1, $3)))) }
 | exp LESS_EQUAL exp
-    { LE($1, $3) }
+    { add_loc (LE($1, $3)) }
 | exp GREATER_EQUAL exp
-    { LE($3, $1) }
+    { add_loc (LE($3, $1)) }
 | IF exp THEN exp ELSE exp
     %prec prec_if
-    { If($2, $4, $6) }
+    { add_loc (If($2, $4, $6)) }
 | MINUS_DOT exp
     %prec prec_unary_minus
-    { FNeg($2) }
+    { add_loc (FNeg($2)) }
 | exp PLUS_DOT exp
-    { FAdd($1, $3) }
+    { add_loc (FAdd($1, $3)) }
 | exp MINUS_DOT exp
-    { FSub($1, $3) }
+    { add_loc (FSub($1, $3)) }
 | exp AST_DOT exp
-    { FMul($1, $3) }
+    { add_loc (FMul($1, $3)) }
 | exp SLASH_DOT exp
-    { FDiv($1, $3) }
+    { add_loc (FDiv($1, $3)) }
 | LET IDENT EQUAL exp IN exp
     %prec prec_let
-    { Let(addtyp $2, $4, $6) }
+    { add_loc (Let(addtyp $2, $4, $6)) }
 | LET REC fundef IN exp
     %prec prec_let
-    { LetRec($3, $5) }
+    { add_loc (LetRec($3, $5)) }
 | simple_exp actual_args
     %prec prec_app
-    { App($1, $2) }
+    { add_loc (App($1, $2)) }
 | elems
     %prec prec_tuple
-    { Tuple($1) }
+    { add_loc (Tuple($1)) }
 | LET LPAREN pat RPAREN EQUAL exp IN exp
-    { LetTuple($3, $6, $8) }
+    { add_loc (LetTuple($3, $6, $8)) }
 | simple_exp DOT LPAREN exp RPAREN LESS_MINUS exp
-    { Put($1, $4, $7) }
+    { add_loc (Put($1, $4, $7)) }
 | exp SEMICOLON exp
-    { Let((Id.gentmp Type.Unit, Type.Unit), $1, $3) }
+    { add_loc (Let((Id.gentmp Type.Unit, Type.Unit), $1, $3)) }
 | ARRAY_CREATE simple_exp simple_exp
     %prec prec_app
-    { Array($2, $3) }
+    { add_loc (Array($2, $3)) }
 | error
     // { failwith
     //     (Printf.sprintf "parse error near characters %d-%d"
     //        (Parsing.symbol_start ())
     //        (Parsing.symbol_end ())) }
-    { raise (Error.Syntax_error (Parsing.symbol_start_pos (), Parsing.symbol_end_pos (), "Syntax_error")) }
+    { raise (Error.Syntax_error (loc_of_rule (), "parse error")) }
 
 fundef:
 | IDENT formal_args EQUAL exp
-    { { name = addtyp $1; args = $2; body = $4 } }
+    { add_loc { name = addtyp $1; args = $2; body = $4 } }
 
 formal_args:
 | IDENT formal_args

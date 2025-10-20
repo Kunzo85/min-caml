@@ -1,16 +1,16 @@
 type token =
   | BOOL of (
-# 8 "myParser.mly"
+# 11 "myParser.mly"
         bool
 # 6 "myParser.mli"
 )
   | INT of (
-# 9 "myParser.mly"
+# 12 "myParser.mly"
         int
 # 11 "myParser.mli"
 )
   | FLOAT of (
-# 10 "myParser.mly"
+# 13 "myParser.mly"
         float
 # 16 "myParser.mli"
 )
@@ -31,7 +31,7 @@ type token =
   | THEN
   | ELSE
   | IDENT of (
-# 27 "myParser.mly"
+# 30 "myParser.mly"
         Id.t
 # 37 "myParser.mli"
 )

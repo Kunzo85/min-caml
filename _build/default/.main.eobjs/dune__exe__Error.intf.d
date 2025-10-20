@@ -1,1 +1,1 @@
-error.mli: Lexing
+error.mli: Syntax Type

@@ -1,1 +1,1 @@
-syntax.ml: Id Type
+syntax.ml: Id Lexing Type

@@ -1,1 +1,1 @@
-error.ml: Lexing
+error.ml: Lexing Printf Syntax Type
