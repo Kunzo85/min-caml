@@ -23,6 +23,7 @@ type t =
   | ExtArray of Id.t
   | ExtFunApp of Id.t * Id.t list
 and fundef = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }
+(* and t = t' with_loc *)
 
 val fv : t -> S.t
 (* val print : string -> t -> t *)

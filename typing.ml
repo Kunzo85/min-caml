@@ -25,33 +25,33 @@ let rec deref_typ = function (* 型変数を中身でおきかえる関数 (caml
 let deref_id_typ (x, t) = (x, deref_typ t)
 let rec deref_term e =
   match e.node with
-  | Not(e) -> Syntax.make_t (Not(deref_term e)) e.loc
-  | Neg(e) -> Syntax.make_t (Neg(deref_term e)) e.loc
-  | Add(e1, e2) -> Syntax.make_t (Add(deref_term e1, deref_term e2)) e.loc
-  | Sub(e1, e2) -> Syntax.make_t (Sub(deref_term e1, deref_term e2)) e.loc
-  | Eq(e1, e2) -> Syntax.make_t (Eq(deref_term e1, deref_term e2)) e.loc
-  | LE(e1, e2) -> Syntax.make_t (LE(deref_term e1, deref_term e2)) e.loc
-  | FNeg(e) -> Syntax.make_t (FNeg(deref_term e)) e.loc
-  | FAdd(e1, e2) -> Syntax.make_t (FAdd(deref_term e1, deref_term e2)) e.loc
-  | FSub(e1, e2) -> Syntax.make_t (FSub(deref_term e1, deref_term e2)) e.loc
-  | FMul(e1, e2) -> Syntax.make_t (FMul(deref_term e1, deref_term e2)) e.loc
-  | FDiv(e1, e2) -> Syntax.make_t (FDiv(deref_term e1, deref_term e2)) e.loc
-  | If(e1, e2, e3) -> Syntax.make_t (If(deref_term e1, deref_term e2, deref_term e3)) e.loc
-  | Let(xt, e1, e2) -> Syntax.make_t (Let(deref_id_typ xt, deref_term e1, deref_term e2)) e.loc
+  | Not(e) -> make_wloc (Not(deref_term e)) e.loc
+  | Neg(e) -> make_wloc (Neg(deref_term e)) e.loc
+  | Add(e1, e2) -> make_wloc (Add(deref_term e1, deref_term e2)) e.loc
+  | Sub(e1, e2) -> make_wloc (Sub(deref_term e1, deref_term e2)) e.loc
+  | Eq(e1, e2) -> make_wloc (Eq(deref_term e1, deref_term e2)) e.loc
+  | LE(e1, e2) -> make_wloc (LE(deref_term e1, deref_term e2)) e.loc
+  | FNeg(e) -> make_wloc (FNeg(deref_term e)) e.loc
+  | FAdd(e1, e2) -> make_wloc (FAdd(deref_term e1, deref_term e2)) e.loc
+  | FSub(e1, e2) -> make_wloc (FSub(deref_term e1, deref_term e2)) e.loc
+  | FMul(e1, e2) -> make_wloc (FMul(deref_term e1, deref_term e2)) e.loc
+  | FDiv(e1, e2) -> make_wloc (FDiv(deref_term e1, deref_term e2)) e.loc
+  | If(e1, e2, e3) -> make_wloc (If(deref_term e1, deref_term e2, deref_term e3)) e.loc
+  | Let(xt, e1, e2) -> make_wloc (Let(deref_id_typ xt, deref_term e1, deref_term e2)) e.loc
   | LetRec({ node = { name = xt; args = yts; body = e1 }; _}, e2) ->
-      Syntax.make_t 
+      make_wloc 
             (LetRec({ node = 
                 { name = deref_id_typ xt;
                   args = List.map deref_id_typ yts;
                   body = deref_term e1 }; loc = e.loc},
              deref_term e2)) 
             e.loc
-  | App(e, es) -> Syntax.make_t (App(deref_term e, List.map deref_term es)) e.loc
-  | Tuple(es) -> Syntax.make_t (Tuple(List.map deref_term es)) e.loc
-  | LetTuple(xts, e1, e2) -> Syntax.make_t (LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2)) e.loc
-  | Array(e1, e2) -> Syntax.make_t (Array(deref_term e1, deref_term e2)) e.loc
-  | Get(e1, e2) -> Syntax.make_t (Get(deref_term e1, deref_term e2)) e.loc
-  | Put(e1, e2, e3) -> Syntax.make_t (Put(deref_term e1, deref_term e2, deref_term e3)) e.loc
+  | App(e, es) -> make_wloc (App(deref_term e, List.map deref_term es)) e.loc
+  | Tuple(es) -> make_wloc (Tuple(List.map deref_term es)) e.loc
+  | LetTuple(xts, e1, e2) -> make_wloc (LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2)) e.loc
+  | Array(e1, e2) -> make_wloc (Array(deref_term e1, deref_term e2)) e.loc
+  | Get(e1, e2) -> make_wloc (Get(deref_term e1, deref_term e2)) e.loc
+  | Put(e1, e2, e3) -> make_wloc (Put(deref_term e1, deref_term e2, deref_term e3)) e.loc
   | _ -> e
 
 let rec occur r1 = function (* occur check (caml2html: typing_occur) *)
