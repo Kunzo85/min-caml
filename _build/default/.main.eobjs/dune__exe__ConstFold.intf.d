@@ -1,1 +1,0 @@
-constFold.mli: KNormal

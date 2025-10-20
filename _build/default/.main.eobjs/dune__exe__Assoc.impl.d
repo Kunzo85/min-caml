@@ -1,1 +1,0 @@
-assoc.ml: KNormal

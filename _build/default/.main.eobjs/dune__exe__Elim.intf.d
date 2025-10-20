@@ -1,1 +1,0 @@
-elim.mli: KNormal

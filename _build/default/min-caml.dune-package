@@ -1,4 +1,0 @@
-(lang dune 3.20)
-(name min-caml)
-(sections (lib .) (bin ../../bin) (doc ../../doc/min-caml))
-(files (lib (META dune-package opam)) (bin (mincaml)) (doc (LICENSE README)))
