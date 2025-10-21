@@ -1,0 +1,65 @@
+(Let t:Var(?) =
+  123
+In
+(Let f:Var(?) =
+  456
+In
+(LetRec even:Var(?) x:Var(?) =
+  (LetRec odd:Var(?) x:Var(?) =
+    (If
+      (Not
+        (LE
+          x
+          0))
+    Then
+      (App
+        even
+        (Sub
+          x
+          1))
+    Else
+      (If
+        (Not
+          (LE
+            0
+            x))
+      Then
+        (App
+          even
+          (Add
+            x
+            1))
+      Else
+        f))
+  In
+  (If
+    (Not
+      (LE
+        x
+        0))
+  Then
+    (App
+      odd
+      (Sub
+        x
+        1))
+  Else
+    (If
+      (Not
+        (LE
+          0
+          x))
+    Then
+      (App
+        odd
+        (Add
+          x
+          1))
+    Else
+      t)))
+In
+(App
+  print_int
+  (App
+    even
+    789)))))
