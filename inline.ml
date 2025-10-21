@@ -1,7 +1,9 @@
+(* Updated!: with_locに対応 *)
+(* インライン展開する関数の最大サイズ (caml2html: inline_threshold) *)
+
 open KNormal
 open Location
 
-(* インライン展開する関数の最大サイズ (caml2html: inline_threshold) *)
 let threshold = ref 0 (* Mainで-inlineオプションによりセットされる *)
 
 let rec size = function (* 関数の大きさを測る (caml2html: inline_size) *)

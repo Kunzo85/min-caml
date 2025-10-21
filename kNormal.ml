@@ -1,3 +1,4 @@
+(* Updated!: with_locに対応。中間結果出力用の関数output,printも追加 *)
 (* give names to intermediate values (K-normalization) *)
 
 open Location
@@ -250,63 +251,6 @@ let rec output p t =
       let xs_str = String.concat " " xs in
       Printf.sprintf "%s %s %s" f xs_str loc_str
 
-(* let rec output p = function
-  | Unit -> "()"
-  | Int(i) -> string_of_int i
-  | Float(d) -> string_of_float d
-  | Neg(x) -> Printf.sprintf "(Neg %s)" x
-  | Add(x, y) -> Printf.sprintf "(Add %s %s)" x y
-  | Sub(x, y) -> Printf.sprintf "(Sub %s %s)" x y
-  | FNeg(x) -> Printf.sprintf "(FNeg %s)" x
-  | FAdd(x, y) -> Printf.sprintf "(FAdd %s %s)" x y
-  | FSub(x, y) -> Printf.sprintf "(FSub %s %s)" x y
-  | FMul(x, y) -> Printf.sprintf "(FMul %s %s)" x y
-  | FDiv(x, y) -> Printf.sprintf "(FDiv %s %s)" x y
-  | IfEq(x, y, e1, e2) ->
-      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
-      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
-      Printf.sprintf 
-        "(If (EQ %s %s) Then\n%s\n%sElse\n%s)" 
-        x y then_str (Indent.indent p) else_str
-  | IfLE(x, y, e1, e2) ->
-      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
-      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
-      Printf.sprintf 
-        "(If (LE %s %s) Then\n%s\n%sElse\n%s)"
-        x y then_str (Indent.indent p) else_str
-  | Let((x, t), e1, e2) ->
-      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
-      let e2_str = Indent.indent p ^ output p e2 in
-      Printf.sprintf 
-        "(Let %s:%s =\n%s\n%sIn\n%s)"
-        x (Type.output t) e1_str (Indent.indent p) e2_str
-  | Var(x) -> x
-  | LetRec({ name = (x, t); args = yts; body = e1 }, e2) ->
-      let args_str = String.concat " " (List.map (fun (y, t) -> Printf.sprintf "%s:%s" y (Type.output t)) yts) in
-      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
-      let e2_str = Indent.indent p ^ output p e2 in
-      Printf.sprintf 
-        "(LetRec %s:%s %s =\n%s\nIn\n%s)"
-        x (Type.output t) args_str e1_str e2_str
-  | App(x, ys) ->
-      let ys_str = String.concat " " ys in
-      Printf.sprintf "(%s %s)" x ys_str
-  | Tuple(xs) ->
-      let xs_str = String.concat ", " xs in
-      Printf.sprintf "(Tuple %s)" xs_str
-  | LetTuple(xts, y, e') ->
-      let xts_str = String.concat ", " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.output t)) xts) in
-      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e') in
-      Printf.sprintf 
-        "(Let (%s) = %s In\n%s)"
-        xts_str y e_str
-  | Get(x, y) -> Printf.sprintf "(%s.(%s))" x y
-  | Put(x, y, z) -> Printf.sprintf "(%s.(%s) <- %s)" x y z
-  | ExtArray(x) -> Printf.sprintf "Ext_Array %s" x
-  | ExtFunApp(f, xs) ->
-      let xs_str = String.concat " " xs in
-      Printf.sprintf "%s %s" f xs_str *)
-
 let print filename t =
   let outchan = open_out (filename ^ ".normalized") in
   let p = Indent.create_indent () in
@@ -318,6 +262,3 @@ let f filename e =
   let t = fst (g M.empty e) in
   print filename t;
   t
-
-(* let f filename e =
-  Unit *)

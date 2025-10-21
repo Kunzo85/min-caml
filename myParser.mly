@@ -1,4 +1,5 @@
 %{
+(* Updated!: 読んだ式にソースコードでの対応箇所を紐付ける *)
 (* parserが利用する変数、関数、型などの定義 *)
 open Syntax
 open Location
@@ -141,11 +142,7 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
     %prec prec_app
     { add_loc (Array($2, $3)) }
 | error
-    // { failwith
-    //     (Printf.sprintf "parse error near characters %d-%d"
-    //        (Parsing.symbol_start ())
-    //        (Parsing.symbol_end ())) }
-    { raise (Error.Syntax_error (loc_of_rule (), "parse error")) }
+    { raise (Error.Syntax_error (loc_of_rule (), "parse error")) } (* Updated!: 詳細なエラーメッセージをError.handle_exnで出すため、ここでは例外を投げるだけに変更 *)
 
 fundef:
 | IDENT formal_args EQUAL exp

@@ -1,3 +1,4 @@
+(* Updated!: with_locに対応。 *)
 (* rename identifiers to make them unique (alpha-conversion) *)
 
 open KNormal

@@ -1,3 +1,6 @@
+(* Updated!: with_locに対応。 *)
+(* 不要定義削除 *)
+
 open KNormal
 open Location
 

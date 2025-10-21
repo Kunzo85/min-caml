@@ -1,3 +1,5 @@
+(* Updated!: with_locに対応。 *)
+
 type id_or_imm = V of Id.t | C of int
 type t =
   | Ans of exp

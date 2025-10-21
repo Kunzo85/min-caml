@@ -1,3 +1,6 @@
+(* Updated!: with_locに対応。 *)
+(* アセンブリ生成 *)
+
 open Asm
 open Location
 

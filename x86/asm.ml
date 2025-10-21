@@ -1,3 +1,5 @@
+(* Updated!: with_locに対応。 *)
+
 open Location
 
 (* 2オペランドではなく3オペランドのx86アセンブリもどき *)

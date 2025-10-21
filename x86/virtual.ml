@@ -1,3 +1,4 @@
+(* Updated!: with_locに対応。 *)
 (* translation into assembly with infinite number of virtual registers *)
 
 open Asm

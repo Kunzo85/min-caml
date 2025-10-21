@@ -1,3 +1,5 @@
+(* Added!: エラー処理を一元的に行う。 *)
+
 exception Syntax_error of Location.loc * string 
 exception Typing_error of Syntax.t * Type.t * Type.t * string
 

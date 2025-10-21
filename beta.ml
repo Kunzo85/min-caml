@@ -1,3 +1,6 @@
+(* Updated!: with_locに対応。 *)
+(* β簡約 *)
+
 open KNormal
 open Location
 

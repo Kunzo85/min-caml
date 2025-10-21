@@ -1,3 +1,6 @@
+(* Updated!: with_locに対応。 *)
+(* クロージャ変換 *)
+
 open Location
 
 type closure = { entry : Id.l; actual_fv : Id.t list }

@@ -1,3 +1,5 @@
+(* Updated!: with_locに対応。 *)
+
 open Asm
 open Location
 

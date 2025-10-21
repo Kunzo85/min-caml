@@ -1,10 +1,11 @@
+(* Updated!: with_locに対応。型推論時のエラー処理を一部Error.handle_exnに投げる。 *)
+
 (* type inference/reconstruction *)
 
 open Syntax
 open Location
 
 exception Unify_error of Type.t * Type.t
-(* exception Error of t * Type.t * Type.t *)
 
 let extenv = ref M.empty
 

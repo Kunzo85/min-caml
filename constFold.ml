@@ -1,3 +1,6 @@
+(* Updated!: with_locに対応。 *)
+(* 定数畳み込み最適化 *)
+
 open KNormal
 open Location
 

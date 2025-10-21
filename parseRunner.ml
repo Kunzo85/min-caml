@@ -1,7 +1,9 @@
+(* Added!: Parser実行・エラー処理・中間結果出力を担当。 *)
+
 open Syntax
 open Location
 
-let rec output p = function
+let rec output p = function (* 式(:Syntax.t)を表現する文字列を生成。 *)
   | {node = Unit; _} -> "()" 
   | {node = Bool(b); _} -> string_of_bool b
   | {node = Int(i); _} -> string_of_int i
@@ -96,7 +98,7 @@ let rec output p = function
       let e3_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e3) in
       Printf.sprintf "(Put\n%s\n%s\n%s)" e1_str e2_str e3_str
 
-let print filename e =
+let print filename e = (* 式(:Syntax.t)を文字列にしてファイルに出力。 *)
   let outchan = open_out (filename ^ ".parsed") in
   let p = Indent.create_indent () in
   let _ = output_string outchan (output p e ^ "\n") in

@@ -1,3 +1,5 @@
+(* Updated!: 構文木のノードに位置情報を持たせる。 *)
+
 open Location
 
 type t' = (* MinCamlの構文を表現するデータ型 (caml2html: syntax_t) *)

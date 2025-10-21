@@ -1,3 +1,4 @@
+(* Updated!: with_locに対応。 *)
 (* flatten let-bindings (just for prettier printing) *)
 
 open KNormal

@@ -1,3 +1,6 @@
+(* Updated!: with_locに対応。 *)
+(* 命令列の即値最適化 *)
+
 open Asm
 open Location
 

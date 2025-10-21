@@ -10,6 +10,7 @@ type t = (* MinCamlの型を表現するデータ型 (caml2html: type_t) *)
 
 let gentyp () = Var(ref None) (* 新しい型変数を作る *)
 
+(* Added!: 型(:Type.t)を表現する文字列を生成。 *)
 let rec output = function
   | Unit -> "Unit"
   | Bool -> "Bool"
