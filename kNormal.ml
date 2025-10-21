@@ -26,8 +26,9 @@ type t' = (* K正規化後の式 (caml2html: knormal_t) *)
   | Put of Id.t * Id.t * Id.t
   | ExtArray of Id.t
   | ExtFunApp of Id.t * Id.t list
-and fundef = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }
-and t = t' Location.with_loc
+and fundef' = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }
+and fundef = fundef' with_loc
+and t = t' with_loc
 
 let rec fv e = (* 式に出現する（自由な）変数 (caml2html: knormal_fv) *)
   match e.node with
@@ -37,7 +38,7 @@ let rec fv e = (* 式に出現する（自由な）変数 (caml2html: knormal_fv
   | IfEq(x, y, e1, e2) | IfLE(x, y, e1, e2) -> S.add x (S.add y (S.union (fv e1) (fv e2)))
   | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
   | Var(x) -> S.singleton x
-  | LetRec({ name = (x, t); args = yts; body = e1 }, e2) ->
+  | LetRec({ node = { name = (x, t); args = yts; body = e1 }; _}, e2) ->
       let zs = S.diff (fv e1) (S.of_list (List.map fst yts)) in
       S.diff (S.union zs (fv e2)) (S.singleton x)
   | App(x, ys) -> S.of_list (x :: ys)
@@ -125,11 +126,11 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
         (match M.find x !Typing.extenv with
         | Type.Array(_) as t -> inherit_loc (ExtArray x), t
         | _ -> failwith (Printf.sprintf "external variable %s does not have an array type" x))
-    | Syntax.LetRec({ node = { Syntax.name = (x, t); Syntax.args = yts; Syntax.body = e1 }; _}, e2) ->
+    | Syntax.LetRec({ node = { Syntax.name = (x, t); Syntax.args = yts; Syntax.body = e1 }; loc = fdloc}, e2) ->
         let env' = M.add x t env in
         let e2', t2 = g env' e2 in
         let e1', t1 = g (M.add_list yts env') e1 in
-        let fundef = { name = (x, t); args = yts; body = e1' } in
+        let fundef = make_wloc { name = (x, t); args = yts; body = e1' } fdloc in
         inherit_loc (LetRec(fundef, e2')), t2
     | Syntax.App({ node = Syntax.Var(f); _}, e2s) when not (M.mem f env) -> (* 外部関数の呼び出し (caml2html: knormal_extfunapp) *)
         (match M.find f !Typing.extenv with
@@ -223,7 +224,7 @@ let rec output p t =
         "(Let %s:%s =\n%s\n%sIn\n%s %s)"
         x (Type.output t) e1_str (Indent.indent p) e2_str loc_str
   | Var(x) -> x ^ " " ^ loc_str
-  | LetRec({ name = (x, t); args = yts; body = e1 }, e2) ->
+  | LetRec({ node = { name = (x, t); args = yts; body = e1 }; _}, e2) ->
       let args_str = String.concat " " (List.map (fun (y, t) -> Printf.sprintf "%s:%s" y (Type.output t)) yts) in
       let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
       let e2_str = Indent.indent p ^ output p e2 in
