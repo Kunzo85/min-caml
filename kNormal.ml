@@ -97,7 +97,7 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
     | Syntax.Eq _ | Syntax.LE _ as cmp ->
         g env (inherit_loc
                 (Syntax.If(inherit_loc cmp, inherit_loc (Syntax.Bool(true)), inherit_loc (Syntax.Bool(false))))) (* 比較式をIf式に変換 (caml2html: knormal_cmp) *)
-    | Syntax.If({ node = Syntax.Not _; _} as e1 , e2, e3) -> 
+    | Syntax.If({ node = Syntax.Not e1; _ } , e2, e3) -> 
         g env (inherit_loc (Syntax.If(e1, e3, e2))) (* notによる分岐を変換 (caml2html: knormal_not) *)
     | Syntax.If({ node = Syntax.Eq(e1, e2); _}, e3, e4) ->
         insert_let (g env e1) e.loc
@@ -314,6 +314,7 @@ let print filename t =
   close_out outchan
 
 let f filename e = 
+  Format.eprintf "K-normalizing...@.";
   let t = fst (g M.empty e) in
   print filename t;
   t

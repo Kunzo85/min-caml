@@ -37,4 +37,5 @@ let h { node = { name = l; args = xs; fargs = ys; body = e; ret = t }; loc } = (
   { node = { name = l; args = xs; fargs = ys; body = g M.empty e; ret = t }; loc }
 
 let f (Prog(data, fundefs, e)) = (* プログラム全体の即値最適化 *)
+  Format.eprintf "Optimizing immediate values...@.";
   Prog(data, List.map h fundefs, g M.empty e)

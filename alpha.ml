@@ -47,4 +47,6 @@ let rec g env = function (* α変換ルーチン本体 (caml2html: alpha_g) *)
 and h env e =
   make_wloc (g env e.node) e.loc
 
-let f = h M.empty
+let f e = 
+  Format.eprintf "Alpha-converting...@.";
+  h M.empty e

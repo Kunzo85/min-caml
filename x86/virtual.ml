@@ -152,6 +152,7 @@ let h { node = { Closure.name = (Id.L(x), t); Closure.args = yts; Closure.formal
 
 (* プログラム全体の仮想マシンコード生成 (caml2html: virtual_f) *)
 let f (Closure.Prog(fundefs, e)) =
+  Format.eprintf "Generating virtual machine code...@.";
   data := [];
   let fundefs = List.map h fundefs in
   let e = g M.empty e in

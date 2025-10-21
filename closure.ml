@@ -111,6 +111,7 @@ let rec g env known e = (* クロージャ変換ルーチン本体 (caml2html: c
   | KNormal.ExtFunApp(x, ys) -> inherit_loc (AppDir(Id.L("min_caml_" ^ x), ys))
 
 let f e =
+  Format.eprintf "Converting to closure form...@.";
   toplevel := [];
   let e' = g M.empty S.empty e in
   Prog(List.rev !toplevel, e')
