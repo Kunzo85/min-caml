@@ -2,7 +2,7 @@ type id_or_imm = V of Id.t | C of int
 type t =
   | Ans of exp
   | Let of (Id.t * Type.t) * exp * t
-and exp =
+and exp' =
   | Nop
   | Set of int
   | SetL of Id.l
@@ -32,7 +32,12 @@ and exp =
   | CallDir of Id.l * Id.t list * Id.t list
   | Save of Id.t * Id.t (* レジスタ変数の値をスタック変数へ保存 *)
   | Restore of Id.t (* スタック変数から値を復元 *)
-type fundef = { name : Id.l; args : Id.t list; fargs : Id.t list; body : t; ret : Type.t }
+and exp = exp' Location.with_loc
+
+type fundef' = { name : Id.l; args : Id.t list; fargs : Id.t list; body : t; ret : Type.t }
+type fundef = fundef' Location.with_loc
+
+(* プログラム全体 = 浮動小数点数テーブル + トップレベル関数 + メインの式 *)
 type prog = Prog of (Id.l * float) list * fundef list * t
 
 val fletd : Id.t * exp * t -> t (* shorthand of Let for float *)
