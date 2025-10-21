@@ -1,25 +1,25 @@
 (LetRec sum:(Int -> Int) x:Int =
   (Let Ti3:Int =
-    0
+    0 !2
   In
   (If (LE x Ti3) Then
-    0
+    0 !2
   Else
     (Let Ti6:Int =
       (Let Ti5:Int =
         (Let Ti4:Int =
-          1
+          1 !3
         In
-        (Sub x Ti4))
+        (Sub x Ti4 !3) !3)
       In
-      (sum Ti5))
+      (sum Ti5 !3) !3)
     In
-    (Add Ti6 x))))
+    (Add Ti6 x !3) !3) !2) !2)
 In
 (Let Ti2:Int =
   (Let Ti1:Int =
-    10000
+    10000 !4
   In
-  (sum Ti1))
+  (sum Ti1 !4) !4)
 In
-print_int Ti2))
+print_int Ti2 !4 !4) !1)
