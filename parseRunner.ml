@@ -1,7 +1,6 @@
 (* Added!: Parser実行・エラー処理・中間結果出力を担当。 *)
 
 open Syntax
-open Location
 
 let print filename e = (* 式(:Syntax.t)を文字列にしてファイルに出力。 *)
   let outchan = open_out (filename ^ ".parsed") in

@@ -15,7 +15,7 @@ rule token = parse
 | space+
     { token lexbuf }
 | "\n"
-    { Lexing.new_line lexbuf;
+    { Lexing.new_line lexbuf; (* 改行時にlexbufを更新 *)
       token lexbuf }
 | "(*"
     { comment lexbuf; (* ネストしたコメントのためのトリック *)

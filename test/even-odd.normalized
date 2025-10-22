@@ -1,67 +1,67 @@
 (Let t:Int =
-  123 !1
+  123
 In
 (Let f:Int =
-  456 !2
+  456
 In
 (LetRec even:(Int -> Int) x:Int =
   (LetRec odd:(Int -> Int) x:Int =
     (Let Ti9:Int =
-      0 !5
+      0
     In
     (If (LE x Ti9) Then
       (Let Ti10:Int =
-        0 !6
+        0
       In
       (If (LE Ti10 x) Then
-        f !7
+        f
       Else
         (Let Ti12:Int =
           (Let Ti11:Int =
-            1 !6
+            1
           In
-          (Add x Ti11 !6) !6)
+          (Add x Ti11))
         In
-        (even Ti12 !6) !6) !6) !6)
+        (even Ti12))))
     Else
       (Let Ti14:Int =
         (Let Ti13:Int =
-          1 !5
+          1
         In
-        (Sub x Ti13 !5) !5)
+        (Sub x Ti13))
       In
-      (even Ti14 !5) !5) !5) !5)
+      (even Ti14))))
 In
   (Let Ti3:Int =
-    0 !8
+    0
   In
   (If (LE x Ti3) Then
     (Let Ti4:Int =
-      0 !9
+      0
     In
     (If (LE Ti4 x) Then
-      t !10
+      t
     Else
       (Let Ti6:Int =
         (Let Ti5:Int =
-          1 !9
+          1
         In
-        (Add x Ti5 !9) !9)
+        (Add x Ti5))
       In
-      (odd Ti6 !9) !9) !9) !9)
+      (odd Ti6))))
   Else
     (Let Ti8:Int =
       (Let Ti7:Int =
-        1 !8
+        1
       In
-      (Sub x Ti7 !8) !8)
+      (Sub x Ti7))
     In
-    (odd Ti8 !8) !8) !8) !8) !4)
+    (odd Ti8)))))
 In
 (Let Ti2:Int =
   (Let Ti1:Int =
-    789 !11
+    789
   In
-  (even Ti1 !11) !11)
+  (even Ti1))
 In
-print_int Ti2 !11 !11) !3) !2) !1)
+print_int Ti2))))
