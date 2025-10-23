@@ -1,3 +1,15 @@
-let rec f a = (a, a + 1) in
-let (x, y) = (1, 2) in
-x + y; ()
+let rec g a b c = a + b + c in
+let rec f n =
+  if n <= 1 then n else
+  g (n
+  +
+  n) 
+  (n 
+  -
+  1)
+  (n
+  -
+  2)
+  + f (n - 2) in 
+  let x = f 10 in
+print_int x

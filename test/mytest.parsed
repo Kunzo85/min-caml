@@ -1,18 +1,41 @@
-(LetRec f:Var(?) a:Var(?) =
-  (Tuple
-    a,
+(LetRec g:Var(?) a:Var(?) b:Var(?) c:Var(?) =
+  (Add
     (Add
       a
-      1))
+      b)
+    c)
 In
-(LetTuple (x:Var(?), y:Var(?)) =
-  (Tuple
-    1,
-    2)
+(LetRec f:Var(?) n:Var(?) =
+  (If
+    (LE
+      n
+      1)
+  Then
+    n
+  Else
+    (Add
+      (App
+        g
+        (Add
+          n
+          n)
+        (Sub
+          n
+          1)
+        (Sub
+          n
+          2))
+      (App
+        f
+        (Sub
+          n
+          2))))
 In
-(Let Tu1:Unit =
-  (Add
-    x
-    y)
+(Let x:Var(?) =
+  (App
+    f
+    10)
 In
-())))
+(App
+  print_int
+  x))))
