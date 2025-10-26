@@ -1,0 +1,24 @@
+(Let x:Var(?) =
+  10
+In
+(LetRec f:Var(?) y:Var(?) =
+  (If
+    (Eq
+      y
+      0)
+  Then
+    0
+  Else
+    (Add
+      x
+      (App
+        f
+        (Sub
+          y
+          1))))
+In
+(App
+  print_int
+  (App
+    f
+    123))))

@@ -1,41 +1,22 @@
-(LetRec g:Var(?) a:Var(?) b:Var(?) c:Var(?) =
+(Let x:Var(?) =
+  10
+In
+(LetRec f:Var(?) a:Var(?) b:Var(?) =
   (Add
     (Add
       a
       b)
-    c)
-In
-(LetRec f:Var(?) n:Var(?) =
-  (If
-    (LE
-      n
-      1)
-  Then
-    n
-  Else
-    (Add
-      (App
-        g
-        (Add
-          n
-          n)
-        (Sub
-          n
-          1)
-        (Sub
-          n
-          2))
-      (App
-        f
-        (Sub
-          n
-          2))))
+    x)
 In
 (Let x:Var(?) =
-  (App
-    f
-    10)
+  20
+In
+(Let g:Var(?) =
+  f
 In
 (App
   print_int
-  x))))
+  (App
+    g
+    10
+    20))))))

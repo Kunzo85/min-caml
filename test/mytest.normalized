@@ -1,49 +1,25 @@
-(LetRec g:(Int -> Int -> Int -> Int) a:Int b:Int c:Int =
-  (Let Ti12:Int =
+(Let x:Int =
+  10
+In
+(LetRec f:(Int -> Int -> Int) a:Int b:Int =
+  (Let Ti4:Int =
     (Add a b)
   In
-  (Add Ti12 c))
-In
-(LetRec f:(Int -> Int) n:Int =
-  (Let Ti2:Int =
-    1
-  In
-  (If (LE n Ti2) Then
-    n
-  Else
-    (Let Ti8:Int =
-      (Let Ti3:Int =
-        (Add n n)
-      In
-      (Let Ti5:Int =
-        (Let Ti4:Int =
-          1
-        In
-        (Sub n Ti4))
-      In
-      (Let Ti7:Int =
-        (Let Ti6:Int =
-          2
-        In
-        (Sub n Ti6))
-      In
-      (g Ti3 Ti5 Ti7))))
-    In
-    (Let Ti11:Int =
-      (Let Ti10:Int =
-        (Let Ti9:Int =
-          2
-        In
-        (Sub n Ti9))
-      In
-      (f Ti10))
-    In
-    (Add Ti8 Ti11)))))
+  (Add Ti4 x))
 In
 (Let x:Int =
+  20
+In
+(Let g:(Int -> Int -> Int) =
+  f
+In
+(Let Ti3:Int =
   (Let Ti1:Int =
     10
   In
-  (f Ti1))
+  (Let Ti2:Int =
+    20
+  In
+  (g Ti1 Ti2)))
 In
-print_int x)))
+print_int Ti3)))))

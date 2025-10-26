@@ -29,5 +29,5 @@ and fundef = fundef' Location.with_loc
 and t = t' Location.with_loc
 
 val fv : t -> S.t
-(* val print : string -> t -> t *)
+val print : string -> string -> t -> unit
 val f : string -> Syntax.t -> t

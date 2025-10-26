@@ -250,8 +250,8 @@ let rec output p t =
       let xs_str = String.concat " " xs in
       Printf.sprintf "%s %s" f xs_str
 
-let print filename t =
-  let outchan = open_out (filename ^ ".normalized") in
+let print filename ext t =
+  let outchan = open_out (filename ^ ext) in
   let p = Indent.create_indent () in
   let _ = output_string outchan (output p t ^ "\n") in
   close_out outchan
@@ -259,5 +259,5 @@ let print filename t =
 let f filename e = 
   Format.eprintf "K-normalizing...@.";
   let t = fst (g M.empty e) in
-  print filename t;
+  print filename ".normalized" t;
   t

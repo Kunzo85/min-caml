@@ -1,0 +1,25 @@
+(Let x.5:Int =
+  10
+In
+(LetRec f.6:(Int -> Int -> Int) a.7:Int b.8:Int =
+  (Let Ti4.14:Int =
+    (Add a.7 b.8)
+  In
+  (Add Ti4.14 x.5))
+In
+(Let x.9:Int =
+  20
+In
+(Let g.10:(Int -> Int -> Int) =
+  f.6
+In
+(Let Ti3.11:Int =
+  (Let Ti1.12:Int =
+    10
+  In
+  (Let Ti2.13:Int =
+    20
+  In
+  (g.10 Ti1.12 Ti2.13)))
+In
+print_int Ti3.11)))))

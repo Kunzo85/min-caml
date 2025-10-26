@@ -1,0 +1,28 @@
+(Let x:Int =
+  10
+In
+(LetRec f:(Int -> Int) y:Int =
+  (Let Ti3:Int =
+    0
+  In
+  (If (EQ y Ti3) Then
+    0
+  Else
+    (Let Ti6:Int =
+      (Let Ti5:Int =
+        (Let Ti4:Int =
+          1
+        In
+        (Sub y Ti4))
+      In
+      (f Ti5))
+    In
+    (Add x Ti6))))
+In
+(Let Ti2:Int =
+  (Let Ti1:Int =
+    123
+  In
+  (f Ti1))
+In
+print_int Ti2)))
