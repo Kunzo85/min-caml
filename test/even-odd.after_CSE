@@ -1,0 +1,67 @@
+(Let t.15:Int =
+  123
+In
+(Let f.16:Int =
+  456
+In
+(LetRec even.17:(Int -> Int) x.18:Int =
+  (LetRec odd.21:(Int -> Int) x.22:Int =
+    (Let Ti9.29:Int =
+      0
+    In
+    (If (LE x.22 Ti9.29) Then
+      (Let Ti10.32:Int =
+        0
+      In
+      (If (LE Ti10.32 x.22) Then
+        f.16
+      Else
+        (Let Ti12.33:Int =
+          (Let Ti11.34:Int =
+            1
+          In
+          (Add Ti11.34 x.22))
+        In
+        (even.17 Ti12.33))))
+    Else
+      (Let Ti14.30:Int =
+        (Let Ti13.31:Int =
+          1
+        In
+        (Sub x.22 Ti13.31))
+      In
+      (even.17 Ti14.30))))
+In
+  (Let Ti3.23:Int =
+    0
+  In
+  (If (LE x.18 Ti3.23) Then
+    (Let Ti4.26:Int =
+      0
+    In
+    (If (LE Ti4.26 x.18) Then
+      t.15
+    Else
+      (Let Ti6.27:Int =
+        (Let Ti5.28:Int =
+          1
+        In
+        (Add Ti5.28 x.18))
+      In
+      (odd.21 Ti6.27))))
+  Else
+    (Let Ti8.24:Int =
+      (Let Ti7.25:Int =
+        1
+      In
+      (Sub x.18 Ti7.25))
+    In
+    (odd.21 Ti8.24)))))
+In
+(Let Ti2.19:Int =
+  (Let Ti1.20:Int =
+    789
+  In
+  (even.17 Ti1.20))
+In
+print_int Ti2.19))))

@@ -1,0 +1,30 @@
+(Let a:Var(?) =
+  (Array
+    5
+    0)
+In
+(Let b:Var(?) =
+  a
+In
+(Let Tu1:Unit =
+  (Put
+    a
+    0
+    2)
+In
+(If
+  (Eq
+    (Get
+      a
+      0)
+    (Get
+      b
+      0))
+Then
+  (App
+    print_int
+    1)
+Else
+  (App
+    print_int
+    0)))))
