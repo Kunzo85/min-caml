@@ -112,9 +112,9 @@ let rec g exprenv repenv e =
   | LetTuple(xts, y, e) ->
       inherit_loc (LetTuple(xts, replace repenv y, g (Hashtbl.copy exprenv) repenv e))
   | Get(x, y) ->
-      inherit_loc (Get(x, replace repenv y))
+      inherit_loc (Get(replace repenv x, replace repenv y))
   | Put(x, y, z) ->
-      inherit_loc (Put(x, replace repenv y, replace repenv z))
+      inherit_loc (Put(replace repenv x, replace repenv y, replace repenv z))
   | ExtFunApp(x, ys) ->
       inherit_loc (ExtFunApp(x, List.map (replace repenv) ys))
 
