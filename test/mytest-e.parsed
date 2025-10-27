@@ -1,4 +1,0 @@
-(LetRec f:Var(?) a:Var(?) =
-  a
-In
-())

@@ -1,4 +1,0 @@
-(LetRec f:(Int -> Int) a:Int =
-  a
-In
-())
