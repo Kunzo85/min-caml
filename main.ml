@@ -1,11 +1,11 @@
 let limit = ref 1000
 
-let rec iter n e = (* 最適化処理をくりかえす (caml2html: main_iter) *)
+(* let rec iter n e = (* 最適化処理をくりかえす (caml2html: main_iter) *)
   Format.eprintf "iteration %d@." n;
   if n = 0 then e else
   let e' = Elim.f (ConstFold.f (Inline.f (Assoc.f (Beta.f e)))) in
   if e = e' then e else
-  iter (n - 1) e'
+  iter (n - 1) e' *)
 
 (* Updated!: ParseRunnerを導入し、Parser実行・エラー処理・中間結果出力を任せる。 *)
 let lexbuf outchan l filename = (* バッファをコンパイルしてチャンネルへ出力する (caml2html: main_lexbuf) *)
@@ -16,12 +16,12 @@ let lexbuf outchan l filename = (* バッファをコンパイルしてチャン
        (Simm.f
           (Virtual.f
              (Closure.f
-                (iter !limit
-                   (Cse.f filename
-                    (Alpha.f filename
-                        (KNormal.f filename
-                          (Typing.f
-                            (ParseRunner.f filename MyParser.exp MyLexer.token l))))))))))
+                (Optimize.f filename !limit
+                  (Cse.f filename
+                   (Alpha.f filename
+                      (KNormal.f filename
+                        (Typing.f
+                          (ParseRunner.f filename MyParser.exp MyLexer.token l))))))))))
 
 let string s = lexbuf stdout (Lexing.from_string s) "" (* 文字列をコンパイルして標準出力に表示する (caml2html: main_string) *)
 

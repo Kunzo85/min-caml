@@ -25,7 +25,8 @@ let create_exprenv () =
 let rec g exprenv repenv e =
   let inherit_loc node = make_wloc node e.loc in
   match e.node with
-  | Unit | Int(_) | Float(_) | ExtArray(_) -> e
+  | Unit | Int(_) | Float(_) | ExtArray(_) -> 
+      eliminate exprenv e.node inherit_loc
   | Neg(x) ->
       let x' = replace repenv x in
       let e' = Neg(x') in
@@ -74,6 +75,7 @@ let rec g exprenv repenv e =
         let exprenv' = Hashtbl.copy exprenv in
       match e1'.node with
       | Var(y) -> g exprenv' (M.add x y repenv) e2
+      | Unit | Int(_) | Float(_) | ExtArray(_)
       | Neg(_) | Add(_, _) | Sub(_, _) | FNeg(_) | FAdd(_, _) | FSub(_, _) | FMul(_, _) | FDiv(_, _) | Tuple(_) as kn ->
           Hashtbl.add exprenv' kn x;
           g exprenv' repenv e2
@@ -106,4 +108,7 @@ let f filename e =
   let e' = g (create_exprenv ()) M.empty e in
   print filename ".after_CSE" e';
   e'
+
+let f_without_print e =
+  g (create_exprenv ()) M.empty e
   
