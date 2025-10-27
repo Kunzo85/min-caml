@@ -251,10 +251,7 @@ let rec output p t =
       Printf.sprintf "%s %s" f xs_str
 
 let print filename ext t =
-  let outchan = open_out (filename ^ ext) in
-  let p = Indent.create_indent () in
-  let _ = output_string outchan (output p t ^ "\n") in
-  close_out outchan
+  MyPrint.print filename ext output t
 
 let f filename e = 
   Format.eprintf "K-normalizing...@.";

@@ -3,24 +3,6 @@
 open KNormal
 open Location
 
-(* module Key = struct
-  type t = 
-  | Neg of Id.t
-  | Add of Id.t * Id.t
-  | Sub of Id.t * Id.t
-  | FAdd of Id.t * Id.t
-  | FSub of Id.t * Id.t
-  | FMul of Id.t * Id.t
-  | FDiv of Id.t * Id.t
-  | Tuple of Id.t list
-
-  let normalize = function
-    | Add(x, y) when x > y -> Add(y, x)
-    | FAdd(x, y) when x > y -> FAdd(y, x)
-    | FMul(x, y) when x > y -> FMul(y, x)
-    | k -> k
-end *)
-
 let comm_norm = function
   | Add(x, y) when x > y -> Add(y, x)
   | FAdd(x, y) when x > y -> FAdd(y, x)

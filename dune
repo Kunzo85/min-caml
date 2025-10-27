@@ -2,7 +2,8 @@
  (name main)
  (package min-caml)
  (public_name mincaml)
- (foreign_stubs (language c) (names float)))
+ (foreign_stubs (language c) (names float))
+ (libraries unix))
 
 (ocamllex myLexer)
 (ocamlyacc myParser)

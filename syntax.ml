@@ -126,3 +126,6 @@ let rec output p = function (* 式(:Syntax.t)を表現する文字列を生成�
       let e2_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e2) in
       let e3_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e3) in
       Printf.sprintf "(Put\n%s\n%s\n%s)" e1_str e2_str e3_str
+
+let print filename ext e =
+    MyPrint.print filename ext output e

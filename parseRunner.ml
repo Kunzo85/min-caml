@@ -2,16 +2,10 @@
 
 open Syntax
 
-let print filename e = (* 式(:Syntax.t)を文字列にしてファイルに出力。 *)
-  let outchan = open_out (filename ^ ".parsed") in
-  let p = Indent.create_indent () in
-  let _ = output_string outchan (output p e ^ "\n") in
-  close_out outchan
-
 let f filename exp token l =
   let e = 
     try exp token l with
     | e -> Error.handle_exn e
   in
-  print filename e;
+  print filename ".parsed" e;
   e
