@@ -1,0 +1,184 @@
+(Let a:Int =
+  10
+In
+(Let b:Int =
+  20
+In
+(Let c:Int =
+  (Add a b)
+In
+(Let c1:Int =
+  (Add a b)
+In
+(Let c2:Int =
+  (Add b a)
+In
+(Let d:Int =
+  (Add c c1)
+In
+(Let d1:Int =
+  (Add c1 c2)
+In
+(Let e:Int =
+  (Sub d c)
+In
+(Let f:Int =
+  (Sub c d1)
+In
+(Let g:Int =
+  (Let h:Int =
+    (Add e f)
+  In
+  (Let i:Int =
+    (Add f e)
+  In
+  (Let j:Int =
+    (Add h i)
+  In
+  (Add h i))))
+In
+(Let k:Int =
+  (Add e f)
+In
+(LetRec func:(Int -> Int -> Int) x:Int y:Int =
+  (Let l:Int =
+    (Add a b)
+  In
+  (Let Ti20:Int =
+    (Add l x)
+  In
+  (Add Ti20 y)))
+In
+(Let gunc:(Int -> Int -> Int) =
+  func
+In
+(Let m:Int =
+  (Let Ti3:Int =
+    (Sub d c)
+  In
+  (gunc Ti3 c1))
+In
+(Let n:Int =
+  (If (EQ c1 d1) Then
+    (Let k1:Int =
+      (Add e f)
+    In
+    (Let p:Int =
+      (Add m k1)
+    In
+    p))
+  Else
+    (Let k2:Int =
+      (Add f e)
+    In
+    (Let q:Int =
+      (Add m k2)
+    In
+    q)))
+In
+(Let r:Int =
+  (Let Ti4:Int =
+    (Add g k)
+  In
+  (Add Ti4 n))
+In
+(Let r1:Int =
+  (Let Ti5:Int =
+    (Add k g)
+  In
+  (Add Ti5 n))
+In
+(Let s:Int =
+  (Let Ti6:Int =
+    (Add k g)
+  In
+  (Sub Ti6 r1))
+In
+(Let t:(Int * Int * Int * Int * Int * Int) =
+  (Tuple c, c1, c2, d, d1, r)
+In
+(Let t1:(Int * Int * Int * Int * Int * Int) =
+  (Tuple c2, c, c1, d1, d, r)
+In
+(Let t2:(Int * Int * Int * Int * Int * Int) =
+  (Tuple c1, c2, c, d, d1, r1)
+In
+(Let (u1:Int, u2:Int, u3:Int, u4:Int, u5:Int, u6:Int) = 
+  t1
+In
+(Let v:Int =
+  (If (LE d1 c1) Then
+    (Let x:Int =
+      (Neg u3)
+    In
+    x)
+  Else
+    (Let w:Int =
+      (Neg u1)
+    In
+    (Let w1:Int =
+      (Neg u1)
+    In
+    (Let w2:Int =
+      (Neg u2)
+    In
+    (Let Ti7:Int =
+      (Add w w1)
+    In
+    (Add Ti7 w2))))))
+In
+(Let y:Array(Int) =
+  create_array s u6
+In
+(Let y1:Array(Int) =
+  y
+In
+(Let Tu2:Unit =
+  (Let Ti9:Int =
+    (Let Ti8:Int =
+      1
+    In
+    (Sub s Ti8))
+  In
+  (Let Ti10:Int =
+    (Add u4 u5)
+  In
+  (y.(Ti9) <- Ti10)))
+In
+(Let Tu1:Unit =
+  (Let Ti12:Int =
+    (Let Ti11:Int =
+      1
+    In
+    (Sub s Ti11))
+  In
+  (Let Ti13:Int =
+    (Add u5 u4)
+  In
+  (y1.(Ti12) <- Ti13)))
+In
+(Let z:Int =
+  (Let Ti15:Int =
+    (Let Ti14:Int =
+      1
+    In
+    (Sub s Ti14))
+  In
+  (y1.(Ti15)))
+In
+(Let z1:Int =
+  (Let Ti17:Int =
+    (Let Ti16:Int =
+      1
+    In
+    (Sub s Ti16))
+  In
+  (y.(Ti17)))
+In
+(Let Ti19:Int =
+  (Let Ti18:Int =
+    (Add v z)
+  In
+  (Add Ti18 z1))
+In
+print_int Ti19))))))))))))))))))))))))))))))

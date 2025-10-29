@@ -1,0 +1,31 @@
+(LetRec fib.10:(Int -> Int) n.11:Int =
+  (Let Ti3.14:Int =
+    1
+  In
+  (If (LE n.11 Ti3.14) Then
+    n.11
+  Else
+    (Let Ti5.19:Int =
+      (Sub n.11 Ti3.14)
+    In
+    (Let Ti6.15:Int =
+      (fib.10 Ti5.19)
+    In
+    (Let Ti7.18:Int =
+      2
+    In
+    (Let Ti8.17:Int =
+      (Sub n.11 Ti7.18)
+    In
+    (Let Ti9.16:Int =
+      (fib.10 Ti8.17)
+    In
+    (Add Ti6.15 Ti9.16))))))))
+In
+(Let Ti1.13:Int =
+  30
+In
+(Let Ti2.12:Int =
+  (fib.10 Ti1.13)
+In
+print_int Ti2.12)))

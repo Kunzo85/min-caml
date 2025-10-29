@@ -10,3 +10,9 @@ let print filename ext output e =
   let oc = open_out out_filename in
   output_string oc e_str;
   close_out oc
+
+(* let print filename ext output e = (* .mlと同階層にファイルを生成 *)
+  let e_str = output (Indent.create_indent ()) e ^ "\n" in
+  let oc = open_out (filename ^ ext) in
+  output_string oc e_str;
+  close_out oc *)

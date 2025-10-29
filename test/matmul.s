@@ -48,7 +48,7 @@ loop3.282:                               # !6
     movl    %edi, 0(%ebp)                # !6
     movl    4(%edi), %edi                # !6
     cmpl    $0, %eax                     # !7
-    jl    jge_else.389                   # !7
+    jl    jge_else.394                   # !7
     movl    %esi, 4(%ebp)                # !8
     movl    (%edx,%ecx,4), %esi          # !8
     movl    (%edx,%ecx,4), %edx          # !8
@@ -64,7 +64,7 @@ loop3.282:                               # !6
     subl    $1, %eax                     # !9
     movl    0(%ebp), %edi                # !9
     jmp    *(%edi)                       # !9
-jge_else.389:                            # !7
+jge_else.394:                            # !7
     ret                                  # !7
 loop2.274:                               # !4
     movl    20(%edi), %ebx               # !4
@@ -74,7 +74,7 @@ loop2.274:                               # !4
     movl    %edi, 0(%ebp)                # !4
     movl    4(%edi), %edi                # !4
     cmpl    $0, %eax                     # !5
-    jl    jge_else.391                   # !5
+    jl    jge_else.396                   # !5
     movl    %ebx, 4(%ebp)                # !6
     movl    min_caml_hp, %ebx            # !6
     addl    $24, min_caml_hp             # !6
@@ -99,7 +99,7 @@ loop2.274:                               # !4
     subl    $1, %eax                     # !11
     movl    0(%ebp), %edi                # !11
     jmp    *(%edi)                       # !11
-jge_else.391:                            # !5
+jge_else.396:                            # !5
     ret                                  # !5
 loop1.269:                               # !2
     movl    20(%edi), %ebx               # !2
@@ -109,7 +109,7 @@ loop1.269:                               # !2
     movl    %edi, 0(%ebp)                # !2
     movl    4(%edi), %edi                # !2
     cmpl    $0, %eax                     # !3
-    jl    jge_else.393                   # !3
+    jl    jge_else.398                   # !3
     movl    %ebx, 4(%ebp)                # !4
     movl    min_caml_hp, %ebx            # !4
     addl    $24, min_caml_hp             # !4
@@ -134,7 +134,7 @@ loop1.269:                               # !2
     subl    $1, %eax                     # !13
     movl    0(%ebp), %edi                # !13
     jmp    *(%edi)                       # !13
-jge_else.393:                            # !3
+jge_else.398:                            # !3
     ret                                  # !3
 mul.140:                                 # !1
     movl    %eax, 0(%ebp)                # !2
@@ -158,7 +158,7 @@ init.256:                                # !18
     movl    8(%edi), %ebx                # !18
     movl    4(%edi), %ecx                # !18
     cmpl    $0, %eax                     # !19
-    jl    jge_else.395                   # !19
+    jl    jge_else.400                   # !19
     movl    $l.323, %edx                 # !20
     movsd    0(%edx), %xmm0              # !20
     movl    %edi, 0(%ebp)                # !20
@@ -175,7 +175,7 @@ init.256:                                # !18
     subl    $1, %eax                     # !21
     movl    0(%ebp), %edi                # !21
     jmp    *(%edi)                       # !21
-jge_else.395:                            # !19
+jge_else.400:                            # !19
     ret                                  # !19
 make.148:                                # !16
     movl    4(%edi), %ecx                # !16
@@ -226,30 +226,30 @@ _min_caml_start: # for cygwin
     movl    %eax, 4(%edi)                # !16
     movl    $2, %eax                     # !24
     movl    $3, %ebx                     # !24
-    movl    %edi, 0(%ebp)                # !24
-    addl    $8, %ebp                     # !24
+    movl    %eax, 0(%ebp)                # !24
+    movl    %ebx, 4(%ebp)                # !24
+    movl    %edi, 8(%ebp)                # !24
+    addl    $16, %ebp                    # !24
     call    *(%edi)                      # !24
-    subl    $8, %ebp                     # !24
-    movl    $3, %ebx                     # !25
-    movl    $2, %ecx                     # !25
-    movl    0(%ebp), %edi                # !25
-    movl    %eax, 4(%ebp)                # !25
+    subl    $16, %ebp                    # !24
+    movl    4(%ebp), %ebx                # !25
+    movl    0(%ebp), %ecx                # !25
+    movl    8(%ebp), %edi                # !25
+    movl    %eax, 12(%ebp)               # !25
     movl    %ebx, %eax                   # !25
     movl    %ecx, %ebx                   # !25
-    addl    $8, %ebp                     # !25
+    addl    $16, %ebp                    # !25
     call    *(%edi)                      # !25
-    subl    $8, %ebp                     # !25
-    movl    $2, %ebx                     # !26
-    movl    $2, %ecx                     # !26
-    movl    0(%ebp), %edi                # !26
-    movl    %eax, 8(%ebp)                # !26
+    subl    $16, %ebp                    # !25
+    movl    0(%ebp), %ebx                # !26
+    movl    8(%ebp), %edi                # !26
+    movl    %eax, 16(%ebp)               # !26
     movl    %ebx, %eax                   # !26
-    movl    %ecx, %ebx                   # !26
-    addl    $16, %ebp                    # !26
+    addl    $24, %ebp                    # !26
     call    *(%edi)                      # !26
-    subl    $16, %ebp                    # !26
+    subl    $24, %ebp                    # !26
     movl    %eax, %edi                   # !26
-    movl    4(%ebp), %edx                # !27
+    movl    12(%ebp), %edx               # !27
     movl    0(%edx), %eax                # !27
     movl    $l.330, %ebx                 # !27
     movsd    0(%ebx), %xmm0              # !27
@@ -274,7 +274,7 @@ _min_caml_start: # for cygwin
     movl    $l.340, %ebx                 # !28
     movsd    0(%ebx), %xmm0              # !28
     movsd    %xmm0, 16(%eax)             # !28
-    movl    8(%ebp), %esi                # !29
+    movl    16(%ebp), %esi               # !29
     movl    0(%esi), %eax                # !29
     movl    $l.342, %ebx                 # !29
     movsd    0(%ebx), %xmm0              # !29
@@ -299,61 +299,61 @@ _min_caml_start: # for cygwin
     movl    $l.352, %ebx                 # !31
     movsd    0(%ebx), %xmm0              # !31
     movsd    %xmm0, 8(%eax)              # !31
-    movl    $2, %eax                     # !32
-    movl    $3, %ebx                     # !32
-    movl    $2, %ecx                     # !32
-    movl    %edi, 12(%ebp)               # !32
-    addl    $16, %ebp                    # !32
+    movl    0(%ebp), %eax                # !32
+    movl    4(%ebp), %ebx                # !32
+    movl    %edi, 20(%ebp)               # !32
+    movl    %eax, %ecx                   # !32
+    addl    $24, %ebp                    # !32
     call    mul.140                      # !32
-    subl    $16, %ebp                    # !32
-    movl    12(%ebp), %eax               # !33
+    subl    $24, %ebp                    # !32
+    movl    20(%ebp), %eax               # !33
     movl    0(%eax), %ebx                # !33
     movsd    0(%ebx), %xmm0              # !33
-    addl    $16, %ebp                    # !33
+    addl    $24, %ebp                    # !33
     call    min_caml_truncate            # !33
-    subl    $16, %ebp                    # !33
-    addl    $16, %ebp                    # !33
+    subl    $24, %ebp                    # !33
+    addl    $24, %ebp                    # !33
     call    min_caml_print_int           # !33
-    subl    $16, %ebp                    # !33
-    addl    $16, %ebp                    # !34
+    subl    $24, %ebp                    # !33
+    addl    $24, %ebp                    # !34
     call    min_caml_print_newline       # !34
-    subl    $16, %ebp                    # !34
-    movl    12(%ebp), %eax               # !35
+    subl    $24, %ebp                    # !34
+    movl    20(%ebp), %eax               # !35
     movl    0(%eax), %ebx                # !35
     movsd    8(%ebx), %xmm0              # !35
-    addl    $16, %ebp                    # !35
+    addl    $24, %ebp                    # !35
     call    min_caml_truncate            # !35
-    subl    $16, %ebp                    # !35
-    addl    $16, %ebp                    # !35
+    subl    $24, %ebp                    # !35
+    addl    $24, %ebp                    # !35
     call    min_caml_print_int           # !35
-    subl    $16, %ebp                    # !35
-    addl    $16, %ebp                    # !36
+    subl    $24, %ebp                    # !35
+    addl    $24, %ebp                    # !36
     call    min_caml_print_newline       # !36
-    subl    $16, %ebp                    # !36
-    movl    12(%ebp), %eax               # !37
+    subl    $24, %ebp                    # !36
+    movl    20(%ebp), %eax               # !37
     movl    4(%eax), %ebx                # !37
     movsd    0(%ebx), %xmm0              # !37
-    addl    $16, %ebp                    # !37
+    addl    $24, %ebp                    # !37
     call    min_caml_truncate            # !37
-    subl    $16, %ebp                    # !37
-    addl    $16, %ebp                    # !37
+    subl    $24, %ebp                    # !37
+    addl    $24, %ebp                    # !37
     call    min_caml_print_int           # !37
-    subl    $16, %ebp                    # !37
-    addl    $16, %ebp                    # !38
+    subl    $24, %ebp                    # !37
+    addl    $24, %ebp                    # !38
     call    min_caml_print_newline       # !38
-    subl    $16, %ebp                    # !38
-    movl    12(%ebp), %eax               # !39
+    subl    $24, %ebp                    # !38
+    movl    20(%ebp), %eax               # !39
     movl    4(%eax), %eax                # !39
     movsd    8(%eax), %xmm0              # !39
-    addl    $16, %ebp                    # !39
+    addl    $24, %ebp                    # !39
     call    min_caml_truncate            # !39
-    subl    $16, %ebp                    # !39
-    addl    $16, %ebp                    # !39
+    subl    $24, %ebp                    # !39
+    addl    $24, %ebp                    # !39
     call    min_caml_print_int           # !39
-    subl    $16, %ebp                    # !39
-    addl    $16, %ebp                    # !40
+    subl    $24, %ebp                    # !39
+    addl    $24, %ebp                    # !40
     call    min_caml_print_newline       # !40
-    subl    $16, %ebp                    # !40
+    subl    $24, %ebp                    # !40
     popl    %ebp
     popl    %edi
     popl    %esi

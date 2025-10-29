@@ -229,8 +229,8 @@ let rec output p t =
       let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
       let e2_str = Indent.indent p ^ output p e2 in
       Printf.sprintf 
-        "(LetRec %s:%s %s =\n%s\nIn\n%s)"
-        x (Type.output t) args_str e1_str e2_str
+        "(LetRec %s:%s %s =\n%s\n%sIn\n%s)"
+        x (Type.output t) args_str e1_str (Indent.indent p) e2_str
   | App(x, ys) ->
       let ys_str = String.concat " " ys in
       Printf.sprintf "(%s %s)" x ys_str
@@ -239,10 +239,11 @@ let rec output p t =
       Printf.sprintf "(Tuple %s)" xs_str
   | LetTuple(xts, y, e') ->
       let xts_str = String.concat ", " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.output t)) xts) in
-      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e') in
+      let y_str = Indent.with_indent p (fun () -> Indent.indent p ^ y) in
+      let e_str = Indent.indent p ^ output p e' in
       Printf.sprintf 
-        "(Let (%s) = %s In\n%s)"
-        xts_str y e_str
+        "(Let (%s) = \n%s\n%sIn\n%s)"
+        xts_str y_str (Indent.indent p) e_str
   | Get(x, y) -> Printf.sprintf "(%s.(%s))" x y
   | Put(x, y, z) -> Printf.sprintf "(%s.(%s) <- %s)" x y z
   | ExtArray(x) -> Printf.sprintf "Ext_Array %s" x

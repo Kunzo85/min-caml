@@ -1,3 +1,5 @@
+(* Added!: 最適化処理のためのモジュール*)
+
 let rec iter n e = (* 最適化処理をくりかえす (caml2html: main_iter) *)
   Format.eprintf "iteration %d@." n;
   if n = 0 then e else

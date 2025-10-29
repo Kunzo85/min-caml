@@ -8,9 +8,9 @@
     (Let Ti6.15:Int =
       (Let Ti5.19:Int =
         (Let Ti4.20:Int =
-          1
+          Ti3.14
         In
-        (Sub n.11 Ti4.20))
+        (Sub n.11 Ti3.14))
       In
       (fib.10 Ti5.19))
     In
