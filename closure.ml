@@ -48,7 +48,7 @@ let rec fv e =
   | Var(x) -> S.singleton x
   | MakeCls((x, t), { entry = l; actual_fv = ys }, e) -> S.remove x (S.union (S.of_list ys) (fv e))
   | AppCls(x, ys) -> S.of_list (x :: ys)
-  | AppDir(_, xs) | Tuple(xs) -> S.of_list xs
+  | AppDir(_, xs) | Tuple(xs) -> S.of_list xs (* AppDirで関数名を除いてるのが大事そう *)
   | LetTuple(xts, y, e) -> S.add y (S.diff (fv e) (S.of_list (List.map fst xts)))
   | Put(x, y, z) -> S.of_list [x; y; z]
 
@@ -99,9 +99,9 @@ let rec g env known e = (* クロージャ変換ルーチン本体 (caml2html: c
       let e2' = g env' known' e2 in
       if S.mem x (fv e2') then (* xが変数としてe2'に出現するか *)
         inherit_loc (MakeCls((x, t), { entry = Id.L(x); actual_fv = zs }, e2')) (* 出現していたら削除しない *)
-      else
+      else (* knownにxが追加されない場合に、こっちに分岐するケースはあるのだろうか？ ←ない！こっちに分岐するのは、knownにxがないか、あるけどAppDirでしか使われなかった場合 *)
         (Format.eprintf "eliminating closure(s) %s@." x;
-         e2') (* 出現しなければMakeClsを削除 *)
+         e2') (* 出現しなければMakeClsを削除 *) (* するが、toplevelには追加されている *)
   | KNormal.App(x, ys) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
       Format.eprintf "directly applying %s@." x;
       inherit_loc (AppDir(Id.L(x), ys))
@@ -113,8 +113,79 @@ let rec g env known e = (* クロージャ変換ルーチン本体 (caml2html: c
   | KNormal.ExtArray(x) -> inherit_loc (ExtArray(Id.L(x)))
   | KNormal.ExtFunApp(x, ys) -> inherit_loc (AppDir(Id.L("min_caml_" ^ x), ys))
 
-let f e =
+let rec t_to_string p e =
+  match e.node with
+  | Unit -> "()"
+  | Int(i) -> string_of_int i
+  | Float(d) -> string_of_float d
+  | Neg(x) -> Printf.sprintf "Neg(%s)" x
+  | Add(x, y) -> Printf.sprintf "Add(%s, %s)" x y
+  | Sub(x, y) -> Printf.sprintf "Sub(%s, %s)" x y
+  | FNeg(x) -> Printf.sprintf "FNeg(%s)" x
+  | FAdd(x, y) -> Printf.sprintf "FAdd(%s, %s)" x y
+  | FSub(x, y) -> Printf.sprintf "FSub(%s, %s)" x y
+  | FMul(x, y) -> Printf.sprintf "FMul(%s, %s)" x y
+  | FDiv(x, y) -> Printf.sprintf "FDiv(%s, %s)" x y
+  | IfEq(x, y, e1, e2) ->
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
+      Printf.sprintf 
+        "(If (EQ %s %s) Then\n%s\n%sElse\n%s)" 
+        x y then_str (Indent.indent p) else_str
+  | IfLE(x, y, e1, e2) ->
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
+      Printf.sprintf 
+        "(If (LE %s %s) Then\n%s\n%sElse\n%s)" 
+        x y then_str (Indent.indent p) else_str
+  | Let((x, t), e1, e2) ->
+      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e1) in
+      let e2_str = Indent.indent p ^ t_to_string p e2 in
+      Printf.sprintf 
+        "(Let %s:%s =\n%s\n%sIn\n%s)"
+        x (Type.t_to_string t) e1_str (Indent.indent p) e2_str
+  | Var(x) -> x
+  | MakeCls((x, t), { entry = l; actual_fv = ys }, e) ->
+      let closure_str = Printf.sprintf "<entry = %s; actual_fv = { %s }>" (Id.pp_l l) (String.concat ", " ys) in
+      let e_str = Indent.indent p ^ t_to_string p e in
+      Printf.sprintf 
+        "(MakeCls %s:%s = %s In\n%s)"
+        x (Type.t_to_string t) closure_str e_str
+  | AppCls(x, ys) -> Printf.sprintf "(AppCls(%s %s))" x (Id.pp_list ys)
+  | AppDir(l, ys) -> Printf.sprintf "(AppDir(%s %s))" (Id.pp_l l) (Id.pp_list ys)
+  | Tuple(xs) -> Printf.sprintf "(Tuple(%s))" (String.concat ", " xs)
+  | LetTuple(xts, y, e) ->
+      let xts_str = String.concat ", " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.t_to_string t)) xts) in
+      let e_str = Indent.indent p ^ t_to_string p e in
+      Printf.sprintf 
+        "(LetTuple (%s) = %s In\n%s)"
+        xts_str y e_str
+  | Get(x, y) -> Printf.sprintf "(%s.(%s))" x y
+  | Put(x, y, z) -> Printf.sprintf "(%s.(%s) <- %s)" x y z
+  | ExtArray(l) -> Printf.sprintf "(ExtArray(%s))" (Id.pp_l l)
+
+let fundef_to_string p { node = { name = (l, t); args = yts; formal_fv = zts; body = e }; loc = _ } =
+  let args_str = String.concat " " (List.map (fun (y, t) -> Printf.sprintf "%s:%s" y (Type.t_to_string t)) yts) in
+  let fvs_str = String.concat " " (List.map (fun (z, t) -> Printf.sprintf "%s:%s" z (Type.t_to_string t)) zts) in
+  let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e) in
+  Printf.sprintf 
+    "Function %s:%s Args(%s) Formal_fv(%s) =\n%s"
+    (Id.pp_l l) (Type.t_to_string t) args_str fvs_str e_str
+
+let prog_to_string p (Prog(fundefs, e)) =
+  let fundefs_str = String.concat "\n\n" (List.map (fundef_to_string p) fundefs) in
+  let e_str = t_to_string p e in
+  Printf.sprintf 
+    "Toplevel Functions:\n%s\n\nMain Expression:\n%s\n"
+    fundefs_str e_str
+
+let print filename ext prog =
+  MyPrint.print filename ext prog_to_string prog
+
+let f filename e =
   Format.eprintf "Converting to closure form...@.";
   toplevel := [];
   let e' = g M.empty S.empty e in
-  Prog(List.rev !toplevel, e')
+  let prog = Prog(List.rev !toplevel, e') in
+  print filename ".closure" prog;
+  prog

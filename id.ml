@@ -1,6 +1,8 @@
 type t = string (* 変数の名前 (caml2html: id_t) *)
 type l = L of string (* トップレベル関数やグローバル配列のラベル (caml2html: id_l) *)
 
+let pp_l (L l) = l (* Added!: ラベルを文字列に変換 *)
+
 let rec pp_list = function
   | [] -> ""
   | [x] -> x

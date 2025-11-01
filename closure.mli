@@ -36,4 +36,4 @@ and fundef = fundef' Location.with_loc
 type prog = Prog of fundef list * t
 
 val fv : t -> S.t
-val f : KNormal.t -> prog
+val f : string -> KNormal.t -> prog

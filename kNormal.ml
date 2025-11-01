@@ -1,4 +1,4 @@
-(* Updated!: with_locに対応。中間結果出力用の関数output,printも追加 *)
+(* Updated!: with_locに対応。中間結果出力用の関数t_to_string,printも追加 *)
 (* give names to intermediate values (K-normalization) *)
 
 open Location
@@ -192,7 +192,7 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
               (fun y -> insert_let (g env e3) e.loc
                   (fun z -> inherit_loc (Put(x, y, z)), Type.Unit)))
 
-let rec output p t =
+let rec t_to_string p t =
   match t.node with
   | Unit -> "()"
   | Int(i) -> string_of_int i
@@ -206,31 +206,31 @@ let rec output p t =
   | FMul(x, y) -> Printf.sprintf "(FMul %s %s)" x y
   | FDiv(x, y) -> Printf.sprintf "(FDiv %s %s)" x y
   | IfEq(x, y, e1, e2) ->
-      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
-      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
       Printf.sprintf 
         "(If (EQ %s %s) Then\n%s\n%sElse\n%s)" 
         x y then_str (Indent.indent p) else_str
   | IfLE(x, y, e1, e2) ->
-      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e1)) in
-      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (output p e2)) in
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
       Printf.sprintf 
         "(If (LE %s %s) Then\n%s\n%sElse\n%s)"
         x y then_str (Indent.indent p) else_str
   | Let((x, t), e1, e2) ->
-      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
-      let e2_str = Indent.indent p ^ output p e2 in
+      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e1) in
+      let e2_str = Indent.indent p ^ t_to_string p e2 in
       Printf.sprintf 
         "(Let %s:%s =\n%s\n%sIn\n%s)"
-        x (Type.output t) e1_str (Indent.indent p) e2_str
+        x (Type.t_to_string t) e1_str (Indent.indent p) e2_str
   | Var(x) -> x
   | LetRec({ node = { name = (x, t); args = yts; body = e1 }; _}, e2) ->
-      let args_str = String.concat " " (List.map (fun (y, t) -> Printf.sprintf "%s:%s" y (Type.output t)) yts) in
-      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ output p e1) in
-      let e2_str = Indent.indent p ^ output p e2 in
+      let args_str = String.concat " " (List.map (fun (y, t) -> Printf.sprintf "%s:%s" y (Type.t_to_string t)) yts) in
+      let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e1) in
+      let e2_str = Indent.indent p ^ t_to_string p e2 in
       Printf.sprintf 
         "(LetRec %s:%s %s =\n%s\n%sIn\n%s)"
-        x (Type.output t) args_str e1_str (Indent.indent p) e2_str
+        x (Type.t_to_string t) args_str e1_str (Indent.indent p) e2_str
   | App(x, ys) ->
       let ys_str = String.concat " " ys in
       Printf.sprintf "(%s %s)" x ys_str
@@ -238,21 +238,21 @@ let rec output p t =
       let xs_str = String.concat ", " xs in
       Printf.sprintf "(Tuple %s)" xs_str
   | LetTuple(xts, y, e') ->
-      let xts_str = String.concat ", " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.output t)) xts) in
+      let xts_str = String.concat ", " (List.map (fun (x, t) -> Printf.sprintf "%s:%s" x (Type.t_to_string t)) xts) in
       let y_str = Indent.with_indent p (fun () -> Indent.indent p ^ y) in
-      let e_str = Indent.indent p ^ output p e' in
+      let e_str = Indent.indent p ^ t_to_string p e' in
       Printf.sprintf 
         "(Let (%s) = \n%s\n%sIn\n%s)"
         xts_str y_str (Indent.indent p) e_str
   | Get(x, y) -> Printf.sprintf "(%s.(%s))" x y
   | Put(x, y, z) -> Printf.sprintf "(%s.(%s) <- %s)" x y z
-  | ExtArray(x) -> Printf.sprintf "Ext_Array %s" x
+  | ExtArray(x) -> Printf.sprintf "(Ext_Array %s)" x
   | ExtFunApp(f, xs) ->
       let xs_str = String.concat " " xs in
       Printf.sprintf "%s %s" f xs_str
 
 let print filename ext t =
-  MyPrint.print filename ext output t
+  MyPrint.print filename ext t_to_string t
 
 let f filename e = 
   Format.eprintf "K-normalizing...@.";

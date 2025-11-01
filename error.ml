@@ -15,6 +15,6 @@ let handle_exn e =
                   msg
                   loc.start_pos.Lexing.pos_lnum (loc.start_pos.Lexing.pos_cnum - loc.start_pos.Lexing.pos_bol + 1)
                   loc.end_pos.Lexing.pos_lnum (loc.end_pos.Lexing.pos_cnum - loc.end_pos.Lexing.pos_bol + 1)
-                  (Type.output ty1)
-                  (Type.output ty2))
+                  (Type.t_to_string ty1)
+                  (Type.t_to_string ty2))
   | _ -> raise e
