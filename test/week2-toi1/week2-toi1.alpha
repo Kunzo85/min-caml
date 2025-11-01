@@ -1,0 +1,37 @@
+(Let a.7:Int =
+  (LetRec x.8:(Int -> Int) x.9:Int =
+    (Let x.13:Int =
+      (Let x.15:Int =
+        (Let Ti1.19:Int =
+          (Neg x.9)
+        In
+        (Sub x.9 Ti1.19))
+      In
+      (Let Ti3.16:Int =
+        (Let x.17:Int =
+          (Neg x.15)
+        In
+        (Let Ti2.18:Int =
+          (Neg x.17)
+        In
+        (Sub x.17 Ti2.18)))
+      In
+      (Sub x.15 Ti3.16)))
+    In
+    (Let Ti4.14:Int =
+      (Neg x.13)
+    In
+    (Sub x.13 Ti4.14)))
+  In
+  (Let x.10:Int =
+    (Let Ti5.12:Int =
+      125
+    In
+    (x.8 Ti5.12))
+  In
+  (Let Ti6.11:Int =
+    (Neg x.10)
+  In
+  (Sub x.10 Ti6.11))))
+In
+print_int a.7)

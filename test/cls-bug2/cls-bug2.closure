@@ -1,0 +1,32 @@
+Toplevel Functions:
+Function f.9:(Int -> Unit) Args(n.10:Int) Formal_fv() =
+  (Let Ti2.12:Int =
+    0
+  In
+  (If (LE Ti2.12 n.10) Then
+    (Let Tu1.13:Unit =
+      (AppDir(min_caml_print_int n.10))
+    In
+    (Let Ti3.19:Int =
+      1
+    In
+    (Let a.14:Array((Int -> Unit)) =
+      (AppDir(min_caml_create_array Ti3.19 f.9))
+    In
+    (Let Tf5.15:(Int -> Unit) =
+      (a.14.(Ti2.12))
+    In
+    (Let Ti7.16:Int =
+      Sub(n.10, Ti3.19)
+    In
+    (AppCls(Tf5.15 Ti7.16)))))))
+  Else
+    ()))
+
+Main Expression:
+(MakeCls f.9:(Int -> Unit) = <entry = f.9; actual_fv = {  }> In
+(Let Ti8.11:Int =
+  9
+In
+(AppCls(f.9 Ti8.11))))
+

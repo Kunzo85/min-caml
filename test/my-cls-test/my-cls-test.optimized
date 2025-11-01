@@ -1,0 +1,34 @@
+(LetRec f.9:(Int -> Int) x.10:Int =
+  (Let Ti1.23:Int =
+    1
+  In
+  (Add Ti1.23 x.10))
+In
+(Let Ti2.22:Int =
+  10
+In
+(Let a.11:Int =
+  (f.9 Ti2.22)
+In
+(LetRec g.12:(Int -> Int) x.13:Int =
+  (Add a.11 x.13)
+In
+(LetRec h.14:(Int -> Int) x.15:Int =
+  (Let Ti3.21:Int =
+    (f.9 x.15)
+  In
+  (g.12 Ti3.21))
+In
+(Let Ti4.20:Int =
+  5
+In
+(Let Ti5.17:Int =
+  (h.14 Ti4.20)
+In
+(Let Ti7.18:Int =
+  (g.12 Ti2.22)
+In
+(Let Ti8.16:Int =
+  (Add Ti5.17 Ti7.18)
+In
+print_int Ti8.16)))))))))

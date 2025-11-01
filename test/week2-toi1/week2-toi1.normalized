@@ -1,0 +1,37 @@
+(Let a:Int =
+  (LetRec x:(Int -> Int) x:Int =
+    (Let x:Int =
+      (Let x:Int =
+        (Let Ti1:Int =
+          (Neg x)
+        In
+        (Sub x Ti1))
+      In
+      (Let Ti3:Int =
+        (Let x:Int =
+          (Neg x)
+        In
+        (Let Ti2:Int =
+          (Neg x)
+        In
+        (Sub x Ti2)))
+      In
+      (Sub x Ti3)))
+    In
+    (Let Ti4:Int =
+      (Neg x)
+    In
+    (Sub x Ti4)))
+  In
+  (Let x:Int =
+    (Let Ti5:Int =
+      125
+    In
+    (x Ti5))
+  In
+  (Let Ti6:Int =
+    (Neg x)
+  In
+  (Sub x Ti6))))
+In
+print_int a)

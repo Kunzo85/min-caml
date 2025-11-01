@@ -129,9 +129,9 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
         | _ -> failwith (Printf.sprintf "external variable %s does not have an array type" x))
     | Syntax.LetRec({ node = { Syntax.name = (x, t); Syntax.args = yts; Syntax.body = e1 }; loc = fdloc}, e2) ->
         let env' = M.add x t env in
-        let e2', t2 = g env' e2 in
         let e1', t1 = g (M.add_list yts env') e1 in
         let fundef = make_wloc { name = (x, t); args = yts; body = e1' } fdloc in
+        let e2', t2 = g env' e2 in
         inherit_loc (LetRec(fundef, e2')), t2
     | Syntax.App({ node = Syntax.Var(f); _}, e2s) when not (M.mem f env) -> (* 外部関数の呼び出し (caml2html: knormal_extfunapp) *)
         (match M.find f !Typing.extenv with

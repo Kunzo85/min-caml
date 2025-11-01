@@ -1,0 +1,38 @@
+(Let a:Var(?) =
+  (LetRec x:Var(?) x:Var(?) =
+    (Let x:Var(?) =
+      (Let x:Var(?) =
+        (Sub
+          x
+          (Neg
+            x))
+      In
+      (Sub
+        x
+        (Let x:Var(?) =
+          (Neg
+            x)
+        In
+        (Sub
+          x
+          (Neg
+            x)))))
+    In
+    (Sub
+      x
+      (Neg
+        x)))
+  In
+  (Let x:Var(?) =
+    (App
+      x
+      125)
+  In
+  (Sub
+    x
+    (Neg
+      x))))
+In
+(App
+  print_int
+  a))

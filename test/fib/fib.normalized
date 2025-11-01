@@ -1,34 +1,34 @@
 (LetRec fib:(Int -> Int) n:Int =
-  (Let Ti3:Int =
+  (Let Ti1:Int =
     1
   In
-  (If (LE n Ti3) Then
+  (If (LE n Ti1) Then
     n
   Else
-    (Let Ti6:Int =
-      (Let Ti5:Int =
-        (Let Ti4:Int =
+    (Let Ti4:Int =
+      (Let Ti3:Int =
+        (Let Ti2:Int =
           1
         In
-        (Sub n Ti4))
+        (Sub n Ti2))
       In
-      (fib Ti5))
+      (fib Ti3))
     In
-    (Let Ti9:Int =
-      (Let Ti8:Int =
-        (Let Ti7:Int =
+    (Let Ti7:Int =
+      (Let Ti6:Int =
+        (Let Ti5:Int =
           2
         In
-        (Sub n Ti7))
+        (Sub n Ti5))
       In
-      (fib Ti8))
+      (fib Ti6))
     In
-    (Add Ti6 Ti9)))))
+    (Add Ti4 Ti7)))))
 In
-(Let Ti2:Int =
-  (Let Ti1:Int =
+(Let Ti9:Int =
+  (Let Ti8:Int =
     30
   In
-  (fib Ti1))
+  (fib Ti8))
 In
-print_int Ti2))
+print_int Ti9))
