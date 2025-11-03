@@ -1,0 +1,6955 @@
+(LetRec xor.1977:(Bool -> Bool -> Bool) x.1978:Bool y.1979:Bool =
+  (Let Ti171.4438:Int =
+    0
+  In
+  (If (EQ x.1978 Ti171.4438) Then
+    y.1979
+  Else
+    (Let Ti172.4439:Int =
+      0
+    In
+    (If (EQ y.1979 Ti172.4439) Then
+      1
+    Else
+      0))))
+In
+(LetRec fsqr.1980:(Float -> Float) x.1981:Float =
+  (FMul x.1981 x.1981)
+In
+(LetRec fhalf.1982:(Float -> Float) x.1983:Float =
+  (Let Td173.4437:Float =
+    2.
+  In
+  (FDiv x.1983 Td173.4437))
+In
+(LetRec o_texturetype.1984:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Int) m.1985:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (m_tex.4427:Int, xm_shape.4428:Int, xm_surface.4429:Int, xm_isrot.4430:Int, xm_abc.4431:Array(Float), xm_xyz.4432:Array(Float), xm_invert.4433:Bool, xm_surfparams.4434:Array(Float), xm_color.4435:Array(Float), xm_rot123.4436:Array(Float)) = 
+    m.1985
+  In
+  m_tex.4427)
+In
+(LetRec o_form.1986:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Int) m.1987:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4417:Int, m_shape.4418:Int, xm_surface.4419:Int, xm_isrot.4420:Int, xm_abc.4421:Array(Float), xm_xyz.4422:Array(Float), xm_invert.4423:Bool, xm_surfparams.4424:Array(Float), xm_color.4425:Array(Float), xm_rot123.4426:Array(Float)) = 
+    m.1987
+  In
+  m_shape.4418)
+In
+(LetRec o_reflectiontype.1988:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Int) m.1989:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4407:Int, xm_shape.4408:Int, m_surface.4409:Int, xm_isrot.4410:Int, xm_abc.4411:Array(Float), xm_xyz.4412:Array(Float), xm_invert.4413:Bool, xm_surfparams.4414:Array(Float), xm_color.4415:Array(Float), xm_rot123.4416:Array(Float)) = 
+    m.1989
+  In
+  m_surface.4409)
+In
+(LetRec o_isinvert.1990:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Bool) m.1991:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (m_tex.4397:Int, m_shape.4398:Int, m_surface.4399:Int, m_isrot.4400:Int, xm_abc.4401:Array(Float), xm_xyz.4402:Array(Float), m_invert.4403:Bool, xm_surfparams.4404:Array(Float), xm_color.4405:Array(Float), xm_rot123.4406:Array(Float)) = 
+    m.1991
+  In
+  m_invert.4403)
+In
+(LetRec o_isrot.1992:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Int) m.1993:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4387:Int, xm_shape.4388:Int, xm_surface.4389:Int, m_isrot.4390:Int, xm_abc.4391:Array(Float), xm_xyz.4392:Array(Float), xm_invert.4393:Bool, xm_surfparams.4394:Array(Float), xm_color.4395:Array(Float), xm_rot123.4396:Array(Float)) = 
+    m.1993
+  In
+  m_isrot.4390)
+In
+(LetRec o_param_a.1994:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.1995:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4376:Int, xm_shape.4377:Int, xm_surface.4378:Int, xm_isrot.4379:Int, m_abc.4380:Array(Float), xm_xyz.4381:Array(Float), xm_invert.4382:Bool, xm_surfparams.4383:Array(Float), xm_color.4384:Array(Float), xm_rot123.4385:Array(Float)) = 
+    m.1995
+  In
+  (Let Ti174.4386:Int =
+    0
+  In
+  (m_abc.4380.(Ti174.4386))))
+In
+(LetRec o_param_b.1996:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.1997:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4365:Int, xm_shape.4366:Int, xm_surface.4367:Int, xm_isrot.4368:Int, m_abc.4369:Array(Float), xm_xyz.4370:Array(Float), xm_invert.4371:Bool, xm_surfparams.4372:Array(Float), xm_color.4373:Array(Float), xm_rot123.4374:Array(Float)) = 
+    m.1997
+  In
+  (Let Ti175.4375:Int =
+    1
+  In
+  (m_abc.4369.(Ti175.4375))))
+In
+(LetRec o_param_c.1998:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.1999:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4354:Int, xm_shape.4355:Int, xm_surface.4356:Int, xm_isrot.4357:Int, m_abc.4358:Array(Float), xm_xyz.4359:Array(Float), xm_invert.4360:Bool, xm_surfparams.4361:Array(Float), xm_color.4362:Array(Float), xm_rot123.4363:Array(Float)) = 
+    m.1999
+  In
+  (Let Ti176.4364:Int =
+    2
+  In
+  (m_abc.4358.(Ti176.4364))))
+In
+(LetRec o_param_x.2000:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2001:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4343:Int, xm_shape.4344:Int, xm_surface.4345:Int, xm_isrot.4346:Int, xm_abc.4347:Array(Float), m_xyz.4348:Array(Float), xm_invert.4349:Bool, xm_surfparams.4350:Array(Float), xm_color.4351:Array(Float), xm_rot123.4352:Array(Float)) = 
+    m.2001
+  In
+  (Let Ti177.4353:Int =
+    0
+  In
+  (m_xyz.4348.(Ti177.4353))))
+In
+(LetRec o_param_y.2002:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2003:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4332:Int, xm_shape.4333:Int, xm_surface.4334:Int, xm_isrot.4335:Int, xm_abc.4336:Array(Float), m_xyz.4337:Array(Float), xm_invert.4338:Bool, xm_surfparams.4339:Array(Float), xm_color.4340:Array(Float), xm_rot123.4341:Array(Float)) = 
+    m.2003
+  In
+  (Let Ti178.4342:Int =
+    1
+  In
+  (m_xyz.4337.(Ti178.4342))))
+In
+(LetRec o_param_z.2004:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2005:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4321:Int, xm_shape.4322:Int, xm_surface.4323:Int, xm_isrot.4324:Int, xm_abc.4325:Array(Float), m_xyz.4326:Array(Float), xm_invert.4327:Bool, xm_surfparams.4328:Array(Float), xm_color.4329:Array(Float), xm_rot123.4330:Array(Float)) = 
+    m.2005
+  In
+  (Let Ti179.4331:Int =
+    2
+  In
+  (m_xyz.4326.(Ti179.4331))))
+In
+(LetRec o_diffuse.2006:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2007:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4310:Int, xm_shape.4311:Int, xm_surface.4312:Int, xm_isrot.4313:Int, xm_abc.4314:Array(Float), xm_xyz.4315:Array(Float), xm_invert.4316:Bool, m_surfparams.4317:Array(Float), xm_color.4318:Array(Float), xm_rot123.4319:Array(Float)) = 
+    m.2007
+  In
+  (Let Ti180.4320:Int =
+    0
+  In
+  (m_surfparams.4317.(Ti180.4320))))
+In
+(LetRec o_hilight.2008:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2009:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4299:Int, xm_shape.4300:Int, xm_surface.4301:Int, xm_isrot.4302:Int, xm_abc.4303:Array(Float), xm_xyz.4304:Array(Float), xm_invert.4305:Bool, m_surfparams.4306:Array(Float), xm_color.4307:Array(Float), xm_rot123.4308:Array(Float)) = 
+    m.2009
+  In
+  (Let Ti181.4309:Int =
+    1
+  In
+  (m_surfparams.4306.(Ti181.4309))))
+In
+(LetRec o_color_red.2010:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2011:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4288:Int, xm_shape.4289:Int, m_surface.4290:Int, xm_isrot.4291:Int, xm_abc.4292:Array(Float), xm_xyz.4293:Array(Float), xm_invert.4294:Bool, xm_surfparams.4295:Array(Float), m_color.4296:Array(Float), xm_rot123.4297:Array(Float)) = 
+    m.2011
+  In
+  (Let Ti182.4298:Int =
+    0
+  In
+  (m_color.4296.(Ti182.4298))))
+In
+(LetRec o_color_green.2012:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2013:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4277:Int, xm_shape.4278:Int, m_surface.4279:Int, xm_isrot.4280:Int, xm_abc.4281:Array(Float), xm_xyz.4282:Array(Float), xm_invert.4283:Bool, xm_surfparams.4284:Array(Float), m_color.4285:Array(Float), xm_rot123.4286:Array(Float)) = 
+    m.2013
+  In
+  (Let Ti183.4287:Int =
+    1
+  In
+  (m_color.4285.(Ti183.4287))))
+In
+(LetRec o_color_blue.2014:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2015:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4266:Int, xm_shape.4267:Int, m_surface.4268:Int, xm_isrot.4269:Int, xm_abc.4270:Array(Float), xm_xyz.4271:Array(Float), xm_invert.4272:Bool, xm_surfparams.4273:Array(Float), m_color.4274:Array(Float), xm_rot123.4275:Array(Float)) = 
+    m.2015
+  In
+  (Let Ti184.4276:Int =
+    2
+  In
+  (m_color.4274.(Ti184.4276))))
+In
+(LetRec o_param_r1.2016:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2017:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4255:Int, xm_shape.4256:Int, xm_surface.4257:Int, xm_isrot.4258:Int, xm_abc.4259:Array(Float), xm_xyz.4260:Array(Float), xm_invert.4261:Bool, xm_surfparams.4262:Array(Float), xm_color.4263:Array(Float), m_rot123.4264:Array(Float)) = 
+    m.2017
+  In
+  (Let Ti185.4265:Int =
+    0
+  In
+  (m_rot123.4264.(Ti185.4265))))
+In
+(LetRec o_param_r2.2018:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2019:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4244:Int, xm_shape.4245:Int, xm_surface.4246:Int, xm_isrot.4247:Int, xm_abc.4248:Array(Float), xm_xyz.4249:Array(Float), xm_invert.4250:Bool, xm_surfparams.4251:Array(Float), xm_color.4252:Array(Float), m_rot123.4253:Array(Float)) = 
+    m.2019
+  In
+  (Let Ti186.4254:Int =
+    1
+  In
+  (m_rot123.4253.(Ti186.4254))))
+In
+(LetRec o_param_r3.2020:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Float) m.2021:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let (xm_tex.4233:Int, xm_shape.4234:Int, xm_surface.4235:Int, xm_isrot.4236:Int, xm_abc.4237:Array(Float), xm_xyz.4238:Array(Float), xm_invert.4239:Bool, xm_surfparams.4240:Array(Float), xm_color.4241:Array(Float), m_rot123.4242:Array(Float)) = 
+    m.2021
+  In
+  (Let Ti187.4243:Int =
+    2
+  In
+  (m_rot123.4242.(Ti187.4243))))
+In
+(LetRec normalize_vector.2022:(Array(Float) -> Bool -> Unit) v.2023:Array(Float) inv.2024:Bool =
+  (Let n0.4205:Float =
+    (Let Td198.4222:Float =
+      (Let Td194.4223:Float =
+        (Let Td190.4227:Float =
+          (Let Td189.4231:Float =
+            (Let Ti188.4232:Int =
+              0
+            In
+            (v.2023.(Ti188.4232)))
+          In
+          (fsqr.1980 Td189.4231))
+        In
+        (Let Td193.4228:Float =
+          (Let Td192.4229:Float =
+            (Let Ti191.4230:Int =
+              1
+            In
+            (v.2023.(Ti191.4230)))
+          In
+          (fsqr.1980 Td192.4229))
+        In
+        (FAdd Td190.4227 Td193.4228)))
+      In
+      (Let Td197.4224:Float =
+        (Let Td196.4225:Float =
+          (Let Ti195.4226:Int =
+            2
+          In
+          (v.2023.(Ti195.4226)))
+        In
+        (fsqr.1980 Td196.4225))
+      In
+      (FAdd Td194.4223 Td197.4224)))
+    In
+    sqrt Td198.4222)
+  In
+  (Let n.4206:Float =
+    (Let Ti199.4221:Int =
+      0
+    In
+    (If (EQ inv.2024 Ti199.4221) Then
+      n0.4205
+    Else
+      (FNeg n0.4205)))
+  In
+  (Let Tu2.4207:Unit =
+    (Let Ti200.4217:Int =
+      0
+    In
+    (Let Td203.4218:Float =
+      (Let Td202.4219:Float =
+        (Let Ti201.4220:Int =
+          0
+        In
+        (v.2023.(Ti201.4220)))
+      In
+      (FDiv Td202.4219 n.4206))
+    In
+    (v.2023.(Ti200.4217) <- Td203.4218)))
+  In
+  (Let Tu1.4208:Unit =
+    (Let Ti204.4213:Int =
+      1
+    In
+    (Let Td207.4214:Float =
+      (Let Td206.4215:Float =
+        (Let Ti205.4216:Int =
+          1
+        In
+        (v.2023.(Ti205.4216)))
+      In
+      (FDiv Td206.4215 n.4206))
+    In
+    (v.2023.(Ti204.4213) <- Td207.4214)))
+  In
+  (Let Ti208.4209:Int =
+    2
+  In
+  (Let Td211.4210:Float =
+    (Let Td210.4211:Float =
+      (Let Ti209.4212:Int =
+        2
+      In
+      (v.2023.(Ti209.4212)))
+    In
+    (FDiv Td210.4211 n.4206))
+  In
+  (v.2023.(Ti208.4209) <- Td211.4210)))))))
+In
+(LetRec sgn.2025:(Float -> Float) x.2026:Float =
+  (Let Td212.4204:Float =
+    0.
+  In
+  (If (LE x.2026 Td212.4204) Then
+    -1.
+  Else
+    1.))
+In
+(LetRec rad.2027:(Float -> Float) x.2028:Float =
+  (Let Td213.4203:Float =
+    0.017453293
+  In
+  (FMul x.2028 Td213.4203))
+In
+(LetRec read_environ.2029:(Unit -> Unit) Tu3.2030:Unit =
+  (Let Tu19.4075:Unit =
+    (Let Ta214.4199:Array(Float) =
+      (Ext_Array screen)
+    In
+    (Let Ti215.4200:Int =
+      0
+    In
+    (Let Td217.4201:Float =
+      (Let Tu216.4202:Unit =
+        ()
+      In
+      read_float Tu216.4202)
+    In
+    (Ta214.4199.(Ti215.4200) <- Td217.4201))))
+  In
+  (Let Tu18.4076:Unit =
+    (Let Ta218.4195:Array(Float) =
+      (Ext_Array screen)
+    In
+    (Let Ti219.4196:Int =
+      1
+    In
+    (Let Td221.4197:Float =
+      (Let Tu220.4198:Unit =
+        ()
+      In
+      read_float Tu220.4198)
+    In
+    (Ta218.4195.(Ti219.4196) <- Td221.4197))))
+  In
+  (Let Tu17.4077:Unit =
+    (Let Ta222.4191:Array(Float) =
+      (Ext_Array screen)
+    In
+    (Let Ti223.4192:Int =
+      2
+    In
+    (Let Td225.4193:Float =
+      (Let Tu224.4194:Unit =
+        ()
+      In
+      read_float Tu224.4194)
+    In
+    (Ta222.4191.(Ti223.4192) <- Td225.4193))))
+  In
+  (Let v1.4078:Float =
+    (Let Td227.4189:Float =
+      (Let Tu226.4190:Unit =
+        ()
+      In
+      read_float Tu226.4190)
+    In
+    (rad.2027 Td227.4189))
+  In
+  (Let Tu16.4079:Unit =
+    (Let Ta228.4186:Array(Float) =
+      (Ext_Array cos_v)
+    In
+    (Let Ti229.4187:Int =
+      0
+    In
+    (Let Td230.4188:Float =
+      cos v1.4078
+    In
+    (Ta228.4186.(Ti229.4187) <- Td230.4188))))
+  In
+  (Let Tu15.4080:Unit =
+    (Let Ta231.4183:Array(Float) =
+      (Ext_Array sin_v)
+    In
+    (Let Ti232.4184:Int =
+      0
+    In
+    (Let Td233.4185:Float =
+      sin v1.4078
+    In
+    (Ta231.4183.(Ti232.4184) <- Td233.4185))))
+  In
+  (Let v2.4081:Float =
+    (Let Td235.4181:Float =
+      (Let Tu234.4182:Unit =
+        ()
+      In
+      read_float Tu234.4182)
+    In
+    (rad.2027 Td235.4181))
+  In
+  (Let Tu14.4082:Unit =
+    (Let Ta236.4178:Array(Float) =
+      (Ext_Array cos_v)
+    In
+    (Let Ti237.4179:Int =
+      1
+    In
+    (Let Td238.4180:Float =
+      cos v2.4081
+    In
+    (Ta236.4178.(Ti237.4179) <- Td238.4180))))
+  In
+  (Let Tu13.4083:Unit =
+    (Let Ta239.4175:Array(Float) =
+      (Ext_Array sin_v)
+    In
+    (Let Ti240.4176:Int =
+      1
+    In
+    (Let Td241.4177:Float =
+      sin v2.4081
+    In
+    (Ta239.4175.(Ti240.4176) <- Td241.4177))))
+  In
+  (Let nl.4084:Float =
+    (Let Tu242.4174:Unit =
+      ()
+    In
+    read_float Tu242.4174)
+  In
+  (Let l1.4085:Float =
+    (Let Td244.4172:Float =
+      (Let Tu243.4173:Unit =
+        ()
+      In
+      read_float Tu243.4173)
+    In
+    (rad.2027 Td244.4172))
+  In
+  (Let sl1.4086:Float =
+    sin l1.4085
+  In
+  (Let Tu12.4087:Unit =
+    (Let Ta245.4169:Array(Float) =
+      (Ext_Array light)
+    In
+    (Let Ti246.4170:Int =
+      1
+    In
+    (Let Td247.4171:Float =
+      (FNeg sl1.4086)
+    In
+    (Ta245.4169.(Ti246.4170) <- Td247.4171))))
+  In
+  (Let l2.4088:Float =
+    (Let Td249.4167:Float =
+      (Let Tu248.4168:Unit =
+        ()
+      In
+      read_float Tu248.4168)
+    In
+    (rad.2027 Td249.4167))
+  In
+  (Let cl1.4089:Float =
+    cos l1.4085
+  In
+  (Let sl2.4090:Float =
+    sin l2.4088
+  In
+  (Let Tu11.4091:Unit =
+    (Let Ta250.4164:Array(Float) =
+      (Ext_Array light)
+    In
+    (Let Ti251.4165:Int =
+      0
+    In
+    (Let Td252.4166:Float =
+      (FMul cl1.4089 sl2.4090)
+    In
+    (Ta250.4164.(Ti251.4165) <- Td252.4166))))
+  In
+  (Let cl2.4092:Float =
+    cos l2.4088
+  In
+  (Let Tu10.4093:Unit =
+    (Let Ta253.4161:Array(Float) =
+      (Ext_Array light)
+    In
+    (Let Ti254.4162:Int =
+      2
+    In
+    (Let Td255.4163:Float =
+      (FMul cl1.4089 cl2.4092)
+    In
+    (Ta253.4161.(Ti254.4162) <- Td255.4163))))
+  In
+  (Let Tu9.4094:Unit =
+    (Let Ta256.4157:Array(Float) =
+      (Ext_Array beam)
+    In
+    (Let Ti257.4158:Int =
+      0
+    In
+    (Let Td259.4159:Float =
+      (Let Tu258.4160:Unit =
+        ()
+      In
+      read_float Tu258.4160)
+    In
+    (Ta256.4157.(Ti257.4158) <- Td259.4159))))
+  In
+  (Let Tu8.4095:Unit =
+    (Let Ta260.4146:Array(Float) =
+      (Ext_Array vp)
+    In
+    (Let Ti261.4147:Int =
+      0
+    In
+    (Let Td270.4148:Float =
+      (Let Td268.4149:Float =
+        (Let Td264.4151:Float =
+          (Let Ta262.4155:Array(Float) =
+            (Ext_Array cos_v)
+          In
+          (Let Ti263.4156:Int =
+            0
+          In
+          (Ta262.4155.(Ti263.4156))))
+        In
+        (Let Td267.4152:Float =
+          (Let Ta265.4153:Array(Float) =
+            (Ext_Array sin_v)
+          In
+          (Let Ti266.4154:Int =
+            1
+          In
+          (Ta265.4153.(Ti266.4154))))
+        In
+        (FMul Td264.4151 Td267.4152)))
+      In
+      (Let Td269.4150:Float =
+        -200.
+      In
+      (FMul Td268.4149 Td269.4150)))
+    In
+    (Ta260.4146.(Ti261.4147) <- Td270.4148))))
+  In
+  (Let Tu7.4096:Unit =
+    (Let Ta271.4138:Array(Float) =
+      (Ext_Array vp)
+    In
+    (Let Ti272.4139:Int =
+      1
+    In
+    (Let Td278.4140:Float =
+      (Let Td276.4141:Float =
+        (Let Td275.4143:Float =
+          (Let Ta273.4144:Array(Float) =
+            (Ext_Array sin_v)
+          In
+          (Let Ti274.4145:Int =
+            0
+          In
+          (Ta273.4144.(Ti274.4145))))
+        In
+        (FNeg Td275.4143))
+      In
+      (Let Td277.4142:Float =
+        -200.
+      In
+      (FMul Td276.4141 Td277.4142)))
+    In
+    (Ta271.4138.(Ti272.4139) <- Td278.4140))))
+  In
+  (Let Tu6.4097:Unit =
+    (Let Ta279.4127:Array(Float) =
+      (Ext_Array vp)
+    In
+    (Let Ti280.4128:Int =
+      2
+    In
+    (Let Td289.4129:Float =
+      (Let Td287.4130:Float =
+        (Let Td283.4132:Float =
+          (Let Ta281.4136:Array(Float) =
+            (Ext_Array cos_v)
+          In
+          (Let Ti282.4137:Int =
+            0
+          In
+          (Ta281.4136.(Ti282.4137))))
+        In
+        (Let Td286.4133:Float =
+          (Let Ta284.4134:Array(Float) =
+            (Ext_Array cos_v)
+          In
+          (Let Ti285.4135:Int =
+            1
+          In
+          (Ta284.4134.(Ti285.4135))))
+        In
+        (FMul Td283.4132 Td286.4133)))
+      In
+      (Let Td288.4131:Float =
+        -200.
+      In
+      (FMul Td287.4130 Td288.4131)))
+    In
+    (Ta279.4127.(Ti280.4128) <- Td289.4129))))
+  In
+  (Let Tu5.4098:Unit =
+    (Let Ta290.4118:Array(Float) =
+      (Ext_Array view)
+    In
+    (Let Ti291.4119:Int =
+      0
+    In
+    (Let Td298.4120:Float =
+      (Let Td294.4121:Float =
+        (Let Ta292.4125:Array(Float) =
+          (Ext_Array vp)
+        In
+        (Let Ti293.4126:Int =
+          0
+        In
+        (Ta292.4125.(Ti293.4126))))
+      In
+      (Let Td297.4122:Float =
+        (Let Ta295.4123:Array(Float) =
+          (Ext_Array screen)
+        In
+        (Let Ti296.4124:Int =
+          0
+        In
+        (Ta295.4123.(Ti296.4124))))
+      In
+      (FAdd Td294.4121 Td297.4122)))
+    In
+    (Ta290.4118.(Ti291.4119) <- Td298.4120))))
+  In
+  (Let Tu4.4099:Unit =
+    (Let Ta299.4109:Array(Float) =
+      (Ext_Array view)
+    In
+    (Let Ti300.4110:Int =
+      1
+    In
+    (Let Td307.4111:Float =
+      (Let Td303.4112:Float =
+        (Let Ta301.4116:Array(Float) =
+          (Ext_Array vp)
+        In
+        (Let Ti302.4117:Int =
+          1
+        In
+        (Ta301.4116.(Ti302.4117))))
+      In
+      (Let Td306.4113:Float =
+        (Let Ta304.4114:Array(Float) =
+          (Ext_Array screen)
+        In
+        (Let Ti305.4115:Int =
+          1
+        In
+        (Ta304.4114.(Ti305.4115))))
+      In
+      (FAdd Td303.4112 Td306.4113)))
+    In
+    (Ta299.4109.(Ti300.4110) <- Td307.4111))))
+  In
+  (Let Ta308.4100:Array(Float) =
+    (Ext_Array view)
+  In
+  (Let Ti309.4101:Int =
+    2
+  In
+  (Let Td316.4102:Float =
+    (Let Td312.4103:Float =
+      (Let Ta310.4107:Array(Float) =
+        (Ext_Array vp)
+      In
+      (Let Ti311.4108:Int =
+        2
+      In
+      (Ta310.4107.(Ti311.4108))))
+    In
+    (Let Td315.4104:Float =
+      (Let Ta313.4105:Array(Float) =
+        (Ext_Array screen)
+      In
+      (Let Ti314.4106:Int =
+        2
+      In
+      (Ta313.4105.(Ti314.4106))))
+    In
+    (FAdd Td312.4103 Td315.4104)))
+  In
+  (Ta308.4100.(Ti309.4101) <- Td316.4102)))))))))))))))))))))))))))))
+In
+(LetRec read_nth_object.2031:(Int -> Bool) n.2032:Int =
+  (Let texture.3628:Int =
+    (Let Tu317.4074:Unit =
+      ()
+    In
+    read_int Tu317.4074)
+  In
+  (Let Ti319.3629:Int =
+    (Let Ti318.4073:Int =
+      1
+    In
+    (Neg Ti318.4073))
+  In
+  (If (EQ texture.3628 Ti319.3629) Then
+    0
+  Else
+    (Let form.3630:Int =
+      (Let Tu320.4072:Unit =
+        ()
+      In
+      read_int Tu320.4072)
+    In
+    (Let refltype.3631:Int =
+      (Let Tu321.4071:Unit =
+        ()
+      In
+      read_int Tu321.4071)
+    In
+    (Let isrot_p.3632:Int =
+      (Let Tu322.4070:Unit =
+        ()
+      In
+      read_int Tu322.4070)
+    In
+    (Let abc.3633:Array(Float) =
+      (Let Ti323.4068:Int =
+        3
+      In
+      (Let Td324.4069:Float =
+        0.
+      In
+      create_float_array Ti323.4068 Td324.4069))
+    In
+    (Let Tu58.3634:Unit =
+      (Let Ti325.4065:Int =
+        0
+      In
+      (Let Td327.4066:Float =
+        (Let Tu326.4067:Unit =
+          ()
+        In
+        read_float Tu326.4067)
+      In
+      (abc.3633.(Ti325.4065) <- Td327.4066)))
+    In
+    (Let Tu57.3635:Unit =
+      (Let Ti328.4062:Int =
+        1
+      In
+      (Let Td330.4063:Float =
+        (Let Tu329.4064:Unit =
+          ()
+        In
+        read_float Tu329.4064)
+      In
+      (abc.3633.(Ti328.4062) <- Td330.4063)))
+    In
+    (Let Tu56.3636:Unit =
+      (Let Ti331.4059:Int =
+        2
+      In
+      (Let Td333.4060:Float =
+        (Let Tu332.4061:Unit =
+          ()
+        In
+        read_float Tu332.4061)
+      In
+      (abc.3633.(Ti331.4059) <- Td333.4060)))
+    In
+    (Let xyz.3637:Array(Float) =
+      (Let Ti334.4057:Int =
+        3
+      In
+      (Let Td335.4058:Float =
+        0.
+      In
+      create_float_array Ti334.4057 Td335.4058))
+    In
+    (Let Tu55.3638:Unit =
+      (Let Ti336.4054:Int =
+        0
+      In
+      (Let Td338.4055:Float =
+        (Let Tu337.4056:Unit =
+          ()
+        In
+        read_float Tu337.4056)
+      In
+      (xyz.3637.(Ti336.4054) <- Td338.4055)))
+    In
+    (Let Tu54.3639:Unit =
+      (Let Ti339.4051:Int =
+        1
+      In
+      (Let Td341.4052:Float =
+        (Let Tu340.4053:Unit =
+          ()
+        In
+        read_float Tu340.4053)
+      In
+      (xyz.3637.(Ti339.4051) <- Td341.4052)))
+    In
+    (Let Tu53.3640:Unit =
+      (Let Ti342.4048:Int =
+        2
+      In
+      (Let Td344.4049:Float =
+        (Let Tu343.4050:Unit =
+          ()
+        In
+        read_float Tu343.4050)
+      In
+      (xyz.3637.(Ti342.4048) <- Td344.4049)))
+    In
+    (Let m_invert.3641:Bool =
+      (Let Td345.4045:Float =
+        0.
+      In
+      (Let Td347.4046:Float =
+        (Let Tu346.4047:Unit =
+          ()
+        In
+        read_float Tu346.4047)
+      In
+      (If (LE Td345.4045 Td347.4046) Then
+        0
+      Else
+        1)))
+    In
+    (Let reflparam.3642:Array(Float) =
+      (Let Ti348.4043:Int =
+        2
+      In
+      (Let Td349.4044:Float =
+        0.
+      In
+      create_float_array Ti348.4043 Td349.4044))
+    In
+    (Let Tu52.3643:Unit =
+      (Let Ti350.4040:Int =
+        0
+      In
+      (Let Td352.4041:Float =
+        (Let Tu351.4042:Unit =
+          ()
+        In
+        read_float Tu351.4042)
+      In
+      (reflparam.3642.(Ti350.4040) <- Td352.4041)))
+    In
+    (Let Tu51.3644:Unit =
+      (Let Ti353.4037:Int =
+        1
+      In
+      (Let Td355.4038:Float =
+        (Let Tu354.4039:Unit =
+          ()
+        In
+        read_float Tu354.4039)
+      In
+      (reflparam.3642.(Ti353.4037) <- Td355.4038)))
+    In
+    (Let color.3645:Array(Float) =
+      (Let Ti356.4035:Int =
+        3
+      In
+      (Let Td357.4036:Float =
+        0.
+      In
+      create_float_array Ti356.4035 Td357.4036))
+    In
+    (Let Tu50.3646:Unit =
+      (Let Ti358.4032:Int =
+        0
+      In
+      (Let Td360.4033:Float =
+        (Let Tu359.4034:Unit =
+          ()
+        In
+        read_float Tu359.4034)
+      In
+      (color.3645.(Ti358.4032) <- Td360.4033)))
+    In
+    (Let Tu49.3647:Unit =
+      (Let Ti361.4029:Int =
+        1
+      In
+      (Let Td363.4030:Float =
+        (Let Tu362.4031:Unit =
+          ()
+        In
+        read_float Tu362.4031)
+      In
+      (color.3645.(Ti361.4029) <- Td363.4030)))
+    In
+    (Let Tu48.3648:Unit =
+      (Let Ti364.4026:Int =
+        2
+      In
+      (Let Td366.4027:Float =
+        (Let Tu365.4028:Unit =
+          ()
+        In
+        read_float Tu365.4028)
+      In
+      (color.3645.(Ti364.4026) <- Td366.4027)))
+    In
+    (Let rotation.3649:Array(Float) =
+      (Let Ti367.4024:Int =
+        3
+      In
+      (Let Td368.4025:Float =
+        0.
+      In
+      create_float_array Ti367.4024 Td368.4025))
+    In
+    (Let Tu47.3650:Unit =
+      (Let Ti369.4009:Int =
+        0
+      In
+      (If (EQ isrot_p.3632 Ti369.4009) Then
+        ()
+      Else
+        (Let Tu21.4010:Unit =
+          (Let Ti370.4020:Int =
+            0
+          In
+          (Let Td373.4021:Float =
+            (Let Td372.4022:Float =
+              (Let Tu371.4023:Unit =
+                ()
+              In
+              read_float Tu371.4023)
+            In
+            (rad.2027 Td372.4022))
+          In
+          (rotation.3649.(Ti370.4020) <- Td373.4021)))
+        In
+        (Let Tu20.4011:Unit =
+          (Let Ti374.4016:Int =
+            1
+          In
+          (Let Td377.4017:Float =
+            (Let Td376.4018:Float =
+              (Let Tu375.4019:Unit =
+                ()
+              In
+              read_float Tu375.4019)
+            In
+            (rad.2027 Td376.4018))
+          In
+          (rotation.3649.(Ti374.4016) <- Td377.4017)))
+        In
+        (Let Ti378.4012:Int =
+          2
+        In
+        (Let Td381.4013:Float =
+          (Let Td380.4014:Float =
+            (Let Tu379.4015:Unit =
+              ()
+            In
+            read_float Tu379.4015)
+          In
+          (rad.2027 Td380.4014))
+        In
+        (rotation.3649.(Ti378.4012) <- Td381.4013)))))))
+    In
+    (Let m_invert2.3651:Bool =
+      (Let Ti382.4008:Int =
+        2
+      In
+      (If (EQ form.3630 Ti382.4008) Then
+        1
+      Else
+        m_invert.3641))
+    In
+    (Let obj.3652:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+      (Tuple texture.3628, form.3630, refltype.3631, isrot_p.3632, abc.3633, xyz.3637, m_invert2.3651, reflparam.3642, color.3645, rotation.3649)
+    In
+    (Let Tu46.3653:Unit =
+      (Let Ta383.4007:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+        (Ext_Array objects)
+      In
+      (Ta383.4007.(n.2032) <- obj.3652))
+    In
+    (Let Tu45.3654:Unit =
+      (Let Ti384.3980:Int =
+        3
+      In
+      (If (EQ form.3630 Ti384.3980) Then
+        (Let a.3984:Float =
+          (Let Ti385.4006:Int =
+            0
+          In
+          (abc.3633.(Ti385.4006)))
+        In
+        (Let Tu23.3985:Unit =
+          (Let Ti386.4001:Int =
+            0
+          In
+          (Let Td390.4002:Float =
+            (Let Td387.4003:Float =
+              0.
+            In
+            (If (EQ Td387.4003 a.3984) Then
+              0.
+            Else
+              (Let Td388.4004:Float =
+                (sgn.2025 a.3984)
+              In
+              (Let Td389.4005:Float =
+                (fsqr.1980 a.3984)
+              In
+              (FDiv Td388.4004 Td389.4005)))))
+          In
+          (abc.3633.(Ti386.4001) <- Td390.4002)))
+        In
+        (Let b.3986:Float =
+          (Let Ti391.4000:Int =
+            1
+          In
+          (abc.3633.(Ti391.4000)))
+        In
+        (Let Tu22.3987:Unit =
+          (Let Ti392.3995:Int =
+            1
+          In
+          (Let Td396.3996:Float =
+            (Let Td393.3997:Float =
+              0.
+            In
+            (If (EQ Td393.3997 b.3986) Then
+              0.
+            Else
+              (Let Td394.3998:Float =
+                (sgn.2025 b.3986)
+              In
+              (Let Td395.3999:Float =
+                (fsqr.1980 b.3986)
+              In
+              (FDiv Td394.3998 Td395.3999)))))
+          In
+          (abc.3633.(Ti392.3995) <- Td396.3996)))
+        In
+        (Let c.3988:Float =
+          (Let Ti397.3994:Int =
+            2
+          In
+          (abc.3633.(Ti397.3994)))
+        In
+        (Let Ti398.3989:Int =
+          2
+        In
+        (Let Td402.3990:Float =
+          (Let Td399.3991:Float =
+            0.
+          In
+          (If (EQ Td399.3991 c.3988) Then
+            0.
+          Else
+            (Let Td400.3992:Float =
+              (sgn.2025 c.3988)
+            In
+            (Let Td401.3993:Float =
+              (fsqr.1980 c.3988)
+            In
+            (FDiv Td400.3992 Td401.3993)))))
+        In
+        (abc.3633.(Ti398.3989) <- Td402.3990))))))))
+      Else
+        (Let Ti403.3981:Int =
+          2
+        In
+        (If (EQ form.3630 Ti403.3981) Then
+          (Let Ti405.3982:Int =
+            (Let Ti404.3983:Int =
+              0
+            In
+            (If (EQ m_invert.3641 Ti404.3983) Then
+              1
+            Else
+              0))
+          In
+          (normalize_vector.2022 abc.3633 Ti405.3982))
+        Else
+          ()))))
+    In
+    (Let Tu44.3655:Unit =
+      (Let Ti406.3656:Int =
+        0
+      In
+      (If (EQ isrot_p.3632 Ti406.3656) Then
+        ()
+      Else
+        (Let Tu43.3657:Unit =
+          (Let Ta407.3975:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti408.3976:Int =
+            10
+          In
+          (Let Td411.3977:Float =
+            (Let Td410.3978:Float =
+              (Let Ti409.3979:Int =
+                0
+              In
+              (rotation.3649.(Ti409.3979)))
+            In
+            cos Td410.3978)
+          In
+          (Ta407.3975.(Ti408.3976) <- Td411.3977))))
+        In
+        (Let Tu42.3658:Unit =
+          (Let Ta412.3970:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti413.3971:Int =
+            11
+          In
+          (Let Td416.3972:Float =
+            (Let Td415.3973:Float =
+              (Let Ti414.3974:Int =
+                0
+              In
+              (rotation.3649.(Ti414.3974)))
+            In
+            sin Td415.3973)
+          In
+          (Ta412.3970.(Ti413.3971) <- Td416.3972))))
+        In
+        (Let Tu41.3659:Unit =
+          (Let Ta417.3965:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti418.3966:Int =
+            12
+          In
+          (Let Td421.3967:Float =
+            (Let Td420.3968:Float =
+              (Let Ti419.3969:Int =
+                1
+              In
+              (rotation.3649.(Ti419.3969)))
+            In
+            cos Td420.3968)
+          In
+          (Ta417.3965.(Ti418.3966) <- Td421.3967))))
+        In
+        (Let Tu40.3660:Unit =
+          (Let Ta422.3960:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti423.3961:Int =
+            13
+          In
+          (Let Td426.3962:Float =
+            (Let Td425.3963:Float =
+              (Let Ti424.3964:Int =
+                1
+              In
+              (rotation.3649.(Ti424.3964)))
+            In
+            sin Td425.3963)
+          In
+          (Ta422.3960.(Ti423.3961) <- Td426.3962))))
+        In
+        (Let Tu39.3661:Unit =
+          (Let Ta427.3955:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti428.3956:Int =
+            14
+          In
+          (Let Td431.3957:Float =
+            (Let Td430.3958:Float =
+              (Let Ti429.3959:Int =
+                2
+              In
+              (rotation.3649.(Ti429.3959)))
+            In
+            cos Td430.3958)
+          In
+          (Ta427.3955.(Ti428.3956) <- Td431.3957))))
+        In
+        (Let Tu38.3662:Unit =
+          (Let Ta432.3950:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti433.3951:Int =
+            15
+          In
+          (Let Td436.3952:Float =
+            (Let Td435.3953:Float =
+              (Let Ti434.3954:Int =
+                2
+              In
+              (rotation.3649.(Ti434.3954)))
+            In
+            sin Td435.3953)
+          In
+          (Ta432.3950.(Ti433.3951) <- Td436.3952))))
+        In
+        (Let Tu37.3663:Unit =
+          (Let Ta437.3941:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti438.3942:Int =
+            0
+          In
+          (Let Td445.3943:Float =
+            (Let Td441.3944:Float =
+              (Let Ta439.3948:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti440.3949:Int =
+                12
+              In
+              (Ta439.3948.(Ti440.3949))))
+            In
+            (Let Td444.3945:Float =
+              (Let Ta442.3946:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti443.3947:Int =
+                14
+              In
+              (Ta442.3946.(Ti443.3947))))
+            In
+            (FMul Td441.3944 Td444.3945)))
+          In
+          (Ta437.3941.(Ti438.3942) <- Td445.3943))))
+        In
+        (Let Tu36.3664:Unit =
+          (Let Ta446.3920:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti447.3921:Int =
+            1
+          In
+          (Let Td466.3922:Float =
+            (Let Td458.3923:Float =
+              (Let Td454.3931:Float =
+                (Let Td450.3935:Float =
+                  (Let Ta448.3939:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti449.3940:Int =
+                    11
+                  In
+                  (Ta448.3939.(Ti449.3940))))
+                In
+                (Let Td453.3936:Float =
+                  (Let Ta451.3937:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti452.3938:Int =
+                    13
+                  In
+                  (Ta451.3937.(Ti452.3938))))
+                In
+                (FMul Td450.3935 Td453.3936)))
+              In
+              (Let Td457.3932:Float =
+                (Let Ta455.3933:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti456.3934:Int =
+                  14
+                In
+                (Ta455.3933.(Ti456.3934))))
+              In
+              (FMul Td454.3931 Td457.3932)))
+            In
+            (Let Td465.3924:Float =
+              (Let Td461.3925:Float =
+                (Let Ta459.3929:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti460.3930:Int =
+                  10
+                In
+                (Ta459.3929.(Ti460.3930))))
+              In
+              (Let Td464.3926:Float =
+                (Let Ta462.3927:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti463.3928:Int =
+                  15
+                In
+                (Ta462.3927.(Ti463.3928))))
+              In
+              (FMul Td461.3925 Td464.3926)))
+            In
+            (FSub Td458.3923 Td465.3924)))
+          In
+          (Ta446.3920.(Ti447.3921) <- Td466.3922))))
+        In
+        (Let Tu35.3665:Unit =
+          (Let Ta467.3899:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti468.3900:Int =
+            2
+          In
+          (Let Td487.3901:Float =
+            (Let Td479.3902:Float =
+              (Let Td475.3910:Float =
+                (Let Td471.3914:Float =
+                  (Let Ta469.3918:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti470.3919:Int =
+                    10
+                  In
+                  (Ta469.3918.(Ti470.3919))))
+                In
+                (Let Td474.3915:Float =
+                  (Let Ta472.3916:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti473.3917:Int =
+                    13
+                  In
+                  (Ta472.3916.(Ti473.3917))))
+                In
+                (FMul Td471.3914 Td474.3915)))
+              In
+              (Let Td478.3911:Float =
+                (Let Ta476.3912:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti477.3913:Int =
+                  14
+                In
+                (Ta476.3912.(Ti477.3913))))
+              In
+              (FMul Td475.3910 Td478.3911)))
+            In
+            (Let Td486.3903:Float =
+              (Let Td482.3904:Float =
+                (Let Ta480.3908:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti481.3909:Int =
+                  11
+                In
+                (Ta480.3908.(Ti481.3909))))
+              In
+              (Let Td485.3905:Float =
+                (Let Ta483.3906:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti484.3907:Int =
+                  15
+                In
+                (Ta483.3906.(Ti484.3907))))
+              In
+              (FMul Td482.3904 Td485.3905)))
+            In
+            (FAdd Td479.3902 Td486.3903)))
+          In
+          (Ta467.3899.(Ti468.3900) <- Td487.3901))))
+        In
+        (Let Tu34.3666:Unit =
+          (Let Ta488.3890:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti489.3891:Int =
+            3
+          In
+          (Let Td496.3892:Float =
+            (Let Td492.3893:Float =
+              (Let Ta490.3897:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti491.3898:Int =
+                12
+              In
+              (Ta490.3897.(Ti491.3898))))
+            In
+            (Let Td495.3894:Float =
+              (Let Ta493.3895:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti494.3896:Int =
+                15
+              In
+              (Ta493.3895.(Ti494.3896))))
+            In
+            (FMul Td492.3893 Td495.3894)))
+          In
+          (Ta488.3890.(Ti489.3891) <- Td496.3892))))
+        In
+        (Let Tu33.3667:Unit =
+          (Let Ta497.3869:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti498.3870:Int =
+            4
+          In
+          (Let Td517.3871:Float =
+            (Let Td509.3872:Float =
+              (Let Td505.3880:Float =
+                (Let Td501.3884:Float =
+                  (Let Ta499.3888:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti500.3889:Int =
+                    11
+                  In
+                  (Ta499.3888.(Ti500.3889))))
+                In
+                (Let Td504.3885:Float =
+                  (Let Ta502.3886:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti503.3887:Int =
+                    13
+                  In
+                  (Ta502.3886.(Ti503.3887))))
+                In
+                (FMul Td501.3884 Td504.3885)))
+              In
+              (Let Td508.3881:Float =
+                (Let Ta506.3882:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti507.3883:Int =
+                  15
+                In
+                (Ta506.3882.(Ti507.3883))))
+              In
+              (FMul Td505.3880 Td508.3881)))
+            In
+            (Let Td516.3873:Float =
+              (Let Td512.3874:Float =
+                (Let Ta510.3878:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti511.3879:Int =
+                  10
+                In
+                (Ta510.3878.(Ti511.3879))))
+              In
+              (Let Td515.3875:Float =
+                (Let Ta513.3876:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti514.3877:Int =
+                  14
+                In
+                (Ta513.3876.(Ti514.3877))))
+              In
+              (FMul Td512.3874 Td515.3875)))
+            In
+            (FAdd Td509.3872 Td516.3873)))
+          In
+          (Ta497.3869.(Ti498.3870) <- Td517.3871))))
+        In
+        (Let Tu32.3668:Unit =
+          (Let Ta518.3848:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti519.3849:Int =
+            5
+          In
+          (Let Td538.3850:Float =
+            (Let Td530.3851:Float =
+              (Let Td526.3859:Float =
+                (Let Td522.3863:Float =
+                  (Let Ta520.3867:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti521.3868:Int =
+                    10
+                  In
+                  (Ta520.3867.(Ti521.3868))))
+                In
+                (Let Td525.3864:Float =
+                  (Let Ta523.3865:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti524.3866:Int =
+                    13
+                  In
+                  (Ta523.3865.(Ti524.3866))))
+                In
+                (FMul Td522.3863 Td525.3864)))
+              In
+              (Let Td529.3860:Float =
+                (Let Ta527.3861:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti528.3862:Int =
+                  15
+                In
+                (Ta527.3861.(Ti528.3862))))
+              In
+              (FMul Td526.3859 Td529.3860)))
+            In
+            (Let Td537.3852:Float =
+              (Let Td533.3853:Float =
+                (Let Ta531.3857:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti532.3858:Int =
+                  11
+                In
+                (Ta531.3857.(Ti532.3858))))
+              In
+              (Let Td536.3854:Float =
+                (Let Ta534.3855:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti535.3856:Int =
+                  14
+                In
+                (Ta534.3855.(Ti535.3856))))
+              In
+              (FMul Td533.3853 Td536.3854)))
+            In
+            (FSub Td530.3851 Td537.3852)))
+          In
+          (Ta518.3848.(Ti519.3849) <- Td538.3850))))
+        In
+        (Let Tu31.3669:Unit =
+          (Let Ta539.3842:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti540.3843:Int =
+            6
+          In
+          (Let Td544.3844:Float =
+            (Let Td543.3845:Float =
+              (Let Ta541.3846:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti542.3847:Int =
+                13
+              In
+              (Ta541.3846.(Ti542.3847))))
+            In
+            (FNeg Td543.3845))
+          In
+          (Ta539.3842.(Ti540.3843) <- Td544.3844))))
+        In
+        (Let Tu30.3670:Unit =
+          (Let Ta545.3833:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti546.3834:Int =
+            7
+          In
+          (Let Td553.3835:Float =
+            (Let Td549.3836:Float =
+              (Let Ta547.3840:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti548.3841:Int =
+                11
+              In
+              (Ta547.3840.(Ti548.3841))))
+            In
+            (Let Td552.3837:Float =
+              (Let Ta550.3838:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti551.3839:Int =
+                12
+              In
+              (Ta550.3838.(Ti551.3839))))
+            In
+            (FMul Td549.3836 Td552.3837)))
+          In
+          (Ta545.3833.(Ti546.3834) <- Td553.3835))))
+        In
+        (Let Tu29.3671:Unit =
+          (Let Ta554.3824:Array(Float) =
+            (Ext_Array cs_temp)
+          In
+          (Let Ti555.3825:Int =
+            8
+          In
+          (Let Td562.3826:Float =
+            (Let Td558.3827:Float =
+              (Let Ta556.3831:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti557.3832:Int =
+                10
+              In
+              (Ta556.3831.(Ti557.3832))))
+            In
+            (Let Td561.3828:Float =
+              (Let Ta559.3829:Array(Float) =
+                (Ext_Array cs_temp)
+              In
+              (Let Ti560.3830:Int =
+                12
+              In
+              (Ta559.3829.(Ti560.3830))))
+            In
+            (FMul Td558.3827 Td561.3828)))
+          In
+          (Ta554.3824.(Ti555.3825) <- Td562.3826))))
+        In
+        (Let ao.3672:Float =
+          (Let Ti563.3823:Int =
+            0
+          In
+          (abc.3633.(Ti563.3823)))
+        In
+        (Let bo.3673:Float =
+          (Let Ti564.3822:Int =
+            1
+          In
+          (abc.3633.(Ti564.3822)))
+        In
+        (Let co.3674:Float =
+          (Let Ti565.3821:Int =
+            2
+          In
+          (abc.3633.(Ti565.3821)))
+        In
+        (Let Tu28.3675:Unit =
+          (Let Ti566.3803:Int =
+            0
+          In
+          (Let Td583.3804:Float =
+            (Let Td577.3805:Float =
+              (Let Td571.3811:Float =
+                (Let Td570.3817:Float =
+                  (Let Td569.3818:Float =
+                    (Let Ta567.3819:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti568.3820:Int =
+                      0
+                    In
+                    (Ta567.3819.(Ti568.3820))))
+                  In
+                  (fsqr.1980 Td569.3818))
+                In
+                (FMul ao.3672 Td570.3817))
+              In
+              (Let Td576.3812:Float =
+                (Let Td575.3813:Float =
+                  (Let Td574.3814:Float =
+                    (Let Ta572.3815:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti573.3816:Int =
+                      3
+                    In
+                    (Ta572.3815.(Ti573.3816))))
+                  In
+                  (fsqr.1980 Td574.3814))
+                In
+                (FMul bo.3673 Td575.3813))
+              In
+              (FAdd Td571.3811 Td576.3812)))
+            In
+            (Let Td582.3806:Float =
+              (Let Td581.3807:Float =
+                (Let Td580.3808:Float =
+                  (Let Ta578.3809:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti579.3810:Int =
+                    6
+                  In
+                  (Ta578.3809.(Ti579.3810))))
+                In
+                (fsqr.1980 Td580.3808))
+              In
+              (FMul co.3674 Td581.3807))
+            In
+            (FAdd Td577.3805 Td582.3806)))
+          In
+          (abc.3633.(Ti566.3803) <- Td583.3804)))
+        In
+        (Let Tu27.3676:Unit =
+          (Let Ti584.3785:Int =
+            1
+          In
+          (Let Td601.3786:Float =
+            (Let Td595.3787:Float =
+              (Let Td589.3793:Float =
+                (Let Td588.3799:Float =
+                  (Let Td587.3800:Float =
+                    (Let Ta585.3801:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti586.3802:Int =
+                      1
+                    In
+                    (Ta585.3801.(Ti586.3802))))
+                  In
+                  (fsqr.1980 Td587.3800))
+                In
+                (FMul ao.3672 Td588.3799))
+              In
+              (Let Td594.3794:Float =
+                (Let Td593.3795:Float =
+                  (Let Td592.3796:Float =
+                    (Let Ta590.3797:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti591.3798:Int =
+                      4
+                    In
+                    (Ta590.3797.(Ti591.3798))))
+                  In
+                  (fsqr.1980 Td592.3796))
+                In
+                (FMul bo.3673 Td593.3795))
+              In
+              (FAdd Td589.3793 Td594.3794)))
+            In
+            (Let Td600.3788:Float =
+              (Let Td599.3789:Float =
+                (Let Td598.3790:Float =
+                  (Let Ta596.3791:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti597.3792:Int =
+                    7
+                  In
+                  (Ta596.3791.(Ti597.3792))))
+                In
+                (fsqr.1980 Td598.3790))
+              In
+              (FMul co.3674 Td599.3789))
+            In
+            (FAdd Td595.3787 Td600.3788)))
+          In
+          (abc.3633.(Ti584.3785) <- Td601.3786)))
+        In
+        (Let Tu26.3677:Unit =
+          (Let Ti602.3767:Int =
+            2
+          In
+          (Let Td619.3768:Float =
+            (Let Td613.3769:Float =
+              (Let Td607.3775:Float =
+                (Let Td606.3781:Float =
+                  (Let Td605.3782:Float =
+                    (Let Ta603.3783:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti604.3784:Int =
+                      2
+                    In
+                    (Ta603.3783.(Ti604.3784))))
+                  In
+                  (fsqr.1980 Td605.3782))
+                In
+                (FMul ao.3672 Td606.3781))
+              In
+              (Let Td612.3776:Float =
+                (Let Td611.3777:Float =
+                  (Let Td610.3778:Float =
+                    (Let Ta608.3779:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti609.3780:Int =
+                      5
+                    In
+                    (Ta608.3779.(Ti609.3780))))
+                  In
+                  (fsqr.1980 Td610.3778))
+                In
+                (FMul bo.3673 Td611.3777))
+              In
+              (FAdd Td607.3775 Td612.3776)))
+            In
+            (Let Td618.3770:Float =
+              (Let Td617.3771:Float =
+                (Let Td616.3772:Float =
+                  (Let Ta614.3773:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti615.3774:Int =
+                    8
+                  In
+                  (Ta614.3773.(Ti615.3774))))
+                In
+                (fsqr.1980 Td616.3772))
+              In
+              (FMul co.3674 Td617.3771))
+            In
+            (FAdd Td613.3769 Td618.3770)))
+          In
+          (abc.3633.(Ti602.3767) <- Td619.3768)))
+        In
+        (Let Tu25.3678:Unit =
+          (Let Ti620.3738:Int =
+            0
+          In
+          (Let Td648.3739:Float =
+            (Let Td621.3740:Float =
+              2.
+            In
+            (Let Td647.3741:Float =
+              (Let Td638.3742:Float =
+                (Let Td629.3751:Float =
+                  (Let Td625.3760:Float =
+                    (Let Td624.3764:Float =
+                      (Let Ta622.3765:Array(Float) =
+                        (Ext_Array cs_temp)
+                      In
+                      (Let Ti623.3766:Int =
+                        1
+                      In
+                      (Ta622.3765.(Ti623.3766))))
+                    In
+                    (FMul ao.3672 Td624.3764))
+                  In
+                  (Let Td628.3761:Float =
+                    (Let Ta626.3762:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti627.3763:Int =
+                      2
+                    In
+                    (Ta626.3762.(Ti627.3763))))
+                  In
+                  (FMul Td625.3760 Td628.3761)))
+                In
+                (Let Td637.3752:Float =
+                  (Let Td633.3753:Float =
+                    (Let Td632.3757:Float =
+                      (Let Ta630.3758:Array(Float) =
+                        (Ext_Array cs_temp)
+                      In
+                      (Let Ti631.3759:Int =
+                        4
+                      In
+                      (Ta630.3758.(Ti631.3759))))
+                    In
+                    (FMul bo.3673 Td632.3757))
+                  In
+                  (Let Td636.3754:Float =
+                    (Let Ta634.3755:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti635.3756:Int =
+                      5
+                    In
+                    (Ta634.3755.(Ti635.3756))))
+                  In
+                  (FMul Td633.3753 Td636.3754)))
+                In
+                (FAdd Td629.3751 Td637.3752)))
+              In
+              (Let Td646.3743:Float =
+                (Let Td642.3744:Float =
+                  (Let Td641.3748:Float =
+                    (Let Ta639.3749:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti640.3750:Int =
+                      7
+                    In
+                    (Ta639.3749.(Ti640.3750))))
+                  In
+                  (FMul co.3674 Td641.3748))
+                In
+                (Let Td645.3745:Float =
+                  (Let Ta643.3746:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti644.3747:Int =
+                    8
+                  In
+                  (Ta643.3746.(Ti644.3747))))
+                In
+                (FMul Td642.3744 Td645.3745)))
+              In
+              (FAdd Td638.3742 Td646.3743)))
+            In
+            (FMul Td621.3740 Td647.3741)))
+          In
+          (rotation.3649.(Ti620.3738) <- Td648.3739)))
+        In
+        (Let Tu24.3679:Unit =
+          (Let Ti649.3709:Int =
+            1
+          In
+          (Let Td677.3710:Float =
+            (Let Td650.3711:Float =
+              2.
+            In
+            (Let Td676.3712:Float =
+              (Let Td667.3713:Float =
+                (Let Td658.3722:Float =
+                  (Let Td654.3731:Float =
+                    (Let Td653.3735:Float =
+                      (Let Ta651.3736:Array(Float) =
+                        (Ext_Array cs_temp)
+                      In
+                      (Let Ti652.3737:Int =
+                        0
+                      In
+                      (Ta651.3736.(Ti652.3737))))
+                    In
+                    (FMul ao.3672 Td653.3735))
+                  In
+                  (Let Td657.3732:Float =
+                    (Let Ta655.3733:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti656.3734:Int =
+                      2
+                    In
+                    (Ta655.3733.(Ti656.3734))))
+                  In
+                  (FMul Td654.3731 Td657.3732)))
+                In
+                (Let Td666.3723:Float =
+                  (Let Td662.3724:Float =
+                    (Let Td661.3728:Float =
+                      (Let Ta659.3729:Array(Float) =
+                        (Ext_Array cs_temp)
+                      In
+                      (Let Ti660.3730:Int =
+                        3
+                      In
+                      (Ta659.3729.(Ti660.3730))))
+                    In
+                    (FMul bo.3673 Td661.3728))
+                  In
+                  (Let Td665.3725:Float =
+                    (Let Ta663.3726:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti664.3727:Int =
+                      5
+                    In
+                    (Ta663.3726.(Ti664.3727))))
+                  In
+                  (FMul Td662.3724 Td665.3725)))
+                In
+                (FAdd Td658.3722 Td666.3723)))
+              In
+              (Let Td675.3714:Float =
+                (Let Td671.3715:Float =
+                  (Let Td670.3719:Float =
+                    (Let Ta668.3720:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti669.3721:Int =
+                      6
+                    In
+                    (Ta668.3720.(Ti669.3721))))
+                  In
+                  (FMul co.3674 Td670.3719))
+                In
+                (Let Td674.3716:Float =
+                  (Let Ta672.3717:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti673.3718:Int =
+                    8
+                  In
+                  (Ta672.3717.(Ti673.3718))))
+                In
+                (FMul Td671.3715 Td674.3716)))
+              In
+              (FAdd Td667.3713 Td675.3714)))
+            In
+            (FMul Td650.3711 Td676.3712)))
+          In
+          (rotation.3649.(Ti649.3709) <- Td677.3710)))
+        In
+        (Let Ti678.3680:Int =
+          2
+        In
+        (Let Td706.3681:Float =
+          (Let Td679.3682:Float =
+            2.
+          In
+          (Let Td705.3683:Float =
+            (Let Td696.3684:Float =
+              (Let Td687.3693:Float =
+                (Let Td683.3702:Float =
+                  (Let Td682.3706:Float =
+                    (Let Ta680.3707:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti681.3708:Int =
+                      0
+                    In
+                    (Ta680.3707.(Ti681.3708))))
+                  In
+                  (FMul ao.3672 Td682.3706))
+                In
+                (Let Td686.3703:Float =
+                  (Let Ta684.3704:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti685.3705:Int =
+                    1
+                  In
+                  (Ta684.3704.(Ti685.3705))))
+                In
+                (FMul Td683.3702 Td686.3703)))
+              In
+              (Let Td695.3694:Float =
+                (Let Td691.3695:Float =
+                  (Let Td690.3699:Float =
+                    (Let Ta688.3700:Array(Float) =
+                      (Ext_Array cs_temp)
+                    In
+                    (Let Ti689.3701:Int =
+                      3
+                    In
+                    (Ta688.3700.(Ti689.3701))))
+                  In
+                  (FMul bo.3673 Td690.3699))
+                In
+                (Let Td694.3696:Float =
+                  (Let Ta692.3697:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti693.3698:Int =
+                    4
+                  In
+                  (Ta692.3697.(Ti693.3698))))
+                In
+                (FMul Td691.3695 Td694.3696)))
+              In
+              (FAdd Td687.3693 Td695.3694)))
+            In
+            (Let Td704.3685:Float =
+              (Let Td700.3686:Float =
+                (Let Td699.3690:Float =
+                  (Let Ta697.3691:Array(Float) =
+                    (Ext_Array cs_temp)
+                  In
+                  (Let Ti698.3692:Int =
+                    6
+                  In
+                  (Ta697.3691.(Ti698.3692))))
+                In
+                (FMul co.3674 Td699.3690))
+              In
+              (Let Td703.3687:Float =
+                (Let Ta701.3688:Array(Float) =
+                  (Ext_Array cs_temp)
+                In
+                (Let Ti702.3689:Int =
+                  7
+                In
+                (Ta701.3688.(Ti702.3689))))
+              In
+              (FMul Td700.3686 Td703.3687)))
+            In
+            (FAdd Td696.3684 Td704.3685)))
+          In
+          (FMul Td679.3682 Td705.3683)))
+        In
+        (rotation.3649.(Ti678.3680) <- Td706.3681))))))))))))))))))))))))))))
+    In
+    1)))))))))))))))))))))))))))))
+In
+(LetRec read_object.2033:(Int -> Unit) n.2034:Int =
+  (Let Ti707.3623:Int =
+    61
+  In
+  (If (LE Ti707.3623 n.2034) Then
+    ()
+  Else
+    (Let Tb708.3624:Bool =
+      (read_nth_object.2031 n.2034)
+    In
+    (Let Ti709.3625:Int =
+      0
+    In
+    (If (EQ Tb708.3624 Ti709.3625) Then
+      ()
+    Else
+      (Let Ti711.3626:Int =
+        (Let Ti710.3627:Int =
+          1
+        In
+        (Add n.2034 Ti710.3627))
+      In
+      (read_object.2033 Ti711.3626)))))))
+In
+(LetRec read_all_object.2035:(Unit -> Unit) Tu59.2036:Unit =
+  (Let Ti712.3622:Int =
+    0
+  In
+  (read_object.2033 Ti712.3622))
+In
+(LetRec read_net_item.2037:(Int -> Array(Int)) length.2038:Int =
+  (Let item.3610:Int =
+    (Let Tu713.3621:Unit =
+      ()
+    In
+    read_int Tu713.3621)
+  In
+  (Let Ti715.3611:Int =
+    (Let Ti714.3620:Int =
+      1
+    In
+    (Neg Ti714.3620))
+  In
+  (If (EQ item.3610 Ti715.3611) Then
+    (Let Ti717.3616:Int =
+      (Let Ti716.3619:Int =
+        1
+      In
+      (Add length.2038 Ti716.3619))
+    In
+    (Let Ti719.3617:Int =
+      (Let Ti718.3618:Int =
+        1
+      In
+      (Neg Ti718.3618))
+    In
+    create_array Ti717.3616 Ti719.3617))
+  Else
+    (Let v.3612:Array(Int) =
+      (Let Ti721.3614:Int =
+        (Let Ti720.3615:Int =
+          1
+        In
+        (Add length.2038 Ti720.3615))
+      In
+      (read_net_item.2037 Ti721.3614))
+    In
+    (Let Tu60.3613:Unit =
+      (v.3612.(length.2038) <- item.3610)
+    In
+    v.3612)))))
+In
+(LetRec read_or_network.2039:(Int -> Array(Array(Int))) length.2040:Int =
+  (Let net.3598:Array(Int) =
+    (Let Ti722.3609:Int =
+      0
+    In
+    (read_net_item.2037 Ti722.3609))
+  In
+  (Let Ti724.3599:Int =
+    (Let Ti723.3608:Int =
+      0
+    In
+    (net.3598.(Ti723.3608)))
+  In
+  (Let Ti726.3600:Int =
+    (Let Ti725.3607:Int =
+      1
+    In
+    (Neg Ti725.3607))
+  In
+  (If (EQ Ti724.3599 Ti726.3600) Then
+    (Let Ti728.3605:Int =
+      (Let Ti727.3606:Int =
+        1
+      In
+      (Add length.2040 Ti727.3606))
+    In
+    create_array Ti728.3605 net.3598)
+  Else
+    (Let v.3601:Array(Array(Int)) =
+      (Let Ti730.3603:Int =
+        (Let Ti729.3604:Int =
+          1
+        In
+        (Add length.2040 Ti729.3604))
+      In
+      (read_or_network.2039 Ti730.3603))
+    In
+    (Let Tu61.3602:Unit =
+      (v.3601.(length.2040) <- net.3598)
+    In
+    v.3601))))))
+In
+(LetRec read_and_network.2041:(Int -> Unit) n.2042:Int =
+  (Let net.3588:Array(Int) =
+    (Let Ti731.3597:Int =
+      0
+    In
+    (read_net_item.2037 Ti731.3597))
+  In
+  (Let Ti733.3589:Int =
+    (Let Ti732.3596:Int =
+      0
+    In
+    (net.3588.(Ti732.3596)))
+  In
+  (Let Ti735.3590:Int =
+    (Let Ti734.3595:Int =
+      1
+    In
+    (Neg Ti734.3595))
+  In
+  (If (EQ Ti733.3589 Ti735.3590) Then
+    ()
+  Else
+    (Let Tu62.3591:Unit =
+      (Let Ta736.3594:Array(Array(Int)) =
+        (Ext_Array and_net)
+      In
+      (Ta736.3594.(n.2042) <- net.3588))
+    In
+    (Let Ti738.3592:Int =
+      (Let Ti737.3593:Int =
+        1
+      In
+      (Add n.2042 Ti737.3593))
+    In
+    (read_and_network.2041 Ti738.3592)))))))
+In
+(LetRec read_parameter.2043:(Unit -> Unit) Tu63.2044:Unit =
+  (Let Tu66.3578:Unit =
+    (Let Tu739.3587:Unit =
+      ()
+    In
+    (read_environ.2029 Tu739.3587))
+  In
+  (Let Tu65.3579:Unit =
+    (Let Tu740.3586:Unit =
+      ()
+    In
+    (read_all_object.2035 Tu740.3586))
+  In
+  (Let Tu64.3580:Unit =
+    (Let Ti741.3585:Int =
+      0
+    In
+    (read_and_network.2041 Ti741.3585))
+  In
+  (Let Ta742.3581:Array(Array(Array(Int))) =
+    (Ext_Array or_net)
+  In
+  (Let Ti743.3582:Int =
+    0
+  In
+  (Let Ta745.3583:Array(Array(Int)) =
+    (Let Ti744.3584:Int =
+      0
+    In
+    (read_or_network.2039 Ti744.3584))
+  In
+  (Ta742.3581.(Ti743.3582) <- Ta745.3583)))))))
+In
+(LetRec solver_rect.2045:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Int) m.2046:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) l.2047:Array(Float) =
+  (Let answera.3452:Bool =
+    (Let Td746.3538:Float =
+      0.
+    In
+    (Let Td748.3539:Float =
+      (Let Ti747.3577:Int =
+        0
+      In
+      (l.2047.(Ti747.3577)))
+    In
+    (If (EQ Td746.3538 Td748.3539) Then
+      0
+    Else
+      (Let d.3540:Float =
+        (Let Tb754.3569:Bool =
+          (Let Tb749.3572:Bool =
+            (o_isinvert.1990 m.2046)
+          In
+          (Let Ti753.3573:Int =
+            (Let Td750.3574:Float =
+              0.
+            In
+            (Let Td752.3575:Float =
+              (Let Ti751.3576:Int =
+                0
+              In
+              (l.2047.(Ti751.3576)))
+            In
+            (If (LE Td750.3574 Td752.3575) Then
+              0
+            Else
+              1)))
+          In
+          (xor.1977 Tb749.3572 Ti753.3573)))
+        In
+        (Let Ti755.3570:Int =
+          0
+        In
+        (If (EQ Tb754.3569 Ti755.3570) Then
+          (Let Td756.3571:Float =
+            (o_param_a.1994 m.2046)
+          In
+          (FNeg Td756.3571))
+        Else
+          (o_param_a.1994 m.2046))))
+      In
+      (Let d2.3541:Float =
+        (Let Td760.3563:Float =
+          (Let Td759.3566:Float =
+            (Let Ta757.3567:Array(Float) =
+              (Ext_Array solver_w_vec)
+            In
+            (Let Ti758.3568:Int =
+              0
+            In
+            (Ta757.3567.(Ti758.3568))))
+          In
+          (FSub d.3540 Td759.3566))
+        In
+        (Let Td762.3564:Float =
+          (Let Ti761.3565:Int =
+            0
+          In
+          (l.2047.(Ti761.3565)))
+        In
+        (FDiv Td760.3563 Td762.3564)))
+      In
+      (Let Td763.3542:Float =
+        (o_param_b.1996 m.2046)
+      In
+      (Let Td771.3543:Float =
+        (Let Td770.3556:Float =
+          (Let Td766.3557:Float =
+            (Let Td765.3561:Float =
+              (Let Ti764.3562:Int =
+                1
+              In
+              (l.2047.(Ti764.3562)))
+            In
+            (FMul d2.3541 Td765.3561))
+          In
+          (Let Td769.3558:Float =
+            (Let Ta767.3559:Array(Float) =
+              (Ext_Array solver_w_vec)
+            In
+            (Let Ti768.3560:Int =
+              1
+            In
+            (Ta767.3559.(Ti768.3560))))
+          In
+          (FAdd Td766.3557 Td769.3558)))
+        In
+        abs_float Td770.3556)
+      In
+      (If (LE Td763.3542 Td771.3543) Then
+        0
+      Else
+        (Let Td772.3544:Float =
+          (o_param_c.1998 m.2046)
+        In
+        (Let Td780.3545:Float =
+          (Let Td779.3549:Float =
+            (Let Td775.3550:Float =
+              (Let Td774.3554:Float =
+                (Let Ti773.3555:Int =
+                  2
+                In
+                (l.2047.(Ti773.3555)))
+              In
+              (FMul d2.3541 Td774.3554))
+            In
+            (Let Td778.3551:Float =
+              (Let Ta776.3552:Array(Float) =
+                (Ext_Array solver_w_vec)
+              In
+              (Let Ti777.3553:Int =
+                2
+              In
+              (Ta776.3552.(Ti777.3553))))
+            In
+            (FAdd Td775.3550 Td778.3551)))
+          In
+          abs_float Td779.3549)
+        In
+        (If (LE Td772.3544 Td780.3545) Then
+          0
+        Else
+          (Let Tu67.3546:Unit =
+            (Let Ta781.3547:Array(Float) =
+              (Ext_Array solver_dist)
+            In
+            (Let Ti782.3548:Int =
+              0
+            In
+            (Ta781.3547.(Ti782.3548) <- d2.3541)))
+          In
+          1))))))))))))
+  In
+  (Let Ti783.3453:Int =
+    0
+  In
+  (If (EQ answera.3452 Ti783.3453) Then
+    (Let answerb.3454:Bool =
+      (Let Td784.3498:Float =
+        0.
+      In
+      (Let Td786.3499:Float =
+        (Let Ti785.3537:Int =
+          1
+        In
+        (l.2047.(Ti785.3537)))
+      In
+      (If (EQ Td784.3498 Td786.3499) Then
+        0
+      Else
+        (Let d.3500:Float =
+          (Let Tb792.3529:Bool =
+            (Let Tb787.3532:Bool =
+              (o_isinvert.1990 m.2046)
+            In
+            (Let Ti791.3533:Int =
+              (Let Td788.3534:Float =
+                0.
+              In
+              (Let Td790.3535:Float =
+                (Let Ti789.3536:Int =
+                  1
+                In
+                (l.2047.(Ti789.3536)))
+              In
+              (If (LE Td788.3534 Td790.3535) Then
+                0
+              Else
+                1)))
+            In
+            (xor.1977 Tb787.3532 Ti791.3533)))
+          In
+          (Let Ti793.3530:Int =
+            0
+          In
+          (If (EQ Tb792.3529 Ti793.3530) Then
+            (Let Td794.3531:Float =
+              (o_param_b.1996 m.2046)
+            In
+            (FNeg Td794.3531))
+          Else
+            (o_param_b.1996 m.2046))))
+        In
+        (Let d2.3501:Float =
+          (Let Td798.3523:Float =
+            (Let Td797.3526:Float =
+              (Let Ta795.3527:Array(Float) =
+                (Ext_Array solver_w_vec)
+              In
+              (Let Ti796.3528:Int =
+                1
+              In
+              (Ta795.3527.(Ti796.3528))))
+            In
+            (FSub d.3500 Td797.3526))
+          In
+          (Let Td800.3524:Float =
+            (Let Ti799.3525:Int =
+              1
+            In
+            (l.2047.(Ti799.3525)))
+          In
+          (FDiv Td798.3523 Td800.3524)))
+        In
+        (Let Td801.3502:Float =
+          (o_param_c.1998 m.2046)
+        In
+        (Let Td809.3503:Float =
+          (Let Td808.3516:Float =
+            (Let Td804.3517:Float =
+              (Let Td803.3521:Float =
+                (Let Ti802.3522:Int =
+                  2
+                In
+                (l.2047.(Ti802.3522)))
+              In
+              (FMul d2.3501 Td803.3521))
+            In
+            (Let Td807.3518:Float =
+              (Let Ta805.3519:Array(Float) =
+                (Ext_Array solver_w_vec)
+              In
+              (Let Ti806.3520:Int =
+                2
+              In
+              (Ta805.3519.(Ti806.3520))))
+            In
+            (FAdd Td804.3517 Td807.3518)))
+          In
+          abs_float Td808.3516)
+        In
+        (If (LE Td801.3502 Td809.3503) Then
+          0
+        Else
+          (Let Td810.3504:Float =
+            (o_param_a.1994 m.2046)
+          In
+          (Let Td818.3505:Float =
+            (Let Td817.3509:Float =
+              (Let Td813.3510:Float =
+                (Let Td812.3514:Float =
+                  (Let Ti811.3515:Int =
+                    0
+                  In
+                  (l.2047.(Ti811.3515)))
+                In
+                (FMul d2.3501 Td812.3514))
+              In
+              (Let Td816.3511:Float =
+                (Let Ta814.3512:Array(Float) =
+                  (Ext_Array solver_w_vec)
+                In
+                (Let Ti815.3513:Int =
+                  0
+                In
+                (Ta814.3512.(Ti815.3513))))
+              In
+              (FAdd Td813.3510 Td816.3511)))
+            In
+            abs_float Td817.3509)
+          In
+          (If (LE Td810.3504 Td818.3505) Then
+            0
+          Else
+            (Let Tu68.3506:Unit =
+              (Let Ta819.3507:Array(Float) =
+                (Ext_Array solver_dist)
+              In
+              (Let Ti820.3508:Int =
+                0
+              In
+              (Ta819.3507.(Ti820.3508) <- d2.3501)))
+            In
+            1))))))))))))
+    In
+    (Let Ti821.3455:Int =
+      0
+    In
+    (If (EQ answerb.3454 Ti821.3455) Then
+      (Let answerc.3456:Bool =
+        (Let Td822.3458:Float =
+          0.
+        In
+        (Let Td824.3459:Float =
+          (Let Ti823.3497:Int =
+            2
+          In
+          (l.2047.(Ti823.3497)))
+        In
+        (If (EQ Td822.3458 Td824.3459) Then
+          0
+        Else
+          (Let d.3460:Float =
+            (Let Tb830.3489:Bool =
+              (Let Tb825.3492:Bool =
+                (o_isinvert.1990 m.2046)
+              In
+              (Let Ti829.3493:Int =
+                (Let Td826.3494:Float =
+                  0.
+                In
+                (Let Td828.3495:Float =
+                  (Let Ti827.3496:Int =
+                    2
+                  In
+                  (l.2047.(Ti827.3496)))
+                In
+                (If (LE Td826.3494 Td828.3495) Then
+                  0
+                Else
+                  1)))
+              In
+              (xor.1977 Tb825.3492 Ti829.3493)))
+            In
+            (Let Ti831.3490:Int =
+              0
+            In
+            (If (EQ Tb830.3489 Ti831.3490) Then
+              (Let Td832.3491:Float =
+                (o_param_c.1998 m.2046)
+              In
+              (FNeg Td832.3491))
+            Else
+              (o_param_c.1998 m.2046))))
+          In
+          (Let d2.3461:Float =
+            (Let Td836.3483:Float =
+              (Let Td835.3486:Float =
+                (Let Ta833.3487:Array(Float) =
+                  (Ext_Array solver_w_vec)
+                In
+                (Let Ti834.3488:Int =
+                  2
+                In
+                (Ta833.3487.(Ti834.3488))))
+              In
+              (FSub d.3460 Td835.3486))
+            In
+            (Let Td838.3484:Float =
+              (Let Ti837.3485:Int =
+                2
+              In
+              (l.2047.(Ti837.3485)))
+            In
+            (FDiv Td836.3483 Td838.3484)))
+          In
+          (Let Td839.3462:Float =
+            (o_param_a.1994 m.2046)
+          In
+          (Let Td847.3463:Float =
+            (Let Td846.3476:Float =
+              (Let Td842.3477:Float =
+                (Let Td841.3481:Float =
+                  (Let Ti840.3482:Int =
+                    0
+                  In
+                  (l.2047.(Ti840.3482)))
+                In
+                (FMul d2.3461 Td841.3481))
+              In
+              (Let Td845.3478:Float =
+                (Let Ta843.3479:Array(Float) =
+                  (Ext_Array solver_w_vec)
+                In
+                (Let Ti844.3480:Int =
+                  0
+                In
+                (Ta843.3479.(Ti844.3480))))
+              In
+              (FAdd Td842.3477 Td845.3478)))
+            In
+            abs_float Td846.3476)
+          In
+          (If (LE Td839.3462 Td847.3463) Then
+            0
+          Else
+            (Let Td848.3464:Float =
+              (o_param_b.1996 m.2046)
+            In
+            (Let Td856.3465:Float =
+              (Let Td855.3469:Float =
+                (Let Td851.3470:Float =
+                  (Let Td850.3474:Float =
+                    (Let Ti849.3475:Int =
+                      1
+                    In
+                    (l.2047.(Ti849.3475)))
+                  In
+                  (FMul d2.3461 Td850.3474))
+                In
+                (Let Td854.3471:Float =
+                  (Let Ta852.3472:Array(Float) =
+                    (Ext_Array solver_w_vec)
+                  In
+                  (Let Ti853.3473:Int =
+                    1
+                  In
+                  (Ta852.3472.(Ti853.3473))))
+                In
+                (FAdd Td851.3470 Td854.3471)))
+              In
+              abs_float Td855.3469)
+            In
+            (If (LE Td848.3464 Td856.3465) Then
+              0
+            Else
+              (Let Tu69.3466:Unit =
+                (Let Ta857.3467:Array(Float) =
+                  (Ext_Array solver_dist)
+                In
+                (Let Ti858.3468:Int =
+                  0
+                In
+                (Ta857.3467.(Ti858.3468) <- d2.3461)))
+              In
+              1))))))))))))
+      In
+      (Let Ti859.3457:Int =
+        0
+      In
+      (If (EQ answerc.3456 Ti859.3457) Then
+        0
+      Else
+        3)))
+    Else
+      2)))
+  Else
+    1)))
+In
+(LetRec solver_surface.2048:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Int) m.2049:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) l.2050:Array(Float) =
+  (Let q.3415:Float =
+    (Let Td868.3439:Float =
+      (Let Td863.3444:Float =
+        (Let Td861.3449:Float =
+          (Let Ti860.3451:Int =
+            0
+          In
+          (l.2050.(Ti860.3451)))
+        In
+        (Let Td862.3450:Float =
+          (o_param_a.1994 m.2049)
+        In
+        (FMul Td861.3449 Td862.3450)))
+      In
+      (Let Td867.3445:Float =
+        (Let Td865.3446:Float =
+          (Let Ti864.3448:Int =
+            1
+          In
+          (l.2050.(Ti864.3448)))
+        In
+        (Let Td866.3447:Float =
+          (o_param_b.1996 m.2049)
+        In
+        (FMul Td865.3446 Td866.3447)))
+      In
+      (FAdd Td863.3444 Td867.3445)))
+    In
+    (Let Td872.3440:Float =
+      (Let Td870.3441:Float =
+        (Let Ti869.3443:Int =
+          2
+        In
+        (l.2050.(Ti869.3443)))
+      In
+      (Let Td871.3442:Float =
+        (o_param_c.1998 m.2049)
+      In
+      (FMul Td870.3441 Td871.3442)))
+    In
+    (FAdd Td868.3439 Td872.3440)))
+  In
+  (Let Td873.3416:Float =
+    0.
+  In
+  (If (LE q.3415 Td873.3416) Then
+    0
+  Else
+    (Let t.3417:Float =
+      (Let Td890.3422:Float =
+        (Let Td884.3423:Float =
+          (Let Td878.3429:Float =
+            (Let Td876.3435:Float =
+              (Let Ta874.3437:Array(Float) =
+                (Ext_Array solver_w_vec)
+              In
+              (Let Ti875.3438:Int =
+                0
+              In
+              (Ta874.3437.(Ti875.3438))))
+            In
+            (Let Td877.3436:Float =
+              (o_param_a.1994 m.2049)
+            In
+            (FMul Td876.3435 Td877.3436)))
+          In
+          (Let Td883.3430:Float =
+            (Let Td881.3431:Float =
+              (Let Ta879.3433:Array(Float) =
+                (Ext_Array solver_w_vec)
+              In
+              (Let Ti880.3434:Int =
+                1
+              In
+              (Ta879.3433.(Ti880.3434))))
+            In
+            (Let Td882.3432:Float =
+              (o_param_b.1996 m.2049)
+            In
+            (FMul Td881.3431 Td882.3432)))
+          In
+          (FAdd Td878.3429 Td883.3430)))
+        In
+        (Let Td889.3424:Float =
+          (Let Td887.3425:Float =
+            (Let Ta885.3427:Array(Float) =
+              (Ext_Array solver_w_vec)
+            In
+            (Let Ti886.3428:Int =
+              2
+            In
+            (Ta885.3427.(Ti886.3428))))
+          In
+          (Let Td888.3426:Float =
+            (o_param_c.1998 m.2049)
+          In
+          (FMul Td887.3425 Td888.3426)))
+        In
+        (FAdd Td884.3423 Td889.3424)))
+      In
+      (FDiv Td890.3422 q.3415))
+    In
+    (Let Tu70.3418:Unit =
+      (Let Ta891.3419:Array(Float) =
+        (Ext_Array solver_dist)
+      In
+      (Let Ti892.3420:Int =
+        0
+      In
+      (Let Td893.3421:Float =
+        (FNeg t.3417)
+      In
+      (Ta891.3419.(Ti892.3420) <- Td893.3421))))
+    In
+    1)))))
+In
+(LetRec in_prod_sqr_obj.2051:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Float) m.2052:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) v.2053:Array(Float) =
+  (Let Td904.3399:Float =
+    (Let Td898.3405:Float =
+      (Let Td896.3411:Float =
+        (Let Td895.3413:Float =
+          (Let Ti894.3414:Int =
+            0
+          In
+          (v.2053.(Ti894.3414)))
+        In
+        (fsqr.1980 Td895.3413))
+      In
+      (Let Td897.3412:Float =
+        (o_param_a.1994 m.2052)
+      In
+      (FMul Td896.3411 Td897.3412)))
+    In
+    (Let Td903.3406:Float =
+      (Let Td901.3407:Float =
+        (Let Td900.3409:Float =
+          (Let Ti899.3410:Int =
+            1
+          In
+          (v.2053.(Ti899.3410)))
+        In
+        (fsqr.1980 Td900.3409))
+      In
+      (Let Td902.3408:Float =
+        (o_param_b.1996 m.2052)
+      In
+      (FMul Td901.3407 Td902.3408)))
+    In
+    (FAdd Td898.3405 Td903.3406)))
+  In
+  (Let Td909.3400:Float =
+    (Let Td907.3401:Float =
+      (Let Td906.3403:Float =
+        (Let Ti905.3404:Int =
+          2
+        In
+        (v.2053.(Ti905.3404)))
+      In
+      (fsqr.1980 Td906.3403))
+    In
+    (Let Td908.3402:Float =
+      (o_param_c.1998 m.2052)
+    In
+    (FMul Td907.3401 Td908.3402)))
+  In
+  (FAdd Td904.3399 Td909.3400)))
+In
+(LetRec in_prod_co_objrot.2054:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Float) m.2055:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) v.2056:Array(Float) =
+  (Let Td924.3377:Float =
+    (Let Td916.3385:Float =
+      (Let Td914.3393:Float =
+        (Let Td911.3395:Float =
+          (Let Ti910.3398:Int =
+            1
+          In
+          (v.2056.(Ti910.3398)))
+        In
+        (Let Td913.3396:Float =
+          (Let Ti912.3397:Int =
+            2
+          In
+          (v.2056.(Ti912.3397)))
+        In
+        (FMul Td911.3395 Td913.3396)))
+      In
+      (Let Td915.3394:Float =
+        (o_param_r1.2016 m.2055)
+      In
+      (FMul Td914.3393 Td915.3394)))
+    In
+    (Let Td923.3386:Float =
+      (Let Td921.3387:Float =
+        (Let Td918.3389:Float =
+          (Let Ti917.3392:Int =
+            0
+          In
+          (v.2056.(Ti917.3392)))
+        In
+        (Let Td920.3390:Float =
+          (Let Ti919.3391:Int =
+            2
+          In
+          (v.2056.(Ti919.3391)))
+        In
+        (FMul Td918.3389 Td920.3390)))
+      In
+      (Let Td922.3388:Float =
+        (o_param_r2.2018 m.2055)
+      In
+      (FMul Td921.3387 Td922.3388)))
+    In
+    (FAdd Td916.3385 Td923.3386)))
+  In
+  (Let Td931.3378:Float =
+    (Let Td929.3379:Float =
+      (Let Td926.3381:Float =
+        (Let Ti925.3384:Int =
+          0
+        In
+        (v.2056.(Ti925.3384)))
+      In
+      (Let Td928.3382:Float =
+        (Let Ti927.3383:Int =
+          1
+        In
+        (v.2056.(Ti927.3383)))
+      In
+      (FMul Td926.3381 Td928.3382)))
+    In
+    (Let Td930.3380:Float =
+      (o_param_r3.2020 m.2055)
+    In
+    (FMul Td929.3379 Td930.3380)))
+  In
+  (FAdd Td924.3377 Td931.3378)))
+In
+(LetRec solver2nd_mul_b.2057:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Float) m.2058:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) l.2059:Array(Float) =
+  (Let Td948.3352:Float =
+    (Let Td939.3361:Float =
+      (Let Td937.3370:Float =
+        (Let Td934.3372:Float =
+          (Let Ta932.3375:Array(Float) =
+            (Ext_Array solver_w_vec)
+          In
+          (Let Ti933.3376:Int =
+            0
+          In
+          (Ta932.3375.(Ti933.3376))))
+        In
+        (Let Td936.3373:Float =
+          (Let Ti935.3374:Int =
+            0
+          In
+          (l.2059.(Ti935.3374)))
+        In
+        (FMul Td934.3372 Td936.3373)))
+      In
+      (Let Td938.3371:Float =
+        (o_param_a.1994 m.2058)
+      In
+      (FMul Td937.3370 Td938.3371)))
+    In
+    (Let Td947.3362:Float =
+      (Let Td945.3363:Float =
+        (Let Td942.3365:Float =
+          (Let Ta940.3368:Array(Float) =
+            (Ext_Array solver_w_vec)
+          In
+          (Let Ti941.3369:Int =
+            1
+          In
+          (Ta940.3368.(Ti941.3369))))
+        In
+        (Let Td944.3366:Float =
+          (Let Ti943.3367:Int =
+            1
+          In
+          (l.2059.(Ti943.3367)))
+        In
+        (FMul Td942.3365 Td944.3366)))
+      In
+      (Let Td946.3364:Float =
+        (o_param_b.1996 m.2058)
+      In
+      (FMul Td945.3363 Td946.3364)))
+    In
+    (FAdd Td939.3361 Td947.3362)))
+  In
+  (Let Td956.3353:Float =
+    (Let Td954.3354:Float =
+      (Let Td951.3356:Float =
+        (Let Ta949.3359:Array(Float) =
+          (Ext_Array solver_w_vec)
+        In
+        (Let Ti950.3360:Int =
+          2
+        In
+        (Ta949.3359.(Ti950.3360))))
+      In
+      (Let Td953.3357:Float =
+        (Let Ti952.3358:Int =
+          2
+        In
+        (l.2059.(Ti952.3358)))
+      In
+      (FMul Td951.3356 Td953.3357)))
+    In
+    (Let Td955.3355:Float =
+      (o_param_c.1998 m.2058)
+    In
+    (FMul Td954.3354 Td955.3355)))
+  In
+  (FAdd Td948.3352 Td956.3353)))
+In
+(LetRec solver2nd_rot_b.2060:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Float) m.2061:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) l.2062:Array(Float) =
+  (Let Td987.3306:Float =
+    (Let Td971.3322:Float =
+      (Let Td969.3338:Float =
+        (Let Td962.3340:Float =
+          (Let Td959.3347:Float =
+            (Let Ta957.3350:Array(Float) =
+              (Ext_Array solver_w_vec)
+            In
+            (Let Ti958.3351:Int =
+              2
+            In
+            (Ta957.3350.(Ti958.3351))))
+          In
+          (Let Td961.3348:Float =
+            (Let Ti960.3349:Int =
+              1
+            In
+            (l.2062.(Ti960.3349)))
+          In
+          (FMul Td959.3347 Td961.3348)))
+        In
+        (Let Td968.3341:Float =
+          (Let Td965.3342:Float =
+            (Let Ta963.3345:Array(Float) =
+              (Ext_Array solver_w_vec)
+            In
+            (Let Ti964.3346:Int =
+              1
+            In
+            (Ta963.3345.(Ti964.3346))))
+          In
+          (Let Td967.3343:Float =
+            (Let Ti966.3344:Int =
+              2
+            In
+            (l.2062.(Ti966.3344)))
+          In
+          (FMul Td965.3342 Td967.3343)))
+        In
+        (FAdd Td962.3340 Td968.3341)))
+      In
+      (Let Td970.3339:Float =
+        (o_param_r1.2016 m.2061)
+      In
+      (FMul Td969.3338 Td970.3339)))
+    In
+    (Let Td986.3323:Float =
+      (Let Td984.3324:Float =
+        (Let Td977.3326:Float =
+          (Let Td974.3333:Float =
+            (Let Ta972.3336:Array(Float) =
+              (Ext_Array solver_w_vec)
+            In
+            (Let Ti973.3337:Int =
+              0
+            In
+            (Ta972.3336.(Ti973.3337))))
+          In
+          (Let Td976.3334:Float =
+            (Let Ti975.3335:Int =
+              2
+            In
+            (l.2062.(Ti975.3335)))
+          In
+          (FMul Td974.3333 Td976.3334)))
+        In
+        (Let Td983.3327:Float =
+          (Let Td980.3328:Float =
+            (Let Ta978.3331:Array(Float) =
+              (Ext_Array solver_w_vec)
+            In
+            (Let Ti979.3332:Int =
+              2
+            In
+            (Ta978.3331.(Ti979.3332))))
+          In
+          (Let Td982.3329:Float =
+            (Let Ti981.3330:Int =
+              0
+            In
+            (l.2062.(Ti981.3330)))
+          In
+          (FMul Td980.3328 Td982.3329)))
+        In
+        (FAdd Td977.3326 Td983.3327)))
+      In
+      (Let Td985.3325:Float =
+        (o_param_r2.2018 m.2061)
+      In
+      (FMul Td984.3324 Td985.3325)))
+    In
+    (FAdd Td971.3322 Td986.3323)))
+  In
+  (Let Td1002.3307:Float =
+    (Let Td1000.3308:Float =
+      (Let Td993.3310:Float =
+        (Let Td990.3317:Float =
+          (Let Ta988.3320:Array(Float) =
+            (Ext_Array solver_w_vec)
+          In
+          (Let Ti989.3321:Int =
+            0
+          In
+          (Ta988.3320.(Ti989.3321))))
+        In
+        (Let Td992.3318:Float =
+          (Let Ti991.3319:Int =
+            1
+          In
+          (l.2062.(Ti991.3319)))
+        In
+        (FMul Td990.3317 Td992.3318)))
+      In
+      (Let Td999.3311:Float =
+        (Let Td996.3312:Float =
+          (Let Ta994.3315:Array(Float) =
+            (Ext_Array solver_w_vec)
+          In
+          (Let Ti995.3316:Int =
+            1
+          In
+          (Ta994.3315.(Ti995.3316))))
+        In
+        (Let Td998.3313:Float =
+          (Let Ti997.3314:Int =
+            0
+          In
+          (l.2062.(Ti997.3314)))
+        In
+        (FMul Td996.3312 Td998.3313)))
+      In
+      (FAdd Td993.3310 Td999.3311)))
+    In
+    (Let Td1001.3309:Float =
+      (o_param_r3.2020 m.2061)
+    In
+    (FMul Td1000.3308 Td1001.3309)))
+  In
+  (FAdd Td987.3306 Td1002.3307)))
+In
+(LetRec solver_second.2063:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Int) m.2064:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) l.2065:Array(Float) =
+  (Let aa0.3265:Float =
+    (in_prod_sqr_obj.2051 m.2064 l.2065)
+  In
+  (Let aa.3266:Float =
+    (Let Ti1003.3303:Int =
+      (o_isrot.1992 m.2064)
+    In
+    (Let Ti1004.3304:Int =
+      0
+    In
+    (If (EQ Ti1003.3303 Ti1004.3304) Then
+      aa0.3265
+    Else
+      (Let Td1005.3305:Float =
+        (in_prod_co_objrot.2054 m.2064 l.2065)
+      In
+      (FAdd aa0.3265 Td1005.3305)))))
+  In
+  (Let Td1006.3267:Float =
+    0.
+  In
+  (If (EQ Td1006.3267 aa.3266) Then
+    0
+  Else
+    (Let bb0.3268:Float =
+      (Let Td1007.3301:Float =
+        2.
+      In
+      (Let Td1008.3302:Float =
+        (solver2nd_mul_b.2057 m.2064 l.2065)
+      In
+      (FMul Td1007.3301 Td1008.3302)))
+    In
+    (Let bb.3269:Float =
+      (Let Ti1009.3298:Int =
+        (o_isrot.1992 m.2064)
+      In
+      (Let Ti1010.3299:Int =
+        0
+      In
+      (If (EQ Ti1009.3298 Ti1010.3299) Then
+        bb0.3268
+      Else
+        (Let Td1011.3300:Float =
+          (solver2nd_rot_b.2060 m.2064 l.2065)
+        In
+        (FAdd bb0.3268 Td1011.3300)))))
+    In
+    (Let cc0.3270:Float =
+      (Let Ta1012.3297:Array(Float) =
+        (Ext_Array solver_w_vec)
+      In
+      (in_prod_sqr_obj.2051 m.2064 Ta1012.3297))
+    In
+    (Let cc1.3271:Float =
+      (Let Ti1013.3293:Int =
+        (o_isrot.1992 m.2064)
+      In
+      (Let Ti1014.3294:Int =
+        0
+      In
+      (If (EQ Ti1013.3293 Ti1014.3294) Then
+        cc0.3270
+      Else
+        (Let Td1016.3295:Float =
+          (Let Ta1015.3296:Array(Float) =
+            (Ext_Array solver_w_vec)
+          In
+          (in_prod_co_objrot.2054 m.2064 Ta1015.3296))
+        In
+        (FAdd cc0.3270 Td1016.3295)))))
+    In
+    (Let cc.3272:Float =
+      (Let Ti1017.3290:Int =
+        (o_form.1986 m.2064)
+      In
+      (Let Ti1018.3291:Int =
+        3
+      In
+      (If (EQ Ti1017.3290 Ti1018.3291) Then
+        (Let Td1019.3292:Float =
+          1.
+        In
+        (FSub cc1.3271 Td1019.3292))
+      Else
+        cc1.3271)))
+    In
+    (Let d.3273:Float =
+      (Let d2.3286:Float =
+        (Let Td1021.3288:Float =
+          (Let Td1020.3289:Float =
+            4.
+          In
+          (FMul Td1020.3289 aa.3266))
+        In
+        (FMul Td1021.3288 cc.3272))
+      In
+      (Let Td1022.3287:Float =
+        (fsqr.1980 bb.3269)
+      In
+      (FSub Td1022.3287 d2.3286)))
+    In
+    (Let Td1023.3274:Float =
+      0.
+    In
+    (If (LE d.3273 Td1023.3274) Then
+      0
+    Else
+      (Let sd.3275:Float =
+        sqrt d.3273
+      In
+      (Let t1.3276:Float =
+        (Let Tb1024.3284:Bool =
+          (o_isinvert.1990 m.2064)
+        In
+        (Let Ti1025.3285:Int =
+          0
+        In
+        (If (EQ Tb1024.3284 Ti1025.3285) Then
+          (FNeg sd.3275)
+        Else
+          sd.3275)))
+      In
+      (Let Tu71.3277:Unit =
+        (Let Ta1026.3278:Array(Float) =
+          (Ext_Array solver_dist)
+        In
+        (Let Ti1027.3279:Int =
+          0
+        In
+        (Let Td1031.3280:Float =
+          (Let Td1030.3281:Float =
+            (Let Td1028.3282:Float =
+              (FSub t1.3276 bb.3269)
+            In
+            (Let Td1029.3283:Float =
+              2.
+            In
+            (FDiv Td1028.3282 Td1029.3283)))
+          In
+          (FDiv Td1030.3281 aa.3266))
+        In
+        (Ta1026.3278.(Ti1027.3279) <- Td1031.3280))))
+      In
+      1)))))))))))))))
+In
+(LetRec solver.2066:(Int -> Array(Float) -> Array(Float) -> Int) index.2067:Int l.2068:Array(Float) p.2069:Array(Float) =
+  (Let m.3239:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+    (Let Ta1032.3264:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+      (Ext_Array objects)
+    In
+    (Ta1032.3264.(index.2067)))
+  In
+  (Let Tu74.3240:Unit =
+    (Let Ta1033.3258:Array(Float) =
+      (Ext_Array solver_w_vec)
+    In
+    (Let Ti1034.3259:Int =
+      0
+    In
+    (Let Td1038.3260:Float =
+      (Let Td1036.3261:Float =
+        (Let Ti1035.3263:Int =
+          0
+        In
+        (p.2069.(Ti1035.3263)))
+      In
+      (Let Td1037.3262:Float =
+        (o_param_x.2000 m.3239)
+      In
+      (FSub Td1036.3261 Td1037.3262)))
+    In
+    (Ta1033.3258.(Ti1034.3259) <- Td1038.3260))))
+  In
+  (Let Tu73.3241:Unit =
+    (Let Ta1039.3252:Array(Float) =
+      (Ext_Array solver_w_vec)
+    In
+    (Let Ti1040.3253:Int =
+      1
+    In
+    (Let Td1044.3254:Float =
+      (Let Td1042.3255:Float =
+        (Let Ti1041.3257:Int =
+          1
+        In
+        (p.2069.(Ti1041.3257)))
+      In
+      (Let Td1043.3256:Float =
+        (o_param_y.2002 m.3239)
+      In
+      (FSub Td1042.3255 Td1043.3256)))
+    In
+    (Ta1039.3252.(Ti1040.3253) <- Td1044.3254))))
+  In
+  (Let Tu72.3242:Unit =
+    (Let Ta1045.3246:Array(Float) =
+      (Ext_Array solver_w_vec)
+    In
+    (Let Ti1046.3247:Int =
+      2
+    In
+    (Let Td1050.3248:Float =
+      (Let Td1048.3249:Float =
+        (Let Ti1047.3251:Int =
+          2
+        In
+        (p.2069.(Ti1047.3251)))
+      In
+      (Let Td1049.3250:Float =
+        (o_param_z.2004 m.3239)
+      In
+      (FSub Td1048.3249 Td1049.3250)))
+    In
+    (Ta1045.3246.(Ti1046.3247) <- Td1050.3248))))
+  In
+  (Let m_shape.3243:Int =
+    (o_form.1986 m.3239)
+  In
+  (Let Ti1051.3244:Int =
+    1
+  In
+  (If (EQ m_shape.3243 Ti1051.3244) Then
+    (solver_rect.2045 m.3239 l.2068)
+  Else
+    (Let Ti1052.3245:Int =
+      2
+    In
+    (If (EQ m_shape.3243 Ti1052.3245) Then
+      (solver_surface.2048 m.3239 l.2068)
+    Else
+      (solver_second.2063 m.3239 l.2068))))))))))
+In
+(LetRec is_rect_outside.2070:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Bool) m.2071:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let Ti1068.3220:Int =
+    (Let Td1053.3224:Float =
+      (o_param_a.1994 m.2071)
+    In
+    (Let Td1057.3225:Float =
+      (Let Td1056.3236:Float =
+        (Let Ta1054.3237:Array(Float) =
+          (Ext_Array isoutside_q)
+        In
+        (Let Ti1055.3238:Int =
+          0
+        In
+        (Ta1054.3237.(Ti1055.3238))))
+      In
+      abs_float Td1056.3236)
+    In
+    (If (LE Td1053.3224 Td1057.3225) Then
+      0
+    Else
+      (Let Td1058.3226:Float =
+        (o_param_b.1996 m.2071)
+      In
+      (Let Td1062.3227:Float =
+        (Let Td1061.3233:Float =
+          (Let Ta1059.3234:Array(Float) =
+            (Ext_Array isoutside_q)
+          In
+          (Let Ti1060.3235:Int =
+            1
+          In
+          (Ta1059.3234.(Ti1060.3235))))
+        In
+        abs_float Td1061.3233)
+      In
+      (If (LE Td1058.3226 Td1062.3227) Then
+        0
+      Else
+        (Let Td1063.3228:Float =
+          (o_param_c.1998 m.2071)
+        In
+        (Let Td1067.3229:Float =
+          (Let Td1066.3230:Float =
+            (Let Ta1064.3231:Array(Float) =
+              (Ext_Array isoutside_q)
+            In
+            (Let Ti1065.3232:Int =
+              2
+            In
+            (Ta1064.3231.(Ti1065.3232))))
+          In
+          abs_float Td1066.3230)
+        In
+        (If (LE Td1063.3228 Td1067.3229) Then
+          0
+        Else
+          1)))))))))
+  In
+  (Let Ti1069.3221:Int =
+    0
+  In
+  (If (EQ Ti1068.3220 Ti1069.3221) Then
+    (Let Tb1070.3222:Bool =
+      (o_isinvert.1990 m.2071)
+    In
+    (Let Ti1071.3223:Int =
+      0
+    In
+    (If (EQ Tb1070.3222 Ti1071.3223) Then
+      1
+    Else
+      0)))
+  Else
+    (o_isinvert.1990 m.2071))))
+In
+(LetRec is_plane_outside.2072:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Bool) m.2073:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let w.3198:Float =
+    (Let Td1082.3204:Float =
+      (Let Td1076.3210:Float =
+        (Let Td1072.3216:Float =
+          (o_param_a.1994 m.2073)
+        In
+        (Let Td1075.3217:Float =
+          (Let Ta1073.3218:Array(Float) =
+            (Ext_Array isoutside_q)
+          In
+          (Let Ti1074.3219:Int =
+            0
+          In
+          (Ta1073.3218.(Ti1074.3219))))
+        In
+        (FMul Td1072.3216 Td1075.3217)))
+      In
+      (Let Td1081.3211:Float =
+        (Let Td1077.3212:Float =
+          (o_param_b.1996 m.2073)
+        In
+        (Let Td1080.3213:Float =
+          (Let Ta1078.3214:Array(Float) =
+            (Ext_Array isoutside_q)
+          In
+          (Let Ti1079.3215:Int =
+            1
+          In
+          (Ta1078.3214.(Ti1079.3215))))
+        In
+        (FMul Td1077.3212 Td1080.3213)))
+      In
+      (FAdd Td1076.3210 Td1081.3211)))
+    In
+    (Let Td1087.3205:Float =
+      (Let Td1083.3206:Float =
+        (o_param_c.1998 m.2073)
+      In
+      (Let Td1086.3207:Float =
+        (Let Ta1084.3208:Array(Float) =
+          (Ext_Array isoutside_q)
+        In
+        (Let Ti1085.3209:Int =
+          2
+        In
+        (Ta1084.3208.(Ti1085.3209))))
+      In
+      (FMul Td1083.3206 Td1086.3207)))
+    In
+    (FAdd Td1082.3204 Td1087.3205)))
+  In
+  (Let s.3199:Bool =
+    (Let Td1088.3203:Float =
+      0.
+    In
+    (If (LE Td1088.3203 w.3198) Then
+      0
+    Else
+      1))
+  In
+  (Let Tb1090.3200:Bool =
+    (Let Tb1089.3202:Bool =
+      (o_isinvert.1990 m.2073)
+    In
+    (xor.1977 Tb1089.3202 s.3199))
+  In
+  (Let Ti1091.3201:Int =
+    0
+  In
+  (If (EQ Tb1090.3200 Ti1091.3201) Then
+    1
+  Else
+    0)))))
+In
+(LetRec is_second_outside.2074:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Bool) m.2075:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let w.3182:Float =
+    (Let Ta1092.3197:Array(Float) =
+      (Ext_Array isoutside_q)
+    In
+    (in_prod_sqr_obj.2051 m.2075 Ta1092.3197))
+  In
+  (Let w2.3183:Float =
+    (Let Ti1093.3194:Int =
+      (o_form.1986 m.2075)
+    In
+    (Let Ti1094.3195:Int =
+      3
+    In
+    (If (EQ Ti1093.3194 Ti1094.3195) Then
+      (Let Td1095.3196:Float =
+        1.
+      In
+      (FSub w.3182 Td1095.3196))
+    Else
+      w.3182)))
+  In
+  (Let w3.3184:Float =
+    (Let Ti1096.3190:Int =
+      (o_isrot.1992 m.2075)
+    In
+    (Let Ti1097.3191:Int =
+      0
+    In
+    (If (EQ Ti1096.3190 Ti1097.3191) Then
+      w2.3183
+    Else
+      (Let Td1099.3192:Float =
+        (Let Ta1098.3193:Array(Float) =
+          (Ext_Array isoutside_q)
+        In
+        (in_prod_co_objrot.2054 m.2075 Ta1098.3193))
+      In
+      (FAdd w2.3183 Td1099.3192)))))
+  In
+  (Let s.3185:Bool =
+    (Let Td1100.3189:Float =
+      0.
+    In
+    (If (LE Td1100.3189 w3.3184) Then
+      0
+    Else
+      1))
+  In
+  (Let Tb1102.3186:Bool =
+    (Let Tb1101.3188:Bool =
+      (o_isinvert.1990 m.2075)
+    In
+    (xor.1977 Tb1101.3188 s.3185))
+  In
+  (Let Ti1103.3187:Int =
+    0
+  In
+  (If (EQ Tb1102.3186 Ti1103.3187) Then
+    1
+  Else
+    0)))))))
+In
+(LetRec is_outside.2076:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Bool) m.2077:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let Tu77.3155:Unit =
+    (Let Ta1104.3175:Array(Float) =
+      (Ext_Array isoutside_q)
+    In
+    (Let Ti1105.3176:Int =
+      0
+    In
+    (Let Td1110.3177:Float =
+      (Let Td1108.3178:Float =
+        (Let Ta1106.3180:Array(Float) =
+          (Ext_Array chkinside_p)
+        In
+        (Let Ti1107.3181:Int =
+          0
+        In
+        (Ta1106.3180.(Ti1107.3181))))
+      In
+      (Let Td1109.3179:Float =
+        (o_param_x.2000 m.2077)
+      In
+      (FSub Td1108.3178 Td1109.3179)))
+    In
+    (Ta1104.3175.(Ti1105.3176) <- Td1110.3177))))
+  In
+  (Let Tu76.3156:Unit =
+    (Let Ta1111.3168:Array(Float) =
+      (Ext_Array isoutside_q)
+    In
+    (Let Ti1112.3169:Int =
+      1
+    In
+    (Let Td1117.3170:Float =
+      (Let Td1115.3171:Float =
+        (Let Ta1113.3173:Array(Float) =
+          (Ext_Array chkinside_p)
+        In
+        (Let Ti1114.3174:Int =
+          1
+        In
+        (Ta1113.3173.(Ti1114.3174))))
+      In
+      (Let Td1116.3172:Float =
+        (o_param_y.2002 m.2077)
+      In
+      (FSub Td1115.3171 Td1116.3172)))
+    In
+    (Ta1111.3168.(Ti1112.3169) <- Td1117.3170))))
+  In
+  (Let Tu75.3157:Unit =
+    (Let Ta1118.3161:Array(Float) =
+      (Ext_Array isoutside_q)
+    In
+    (Let Ti1119.3162:Int =
+      2
+    In
+    (Let Td1124.3163:Float =
+      (Let Td1122.3164:Float =
+        (Let Ta1120.3166:Array(Float) =
+          (Ext_Array chkinside_p)
+        In
+        (Let Ti1121.3167:Int =
+          2
+        In
+        (Ta1120.3166.(Ti1121.3167))))
+      In
+      (Let Td1123.3165:Float =
+        (o_param_z.2004 m.2077)
+      In
+      (FSub Td1122.3164 Td1123.3165)))
+    In
+    (Ta1118.3161.(Ti1119.3162) <- Td1124.3163))))
+  In
+  (Let m_shape.3158:Int =
+    (o_form.1986 m.2077)
+  In
+  (Let Ti1125.3159:Int =
+    1
+  In
+  (If (EQ m_shape.3158 Ti1125.3159) Then
+    (is_rect_outside.2070 m.2077)
+  Else
+    (Let Ti1126.3160:Int =
+      2
+    In
+    (If (EQ m_shape.3158 Ti1126.3160) Then
+      (is_plane_outside.2072 m.2077)
+    Else
+      (is_second_outside.2074 m.2077)))))))))
+In
+(LetRec check_all_inside.2078:(Int -> Array(Int) -> Bool) ofs.2079:Int iand.2080:Array(Int) =
+  (Let head.3146:Int =
+    (iand.2080.(ofs.2079))
+  In
+  (Let Ti1128.3147:Int =
+    (Let Ti1127.3154:Int =
+      1
+    In
+    (Neg Ti1127.3154))
+  In
+  (If (EQ head.3146 Ti1128.3147) Then
+    1
+  Else
+    (Let Tb1131.3148:Bool =
+      (Let Tt1130.3152:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+        (Let Ta1129.3153:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+          (Ext_Array objects)
+        In
+        (Ta1129.3153.(head.3146)))
+      In
+      (is_outside.2076 Tt1130.3152))
+    In
+    (Let Ti1132.3149:Int =
+      0
+    In
+    (If (EQ Tb1131.3148 Ti1132.3149) Then
+      (Let Ti1134.3150:Int =
+        (Let Ti1133.3151:Int =
+          1
+        In
+        (Add ofs.2079 Ti1133.3151))
+      In
+      (check_all_inside.2078 Ti1134.3150 iand.2080))
+    Else
+      0))))))
+In
+(LetRec shadow_check_and_group.2081:(Int -> Array(Int) -> Array(Float) -> Bool) iand_ofs.2082:Int and_group.2083:Array(Int) p.2084:Array(Float) =
+  (Let Ti1135.3090:Int =
+    (and_group.2083.(iand_ofs.2082))
+  In
+  (Let Ti1137.3091:Int =
+    (Let Ti1136.3145:Int =
+      1
+    In
+    (Neg Ti1136.3145))
+  In
+  (If (EQ Ti1135.3090 Ti1137.3091) Then
+    0
+  Else
+    (Let obj.3092:Int =
+      (and_group.2083.(iand_ofs.2082))
+    In
+    (Let t0.3093:Int =
+      (Let Ta1138.3144:Array(Float) =
+        (Ext_Array light)
+      In
+      (solver.2066 obj.3092 Ta1138.3144 p.2084))
+    In
+    (Let t0p.3094:Float =
+      (Let Ta1139.3142:Array(Float) =
+        (Ext_Array solver_dist)
+      In
+      (Let Ti1140.3143:Int =
+        0
+      In
+      (Ta1139.3142.(Ti1140.3143))))
+    In
+    (Let Ti1143.3095:Int =
+      (Let Ti1141.3140:Int =
+        0
+      In
+      (If (EQ t0.3093 Ti1141.3140) Then
+        0
+      Else
+        (Let Td1142.3141:Float =
+          -0.2
+        In
+        (If (LE Td1142.3141 t0p.3094) Then
+          0
+        Else
+          1))))
+    In
+    (Let Ti1144.3096:Int =
+      0
+    In
+    (If (EQ Ti1143.3095 Ti1144.3096) Then
+      (Let Tb1147.3134:Bool =
+        (Let Tt1146.3138:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+          (Let Ta1145.3139:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+            (Ext_Array objects)
+          In
+          (Ta1145.3139.(obj.3092)))
+        In
+        (o_isinvert.1990 Tt1146.3138))
+      In
+      (Let Ti1148.3135:Int =
+        0
+      In
+      (If (EQ Tb1147.3134 Ti1148.3135) Then
+        0
+      Else
+        (Let Ti1150.3136:Int =
+          (Let Ti1149.3137:Int =
+            1
+          In
+          (Add iand_ofs.2082 Ti1149.3137))
+        In
+        (shadow_check_and_group.2081 Ti1150.3136 and_group.2083 p.2084)))))
+    Else
+      (Let t.3097:Float =
+        (Let Td1151.3133:Float =
+          0.01
+        In
+        (FAdd t0p.3094 Td1151.3133))
+      In
+      (Let Tu80.3098:Unit =
+        (Let Ta1152.3124:Array(Float) =
+          (Ext_Array chkinside_p)
+        In
+        (Let Ti1153.3125:Int =
+          0
+        In
+        (Let Td1160.3126:Float =
+          (Let Td1157.3127:Float =
+            (Let Td1156.3130:Float =
+              (Let Ta1154.3131:Array(Float) =
+                (Ext_Array light)
+              In
+              (Let Ti1155.3132:Int =
+                0
+              In
+              (Ta1154.3131.(Ti1155.3132))))
+            In
+            (FMul Td1156.3130 t.3097))
+          In
+          (Let Td1159.3128:Float =
+            (Let Ti1158.3129:Int =
+              0
+            In
+            (p.2084.(Ti1158.3129)))
+          In
+          (FAdd Td1157.3127 Td1159.3128)))
+        In
+        (Ta1152.3124.(Ti1153.3125) <- Td1160.3126))))
+      In
+      (Let Tu79.3099:Unit =
+        (Let Ta1161.3115:Array(Float) =
+          (Ext_Array chkinside_p)
+        In
+        (Let Ti1162.3116:Int =
+          1
+        In
+        (Let Td1169.3117:Float =
+          (Let Td1166.3118:Float =
+            (Let Td1165.3121:Float =
+              (Let Ta1163.3122:Array(Float) =
+                (Ext_Array light)
+              In
+              (Let Ti1164.3123:Int =
+                1
+              In
+              (Ta1163.3122.(Ti1164.3123))))
+            In
+            (FMul Td1165.3121 t.3097))
+          In
+          (Let Td1168.3119:Float =
+            (Let Ti1167.3120:Int =
+              1
+            In
+            (p.2084.(Ti1167.3120)))
+          In
+          (FAdd Td1166.3118 Td1168.3119)))
+        In
+        (Ta1161.3115.(Ti1162.3116) <- Td1169.3117))))
+      In
+      (Let Tu78.3100:Unit =
+        (Let Ta1170.3106:Array(Float) =
+          (Ext_Array chkinside_p)
+        In
+        (Let Ti1171.3107:Int =
+          2
+        In
+        (Let Td1178.3108:Float =
+          (Let Td1175.3109:Float =
+            (Let Td1174.3112:Float =
+              (Let Ta1172.3113:Array(Float) =
+                (Ext_Array light)
+              In
+              (Let Ti1173.3114:Int =
+                2
+              In
+              (Ta1172.3113.(Ti1173.3114))))
+            In
+            (FMul Td1174.3112 t.3097))
+          In
+          (Let Td1177.3110:Float =
+            (Let Ti1176.3111:Int =
+              2
+            In
+            (p.2084.(Ti1176.3111)))
+          In
+          (FAdd Td1175.3109 Td1177.3110)))
+        In
+        (Ta1170.3106.(Ti1171.3107) <- Td1178.3108))))
+      In
+      (Let Tb1180.3101:Bool =
+        (Let Ti1179.3105:Int =
+          0
+        In
+        (check_all_inside.2078 Ti1179.3105 and_group.2083))
+      In
+      (Let Ti1181.3102:Int =
+        0
+      In
+      (If (EQ Tb1180.3101 Ti1181.3102) Then
+        (Let Ti1183.3103:Int =
+          (Let Ti1182.3104:Int =
+            1
+          In
+          (Add iand_ofs.2082 Ti1182.3104))
+        In
+        (shadow_check_and_group.2081 Ti1183.3103 and_group.2083 p.2084))
+      Else
+        1))))))))))))))))
+In
+(LetRec shadow_check_one_or_group.2085:(Int -> Array(Int) -> Array(Float) -> Bool) ofs.2086:Int or_group.2087:Array(Int) p.2088:Array(Float) =
+  (Let head.3080:Int =
+    (or_group.2087.(ofs.2086))
+  In
+  (Let Ti1185.3081:Int =
+    (Let Ti1184.3089:Int =
+      1
+    In
+    (Neg Ti1184.3089))
+  In
+  (If (EQ head.3080 Ti1185.3081) Then
+    0
+  Else
+    (Let and_group.3082:Array(Int) =
+      (Let Ta1186.3088:Array(Array(Int)) =
+        (Ext_Array and_net)
+      In
+      (Ta1186.3088.(head.3080)))
+    In
+    (Let shadow_p.3083:Bool =
+      (Let Ti1187.3087:Int =
+        0
+      In
+      (shadow_check_and_group.2081 Ti1187.3087 and_group.3082 p.2088))
+    In
+    (Let Ti1188.3084:Int =
+      0
+    In
+    (If (EQ shadow_p.3083 Ti1188.3084) Then
+      (Let Ti1190.3085:Int =
+        (Let Ti1189.3086:Int =
+          1
+        In
+        (Add ofs.2086 Ti1189.3086))
+      In
+      (shadow_check_one_or_group.2085 Ti1190.3085 or_group.2087 p.2088))
+    Else
+      1)))))))
+In
+(LetRec shadow_check_one_or_matrix.2089:(Int -> Array(Array(Int)) -> Array(Float) -> Bool) ofs.2090:Int or_matrix.2091:Array(Array(Int)) p.2092:Array(Float) =
+  (Let head.3053:Array(Int) =
+    (or_matrix.2091.(ofs.2090))
+  In
+  (Let range_primitive.3054:Int =
+    (Let Ti1191.3079:Int =
+      0
+    In
+    (head.3053.(Ti1191.3079)))
+  In
+  (Let Ti1193.3055:Int =
+    (Let Ti1192.3078:Int =
+      1
+    In
+    (Neg Ti1192.3078))
+  In
+  (If (EQ range_primitive.3054 Ti1193.3055) Then
+    0
+  Else
+    (Let Ti1194.3056:Int =
+      99
+    In
+    (If (EQ range_primitive.3054 Ti1194.3056) Then
+      (Let Tb1196.3073:Bool =
+        (Let Ti1195.3077:Int =
+          1
+        In
+        (shadow_check_one_or_group.2085 Ti1195.3077 head.3053 p.2092))
+      In
+      (Let Ti1197.3074:Int =
+        0
+      In
+      (If (EQ Tb1196.3073 Ti1197.3074) Then
+        (Let Ti1199.3075:Int =
+          (Let Ti1198.3076:Int =
+            1
+          In
+          (Add ofs.2090 Ti1198.3076))
+        In
+        (shadow_check_one_or_matrix.2089 Ti1199.3075 or_matrix.2091 p.2092))
+      Else
+        1)))
+    Else
+      (Let t.3057:Int =
+        (Let Ta1200.3072:Array(Float) =
+          (Ext_Array light)
+        In
+        (solver.2066 range_primitive.3054 Ta1200.3072 p.2092))
+      In
+      (Let Ti1201.3058:Int =
+        0
+      In
+      (If (EQ t.3057 Ti1201.3058) Then
+        (Let Ti1203.3070:Int =
+          (Let Ti1202.3071:Int =
+            1
+          In
+          (Add ofs.2090 Ti1202.3071))
+        In
+        (shadow_check_one_or_matrix.2089 Ti1203.3070 or_matrix.2091 p.2092))
+      Else
+        (Let Td1204.3059:Float =
+          -0.1
+        In
+        (Let Td1207.3060:Float =
+          (Let Ta1205.3068:Array(Float) =
+            (Ext_Array solver_dist)
+          In
+          (Let Ti1206.3069:Int =
+            0
+          In
+          (Ta1205.3068.(Ti1206.3069))))
+        In
+        (If (LE Td1204.3059 Td1207.3060) Then
+          (Let Ti1209.3066:Int =
+            (Let Ti1208.3067:Int =
+              1
+            In
+            (Add ofs.2090 Ti1208.3067))
+          In
+          (shadow_check_one_or_matrix.2089 Ti1209.3066 or_matrix.2091 p.2092))
+        Else
+          (Let Tb1211.3061:Bool =
+            (Let Ti1210.3065:Int =
+              1
+            In
+            (shadow_check_one_or_group.2085 Ti1210.3065 head.3053 p.2092))
+          In
+          (Let Ti1212.3062:Int =
+            0
+          In
+          (If (EQ Tb1211.3061 Ti1212.3062) Then
+            (Let Ti1214.3063:Int =
+              (Let Ti1213.3064:Int =
+                1
+              In
+              (Add ofs.2090 Ti1213.3064))
+            In
+            (shadow_check_one_or_matrix.2089 Ti1214.3063 or_matrix.2091 p.2092))
+          Else
+            1)))))))))))))))
+In
+(LetRec solve_each_element.2093:(Int -> Array(Int) -> Unit) iand_ofs.2094:Int and_group.2095:Array(Int) =
+  (Let iobj.2961:Int =
+    (and_group.2095.(iand_ofs.2094))
+  In
+  (Let Ti1216.2962:Int =
+    (Let Ti1215.3052:Int =
+      1
+    In
+    (Neg Ti1215.3052))
+  In
+  (If (EQ iobj.2961 Ti1216.2962) Then
+    ()
+  Else
+    (Let t0.2963:Int =
+      (Let Ta1217.3050:Array(Float) =
+        (Ext_Array vscan)
+      In
+      (Let Ta1218.3051:Array(Float) =
+        (Ext_Array viewpoint)
+      In
+      (solver.2066 iobj.2961 Ta1217.3050 Ta1218.3051)))
+    In
+    (Let Tu89.2964:Unit =
+      (Let Ti1219.2971:Int =
+        0
+      In
+      (If (EQ t0.2963 Ti1219.2971) Then
+        (Let Tb1222.3043:Bool =
+          (Let Tt1221.3048:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+            (Let Ta1220.3049:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+              (Ext_Array objects)
+            In
+            (Ta1220.3049.(iobj.2961)))
+          In
+          (o_isinvert.1990 Tt1221.3048))
+        In
+        (Let Ti1223.3044:Int =
+          0
+        In
+        (If (EQ Tb1222.3043 Ti1223.3044) Then
+          (Let Ta1224.3045:Array(Bool) =
+            (Ext_Array end_flag)
+          In
+          (Let Ti1225.3046:Int =
+            0
+          In
+          (Let Ti1226.3047:Int =
+            1
+          In
+          (Ta1224.3045.(Ti1225.3046) <- Ti1226.3047))))
+        Else
+          ())))
+      Else
+        (Let t0p.2972:Float =
+          (Let Ta1227.3041:Array(Float) =
+            (Ext_Array solver_dist)
+          In
+          (Let Ti1228.3042:Int =
+            0
+          In
+          (Ta1227.3041.(Ti1228.3042))))
+        In
+        (Let Td1229.2973:Float =
+          -0.1
+        In
+        (If (LE t0p.2972 Td1229.2973) Then
+          ()
+        Else
+          (Let Td1232.2974:Float =
+            (Let Ta1230.3039:Array(Float) =
+              (Ext_Array tmin)
+            In
+            (Let Ti1231.3040:Int =
+              0
+            In
+            (Ta1230.3039.(Ti1231.3040))))
+          In
+          (If (LE Td1232.2974 t0p.2972) Then
+            ()
+          Else
+            (Let t.2975:Float =
+              (Let Td1233.3038:Float =
+                0.01
+              In
+              (FAdd t0p.2972 Td1233.3038))
+            In
+            (Let Tu88.2976:Unit =
+              (Let Ta1234.3028:Array(Float) =
+                (Ext_Array chkinside_p)
+              In
+              (Let Ti1235.3029:Int =
+                0
+              In
+              (Let Td1243.3030:Float =
+                (Let Td1239.3031:Float =
+                  (Let Td1238.3035:Float =
+                    (Let Ta1236.3036:Array(Float) =
+                      (Ext_Array vscan)
+                    In
+                    (Let Ti1237.3037:Int =
+                      0
+                    In
+                    (Ta1236.3036.(Ti1237.3037))))
+                  In
+                  (FMul Td1238.3035 t.2975))
+                In
+                (Let Td1242.3032:Float =
+                  (Let Ta1240.3033:Array(Float) =
+                    (Ext_Array viewpoint)
+                  In
+                  (Let Ti1241.3034:Int =
+                    0
+                  In
+                  (Ta1240.3033.(Ti1241.3034))))
+                In
+                (FAdd Td1239.3031 Td1242.3032)))
+              In
+              (Ta1234.3028.(Ti1235.3029) <- Td1243.3030))))
+            In
+            (Let Tu87.2977:Unit =
+              (Let Ta1244.3018:Array(Float) =
+                (Ext_Array chkinside_p)
+              In
+              (Let Ti1245.3019:Int =
+                1
+              In
+              (Let Td1253.3020:Float =
+                (Let Td1249.3021:Float =
+                  (Let Td1248.3025:Float =
+                    (Let Ta1246.3026:Array(Float) =
+                      (Ext_Array vscan)
+                    In
+                    (Let Ti1247.3027:Int =
+                      1
+                    In
+                    (Ta1246.3026.(Ti1247.3027))))
+                  In
+                  (FMul Td1248.3025 t.2975))
+                In
+                (Let Td1252.3022:Float =
+                  (Let Ta1250.3023:Array(Float) =
+                    (Ext_Array viewpoint)
+                  In
+                  (Let Ti1251.3024:Int =
+                    1
+                  In
+                  (Ta1250.3023.(Ti1251.3024))))
+                In
+                (FAdd Td1249.3021 Td1252.3022)))
+              In
+              (Ta1244.3018.(Ti1245.3019) <- Td1253.3020))))
+            In
+            (Let Tu86.2978:Unit =
+              (Let Ta1254.3008:Array(Float) =
+                (Ext_Array chkinside_p)
+              In
+              (Let Ti1255.3009:Int =
+                2
+              In
+              (Let Td1263.3010:Float =
+                (Let Td1259.3011:Float =
+                  (Let Td1258.3015:Float =
+                    (Let Ta1256.3016:Array(Float) =
+                      (Ext_Array vscan)
+                    In
+                    (Let Ti1257.3017:Int =
+                      2
+                    In
+                    (Ta1256.3016.(Ti1257.3017))))
+                  In
+                  (FMul Td1258.3015 t.2975))
+                In
+                (Let Td1262.3012:Float =
+                  (Let Ta1260.3013:Array(Float) =
+                    (Ext_Array viewpoint)
+                  In
+                  (Let Ti1261.3014:Int =
+                    2
+                  In
+                  (Ta1260.3013.(Ti1261.3014))))
+                In
+                (FAdd Td1259.3011 Td1262.3012)))
+              In
+              (Ta1254.3008.(Ti1255.3009) <- Td1263.3010))))
+            In
+            (Let Tb1265.2979:Bool =
+              (Let Ti1264.3007:Int =
+                0
+              In
+              (check_all_inside.2078 Ti1264.3007 and_group.2095))
+            In
+            (Let Ti1266.2980:Int =
+              0
+            In
+            (If (EQ Tb1265.2979 Ti1266.2980) Then
+              ()
+            Else
+              (Let Tu85.2981:Unit =
+                (Let Ta1267.3005:Array(Float) =
+                  (Ext_Array tmin)
+                In
+                (Let Ti1268.3006:Int =
+                  0
+                In
+                (Ta1267.3005.(Ti1268.3006) <- t.2975)))
+              In
+              (Let Tu84.2982:Unit =
+                (Let Ta1269.3000:Array(Float) =
+                  (Ext_Array crashed_point)
+                In
+                (Let Ti1270.3001:Int =
+                  0
+                In
+                (Let Td1273.3002:Float =
+                  (Let Ta1271.3003:Array(Float) =
+                    (Ext_Array chkinside_p)
+                  In
+                  (Let Ti1272.3004:Int =
+                    0
+                  In
+                  (Ta1271.3003.(Ti1272.3004))))
+                In
+                (Ta1269.3000.(Ti1270.3001) <- Td1273.3002))))
+              In
+              (Let Tu83.2983:Unit =
+                (Let Ta1274.2995:Array(Float) =
+                  (Ext_Array crashed_point)
+                In
+                (Let Ti1275.2996:Int =
+                  1
+                In
+                (Let Td1278.2997:Float =
+                  (Let Ta1276.2998:Array(Float) =
+                    (Ext_Array chkinside_p)
+                  In
+                  (Let Ti1277.2999:Int =
+                    1
+                  In
+                  (Ta1276.2998.(Ti1277.2999))))
+                In
+                (Ta1274.2995.(Ti1275.2996) <- Td1278.2997))))
+              In
+              (Let Tu82.2984:Unit =
+                (Let Ta1279.2990:Array(Float) =
+                  (Ext_Array crashed_point)
+                In
+                (Let Ti1280.2991:Int =
+                  2
+                In
+                (Let Td1283.2992:Float =
+                  (Let Ta1281.2993:Array(Float) =
+                    (Ext_Array chkinside_p)
+                  In
+                  (Let Ti1282.2994:Int =
+                    2
+                  In
+                  (Ta1281.2993.(Ti1282.2994))))
+                In
+                (Ta1279.2990.(Ti1280.2991) <- Td1283.2992))))
+              In
+              (Let Tu81.2985:Unit =
+                (Let Ta1284.2988:Array(Int) =
+                  (Ext_Array intsec_rectside)
+                In
+                (Let Ti1285.2989:Int =
+                  0
+                In
+                (Ta1284.2988.(Ti1285.2989) <- t0.2963)))
+              In
+              (Let Ta1286.2986:Array(Int) =
+                (Ext_Array crashed_object)
+              In
+              (Let Ti1287.2987:Int =
+                0
+              In
+              (Ta1286.2986.(Ti1287.2987) <- iobj.2961))))))))))))))))))))))
+    In
+    (Let Tb1290.2965:Bool =
+      (Let Ta1288.2969:Array(Bool) =
+        (Ext_Array end_flag)
+      In
+      (Let Ti1289.2970:Int =
+        0
+      In
+      (Ta1288.2969.(Ti1289.2970))))
+    In
+    (Let Ti1291.2966:Int =
+      0
+    In
+    (If (EQ Tb1290.2965 Ti1291.2966) Then
+      (Let Ti1293.2967:Int =
+        (Let Ti1292.2968:Int =
+          1
+        In
+        (Add iand_ofs.2094 Ti1292.2968))
+      In
+      (solve_each_element.2093 Ti1293.2967 and_group.2095))
+    Else
+      ()))))))))
+In
+(LetRec solve_one_or_network.2096:(Int -> Array(Int) -> Unit) ofs.2097:Int or_group.2098:Array(Int) =
+  (Let head.2948:Int =
+    (or_group.2098.(ofs.2097))
+  In
+  (Let Ti1295.2949:Int =
+    (Let Ti1294.2960:Int =
+      1
+    In
+    (Neg Ti1294.2960))
+  In
+  (If (EQ head.2948 Ti1295.2949) Then
+    ()
+  Else
+    (Let and_group.2950:Array(Int) =
+      (Let Ta1296.2959:Array(Array(Int)) =
+        (Ext_Array and_net)
+      In
+      (Ta1296.2959.(head.2948)))
+    In
+    (Let Tu91.2951:Unit =
+      (Let Ta1297.2956:Array(Bool) =
+        (Ext_Array end_flag)
+      In
+      (Let Ti1298.2957:Int =
+        0
+      In
+      (Let Ti1299.2958:Int =
+        0
+      In
+      (Ta1297.2956.(Ti1298.2957) <- Ti1299.2958))))
+    In
+    (Let Tu90.2952:Unit =
+      (Let Ti1300.2955:Int =
+        0
+      In
+      (solve_each_element.2093 Ti1300.2955 and_group.2950))
+    In
+    (Let Ti1302.2953:Int =
+      (Let Ti1301.2954:Int =
+        1
+      In
+      (Add ofs.2097 Ti1301.2954))
+    In
+    (solve_one_or_network.2096 Ti1302.2953 or_group.2098))))))))
+In
+(LetRec trace_or_matrix.2099:(Int -> Array(Array(Int)) -> Unit) ofs.2100:Int or_network.2101:Array(Array(Int)) =
+  (Let head.2927:Array(Int) =
+    (or_network.2101.(ofs.2100))
+  In
+  (Let range_primitive.2928:Int =
+    (Let Ti1303.2947:Int =
+      0
+    In
+    (head.2927.(Ti1303.2947)))
+  In
+  (Let Ti1305.2929:Int =
+    (Let Ti1304.2946:Int =
+      1
+    In
+    (Neg Ti1304.2946))
+  In
+  (If (EQ range_primitive.2928 Ti1305.2929) Then
+    ()
+  Else
+    (Let Tu92.2930:Unit =
+      (Let Ti1306.2933:Int =
+        99
+      In
+      (If (EQ range_primitive.2928 Ti1306.2933) Then
+        (Let Ti1307.2945:Int =
+          1
+        In
+        (solve_one_or_network.2096 Ti1307.2945 head.2927))
+      Else
+        (Let t.2934:Int =
+          (Let Ta1308.2943:Array(Float) =
+            (Ext_Array vscan)
+          In
+          (Let Ta1309.2944:Array(Float) =
+            (Ext_Array viewpoint)
+          In
+          (solver.2066 range_primitive.2928 Ta1308.2943 Ta1309.2944)))
+        In
+        (Let Ti1310.2935:Int =
+          0
+        In
+        (If (EQ t.2934 Ti1310.2935) Then
+          ()
+        Else
+          (Let tp.2936:Float =
+            (Let Ta1311.2941:Array(Float) =
+              (Ext_Array solver_dist)
+            In
+            (Let Ti1312.2942:Int =
+              0
+            In
+            (Ta1311.2941.(Ti1312.2942))))
+          In
+          (Let Td1315.2937:Float =
+            (Let Ta1313.2939:Array(Float) =
+              (Ext_Array tmin)
+            In
+            (Let Ti1314.2940:Int =
+              0
+            In
+            (Ta1313.2939.(Ti1314.2940))))
+          In
+          (If (LE Td1315.2937 tp.2936) Then
+            ()
+          Else
+            (Let Ti1316.2938:Int =
+              1
+            In
+            (solve_one_or_network.2096 Ti1316.2938 head.2927))))))))))
+    In
+    (Let Ti1318.2931:Int =
+      (Let Ti1317.2932:Int =
+        1
+      In
+      (Add ofs.2100 Ti1317.2932))
+    In
+    (trace_or_matrix.2099 Ti1318.2931 or_network.2101)))))))
+In
+(LetRec tracer.2102:(Array(Float) -> Array(Float) -> Bool) viewpoint.2103:Array(Float) vscan.2104:Array(Float) =
+  (Let Tu94.2913:Unit =
+    (Let Ta1319.2924:Array(Float) =
+      (Ext_Array tmin)
+    In
+    (Let Ti1320.2925:Int =
+      0
+    In
+    (Let Td1321.2926:Float =
+      1000000000.
+    In
+    (Ta1319.2924.(Ti1320.2925) <- Td1321.2926))))
+  In
+  (Let Tu93.2914:Unit =
+    (Let Ti1322.2920:Int =
+      0
+    In
+    (Let Ta1325.2921:Array(Array(Int)) =
+      (Let Ta1323.2922:Array(Array(Array(Int))) =
+        (Ext_Array or_net)
+      In
+      (Let Ti1324.2923:Int =
+        0
+      In
+      (Ta1323.2922.(Ti1324.2923))))
+    In
+    (trace_or_matrix.2099 Ti1322.2920 Ta1325.2921)))
+  In
+  (Let t.2915:Float =
+    (Let Ta1326.2918:Array(Float) =
+      (Ext_Array tmin)
+    In
+    (Let Ti1327.2919:Int =
+      0
+    In
+    (Ta1326.2918.(Ti1327.2919))))
+  In
+  (Let Td1328.2916:Float =
+    -0.1
+  In
+  (If (LE t.2915 Td1328.2916) Then
+    0
+  Else
+    (Let Td1329.2917:Float =
+      100000000.
+    In
+    (If (LE Td1329.2917 t.2915) Then
+      0
+    Else
+      1)))))))
+In
+(LetRec get_nvector_rect.2105:(Unit -> Unit) Tu95.2106:Unit =
+  (Let rectside.2862:Int =
+    (Let Ta1330.2911:Array(Int) =
+      (Ext_Array intsec_rectside)
+    In
+    (Let Ti1331.2912:Int =
+      0
+    In
+    (Ta1330.2911.(Ti1331.2912))))
+  In
+  (Let Ti1332.2863:Int =
+    1
+  In
+  (If (EQ rectside.2862 Ti1332.2863) Then
+    (Let Tu97.2896:Unit =
+      (Let Ta1333.2904:Array(Float) =
+        (Ext_Array nvector)
+      In
+      (Let Ti1334.2905:Int =
+        0
+      In
+      (Let Td1339.2906:Float =
+        (Let Td1338.2907:Float =
+          (Let Td1337.2908:Float =
+            (Let Ta1335.2909:Array(Float) =
+              (Ext_Array vscan)
+            In
+            (Let Ti1336.2910:Int =
+              0
+            In
+            (Ta1335.2909.(Ti1336.2910))))
+          In
+          (sgn.2025 Td1337.2908))
+        In
+        (FNeg Td1338.2907))
+      In
+      (Ta1333.2904.(Ti1334.2905) <- Td1339.2906))))
+    In
+    (Let Tu96.2897:Unit =
+      (Let Ta1340.2901:Array(Float) =
+        (Ext_Array nvector)
+      In
+      (Let Ti1341.2902:Int =
+        1
+      In
+      (Let Td1342.2903:Float =
+        0.
+      In
+      (Ta1340.2901.(Ti1341.2902) <- Td1342.2903))))
+    In
+    (Let Ta1343.2898:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1344.2899:Int =
+      2
+    In
+    (Let Td1345.2900:Float =
+      0.
+    In
+    (Ta1343.2898.(Ti1344.2899) <- Td1345.2900))))))
+  Else
+    (Let Ti1346.2864:Int =
+      2
+    In
+    (If (EQ rectside.2862 Ti1346.2864) Then
+      (Let Tu99.2881:Unit =
+        (Let Ta1347.2893:Array(Float) =
+          (Ext_Array nvector)
+        In
+        (Let Ti1348.2894:Int =
+          0
+        In
+        (Let Td1349.2895:Float =
+          0.
+        In
+        (Ta1347.2893.(Ti1348.2894) <- Td1349.2895))))
+      In
+      (Let Tu98.2882:Unit =
+        (Let Ta1350.2886:Array(Float) =
+          (Ext_Array nvector)
+        In
+        (Let Ti1351.2887:Int =
+          1
+        In
+        (Let Td1356.2888:Float =
+          (Let Td1355.2889:Float =
+            (Let Td1354.2890:Float =
+              (Let Ta1352.2891:Array(Float) =
+                (Ext_Array vscan)
+              In
+              (Let Ti1353.2892:Int =
+                1
+              In
+              (Ta1352.2891.(Ti1353.2892))))
+            In
+            (sgn.2025 Td1354.2890))
+          In
+          (FNeg Td1355.2889))
+        In
+        (Ta1350.2886.(Ti1351.2887) <- Td1356.2888))))
+      In
+      (Let Ta1357.2883:Array(Float) =
+        (Ext_Array nvector)
+      In
+      (Let Ti1358.2884:Int =
+        2
+      In
+      (Let Td1359.2885:Float =
+        0.
+      In
+      (Ta1357.2883.(Ti1358.2884) <- Td1359.2885))))))
+    Else
+      (Let Ti1360.2865:Int =
+        3
+      In
+      (If (EQ rectside.2862 Ti1360.2865) Then
+        (Let Tu101.2866:Unit =
+          (Let Ta1361.2878:Array(Float) =
+            (Ext_Array nvector)
+          In
+          (Let Ti1362.2879:Int =
+            0
+          In
+          (Let Td1363.2880:Float =
+            0.
+          In
+          (Ta1361.2878.(Ti1362.2879) <- Td1363.2880))))
+        In
+        (Let Tu100.2867:Unit =
+          (Let Ta1364.2875:Array(Float) =
+            (Ext_Array nvector)
+          In
+          (Let Ti1365.2876:Int =
+            1
+          In
+          (Let Td1366.2877:Float =
+            0.
+          In
+          (Ta1364.2875.(Ti1365.2876) <- Td1366.2877))))
+        In
+        (Let Ta1367.2868:Array(Float) =
+          (Ext_Array nvector)
+        In
+        (Let Ti1368.2869:Int =
+          2
+        In
+        (Let Td1373.2870:Float =
+          (Let Td1372.2871:Float =
+            (Let Td1371.2872:Float =
+              (Let Ta1369.2873:Array(Float) =
+                (Ext_Array vscan)
+              In
+              (Let Ti1370.2874:Int =
+                2
+              In
+              (Ta1369.2873.(Ti1370.2874))))
+            In
+            (sgn.2025 Td1371.2872))
+          In
+          (FNeg Td1372.2871))
+        In
+        (Ta1367.2868.(Ti1368.2869) <- Td1373.2870))))))
+      Else
+        ())))))))
+In
+(LetRec get_nvector_plane.2107:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Unit) m.2108:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+  (Let Tu103.2848:Unit =
+    (Let Ta1374.2858:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1375.2859:Int =
+      0
+    In
+    (Let Td1377.2860:Float =
+      (Let Td1376.2861:Float =
+        (o_param_a.1994 m.2108)
+      In
+      (FNeg Td1376.2861))
+    In
+    (Ta1374.2858.(Ti1375.2859) <- Td1377.2860))))
+  In
+  (Let Tu102.2849:Unit =
+    (Let Ta1378.2854:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1379.2855:Int =
+      1
+    In
+    (Let Td1381.2856:Float =
+      (Let Td1380.2857:Float =
+        (o_param_b.1996 m.2108)
+      In
+      (FNeg Td1380.2857))
+    In
+    (Ta1378.2854.(Ti1379.2855) <- Td1381.2856))))
+  In
+  (Let Ta1382.2850:Array(Float) =
+    (Ext_Array nvector)
+  In
+  (Let Ti1383.2851:Int =
+    2
+  In
+  (Let Td1385.2852:Float =
+    (Let Td1384.2853:Float =
+      (o_param_c.1998 m.2108)
+    In
+    (FNeg Td1384.2853))
+  In
+  (Ta1382.2850.(Ti1383.2851) <- Td1385.2852))))))
+In
+(LetRec get_nvector_second_norot.2109:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Unit) m.2110:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) p.2111:Array(Float) =
+  (Let Tu106.2819:Unit =
+    (Let Ta1386.2840:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1387.2841:Int =
+      0
+    In
+    (Let Td1393.2842:Float =
+      (Let Td1391.2843:Float =
+        (Let Td1389.2845:Float =
+          (Let Ti1388.2847:Int =
+            0
+          In
+          (p.2111.(Ti1388.2847)))
+        In
+        (Let Td1390.2846:Float =
+          (o_param_x.2000 m.2110)
+        In
+        (FSub Td1389.2845 Td1390.2846)))
+      In
+      (Let Td1392.2844:Float =
+        (o_param_a.1994 m.2110)
+      In
+      (FMul Td1391.2843 Td1392.2844)))
+    In
+    (Ta1386.2840.(Ti1387.2841) <- Td1393.2842))))
+  In
+  (Let Tu105.2820:Unit =
+    (Let Ta1394.2832:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1395.2833:Int =
+      1
+    In
+    (Let Td1401.2834:Float =
+      (Let Td1399.2835:Float =
+        (Let Td1397.2837:Float =
+          (Let Ti1396.2839:Int =
+            1
+          In
+          (p.2111.(Ti1396.2839)))
+        In
+        (Let Td1398.2838:Float =
+          (o_param_y.2002 m.2110)
+        In
+        (FSub Td1397.2837 Td1398.2838)))
+      In
+      (Let Td1400.2836:Float =
+        (o_param_b.1996 m.2110)
+      In
+      (FMul Td1399.2835 Td1400.2836)))
+    In
+    (Ta1394.2832.(Ti1395.2833) <- Td1401.2834))))
+  In
+  (Let Tu104.2821:Unit =
+    (Let Ta1402.2824:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1403.2825:Int =
+      2
+    In
+    (Let Td1409.2826:Float =
+      (Let Td1407.2827:Float =
+        (Let Td1405.2829:Float =
+          (Let Ti1404.2831:Int =
+            2
+          In
+          (p.2111.(Ti1404.2831)))
+        In
+        (Let Td1406.2830:Float =
+          (o_param_z.2004 m.2110)
+        In
+        (FSub Td1405.2829 Td1406.2830)))
+      In
+      (Let Td1408.2828:Float =
+        (o_param_c.1998 m.2110)
+      In
+      (FMul Td1407.2827 Td1408.2828)))
+    In
+    (Ta1402.2824.(Ti1403.2825) <- Td1409.2826))))
+  In
+  (Let Ta1410.2822:Array(Float) =
+    (Ext_Array nvector)
+  In
+  (Let Tb1411.2823:Bool =
+    (o_isinvert.1990 m.2110)
+  In
+  (normalize_vector.2022 Ta1410.2822 Tb1411.2823))))))
+In
+(LetRec get_nvector_second_rot.2112:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Unit) m.2113:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) p.2114:Array(Float) =
+  (Let Tu112.2733:Unit =
+    (Let Ta1412.2813:Array(Float) =
+      (Ext_Array nvector_w)
+    In
+    (Let Ti1413.2814:Int =
+      0
+    In
+    (Let Td1417.2815:Float =
+      (Let Td1415.2816:Float =
+        (Let Ti1414.2818:Int =
+          0
+        In
+        (p.2114.(Ti1414.2818)))
+      In
+      (Let Td1416.2817:Float =
+        (o_param_x.2000 m.2113)
+      In
+      (FSub Td1415.2816 Td1416.2817)))
+    In
+    (Ta1412.2813.(Ti1413.2814) <- Td1417.2815))))
+  In
+  (Let Tu111.2734:Unit =
+    (Let Ta1418.2807:Array(Float) =
+      (Ext_Array nvector_w)
+    In
+    (Let Ti1419.2808:Int =
+      1
+    In
+    (Let Td1423.2809:Float =
+      (Let Td1421.2810:Float =
+        (Let Ti1420.2812:Int =
+          1
+        In
+        (p.2114.(Ti1420.2812)))
+      In
+      (Let Td1422.2811:Float =
+        (o_param_y.2002 m.2113)
+      In
+      (FSub Td1421.2810 Td1422.2811)))
+    In
+    (Ta1418.2807.(Ti1419.2808) <- Td1423.2809))))
+  In
+  (Let Tu110.2735:Unit =
+    (Let Ta1424.2801:Array(Float) =
+      (Ext_Array nvector_w)
+    In
+    (Let Ti1425.2802:Int =
+      2
+    In
+    (Let Td1429.2803:Float =
+      (Let Td1427.2804:Float =
+        (Let Ti1426.2806:Int =
+          2
+        In
+        (p.2114.(Ti1426.2806)))
+      In
+      (Let Td1428.2805:Float =
+        (o_param_z.2004 m.2113)
+      In
+      (FSub Td1427.2804 Td1428.2805)))
+    In
+    (Ta1424.2801.(Ti1425.2802) <- Td1429.2803))))
+  In
+  (Let Tu109.2736:Unit =
+    (Let Ta1430.2781:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1431.2782:Int =
+      0
+    In
+    (Let Td1449.2783:Float =
+      (Let Td1436.2784:Float =
+        (Let Td1434.2797:Float =
+          (Let Ta1432.2799:Array(Float) =
+            (Ext_Array nvector_w)
+          In
+          (Let Ti1433.2800:Int =
+            0
+          In
+          (Ta1432.2799.(Ti1433.2800))))
+        In
+        (Let Td1435.2798:Float =
+          (o_param_a.1994 m.2113)
+        In
+        (FMul Td1434.2797 Td1435.2798)))
+      In
+      (Let Td1448.2785:Float =
+        (Let Td1447.2786:Float =
+          (Let Td1441.2787:Float =
+            (Let Td1439.2793:Float =
+              (Let Ta1437.2795:Array(Float) =
+                (Ext_Array nvector_w)
+              In
+              (Let Ti1438.2796:Int =
+                1
+              In
+              (Ta1437.2795.(Ti1438.2796))))
+            In
+            (Let Td1440.2794:Float =
+              (o_param_r3.2020 m.2113)
+            In
+            (FMul Td1439.2793 Td1440.2794)))
+          In
+          (Let Td1446.2788:Float =
+            (Let Td1444.2789:Float =
+              (Let Ta1442.2791:Array(Float) =
+                (Ext_Array nvector_w)
+              In
+              (Let Ti1443.2792:Int =
+                2
+              In
+              (Ta1442.2791.(Ti1443.2792))))
+            In
+            (Let Td1445.2790:Float =
+              (o_param_r2.2018 m.2113)
+            In
+            (FMul Td1444.2789 Td1445.2790)))
+          In
+          (FAdd Td1441.2787 Td1446.2788)))
+        In
+        (fhalf.1982 Td1447.2786))
+      In
+      (FAdd Td1436.2784 Td1448.2785)))
+    In
+    (Ta1430.2781.(Ti1431.2782) <- Td1449.2783))))
+  In
+  (Let Tu108.2737:Unit =
+    (Let Ta1450.2761:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1451.2762:Int =
+      1
+    In
+    (Let Td1469.2763:Float =
+      (Let Td1456.2764:Float =
+        (Let Td1454.2777:Float =
+          (Let Ta1452.2779:Array(Float) =
+            (Ext_Array nvector_w)
+          In
+          (Let Ti1453.2780:Int =
+            1
+          In
+          (Ta1452.2779.(Ti1453.2780))))
+        In
+        (Let Td1455.2778:Float =
+          (o_param_b.1996 m.2113)
+        In
+        (FMul Td1454.2777 Td1455.2778)))
+      In
+      (Let Td1468.2765:Float =
+        (Let Td1467.2766:Float =
+          (Let Td1461.2767:Float =
+            (Let Td1459.2773:Float =
+              (Let Ta1457.2775:Array(Float) =
+                (Ext_Array nvector_w)
+              In
+              (Let Ti1458.2776:Int =
+                0
+              In
+              (Ta1457.2775.(Ti1458.2776))))
+            In
+            (Let Td1460.2774:Float =
+              (o_param_r3.2020 m.2113)
+            In
+            (FMul Td1459.2773 Td1460.2774)))
+          In
+          (Let Td1466.2768:Float =
+            (Let Td1464.2769:Float =
+              (Let Ta1462.2771:Array(Float) =
+                (Ext_Array nvector_w)
+              In
+              (Let Ti1463.2772:Int =
+                2
+              In
+              (Ta1462.2771.(Ti1463.2772))))
+            In
+            (Let Td1465.2770:Float =
+              (o_param_r1.2016 m.2113)
+            In
+            (FMul Td1464.2769 Td1465.2770)))
+          In
+          (FAdd Td1461.2767 Td1466.2768)))
+        In
+        (fhalf.1982 Td1467.2766))
+      In
+      (FAdd Td1456.2764 Td1468.2765)))
+    In
+    (Ta1450.2761.(Ti1451.2762) <- Td1469.2763))))
+  In
+  (Let Tu107.2738:Unit =
+    (Let Ta1470.2741:Array(Float) =
+      (Ext_Array nvector)
+    In
+    (Let Ti1471.2742:Int =
+      2
+    In
+    (Let Td1489.2743:Float =
+      (Let Td1476.2744:Float =
+        (Let Td1474.2757:Float =
+          (Let Ta1472.2759:Array(Float) =
+            (Ext_Array nvector_w)
+          In
+          (Let Ti1473.2760:Int =
+            2
+          In
+          (Ta1472.2759.(Ti1473.2760))))
+        In
+        (Let Td1475.2758:Float =
+          (o_param_c.1998 m.2113)
+        In
+        (FMul Td1474.2757 Td1475.2758)))
+      In
+      (Let Td1488.2745:Float =
+        (Let Td1487.2746:Float =
+          (Let Td1481.2747:Float =
+            (Let Td1479.2753:Float =
+              (Let Ta1477.2755:Array(Float) =
+                (Ext_Array nvector_w)
+              In
+              (Let Ti1478.2756:Int =
+                0
+              In
+              (Ta1477.2755.(Ti1478.2756))))
+            In
+            (Let Td1480.2754:Float =
+              (o_param_r2.2018 m.2113)
+            In
+            (FMul Td1479.2753 Td1480.2754)))
+          In
+          (Let Td1486.2748:Float =
+            (Let Td1484.2749:Float =
+              (Let Ta1482.2751:Array(Float) =
+                (Ext_Array nvector_w)
+              In
+              (Let Ti1483.2752:Int =
+                1
+              In
+              (Ta1482.2751.(Ti1483.2752))))
+            In
+            (Let Td1485.2750:Float =
+              (o_param_r1.2016 m.2113)
+            In
+            (FMul Td1484.2749 Td1485.2750)))
+          In
+          (FAdd Td1481.2747 Td1486.2748)))
+        In
+        (fhalf.1982 Td1487.2746))
+      In
+      (FAdd Td1476.2744 Td1488.2745)))
+    In
+    (Ta1470.2741.(Ti1471.2742) <- Td1489.2743))))
+  In
+  (Let Ta1490.2739:Array(Float) =
+    (Ext_Array nvector)
+  In
+  (Let Tb1491.2740:Bool =
+    (o_isinvert.1990 m.2113)
+  In
+  (normalize_vector.2022 Ta1490.2739 Tb1491.2740)))))))))
+In
+(LetRec get_nvector.2115:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Unit) m.2116:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) p.2117:Array(Float) =
+  (Let m_shape.2727:Int =
+    (o_form.1986 m.2116)
+  In
+  (Let Ti1492.2728:Int =
+    1
+  In
+  (If (EQ m_shape.2727 Ti1492.2728) Then
+    (Let Tu1493.2732:Unit =
+      ()
+    In
+    (get_nvector_rect.2105 Tu1493.2732))
+  Else
+    (Let Ti1494.2729:Int =
+      2
+    In
+    (If (EQ m_shape.2727 Ti1494.2729) Then
+      (get_nvector_plane.2107 m.2116)
+    Else
+      (Let Ti1495.2730:Int =
+        (o_isrot.1992 m.2116)
+      In
+      (Let Ti1496.2731:Int =
+        0
+      In
+      (If (EQ Ti1495.2730 Ti1496.2731) Then
+        (get_nvector_second_norot.2109 m.2116 p.2117)
+      Else
+        (get_nvector_second_rot.2112 m.2116 p.2117)))))))))
+In
+(LetRec utexture.2118:((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) -> Array(Float) -> Unit) m.2119:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) p.2120:Array(Float) =
+  (Let m_tex.2569:Int =
+    (o_texturetype.1984 m.2119)
+  In
+  (Let Tu117.2570:Unit =
+    (Let Ta1497.2724:Array(Float) =
+      (Ext_Array texture_color)
+    In
+    (Let Ti1498.2725:Int =
+      0
+    In
+    (Let Td1499.2726:Float =
+      (o_color_red.2010 m.2119)
+    In
+    (Ta1497.2724.(Ti1498.2725) <- Td1499.2726))))
+  In
+  (Let Tu116.2571:Unit =
+    (Let Ta1500.2721:Array(Float) =
+      (Ext_Array texture_color)
+    In
+    (Let Ti1501.2722:Int =
+      1
+    In
+    (Let Td1502.2723:Float =
+      (o_color_green.2012 m.2119)
+    In
+    (Ta1500.2721.(Ti1501.2722) <- Td1502.2723))))
+  In
+  (Let Tu115.2572:Unit =
+    (Let Ta1503.2718:Array(Float) =
+      (Ext_Array texture_color)
+    In
+    (Let Ti1504.2719:Int =
+      2
+    In
+    (Let Td1505.2720:Float =
+      (o_color_blue.2014 m.2119)
+    In
+    (Ta1503.2718.(Ti1504.2719) <- Td1505.2720))))
+  In
+  (Let Ti1506.2573:Int =
+    1
+  In
+  (If (EQ m_tex.2569 Ti1506.2573) Then
+    (Let w1.2688:Float =
+      (Let Td1508.2715:Float =
+        (Let Ti1507.2717:Int =
+          0
+        In
+        (p.2120.(Ti1507.2717)))
+      In
+      (Let Td1509.2716:Float =
+        (o_param_x.2000 m.2119)
+      In
+      (FSub Td1508.2715 Td1509.2716)))
+    In
+    (Let flag1.2689:Bool =
+      (Let d1.2708:Float =
+        (Let Td1512.2711:Float =
+          (Let Td1511.2713:Float =
+            (Let Td1510.2714:Float =
+              0.05
+            In
+            (FMul w1.2688 Td1510.2714))
+          In
+          floor Td1511.2713)
+        In
+        (Let Td1513.2712:Float =
+          20.
+        In
+        (FMul Td1512.2711 Td1513.2712)))
+      In
+      (Let Td1514.2709:Float =
+        10.
+      In
+      (Let Td1515.2710:Float =
+        (FSub w1.2688 d1.2708)
+      In
+      (If (LE Td1514.2709 Td1515.2710) Then
+        0
+      Else
+        1))))
+    In
+    (Let w3.2690:Float =
+      (Let Td1517.2705:Float =
+        (Let Ti1516.2707:Int =
+          2
+        In
+        (p.2120.(Ti1516.2707)))
+      In
+      (Let Td1518.2706:Float =
+        (o_param_z.2004 m.2119)
+      In
+      (FSub Td1517.2705 Td1518.2706)))
+    In
+    (Let flag2.2691:Bool =
+      (Let d2.2698:Float =
+        (Let Td1521.2701:Float =
+          (Let Td1520.2703:Float =
+            (Let Td1519.2704:Float =
+              0.05
+            In
+            (FMul w3.2690 Td1519.2704))
+          In
+          floor Td1520.2703)
+        In
+        (Let Td1522.2702:Float =
+          20.
+        In
+        (FMul Td1521.2701 Td1522.2702)))
+      In
+      (Let Td1523.2699:Float =
+        10.
+      In
+      (Let Td1524.2700:Float =
+        (FSub w3.2690 d2.2698)
+      In
+      (If (LE Td1523.2699 Td1524.2700) Then
+        0
+      Else
+        1))))
+    In
+    (Let Ta1525.2692:Array(Float) =
+      (Ext_Array texture_color)
+    In
+    (Let Ti1526.2693:Int =
+      1
+    In
+    (Let Td1530.2694:Float =
+      (Let Ti1527.2695:Int =
+        0
+      In
+      (If (EQ flag1.2689 Ti1527.2695) Then
+        (Let Ti1528.2697:Int =
+          0
+        In
+        (If (EQ flag2.2691 Ti1528.2697) Then
+          255.
+        Else
+          0.))
+      Else
+        (Let Ti1529.2696:Int =
+          0
+        In
+        (If (EQ flag2.2691 Ti1529.2696) Then
+          0.
+        Else
+          255.))))
+    In
+    (Ta1525.2692.(Ti1526.2693) <- Td1530.2694))))))))
+  Else
+    (Let Ti1531.2574:Int =
+      2
+    In
+    (If (EQ m_tex.2569 Ti1531.2574) Then
+      (Let w2.2671:Float =
+        (Let Td1536.2683:Float =
+          (Let Td1535.2684:Float =
+            (Let Td1533.2685:Float =
+              (Let Ti1532.2687:Int =
+                1
+              In
+              (p.2120.(Ti1532.2687)))
+            In
+            (Let Td1534.2686:Float =
+              0.25
+            In
+            (FMul Td1533.2685 Td1534.2686)))
+          In
+          sin Td1535.2684)
+        In
+        (fsqr.1980 Td1536.2683))
+      In
+      (Let Tu113.2672:Unit =
+        (Let Ta1537.2679:Array(Float) =
+          (Ext_Array texture_color)
+        In
+        (Let Ti1538.2680:Int =
+          0
+        In
+        (Let Td1540.2681:Float =
+          (Let Td1539.2682:Float =
+            255.
+          In
+          (FMul Td1539.2682 w2.2671))
+        In
+        (Ta1537.2679.(Ti1538.2680) <- Td1540.2681))))
+      In
+      (Let Ta1541.2673:Array(Float) =
+        (Ext_Array texture_color)
+      In
+      (Let Ti1542.2674:Int =
+        1
+      In
+      (Let Td1546.2675:Float =
+        (Let Td1543.2676:Float =
+          255.
+        In
+        (Let Td1545.2677:Float =
+          (Let Td1544.2678:Float =
+            1.
+          In
+          (FSub Td1544.2678 w2.2671))
+        In
+        (FMul Td1543.2676 Td1545.2677)))
+      In
+      (Ta1541.2673.(Ti1542.2674) <- Td1546.2675))))))
+    Else
+      (Let Ti1547.2575:Int =
+        3
+      In
+      (If (EQ m_tex.2569 Ti1547.2575) Then
+        (Let w1.2640:Float =
+          (Let Td1549.2668:Float =
+            (Let Ti1548.2670:Int =
+              0
+            In
+            (p.2120.(Ti1548.2670)))
+          In
+          (Let Td1550.2669:Float =
+            (o_param_x.2000 m.2119)
+          In
+          (FSub Td1549.2668 Td1550.2669)))
+        In
+        (Let w3.2641:Float =
+          (Let Td1552.2665:Float =
+            (Let Ti1551.2667:Int =
+              2
+            In
+            (p.2120.(Ti1551.2667)))
+          In
+          (Let Td1553.2666:Float =
+            (o_param_z.2004 m.2119)
+          In
+          (FSub Td1552.2665 Td1553.2666)))
+        In
+        (Let w2.2642:Float =
+          (Let Td1557.2660:Float =
+            (Let Td1556.2662:Float =
+              (Let Td1554.2663:Float =
+                (fsqr.1980 w1.2640)
+              In
+              (Let Td1555.2664:Float =
+                (fsqr.1980 w3.2641)
+              In
+              (FAdd Td1554.2663 Td1555.2664)))
+            In
+            sqrt Td1556.2662)
+          In
+          (Let Td1558.2661:Float =
+            10.
+          In
+          (FDiv Td1557.2660 Td1558.2661)))
+        In
+        (Let w4.2643:Float =
+          (Let Td1560.2657:Float =
+            (Let Td1559.2659:Float =
+              floor w2.2642
+            In
+            (FSub w2.2642 Td1559.2659))
+          In
+          (Let Td1561.2658:Float =
+            3.1415927
+          In
+          (FMul Td1560.2657 Td1561.2658)))
+        In
+        (Let cws.2644:Float =
+          (Let Td1562.2656:Float =
+            cos w4.2643
+          In
+          (fsqr.1980 Td1562.2656))
+        In
+        (Let Tu114.2645:Unit =
+          (Let Ta1563.2652:Array(Float) =
+            (Ext_Array texture_color)
+          In
+          (Let Ti1564.2653:Int =
+            1
+          In
+          (Let Td1566.2654:Float =
+            (Let Td1565.2655:Float =
+              255.
+            In
+            (FMul cws.2644 Td1565.2655))
+          In
+          (Ta1563.2652.(Ti1564.2653) <- Td1566.2654))))
+        In
+        (Let Ta1567.2646:Array(Float) =
+          (Ext_Array texture_color)
+        In
+        (Let Ti1568.2647:Int =
+          2
+        In
+        (Let Td1572.2648:Float =
+          (Let Td1570.2649:Float =
+            (Let Td1569.2651:Float =
+              1.
+            In
+            (FSub Td1569.2651 cws.2644))
+          In
+          (Let Td1571.2650:Float =
+            255.
+          In
+          (FMul Td1570.2649 Td1571.2650)))
+        In
+        (Ta1567.2646.(Ti1568.2647) <- Td1572.2648))))))))))
+      Else
+        (Let Ti1573.2576:Int =
+          4
+        In
+        (If (EQ m_tex.2569 Ti1573.2576) Then
+          (Let w1.2577:Float =
+            (Let Td1577.2634:Float =
+              (Let Td1575.2637:Float =
+                (Let Ti1574.2639:Int =
+                  0
+                In
+                (p.2120.(Ti1574.2639)))
+              In
+              (Let Td1576.2638:Float =
+                (o_param_x.2000 m.2119)
+              In
+              (FSub Td1575.2637 Td1576.2638)))
+            In
+            (Let Td1579.2635:Float =
+              (Let Td1578.2636:Float =
+                (o_param_a.1994 m.2119)
+              In
+              sqrt Td1578.2636)
+            In
+            (FMul Td1577.2634 Td1579.2635)))
+          In
+          (Let w3.2578:Float =
+            (Let Td1583.2628:Float =
+              (Let Td1581.2631:Float =
+                (Let Ti1580.2633:Int =
+                  2
+                In
+                (p.2120.(Ti1580.2633)))
+              In
+              (Let Td1582.2632:Float =
+                (o_param_z.2004 m.2119)
+              In
+              (FSub Td1581.2631 Td1582.2632)))
+            In
+            (Let Td1585.2629:Float =
+              (Let Td1584.2630:Float =
+                (o_param_c.1998 m.2119)
+              In
+              sqrt Td1584.2630)
+            In
+            (FMul Td1583.2628 Td1585.2629)))
+          In
+          (Let w4.2579:Float =
+            (Let Td1588.2625:Float =
+              (Let Td1586.2626:Float =
+                (fsqr.1980 w1.2577)
+              In
+              (Let Td1587.2627:Float =
+                (fsqr.1980 w3.2578)
+              In
+              (FAdd Td1586.2626 Td1587.2627)))
+            In
+            sqrt Td1588.2625)
+          In
+          (Let w7.2580:Float =
+            (Let Td1589.2617:Float =
+              0.0001
+            In
+            (Let Td1590.2618:Float =
+              abs_float w1.2577
+            In
+            (If (LE Td1589.2617 Td1590.2618) Then
+              (Let w5.2619:Float =
+                (Let Td1591.2624:Float =
+                  (FDiv w3.2578 w1.2577)
+                In
+                abs_float Td1591.2624)
+              In
+              (Let Td1592.2620:Float =
+                atan w5.2619
+              In
+              (Let Td1595.2621:Float =
+                (Let Td1593.2622:Float =
+                  30.
+                In
+                (Let Td1594.2623:Float =
+                  3.1415927
+                In
+                (FDiv Td1593.2622 Td1594.2623)))
+              In
+              (FMul Td1592.2620 Td1595.2621))))
+            Else
+              15.)))
+          In
+          (Let w9.2581:Float =
+            (Let Td1596.2616:Float =
+              floor w7.2580
+            In
+            (FSub w7.2580 Td1596.2616))
+          In
+          (Let w2.2582:Float =
+            (Let Td1600.2610:Float =
+              (Let Td1598.2613:Float =
+                (Let Ti1597.2615:Int =
+                  1
+                In
+                (p.2120.(Ti1597.2615)))
+              In
+              (Let Td1599.2614:Float =
+                (o_param_y.2002 m.2119)
+              In
+              (FSub Td1598.2613 Td1599.2614)))
+            In
+            (Let Td1602.2611:Float =
+              (Let Td1601.2612:Float =
+                (o_param_b.1996 m.2119)
+              In
+              sqrt Td1601.2612)
+            In
+            (FMul Td1600.2610 Td1602.2611)))
+          In
+          (Let w8.2583:Float =
+            (Let Td1603.2602:Float =
+              0.0001
+            In
+            (Let Td1604.2603:Float =
+              abs_float w7.2580
+            In
+            (If (LE Td1603.2602 Td1604.2603) Then
+              (Let w6.2604:Float =
+                (Let Td1605.2609:Float =
+                  (FDiv w2.2582 w4.2579)
+                In
+                abs_float Td1605.2609)
+              In
+              (Let Td1606.2605:Float =
+                atan w6.2604
+              In
+              (Let Td1609.2606:Float =
+                (Let Td1607.2607:Float =
+                  30.
+                In
+                (Let Td1608.2608:Float =
+                  3.1415927
+                In
+                (FDiv Td1607.2607 Td1608.2608)))
+              In
+              (FMul Td1606.2605 Td1609.2606))))
+            Else
+              15.)))
+          In
+          (Let w10.2584:Float =
+            (Let Td1610.2601:Float =
+              floor w8.2583
+            In
+            (FSub w8.2583 Td1610.2601))
+          In
+          (Let w11.2585:Float =
+            (Let Td1615.2593:Float =
+              (Let Td1611.2597:Float =
+                0.15
+              In
+              (Let Td1614.2598:Float =
+                (Let Td1613.2599:Float =
+                  (Let Td1612.2600:Float =
+                    0.5
+                  In
+                  (FSub Td1612.2600 w9.2581))
+                In
+                (fsqr.1980 Td1613.2599))
+              In
+              (FSub Td1611.2597 Td1614.2598)))
+            In
+            (Let Td1618.2594:Float =
+              (Let Td1617.2595:Float =
+                (Let Td1616.2596:Float =
+                  0.5
+                In
+                (FSub Td1616.2596 w10.2584))
+              In
+              (fsqr.1980 Td1617.2595))
+            In
+            (FSub Td1615.2593 Td1618.2594)))
+          In
+          (Let Ta1619.2586:Array(Float) =
+            (Ext_Array texture_color)
+          In
+          (Let Ti1620.2587:Int =
+            2
+          In
+          (Let Td1625.2588:Float =
+            (Let Td1621.2589:Float =
+              0.
+            In
+            (If (LE w11.2585 Td1621.2589) Then
+              0.
+            Else
+              (Let Td1624.2590:Float =
+                (Let Td1622.2591:Float =
+                  255.
+                In
+                (Let Td1623.2592:Float =
+                  0.3
+                In
+                (FDiv Td1622.2591 Td1623.2592)))
+              In
+              (FMul w11.2585 Td1624.2590))))
+          In
+          (Ta1619.2586.(Ti1620.2587) <- Td1625.2588)))))))))))))
+        Else
+          ()))))))))))))
+In
+(LetRec in_prod.2121:(Array(Float) -> Array(Float) -> Float) v1.2122:Array(Float) v2.2123:Array(Float) =
+  (Let Td1636.2553:Float =
+    (Let Td1630.2559:Float =
+      (Let Td1627.2565:Float =
+        (Let Ti1626.2568:Int =
+          0
+        In
+        (v1.2122.(Ti1626.2568)))
+      In
+      (Let Td1629.2566:Float =
+        (Let Ti1628.2567:Int =
+          0
+        In
+        (v2.2123.(Ti1628.2567)))
+      In
+      (FMul Td1627.2565 Td1629.2566)))
+    In
+    (Let Td1635.2560:Float =
+      (Let Td1632.2561:Float =
+        (Let Ti1631.2564:Int =
+          1
+        In
+        (v1.2122.(Ti1631.2564)))
+      In
+      (Let Td1634.2562:Float =
+        (Let Ti1633.2563:Int =
+          1
+        In
+        (v2.2123.(Ti1633.2563)))
+      In
+      (FMul Td1632.2561 Td1634.2562)))
+    In
+    (FAdd Td1630.2559 Td1635.2560)))
+  In
+  (Let Td1641.2554:Float =
+    (Let Td1638.2555:Float =
+      (Let Ti1637.2558:Int =
+        2
+      In
+      (v1.2122.(Ti1637.2558)))
+    In
+    (Let Td1640.2556:Float =
+      (Let Ti1639.2557:Int =
+        2
+      In
+      (v2.2123.(Ti1639.2557)))
+    In
+    (FMul Td1638.2555 Td1640.2556)))
+  In
+  (FAdd Td1636.2553 Td1641.2554)))
+In
+(LetRec accumulate_vec_mul.2124:(Array(Float) -> Array(Float) -> Float -> Unit) v1.2125:Array(Float) v2.2126:Array(Float) w.2127:Float =
+  (Let Tu119.2530:Unit =
+    (Let Ti1642.2546:Int =
+      0
+    In
+    (Let Td1648.2547:Float =
+      (Let Td1644.2548:Float =
+        (Let Ti1643.2552:Int =
+          0
+        In
+        (v1.2125.(Ti1643.2552)))
+      In
+      (Let Td1647.2549:Float =
+        (Let Td1646.2550:Float =
+          (Let Ti1645.2551:Int =
+            0
+          In
+          (v2.2126.(Ti1645.2551)))
+        In
+        (FMul w.2127 Td1646.2550))
+      In
+      (FAdd Td1644.2548 Td1647.2549)))
+    In
+    (v1.2125.(Ti1642.2546) <- Td1648.2547)))
+  In
+  (Let Tu118.2531:Unit =
+    (Let Ti1649.2539:Int =
+      1
+    In
+    (Let Td1655.2540:Float =
+      (Let Td1651.2541:Float =
+        (Let Ti1650.2545:Int =
+          1
+        In
+        (v1.2125.(Ti1650.2545)))
+      In
+      (Let Td1654.2542:Float =
+        (Let Td1653.2543:Float =
+          (Let Ti1652.2544:Int =
+            1
+          In
+          (v2.2126.(Ti1652.2544)))
+        In
+        (FMul w.2127 Td1653.2543))
+      In
+      (FAdd Td1651.2541 Td1654.2542)))
+    In
+    (v1.2125.(Ti1649.2539) <- Td1655.2540)))
+  In
+  (Let Ti1656.2532:Int =
+    2
+  In
+  (Let Td1662.2533:Float =
+    (Let Td1658.2534:Float =
+      (Let Ti1657.2538:Int =
+        2
+      In
+      (v1.2125.(Ti1657.2538)))
+    In
+    (Let Td1661.2535:Float =
+      (Let Td1660.2536:Float =
+        (Let Ti1659.2537:Int =
+          2
+        In
+        (v2.2126.(Ti1659.2537)))
+      In
+      (FMul w.2127 Td1660.2536))
+    In
+    (FAdd Td1658.2534 Td1661.2535)))
+  In
+  (v1.2125.(Ti1656.2532) <- Td1662.2533)))))
+In
+(LetRec raytracing.2128:(Int -> Float -> Unit) nref.2129:Int energy.2130:Float =
+  (Let crashed_p.2392:Bool =
+    (Let Ta1663.2528:Array(Float) =
+      (Ext_Array viewpoint)
+    In
+    (Let Ta1664.2529:Array(Float) =
+      (Ext_Array vscan)
+    In
+    (tracer.2102 Ta1663.2528 Ta1664.2529)))
+  In
+  (Let Tu131.2393:Unit =
+    (Let Ti1665.2494:Int =
+      0
+    In
+    (If (EQ crashed_p.2392 Ti1665.2494) Then
+      (Let Ti1666.2495:Int =
+        0
+      In
+      (If (EQ nref.2129 Ti1666.2495) Then
+        ()
+      Else
+        (Let hl.2496:Float =
+          (Let Td1669.2525:Float =
+            (Let Ta1667.2526:Array(Float) =
+              (Ext_Array vscan)
+            In
+            (Let Ta1668.2527:Array(Float) =
+              (Ext_Array light)
+            In
+            (in_prod.2121 Ta1667.2526 Ta1668.2527)))
+          In
+          (FNeg Td1669.2525))
+        In
+        (Let Td1670.2497:Float =
+          0.
+        In
+        (If (LE hl.2496 Td1670.2497) Then
+          ()
+        Else
+          (Let ihl.2498:Float =
+            (Let Td1673.2519:Float =
+              (Let Td1672.2523:Float =
+                (Let Td1671.2524:Float =
+                  (fsqr.1980 hl.2496)
+                In
+                (FMul Td1671.2524 hl.2496))
+              In
+              (FMul Td1672.2523 energy.2130))
+            In
+            (Let Td1676.2520:Float =
+              (Let Ta1674.2521:Array(Float) =
+                (Ext_Array beam)
+              In
+              (Let Ti1675.2522:Int =
+                0
+              In
+              (Ta1674.2521.(Ti1675.2522))))
+            In
+            (FMul Td1673.2519 Td1676.2520)))
+          In
+          (Let Tu121.2499:Unit =
+            (Let Ta1677.2513:Array(Float) =
+              (Ext_Array rgb)
+            In
+            (Let Ti1678.2514:Int =
+              0
+            In
+            (Let Td1682.2515:Float =
+              (Let Td1681.2516:Float =
+                (Let Ta1679.2517:Array(Float) =
+                  (Ext_Array rgb)
+                In
+                (Let Ti1680.2518:Int =
+                  0
+                In
+                (Ta1679.2517.(Ti1680.2518))))
+              In
+              (FAdd Td1681.2516 ihl.2498))
+            In
+            (Ta1677.2513.(Ti1678.2514) <- Td1682.2515))))
+          In
+          (Let Tu120.2500:Unit =
+            (Let Ta1683.2507:Array(Float) =
+              (Ext_Array rgb)
+            In
+            (Let Ti1684.2508:Int =
+              1
+            In
+            (Let Td1688.2509:Float =
+              (Let Td1687.2510:Float =
+                (Let Ta1685.2511:Array(Float) =
+                  (Ext_Array rgb)
+                In
+                (Let Ti1686.2512:Int =
+                  1
+                In
+                (Ta1685.2511.(Ti1686.2512))))
+              In
+              (FAdd Td1687.2510 ihl.2498))
+            In
+            (Ta1683.2507.(Ti1684.2508) <- Td1688.2509))))
+          In
+          (Let Ta1689.2501:Array(Float) =
+            (Ext_Array rgb)
+          In
+          (Let Ti1690.2502:Int =
+            2
+          In
+          (Let Td1694.2503:Float =
+            (Let Td1693.2504:Float =
+              (Let Ta1691.2505:Array(Float) =
+                (Ext_Array rgb)
+              In
+              (Let Ti1692.2506:Int =
+                2
+              In
+              (Ta1691.2505.(Ti1692.2506))))
+            In
+            (FAdd Td1693.2504 ihl.2498))
+          In
+          (Ta1689.2501.(Ti1690.2502) <- Td1694.2503))))))))))))
+    Else
+      ()))
+  In
+  (Let Ti1695.2394:Int =
+    0
+  In
+  (If (EQ crashed_p.2392 Ti1695.2394) Then
+    ()
+  Else
+    (Let cobj.2395:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+      (Let Ta1696.2490:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+        (Ext_Array objects)
+      In
+      (Let Ti1699.2491:Int =
+        (Let Ta1697.2492:Array(Int) =
+          (Ext_Array crashed_object)
+        In
+        (Let Ti1698.2493:Int =
+          0
+        In
+        (Ta1697.2492.(Ti1698.2493))))
+      In
+      (Ta1696.2490.(Ti1699.2491))))
+    In
+    (Let Tu130.2396:Unit =
+      (Let Ta1700.2489:Array(Float) =
+        (Ext_Array crashed_point)
+      In
+      (get_nvector.2115 cobj.2395 Ta1700.2489))
+    In
+    (Let bright.2397:Float =
+      (Let Tb1706.2473:Bool =
+        (Let Ti1701.2484:Int =
+          0
+        In
+        (Let Ta1704.2485:Array(Array(Int)) =
+          (Let Ta1702.2487:Array(Array(Array(Int))) =
+            (Ext_Array or_net)
+          In
+          (Let Ti1703.2488:Int =
+            0
+          In
+          (Ta1702.2487.(Ti1703.2488))))
+        In
+        (Let Ta1705.2486:Array(Float) =
+          (Ext_Array crashed_point)
+        In
+        (shadow_check_one_or_matrix.2089 Ti1701.2484 Ta1704.2485 Ta1705.2486))))
+      In
+      (Let Ti1707.2474:Int =
+        0
+      In
+      (If (EQ Tb1706.2473 Ti1707.2474) Then
+        (Let br.2475:Float =
+          (Let Td1710.2481:Float =
+            (Let Ta1708.2482:Array(Float) =
+              (Ext_Array nvector)
+            In
+            (Let Ta1709.2483:Array(Float) =
+              (Ext_Array light)
+            In
+            (in_prod.2121 Ta1708.2482 Ta1709.2483)))
+          In
+          (FNeg Td1710.2481))
+        In
+        (Let br1.2476:Float =
+          (Let Td1711.2479:Float =
+            0.
+          In
+          (If (LE Td1711.2479 br.2475) Then
+            (Let Td1712.2480:Float =
+              0.2
+            In
+            (FAdd br.2475 Td1712.2480))
+          Else
+            0.2))
+        In
+        (Let Td1713.2477:Float =
+          (FMul br1.2476 energy.2130)
+        In
+        (Let Td1714.2478:Float =
+          (o_diffuse.2006 cobj.2395)
+        In
+        (FMul Td1713.2477 Td1714.2478)))))
+      Else
+        0.)))
+    In
+    (Let Tu129.2398:Unit =
+      (Let Ta1715.2472:Array(Float) =
+        (Ext_Array crashed_point)
+      In
+      (utexture.2118 cobj.2395 Ta1715.2472))
+    In
+    (Let Tu128.2399:Unit =
+      (Let Ta1716.2470:Array(Float) =
+        (Ext_Array rgb)
+      In
+      (Let Ta1717.2471:Array(Float) =
+        (Ext_Array texture_color)
+      In
+      (accumulate_vec_mul.2124 Ta1716.2470 Ta1717.2471 bright.2397)))
+    In
+    (Let Ti1718.2400:Int =
+      4
+    In
+    (If (LE nref.2129 Ti1718.2400) Then
+      (Let Td1719.2401:Float =
+        0.1
+      In
+      (If (LE energy.2130 Td1719.2401) Then
+        ()
+      Else
+        (Let w.2402:Float =
+          (Let Td1720.2466:Float =
+            -2.
+          In
+          (Let Td1723.2467:Float =
+            (Let Ta1721.2468:Array(Float) =
+              (Ext_Array vscan)
+            In
+            (Let Ta1722.2469:Array(Float) =
+              (Ext_Array nvector)
+            In
+            (in_prod.2121 Ta1721.2468 Ta1722.2469)))
+          In
+          (FMul Td1720.2466 Td1723.2467)))
+        In
+        (Let Tu127.2403:Unit =
+          (Let Ta1724.2464:Array(Float) =
+            (Ext_Array vscan)
+          In
+          (Let Ta1725.2465:Array(Float) =
+            (Ext_Array nvector)
+          In
+          (accumulate_vec_mul.2124 Ta1724.2464 Ta1725.2465 w.2402)))
+        In
+        (Let m_surface.2404:Int =
+          (o_reflectiontype.1988 cobj.2395)
+        In
+        (Let Ti1726.2405:Int =
+          1
+        In
+        (If (EQ m_surface.2404 Ti1726.2405) Then
+          (Let Td1727.2431:Float =
+            0.
+          In
+          (Let Td1728.2432:Float =
+            (o_hilight.2008 cobj.2395)
+          In
+          (If (EQ Td1727.2431 Td1728.2432) Then
+            ()
+          Else
+            (Let hl.2433:Float =
+              (Let Td1731.2461:Float =
+                (Let Ta1729.2462:Array(Float) =
+                  (Ext_Array vscan)
+                In
+                (Let Ta1730.2463:Array(Float) =
+                  (Ext_Array light)
+                In
+                (in_prod.2121 Ta1729.2462 Ta1730.2463)))
+              In
+              (FNeg Td1731.2461))
+            In
+            (Let Td1732.2434:Float =
+              0.
+            In
+            (If (LE hl.2433 Td1732.2434) Then
+              ()
+            Else
+              (Let ihl.2435:Float =
+                (Let Td1736.2456:Float =
+                  (Let Td1735.2458:Float =
+                    (Let Td1734.2459:Float =
+                      (Let Td1733.2460:Float =
+                        (fsqr.1980 hl.2433)
+                      In
+                      (fsqr.1980 Td1733.2460))
+                    In
+                    (FMul Td1734.2459 energy.2130))
+                  In
+                  (FMul Td1735.2458 bright.2397))
+                In
+                (Let Td1737.2457:Float =
+                  (o_hilight.2008 cobj.2395)
+                In
+                (FMul Td1736.2456 Td1737.2457)))
+              In
+              (Let Tu123.2436:Unit =
+                (Let Ta1738.2450:Array(Float) =
+                  (Ext_Array rgb)
+                In
+                (Let Ti1739.2451:Int =
+                  0
+                In
+                (Let Td1743.2452:Float =
+                  (Let Td1742.2453:Float =
+                    (Let Ta1740.2454:Array(Float) =
+                      (Ext_Array rgb)
+                    In
+                    (Let Ti1741.2455:Int =
+                      0
+                    In
+                    (Ta1740.2454.(Ti1741.2455))))
+                  In
+                  (FAdd Td1742.2453 ihl.2435))
+                In
+                (Ta1738.2450.(Ti1739.2451) <- Td1743.2452))))
+              In
+              (Let Tu122.2437:Unit =
+                (Let Ta1744.2444:Array(Float) =
+                  (Ext_Array rgb)
+                In
+                (Let Ti1745.2445:Int =
+                  1
+                In
+                (Let Td1749.2446:Float =
+                  (Let Td1748.2447:Float =
+                    (Let Ta1746.2448:Array(Float) =
+                      (Ext_Array rgb)
+                    In
+                    (Let Ti1747.2449:Int =
+                      1
+                    In
+                    (Ta1746.2448.(Ti1747.2449))))
+                  In
+                  (FAdd Td1748.2447 ihl.2435))
+                In
+                (Ta1744.2444.(Ti1745.2445) <- Td1749.2446))))
+              In
+              (Let Ta1750.2438:Array(Float) =
+                (Ext_Array rgb)
+              In
+              (Let Ti1751.2439:Int =
+                2
+              In
+              (Let Td1755.2440:Float =
+                (Let Td1754.2441:Float =
+                  (Let Ta1752.2442:Array(Float) =
+                    (Ext_Array rgb)
+                  In
+                  (Let Ti1753.2443:Int =
+                    2
+                  In
+                  (Ta1752.2442.(Ti1753.2443))))
+                In
+                (FAdd Td1754.2441 ihl.2435))
+              In
+              (Ta1750.2438.(Ti1751.2439) <- Td1755.2440)))))))))))))
+        Else
+          (Let Ti1756.2406:Int =
+            2
+          In
+          (If (EQ m_surface.2404 Ti1756.2406) Then
+            (Let Tu126.2407:Unit =
+              (Let Ta1757.2426:Array(Float) =
+                (Ext_Array viewpoint)
+              In
+              (Let Ti1758.2427:Int =
+                0
+              In
+              (Let Td1761.2428:Float =
+                (Let Ta1759.2429:Array(Float) =
+                  (Ext_Array crashed_point)
+                In
+                (Let Ti1760.2430:Int =
+                  0
+                In
+                (Ta1759.2429.(Ti1760.2430))))
+              In
+              (Ta1757.2426.(Ti1758.2427) <- Td1761.2428))))
+            In
+            (Let Tu125.2408:Unit =
+              (Let Ta1762.2421:Array(Float) =
+                (Ext_Array viewpoint)
+              In
+              (Let Ti1763.2422:Int =
+                1
+              In
+              (Let Td1766.2423:Float =
+                (Let Ta1764.2424:Array(Float) =
+                  (Ext_Array crashed_point)
+                In
+                (Let Ti1765.2425:Int =
+                  1
+                In
+                (Ta1764.2424.(Ti1765.2425))))
+              In
+              (Ta1762.2421.(Ti1763.2422) <- Td1766.2423))))
+            In
+            (Let Tu124.2409:Unit =
+              (Let Ta1767.2416:Array(Float) =
+                (Ext_Array viewpoint)
+              In
+              (Let Ti1768.2417:Int =
+                2
+              In
+              (Let Td1771.2418:Float =
+                (Let Ta1769.2419:Array(Float) =
+                  (Ext_Array crashed_point)
+                In
+                (Let Ti1770.2420:Int =
+                  2
+                In
+                (Ta1769.2419.(Ti1770.2420))))
+              In
+              (Ta1767.2416.(Ti1768.2417) <- Td1771.2418))))
+            In
+            (Let energy2.2410:Float =
+              (Let Td1774.2413:Float =
+                (Let Td1772.2414:Float =
+                  1.
+                In
+                (Let Td1773.2415:Float =
+                  (o_diffuse.2006 cobj.2395)
+                In
+                (FSub Td1772.2414 Td1773.2415)))
+              In
+              (FMul energy.2130 Td1774.2413))
+            In
+            (Let Ti1776.2411:Int =
+              (Let Ti1775.2412:Int =
+                1
+              In
+              (Add nref.2129 Ti1775.2412))
+            In
+            (raytracing.2128 Ti1776.2411 energy2.2410))))))
+          Else
+            ())))))))))
+    Else
+      ())))))))))))
+In
+(LetRec write_rgb.2131:(Unit -> Unit) Tu132.2132:Unit =
+  (Let red.2372:Int =
+    (Let Td1779.2389:Float =
+      (Let Ta1777.2390:Array(Float) =
+        (Ext_Array rgb)
+      In
+      (Let Ti1778.2391:Int =
+        0
+      In
+      (Ta1777.2390.(Ti1778.2391))))
+    In
+    int_of_float Td1779.2389)
+  In
+  (Let red.2373:Int =
+    (Let Ti1780.2388:Int =
+      255
+    In
+    (If (LE red.2372 Ti1780.2388) Then
+      red.2372
+    Else
+      255))
+  In
+  (Let Tu134.2374:Unit =
+    print_byte red.2373
+  In
+  (Let green.2375:Int =
+    (Let Td1783.2385:Float =
+      (Let Ta1781.2386:Array(Float) =
+        (Ext_Array rgb)
+      In
+      (Let Ti1782.2387:Int =
+        1
+      In
+      (Ta1781.2386.(Ti1782.2387))))
+    In
+    int_of_float Td1783.2385)
+  In
+  (Let green.2376:Int =
+    (Let Ti1784.2384:Int =
+      255
+    In
+    (If (LE green.2375 Ti1784.2384) Then
+      green.2375
+    Else
+      255))
+  In
+  (Let Tu133.2377:Unit =
+    print_byte green.2376
+  In
+  (Let blue.2378:Int =
+    (Let Td1787.2381:Float =
+      (Let Ta1785.2382:Array(Float) =
+        (Ext_Array rgb)
+      In
+      (Let Ti1786.2383:Int =
+        2
+      In
+      (Ta1785.2382.(Ti1786.2383))))
+    In
+    int_of_float Td1787.2381)
+  In
+  (Let blue.2379:Int =
+    (Let Ti1788.2380:Int =
+      255
+    In
+    (If (LE blue.2378 Ti1788.2380) Then
+      blue.2378
+    Else
+      255))
+  In
+  print_byte blue.2379))))))))
+In
+(LetRec write_ppm_header.2133:(Unit -> Unit) Tu135.2134:Unit =
+  (Let Tu143.2349:Unit =
+    (Let Ti1789.2371:Int =
+      80
+    In
+    print_byte Ti1789.2371)
+  In
+  (Let Tu142.2350:Unit =
+    (Let Ti1792.2368:Int =
+      (Let Ti1790.2369:Int =
+        48
+      In
+      (Let Ti1791.2370:Int =
+        6
+      In
+      (Add Ti1790.2369 Ti1791.2370)))
+    In
+    print_byte Ti1792.2368)
+  In
+  (Let Tu141.2351:Unit =
+    (Let Ti1793.2367:Int =
+      10
+    In
+    print_byte Ti1793.2367)
+  In
+  (Let Tu140.2352:Unit =
+    (Let Ti1796.2364:Int =
+      (Let Ta1794.2365:Array(Int) =
+        (Ext_Array size)
+      In
+      (Let Ti1795.2366:Int =
+        0
+      In
+      (Ta1794.2365.(Ti1795.2366))))
+    In
+    print_int Ti1796.2364)
+  In
+  (Let Tu139.2353:Unit =
+    (Let Ti1797.2363:Int =
+      32
+    In
+    print_byte Ti1797.2363)
+  In
+  (Let Tu138.2354:Unit =
+    (Let Ti1800.2360:Int =
+      (Let Ta1798.2361:Array(Int) =
+        (Ext_Array size)
+      In
+      (Let Ti1799.2362:Int =
+        1
+      In
+      (Ta1798.2361.(Ti1799.2362))))
+    In
+    print_int Ti1800.2360)
+  In
+  (Let Tu137.2355:Unit =
+    (Let Ti1801.2359:Int =
+      10
+    In
+    print_byte Ti1801.2359)
+  In
+  (Let Tu136.2356:Unit =
+    (Let Ti1802.2358:Int =
+      255
+    In
+    print_int Ti1802.2358)
+  In
+  (Let Ti1803.2357:Int =
+    10
+  In
+  print_byte Ti1803.2357)))))))))
+In
+(LetRec scan_point.2135:(Int -> Unit) scanx.2136:Int =
+  (Let Ti1806.2236:Int =
+    (Let Ta1804.2347:Array(Int) =
+      (Ext_Array size)
+    In
+    (Let Ti1805.2348:Int =
+      0
+    In
+    (Ta1804.2347.(Ti1805.2348))))
+  In
+  (If (LE Ti1806.2236 scanx.2136) Then
+    ()
+  Else
+    (Let sscanx.2237:Float =
+      (Let Td1811.2339:Float =
+        (Let Td1807.2343:Float =
+          float_of_int scanx.2136
+        In
+        (Let Td1810.2344:Float =
+          (Let Ta1808.2345:Array(Float) =
+            (Ext_Array scan_offset)
+          In
+          (Let Ti1809.2346:Int =
+            0
+          In
+          (Ta1808.2345.(Ti1809.2346))))
+        In
+        (FSub Td1807.2343 Td1810.2344)))
+      In
+      (Let Td1814.2340:Float =
+        (Let Ta1812.2341:Array(Float) =
+          (Ext_Array scan_d)
+        In
+        (Let Ti1813.2342:Int =
+          0
+        In
+        (Ta1812.2341.(Ti1813.2342))))
+      In
+      (FMul Td1811.2339 Td1814.2340)))
+    In
+    (Let Tu157.2238:Unit =
+      (Let Ta1815.2329:Array(Float) =
+        (Ext_Array vscan)
+      In
+      (Let Ti1816.2330:Int =
+        0
+      In
+      (Let Td1824.2331:Float =
+        (Let Td1820.2332:Float =
+          (Let Td1819.2336:Float =
+            (Let Ta1817.2337:Array(Float) =
+              (Ext_Array cos_v)
+            In
+            (Let Ti1818.2338:Int =
+              1
+            In
+            (Ta1817.2337.(Ti1818.2338))))
+          In
+          (FMul sscanx.2237 Td1819.2336))
+        In
+        (Let Td1823.2333:Float =
+          (Let Ta1821.2334:Array(Float) =
+            (Ext_Array wscan)
+          In
+          (Let Ti1822.2335:Int =
+            0
+          In
+          (Ta1821.2334.(Ti1822.2335))))
+        In
+        (FAdd Td1820.2332 Td1823.2333)))
+      In
+      (Ta1815.2329.(Ti1816.2330) <- Td1824.2331))))
+    In
+    (Let Tu156.2239:Unit =
+      (Let Ta1825.2316:Array(Float) =
+        (Ext_Array vscan)
+      In
+      (Let Ti1826.2317:Int =
+        1
+      In
+      (Let Td1837.2318:Float =
+        (Let Td1833.2319:Float =
+          (Let Td1829.2323:Float =
+            (Let Ta1827.2327:Array(Float) =
+              (Ext_Array scan_sscany)
+            In
+            (Let Ti1828.2328:Int =
+              0
+            In
+            (Ta1827.2327.(Ti1828.2328))))
+          In
+          (Let Td1832.2324:Float =
+            (Let Ta1830.2325:Array(Float) =
+              (Ext_Array cos_v)
+            In
+            (Let Ti1831.2326:Int =
+              0
+            In
+            (Ta1830.2325.(Ti1831.2326))))
+          In
+          (FMul Td1829.2323 Td1832.2324)))
+        In
+        (Let Td1836.2320:Float =
+          (Let Ta1834.2321:Array(Float) =
+            (Ext_Array vp)
+          In
+          (Let Ti1835.2322:Int =
+            1
+          In
+          (Ta1834.2321.(Ti1835.2322))))
+        In
+        (FSub Td1833.2319 Td1836.2320)))
+      In
+      (Ta1825.2316.(Ti1826.2317) <- Td1837.2318))))
+    In
+    (Let Tu155.2240:Unit =
+      (Let Ta1838.2305:Array(Float) =
+        (Ext_Array vscan)
+      In
+      (Let Ti1839.2306:Int =
+        2
+      In
+      (Let Td1848.2307:Float =
+        (Let Td1844.2308:Float =
+          (Let Td1840.2312:Float =
+            (FNeg sscanx.2237)
+          In
+          (Let Td1843.2313:Float =
+            (Let Ta1841.2314:Array(Float) =
+              (Ext_Array sin_v)
+            In
+            (Let Ti1842.2315:Int =
+              1
+            In
+            (Ta1841.2314.(Ti1842.2315))))
+          In
+          (FMul Td1840.2312 Td1843.2313)))
+        In
+        (Let Td1847.2309:Float =
+          (Let Ta1845.2310:Array(Float) =
+            (Ext_Array wscan)
+          In
+          (Let Ti1846.2311:Int =
+            2
+          In
+          (Ta1845.2310.(Ti1846.2311))))
+        In
+        (FAdd Td1844.2308 Td1847.2309)))
+      In
+      (Ta1838.2305.(Ti1839.2306) <- Td1848.2307))))
+    In
+    (Let metric.2241:Float =
+      (Let Td1853.2300:Float =
+        (Let Td1849.2301:Float =
+          (fsqr.1980 sscanx.2237)
+        In
+        (Let Td1852.2302:Float =
+          (Let Ta1850.2303:Array(Float) =
+            (Ext_Array scan_met1)
+          In
+          (Let Ti1851.2304:Int =
+            0
+          In
+          (Ta1850.2303.(Ti1851.2304))))
+        In
+        (FAdd Td1849.2301 Td1852.2302)))
+      In
+      sqrt Td1853.2300)
+    In
+    (Let Tu154.2242:Unit =
+      (Let Ta1854.2294:Array(Float) =
+        (Ext_Array vscan)
+      In
+      (Let Ti1855.2295:Int =
+        0
+      In
+      (Let Td1859.2296:Float =
+        (Let Td1858.2297:Float =
+          (Let Ta1856.2298:Array(Float) =
+            (Ext_Array vscan)
+          In
+          (Let Ti1857.2299:Int =
+            0
+          In
+          (Ta1856.2298.(Ti1857.2299))))
+        In
+        (FDiv Td1858.2297 metric.2241))
+      In
+      (Ta1854.2294.(Ti1855.2295) <- Td1859.2296))))
+    In
+    (Let Tu153.2243:Unit =
+      (Let Ta1860.2288:Array(Float) =
+        (Ext_Array vscan)
+      In
+      (Let Ti1861.2289:Int =
+        1
+      In
+      (Let Td1865.2290:Float =
+        (Let Td1864.2291:Float =
+          (Let Ta1862.2292:Array(Float) =
+            (Ext_Array vscan)
+          In
+          (Let Ti1863.2293:Int =
+            1
+          In
+          (Ta1862.2292.(Ti1863.2293))))
+        In
+        (FDiv Td1864.2291 metric.2241))
+      In
+      (Ta1860.2288.(Ti1861.2289) <- Td1865.2290))))
+    In
+    (Let Tu152.2244:Unit =
+      (Let Ta1866.2282:Array(Float) =
+        (Ext_Array vscan)
+      In
+      (Let Ti1867.2283:Int =
+        2
+      In
+      (Let Td1871.2284:Float =
+        (Let Td1870.2285:Float =
+          (Let Ta1868.2286:Array(Float) =
+            (Ext_Array vscan)
+          In
+          (Let Ti1869.2287:Int =
+            2
+          In
+          (Ta1868.2286.(Ti1869.2287))))
+        In
+        (FDiv Td1870.2285 metric.2241))
+      In
+      (Ta1866.2282.(Ti1867.2283) <- Td1871.2284))))
+    In
+    (Let Tu151.2245:Unit =
+      (Let Ta1872.2277:Array(Float) =
+        (Ext_Array viewpoint)
+      In
+      (Let Ti1873.2278:Int =
+        0
+      In
+      (Let Td1876.2279:Float =
+        (Let Ta1874.2280:Array(Float) =
+          (Ext_Array view)
+        In
+        (Let Ti1875.2281:Int =
+          0
+        In
+        (Ta1874.2280.(Ti1875.2281))))
+      In
+      (Ta1872.2277.(Ti1873.2278) <- Td1876.2279))))
+    In
+    (Let Tu150.2246:Unit =
+      (Let Ta1877.2272:Array(Float) =
+        (Ext_Array viewpoint)
+      In
+      (Let Ti1878.2273:Int =
+        1
+      In
+      (Let Td1881.2274:Float =
+        (Let Ta1879.2275:Array(Float) =
+          (Ext_Array view)
+        In
+        (Let Ti1880.2276:Int =
+          1
+        In
+        (Ta1879.2275.(Ti1880.2276))))
+      In
+      (Ta1877.2272.(Ti1878.2273) <- Td1881.2274))))
+    In
+    (Let Tu149.2247:Unit =
+      (Let Ta1882.2267:Array(Float) =
+        (Ext_Array viewpoint)
+      In
+      (Let Ti1883.2268:Int =
+        2
+      In
+      (Let Td1886.2269:Float =
+        (Let Ta1884.2270:Array(Float) =
+          (Ext_Array view)
+        In
+        (Let Ti1885.2271:Int =
+          2
+        In
+        (Ta1884.2270.(Ti1885.2271))))
+      In
+      (Ta1882.2267.(Ti1883.2268) <- Td1886.2269))))
+    In
+    (Let Tu148.2248:Unit =
+      (Let Ta1887.2264:Array(Float) =
+        (Ext_Array rgb)
+      In
+      (Let Ti1888.2265:Int =
+        0
+      In
+      (Let Td1889.2266:Float =
+        0.
+      In
+      (Ta1887.2264.(Ti1888.2265) <- Td1889.2266))))
+    In
+    (Let Tu147.2249:Unit =
+      (Let Ta1890.2261:Array(Float) =
+        (Ext_Array rgb)
+      In
+      (Let Ti1891.2262:Int =
+        1
+      In
+      (Let Td1892.2263:Float =
+        0.
+      In
+      (Ta1890.2261.(Ti1891.2262) <- Td1892.2263))))
+    In
+    (Let Tu146.2250:Unit =
+      (Let Ta1893.2258:Array(Float) =
+        (Ext_Array rgb)
+      In
+      (Let Ti1894.2259:Int =
+        2
+      In
+      (Let Td1895.2260:Float =
+        0.
+      In
+      (Ta1893.2258.(Ti1894.2259) <- Td1895.2260))))
+    In
+    (Let Tu145.2251:Unit =
+      (Let Ti1896.2256:Int =
+        0
+      In
+      (Let Td1897.2257:Float =
+        1.
+      In
+      (raytracing.2128 Ti1896.2256 Td1897.2257)))
+    In
+    (Let Tu144.2252:Unit =
+      (Let Tu1898.2255:Unit =
+        ()
+      In
+      (write_rgb.2131 Tu1898.2255))
+    In
+    (Let Ti1900.2253:Int =
+      (Let Ti1899.2254:Int =
+        1
+      In
+      (Add scanx.2136 Ti1899.2254))
+    In
+    (scan_point.2135 Ti1900.2253))))))))))))))))))))
+In
+(LetRec scan_line.2137:(Int -> Unit) scany.2138:Int =
+  (Let Ti1903.2177:Int =
+    (Let Ta1901.2234:Array(Int) =
+      (Ext_Array size)
+    In
+    (Let Ti1902.2235:Int =
+      0
+    In
+    (Ta1901.2234.(Ti1902.2235))))
+  In
+  (If (LE Ti1903.2177 scany.2138) Then
+    ()
+  Else
+    (Let Tu162.2178:Unit =
+      (Let Ta1904.2221:Array(Float) =
+        (Ext_Array scan_sscany)
+      In
+      (Let Ti1905.2222:Int =
+        0
+      In
+      (Let Td1915.2223:Float =
+        (Let t.2224:Float =
+          (Let Td1910.2228:Float =
+            (Let Td1908.2230:Float =
+              (Let Ta1906.2232:Array(Float) =
+                (Ext_Array scan_offset)
+              In
+              (Let Ti1907.2233:Int =
+                0
+              In
+              (Ta1906.2232.(Ti1907.2233))))
+            In
+            (Let Td1909.2231:Float =
+              1.
+            In
+            (FSub Td1908.2230 Td1909.2231)))
+          In
+          (Let Td1911.2229:Float =
+            float_of_int scany.2138
+          In
+          (FSub Td1910.2228 Td1911.2229)))
+        In
+        (Let Td1914.2225:Float =
+          (Let Ta1912.2226:Array(Float) =
+            (Ext_Array scan_d)
+          In
+          (Let Ti1913.2227:Int =
+            0
+          In
+          (Ta1912.2226.(Ti1913.2227))))
+        In
+        (FMul Td1914.2225 t.2224)))
+      In
+      (Ta1904.2221.(Ti1905.2222) <- Td1915.2223))))
+    In
+    (Let Tu161.2179:Unit =
+      (Let Ta1916.2213:Array(Float) =
+        (Ext_Array scan_met1)
+      In
+      (Let Ti1917.2214:Int =
+        0
+      In
+      (Let Td1923.2215:Float =
+        (Let Td1921.2216:Float =
+          (Let Td1920.2218:Float =
+            (Let Ta1918.2219:Array(Float) =
+              (Ext_Array scan_sscany)
+            In
+            (Let Ti1919.2220:Int =
+              0
+            In
+            (Ta1918.2219.(Ti1919.2220))))
+          In
+          (fsqr.1980 Td1920.2218))
+        In
+        (Let Td1922.2217:Float =
+          40000.
+        In
+        (FAdd Td1921.2216 Td1922.2217)))
+      In
+      (Ta1916.2213.(Ti1917.2214) <- Td1923.2215))))
+    In
+    (Let t1.2180:Float =
+      (Let Td1926.2207:Float =
+        (Let Ta1924.2211:Array(Float) =
+          (Ext_Array scan_sscany)
+        In
+        (Let Ti1925.2212:Int =
+          0
+        In
+        (Ta1924.2211.(Ti1925.2212))))
+      In
+      (Let Td1929.2208:Float =
+        (Let Ta1927.2209:Array(Float) =
+          (Ext_Array sin_v)
+        In
+        (Let Ti1928.2210:Int =
+          0
+        In
+        (Ta1927.2209.(Ti1928.2210))))
+      In
+      (FMul Td1926.2207 Td1929.2208)))
+    In
+    (Let Tu160.2181:Unit =
+      (Let Ta1930.2197:Array(Float) =
+        (Ext_Array wscan)
+      In
+      (Let Ti1931.2198:Int =
+        0
+      In
+      (Let Td1939.2199:Float =
+        (Let Td1935.2200:Float =
+          (Let Td1934.2204:Float =
+            (Let Ta1932.2205:Array(Float) =
+              (Ext_Array sin_v)
+            In
+            (Let Ti1933.2206:Int =
+              1
+            In
+            (Ta1932.2205.(Ti1933.2206))))
+          In
+          (FMul t1.2180 Td1934.2204))
+        In
+        (Let Td1938.2201:Float =
+          (Let Ta1936.2202:Array(Float) =
+            (Ext_Array vp)
+          In
+          (Let Ti1937.2203:Int =
+            0
+          In
+          (Ta1936.2202.(Ti1937.2203))))
+        In
+        (FSub Td1935.2200 Td1938.2201)))
+      In
+      (Ta1930.2197.(Ti1931.2198) <- Td1939.2199))))
+    In
+    (Let Tu159.2182:Unit =
+      (Let Ta1940.2187:Array(Float) =
+        (Ext_Array wscan)
+      In
+      (Let Ti1941.2188:Int =
+        2
+      In
+      (Let Td1949.2189:Float =
+        (Let Td1945.2190:Float =
+          (Let Td1944.2194:Float =
+            (Let Ta1942.2195:Array(Float) =
+              (Ext_Array cos_v)
+            In
+            (Let Ti1943.2196:Int =
+              1
+            In
+            (Ta1942.2195.(Ti1943.2196))))
+          In
+          (FMul t1.2180 Td1944.2194))
+        In
+        (Let Td1948.2191:Float =
+          (Let Ta1946.2192:Array(Float) =
+            (Ext_Array vp)
+          In
+          (Let Ti1947.2193:Int =
+            2
+          In
+          (Ta1946.2192.(Ti1947.2193))))
+        In
+        (FSub Td1945.2190 Td1948.2191)))
+      In
+      (Ta1940.2187.(Ti1941.2188) <- Td1949.2189))))
+    In
+    (Let Tu158.2183:Unit =
+      (Let Ti1950.2186:Int =
+        0
+      In
+      (scan_point.2135 Ti1950.2186))
+    In
+    (Let Ti1952.2184:Int =
+      (Let Ti1951.2185:Int =
+        1
+      In
+      (Add scany.2138 Ti1951.2185))
+    In
+    (scan_line.2137 Ti1952.2184))))))))))
+In
+(LetRec scan_start.2139:(Unit -> Unit) Tu163.2140:Unit =
+  (Let Tu166.2160:Unit =
+    (Let Tu1953.2176:Unit =
+      ()
+    In
+    (write_ppm_header.2133 Tu1953.2176))
+  In
+  (Let sizex.2161:Float =
+    (Let Ti1956.2173:Int =
+      (Let Ta1954.2174:Array(Int) =
+        (Ext_Array size)
+      In
+      (Let Ti1955.2175:Int =
+        0
+      In
+      (Ta1954.2174.(Ti1955.2175))))
+    In
+    float_of_int Ti1956.2173)
+  In
+  (Let Tu165.2162:Unit =
+    (Let Ta1957.2169:Array(Float) =
+      (Ext_Array scan_d)
+    In
+    (Let Ti1958.2170:Int =
+      0
+    In
+    (Let Td1960.2171:Float =
+      (Let Td1959.2172:Float =
+        128.
+      In
+      (FDiv Td1959.2172 sizex.2161))
+    In
+    (Ta1957.2169.(Ti1958.2170) <- Td1960.2171))))
+  In
+  (Let Tu164.2163:Unit =
+    (Let Ta1961.2165:Array(Float) =
+      (Ext_Array scan_offset)
+    In
+    (Let Ti1962.2166:Int =
+      0
+    In
+    (Let Td1964.2167:Float =
+      (Let Td1963.2168:Float =
+        2.
+      In
+      (FDiv sizex.2161 Td1963.2168))
+    In
+    (Ta1961.2165.(Ti1962.2166) <- Td1964.2167))))
+  In
+  (Let Ti1965.2164:Int =
+    0
+  In
+  (scan_line.2137 Ti1965.2164))))))
+In
+(LetRec rt.2141:(Int -> Int -> Bool -> Unit) size_x.2142:Int size_y.2143:Int debug_p.2144:Bool =
+  (Let Tu170.2148:Unit =
+    (Let Ta1966.2158:Array(Int) =
+      (Ext_Array size)
+    In
+    (Let Ti1967.2159:Int =
+      0
+    In
+    (Ta1966.2158.(Ti1967.2159) <- size_x.2142)))
+  In
+  (Let Tu169.2149:Unit =
+    (Let Ta1968.2156:Array(Int) =
+      (Ext_Array size)
+    In
+    (Let Ti1969.2157:Int =
+      1
+    In
+    (Ta1968.2156.(Ti1969.2157) <- size_y.2143)))
+  In
+  (Let Tu168.2150:Unit =
+    (Let Ta1970.2154:Array(Bool) =
+      (Ext_Array dbg)
+    In
+    (Let Ti1971.2155:Int =
+      0
+    In
+    (Ta1970.2154.(Ti1971.2155) <- debug_p.2144)))
+  In
+  (Let Tu167.2151:Unit =
+    (Let Tu1972.2153:Unit =
+      ()
+    In
+    (read_parameter.2043 Tu1972.2153))
+  In
+  (Let Tu1973.2152:Unit =
+    ()
+  In
+  (scan_start.2139 Tu1973.2152))))))
+In
+(Let Ti1974.2145:Int =
+  768
+In
+(Let Ti1975.2146:Int =
+  768
+In
+(Let Ti1976.2147:Int =
+  0
+In
+(rt.2141 Ti1974.2145 Ti1975.2146 Ti1976.2147))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))

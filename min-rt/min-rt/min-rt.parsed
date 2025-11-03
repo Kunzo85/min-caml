@@ -1,0 +1,4455 @@
+(LetRec xor:Var(?) x:Var(?) y:Var(?) =
+  (If
+    x
+  Then
+    (Not
+      y)
+  Else
+    y)
+In
+(LetRec fsqr:Var(?) x:Var(?) =
+  (FMul
+    x
+    x)
+In
+(LetRec fhalf:Var(?) x:Var(?) =
+  (FDiv
+    x
+    2.)
+In
+(LetRec o_texturetype:Var(?) m:Var(?) =
+  (LetTuple (m_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  m_tex)
+In
+(LetRec o_form:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), m_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  m_shape)
+In
+(LetRec o_reflectiontype:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), m_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  m_surface)
+In
+(LetRec o_isinvert:Var(?) m:Var(?) =
+  (LetTuple (m_tex:Var(?), m_shape:Var(?), m_surface:Var(?), m_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), m_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  m_invert)
+In
+(LetRec o_isrot:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), m_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  m_isrot)
+In
+(LetRec o_param_a:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), m_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_abc
+    0))
+In
+(LetRec o_param_b:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), m_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_abc
+    1))
+In
+(LetRec o_param_c:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), m_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_abc
+    2))
+In
+(LetRec o_param_x:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), m_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_xyz
+    0))
+In
+(LetRec o_param_y:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), m_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_xyz
+    1))
+In
+(LetRec o_param_z:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), m_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_xyz
+    2))
+In
+(LetRec o_diffuse:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), m_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_surfparams
+    0))
+In
+(LetRec o_hilight:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), m_surfparams:Var(?), xm_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_surfparams
+    1))
+In
+(LetRec o_color_red:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), m_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), m_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_color
+    0))
+In
+(LetRec o_color_green:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), m_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), m_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_color
+    1))
+In
+(LetRec o_color_blue:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), m_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), m_color:Var(?), xm_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_color
+    2))
+In
+(LetRec o_param_r1:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), m_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_rot123
+    0))
+In
+(LetRec o_param_r2:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), m_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_rot123
+    1))
+In
+(LetRec o_param_r3:Var(?) m:Var(?) =
+  (LetTuple (xm_tex:Var(?), xm_shape:Var(?), xm_surface:Var(?), xm_isrot:Var(?), xm_abc:Var(?), xm_xyz:Var(?), xm_invert:Var(?), xm_surfparams:Var(?), xm_color:Var(?), m_rot123:Var(?)) =
+    m
+  In
+  (Get
+    m_rot123
+    2))
+In
+(LetRec normalize_vector:Var(?) v:Var(?) inv:Var(?) =
+  (Let n0:Var(?) =
+    (App
+      sqrt
+      (FAdd
+        (FAdd
+          (App
+            fsqr
+            (Get
+              v
+              0))
+          (App
+            fsqr
+            (Get
+              v
+              1)))
+        (App
+          fsqr
+          (Get
+            v
+            2))))
+  In
+  (Let n:Var(?) =
+    (If
+      inv
+    Then
+      (FNeg
+        n0)
+    Else
+      n0)
+  In
+  (Let Tu2:Unit =
+    (Put
+      v
+      0
+      (FDiv
+        (Get
+          v
+          0)
+        n))
+  In
+  (Let Tu1:Unit =
+    (Put
+      v
+      1
+      (FDiv
+        (Get
+          v
+          1)
+        n))
+  In
+  (Put
+    v
+    2
+    (FDiv
+      (Get
+        v
+        2)
+      n))))))
+In
+(LetRec sgn:Var(?) x:Var(?) =
+  (If
+    (Not
+      (LE
+        x
+        0.))
+  Then
+    1.
+  Else
+    -1.)
+In
+(LetRec rad:Var(?) x:Var(?) =
+  (FMul
+    x
+    0.017453293)
+In
+(LetRec read_environ:Var(?) Tu3:Var(?) =
+  (Let Tu19:Unit =
+    (Put
+      screen
+      0
+      (App
+        read_float
+        ()))
+  In
+  (Let Tu18:Unit =
+    (Put
+      screen
+      1
+      (App
+        read_float
+        ()))
+  In
+  (Let Tu17:Unit =
+    (Put
+      screen
+      2
+      (App
+        read_float
+        ()))
+  In
+  (Let v1:Var(?) =
+    (App
+      rad
+      (App
+        read_float
+        ()))
+  In
+  (Let Tu16:Unit =
+    (Put
+      cos_v
+      0
+      (App
+        cos
+        v1))
+  In
+  (Let Tu15:Unit =
+    (Put
+      sin_v
+      0
+      (App
+        sin
+        v1))
+  In
+  (Let v2:Var(?) =
+    (App
+      rad
+      (App
+        read_float
+        ()))
+  In
+  (Let Tu14:Unit =
+    (Put
+      cos_v
+      1
+      (App
+        cos
+        v2))
+  In
+  (Let Tu13:Unit =
+    (Put
+      sin_v
+      1
+      (App
+        sin
+        v2))
+  In
+  (Let nl:Var(?) =
+    (App
+      read_float
+      ())
+  In
+  (Let l1:Var(?) =
+    (App
+      rad
+      (App
+        read_float
+        ()))
+  In
+  (Let sl1:Var(?) =
+    (App
+      sin
+      l1)
+  In
+  (Let Tu12:Unit =
+    (Put
+      light
+      1
+      (FNeg
+        sl1))
+  In
+  (Let l2:Var(?) =
+    (App
+      rad
+      (App
+        read_float
+        ()))
+  In
+  (Let cl1:Var(?) =
+    (App
+      cos
+      l1)
+  In
+  (Let sl2:Var(?) =
+    (App
+      sin
+      l2)
+  In
+  (Let Tu11:Unit =
+    (Put
+      light
+      0
+      (FMul
+        cl1
+        sl2))
+  In
+  (Let cl2:Var(?) =
+    (App
+      cos
+      l2)
+  In
+  (Let Tu10:Unit =
+    (Put
+      light
+      2
+      (FMul
+        cl1
+        cl2))
+  In
+  (Let Tu9:Unit =
+    (Put
+      beam
+      0
+      (App
+        read_float
+        ()))
+  In
+  (Let Tu8:Unit =
+    (Put
+      vp
+      0
+      (FMul
+        (FMul
+          (Get
+            cos_v
+            0)
+          (Get
+            sin_v
+            1))
+        -200.))
+  In
+  (Let Tu7:Unit =
+    (Put
+      vp
+      1
+      (FMul
+        (FNeg
+          (Get
+            sin_v
+            0))
+        -200.))
+  In
+  (Let Tu6:Unit =
+    (Put
+      vp
+      2
+      (FMul
+        (FMul
+          (Get
+            cos_v
+            0)
+          (Get
+            cos_v
+            1))
+        -200.))
+  In
+  (Let Tu5:Unit =
+    (Put
+      view
+      0
+      (FAdd
+        (Get
+          vp
+          0)
+        (Get
+          screen
+          0)))
+  In
+  (Let Tu4:Unit =
+    (Put
+      view
+      1
+      (FAdd
+        (Get
+          vp
+          1)
+        (Get
+          screen
+          1)))
+  In
+  (Put
+    view
+    2
+    (FAdd
+      (Get
+        vp
+        2)
+      (Get
+        screen
+        2))))))))))))))))))))))))))))
+In
+(LetRec read_nth_object:Var(?) n:Var(?) =
+  (Let texture:Var(?) =
+    (App
+      read_int
+      ())
+  In
+  (If
+    (Not
+      (Eq
+        texture
+        (Neg
+          1)))
+  Then
+    (Let form:Var(?) =
+      (App
+        read_int
+        ())
+    In
+    (Let refltype:Var(?) =
+      (App
+        read_int
+        ())
+    In
+    (Let isrot_p:Var(?) =
+      (App
+        read_int
+        ())
+    In
+    (Let abc:Var(?) =
+      (Array
+        3
+        0.)
+    In
+    (Let Tu58:Unit =
+      (Put
+        abc
+        0
+        (App
+          read_float
+          ()))
+    In
+    (Let Tu57:Unit =
+      (Put
+        abc
+        1
+        (App
+          read_float
+          ()))
+    In
+    (Let Tu56:Unit =
+      (Put
+        abc
+        2
+        (App
+          read_float
+          ()))
+    In
+    (Let xyz:Var(?) =
+      (Array
+        3
+        0.)
+    In
+    (Let Tu55:Unit =
+      (Put
+        xyz
+        0
+        (App
+          read_float
+          ()))
+    In
+    (Let Tu54:Unit =
+      (Put
+        xyz
+        1
+        (App
+          read_float
+          ()))
+    In
+    (Let Tu53:Unit =
+      (Put
+        xyz
+        2
+        (App
+          read_float
+          ()))
+    In
+    (Let m_invert:Var(?) =
+      (Not
+        (LE
+          0.
+          (App
+            read_float
+            ())))
+    In
+    (Let reflparam:Var(?) =
+      (Array
+        2
+        0.)
+    In
+    (Let Tu52:Unit =
+      (Put
+        reflparam
+        0
+        (App
+          read_float
+          ()))
+    In
+    (Let Tu51:Unit =
+      (Put
+        reflparam
+        1
+        (App
+          read_float
+          ()))
+    In
+    (Let color:Var(?) =
+      (Array
+        3
+        0.)
+    In
+    (Let Tu50:Unit =
+      (Put
+        color
+        0
+        (App
+          read_float
+          ()))
+    In
+    (Let Tu49:Unit =
+      (Put
+        color
+        1
+        (App
+          read_float
+          ()))
+    In
+    (Let Tu48:Unit =
+      (Put
+        color
+        2
+        (App
+          read_float
+          ()))
+    In
+    (Let rotation:Var(?) =
+      (Array
+        3
+        0.)
+    In
+    (Let Tu47:Unit =
+      (If
+        (Not
+          (Eq
+            isrot_p
+            0))
+      Then
+        (Let Tu21:Unit =
+          (Put
+            rotation
+            0
+            (App
+              rad
+              (App
+                read_float
+                ())))
+        In
+        (Let Tu20:Unit =
+          (Put
+            rotation
+            1
+            (App
+              rad
+              (App
+                read_float
+                ())))
+        In
+        (Put
+          rotation
+          2
+          (App
+            rad
+            (App
+              read_float
+              ())))))
+      Else
+        ())
+    In
+    (Let m_invert2:Var(?) =
+      (If
+        (Eq
+          form
+          2)
+      Then
+        true
+      Else
+        m_invert)
+    In
+    (Let obj:Var(?) =
+      (Tuple
+        texture,
+        form,
+        refltype,
+        isrot_p,
+        abc,
+        xyz,
+        m_invert2,
+        reflparam,
+        color,
+        rotation)
+    In
+    (Let Tu46:Unit =
+      (Put
+        objects
+        n
+        obj)
+    In
+    (Let Tu45:Unit =
+      (If
+        (Eq
+          form
+          3)
+      Then
+        (Let a:Var(?) =
+          (Get
+            abc
+            0)
+        In
+        (Let Tu23:Unit =
+          (Put
+            abc
+            0
+            (If
+              (Eq
+                0.
+                a)
+            Then
+              0.
+            Else
+              (FDiv
+                (App
+                  sgn
+                  a)
+                (App
+                  fsqr
+                  a))))
+        In
+        (Let b:Var(?) =
+          (Get
+            abc
+            1)
+        In
+        (Let Tu22:Unit =
+          (Put
+            abc
+            1
+            (If
+              (Eq
+                0.
+                b)
+            Then
+              0.
+            Else
+              (FDiv
+                (App
+                  sgn
+                  b)
+                (App
+                  fsqr
+                  b))))
+        In
+        (Let c:Var(?) =
+          (Get
+            abc
+            2)
+        In
+        (Put
+          abc
+          2
+          (If
+            (Eq
+              0.
+              c)
+          Then
+            0.
+          Else
+            (FDiv
+              (App
+                sgn
+                c)
+              (App
+                fsqr
+                c)))))))))
+      Else
+        (If
+          (Eq
+            form
+            2)
+        Then
+          (App
+            normalize_vector
+            abc
+            (Not
+              m_invert))
+        Else
+          ()))
+    In
+    (Let Tu44:Unit =
+      (If
+        (Not
+          (Eq
+            isrot_p
+            0))
+      Then
+        (Let Tu43:Unit =
+          (Put
+            cs_temp
+            10
+            (App
+              cos
+              (Get
+                rotation
+                0)))
+        In
+        (Let Tu42:Unit =
+          (Put
+            cs_temp
+            11
+            (App
+              sin
+              (Get
+                rotation
+                0)))
+        In
+        (Let Tu41:Unit =
+          (Put
+            cs_temp
+            12
+            (App
+              cos
+              (Get
+                rotation
+                1)))
+        In
+        (Let Tu40:Unit =
+          (Put
+            cs_temp
+            13
+            (App
+              sin
+              (Get
+                rotation
+                1)))
+        In
+        (Let Tu39:Unit =
+          (Put
+            cs_temp
+            14
+            (App
+              cos
+              (Get
+                rotation
+                2)))
+        In
+        (Let Tu38:Unit =
+          (Put
+            cs_temp
+            15
+            (App
+              sin
+              (Get
+                rotation
+                2)))
+        In
+        (Let Tu37:Unit =
+          (Put
+            cs_temp
+            0
+            (FMul
+              (Get
+                cs_temp
+                12)
+              (Get
+                cs_temp
+                14)))
+        In
+        (Let Tu36:Unit =
+          (Put
+            cs_temp
+            1
+            (FSub
+              (FMul
+                (FMul
+                  (Get
+                    cs_temp
+                    11)
+                  (Get
+                    cs_temp
+                    13))
+                (Get
+                  cs_temp
+                  14))
+              (FMul
+                (Get
+                  cs_temp
+                  10)
+                (Get
+                  cs_temp
+                  15))))
+        In
+        (Let Tu35:Unit =
+          (Put
+            cs_temp
+            2
+            (FAdd
+              (FMul
+                (FMul
+                  (Get
+                    cs_temp
+                    10)
+                  (Get
+                    cs_temp
+                    13))
+                (Get
+                  cs_temp
+                  14))
+              (FMul
+                (Get
+                  cs_temp
+                  11)
+                (Get
+                  cs_temp
+                  15))))
+        In
+        (Let Tu34:Unit =
+          (Put
+            cs_temp
+            3
+            (FMul
+              (Get
+                cs_temp
+                12)
+              (Get
+                cs_temp
+                15)))
+        In
+        (Let Tu33:Unit =
+          (Put
+            cs_temp
+            4
+            (FAdd
+              (FMul
+                (FMul
+                  (Get
+                    cs_temp
+                    11)
+                  (Get
+                    cs_temp
+                    13))
+                (Get
+                  cs_temp
+                  15))
+              (FMul
+                (Get
+                  cs_temp
+                  10)
+                (Get
+                  cs_temp
+                  14))))
+        In
+        (Let Tu32:Unit =
+          (Put
+            cs_temp
+            5
+            (FSub
+              (FMul
+                (FMul
+                  (Get
+                    cs_temp
+                    10)
+                  (Get
+                    cs_temp
+                    13))
+                (Get
+                  cs_temp
+                  15))
+              (FMul
+                (Get
+                  cs_temp
+                  11)
+                (Get
+                  cs_temp
+                  14))))
+        In
+        (Let Tu31:Unit =
+          (Put
+            cs_temp
+            6
+            (FNeg
+              (Get
+                cs_temp
+                13)))
+        In
+        (Let Tu30:Unit =
+          (Put
+            cs_temp
+            7
+            (FMul
+              (Get
+                cs_temp
+                11)
+              (Get
+                cs_temp
+                12)))
+        In
+        (Let Tu29:Unit =
+          (Put
+            cs_temp
+            8
+            (FMul
+              (Get
+                cs_temp
+                10)
+              (Get
+                cs_temp
+                12)))
+        In
+        (Let ao:Var(?) =
+          (Get
+            abc
+            0)
+        In
+        (Let bo:Var(?) =
+          (Get
+            abc
+            1)
+        In
+        (Let co:Var(?) =
+          (Get
+            abc
+            2)
+        In
+        (Let Tu28:Unit =
+          (Put
+            abc
+            0
+            (FAdd
+              (FAdd
+                (FMul
+                  ao
+                  (App
+                    fsqr
+                    (Get
+                      cs_temp
+                      0)))
+                (FMul
+                  bo
+                  (App
+                    fsqr
+                    (Get
+                      cs_temp
+                      3))))
+              (FMul
+                co
+                (App
+                  fsqr
+                  (Get
+                    cs_temp
+                    6)))))
+        In
+        (Let Tu27:Unit =
+          (Put
+            abc
+            1
+            (FAdd
+              (FAdd
+                (FMul
+                  ao
+                  (App
+                    fsqr
+                    (Get
+                      cs_temp
+                      1)))
+                (FMul
+                  bo
+                  (App
+                    fsqr
+                    (Get
+                      cs_temp
+                      4))))
+              (FMul
+                co
+                (App
+                  fsqr
+                  (Get
+                    cs_temp
+                    7)))))
+        In
+        (Let Tu26:Unit =
+          (Put
+            abc
+            2
+            (FAdd
+              (FAdd
+                (FMul
+                  ao
+                  (App
+                    fsqr
+                    (Get
+                      cs_temp
+                      2)))
+                (FMul
+                  bo
+                  (App
+                    fsqr
+                    (Get
+                      cs_temp
+                      5))))
+              (FMul
+                co
+                (App
+                  fsqr
+                  (Get
+                    cs_temp
+                    8)))))
+        In
+        (Let Tu25:Unit =
+          (Put
+            rotation
+            0
+            (FMul
+              2.
+              (FAdd
+                (FAdd
+                  (FMul
+                    (FMul
+                      ao
+                      (Get
+                        cs_temp
+                        1))
+                    (Get
+                      cs_temp
+                      2))
+                  (FMul
+                    (FMul
+                      bo
+                      (Get
+                        cs_temp
+                        4))
+                    (Get
+                      cs_temp
+                      5)))
+                (FMul
+                  (FMul
+                    co
+                    (Get
+                      cs_temp
+                      7))
+                  (Get
+                    cs_temp
+                    8)))))
+        In
+        (Let Tu24:Unit =
+          (Put
+            rotation
+            1
+            (FMul
+              2.
+              (FAdd
+                (FAdd
+                  (FMul
+                    (FMul
+                      ao
+                      (Get
+                        cs_temp
+                        0))
+                    (Get
+                      cs_temp
+                      2))
+                  (FMul
+                    (FMul
+                      bo
+                      (Get
+                        cs_temp
+                        3))
+                    (Get
+                      cs_temp
+                      5)))
+                (FMul
+                  (FMul
+                    co
+                    (Get
+                      cs_temp
+                      6))
+                  (Get
+                    cs_temp
+                    8)))))
+        In
+        (Put
+          rotation
+          2
+          (FMul
+            2.
+            (FAdd
+              (FAdd
+                (FMul
+                  (FMul
+                    ao
+                    (Get
+                      cs_temp
+                      0))
+                  (Get
+                    cs_temp
+                    1))
+                (FMul
+                  (FMul
+                    bo
+                    (Get
+                      cs_temp
+                      3))
+                  (Get
+                    cs_temp
+                    4)))
+              (FMul
+                (FMul
+                  co
+                  (Get
+                    cs_temp
+                    6))
+                (Get
+                  cs_temp
+                  7))))))))))))))))))))))))))))
+      Else
+        ())
+    In
+    true))))))))))))))))))))))))))
+  Else
+    false))
+In
+(LetRec read_object:Var(?) n:Var(?) =
+  (If
+    (Not
+      (LE
+        61
+        n))
+  Then
+    (If
+      (App
+        read_nth_object
+        n)
+    Then
+      (App
+        read_object
+        (Add
+          n
+          1))
+    Else
+      ())
+  Else
+    ())
+In
+(LetRec read_all_object:Var(?) Tu59:Var(?) =
+  (App
+    read_object
+    0)
+In
+(LetRec read_net_item:Var(?) length:Var(?) =
+  (Let item:Var(?) =
+    (App
+      read_int
+      ())
+  In
+  (If
+    (Eq
+      item
+      (Neg
+        1))
+  Then
+    (Array
+      (Add
+        length
+        1)
+      (Neg
+        1))
+  Else
+    (Let v:Var(?) =
+      (App
+        read_net_item
+        (Add
+          length
+          1))
+    In
+    (Let Tu60:Unit =
+      (Put
+        v
+        length
+        item)
+    In
+    v))))
+In
+(LetRec read_or_network:Var(?) length:Var(?) =
+  (Let net:Var(?) =
+    (App
+      read_net_item
+      0)
+  In
+  (If
+    (Eq
+      (Get
+        net
+        0)
+      (Neg
+        1))
+  Then
+    (Array
+      (Add
+        length
+        1)
+      net)
+  Else
+    (Let v:Var(?) =
+      (App
+        read_or_network
+        (Add
+          length
+          1))
+    In
+    (Let Tu61:Unit =
+      (Put
+        v
+        length
+        net)
+    In
+    v))))
+In
+(LetRec read_and_network:Var(?) n:Var(?) =
+  (Let net:Var(?) =
+    (App
+      read_net_item
+      0)
+  In
+  (If
+    (Eq
+      (Get
+        net
+        0)
+      (Neg
+        1))
+  Then
+    ()
+  Else
+    (Let Tu62:Unit =
+      (Put
+        and_net
+        n
+        net)
+    In
+    (App
+      read_and_network
+      (Add
+        n
+        1)))))
+In
+(LetRec read_parameter:Var(?) Tu63:Var(?) =
+  (Let Tu66:Unit =
+    (App
+      read_environ
+      ())
+  In
+  (Let Tu65:Unit =
+    (App
+      read_all_object
+      ())
+  In
+  (Let Tu64:Unit =
+    (App
+      read_and_network
+      0)
+  In
+  (Put
+    or_net
+    0
+    (App
+      read_or_network
+      0)))))
+In
+(LetRec solver_rect:Var(?) m:Var(?) l:Var(?) =
+  (Let answera:Var(?) =
+    (If
+      (Eq
+        0.
+        (Get
+          l
+          0))
+    Then
+      false
+    Else
+      (Let d:Var(?) =
+        (If
+          (App
+            xor
+            (App
+              o_isinvert
+              m)
+            (Not
+              (LE
+                0.
+                (Get
+                  l
+                  0))))
+        Then
+          (App
+            o_param_a
+            m)
+        Else
+          (FNeg
+            (App
+              o_param_a
+              m)))
+      In
+      (Let d2:Var(?) =
+        (FDiv
+          (FSub
+            d
+            (Get
+              solver_w_vec
+              0))
+          (Get
+            l
+            0))
+      In
+      (If
+        (Not
+          (LE
+            (App
+              o_param_b
+              m)
+            (App
+              abs_float
+              (FAdd
+                (FMul
+                  d2
+                  (Get
+                    l
+                    1))
+                (Get
+                  solver_w_vec
+                  1)))))
+      Then
+        (If
+          (Not
+            (LE
+              (App
+                o_param_c
+                m)
+              (App
+                abs_float
+                (FAdd
+                  (FMul
+                    d2
+                    (Get
+                      l
+                      2))
+                  (Get
+                    solver_w_vec
+                    2)))))
+        Then
+          (Let Tu67:Unit =
+            (Put
+              solver_dist
+              0
+              d2)
+          In
+          true)
+        Else
+          false)
+      Else
+        false))))
+  In
+  (If
+    answera
+  Then
+    1
+  Else
+    (Let answerb:Var(?) =
+      (If
+        (Eq
+          0.
+          (Get
+            l
+            1))
+      Then
+        false
+      Else
+        (Let d:Var(?) =
+          (If
+            (App
+              xor
+              (App
+                o_isinvert
+                m)
+              (Not
+                (LE
+                  0.
+                  (Get
+                    l
+                    1))))
+          Then
+            (App
+              o_param_b
+              m)
+          Else
+            (FNeg
+              (App
+                o_param_b
+                m)))
+        In
+        (Let d2:Var(?) =
+          (FDiv
+            (FSub
+              d
+              (Get
+                solver_w_vec
+                1))
+            (Get
+              l
+              1))
+        In
+        (If
+          (Not
+            (LE
+              (App
+                o_param_c
+                m)
+              (App
+                abs_float
+                (FAdd
+                  (FMul
+                    d2
+                    (Get
+                      l
+                      2))
+                  (Get
+                    solver_w_vec
+                    2)))))
+        Then
+          (If
+            (Not
+              (LE
+                (App
+                  o_param_a
+                  m)
+                (App
+                  abs_float
+                  (FAdd
+                    (FMul
+                      d2
+                      (Get
+                        l
+                        0))
+                    (Get
+                      solver_w_vec
+                      0)))))
+          Then
+            (Let Tu68:Unit =
+              (Put
+                solver_dist
+                0
+                d2)
+            In
+            true)
+          Else
+            false)
+        Else
+          false))))
+    In
+    (If
+      answerb
+    Then
+      2
+    Else
+      (Let answerc:Var(?) =
+        (If
+          (Eq
+            0.
+            (Get
+              l
+              2))
+        Then
+          false
+        Else
+          (Let d:Var(?) =
+            (If
+              (App
+                xor
+                (App
+                  o_isinvert
+                  m)
+                (Not
+                  (LE
+                    0.
+                    (Get
+                      l
+                      2))))
+            Then
+              (App
+                o_param_c
+                m)
+            Else
+              (FNeg
+                (App
+                  o_param_c
+                  m)))
+          In
+          (Let d2:Var(?) =
+            (FDiv
+              (FSub
+                d
+                (Get
+                  solver_w_vec
+                  2))
+              (Get
+                l
+                2))
+          In
+          (If
+            (Not
+              (LE
+                (App
+                  o_param_a
+                  m)
+                (App
+                  abs_float
+                  (FAdd
+                    (FMul
+                      d2
+                      (Get
+                        l
+                        0))
+                    (Get
+                      solver_w_vec
+                      0)))))
+          Then
+            (If
+              (Not
+                (LE
+                  (App
+                    o_param_b
+                    m)
+                  (App
+                    abs_float
+                    (FAdd
+                      (FMul
+                        d2
+                        (Get
+                          l
+                          1))
+                      (Get
+                        solver_w_vec
+                        1)))))
+            Then
+              (Let Tu69:Unit =
+                (Put
+                  solver_dist
+                  0
+                  d2)
+              In
+              true)
+            Else
+              false)
+          Else
+            false))))
+      In
+      (If
+        answerc
+      Then
+        3
+      Else
+        0))))))
+In
+(LetRec solver_surface:Var(?) m:Var(?) l:Var(?) =
+  (Let q:Var(?) =
+    (FAdd
+      (FAdd
+        (FMul
+          (Get
+            l
+            0)
+          (App
+            o_param_a
+            m))
+        (FMul
+          (Get
+            l
+            1)
+          (App
+            o_param_b
+            m)))
+      (FMul
+        (Get
+          l
+          2)
+        (App
+          o_param_c
+          m)))
+  In
+  (If
+    (Not
+      (LE
+        q
+        0.))
+  Then
+    (Let t:Var(?) =
+      (FDiv
+        (FAdd
+          (FAdd
+            (FMul
+              (Get
+                solver_w_vec
+                0)
+              (App
+                o_param_a
+                m))
+            (FMul
+              (Get
+                solver_w_vec
+                1)
+              (App
+                o_param_b
+                m)))
+          (FMul
+            (Get
+              solver_w_vec
+              2)
+            (App
+              o_param_c
+              m)))
+        q)
+    In
+    (Let Tu70:Unit =
+      (Put
+        solver_dist
+        0
+        (FNeg
+          t))
+    In
+    1))
+  Else
+    0))
+In
+(LetRec in_prod_sqr_obj:Var(?) m:Var(?) v:Var(?) =
+  (FAdd
+    (FAdd
+      (FMul
+        (App
+          fsqr
+          (Get
+            v
+            0))
+        (App
+          o_param_a
+          m))
+      (FMul
+        (App
+          fsqr
+          (Get
+            v
+            1))
+        (App
+          o_param_b
+          m)))
+    (FMul
+      (App
+        fsqr
+        (Get
+          v
+          2))
+      (App
+        o_param_c
+        m)))
+In
+(LetRec in_prod_co_objrot:Var(?) m:Var(?) v:Var(?) =
+  (FAdd
+    (FAdd
+      (FMul
+        (FMul
+          (Get
+            v
+            1)
+          (Get
+            v
+            2))
+        (App
+          o_param_r1
+          m))
+      (FMul
+        (FMul
+          (Get
+            v
+            0)
+          (Get
+            v
+            2))
+        (App
+          o_param_r2
+          m)))
+    (FMul
+      (FMul
+        (Get
+          v
+          0)
+        (Get
+          v
+          1))
+      (App
+        o_param_r3
+        m)))
+In
+(LetRec solver2nd_mul_b:Var(?) m:Var(?) l:Var(?) =
+  (FAdd
+    (FAdd
+      (FMul
+        (FMul
+          (Get
+            solver_w_vec
+            0)
+          (Get
+            l
+            0))
+        (App
+          o_param_a
+          m))
+      (FMul
+        (FMul
+          (Get
+            solver_w_vec
+            1)
+          (Get
+            l
+            1))
+        (App
+          o_param_b
+          m)))
+    (FMul
+      (FMul
+        (Get
+          solver_w_vec
+          2)
+        (Get
+          l
+          2))
+      (App
+        o_param_c
+        m)))
+In
+(LetRec solver2nd_rot_b:Var(?) m:Var(?) l:Var(?) =
+  (FAdd
+    (FAdd
+      (FMul
+        (FAdd
+          (FMul
+            (Get
+              solver_w_vec
+              2)
+            (Get
+              l
+              1))
+          (FMul
+            (Get
+              solver_w_vec
+              1)
+            (Get
+              l
+              2)))
+        (App
+          o_param_r1
+          m))
+      (FMul
+        (FAdd
+          (FMul
+            (Get
+              solver_w_vec
+              0)
+            (Get
+              l
+              2))
+          (FMul
+            (Get
+              solver_w_vec
+              2)
+            (Get
+              l
+              0)))
+        (App
+          o_param_r2
+          m)))
+    (FMul
+      (FAdd
+        (FMul
+          (Get
+            solver_w_vec
+            0)
+          (Get
+            l
+            1))
+        (FMul
+          (Get
+            solver_w_vec
+            1)
+          (Get
+            l
+            0)))
+      (App
+        o_param_r3
+        m)))
+In
+(LetRec solver_second:Var(?) m:Var(?) l:Var(?) =
+  (Let aa0:Var(?) =
+    (App
+      in_prod_sqr_obj
+      m
+      l)
+  In
+  (Let aa:Var(?) =
+    (If
+      (Not
+        (Eq
+          (App
+            o_isrot
+            m)
+          0))
+    Then
+      (FAdd
+        aa0
+        (App
+          in_prod_co_objrot
+          m
+          l))
+    Else
+      aa0)
+  In
+  (If
+    (Eq
+      0.
+      aa)
+  Then
+    0
+  Else
+    (Let bb0:Var(?) =
+      (FMul
+        2.
+        (App
+          solver2nd_mul_b
+          m
+          l))
+    In
+    (Let bb:Var(?) =
+      (If
+        (Not
+          (Eq
+            (App
+              o_isrot
+              m)
+            0))
+      Then
+        (FAdd
+          bb0
+          (App
+            solver2nd_rot_b
+            m
+            l))
+      Else
+        bb0)
+    In
+    (Let cc0:Var(?) =
+      (App
+        in_prod_sqr_obj
+        m
+        solver_w_vec)
+    In
+    (Let cc1:Var(?) =
+      (If
+        (Not
+          (Eq
+            (App
+              o_isrot
+              m)
+            0))
+      Then
+        (FAdd
+          cc0
+          (App
+            in_prod_co_objrot
+            m
+            solver_w_vec))
+      Else
+        cc0)
+    In
+    (Let cc:Var(?) =
+      (If
+        (Eq
+          (App
+            o_form
+            m)
+          3)
+      Then
+        (FSub
+          cc1
+          1.)
+      Else
+        cc1)
+    In
+    (Let d:Var(?) =
+      (Let d2:Var(?) =
+        (FMul
+          (FMul
+            4.
+            aa)
+          cc)
+      In
+      (FSub
+        (App
+          fsqr
+          bb)
+        d2))
+    In
+    (If
+      (Not
+        (LE
+          d
+          0.))
+    Then
+      (Let sd:Var(?) =
+        (App
+          sqrt
+          d)
+      In
+      (Let t1:Var(?) =
+        (If
+          (App
+            o_isinvert
+            m)
+        Then
+          sd
+        Else
+          (FNeg
+            sd))
+      In
+      (Let Tu71:Unit =
+        (Put
+          solver_dist
+          0
+          (FDiv
+            (FDiv
+              (FSub
+                t1
+                bb)
+              2.)
+            aa))
+      In
+      1)))
+    Else
+      0))))))))))
+In
+(LetRec solver:Var(?) index:Var(?) l:Var(?) p:Var(?) =
+  (Let m:Var(?) =
+    (Get
+      objects
+      index)
+  In
+  (Let Tu74:Unit =
+    (Put
+      solver_w_vec
+      0
+      (FSub
+        (Get
+          p
+          0)
+        (App
+          o_param_x
+          m)))
+  In
+  (Let Tu73:Unit =
+    (Put
+      solver_w_vec
+      1
+      (FSub
+        (Get
+          p
+          1)
+        (App
+          o_param_y
+          m)))
+  In
+  (Let Tu72:Unit =
+    (Put
+      solver_w_vec
+      2
+      (FSub
+        (Get
+          p
+          2)
+        (App
+          o_param_z
+          m)))
+  In
+  (Let m_shape:Var(?) =
+    (App
+      o_form
+      m)
+  In
+  (If
+    (Eq
+      m_shape
+      1)
+  Then
+    (App
+      solver_rect
+      m
+      l)
+  Else
+    (If
+      (Eq
+        m_shape
+        2)
+    Then
+      (App
+        solver_surface
+        m
+        l)
+    Else
+      (App
+        solver_second
+        m
+        l))))))))
+In
+(LetRec is_rect_outside:Var(?) m:Var(?) =
+  (If
+    (If
+      (Not
+        (LE
+          (App
+            o_param_a
+            m)
+          (App
+            abs_float
+            (Get
+              isoutside_q
+              0))))
+    Then
+      (If
+        (Not
+          (LE
+            (App
+              o_param_b
+              m)
+            (App
+              abs_float
+              (Get
+                isoutside_q
+                1))))
+      Then
+        (If
+          (Not
+            (LE
+              (App
+                o_param_c
+                m)
+              (App
+                abs_float
+                (Get
+                  isoutside_q
+                  2))))
+        Then
+          true
+        Else
+          false)
+      Else
+        false)
+    Else
+      false)
+  Then
+    (App
+      o_isinvert
+      m)
+  Else
+    (Not
+      (App
+        o_isinvert
+        m)))
+In
+(LetRec is_plane_outside:Var(?) m:Var(?) =
+  (Let w:Var(?) =
+    (FAdd
+      (FAdd
+        (FMul
+          (App
+            o_param_a
+            m)
+          (Get
+            isoutside_q
+            0))
+        (FMul
+          (App
+            o_param_b
+            m)
+          (Get
+            isoutside_q
+            1)))
+      (FMul
+        (App
+          o_param_c
+          m)
+        (Get
+          isoutside_q
+          2)))
+  In
+  (Let s:Var(?) =
+    (Not
+      (LE
+        0.
+        w))
+  In
+  (Not
+    (App
+      xor
+      (App
+        o_isinvert
+        m)
+      s))))
+In
+(LetRec is_second_outside:Var(?) m:Var(?) =
+  (Let w:Var(?) =
+    (App
+      in_prod_sqr_obj
+      m
+      isoutside_q)
+  In
+  (Let w2:Var(?) =
+    (If
+      (Eq
+        (App
+          o_form
+          m)
+        3)
+    Then
+      (FSub
+        w
+        1.)
+    Else
+      w)
+  In
+  (Let w3:Var(?) =
+    (If
+      (Not
+        (Eq
+          (App
+            o_isrot
+            m)
+          0))
+    Then
+      (FAdd
+        w2
+        (App
+          in_prod_co_objrot
+          m
+          isoutside_q))
+    Else
+      w2)
+  In
+  (Let s:Var(?) =
+    (Not
+      (LE
+        0.
+        w3))
+  In
+  (Not
+    (App
+      xor
+      (App
+        o_isinvert
+        m)
+      s))))))
+In
+(LetRec is_outside:Var(?) m:Var(?) =
+  (Let Tu77:Unit =
+    (Put
+      isoutside_q
+      0
+      (FSub
+        (Get
+          chkinside_p
+          0)
+        (App
+          o_param_x
+          m)))
+  In
+  (Let Tu76:Unit =
+    (Put
+      isoutside_q
+      1
+      (FSub
+        (Get
+          chkinside_p
+          1)
+        (App
+          o_param_y
+          m)))
+  In
+  (Let Tu75:Unit =
+    (Put
+      isoutside_q
+      2
+      (FSub
+        (Get
+          chkinside_p
+          2)
+        (App
+          o_param_z
+          m)))
+  In
+  (Let m_shape:Var(?) =
+    (App
+      o_form
+      m)
+  In
+  (If
+    (Eq
+      m_shape
+      1)
+  Then
+    (App
+      is_rect_outside
+      m)
+  Else
+    (If
+      (Eq
+        m_shape
+        2)
+    Then
+      (App
+        is_plane_outside
+        m)
+    Else
+      (App
+        is_second_outside
+        m)))))))
+In
+(LetRec check_all_inside:Var(?) ofs:Var(?) iand:Var(?) =
+  (Let head:Var(?) =
+    (Get
+      iand
+      ofs)
+  In
+  (If
+    (Eq
+      head
+      (Neg
+        1))
+  Then
+    true
+  Else
+    (If
+      (App
+        is_outside
+        (Get
+          objects
+          head))
+    Then
+      false
+    Else
+      (App
+        check_all_inside
+        (Add
+          ofs
+          1)
+        iand))))
+In
+(LetRec shadow_check_and_group:Var(?) iand_ofs:Var(?) and_group:Var(?) p:Var(?) =
+  (If
+    (Eq
+      (Get
+        and_group
+        iand_ofs)
+      (Neg
+        1))
+  Then
+    false
+  Else
+    (Let obj:Var(?) =
+      (Get
+        and_group
+        iand_ofs)
+    In
+    (Let t0:Var(?) =
+      (App
+        solver
+        obj
+        light
+        p)
+    In
+    (Let t0p:Var(?) =
+      (Get
+        solver_dist
+        0)
+    In
+    (If
+      (If
+        (Not
+          (Eq
+            t0
+            0))
+      Then
+        (Not
+          (LE
+            -0.2
+            t0p))
+      Else
+        false)
+    Then
+      (Let t:Var(?) =
+        (FAdd
+          t0p
+          0.01)
+      In
+      (Let Tu80:Unit =
+        (Put
+          chkinside_p
+          0
+          (FAdd
+            (FMul
+              (Get
+                light
+                0)
+              t)
+            (Get
+              p
+              0)))
+      In
+      (Let Tu79:Unit =
+        (Put
+          chkinside_p
+          1
+          (FAdd
+            (FMul
+              (Get
+                light
+                1)
+              t)
+            (Get
+              p
+              1)))
+      In
+      (Let Tu78:Unit =
+        (Put
+          chkinside_p
+          2
+          (FAdd
+            (FMul
+              (Get
+                light
+                2)
+              t)
+            (Get
+              p
+              2)))
+      In
+      (If
+        (App
+          check_all_inside
+          0
+          and_group)
+      Then
+        true
+      Else
+        (App
+          shadow_check_and_group
+          (Add
+            iand_ofs
+            1)
+          and_group
+          p))))))
+    Else
+      (If
+        (App
+          o_isinvert
+          (Get
+            objects
+            obj))
+      Then
+        (App
+          shadow_check_and_group
+          (Add
+            iand_ofs
+            1)
+          and_group
+          p)
+      Else
+        false))))))
+In
+(LetRec shadow_check_one_or_group:Var(?) ofs:Var(?) or_group:Var(?) p:Var(?) =
+  (Let head:Var(?) =
+    (Get
+      or_group
+      ofs)
+  In
+  (If
+    (Eq
+      head
+      (Neg
+        1))
+  Then
+    false
+  Else
+    (Let and_group:Var(?) =
+      (Get
+        and_net
+        head)
+    In
+    (Let shadow_p:Var(?) =
+      (App
+        shadow_check_and_group
+        0
+        and_group
+        p)
+    In
+    (If
+      shadow_p
+    Then
+      true
+    Else
+      (App
+        shadow_check_one_or_group
+        (Add
+          ofs
+          1)
+        or_group
+        p))))))
+In
+(LetRec shadow_check_one_or_matrix:Var(?) ofs:Var(?) or_matrix:Var(?) p:Var(?) =
+  (Let head:Var(?) =
+    (Get
+      or_matrix
+      ofs)
+  In
+  (Let range_primitive:Var(?) =
+    (Get
+      head
+      0)
+  In
+  (If
+    (Eq
+      range_primitive
+      (Neg
+        1))
+  Then
+    false
+  Else
+    (If
+      (Eq
+        range_primitive
+        99)
+    Then
+      (If
+        (App
+          shadow_check_one_or_group
+          1
+          head
+          p)
+      Then
+        true
+      Else
+        (App
+          shadow_check_one_or_matrix
+          (Add
+            ofs
+            1)
+          or_matrix
+          p))
+    Else
+      (Let t:Var(?) =
+        (App
+          solver
+          range_primitive
+          light
+          p)
+      In
+      (If
+        (Not
+          (Eq
+            t
+            0))
+      Then
+        (If
+          (Not
+            (LE
+              -0.1
+              (Get
+                solver_dist
+                0)))
+        Then
+          (If
+            (App
+              shadow_check_one_or_group
+              1
+              head
+              p)
+          Then
+            true
+          Else
+            (App
+              shadow_check_one_or_matrix
+              (Add
+                ofs
+                1)
+              or_matrix
+              p))
+        Else
+          (App
+            shadow_check_one_or_matrix
+            (Add
+              ofs
+              1)
+            or_matrix
+            p))
+      Else
+        (App
+          shadow_check_one_or_matrix
+          (Add
+            ofs
+            1)
+          or_matrix
+          p)))))))
+In
+(LetRec solve_each_element:Var(?) iand_ofs:Var(?) and_group:Var(?) =
+  (Let iobj:Var(?) =
+    (Get
+      and_group
+      iand_ofs)
+  In
+  (If
+    (Eq
+      iobj
+      (Neg
+        1))
+  Then
+    ()
+  Else
+    (Let t0:Var(?) =
+      (App
+        solver
+        iobj
+        vscan
+        viewpoint)
+    In
+    (Let Tu89:Unit =
+      (If
+        (Not
+          (Eq
+            t0
+            0))
+      Then
+        (Let t0p:Var(?) =
+          (Get
+            solver_dist
+            0)
+        In
+        (If
+          (Not
+            (LE
+              t0p
+              -0.1))
+        Then
+          (If
+            (Not
+              (LE
+                (Get
+                  tmin
+                  0)
+                t0p))
+          Then
+            (Let t:Var(?) =
+              (FAdd
+                t0p
+                0.01)
+            In
+            (Let Tu88:Unit =
+              (Put
+                chkinside_p
+                0
+                (FAdd
+                  (FMul
+                    (Get
+                      vscan
+                      0)
+                    t)
+                  (Get
+                    viewpoint
+                    0)))
+            In
+            (Let Tu87:Unit =
+              (Put
+                chkinside_p
+                1
+                (FAdd
+                  (FMul
+                    (Get
+                      vscan
+                      1)
+                    t)
+                  (Get
+                    viewpoint
+                    1)))
+            In
+            (Let Tu86:Unit =
+              (Put
+                chkinside_p
+                2
+                (FAdd
+                  (FMul
+                    (Get
+                      vscan
+                      2)
+                    t)
+                  (Get
+                    viewpoint
+                    2)))
+            In
+            (If
+              (App
+                check_all_inside
+                0
+                and_group)
+            Then
+              (Let Tu85:Unit =
+                (Put
+                  tmin
+                  0
+                  t)
+              In
+              (Let Tu84:Unit =
+                (Put
+                  crashed_point
+                  0
+                  (Get
+                    chkinside_p
+                    0))
+              In
+              (Let Tu83:Unit =
+                (Put
+                  crashed_point
+                  1
+                  (Get
+                    chkinside_p
+                    1))
+              In
+              (Let Tu82:Unit =
+                (Put
+                  crashed_point
+                  2
+                  (Get
+                    chkinside_p
+                    2))
+              In
+              (Let Tu81:Unit =
+                (Put
+                  intsec_rectside
+                  0
+                  t0)
+              In
+              (Put
+                crashed_object
+                0
+                iobj))))))
+            Else
+              ())))))
+          Else
+            ())
+        Else
+          ()))
+      Else
+        (If
+          (App
+            o_isinvert
+            (Get
+              objects
+              iobj))
+        Then
+          ()
+        Else
+          (Put
+            end_flag
+            0
+            true)))
+    In
+    (If
+      (Not
+        (Get
+          end_flag
+          0))
+    Then
+      (App
+        solve_each_element
+        (Add
+          iand_ofs
+          1)
+        and_group)
+    Else
+      ())))))
+In
+(LetRec solve_one_or_network:Var(?) ofs:Var(?) or_group:Var(?) =
+  (Let head:Var(?) =
+    (Get
+      or_group
+      ofs)
+  In
+  (If
+    (Eq
+      head
+      (Neg
+        1))
+  Then
+    ()
+  Else
+    (Let and_group:Var(?) =
+      (Get
+        and_net
+        head)
+    In
+    (Let Tu91:Unit =
+      (Put
+        end_flag
+        0
+        false)
+    In
+    (Let Tu90:Unit =
+      (App
+        solve_each_element
+        0
+        and_group)
+    In
+    (App
+      solve_one_or_network
+      (Add
+        ofs
+        1)
+      or_group))))))
+In
+(LetRec trace_or_matrix:Var(?) ofs:Var(?) or_network:Var(?) =
+  (Let head:Var(?) =
+    (Get
+      or_network
+      ofs)
+  In
+  (Let range_primitive:Var(?) =
+    (Get
+      head
+      0)
+  In
+  (If
+    (Eq
+      range_primitive
+      (Neg
+        1))
+  Then
+    ()
+  Else
+    (Let Tu92:Unit =
+      (If
+        (Eq
+          range_primitive
+          99)
+      Then
+        (App
+          solve_one_or_network
+          1
+          head)
+      Else
+        (Let t:Var(?) =
+          (App
+            solver
+            range_primitive
+            vscan
+            viewpoint)
+        In
+        (If
+          (Not
+            (Eq
+              t
+              0))
+        Then
+          (Let tp:Var(?) =
+            (Get
+              solver_dist
+              0)
+          In
+          (If
+            (Not
+              (LE
+                (Get
+                  tmin
+                  0)
+                tp))
+          Then
+            (App
+              solve_one_or_network
+              1
+              head)
+          Else
+            ()))
+        Else
+          ())))
+    In
+    (App
+      trace_or_matrix
+      (Add
+        ofs
+        1)
+      or_network)))))
+In
+(LetRec tracer:Var(?) viewpoint:Var(?) vscan:Var(?) =
+  (Let Tu94:Unit =
+    (Put
+      tmin
+      0
+      1000000000.)
+  In
+  (Let Tu93:Unit =
+    (App
+      trace_or_matrix
+      0
+      (Get
+        or_net
+        0))
+  In
+  (Let t:Var(?) =
+    (Get
+      tmin
+      0)
+  In
+  (If
+    (Not
+      (LE
+        t
+        -0.1))
+  Then
+    (If
+      (Not
+        (LE
+          100000000.
+          t))
+    Then
+      true
+    Else
+      false)
+  Else
+    false))))
+In
+(LetRec get_nvector_rect:Var(?) Tu95:Var(?) =
+  (Let rectside:Var(?) =
+    (Get
+      intsec_rectside
+      0)
+  In
+  (If
+    (Eq
+      rectside
+      1)
+  Then
+    (Let Tu97:Unit =
+      (Put
+        nvector
+        0
+        (FNeg
+          (App
+            sgn
+            (Get
+              vscan
+              0))))
+    In
+    (Let Tu96:Unit =
+      (Put
+        nvector
+        1
+        0.)
+    In
+    (Put
+      nvector
+      2
+      0.)))
+  Else
+    (If
+      (Eq
+        rectside
+        2)
+    Then
+      (Let Tu99:Unit =
+        (Put
+          nvector
+          0
+          0.)
+      In
+      (Let Tu98:Unit =
+        (Put
+          nvector
+          1
+          (FNeg
+            (App
+              sgn
+              (Get
+                vscan
+                1))))
+      In
+      (Put
+        nvector
+        2
+        0.)))
+    Else
+      (If
+        (Eq
+          rectside
+          3)
+      Then
+        (Let Tu101:Unit =
+          (Put
+            nvector
+            0
+            0.)
+        In
+        (Let Tu100:Unit =
+          (Put
+            nvector
+            1
+            0.)
+        In
+        (Put
+          nvector
+          2
+          (FNeg
+            (App
+              sgn
+              (Get
+                vscan
+                2))))))
+      Else
+        ()))))
+In
+(LetRec get_nvector_plane:Var(?) m:Var(?) =
+  (Let Tu103:Unit =
+    (Put
+      nvector
+      0
+      (FNeg
+        (App
+          o_param_a
+          m)))
+  In
+  (Let Tu102:Unit =
+    (Put
+      nvector
+      1
+      (FNeg
+        (App
+          o_param_b
+          m)))
+  In
+  (Put
+    nvector
+    2
+    (FNeg
+      (App
+        o_param_c
+        m)))))
+In
+(LetRec get_nvector_second_norot:Var(?) m:Var(?) p:Var(?) =
+  (Let Tu106:Unit =
+    (Put
+      nvector
+      0
+      (FMul
+        (FSub
+          (Get
+            p
+            0)
+          (App
+            o_param_x
+            m))
+        (App
+          o_param_a
+          m)))
+  In
+  (Let Tu105:Unit =
+    (Put
+      nvector
+      1
+      (FMul
+        (FSub
+          (Get
+            p
+            1)
+          (App
+            o_param_y
+            m))
+        (App
+          o_param_b
+          m)))
+  In
+  (Let Tu104:Unit =
+    (Put
+      nvector
+      2
+      (FMul
+        (FSub
+          (Get
+            p
+            2)
+          (App
+            o_param_z
+            m))
+        (App
+          o_param_c
+          m)))
+  In
+  (App
+    normalize_vector
+    nvector
+    (App
+      o_isinvert
+      m)))))
+In
+(LetRec get_nvector_second_rot:Var(?) m:Var(?) p:Var(?) =
+  (Let Tu112:Unit =
+    (Put
+      nvector_w
+      0
+      (FSub
+        (Get
+          p
+          0)
+        (App
+          o_param_x
+          m)))
+  In
+  (Let Tu111:Unit =
+    (Put
+      nvector_w
+      1
+      (FSub
+        (Get
+          p
+          1)
+        (App
+          o_param_y
+          m)))
+  In
+  (Let Tu110:Unit =
+    (Put
+      nvector_w
+      2
+      (FSub
+        (Get
+          p
+          2)
+        (App
+          o_param_z
+          m)))
+  In
+  (Let Tu109:Unit =
+    (Put
+      nvector
+      0
+      (FAdd
+        (FMul
+          (Get
+            nvector_w
+            0)
+          (App
+            o_param_a
+            m))
+        (App
+          fhalf
+          (FAdd
+            (FMul
+              (Get
+                nvector_w
+                1)
+              (App
+                o_param_r3
+                m))
+            (FMul
+              (Get
+                nvector_w
+                2)
+              (App
+                o_param_r2
+                m))))))
+  In
+  (Let Tu108:Unit =
+    (Put
+      nvector
+      1
+      (FAdd
+        (FMul
+          (Get
+            nvector_w
+            1)
+          (App
+            o_param_b
+            m))
+        (App
+          fhalf
+          (FAdd
+            (FMul
+              (Get
+                nvector_w
+                0)
+              (App
+                o_param_r3
+                m))
+            (FMul
+              (Get
+                nvector_w
+                2)
+              (App
+                o_param_r1
+                m))))))
+  In
+  (Let Tu107:Unit =
+    (Put
+      nvector
+      2
+      (FAdd
+        (FMul
+          (Get
+            nvector_w
+            2)
+          (App
+            o_param_c
+            m))
+        (App
+          fhalf
+          (FAdd
+            (FMul
+              (Get
+                nvector_w
+                0)
+              (App
+                o_param_r2
+                m))
+            (FMul
+              (Get
+                nvector_w
+                1)
+              (App
+                o_param_r1
+                m))))))
+  In
+  (App
+    normalize_vector
+    nvector
+    (App
+      o_isinvert
+      m))))))))
+In
+(LetRec get_nvector:Var(?) m:Var(?) p:Var(?) =
+  (Let m_shape:Var(?) =
+    (App
+      o_form
+      m)
+  In
+  (If
+    (Eq
+      m_shape
+      1)
+  Then
+    (App
+      get_nvector_rect
+      ())
+  Else
+    (If
+      (Eq
+        m_shape
+        2)
+    Then
+      (App
+        get_nvector_plane
+        m)
+    Else
+      (If
+        (Not
+          (Eq
+            (App
+              o_isrot
+              m)
+            0))
+      Then
+        (App
+          get_nvector_second_rot
+          m
+          p)
+      Else
+        (App
+          get_nvector_second_norot
+          m
+          p)))))
+In
+(LetRec utexture:Var(?) m:Var(?) p:Var(?) =
+  (Let m_tex:Var(?) =
+    (App
+      o_texturetype
+      m)
+  In
+  (Let Tu117:Unit =
+    (Put
+      texture_color
+      0
+      (App
+        o_color_red
+        m))
+  In
+  (Let Tu116:Unit =
+    (Put
+      texture_color
+      1
+      (App
+        o_color_green
+        m))
+  In
+  (Let Tu115:Unit =
+    (Put
+      texture_color
+      2
+      (App
+        o_color_blue
+        m))
+  In
+  (If
+    (Eq
+      m_tex
+      1)
+  Then
+    (Let w1:Var(?) =
+      (FSub
+        (Get
+          p
+          0)
+        (App
+          o_param_x
+          m))
+    In
+    (Let flag1:Var(?) =
+      (Let d1:Var(?) =
+        (FMul
+          (App
+            floor
+            (FMul
+              w1
+              0.05))
+          20.)
+      In
+      (If
+        (Not
+          (LE
+            10.
+            (FSub
+              w1
+              d1)))
+      Then
+        true
+      Else
+        false))
+    In
+    (Let w3:Var(?) =
+      (FSub
+        (Get
+          p
+          2)
+        (App
+          o_param_z
+          m))
+    In
+    (Let flag2:Var(?) =
+      (Let d2:Var(?) =
+        (FMul
+          (App
+            floor
+            (FMul
+              w3
+              0.05))
+          20.)
+      In
+      (If
+        (Not
+          (LE
+            10.
+            (FSub
+              w3
+              d2)))
+      Then
+        true
+      Else
+        false))
+    In
+    (Put
+      texture_color
+      1
+      (If
+        flag1
+      Then
+        (If
+          flag2
+        Then
+          255.
+        Else
+          0.)
+      Else
+        (If
+          flag2
+        Then
+          0.
+        Else
+          255.)))))))
+  Else
+    (If
+      (Eq
+        m_tex
+        2)
+    Then
+      (Let w2:Var(?) =
+        (App
+          fsqr
+          (App
+            sin
+            (FMul
+              (Get
+                p
+                1)
+              0.25)))
+      In
+      (Let Tu113:Unit =
+        (Put
+          texture_color
+          0
+          (FMul
+            255.
+            w2))
+      In
+      (Put
+        texture_color
+        1
+        (FMul
+          255.
+          (FSub
+            1.
+            w2)))))
+    Else
+      (If
+        (Eq
+          m_tex
+          3)
+      Then
+        (Let w1:Var(?) =
+          (FSub
+            (Get
+              p
+              0)
+            (App
+              o_param_x
+              m))
+        In
+        (Let w3:Var(?) =
+          (FSub
+            (Get
+              p
+              2)
+            (App
+              o_param_z
+              m))
+        In
+        (Let w2:Var(?) =
+          (FDiv
+            (App
+              sqrt
+              (FAdd
+                (App
+                  fsqr
+                  w1)
+                (App
+                  fsqr
+                  w3)))
+            10.)
+        In
+        (Let w4:Var(?) =
+          (FMul
+            (FSub
+              w2
+              (App
+                floor
+                w2))
+            3.1415927)
+        In
+        (Let cws:Var(?) =
+          (App
+            fsqr
+            (App
+              cos
+              w4))
+        In
+        (Let Tu114:Unit =
+          (Put
+            texture_color
+            1
+            (FMul
+              cws
+              255.))
+        In
+        (Put
+          texture_color
+          2
+          (FMul
+            (FSub
+              1.
+              cws)
+            255.))))))))
+      Else
+        (If
+          (Eq
+            m_tex
+            4)
+        Then
+          (Let w1:Var(?) =
+            (FMul
+              (FSub
+                (Get
+                  p
+                  0)
+                (App
+                  o_param_x
+                  m))
+              (App
+                sqrt
+                (App
+                  o_param_a
+                  m)))
+          In
+          (Let w3:Var(?) =
+            (FMul
+              (FSub
+                (Get
+                  p
+                  2)
+                (App
+                  o_param_z
+                  m))
+              (App
+                sqrt
+                (App
+                  o_param_c
+                  m)))
+          In
+          (Let w4:Var(?) =
+            (App
+              sqrt
+              (FAdd
+                (App
+                  fsqr
+                  w1)
+                (App
+                  fsqr
+                  w3)))
+          In
+          (Let w7:Var(?) =
+            (If
+              (Not
+                (LE
+                  0.0001
+                  (App
+                    abs_float
+                    w1)))
+            Then
+              15.
+            Else
+              (Let w5:Var(?) =
+                (App
+                  abs_float
+                  (FDiv
+                    w3
+                    w1))
+              In
+              (FMul
+                (App
+                  atan
+                  w5)
+                (FDiv
+                  30.
+                  3.1415927))))
+          In
+          (Let w9:Var(?) =
+            (FSub
+              w7
+              (App
+                floor
+                w7))
+          In
+          (Let w2:Var(?) =
+            (FMul
+              (FSub
+                (Get
+                  p
+                  1)
+                (App
+                  o_param_y
+                  m))
+              (App
+                sqrt
+                (App
+                  o_param_b
+                  m)))
+          In
+          (Let w8:Var(?) =
+            (If
+              (Not
+                (LE
+                  0.0001
+                  (App
+                    abs_float
+                    w7)))
+            Then
+              15.
+            Else
+              (Let w6:Var(?) =
+                (App
+                  abs_float
+                  (FDiv
+                    w2
+                    w4))
+              In
+              (FMul
+                (App
+                  atan
+                  w6)
+                (FDiv
+                  30.
+                  3.1415927))))
+          In
+          (Let w10:Var(?) =
+            (FSub
+              w8
+              (App
+                floor
+                w8))
+          In
+          (Let w11:Var(?) =
+            (FSub
+              (FSub
+                0.15
+                (App
+                  fsqr
+                  (FSub
+                    0.5
+                    w9)))
+              (App
+                fsqr
+                (FSub
+                  0.5
+                  w10)))
+          In
+          (Put
+            texture_color
+            2
+            (If
+              (LE
+                w11
+                0.)
+            Then
+              0.
+            Else
+              (FMul
+                w11
+                (FDiv
+                  255.
+                  0.3)))))))))))))
+        Else
+          ()))))))))
+In
+(LetRec in_prod:Var(?) v1:Var(?) v2:Var(?) =
+  (FAdd
+    (FAdd
+      (FMul
+        (Get
+          v1
+          0)
+        (Get
+          v2
+          0))
+      (FMul
+        (Get
+          v1
+          1)
+        (Get
+          v2
+          1)))
+    (FMul
+      (Get
+        v1
+        2)
+      (Get
+        v2
+        2)))
+In
+(LetRec accumulate_vec_mul:Var(?) v1:Var(?) v2:Var(?) w:Var(?) =
+  (Let Tu119:Unit =
+    (Put
+      v1
+      0
+      (FAdd
+        (Get
+          v1
+          0)
+        (FMul
+          w
+          (Get
+            v2
+            0))))
+  In
+  (Let Tu118:Unit =
+    (Put
+      v1
+      1
+      (FAdd
+        (Get
+          v1
+          1)
+        (FMul
+          w
+          (Get
+            v2
+            1))))
+  In
+  (Put
+    v1
+    2
+    (FAdd
+      (Get
+        v1
+        2)
+      (FMul
+        w
+        (Get
+          v2
+          2))))))
+In
+(LetRec raytracing:Var(?) nref:Var(?) energy:Var(?) =
+  (Let crashed_p:Var(?) =
+    (App
+      tracer
+      viewpoint
+      vscan)
+  In
+  (Let Tu131:Unit =
+    (If
+      (Not
+        crashed_p)
+    Then
+      (If
+        (Not
+          (Eq
+            nref
+            0))
+      Then
+        (Let hl:Var(?) =
+          (FNeg
+            (App
+              in_prod
+              vscan
+              light))
+        In
+        (If
+          (Not
+            (LE
+              hl
+              0.))
+        Then
+          (Let ihl:Var(?) =
+            (FMul
+              (FMul
+                (FMul
+                  (App
+                    fsqr
+                    hl)
+                  hl)
+                energy)
+              (Get
+                beam
+                0))
+          In
+          (Let Tu121:Unit =
+            (Put
+              rgb
+              0
+              (FAdd
+                (Get
+                  rgb
+                  0)
+                ihl))
+          In
+          (Let Tu120:Unit =
+            (Put
+              rgb
+              1
+              (FAdd
+                (Get
+                  rgb
+                  1)
+                ihl))
+          In
+          (Put
+            rgb
+            2
+            (FAdd
+              (Get
+                rgb
+                2)
+              ihl)))))
+        Else
+          ()))
+      Else
+        ())
+    Else
+      ())
+  In
+  (If
+    crashed_p
+  Then
+    (Let cobj:Var(?) =
+      (Get
+        objects
+        (Get
+          crashed_object
+          0))
+    In
+    (Let Tu130:Unit =
+      (App
+        get_nvector
+        cobj
+        crashed_point)
+    In
+    (Let bright:Var(?) =
+      (If
+        (App
+          shadow_check_one_or_matrix
+          0
+          (Get
+            or_net
+            0)
+          crashed_point)
+      Then
+        0.
+      Else
+        (Let br:Var(?) =
+          (FNeg
+            (App
+              in_prod
+              nvector
+              light))
+        In
+        (Let br1:Var(?) =
+          (If
+            (Not
+              (LE
+                0.
+                br))
+          Then
+            0.2
+          Else
+            (FAdd
+              br
+              0.2))
+        In
+        (FMul
+          (FMul
+            br1
+            energy)
+          (App
+            o_diffuse
+            cobj)))))
+    In
+    (Let Tu129:Unit =
+      (App
+        utexture
+        cobj
+        crashed_point)
+    In
+    (Let Tu128:Unit =
+      (App
+        accumulate_vec_mul
+        rgb
+        texture_color
+        bright)
+    In
+    (If
+      (Not
+        (LE
+          nref
+          4))
+    Then
+      ()
+    Else
+      (If
+        (Not
+          (LE
+            energy
+            0.1))
+      Then
+        (Let w:Var(?) =
+          (FMul
+            -2.
+            (App
+              in_prod
+              vscan
+              nvector))
+        In
+        (Let Tu127:Unit =
+          (App
+            accumulate_vec_mul
+            vscan
+            nvector
+            w)
+        In
+        (Let m_surface:Var(?) =
+          (App
+            o_reflectiontype
+            cobj)
+        In
+        (If
+          (Eq
+            m_surface
+            1)
+        Then
+          (If
+            (Eq
+              0.
+              (App
+                o_hilight
+                cobj))
+          Then
+            ()
+          Else
+            (Let hl:Var(?) =
+              (FNeg
+                (App
+                  in_prod
+                  vscan
+                  light))
+            In
+            (If
+              (Not
+                (LE
+                  hl
+                  0.))
+            Then
+              (Let ihl:Var(?) =
+                (FMul
+                  (FMul
+                    (FMul
+                      (App
+                        fsqr
+                        (App
+                          fsqr
+                          hl))
+                      energy)
+                    bright)
+                  (App
+                    o_hilight
+                    cobj))
+              In
+              (Let Tu123:Unit =
+                (Put
+                  rgb
+                  0
+                  (FAdd
+                    (Get
+                      rgb
+                      0)
+                    ihl))
+              In
+              (Let Tu122:Unit =
+                (Put
+                  rgb
+                  1
+                  (FAdd
+                    (Get
+                      rgb
+                      1)
+                    ihl))
+              In
+              (Put
+                rgb
+                2
+                (FAdd
+                  (Get
+                    rgb
+                    2)
+                  ihl)))))
+            Else
+              ())))
+        Else
+          (If
+            (Eq
+              m_surface
+              2)
+          Then
+            (Let Tu126:Unit =
+              (Put
+                viewpoint
+                0
+                (Get
+                  crashed_point
+                  0))
+            In
+            (Let Tu125:Unit =
+              (Put
+                viewpoint
+                1
+                (Get
+                  crashed_point
+                  1))
+            In
+            (Let Tu124:Unit =
+              (Put
+                viewpoint
+                2
+                (Get
+                  crashed_point
+                  2))
+            In
+            (Let energy2:Var(?) =
+              (FMul
+                energy
+                (FSub
+                  1.
+                  (App
+                    o_diffuse
+                    cobj)))
+            In
+            (App
+              raytracing
+              (Add
+                nref
+                1)
+              energy2)))))
+          Else
+            ())))))
+      Else
+        ())))))))
+  Else
+    ())))
+In
+(LetRec write_rgb:Var(?) Tu132:Var(?) =
+  (Let red:Var(?) =
+    (App
+      int_of_float
+      (Get
+        rgb
+        0))
+  In
+  (Let red:Var(?) =
+    (If
+      (Not
+        (LE
+          red
+          255))
+    Then
+      255
+    Else
+      red)
+  In
+  (Let Tu134:Unit =
+    (App
+      print_byte
+      red)
+  In
+  (Let green:Var(?) =
+    (App
+      int_of_float
+      (Get
+        rgb
+        1))
+  In
+  (Let green:Var(?) =
+    (If
+      (Not
+        (LE
+          green
+          255))
+    Then
+      255
+    Else
+      green)
+  In
+  (Let Tu133:Unit =
+    (App
+      print_byte
+      green)
+  In
+  (Let blue:Var(?) =
+    (App
+      int_of_float
+      (Get
+        rgb
+        2))
+  In
+  (Let blue:Var(?) =
+    (If
+      (Not
+        (LE
+          blue
+          255))
+    Then
+      255
+    Else
+      blue)
+  In
+  (App
+    print_byte
+    blue)))))))))
+In
+(LetRec write_ppm_header:Var(?) Tu135:Var(?) =
+  (Let Tu143:Unit =
+    (App
+      print_byte
+      80)
+  In
+  (Let Tu142:Unit =
+    (App
+      print_byte
+      (Add
+        48
+        6))
+  In
+  (Let Tu141:Unit =
+    (App
+      print_byte
+      10)
+  In
+  (Let Tu140:Unit =
+    (App
+      print_int
+      (Get
+        size
+        0))
+  In
+  (Let Tu139:Unit =
+    (App
+      print_byte
+      32)
+  In
+  (Let Tu138:Unit =
+    (App
+      print_int
+      (Get
+        size
+        1))
+  In
+  (Let Tu137:Unit =
+    (App
+      print_byte
+      10)
+  In
+  (Let Tu136:Unit =
+    (App
+      print_int
+      255)
+  In
+  (App
+    print_byte
+    10)))))))))
+In
+(LetRec scan_point:Var(?) scanx:Var(?) =
+  (If
+    (LE
+      (Get
+        size
+        0)
+      scanx)
+  Then
+    ()
+  Else
+    (Let sscanx:Var(?) =
+      (FMul
+        (FSub
+          (App
+            float_of_int
+            scanx)
+          (Get
+            scan_offset
+            0))
+        (Get
+          scan_d
+          0))
+    In
+    (Let Tu157:Unit =
+      (Put
+        vscan
+        0
+        (FAdd
+          (FMul
+            sscanx
+            (Get
+              cos_v
+              1))
+          (Get
+            wscan
+            0)))
+    In
+    (Let Tu156:Unit =
+      (Put
+        vscan
+        1
+        (FSub
+          (FMul
+            (Get
+              scan_sscany
+              0)
+            (Get
+              cos_v
+              0))
+          (Get
+            vp
+            1)))
+    In
+    (Let Tu155:Unit =
+      (Put
+        vscan
+        2
+        (FAdd
+          (FMul
+            (FNeg
+              sscanx)
+            (Get
+              sin_v
+              1))
+          (Get
+            wscan
+            2)))
+    In
+    (Let metric:Var(?) =
+      (App
+        sqrt
+        (FAdd
+          (App
+            fsqr
+            sscanx)
+          (Get
+            scan_met1
+            0)))
+    In
+    (Let Tu154:Unit =
+      (Put
+        vscan
+        0
+        (FDiv
+          (Get
+            vscan
+            0)
+          metric))
+    In
+    (Let Tu153:Unit =
+      (Put
+        vscan
+        1
+        (FDiv
+          (Get
+            vscan
+            1)
+          metric))
+    In
+    (Let Tu152:Unit =
+      (Put
+        vscan
+        2
+        (FDiv
+          (Get
+            vscan
+            2)
+          metric))
+    In
+    (Let Tu151:Unit =
+      (Put
+        viewpoint
+        0
+        (Get
+          view
+          0))
+    In
+    (Let Tu150:Unit =
+      (Put
+        viewpoint
+        1
+        (Get
+          view
+          1))
+    In
+    (Let Tu149:Unit =
+      (Put
+        viewpoint
+        2
+        (Get
+          view
+          2))
+    In
+    (Let Tu148:Unit =
+      (Put
+        rgb
+        0
+        0.)
+    In
+    (Let Tu147:Unit =
+      (Put
+        rgb
+        1
+        0.)
+    In
+    (Let Tu146:Unit =
+      (Put
+        rgb
+        2
+        0.)
+    In
+    (Let Tu145:Unit =
+      (App
+        raytracing
+        0
+        1.)
+    In
+    (Let Tu144:Unit =
+      (App
+        write_rgb
+        ())
+    In
+    (App
+      scan_point
+      (Add
+        scanx
+        1)))))))))))))))))))
+In
+(LetRec scan_line:Var(?) scany:Var(?) =
+  (If
+    (Not
+      (LE
+        (Get
+          size
+          0)
+        scany))
+  Then
+    (Let Tu162:Unit =
+      (Put
+        scan_sscany
+        0
+        (Let t:Var(?) =
+          (FSub
+            (FSub
+              (Get
+                scan_offset
+                0)
+              1.)
+            (App
+              float_of_int
+              scany))
+        In
+        (FMul
+          (Get
+            scan_d
+            0)
+          t)))
+    In
+    (Let Tu161:Unit =
+      (Put
+        scan_met1
+        0
+        (FAdd
+          (App
+            fsqr
+            (Get
+              scan_sscany
+              0))
+          40000.))
+    In
+    (Let t1:Var(?) =
+      (FMul
+        (Get
+          scan_sscany
+          0)
+        (Get
+          sin_v
+          0))
+    In
+    (Let Tu160:Unit =
+      (Put
+        wscan
+        0
+        (FSub
+          (FMul
+            t1
+            (Get
+              sin_v
+              1))
+          (Get
+            vp
+            0)))
+    In
+    (Let Tu159:Unit =
+      (Put
+        wscan
+        2
+        (FSub
+          (FMul
+            t1
+            (Get
+              cos_v
+              1))
+          (Get
+            vp
+            2)))
+    In
+    (Let Tu158:Unit =
+      (App
+        scan_point
+        0)
+    In
+    (App
+      scan_line
+      (Add
+        scany
+        1))))))))
+  Else
+    ())
+In
+(LetRec scan_start:Var(?) Tu163:Var(?) =
+  (Let Tu166:Unit =
+    (App
+      write_ppm_header
+      ())
+  In
+  (Let sizex:Var(?) =
+    (App
+      float_of_int
+      (Get
+        size
+        0))
+  In
+  (Let Tu165:Unit =
+    (Put
+      scan_d
+      0
+      (FDiv
+        128.
+        sizex))
+  In
+  (Let Tu164:Unit =
+    (Put
+      scan_offset
+      0
+      (FDiv
+        sizex
+        2.))
+  In
+  (App
+    scan_line
+    0)))))
+In
+(LetRec rt:Var(?) size_x:Var(?) size_y:Var(?) debug_p:Var(?) =
+  (Let Tu170:Unit =
+    (Put
+      size
+      0
+      size_x)
+  In
+  (Let Tu169:Unit =
+    (Put
+      size
+      1
+      size_y)
+  In
+  (Let Tu168:Unit =
+    (Put
+      dbg
+      0
+      debug_p)
+  In
+  (Let Tu167:Unit =
+    (App
+      read_parameter
+      ())
+  In
+  (App
+    scan_start
+    ())))))
+In
+(App
+  rt
+  768
+  768
+  false)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
