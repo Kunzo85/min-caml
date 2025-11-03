@@ -1,3 +1,5 @@
+(* SPARC/asm.mliがベース *)
+
 type id_or_imm = V of Id.t | C of int
 type t =
   | Ans of exp
@@ -10,16 +12,17 @@ and exp' =
   | Neg of Id.t
   | Add of Id.t * id_or_imm
   | Sub of Id.t * id_or_imm
-  | Ld of Id.t * id_or_imm * int
-  | St of Id.t * Id.t * id_or_imm * int
+  | SLL of Id.t * id_or_imm
+  | Ld of Id.t * id_or_imm
+  | St of Id.t * Id.t * id_or_imm
   | FMovD of Id.t
   | FNegD of Id.t
   | FAddD of Id.t * Id.t
   | FSubD of Id.t * Id.t
   | FMulD of Id.t * Id.t
   | FDivD of Id.t * Id.t
-  | LdDF of Id.t * id_or_imm * int
-  | StDF of Id.t * Id.t * id_or_imm * int
+  | LdDF of Id.t * id_or_imm
+  | StDF of Id.t * Id.t * id_or_imm
   | Comment of string
   (* virtual instructions *)
   | IfEq of Id.t * id_or_imm * t * t
@@ -48,14 +51,13 @@ val fregs : Id.t array
 val allregs : Id.t list
 val allfregs : Id.t list
 val reg_cl : Id.t
-(*
 val reg_sw : Id.t
 val reg_fsw : Id.t
 val reg_ra : Id.t
-*)
 val reg_hp : Id.t
 val reg_sp : Id.t
 val is_reg : Id.t -> bool
+val co_freg : Id.t -> Id.t
 
 val fv : t -> Id.t list
 val concat : t -> Id.t * Type.t -> t -> t

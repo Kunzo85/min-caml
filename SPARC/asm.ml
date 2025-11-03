@@ -1,10 +1,12 @@
 (* SPARC assembly with a few virtual instructions *)
 
+open Location
+
 type id_or_imm = V of Id.t | C of int
 type t = (* 命令の列 (caml2html: sparcasm_t) *)
   | Ans of exp
   | Let of (Id.t * Type.t) * exp * t
-and exp = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) *)
+and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) *)
   | Nop
   | Set of int
   | SetL of Id.l
@@ -35,7 +37,11 @@ and exp = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) *
   | CallDir of Id.l * Id.t list * Id.t list
   | Save of Id.t * Id.t (* レジスタ変数の値をスタック変数へ保存 (caml2html: sparcasm_save) *)
   | Restore of Id.t (* スタック変数から値を復元 (caml2html: sparcasm_restore) *)
-type fundef = { name : Id.l; args : Id.t list; fargs : Id.t list; body : t; ret : Type.t }
+and exp = exp' with_loc
+
+type fundef' = { name : Id.l; args : Id.t list; fargs : Id.t list; body : t; ret : Type.t }
+type fundef = fundef' with_loc
+
 (* プログラム全体 = 浮動小数点数テーブル + トップレベル関数 + メインの式 (caml2html: sparcasm_prog) *)
 type prog = Prog of (Id.l * float) list * fundef list * t
 
@@ -75,7 +81,8 @@ let rec remove_and_uniq xs = function
 
 (* free variables in the order of use (for spilling) (caml2html: sparcasm_fv) *)
 let fv_id_or_imm = function V(x) -> [x] | _ -> []
-let rec fv_exp = function
+let rec fv_exp e =
+  match e.node with
   | Nop | Set(_) | SetL(_) | Comment(_) | Restore(_) -> []
   | Mov(x) | Neg(x) | FMovD(x) | FNegD(x) | Save(x, _) -> [x]
   | Add(x, y') | Sub(x, y') | SLL(x, y') | Ld(x, y') | LdDF(x, y') -> x :: fv_id_or_imm y'
