@@ -1,6 +1,9 @@
+(* Updated!: with_locに対応 *)
+
 (* translation into PowerPC assembly with infinite number of virtual registers *)
 
 open Asm
+open Location
 
 let data = ref [] (* 浮動小数点数の定数テーブル (caml2html: virtual_data) *)
 
@@ -31,7 +34,8 @@ let expand xts ini addf addi =
     (fun (offset, acc) x t ->
       (offset + 4, addi x t offset acc))
 
-let rec g env = function (* 式の仮想マシンコード生成 (caml2html: virtual_g) *)
+let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g) *)
+  match e.node with
   | Closure.Unit -> Ans(Nop)
   | Closure.Int(i) -> Ans(Li(i))
   | Closure.Float(d) ->
@@ -142,7 +146,7 @@ let rec g env = function (* 式の仮想マシンコード生成 (caml2html: vir
   | Closure.ExtArray(Id.L(x)) -> Ans(SetL(Id.L("min_caml_" ^ x)))
 
 (* 関数の仮想マシンコード生成 (caml2html: virtual_h) *)
-let h { Closure.name = (Id.L(x), t); Closure.args = yts; Closure.formal_fv = zts; Closure.body = e } =
+let h { node = { Closure.name = (Id.L(x), t); Closure.args = yts; Closure.formal_fv = zts; Closure.body = e }; _ } =
   let (int, float) = separate yts in
   let (offset, load) =
     expand

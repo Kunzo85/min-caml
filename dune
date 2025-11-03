@@ -18,6 +18,11 @@
  (enabled_if (= %{profile} ppc))
  (alias to_ppc))
 
+(copy_files
+ (files SPARC/*)
+ (enabled_if (= %{profile} sparc))
+ (alias to_sparc))
+
 (env
  (dev
   (flags (:standard -warn-error -a))))
