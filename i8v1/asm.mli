@@ -1,47 +1,45 @@
-(* SPARC/asm.mliがベース *)
-
 type id_or_imm = V of Id.t | C of int
-type t =
+type t = (* 命令の列 (caml2html: sparcasm_t) *)
   | Ans of exp
   | Let of (Id.t * Type.t) * exp * t
-and exp' =
+and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) *)
   | Nop
-  | Set of int
+  | Li of int
+  | FLi of float (* 即値としての浮動小数点数。浮動小数点数テーブルは使わない。 *)
   | SetL of Id.l
-  | Mov of Id.t
-  | Neg of Id.t
+  | Mr of Id.t
+  | Neg of Id.t (* 後に Sub + %zero に変換 *)
   | Add of Id.t * id_or_imm
-  | Sub of Id.t * id_or_imm
-  | SLL of Id.t * id_or_imm
-  | Ld of Id.t * id_or_imm
-  | St of Id.t * Id.t * id_or_imm
-  | FMovD of Id.t
-  | FNegD of Id.t
-  | FAddD of Id.t * Id.t
-  | FSubD of Id.t * Id.t
-  | FMulD of Id.t * Id.t
-  | FDivD of Id.t * Id.t
-  | LdDF of Id.t * id_or_imm
-  | StDF of Id.t * Id.t * id_or_imm
+  | Sub of Id.t * id_or_imm (* 即値がある場合はいずれAddiに変換 *)
+  | Slw of Id.t * id_or_imm (* いらない？？ *)
+  | Load of Id.t * id_or_imm (* いずれ必ず即値に *)
+  | Store of Id.t * Id.t * id_or_imm (* いずれ必ず即値に *)
+  | FMr of Id.t
+  | FNeg of Id.t 
+  | FAdd of Id.t * Id.t
+  | FSub of Id.t * Id.t
+  | FMul of Id.t * Id.t
+  | FDiv of Id.t * Id.t
+  | FLoad of Id.t * id_or_imm (* いずれ必ず即値に *)
+  | FStore of Id.t * Id.t * id_or_imm (* いずれ必ず即値に *)
   | Comment of string
   (* virtual instructions *)
-  | IfEq of Id.t * id_or_imm * t * t
-  | IfLE of Id.t * id_or_imm * t * t
-  | IfGE of Id.t * id_or_imm * t * t
+  | IfEq of Id.t * Id.t * t * t (* branch命令しかないので、id_or_immは使わない *)
+  | IfLE of Id.t * Id.t * t * t
   | IfFEq of Id.t * Id.t * t * t
   | IfFLE of Id.t * Id.t * t * t
   (* closure address, integer arguments, and float arguments *)
   | CallCls of Id.t * Id.t list * Id.t list
   | CallDir of Id.l * Id.t list * Id.t list
-  | Save of Id.t * Id.t (* レジスタ変数の値をスタック変数へ保存 *)
-  | Restore of Id.t (* スタック変数から値を復元 *)
+  | Save of Id.t * Id.t (* レジスタ変数の値をスタック変数へ保存 (caml2html: sparcasm_save) *)
+  | Restore of Id.t (* スタック変数から値を復元 (caml2html: sparcasm_restore) *)
 and exp = exp' Location.with_loc
 
 type fundef' = { name : Id.l; args : Id.t list; fargs : Id.t list; body : t; ret : Type.t }
 type fundef = fundef' Location.with_loc
 
-(* プログラム全体 = 浮動小数点数テーブル + トップレベル関数 + メインの式 *)
-type prog = Prog of (Id.l * float) list * fundef list * t
+(* プログラム全体 = トップレベル関数 + メインの式 (caml2html: sparcasm_prog) *)
+type prog = Prog of fundef list * t
 
 val fletd : Id.t * exp * t -> t (* shorthand of Let for float *)
 val seq : exp * t -> t (* shorthand of Let for unit *)
@@ -53,13 +51,15 @@ val allfregs : Id.t list
 val reg_cl : Id.t
 val reg_sw : Id.t
 val reg_fsw : Id.t
-val reg_ra : Id.t
+val reg_zero : Id.t
 val reg_hp : Id.t
 val reg_sp : Id.t
+val reg_ra : Id.t
 val is_reg : Id.t -> bool
-val co_freg : Id.t -> Id.t
 
-val fv : t -> Id.t list
+(* val fv : t -> Id.t list *)
 val concat : t -> Id.t * Type.t -> t -> t
 
-val align : int -> int
+(* val align : int -> int *)
+
+val print : string -> string -> prog -> unit

@@ -160,7 +160,7 @@ let h { node = { Closure.name = (Id.L(x), t); Closure.args = yts; Closure.formal
   | _ -> assert false
 
 (* プログラム全体の仮想マシンコード生成 (caml2html: virtual_f) *)
-let f (Closure.Prog(fundefs, e)) =
+let f filename (Closure.Prog(fundefs, e)) =
   data := [];
   let fundefs = List.map h fundefs in
   let e = g M.empty e in

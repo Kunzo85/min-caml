@@ -4,19 +4,19 @@ open Location
 let rec g env = function (* 命令列の13bit即値最適化 (caml2html: simm13_g) *)
   | Ans(exp) -> Ans(make_wloc (g' env exp.node) exp.loc)
   | Let(xt, exp, e) ->
-    let inherit_loc node = make_wloc node exp.loc in
-    (match exp.node with
-    | Set(i) when -4096 <= i && i < 4096 ->
-      (* Format.eprintf "found simm13 %s = %d@." x i; *)
-      let (x, t) = xt in
-      let e' = g (M.add x i env) e in
-      if List.mem x (fv e') then Let((x, t), inherit_loc (Set(i)), e') else
-      ((* Format.eprintf "erased redundant Set to %s@." x; *)
-       e')
-    | SLL(y, C(i)) when M.mem y env -> (* for array access *)
-      (* Format.eprintf "erased redundant SLL on %s@." x; *)
-      g env (Let(xt, inherit_loc (Set((M.find y env) lsl i)), e))
-    | _ -> Let(xt, inherit_loc (g' env exp.node), g env e))
+      let inherit_loc node = make_wloc node exp.loc in
+      (match exp.node with
+      | Set(i) when -4096 <= i && i < 4096 ->
+        (* Format.eprintf "found simm13 %s = %d@." x i; *)
+        let (x, t) = xt in
+        let e' = g (M.add x i env) e in
+        if List.mem x (fv e') then Let((x, t), inherit_loc (Set(i)), e') else
+        ((* Format.eprintf "erased redundant Set to %s@." x; *)
+        e')
+      | SLL(y, C(i)) when M.mem y env -> (* for array access *)
+        (* Format.eprintf "erased redundant SLL on %s@." x; *)
+        g env (Let(xt, inherit_loc (Set((M.find y env) lsl i)), e))
+      | _ -> Let(xt, inherit_loc (g' env exp.node), g env e))
 and g' env = function (* 各命令の13bit即値最適化 (caml2html: simm13_gprime) *)
   | Add(x, V(y)) when M.mem y env -> Add(x, C(M.find y env))
   | Add(x, V(y)) when M.mem x env -> Add(y, C(M.find x env))

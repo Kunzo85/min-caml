@@ -23,6 +23,11 @@
  (enabled_if (= %{profile} sparc))
  (alias to_sparc))
 
+(copy_files
+ (files i8v1/*)
+ (enabled_if (= %{profile} i8v1))
+ (alias to_i8v1))
+
 (env
  (dev
   (flags (:standard -warn-error -a))))

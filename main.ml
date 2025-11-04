@@ -7,7 +7,7 @@ let lexbuf outchan l filename = (* バッファをコンパイルしてチャン
   Emit.f outchan
     (RegAlloc.f
        (Simm.f
-          (Virtual.f
+          (Virtual.f filename
              (Closure.f filename
                 (Optimize.f filename !limit
                   (Cse.f filename
