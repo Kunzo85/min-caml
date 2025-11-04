@@ -1,463 +1,463 @@
 (LetRec mul.140:(Int -> Int -> Int -> Array(Array(Float)) -> Array(Array(Float)) -> Array(Array(Float)) -> Unit) l.141:Int m.142:Int n.143:Int a.144:Array(Array(Float)) b.145:Array(Array(Float)) c.146:Array(Array(Float)) =
   (LetRec loop1.269:(Int -> Unit) i.270:Int =
-    (Let Ti118.273:Int =
+    (Let Ti26.273:Int =
       0
     In
-    (If (LE Ti118.273 i.270) Then
+    (If (LE Ti26.273 i.270) Then
       (LetRec loop2.274:(Int -> Unit) j.275:Int =
-        (Let Ti123.281:Int =
+        (Let Ti27.281:Int =
           0
         In
-        (If (LE Ti123.281 j.275) Then
+        (If (LE Ti27.281 j.275) Then
           (LetRec loop3.282:(Int -> Unit) k.283:Int =
-            (Let Ti128.289:Int =
+            (Let Ti28.289:Int =
               0
             In
-            (If (LE Ti128.289 k.283) Then
+            (If (LE Ti28.289 k.283) Then
               (Let Tu1.290:Unit =
-                (Let Ta129.293:Array(Float) =
+                (Let Ta29.293:Array(Float) =
                   (c.146.(i.270))
                 In
-                (Let Td137.294:Float =
-                  (Let Td131.295:Float =
-                    (Let Ta130.301:Array(Float) =
+                (Let Td37.294:Float =
+                  (Let Td31.295:Float =
+                    (Let Ta30.301:Array(Float) =
                       (c.146.(i.270))
                     In
-                    (Ta130.301.(j.275)))
+                    (Ta30.301.(j.275)))
                   In
-                  (Let Td136.296:Float =
-                    (Let Td133.297:Float =
-                      (Let Ta132.300:Array(Float) =
+                  (Let Td36.296:Float =
+                    (Let Td33.297:Float =
+                      (Let Ta32.300:Array(Float) =
                         (a.144.(i.270))
                       In
-                      (Ta132.300.(k.283)))
+                      (Ta32.300.(k.283)))
                     In
-                    (Let Td135.298:Float =
-                      (Let Ta134.299:Array(Float) =
+                    (Let Td35.298:Float =
+                      (Let Ta34.299:Array(Float) =
                         (b.145.(k.283))
                       In
-                      (Ta134.299.(j.275)))
+                      (Ta34.299.(j.275)))
                     In
-                    (FMul Td133.297 Td135.298)))
+                    (FMul Td33.297 Td35.298)))
                   In
-                  (FAdd Td131.295 Td136.296)))
+                  (FAdd Td31.295 Td36.296)))
                 In
-                (Ta129.293.(j.275) <- Td137.294)))
+                (Ta29.293.(j.275) <- Td37.294)))
               In
-              (Let Ti139.291:Int =
-                (Let Ti138.292:Int =
+              (Let Ti39.291:Int =
+                (Let Ti38.292:Int =
                   1
                 In
-                (Sub k.283 Ti138.292))
+                (Sub k.283 Ti38.292))
               In
-              (loop3.282 Ti139.291)))
+              (loop3.282 Ti39.291)))
             Else
               ()))
           In
           (Let Tu2.284:Unit =
-            (Let Ti125.287:Int =
-              (Let Ti124.288:Int =
+            (Let Ti41.287:Int =
+              (Let Ti40.288:Int =
                 1
               In
-              (Sub m.142 Ti124.288))
+              (Sub m.142 Ti40.288))
             In
-            (loop3.282 Ti125.287))
+            (loop3.282 Ti41.287))
           In
-          (Let Ti127.285:Int =
-            (Let Ti126.286:Int =
+          (Let Ti43.285:Int =
+            (Let Ti42.286:Int =
               1
             In
-            (Sub j.275 Ti126.286))
+            (Sub j.275 Ti42.286))
           In
-          (loop2.274 Ti127.285))))
+          (loop2.274 Ti43.285))))
         Else
           ()))
       In
       (Let Tu3.276:Unit =
-        (Let Ti120.279:Int =
-          (Let Ti119.280:Int =
+        (Let Ti45.279:Int =
+          (Let Ti44.280:Int =
             1
           In
-          (Sub n.143 Ti119.280))
+          (Sub n.143 Ti44.280))
         In
-        (loop2.274 Ti120.279))
+        (loop2.274 Ti45.279))
       In
-      (Let Ti122.277:Int =
-        (Let Ti121.278:Int =
+      (Let Ti47.277:Int =
+        (Let Ti46.278:Int =
           1
         In
-        (Sub i.270 Ti121.278))
+        (Sub i.270 Ti46.278))
       In
-      (loop1.269 Ti122.277))))
+      (loop1.269 Ti47.277))))
     Else
       ()))
   In
-  (Let Ti117.271:Int =
-    (Let Ti116.272:Int =
+  (Let Ti49.271:Int =
+    (Let Ti48.272:Int =
       1
     In
-    (Sub l.141 Ti116.272))
+    (Sub l.141 Ti48.272))
   In
-  (loop1.269 Ti117.271)))
+  (loop1.269 Ti49.271)))
 In
 (Let dummy.147:Array(Float) =
-  (Let Ti26.267:Int =
+  (Let Ti50.267:Int =
     0
   In
-  (Let Td27.268:Float =
+  (Let Td51.268:Float =
     0.
   In
-  create_float_array Ti26.267 Td27.268))
+  create_float_array Ti50.267 Td51.268))
 In
 (LetRec make.148:(Int -> Int -> Array(Array(Float))) m.149:Int n.150:Int =
   (Let mat.255:Array(Array(Float)) =
     create_array m.149 dummy.147
   In
   (LetRec init.256:(Int -> Unit) i.257:Int =
-    (Let Ti111.261:Int =
+    (Let Ti52.261:Int =
       0
     In
-    (If (LE Ti111.261 i.257) Then
+    (If (LE Ti52.261 i.257) Then
       (Let Tu4.262:Unit =
-        (Let Ta113.265:Array(Float) =
-          (Let Td112.266:Float =
+        (Let Ta54.265:Array(Float) =
+          (Let Td53.266:Float =
             0.
           In
-          create_float_array n.150 Td112.266)
+          create_float_array n.150 Td53.266)
         In
-        (mat.255.(i.257) <- Ta113.265))
+        (mat.255.(i.257) <- Ta54.265))
       In
-      (Let Ti115.263:Int =
-        (Let Ti114.264:Int =
+      (Let Ti56.263:Int =
+        (Let Ti55.264:Int =
           1
         In
-        (Sub i.257 Ti114.264))
+        (Sub i.257 Ti55.264))
       In
-      (init.256 Ti115.263)))
+      (init.256 Ti56.263)))
     Else
       ()))
   In
   (Let Tu5.258:Unit =
-    (Let Ti110.259:Int =
-      (Let Ti109.260:Int =
+    (Let Ti58.259:Int =
+      (Let Ti57.260:Int =
         1
       In
-      (Sub m.149 Ti109.260))
+      (Sub m.149 Ti57.260))
     In
-    (init.256 Ti110.259))
+    (init.256 Ti58.259))
   In
   mat.255)))
 In
 (Let a.151:Array(Array(Float)) =
-  (Let Ti28.253:Int =
+  (Let Ti59.253:Int =
     2
   In
-  (Let Ti29.254:Int =
+  (Let Ti60.254:Int =
     3
   In
-  (make.148 Ti28.253 Ti29.254)))
+  (make.148 Ti59.253 Ti60.254)))
 In
 (Let b.152:Array(Array(Float)) =
-  (Let Ti30.251:Int =
+  (Let Ti61.251:Int =
     3
   In
-  (Let Ti31.252:Int =
+  (Let Ti62.252:Int =
     2
   In
-  (make.148 Ti30.251 Ti31.252)))
+  (make.148 Ti61.251 Ti62.252)))
 In
 (Let c.153:Array(Array(Float)) =
-  (Let Ti32.249:Int =
+  (Let Ti63.249:Int =
     2
   In
-  (Let Ti33.250:Int =
+  (Let Ti64.250:Int =
     2
   In
-  (make.148 Ti32.249 Ti33.250)))
+  (make.148 Ti63.249 Ti64.250)))
 In
 (Let Tu25.154:Unit =
-  (Let Ta35.245:Array(Float) =
-    (Let Ti34.248:Int =
+  (Let Ta66.245:Array(Float) =
+    (Let Ti65.248:Int =
       0
     In
-    (a.151.(Ti34.248)))
+    (a.151.(Ti65.248)))
   In
-  (Let Ti36.246:Int =
+  (Let Ti67.246:Int =
     0
   In
-  (Let Td37.247:Float =
+  (Let Td68.247:Float =
     1.
   In
-  (Ta35.245.(Ti36.246) <- Td37.247))))
+  (Ta66.245.(Ti67.246) <- Td68.247))))
 In
 (Let Tu24.155:Unit =
-  (Let Ta39.241:Array(Float) =
-    (Let Ti38.244:Int =
+  (Let Ta70.241:Array(Float) =
+    (Let Ti69.244:Int =
       0
     In
-    (a.151.(Ti38.244)))
+    (a.151.(Ti69.244)))
   In
-  (Let Ti40.242:Int =
+  (Let Ti71.242:Int =
     1
   In
-  (Let Td41.243:Float =
+  (Let Td72.243:Float =
     2.
   In
-  (Ta39.241.(Ti40.242) <- Td41.243))))
+  (Ta70.241.(Ti71.242) <- Td72.243))))
 In
 (Let Tu23.156:Unit =
-  (Let Ta43.237:Array(Float) =
-    (Let Ti42.240:Int =
+  (Let Ta74.237:Array(Float) =
+    (Let Ti73.240:Int =
       0
     In
-    (a.151.(Ti42.240)))
+    (a.151.(Ti73.240)))
   In
-  (Let Ti44.238:Int =
+  (Let Ti75.238:Int =
     2
   In
-  (Let Td45.239:Float =
+  (Let Td76.239:Float =
     3.
   In
-  (Ta43.237.(Ti44.238) <- Td45.239))))
+  (Ta74.237.(Ti75.238) <- Td76.239))))
 In
 (Let Tu22.157:Unit =
-  (Let Ta47.233:Array(Float) =
-    (Let Ti46.236:Int =
+  (Let Ta78.233:Array(Float) =
+    (Let Ti77.236:Int =
       1
     In
-    (a.151.(Ti46.236)))
+    (a.151.(Ti77.236)))
   In
-  (Let Ti48.234:Int =
+  (Let Ti79.234:Int =
     0
   In
-  (Let Td49.235:Float =
+  (Let Td80.235:Float =
     4.
   In
-  (Ta47.233.(Ti48.234) <- Td49.235))))
+  (Ta78.233.(Ti79.234) <- Td80.235))))
 In
 (Let Tu21.158:Unit =
-  (Let Ta51.229:Array(Float) =
-    (Let Ti50.232:Int =
+  (Let Ta82.229:Array(Float) =
+    (Let Ti81.232:Int =
       1
     In
-    (a.151.(Ti50.232)))
+    (a.151.(Ti81.232)))
   In
-  (Let Ti52.230:Int =
+  (Let Ti83.230:Int =
     1
   In
-  (Let Td53.231:Float =
+  (Let Td84.231:Float =
     5.
   In
-  (Ta51.229.(Ti52.230) <- Td53.231))))
+  (Ta82.229.(Ti83.230) <- Td84.231))))
 In
 (Let Tu20.159:Unit =
-  (Let Ta55.225:Array(Float) =
-    (Let Ti54.228:Int =
+  (Let Ta86.225:Array(Float) =
+    (Let Ti85.228:Int =
       1
     In
-    (a.151.(Ti54.228)))
+    (a.151.(Ti85.228)))
   In
-  (Let Ti56.226:Int =
+  (Let Ti87.226:Int =
     2
   In
-  (Let Td57.227:Float =
+  (Let Td88.227:Float =
     6.
   In
-  (Ta55.225.(Ti56.226) <- Td57.227))))
+  (Ta86.225.(Ti87.226) <- Td88.227))))
 In
 (Let Tu19.160:Unit =
-  (Let Ta59.221:Array(Float) =
-    (Let Ti58.224:Int =
+  (Let Ta90.221:Array(Float) =
+    (Let Ti89.224:Int =
       0
     In
-    (b.152.(Ti58.224)))
+    (b.152.(Ti89.224)))
   In
-  (Let Ti60.222:Int =
+  (Let Ti91.222:Int =
     0
   In
-  (Let Td61.223:Float =
+  (Let Td92.223:Float =
     7.
   In
-  (Ta59.221.(Ti60.222) <- Td61.223))))
+  (Ta90.221.(Ti91.222) <- Td92.223))))
 In
 (Let Tu18.161:Unit =
-  (Let Ta63.217:Array(Float) =
-    (Let Ti62.220:Int =
+  (Let Ta94.217:Array(Float) =
+    (Let Ti93.220:Int =
       0
     In
-    (b.152.(Ti62.220)))
+    (b.152.(Ti93.220)))
   In
-  (Let Ti64.218:Int =
+  (Let Ti95.218:Int =
     1
   In
-  (Let Td65.219:Float =
+  (Let Td96.219:Float =
     8.
   In
-  (Ta63.217.(Ti64.218) <- Td65.219))))
+  (Ta94.217.(Ti95.218) <- Td96.219))))
 In
 (Let Tu17.162:Unit =
-  (Let Ta67.213:Array(Float) =
-    (Let Ti66.216:Int =
+  (Let Ta98.213:Array(Float) =
+    (Let Ti97.216:Int =
       1
     In
-    (b.152.(Ti66.216)))
+    (b.152.(Ti97.216)))
   In
-  (Let Ti68.214:Int =
+  (Let Ti99.214:Int =
     0
   In
-  (Let Td69.215:Float =
+  (Let Td100.215:Float =
     9.
   In
-  (Ta67.213.(Ti68.214) <- Td69.215))))
+  (Ta98.213.(Ti99.214) <- Td100.215))))
 In
 (Let Tu16.163:Unit =
-  (Let Ta71.209:Array(Float) =
-    (Let Ti70.212:Int =
+  (Let Ta102.209:Array(Float) =
+    (Let Ti101.212:Int =
       1
     In
-    (b.152.(Ti70.212)))
+    (b.152.(Ti101.212)))
   In
-  (Let Ti72.210:Int =
+  (Let Ti103.210:Int =
     1
   In
-  (Let Td73.211:Float =
+  (Let Td104.211:Float =
     10.
   In
-  (Ta71.209.(Ti72.210) <- Td73.211))))
+  (Ta102.209.(Ti103.210) <- Td104.211))))
 In
 (Let Tu15.164:Unit =
-  (Let Ta75.205:Array(Float) =
-    (Let Ti74.208:Int =
+  (Let Ta106.205:Array(Float) =
+    (Let Ti105.208:Int =
       2
     In
-    (b.152.(Ti74.208)))
+    (b.152.(Ti105.208)))
   In
-  (Let Ti76.206:Int =
+  (Let Ti107.206:Int =
     0
   In
-  (Let Td77.207:Float =
+  (Let Td108.207:Float =
     11.
   In
-  (Ta75.205.(Ti76.206) <- Td77.207))))
+  (Ta106.205.(Ti107.206) <- Td108.207))))
 In
 (Let Tu14.165:Unit =
-  (Let Ta79.201:Array(Float) =
-    (Let Ti78.204:Int =
+  (Let Ta110.201:Array(Float) =
+    (Let Ti109.204:Int =
       2
     In
-    (b.152.(Ti78.204)))
+    (b.152.(Ti109.204)))
   In
-  (Let Ti80.202:Int =
+  (Let Ti111.202:Int =
     1
   In
-  (Let Td81.203:Float =
+  (Let Td112.203:Float =
     12.
   In
-  (Ta79.201.(Ti80.202) <- Td81.203))))
+  (Ta110.201.(Ti111.202) <- Td112.203))))
 In
 (Let Tu13.166:Unit =
-  (Let Ti82.198:Int =
+  (Let Ti113.198:Int =
     2
   In
-  (Let Ti83.199:Int =
+  (Let Ti114.199:Int =
     3
   In
-  (Let Ti84.200:Int =
+  (Let Ti115.200:Int =
     2
   In
-  (mul.140 Ti82.198 Ti83.199 Ti84.200 a.151 b.152 c.153))))
+  (mul.140 Ti113.198 Ti114.199 Ti115.200 a.151 b.152 c.153))))
 In
 (Let Tu12.167:Unit =
-  (Let Ti89.193:Int =
-    (Let Td88.194:Float =
-      (Let Ta86.195:Array(Float) =
-        (Let Ti85.197:Int =
+  (Let Ti120.193:Int =
+    (Let Td119.194:Float =
+      (Let Ta117.195:Array(Float) =
+        (Let Ti116.197:Int =
           0
         In
-        (c.153.(Ti85.197)))
+        (c.153.(Ti116.197)))
       In
-      (Let Ti87.196:Int =
+      (Let Ti118.196:Int =
         0
       In
-      (Ta86.195.(Ti87.196))))
+      (Ta117.195.(Ti118.196))))
     In
-    truncate Td88.194)
+    truncate Td119.194)
   In
-  print_int Ti89.193)
+  print_int Ti120.193)
 In
 (Let Tu11.168:Unit =
-  (Let Tu90.192:Unit =
+  (Let Tu121.192:Unit =
     ()
   In
-  print_newline Tu90.192)
+  print_newline Tu121.192)
 In
 (Let Tu10.169:Unit =
-  (Let Ti95.187:Int =
-    (Let Td94.188:Float =
-      (Let Ta92.189:Array(Float) =
-        (Let Ti91.191:Int =
+  (Let Ti126.187:Int =
+    (Let Td125.188:Float =
+      (Let Ta123.189:Array(Float) =
+        (Let Ti122.191:Int =
           0
         In
-        (c.153.(Ti91.191)))
+        (c.153.(Ti122.191)))
       In
-      (Let Ti93.190:Int =
+      (Let Ti124.190:Int =
         1
       In
-      (Ta92.189.(Ti93.190))))
+      (Ta123.189.(Ti124.190))))
     In
-    truncate Td94.188)
+    truncate Td125.188)
   In
-  print_int Ti95.187)
+  print_int Ti126.187)
 In
 (Let Tu9.170:Unit =
-  (Let Tu96.186:Unit =
+  (Let Tu127.186:Unit =
     ()
   In
-  print_newline Tu96.186)
+  print_newline Tu127.186)
 In
 (Let Tu8.171:Unit =
-  (Let Ti101.181:Int =
-    (Let Td100.182:Float =
-      (Let Ta98.183:Array(Float) =
-        (Let Ti97.185:Int =
+  (Let Ti132.181:Int =
+    (Let Td131.182:Float =
+      (Let Ta129.183:Array(Float) =
+        (Let Ti128.185:Int =
           1
         In
-        (c.153.(Ti97.185)))
+        (c.153.(Ti128.185)))
       In
-      (Let Ti99.184:Int =
+      (Let Ti130.184:Int =
         0
       In
-      (Ta98.183.(Ti99.184))))
+      (Ta129.183.(Ti130.184))))
     In
-    truncate Td100.182)
+    truncate Td131.182)
   In
-  print_int Ti101.181)
+  print_int Ti132.181)
 In
 (Let Tu7.172:Unit =
-  (Let Tu102.180:Unit =
+  (Let Tu133.180:Unit =
     ()
   In
-  print_newline Tu102.180)
+  print_newline Tu133.180)
 In
 (Let Tu6.173:Unit =
-  (Let Ti107.175:Int =
-    (Let Td106.176:Float =
-      (Let Ta104.177:Array(Float) =
-        (Let Ti103.179:Int =
+  (Let Ti138.175:Int =
+    (Let Td137.176:Float =
+      (Let Ta135.177:Array(Float) =
+        (Let Ti134.179:Int =
           1
         In
-        (c.153.(Ti103.179)))
+        (c.153.(Ti134.179)))
       In
-      (Let Ti105.178:Int =
+      (Let Ti136.178:Int =
         1
       In
-      (Ta104.177.(Ti105.178))))
+      (Ta135.177.(Ti136.178))))
     In
-    truncate Td106.176)
+    truncate Td137.176)
   In
-  print_int Ti107.175)
+  print_int Ti138.175)
 In
-(Let Tu108.174:Unit =
+(Let Tu139.174:Unit =
   ()
 In
-print_newline Tu108.174)))))))))))))))))))))))))))
+print_newline Tu139.174)))))))))))))))))))))))))))
