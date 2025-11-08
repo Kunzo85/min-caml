@@ -238,7 +238,7 @@ let h { node = { name = Id.L(x); args = ys; fargs = zs; body = e; ret = t }; loc
   let (e', regenv') = g (a, t) (Ans(inherit_loc (Mov(a)))) regenv e in
   inherit_loc { name = Id.L(x); args = arg_regs; fargs = farg_regs; body = e'; ret = t }
 
-let f (Prog(data, fundefs, e)) = (* プログラム全体のレジスタ割り当て (caml2html: regalloc_f) *)
+let f filename (Prog(data, fundefs, e)) = (* プログラム全体のレジスタ割り当て (caml2html: regalloc_f) *)
   Format.eprintf "register allocation: may take some time (up to a few minutes, depending on the size of functions)@.";
   let fundefs' = List.map h fundefs in
   let e', regenv' = g (Id.gentmp Type.Unit, Type.Unit) (Ans(make_wloc Nop (ghost_loc ()))) M.empty e in

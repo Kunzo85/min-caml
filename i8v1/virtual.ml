@@ -1,6 +1,5 @@
-(* Updated!: with_locに対応 *)
-
-(* translation into PowerPC assembly with infinite number of virtual registers *)
+(* i8v1/virtual.ml *)
+(* translation into i8v1 assembly with infinite number of virtual registers *)
 
 open Asm
 open Location
@@ -30,10 +29,11 @@ let expand xts ini addf addi =
     xts
     ini
     (fun (offset, acc) x ->
-      (* let offset = align offset in *) (* v1では単精度なので4バイト *)
-      (offset + 4, addf x offset acc))
+      (* let offset = align offset in *) 
+      (* v1では単精度なので4バイト。さらにoffsetはコアで4倍されるので、1ずつ足す必要がある *)
+      (offset + 1, addf x offset acc))
     (fun (offset, acc) x t ->
-      (offset + 4, addi x t offset acc))
+      (offset + 1, addi x t offset acc))
 
 (* offset系は4バイト単位で計算なう！もしコアで4倍される仕様なら、1ずつ足す必要がある！ *)
 let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g) *)
@@ -41,10 +41,10 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
   match e.node with
   | Closure.Unit -> Ans(inherit_loc Nop)
   | Closure.Int(i) -> Ans(inherit_loc (Li(i)))
-  | Closure.Float(d) -> Ans(inherit_loc (FLi(d))) (* v1では浮動小数点数定数テーブルは使わない *)
-  | Closure.Neg(x) -> Ans(inherit_loc (Sub(reg_zero, V(x)))) (* xがSimmで消えることはないので、ここでSubに変換 *)
+  | Closure.Float(f) -> Ans(inherit_loc (FLi(f))) (* v1では浮動小数点数定数テーブルは使わない *)
+  | Closure.Neg(x) -> Ans(inherit_loc (Sub(reg_zero, x))) (* xがSimmで消えることはないので、ここでSubに変換 *)
   | Closure.Add(x, y) -> Ans(inherit_loc (Add(x, V(y))))
-  | Closure.Sub(x, y) -> Ans(inherit_loc (Sub(x, V(y))))
+  | Closure.Sub(x, y) -> Ans(inherit_loc (Sub(x, y)))
   | Closure.FNeg(x) -> Ans(inherit_loc (FNeg(x)))
   | Closure.FAdd(x, y) -> Ans(inherit_loc (FAdd(x, y)))
   | Closure.FSub(x, y) -> Ans(inherit_loc (FSub(x, y)))
@@ -75,11 +75,11 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
       let offset, store_fv =
         expand
           (List.map (fun y -> (y, M.find y env)) ys)
-          (4, e2')
-          (fun y offset store_fv -> seq(inherit_loc (FStore(y, x, C(offset))), store_fv))
-          (fun y _ offset store_fv -> seq(inherit_loc (Store(y, x, C(offset))), store_fv)) in
+          (1, e2')
+          (fun y offset store_fv -> seq(inherit_loc (FStore(y, x, C(-offset))), store_fv))
+          (fun y _ offset store_fv -> seq(inherit_loc (Store(y, x, C(-offset))), store_fv)) in
       Let((x, t), inherit_loc (Mr(reg_hp)),
-          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(offset))), (* offsetをalignしないように変更。今のところデータは全て4バイトなので。 *)
+          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(-offset))),
               let z = Id.genid "l" in
               Let((z, Type.Int), inherit_loc (SetL(l)),
                   seq(inherit_loc (Store(z, x, C(0))),
@@ -96,14 +96,14 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
         expand
           (List.map (fun x -> (x, M.find x env)) xs)
           (0, Ans(inherit_loc (Mr(y))))
-          (fun x offset store -> seq(inherit_loc (FStore(x, y, C(offset))), store))
-          (fun x _ offset store -> seq(inherit_loc (Store(x, y, C(offset))), store))  in
+          (fun x offset store -> seq(inherit_loc (FStore(x, y, C(-offset))), store))
+          (fun x _ offset store -> seq(inherit_loc (Store(x, y, C(-offset))), store))  in
       Let((y, Type.Tuple(List.map (fun x -> M.find x env) xs)), inherit_loc (Mr(reg_hp)),
-          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(offset))),
+          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(-offset))),
               store))
   | Closure.LetTuple(xts, y, e2) ->
       let s = Closure.fv e2 in
-      let (offset, load) =
+      let (_offset, load) =
         expand
           xts
           (0, g (M.add_list xts env) e2)
@@ -114,27 +114,31 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
             if not (S.mem x s) then load else (* [XX] a little ad hoc optimization *)
             Let((x, t), inherit_loc (Load(y, C(offset))), load)) in
       load
-  | Closure.Get(x, y) -> (* 配列の読み出し (caml2html: virtual_get) *) (* Load命令のoffsetは即値のみなので、先にxに足す必要がある。Simmでやろうかな *)
-      let offset = Id.genid "o" in
+  | Closure.Get(x, y) -> (* 配列の読み出し (caml2html: virtual_get) *) (* Lwv命令が追加されそうなので、offset計算は要らない？ *)
+      (* let offset = Id.genid "o" in *)
       (match M.find x env with
       | Type.Array(Type.Unit) -> Ans(inherit_loc Nop)
       | Type.Array(Type.Float) ->
-          Let((offset, Type.Int), inherit_loc (Slw(y, C(2))), (* floatは4バイト単位なので、2シフト *)
-              Ans(inherit_loc (FLoad(x, V(offset)))))
+          (* Let((offset, Type.Int), inherit_loc (Slw(y, C(2))), (* floatは4バイト単位なので、2シフト *)
+              Ans(inherit_loc (FLoad(x, V(offset))))) *)
+          Ans(inherit_loc (FLoad(x, V(y))))
       | Type.Array(_) ->
-          Let((offset, Type.Int), inherit_loc (Slw(y, C(2))),
-              Ans(inherit_loc (Load(x, V(offset)))))
+          (* Let((offset, Type.Int), inherit_loc (Slw(y, C(2))),
+              Ans(inherit_loc (Load(x, V(offset))))) *)
+          Ans(inherit_loc (Load(x, V(y))))
       | _ -> assert false)
-  | Closure.Put(x, y, z) ->
-      let offset = Id.genid "o" in
+  | Closure.Put(x, y, z) -> (* 同様にSwv命令が追加されそうなので、offset計算は要らない？ *)
+      (* let offset = Id.genid "o" in *)
       (match M.find x env with
       | Type.Array(Type.Unit) -> Ans(inherit_loc Nop)
       | Type.Array(Type.Float) ->
-          Let((offset, Type.Int), inherit_loc (Slw(y, C(2))),
-              Ans(inherit_loc (FStore(z, x, V(offset)))))
+          (* Let((offset, Type.Int), inherit_loc (Slw(y, C(2))),
+              Ans(inherit_loc (FStore(z, x, V(offset))))) *)
+          Ans(inherit_loc (FStore(z, x, V(y))))
       | Type.Array(_) ->
-          Let((offset, Type.Int), inherit_loc (Slw(y, C(2))),
-              Ans(inherit_loc (Store(z, x, V(offset)))))
+          (* Let((offset, Type.Int), inherit_loc (Slw(y, C(2))),
+              Ans(inherit_loc (Store(z, x, V(offset))))) *)
+          Ans(inherit_loc (Store(z, x, V(y))))
       | _ -> assert false)
   | Closure.ExtArray(Id.L(x)) -> Ans(inherit_loc (SetL(Id.L("min_caml_" ^ x))))
 
@@ -142,10 +146,10 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
 let h { node = { Closure.name = (Id.L(x), t); Closure.args = yts; Closure.formal_fv = zts; Closure.body = e }; loc } =
   let inherit_loc node = make_wloc node loc in
   let (int, float) = separate yts in
-  let (offset, load) =
+  let (_offset, load) =
     expand
       zts
-      (4, g (M.add x t (M.add_list yts (M.add_list zts M.empty))) e)
+      (1, g (M.add x t (M.add_list yts (M.add_list zts M.empty))) e)
       (fun z offset load -> fletd(z, inherit_loc (FLoad(x, C(offset))), load))
       (fun z t offset load -> Let((z, t), inherit_loc (Load(x, C(offset))), load)) in
   match t with

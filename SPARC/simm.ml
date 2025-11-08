@@ -42,5 +42,5 @@ and g' env = function (* 各命令の13bit即値最適化 (caml2html: simm13_gpr
 let h { node = { name = l; args = xs; fargs = ys; body = e; ret = t }; loc } = (* トップレベル関数の13bit即値最適化 *)
   { node = { name = l; args = xs; fargs = ys; body = g M.empty e; ret = t }; loc }
 
-let f (Prog(data, fundefs, e)) = (* プログラム全体の13bit即値最適化 *)
+let f filename (Prog(data, fundefs, e)) = (* プログラム全体の13bit即値最適化 *)
   Prog(data, List.map h fundefs, g M.empty e)

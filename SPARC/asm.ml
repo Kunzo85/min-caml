@@ -104,3 +104,98 @@ let rec concat e1 xt e2 =
   | Let(yt, exp, e1') -> Let(yt, exp, concat e1' xt e2)
 
 let align i = (if i mod 8 = 0 then i else i + 4)
+
+let id_or_imm_to_string = function
+  | V(x) -> x
+  | C(i) -> string_of_int i
+
+let rec exp_to_string p e =
+  match e.node with
+  | Nop -> "Nop"
+  | Set(i) -> Printf.sprintf "Set(%d)" i
+  | SetL(Id.L(l)) -> Printf.sprintf "SetL(%s)" l
+  | Mov(x) -> Printf.sprintf "Mov(%s)" x
+  | Neg(x) -> Printf.sprintf "Neg(%s)" x
+  | Add(x, y) -> Printf.sprintf "Add(%s, %s)" x (id_or_imm_to_string y)
+  | Sub(x, y) -> Printf.sprintf "Sub(%s, %s)" x (id_or_imm_to_string y)
+  | SLL(x, y) -> Printf.sprintf "SLL(%s, %s)" x (id_or_imm_to_string y)
+  | Ld(x, y) -> Printf.sprintf "Ld(%s, %s)" x (id_or_imm_to_string y)
+  | St(x, y, z) -> Printf.sprintf "St(%s, %s, %s)" x y (id_or_imm_to_string z)
+  | FMovD(x) -> Printf.sprintf "FMovD(%s)" x
+  | FNegD(x) -> Printf.sprintf "FNegD(%s)" x
+  | FAddD(x, y) -> Printf.sprintf "FAddD(%s, %s)" x y
+  | FSubD(x, y) -> Printf.sprintf "FSubD(%s, %s)" x y
+  | FMulD(x, y) -> Printf.sprintf "FMulD(%s, %s)" x y
+  | FDivD(x, y) -> Printf.sprintf "FDivD(%s, %s)" x y
+  | LdDF(x, y) -> Printf.sprintf "LdDF(%s, %s)" x (id_or_imm_to_string y)
+  | StDF(x, y, z) -> Printf.sprintf "StDF(%s, %s, %s)" x y (id_or_imm_to_string z)
+  | Comment(s) -> Printf.sprintf "Comment(%s)" s
+  | IfEq(x, y, e1, e2) ->
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
+      Printf.sprintf 
+        "(IfEq %s %s Then\n%s\n%sElse\n%s)" 
+        x (id_or_imm_to_string y) then_str (Indent.indent p) else_str
+  | IfLE(x, y, e1, e2) ->
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
+      Printf.sprintf 
+        "(IfLE %s %s Then\n%s\n%sElse\n%s)" 
+        x (id_or_imm_to_string y) then_str (Indent.indent p) else_str
+  | IfGE(x, y, e1, e2) ->
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
+      Printf.sprintf 
+        "(IfGE %s %s Then\n%s\n%sElse\n%s)" 
+        x (id_or_imm_to_string y) then_str (Indent.indent p) else_str
+  | IfFEq(x, y, e1, e2) ->
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
+      Printf.sprintf 
+        "(IfFEq %s %s Then\n%s\n%sElse\n%s)" 
+        x y then_str (Indent.indent p) else_str
+  | IfFLE(x, y, e1, e2) ->
+      let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
+      let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in
+      Printf.sprintf 
+        "(IfFLE %s %s Then\n%s\n%sElse\n%s)" 
+        x y then_str (Indent.indent p) else_str
+  | CallCls(x, ys, zs) -> 
+      Printf.sprintf "CallCls(%s, [%s], [%s])" x (String.concat "; " ys) (String.concat "; " zs)
+  | CallDir(Id.L(l), ys, zs) -> 
+      Printf.sprintf "CallDir(%s, [%s], [%s])" l (String.concat "; " ys) (String.concat "; " zs)
+  | Save(x, y) -> Printf.sprintf "Save(%s, %s)" x y
+  | Restore(x) -> Printf.sprintf "Restore(%s)" x
+
+and t_to_string p = function
+  | Ans(e) -> exp_to_string p e
+  | Let((x, t), e, body) ->
+      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ exp_to_string p e) in
+      let body_str = Indent.indent p ^ t_to_string p body in
+      Printf.sprintf 
+        "(Let %s:%s =\n%s\n%sIn\n%s)"
+        x (Type.t_to_string t) e_str (Indent.indent p) body_str
+
+let fundef_to_string p { node = { name = Id.L(l); args = ys; fargs = zs; body = e; ret = t }; loc = _ } =
+  let args_str = String.concat " " ys in
+  let fargs_str = String.concat " " zs in
+  let body_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e) in
+  Printf.sprintf 
+    "Function %s Args(%s) FArgs(%s) Ret:%s =\n%s"
+    l args_str fargs_str (Type.t_to_string t) body_str
+
+let prog_to_string p (Prog(floattbl, fundefs, e)) =
+  let floattbl_str = 
+    if List.length floattbl = 0 then ""
+    else 
+      let entries = List.map (fun (Id.L(l), f) -> Printf.sprintf "  %s: %s" l (string_of_float f)) floattbl in
+      "Float Table:\n" ^ String.concat "\n" entries ^ "\n\n"
+  in
+  let fundefs_str = String.concat "\n\n" (List.map (fundef_to_string p) fundefs) in
+  let e_str = t_to_string p e in
+  Printf.sprintf 
+    "%sToplevel Functions:\n%s\n\nMain Expression:\n%s\n"
+    floattbl_str fundefs_str e_str
+
+let print filename ext prog =
+  MyPrint.print filename ext prog_to_string prog

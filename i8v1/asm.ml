@@ -13,20 +13,20 @@ and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) 
   | FLi of float (* 即値としての浮動小数点数。浮動小数点数テーブルは使わない。 *)
   | SetL of Id.l
   | Mr of Id.t
-  | Neg of Id.t (* 後に Sub + %zero に変換 *)
+  (* | Neg of Id.t *) (* Virtualにて Sub + %zero に変換 *)
   | Add of Id.t * id_or_imm
-  | Sub of Id.t * id_or_imm (* 即値がある場合はいずれAddiに変換 *)
-  | Slw of Id.t * id_or_imm (* いらない？？ *)
-  | Load of Id.t * id_or_imm (* いずれ必ず即値に *)
-  | Store of Id.t * Id.t * id_or_imm (* いずれ必ず即値に *)
+  | Sub of Id.t * Id.t (* 即値がある場合はいずれAddiに変換 *)
+  (* | Slw of Id.t * id_or_imm *) (* いらない？？ *)
+  | Load of Id.t * id_or_imm 
+  | Store of Id.t * Id.t * id_or_imm 
   | FMr of Id.t
   | FNeg of Id.t 
   | FAdd of Id.t * Id.t
   | FSub of Id.t * Id.t
   | FMul of Id.t * Id.t
   | FDiv of Id.t * Id.t
-  | FLoad of Id.t * id_or_imm (* いずれ必ず即値に *)
-  | FStore of Id.t * Id.t * id_or_imm (* いずれ必ず即値に *)
+  | FLoad of Id.t * id_or_imm 
+  | FStore of Id.t * Id.t * id_or_imm 
   | Comment of string
   (* virtual instructions *)
   | IfEq of Id.t * Id.t * t * t (* branch命令しかないので、id_or_immは使わない *)
@@ -53,38 +53,39 @@ let regs = Array.init 28 (fun i -> Printf.sprintf "%%r%d" (i + 1)) (* r1~r28 *)
 let fregs = Array.init 32 (fun i -> Printf.sprintf "%%f%d" i)
 let allregs = Array.to_list regs
 let allfregs = Array.to_list fregs
-let reg_cl = regs.(Array.length regs - 1) (* closure address (caml2html: sparcasm_regcl) *)
-let reg_sw = regs.(Array.length regs - 2) (* temporary for swap *)
-let reg_fsw = fregs.(Array.length fregs - 1) (* temporary for swap *)
-let reg_zero = "%r0" (* constant 0 *)
-let reg_sp = "%r29" (* stack pointer *)
-let reg_hp = "%r30" (* heap pointer (caml2html: sparcasm_reghp) *)
-let reg_ra = "%r31" (* return address *)
+let reg_cl = regs.(Array.length regs - 2) (* closure address (caml2html: sparcasm_regcl). r28 *)
+let reg_sw = regs.(Array.length regs - 1) (* temporary for swap *) (* これは何？->Emit.shuffleで引数の循環参照を解消するため *)
+let reg_fsw = fregs.(Array.length fregs - 1) (* temporary for swap *) 
+let reg_zero = "%zero" (* constant 0. r0 *)
+let reg_sp = "%sp" (* stack pointer. r29 *)
+let reg_hp = "%hp" (* heap pointer (caml2html: sparcasm_reghp). r30 *)
+let reg_ra = "%ra" (* return address. r31 *)
 let is_reg x = (x.[0] = '%')
 
 (* super-tenuki *)
-(* let rec remove_and_uniq xs = function
+let rec remove_and_uniq xs = function
   | [] -> []
   | x :: ys when S.mem x xs -> remove_and_uniq xs ys
-  | x :: ys -> x :: remove_and_uniq (S.add x xs) ys *)
+  | x :: ys -> x :: remove_and_uniq (S.add x xs) ys
 
 (* free variables in the order of use (for spilling) (caml2html: sparcasm_fv) *)
-(* let fv_id_or_imm = function V(x) -> [x] | _ -> [] *)
-(* let rec fv_exp = function
+let fv_id_or_imm = function V(x) -> [x] | _ -> []
+let rec fv_exp e =
+  match e.node with
   | Nop | Li(_) | FLi(_) | SetL(_) | Comment(_) | Restore(_) -> []
-  | Mr(x) | Neg(x) | FMr(x) | FNeg(x) | Save(x, _) -> [x]
-  | Add(x, y') | Sub(x, y') | Slw(x, y') | Lfd(x, y') | Lwz(x, y') -> x :: fv_id_or_imm y'
-  | Stw(x, y, z') | Stfd(x, y, z') -> x :: y :: fv_id_or_imm z'
-  | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) -> [x; y]
-  | IfEq(x, y', e1, e2) | IfLE(x, y', e1, e2) | IfGE(x, y', e1, e2) ->  x :: fv_id_or_imm y' @ remove_and_uniq S.empty (fv e1 @ fv e2) (* uniq here just for efficiency *)
+  | Mr(x) | FMr(x) | FNeg(x) | Save(x, _) -> [x]
+  | Add(x, y') | Load(x, y') | FLoad(x, y') -> x :: fv_id_or_imm y'
+  | Store(x, y, z') | FStore(x, y, z') -> x :: y :: fv_id_or_imm z'
+  | Sub(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) -> [x; y]
+  | IfEq(x, y, e1, e2) | IfLE(x, y, e1, e2) ->  x :: y :: remove_and_uniq S.empty (fv e1 @ fv e2) (* uniq here just for efficiency *)
   | IfFEq(x, y, e1, e2) | IfFLE(x, y, e1, e2) -> x :: y :: remove_and_uniq S.empty (fv e1 @ fv e2) (* uniq here just for efficiency *)
   | CallCls(x, ys, zs) -> x :: ys @ zs
   | CallDir(_, ys, zs) -> ys @ zs
 and fv = function
   | Ans(exp) -> fv_exp exp
-  | Let((x, t), exp, e) ->
-      fv_exp exp @ remove_and_uniq (S.singleton x) (fv e) *)
-(* let fv e = remove_and_uniq S.empty (fv e) *)
+  | Let((x, _t), exp, e) ->
+      fv_exp exp @ remove_and_uniq (S.singleton x) (fv e)
+let fv e = remove_and_uniq S.empty (fv e)
 
 let rec concat e1 xt e2 =
   match e1 with
@@ -92,6 +93,9 @@ let rec concat e1 xt e2 =
   | Let(yt, exp, e1') -> Let(yt, exp, concat e1' xt e2)
 
 (* let align i = (if i mod 8 = 0 then i else i + 4) *)
+
+let fit_in_signed_16bit i =
+  -0x8000 <= i && i < 0x8000
 
 let id_or_imm_to_string = function
   | V(x) -> x
@@ -104,10 +108,10 @@ let rec exp_to_string p e =
   | FLi(f) -> Printf.sprintf "FLi(%s)" (string_of_float f)
   | SetL(Id.L(l)) -> Printf.sprintf "SetL(%s)" l
   | Mr(x) -> Printf.sprintf "Mr(%s)" x
-  | Neg(x) -> Printf.sprintf "Neg(%s)" x
+  (* | Neg(x) -> Printf.sprintf "Neg(%s)" x *)
   | Add(x, y) -> Printf.sprintf "Add(%s, %s)" x (id_or_imm_to_string y)
-  | Sub(x, y) -> Printf.sprintf "Sub(%s, %s)" x (id_or_imm_to_string y)
-  | Slw(x, y) -> Printf.sprintf "Slw(%s, %s)" x (id_or_imm_to_string y)
+  | Sub(x, y) -> Printf.sprintf "Sub(%s, %s)" x y
+  (* | Slw(x, y) -> Printf.sprintf "Slw(%s, %s)" x (id_or_imm_to_string y) *)
   | Load(x, y) -> Printf.sprintf "Load(%s, %s)" x (id_or_imm_to_string y)
   | Store(x, y, z) -> Printf.sprintf "Store(%s, %s, %s)" x y (id_or_imm_to_string z)
   | FMr(x) -> Printf.sprintf "FMr(%s)" x

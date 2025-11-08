@@ -5,8 +5,8 @@ let lexbuf outchan l filename = (* バッファをコンパイルしてチャン
   Id.counter := 0;
   Typing.extenv := M.empty;
   Emit.f outchan
-    (RegAlloc.f
-       (Simm.f
+    (RegAlloc.f filename
+       (Simm.f filename
           (Virtual.f filename
              (Closure.f filename
                 (Optimize.f filename !limit
@@ -16,7 +16,7 @@ let lexbuf outchan l filename = (* バッファをコンパイルしてチャン
                         (Typing.f
                           (ParseRunner.f filename MyParser.exp MyLexer.token l))))))))))
 
-let string s = lexbuf stdout (Lexing.from_string s) "" (* 文字列をコンパイルして標準出力に表示する (caml2html: main_string) *)
+(* let string s = lexbuf stdout (Lexing.from_string s) "" *) (* 文字列をコンパイルして標準出力に表示する (caml2html: main_string) *)
 
 let file f = (* ファイルをコンパイルしてファイルに出力する (caml2html: main_file) *)
   let inchan = open_in (f ^ ".ml") in

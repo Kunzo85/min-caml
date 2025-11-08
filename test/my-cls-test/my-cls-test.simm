@@ -1,9 +1,6 @@
 Toplevel Functions:
 Function f.9 Args(x.10) FArgs() Ret:Int =
-  (Let Ti1.23:Int =
-    Li(1)
-  In
-  Add(Ti1.23, x.10))
+  Add(x.10, 1)
 
 Function g.12 Args(x.13) FArgs() Ret:Int =
   (Let a.11:Int =

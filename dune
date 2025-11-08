@@ -9,8 +9,13 @@
 (ocamlyacc myParser)
 
 (copy_files
+ (files i8v1/*)
+ (enabled_if (or (= %{profile} i8v1) (= %{profile} dev)))
+ (alias to_i8v1))
+
+(copy_files
  (files x86/*)
- (enabled_if (or (= %{profile} x86) (= %{profile} dev) (= %{profile} release)))
+ (enabled_if (or (= %{profile} x86) (= %{profile} release)))
  (alias to_x86))
 
 (copy_files
@@ -22,11 +27,6 @@
  (files SPARC/*)
  (enabled_if (= %{profile} sparc))
  (alias to_sparc))
-
-(copy_files
- (files i8v1/*)
- (enabled_if (= %{profile} i8v1))
- (alias to_i8v1))
 
 (env
  (dev

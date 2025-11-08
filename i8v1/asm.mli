@@ -8,10 +8,10 @@ and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) 
   | FLi of float (* 即値としての浮動小数点数。浮動小数点数テーブルは使わない。 *)
   | SetL of Id.l
   | Mr of Id.t
-  | Neg of Id.t (* 後に Sub + %zero に変換 *)
+  (* | Neg of Id.t *) (* 後に Sub + %zero に変換 *)
   | Add of Id.t * id_or_imm
-  | Sub of Id.t * id_or_imm (* 即値がある場合はいずれAddiに変換 *)
-  | Slw of Id.t * id_or_imm (* いらない？？ *)
+  | Sub of Id.t * Id.t (* 即値がある場合はいずれAddiに変換 *)
+  (* | Slw of Id.t * id_or_imm *) (* いらない？？ *)
   | Load of Id.t * id_or_imm (* いずれ必ず即値に *)
   | Store of Id.t * Id.t * id_or_imm (* いずれ必ず即値に *)
   | FMr of Id.t
@@ -57,9 +57,10 @@ val reg_sp : Id.t
 val reg_ra : Id.t
 val is_reg : Id.t -> bool
 
-(* val fv : t -> Id.t list *)
+val fv : t -> Id.t list
 val concat : t -> Id.t * Type.t -> t -> t
 
 (* val align : int -> int *)
+val fit_in_signed_16bit : int -> bool
 
 val print : string -> string -> prog -> unit

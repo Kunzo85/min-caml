@@ -1,0 +1,45 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let Td1.34:Float =
+  FLi(-12.3)
+In
+(Let Ti2.33:Int =
+  CallDir(min_caml_abs_float, [], [Td1.34])
+In
+(Let Ti3.32:Int =
+  CallDir(min_caml_sqrt, [Ti2.33], [])
+In
+(Let Ti4.31:Int =
+  CallDir(min_caml_cos, [Ti3.32], [])
+In
+(Let Td5.29:Float =
+  CallDir(min_caml_sin, [Ti4.31], [])
+In
+(Let Td6.30:Float =
+  FLi(4.5)
+In
+(Let Td7.23:Float =
+  FAdd(Td5.29, Td6.30)
+In
+(Let Td12.24:Float =
+  FLi(48.3003004395)
+In
+(Let Td13.20:Float =
+  FSub(Td7.23, Td12.24)
+In
+(Let Ti14.22:Int =
+  Li(1000000)
+In
+(Let Td15.21:Float =
+  CallDir(min_caml_float_of_int, [Ti14.22], [])
+In
+(Let Td16.19:Float =
+  FMul(Td13.20, Td15.21)
+In
+(Let Ti17.18:Int =
+  CallDir(min_caml_int_of_float, [], [Td16.19])
+In
+CallDir(min_caml_print_int, [Ti17.18], []))))))))))))))
+

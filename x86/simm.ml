@@ -39,6 +39,6 @@ and g' env e = (* 各命令の即値最適化 (caml2html: simm13_gprime) *)
 let h { node = { name = l; args = xs; fargs = ys; body = e; ret = t }; loc } = (* トップレベル関数の即値最適化 *)
   { node = { name = l; args = xs; fargs = ys; body = g M.empty e; ret = t }; loc }
 
-let f (Prog(data, fundefs, e)) = (* プログラム全体の即値最適化 *)
+let f filename (Prog(data, fundefs, e)) = (* プログラム全体の即値最適化 *)
   Format.eprintf "Optimizing immediate values...@.";
   Prog(data, List.map h fundefs, g M.empty e)

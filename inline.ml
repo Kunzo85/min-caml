@@ -9,7 +9,7 @@ let threshold = ref 0 (* Mainで-inlineオプションによりセットされ�
 let rec size = function (* 関数の大きさを測る (caml2html: inline_size) *)
   | IfEq(_, _, e1, e2) | IfLE(_, _, e1, e2) -> 1 + size e1.node + size e2.node
   | Let(_, e1, e2) -> 1 + size e1.node + size e2.node
-  | LetRec({ node = { name; args; body = e1 }; _}, e2) -> 1 + size e1.node + size e2.node
+  | LetRec({ node = { name = _; args = _; body = e1 }; _}, e2) -> 1 + size e1.node + size e2.node
   | LetTuple(_, _, e) -> 1 + size e.node
   | _ -> 1
 
@@ -25,7 +25,7 @@ let rec g env = function (* インライン展開ルーチン本体 (caml2html: 
       Format.eprintf "inlining %s@." x;
       let env' =
         List.fold_left2
-          (fun env' (z, t) y -> M.add z y env')
+          (fun env' (z, _t) y -> M.add z y env')
           M.empty
           zts
           ys in

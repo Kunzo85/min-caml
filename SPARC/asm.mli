@@ -60,3 +60,5 @@ val fv : t -> Id.t list
 val concat : t -> Id.t * Type.t -> t -> t
 
 val align : int -> int
+
+val print : string -> string -> prog -> unit

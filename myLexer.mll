@@ -2,7 +2,7 @@
 (* Updated!: 改行を検知して、lexbufを更新するように変更。 *)
 (* lexerが利用する変数、関数、型などの定義 *)
 open MyParser
-open Type
+(* open Type *)
 }
 
 (* 正規表現の略記 *)
@@ -93,6 +93,9 @@ rule token = parse
            (Lexing.lexeme_start lexbuf)
            (Lexing.lexeme_end lexbuf)) }
 and comment = parse
+| "\n"
+    { Lexing.new_line lexbuf;
+      comment lexbuf }
 | "*)"
     { () }
 | "(*"

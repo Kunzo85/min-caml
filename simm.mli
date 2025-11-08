@@ -1,2 +1,2 @@
 (** プログラム全体の即値最適化 *)
-val f : Asm.prog -> Asm.prog
+val f : string -> Asm.prog -> Asm.prog

@@ -37,9 +37,9 @@ let rec fv e = (* 式に出現する（自由な）変数 (caml2html: knormal_fv
   | Neg(x) | FNeg(x) -> S.singleton x
   | Add(x, y) | Sub(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) | Get(x, y) -> S.of_list [x; y]
   | IfEq(x, y, e1, e2) | IfLE(x, y, e1, e2) -> S.add x (S.add y (S.union (fv e1) (fv e2)))
-  | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
+  | Let((x, _t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
   | Var(x) -> S.singleton x
-  | LetRec({ node = { name = (x, t); args = yts; body = e1 }; _}, e2) ->
+  | LetRec({ node = { name = (x, _t); args = yts; body = e1 }; _}, e2) ->
       let zs = S.diff (fv e1) (S.of_list (List.map fst yts)) in
       S.diff (S.union zs (fv e2)) (S.singleton x)
   | App(x, ys) -> S.of_list (x :: ys)
@@ -105,21 +105,21 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
           (fun x -> insert_let (g env e2) e.loc
               (fun y ->
                 let e3', t3 = g env e3 in
-                let e4', t4 = g env e4 in
+                let e4', _t4 = g env e4 in
                 inherit_loc (IfEq(x, y, e3', e4')), t3))
     | Syntax.If({ node = Syntax.LE(e1, e2); _}, e3, e4) ->
         insert_let (g env e1) e.loc
           (fun x -> insert_let (g env e2) e.loc
               (fun y ->
                 let e3', t3 = g env e3 in
-                let e4', t4 = g env e4 in
+                let e4', _t4 = g env e4 in
                 inherit_loc (IfLE(x, y, e3', e4')), t3))
     | Syntax.If(e1, e2, e3) -> 
         g env (inherit_loc 
                 (Syntax.If(inherit_loc (Syntax.Eq(e1, inherit_loc (Syntax.Bool(false)))), 
                   e3, e2))) (* 比較のない分岐を変換 (caml2html: knormal_if) *)
     | Syntax.Let((x, t), e1, e2) ->
-        let e1', t1 = g env e1 in
+        let e1', _t1 = g env e1 in
         let e2', t2 = g (M.add x t env) e2 in
         inherit_loc (Let((x, t), e1', e2')), t2
     | Syntax.Var(x) when M.mem x env -> inherit_loc (Var(x)), M.find x env
@@ -129,7 +129,7 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
         | _ -> failwith (Printf.sprintf "external variable %s does not have an array type" x))
     | Syntax.LetRec({ node = { Syntax.name = (x, t); Syntax.args = yts; Syntax.body = e1 }; loc = fdloc}, e2) ->
         let env' = M.add x t env in
-        let e1', t1 = g (M.add_list yts env') e1 in
+        let e1', _t1 = g (M.add_list yts env') e1 in
         let fundef = make_wloc { name = (x, t); args = yts; body = e1' } fdloc in
         let e2', t2 = g env' e2 in
         inherit_loc (LetRec(fundef, e2')), t2
