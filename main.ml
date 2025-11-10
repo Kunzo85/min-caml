@@ -8,13 +8,14 @@ let lexbuf outchan l filename = (* バッファをコンパイルしてチャン
     (RegAlloc.f filename
        (Simm.f filename
           (Virtual.f filename
+            (Flatten.f filename 
              (Closure.f filename
                 (Optimize.f filename !limit
                   (Cse.f filename
                    (Alpha.f filename
                       (KNormal.f filename
                         (Typing.f
-                          (ParseRunner.f filename MyParser.exp MyLexer.token l))))))))))
+                          (ParseRunner.f filename MyParser.exp MyLexer.token l)))))))))))
 
 (* let string s = lexbuf stdout (Lexing.from_string s) "" *) (* 文字列をコンパイルして標準出力に表示する (caml2html: main_string) *)
 
