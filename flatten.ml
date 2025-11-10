@@ -3,62 +3,42 @@
 open Closure
 open Location
 
-(* let rec has_nested_tuple = function
+let rec flatten_type = function (* 型を平坦化 *)
     | Type.Tuple(tl) ->
-        List.exists (function
-          | Type.Tuple(_) -> true
-          | _ -> false) tl
-    | Type.Fun(tl, t) -> List.exists has_nested_tuple (t :: tl)
-    | Type.Array(t) -> has_nested_tuple t
-    | _ -> false *)
-
-let rec flatten_type = function (* 1段階、型を平坦化 *)
-    | Type.Tuple(tl) ->
-      let rec f acc = function
-        | [] -> List.rev acc
-        | Type.Tuple(tl') :: rest -> f (f acc tl') rest
-        | t :: rest -> f (t :: acc) rest in
-      Type.Tuple(f [] tl)
-    | Type.Fun(tl, t) ->
-      Type.Fun(List.map flatten_type tl, flatten_type t)
-    | Type.Array(t) ->
-      Type.Array(flatten_type t)
+        let rec f acc = function
+            | [] -> List.rev acc
+            | Type.Tuple(tl') :: rest -> f (f acc tl') rest
+            | t :: rest -> f (t :: acc) rest in
+        Type.Tuple(f [] tl)
+    | Type.Fun(tl, t) -> Type.Fun(List.map flatten_type tl, flatten_type t)
+    | Type.Array(t) -> Type.Array(flatten_type t)
     | t -> t
 
-(* let rec appears_except_tuple x cont = (* xはtuple型 *)
-    match cont.node with
-    | IfEq(y1, y2, e1, e2) | IfLE(y1, y2, e1, e2) ->
-        x = y1 || x = y2 || appears_except_tuple x e1 || appears_except_tuple x e2
-    | Let((_y, _t), e1, e2) ->
-        appears_except_tuple x e1 || appears_except_tuple x e2
-    | Var(y) -> x = y
-    | MakeCls((y, _t), { entry = _l; actual_fv = ys }, e) ->
-        List.exists (fun z -> z = x) ys || appears_except_tuple x e
-    | AppCls(_y, ys) ->
-        List.exists (fun z -> z = x) ys
-    | AppDir(_l, ys) ->
-        List.exists (fun z -> z = x) ys
-    | LetTuple(ytss, y, e) ->
-        x = y || appears_except_tuple x e
-    | _ -> false *)
-
-let flatten_tuple known xs ts =
+let flatten_tuple known xs ts = (* タプル変数xsと型tsをknownに従って平坦化する *)
     let rec f xacc tacc xs ts =
         match xs, ts with
-        | [], [] -> xacc, flatten_type (Type.Tuple(tacc))
-        | x :: xs', Type.Tuple(ts) :: ts' ->
-            let ys = M.find x known in
-            f (xacc @ ys) (tacc @ ts) xs' ts'
-        | x :: xs', t :: ts' ->
-            f (xacc @ [x]) (tacc @ [t]) xs' ts'
+        | [], [] -> xacc, flatten_type (Type.Tuple(tacc)) (* flatten_typeは最後にまとめて適用。 *)
+        | x :: xs', Type.Tuple(ts) :: ts' -> (* ネストしたタプルがある場合 *)
+            let ys = M.find x known in (* タプル変数->要素変数リストは必ず登録されている *)
+            f (xacc @ ys) (tacc @ ts) xs' ts' (* フラットに展開して渡す *)
+        | x :: xs', t :: ts' -> (* ネストしていない場合 *)
+            f (xacc @ [x]) (tacc @ [t]) xs' ts' 
         | _, _ -> failwith "flatten_tuple: length mismatch" in
     f [] [] xs ts
 
-let replace repenv x =
+let replace repenv x = (* 変数xをrepenvに従って置き換える *)
     try M.find x repenv
     with Not_found -> x
 
-let rec g known repenv e =
+let rec g known repenv e = (* メインルーチン *)
+    (* known: タプル変数->要素の変数のリスト。
+            Let式でTupleを生成する際に更新する。
+            関数の返り値など、要素に変数が与えられていない場合は、直後にLetTuple式を挿入することで変数を与える。
+            仮に、使わない要素に変数が与えられても、後のVirtualで削除されるので構わない。
+            全てのタプル変数はknownに登録されることを想定。 *)
+    (* repenv: 変数->変数のマッピング。
+                LetTuple式が現れた際、knownを検索して、各要素変数の対応関係をrepenvに追加する。
+                それ以外の式では、repenvを利用して変数を置き換えていく。 *)
     let inherit_loc node = make_wloc node e.loc in
     match e.node with
     | Unit | Int _ | Float _ | ExtArray _ -> e
@@ -79,23 +59,23 @@ let rec g known repenv e =
         (match t with
         | Type.Tuple(ts) ->
             (match e1.node with
-            | Tuple(ys) ->
-                let flat_ys, flat_ts = flatten_tuple known ys ts in
-                let ys' = List.map (replace repenv) flat_ys in
+            | Tuple(ys) -> (* タプルの具体的な要素がわかっている場合 *)
+                let flat_ys, flat_ts = flatten_tuple known ys ts in (* タプルがネストしている箇所を平坦化 *)
+                let ys' = List.map (replace repenv) flat_ys in 
                 assert (flat_ts = ft);
-                let e2' = g (M.add x ys' known) repenv e2 in
+                let e2' = g (M.add x ys' known) repenv e2 in (* knownを更新してe2を処理 *)
                 inherit_loc (Let((x, flat_ts), make_wloc (Tuple(ys')) e1.loc, e2'))
-            | _ ->
+            | _ -> (* タプルの具体的な要素がわからない場合。AppCls,AppDir,Getなどを想定している *)
                 let ts = (match ft with
                 | Type.Tuple(ts) -> ts
                 | _ -> failwith "flatten_tuple: not a tuple type after flattening") in
                 let e1' = g known repenv e1 in
-                let yts = List.map (fun t -> (Id.gentmp t, t)) ts in
-                let e2' = g (M.add x (List.map fst yts) known) repenv e2 in
-                inherit_loc (Let((x, ft), e1', inherit_loc (LetTuple(yts, x, e2')))))
+                let yts = List.map (fun t -> (Id.gentmp t, t)) ts in (* tsに従って、要素を入れる変数を生成 *)
+                let e2' = g (M.add x (List.map fst yts) known) repenv e2 in (* x->生成した変数リストをknownに追加して、e2を処理 *)
+                inherit_loc (Let((x, ft), e1', inherit_loc (LetTuple(yts, x, e2'))))) (* LetTuple式を直後に挿入 *)
         | _ -> 
             let e1' = g known repenv e1 in
-            let e2' = g known repenv e2 in
+            let e2' = g known repenv e2 in (* e1の処理で更新された環境は(スコープが切れているので)e2に引き継がない。 *)
             inherit_loc (Let((x, ft), e1', e2')))
     | Var(x) -> inherit_loc (Var(replace repenv x))
     | MakeCls((x, t), { entry = l; actual_fv = ys }, e2) ->
@@ -107,10 +87,10 @@ let rec g known repenv e =
         inherit_loc (AppCls(replace repenv x, List.map (replace repenv) ys))
     | AppDir(l, ys) ->
         inherit_loc (AppDir(l, List.map (replace repenv) ys))
-    | Tuple(xs) ->
+    | Tuple(xs) -> (* Let((x,t),e1,e2)のe1には現れないことに注意 *)
         inherit_loc (Tuple(List.map (replace repenv) xs))
-    | LetTuple(xts, y, e2) ->
-        let xts', e2' = List.fold_left 
+    | LetTuple(xts, y, e2) -> 
+        let xts', e2' = List.fold_left (* xtsを平坦化。その際、展開されたタプル変数がコードから消滅してはいけないので、直後にLet式を挿入 *)
                 (fun (zts, e2') (z, t) -> 
                     let t' = flatten_type t in
                     match t' with 
@@ -118,16 +98,16 @@ let rec g known repenv e =
                         let zts' = List.map (fun t -> (Id.gentmp t, t)) ts in 
                         (zts @ zts', inherit_loc (Let((z, t'), inherit_loc (Tuple(List.map fst zts')), e2')))
                     | _ -> (zts @ [(z, t')], e2')) ([], e2) xts in
-        let ys = M.find y known in
-        Printf.eprintf "Flatten LetTuple: %s -> [%s]\n" y (String.concat "; " ys);
-        let rec f xts ys env =
+        let ys = M.find y known in (* yは必ずknownに登録されているはず *)
+        (* Printf.eprintf "Flatten LetTuple: %s -> [%s]\n" y (String.concat "; " ys); *)
+        let rec f xts ys env = (* repenvの更新処理。List.fold_left2で書いてもよかった *)
             (match xts, ys with
             | [], [] -> env
             | (x, _t) :: xts', y :: ys' -> f xts' ys' (M.add x (replace repenv y) env)
             | _ -> failwith "flatten_tuple: length mismatch2") in
         let repenv' = f xts' ys repenv in
-        Printf.eprintf "Flatten LetTuple: repenv': %s\n"
-            (String.concat "; " (List.map (fun (k, v) -> k ^ "->" ^ v) (M.bindings repenv')));
+        (* Printf.eprintf "Flatten LetTuple: repenv': %s\n"
+            (String.concat "; " (List.map (fun (k, v) -> k ^ "->" ^ v) (M.bindings repenv'))); *)
         let e2'' = g known repenv' e2' in
         inherit_loc (LetTuple(xts', y, e2''))
     | Get(x, y) ->
@@ -136,10 +116,12 @@ let rec g known repenv e =
         inherit_loc (Put(replace repenv x, replace repenv y, replace repenv z))
 
 let h { node = { name = (l, t); args = yts; formal_fv = zts; body = e }; loc } =
+    (* 関数定義の平坦化。プログラム中の変数が置き換わるので、関数の定義も変更を伴う。
+        外部関数の平坦化はできないので本来このgは破壊的だが、MinCamlのライブラリも自作するので壊れることはない *)
     let t' = flatten_type t in
     let yts' = List.map (fun (x, t) -> (x, flatten_type t)) yts in
     let zts' = List.map (fun (x, t) -> (x, flatten_type t)) zts in
-    let xytss = List.fold_left
+    let xytss = List.fold_left (* タプル型の引数xと、その中身を受ける変数リストytsを格納 *)
                 (fun xytss (x, t) -> 
                     let t' = flatten_type t in
                     match t' with
@@ -147,37 +129,8 @@ let h { node = { name = (l, t); args = yts; formal_fv = zts; body = e }; loc } =
                     | _ -> xytss) [] (yts' @ zts') in
     let known = List.fold_left (fun known (x, yts) -> M.add x (List.map fst yts) known) M.empty xytss in
     let e' = g known M.empty e in
-    let e'' = List.fold_left (fun e' (x, yts) -> make_wloc (LetTuple(yts, x, e')) loc) e' xytss in
+    let e'' = List.fold_left (fun e' (x, yts) -> make_wloc (LetTuple(yts, x, e')) loc) e' xytss in (* 関数定義の初めにLetTuple式を挿入 *)
     { node = { name = (l, t'); args = yts'; formal_fv = zts'; body = e'' }; loc} 
-
-
-(* let g known repenv e =
-    let inherit_loc node = make_wloc node e.loc in
-    match e.node with
-    | Let((x, t), e1, e2) ->
-        (match e1.node with
-        | Tuple(xs) ->
-            let ts = (match t with
-              | Type.Tuple(ts) -> ts
-              | _ -> failwith "flatten_tuple: not a tuple type") in
-            let flat_xs, flat_ts = flatten_tuple known xs ts in
-            let known' = M.add x flat_xs known in
-            let e2' = g known' e2 in
-            if S.mem x (fv e2') then
-                inherit_loc (Let((x, flat_ts), make_wloc (Tuple(flat_xs)) e1.loc, e2'))
-            else e2'
-        | Let(_) | LetTuple(_) -> failwith "flatten_tuple: nested let already exists."
-        | _ ->
-            let e1' = g known e1 in
-            let e2' = g (M.add x e1'.node known) e2 in (* 後で直す *)
-            inherit_loc (Let((x, t), e1', e2')))
-    | LetTuple(xts, y, e2) ->
-        let ys = M.find y known in
-        let rec f xts ys =
-            (match xts, ys with
-            | [], [] -> []
-            | (x, t) :: xts', y :: ys' ->
-                if M.mem y known then *)
 
 let f filename p =
     print filename ".before_flatten" p;
