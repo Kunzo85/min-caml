@@ -11,7 +11,7 @@ let print filename ext to_string e =
   output_string oc e_str;
   close_out oc
 
-(* let print filename ext to_string e = (* .mlと同階層にファイルを生成 *)
+(* let print filename ext to_string e = (* .mlと同階層にファイルを生成。課題提出用。 *)
   let e_str = to_string (Indent.create_indent ()) e ^ "\n" in
   let oc = open_out (filename ^ ext) in
   to_string_string oc e_str;

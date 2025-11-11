@@ -1,10 +1,14 @@
 (* Added!: エラー処理を一元的に行う。 *)
 
+exception Lexing_error of Location.loc
 exception Syntax_error of Location.loc * string 
 exception Typing_error of Syntax.t * Type.t * Type.t * string
 
 let handle_exn e =
   match e with
+  | Lexing_error ({Location.start_pos = sp; Location.end_pos = _}) ->
+      failwith (Printf.sprintf "Lexing error at line %d, char %d"
+                  sp.Lexing.pos_lnum (sp.Lexing.pos_cnum - sp.Lexing.pos_bol + 1))
   | Syntax_error ({Location.start_pos = sp; Location.end_pos = ep}, msg) ->
       failwith (Printf.sprintf "Syntax error: %s between (line %d, char %d) and (line %d, char %d)"
                   msg

@@ -87,11 +87,13 @@ rule token = parse
 | lower (digit|lower|upper|'_')* (* 他の「予約語」より後でないといけない *)
     { IDENT(Lexing.lexeme lexbuf) }
 | _
-    { failwith
-        (Printf.sprintf "unknown token %s near characters %d-%d"
-           (Lexing.lexeme lexbuf)
-           (Lexing.lexeme_start lexbuf)
-           (Lexing.lexeme_end lexbuf)) }
+    { let pos = lexbuf.lex_curr_p in
+      let loc = { Location.start_pos = pos; Location.end_pos = pos } in
+      Format.eprintf "Lexing error: unknown token '%s' at line %d, char %d@."
+        (Lexing.lexeme lexbuf)
+        pos.pos_lnum
+        (pos.pos_cnum - pos.pos_bol + 1);
+      raise (Error.Lexing_error loc) }
 and comment = parse
 | "\n"
     { Lexing.new_line lexbuf;

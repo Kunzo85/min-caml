@@ -14,7 +14,7 @@ let rec flatten_type = function (* 型を平坦化 *)
     | Type.Array(t) -> Type.Array(flatten_type t)
     | t -> t
 
-let flatten_tuple known xs ts = (* タプル変数xsと型tsをknownに従って平坦化する *)
+let flatten_tuple known xs ts = (* タプルを構成する変数リストxsと型tsをknownに従って平坦化する *)
     let rec f xacc tacc xs ts =
         match xs, ts with
         | [], [] -> xacc, flatten_type (Type.Tuple(tacc)) (* flatten_typeは最後にまとめて適用。 *)
@@ -64,7 +64,10 @@ let rec g known repenv e = (* メインルーチン *)
                 let ys' = List.map (replace repenv) flat_ys in 
                 assert (flat_ts = ft);
                 let e2' = g (M.add x ys' known) repenv e2 in (* knownを更新してe2を処理 *)
-                inherit_loc (Let((x, flat_ts), make_wloc (Tuple(ys')) e1.loc, e2'))
+                if S.mem x (fv e2') then
+                    inherit_loc (Let((x, flat_ts), make_wloc (Tuple(ys')) e1.loc, e2'))
+                else
+                    e2' (* xがe2'で使われていなければ、Let式自体を消す *)
             | _ -> (* タプルの具体的な要素がわからない場合。AppCls,AppDir,Getなどを想定している *)
                 let ts = (match ft with
                 | Type.Tuple(ts) -> ts
@@ -109,7 +112,11 @@ let rec g known repenv e = (* メインルーチン *)
         (* Printf.eprintf "Flatten LetTuple: repenv': %s\n"
             (String.concat "; " (List.map (fun (k, v) -> k ^ "->" ^ v) (M.bindings repenv'))); *)
         let e2'' = g known repenv' e2' in
-        inherit_loc (LetTuple(xts', y, e2''))
+        let fvs = fv e2'' in
+        if List.exists (fun (x, _t) -> S.mem x fvs) xts' then
+            inherit_loc (LetTuple(xts', y, e2''))
+        else
+            e2'' (* xts'の変数がe2''で使われていなければ、LetTuple式自体を消す *)
     | Get(x, y) ->
         inherit_loc (Get(replace repenv x, replace repenv y))
     | Put(x, y, z) ->
