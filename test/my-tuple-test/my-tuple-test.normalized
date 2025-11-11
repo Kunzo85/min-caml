@@ -1,0 +1,43 @@
+(Let a:(Int * (Int * Int)) =
+  (Let Tu2:Unit =
+    ()
+  In
+  f Tu2)
+In
+(Let (x:Int, y:(Int * Int)) = 
+  a
+In
+(Let (y1:Int, y2:Int) = 
+  y
+In
+(Let Tu1:Unit =
+  (Let Ti3:Int =
+    (Add x y1)
+  In
+  print_int Ti3)
+In
+(LetRec g:(Unit -> (Int * (Int * Int))) x:Unit =
+  (Let Ti4:Int =
+    1
+  In
+  (Let Tt7:(Int * Int) =
+    (Let Ti5:Int =
+      2
+    In
+    (Let Ti6:Int =
+      3
+    In
+    (Tuple Ti5, Ti6)))
+  In
+  (Tuple Ti4, Tt7)))
+In
+(Let b:(Int * (Int * Int)) =
+  (Let Tu8:Unit =
+    ()
+  In
+  (g Tu8))
+In
+(Let c:Int =
+  h b
+In
+print_int c)))))))

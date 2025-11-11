@@ -1,0 +1,41 @@
+(Let a:Var(?) =
+  (Array
+    1
+    (Tuple
+      1,
+      (Tuple
+        2,
+        3)))
+In
+(Let i:Var(?) =
+  0
+In
+(Let b:Var(?) =
+  (Get
+    a
+    i)
+In
+(LetTuple (x:Var(?), c:Var(?)) =
+  b
+In
+(LetTuple (y:Var(?), z:Var(?)) =
+  c
+In
+(Let Tu3:Unit =
+  (App
+    print_int
+    x)
+In
+(Let Tu2:Unit =
+  (App
+    print_int
+    y)
+In
+(Let Tu1:Unit =
+  (App
+    print_int
+    z)
+In
+(App
+  print_newline
+  ())))))))))

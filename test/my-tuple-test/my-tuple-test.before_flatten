@@ -1,0 +1,39 @@
+Toplevel Functions:
+Function g.15:(Unit -> (Int * (Int * Int))) Args(x.16:Unit) Formal_fv() =
+  (Let Ti4.20:Int =
+    1
+  In
+  (Let Ti5.22:Int =
+    2
+  In
+  (Let Ti6.23:Int =
+    3
+  In
+  (Let Tt7.21:(Int * Int) =
+    (Tuple(Ti5.22, Ti6.23))
+  In
+  (Tuple(Ti4.20, Tt7.21))))))
+
+Main Expression:
+(Let Tu2.25:Unit =
+  ()
+In
+(Let a.9:(Int * (Int * Int)) =
+  (AppDir(min_caml_f Tu2.25))
+In
+(LetTuple (x.10:Int, y.11:(Int * Int)) = a.9 In
+(LetTuple (y1.12:Int, y2.13:Int) = y.11 In
+(Let Ti3.24:Int =
+  Add(x.10, y1.12)
+In
+(Let Tu1.14:Unit =
+  (AppDir(min_caml_print_int Ti3.24))
+In
+(Let b.17:(Int * (Int * Int)) =
+  (AppDir(g.15 Tu2.25))
+In
+(Let c.18:Int =
+  (AppDir(min_caml_h b.17))
+In
+(AppDir(min_caml_print_int c.18))))))))))
+

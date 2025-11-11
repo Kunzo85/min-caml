@@ -1,0 +1,8512 @@
+Toplevel Functions:
+Function xor.1977 Args(%r1 %r2) FArgs() Ret:Bool =
+  (Let %r3:Int =
+    Li(0)
+  In
+  (IfEq %r1 %r3 Then
+    Mr(%r2)
+  Else
+    (IfEq %r2 %r3 Then
+      Li(1)
+    Else
+      Mr(%r3))))
+
+Function fsqr.1980 Args() FArgs(%f0) Ret:Float =
+  FMul(%f0, %f0)
+
+Function fhalf.1982 Args() FArgs(%f0) Ret:Float =
+  (Let %f1:Float =
+    FLi(2.)
+  In
+  FDiv(%f0, %f1))
+
+Function o_texturetype.1984 Args(%r1) FArgs() Ret:Int =
+  (Let %r1:Int =
+    Load(%r1, 0)
+  In
+  Mr(%r1))
+
+Function o_form.1986 Args(%r1) FArgs() Ret:Int =
+  (Let %r1:Int =
+    Load(%r1, 1)
+  In
+  Mr(%r1))
+
+Function o_reflectiontype.1988 Args(%r1) FArgs() Ret:Int =
+  (Let %r1:Int =
+    Load(%r1, 2)
+  In
+  Mr(%r1))
+
+Function o_isinvert.1990 Args(%r1) FArgs() Ret:Bool =
+  (Let %r1:Bool =
+    Load(%r1, 6)
+  In
+  Mr(%r1))
+
+Function o_isrot.1992 Args(%r1) FArgs() Ret:Int =
+  (Let %r1:Int =
+    Load(%r1, 3)
+  In
+  Mr(%r1))
+
+Function o_param_a.1994 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 4)
+  In
+  FLoad(%r1, 0))
+
+Function o_param_b.1996 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 4)
+  In
+  FLoad(%r1, 1))
+
+Function o_param_c.1998 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 4)
+  In
+  FLoad(%r1, 2))
+
+Function o_param_x.2000 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 5)
+  In
+  FLoad(%r1, 0))
+
+Function o_param_y.2002 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 5)
+  In
+  FLoad(%r1, 1))
+
+Function o_param_z.2004 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 5)
+  In
+  FLoad(%r1, 2))
+
+Function o_diffuse.2006 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 7)
+  In
+  FLoad(%r1, 0))
+
+Function o_hilight.2008 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 7)
+  In
+  FLoad(%r1, 1))
+
+Function o_color_red.2010 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 8)
+  In
+  FLoad(%r1, 0))
+
+Function o_color_green.2012 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 8)
+  In
+  FLoad(%r1, 1))
+
+Function o_color_blue.2014 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 8)
+  In
+  FLoad(%r1, 2))
+
+Function o_param_r1.2016 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 9)
+  In
+  FLoad(%r1, 0))
+
+Function o_param_r2.2018 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 9)
+  In
+  FLoad(%r1, 1))
+
+Function o_param_r3.2020 Args(%r1) FArgs() Ret:Float =
+  (Let %r1:Array(Float) =
+    Load(%r1, 9)
+  In
+  FLoad(%r1, 2))
+
+Function normalize_vector.2022 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let %r3:Int =
+    Li(0)
+  In
+  (Let %f0:Float =
+    FLoad(%r1, 0)
+  In
+  (Let Tu4854:Unit =
+    Save(%r3, Ti188.4232)
+  In
+  (Let Tu4853:Unit =
+    Save(%r2, inv.2024)
+  In
+  (Let Tu4852:Unit =
+    Save(%r1, v.2023)
+  In
+  (Let %f0:Float =
+    CallDir(fsqr.1980, [], [%f0])
+  In
+  (Let %f1:Float =
+    Restore(v.2023)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let Tu4856:Unit =
+    Save(%f1, v.2023)
+  In
+  (Let Tu4855:Unit =
+    Save(%f0, Td190.4227)
+  In
+  (Let %f0:Float =
+    CallDir(fsqr.1980, [], [%f2])
+  In
+  (Let %f1:Float =
+    Restore(Td190.4227)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(v.2023)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 2)
+  In
+  (Let Tu4858:Unit =
+    Save(%f1, v.2023)
+  In
+  (Let Tu4857:Unit =
+    Save(%f0, Td194.4223)
+  In
+  (Let %f0:Float =
+    CallDir(fsqr.1980, [], [%f2])
+  In
+  (Let %f1:Float =
+    Restore(Td194.4223)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_sqrt, [], [%f0])
+  In
+  (Let %r1:Int =
+    Restore(Ti188.4232)
+  In
+  (Let %r2:Int =
+    Restore(inv.2024)
+  In
+  (Let %f0:Float =
+    (IfEq %r2 %r1 Then
+      FMr(%f0)
+    Else
+      FNeg(%f0))
+  In
+  (Let %f1:Float =
+    Restore(v.2023)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %f2:Float =
+    FDiv(%f2, %f0)
+  In
+  (Let %zero:Unit =
+    FStore(%f2, %f1, 0)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %f2:Float =
+    FDiv(%f2, %f0)
+  In
+  (Let %zero:Unit =
+    FStore(%f2, %f1, 1)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %f0:Float =
+    FDiv(%f2, %f0)
+  In
+  FStore(%f0, %f1, 2))))))))))))))))))))))))))))))))))
+
+Function sgn.2025 Args() FArgs(%f0) Ret:Float =
+  (Let %f1:Float =
+    FLi(0.)
+  In
+  (IfFLE %f0 %f1 Then
+    FLi(-1.)
+  Else
+    FLi(1.)))
+
+Function rad.2027 Args() FArgs(%f0) Ret:Float =
+  (Let %f1:Float =
+    FLi(0.017453293)
+  In
+  FMul(%f1, %f0))
+
+Function read_environ.2029 Args() FArgs() Ret:Unit =
+  (Let %r1:Array(Float) =
+    SetL(min_caml_screen)
+  In
+  (Let %zero:Unit =
+    Nop
+  In
+  (Let Tu4860:Unit =
+    Save(%r1, Ta214.4199)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta214.4199)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let Tu4861:Unit =
+    Save(%r1, Ta214.4199)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta214.4199)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let Tu4862:Unit =
+    Save(%r1, Ta214.4199)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta214.4199)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let Tu4863:Unit =
+    Save(%r1, Ta214.4199)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %f0:Float =
+    CallDir(rad.2027, [], [%f0])
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_cos_v)
+  In
+  (Let Tu4865:Unit =
+    Save(%f0, v1.4078)
+  In
+  (Let Tu4864:Unit =
+    Save(%r1, Ta228.4186)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_cos, [], [%f0])
+  In
+  (Let %r1:Int =
+    Restore(Ta228.4186)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r2:Array(Float) =
+    SetL(min_caml_sin_v)
+  In
+  (Let %f0:Float =
+    Restore(v1.4078)
+  In
+  (Let Tu4867:Unit =
+    Save(%r1, Ta228.4186)
+  In
+  (Let Tu4866:Unit =
+    Save(%r2, Ta231.4183)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_sin, [], [%f0])
+  In
+  (Let %r1:Int =
+    Restore(Ta231.4183)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let Tu4868:Unit =
+    Save(%r1, Ta231.4183)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %f0:Float =
+    CallDir(rad.2027, [], [%f0])
+  In
+  (Let Tu4869:Unit =
+    Save(%f0, v2.4081)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_cos, [], [%f0])
+  In
+  (Let %r1:Int =
+    Restore(Ta228.4186)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %f0:Float =
+    Restore(v2.4081)
+  In
+  (Let Tu4870:Unit =
+    Save(%r1, Ta228.4186)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_sin, [], [%f0])
+  In
+  (Let %r1:Int =
+    Restore(Ta231.4183)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let Tu4871:Unit =
+    Save(%r1, Ta231.4183)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %f0:Float =
+    CallDir(rad.2027, [], [%f0])
+  In
+  (Let Tu4872:Unit =
+    Save(%f0, l1.4085)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_sin, [], [%f0])
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_light)
+  In
+  (Let %f0:Float =
+    FNeg(%f0)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let Tu4873:Unit =
+    Save(%r1, Ta245.4169)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %f0:Float =
+    CallDir(rad.2027, [], [%f0])
+  In
+  (Let %f1:Float =
+    Restore(l1.4085)
+  In
+  (Let Tu4874:Unit =
+    Save(%f0, l2.4088)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_cos, [], [%f1])
+  In
+  (Let %f1:Float =
+    Restore(l2.4088)
+  In
+  (Let Tu4876:Unit =
+    Save(%f1, l2.4088)
+  In
+  (Let Tu4875:Unit =
+    Save(%f0, cl1.4089)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_sin, [], [%f1])
+  In
+  (Let %f1:Float =
+    Restore(cl1.4089)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta245.4169)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %f0:Float =
+    Restore(l2.4088)
+  In
+  (Let Tu4878:Unit =
+    Save(%r1, Ta245.4169)
+  In
+  (Let Tu4877:Unit =
+    Save(%f1, cl1.4089)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_cos, [], [%f0])
+  In
+  (Let %f1:Float =
+    Restore(cl1.4089)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta245.4169)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_beam)
+  In
+  (Let Tu4879:Unit =
+    Save(%r1, Ta256.4157)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_read_float, [], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta256.4157)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_vp)
+  In
+  (Let %f0:Float =
+    Restore(Ta228.4186)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 0)
+  In
+  (Let %f2:Float =
+    Restore(Ta231.4183)
+  In
+  (Let %f3:Float =
+    FLoad(%f2, 1)
+  In
+  (Let %f1:Float =
+    FMul(%f1, %f3)
+  In
+  (Let %f3:Float =
+    FLi(-200.)
+  In
+  (Let %f1:Float =
+    FMul(%f1, %f3)
+  In
+  (Let %zero:Unit =
+    FStore(%f1, %r1, 0)
+  In
+  (Let %f1:Float =
+    FLoad(%f2, 0)
+  In
+  (Let %f1:Float =
+    FNeg(%f1)
+  In
+  (Let %f1:Float =
+    FMul(%f3, %f1)
+  In
+  (Let %zero:Unit =
+    FStore(%f1, %r1, 1)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 0)
+  In
+  (Let %f0:Float =
+    FLoad(%f0, 1)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f0:Float =
+    FMul(%f3, %f0)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r2:Array(Float) =
+    SetL(min_caml_view)
+  In
+  (Let %f0:Float =
+    FLoad(%r1, 0)
+  In
+  (Let %f1:Float =
+    Restore(Ta214.4199)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %f0:Float =
+    FAdd(%f0, %f2)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r2, 0)
+  In
+  (Let %f0:Float =
+    FLoad(%r1, 1)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %f0:Float =
+    FAdd(%f0, %f2)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r2, 1)
+  In
+  (Let %f0:Float =
+    FLoad(%r1, 2)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %f0:Float =
+    FAdd(%f0, %f1)
+  In
+  FStore(%f0, %r2, 2))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function read_nth_object.2031 Args(%r1) FArgs() Ret:Bool =
+  (Let %zero:Unit =
+    Nop
+  In
+  (Let Tu4880:Unit =
+    Save(%r1, n.2032)
+  In
+  (Let %r1:Int =
+    CallDir(min_caml_read_int, [], [])
+  In
+  (Let %r2:Int =
+    Li(-1)
+  In
+  (IfEq %r1 %r2 Then
+    Li(0)
+  Else
+    (Let Tu4881:Unit =
+      Save(%r1, texture.3628)
+    In
+    (Let %r1:Int =
+      CallDir(min_caml_read_int, [], [])
+    In
+    (Let Tu4882:Unit =
+      Save(%r1, form.3630)
+    In
+    (Let %r1:Int =
+      CallDir(min_caml_read_int, [], [])
+    In
+    (Let Tu4883:Unit =
+      Save(%r1, refltype.3631)
+    In
+    (Let %r1:Int =
+      CallDir(min_caml_read_int, [], [])
+    In
+    (Let %r2:Int =
+      Li(3)
+    In
+    (Let %f0:Float =
+      FLi(0.)
+    In
+    (Let Tu4886:Unit =
+      Save(%r1, isrot_p.3632)
+    In
+    (Let Tu4885:Unit =
+      Save(%f0, Td324.4069)
+    In
+    (Let Tu4884:Unit =
+      Save(%r2, Ti323.4068)
+    In
+    (Let %r1:Array(Float) =
+      CallDir(min_caml_create_float_array, [%r2], [%f0])
+    In
+    (Let %r2:Int =
+      Li(0)
+    In
+    (Let Tu4888:Unit =
+      Save(%r2, Ti325.4065)
+    In
+    (Let Tu4887:Unit =
+      Save(%r1, abc.3633)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(abc.3633)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let %r2:Int =
+      Li(1)
+    In
+    (Let Tu4890:Unit =
+      Save(%r2, Ti328.4062)
+    In
+    (Let Tu4889:Unit =
+      Save(%r1, abc.3633)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(abc.3633)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 1)
+    In
+    (Let %r2:Int =
+      Li(2)
+    In
+    (Let Tu4892:Unit =
+      Save(%r2, Ti331.4059)
+    In
+    (Let Tu4891:Unit =
+      Save(%r1, abc.3633)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(abc.3633)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 2)
+    In
+    (Let %f0:Float =
+      Restore(Td324.4069)
+    In
+    (Let %r2:Int =
+      Restore(Ti323.4068)
+    In
+    (Let Tu4895:Unit =
+      Save(%r1, abc.3633)
+    In
+    (Let Tu4894:Unit =
+      Save(%r2, Ti323.4068)
+    In
+    (Let Tu4893:Unit =
+      Save(%f0, Td324.4069)
+    In
+    (Let %r1:Array(Float) =
+      CallDir(min_caml_create_float_array, [%r2], [%f0])
+    In
+    (Let Tu4896:Unit =
+      Save(%r1, xyz.3637)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(xyz.3637)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let Tu4897:Unit =
+      Save(%r1, xyz.3637)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(xyz.3637)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 1)
+    In
+    (Let Tu4898:Unit =
+      Save(%r1, xyz.3637)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(xyz.3637)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 2)
+    In
+    (Let Tu4899:Unit =
+      Save(%r1, xyz.3637)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %f1:Float =
+      Restore(Td324.4069)
+    In
+    (Let %r1:Bool =
+      (IfFLE %f1 %f0 Then
+        (Let %r1:Int =
+          Restore(Ti325.4065)
+        In
+        Mr(%r1))
+      Else
+        (Let %r1:Int =
+          Restore(Ti328.4062)
+        In
+        Mr(%r1)))
+    In
+    (Let %r2:Int =
+      Restore(Ti331.4059)
+    In
+    (Let Tu4902:Unit =
+      Save(%r1, m_invert.3641)
+    In
+    (Let Tu4901:Unit =
+      Save(%r2, Ti331.4059)
+    In
+    (Let Tu4900:Unit =
+      Save(%f1, Td324.4069)
+    In
+    (Let %r1:Array(Float) =
+      CallDir(min_caml_create_float_array, [%r2], [%f1])
+    In
+    (Let Tu4903:Unit =
+      Save(%r1, reflparam.3642)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(reflparam.3642)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let Tu4904:Unit =
+      Save(%r1, reflparam.3642)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(reflparam.3642)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 1)
+    In
+    (Let %f0:Float =
+      Restore(Td324.4069)
+    In
+    (Let %r2:Int =
+      Restore(Ti323.4068)
+    In
+    (Let Tu4907:Unit =
+      Save(%r1, reflparam.3642)
+    In
+    (Let Tu4906:Unit =
+      Save(%f0, Td324.4069)
+    In
+    (Let Tu4905:Unit =
+      Save(%r2, Ti323.4068)
+    In
+    (Let %r1:Array(Float) =
+      CallDir(min_caml_create_float_array, [%r2], [%f0])
+    In
+    (Let Tu4908:Unit =
+      Save(%r1, color.3645)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(color.3645)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let Tu4909:Unit =
+      Save(%r1, color.3645)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(color.3645)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 1)
+    In
+    (Let Tu4910:Unit =
+      Save(%r1, color.3645)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_read_float, [], [])
+    In
+    (Let %r1:Int =
+      Restore(color.3645)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 2)
+    In
+    (Let %f0:Float =
+      Restore(Td324.4069)
+    In
+    (Let %r2:Int =
+      Restore(Ti323.4068)
+    In
+    (Let Tu4913:Unit =
+      Save(%f0, Td324.4069)
+    In
+    (Let Tu4912:Unit =
+      Save(%r2, Ti323.4068)
+    In
+    (Let Tu4911:Unit =
+      Save(%r1, color.3645)
+    In
+    (Let %r1:Array(Float) =
+      CallDir(min_caml_create_float_array, [%r2], [%f0])
+    In
+    (Let %r2:Int =
+      Restore(Ti325.4065)
+    In
+    (Let %r3:Int =
+      Restore(isrot_p.3632)
+    In
+    (Let Tu4927:Unit =
+      Save(%r2, Ti325.4065)
+    In
+    (Let Tu4926:Unit =
+      Save(%r3, isrot_p.3632)
+    In
+    (Let %zero:Unit =
+      (IfEq %r3 %r2 Then
+        Nop
+      Else
+        (Let Tu4923:Unit =
+          Save(%r2, Ti325.4065)
+        In
+        (Let Tu4922:Unit =
+          Save(%r3, isrot_p.3632)
+        In
+        (Let Tu4921:Unit =
+          Save(%r1, rotation.3649)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_read_float, [], [])
+        In
+        (Let %f0:Float =
+          CallDir(rad.2027, [], [%f0])
+        In
+        (Let %r1:Int =
+          Restore(rotation.3649)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 0)
+        In
+        (Let Tu4924:Unit =
+          Save(%r1, rotation.3649)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_read_float, [], [])
+        In
+        (Let %f0:Float =
+          CallDir(rad.2027, [], [%f0])
+        In
+        (Let %r1:Int =
+          Restore(rotation.3649)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 1)
+        In
+        (Let Tu4925:Unit =
+          Save(%r1, rotation.3649)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_read_float, [], [])
+        In
+        (Let %f0:Float =
+          CallDir(rad.2027, [], [%f0])
+        In
+        (Let %r1:Int =
+          Restore(rotation.3649)
+        In
+        FStore(%f0, %r1, 2))))))))))))))))))
+    In
+    (Let %r2:Int =
+      Restore(Ti331.4059)
+    In
+    (Let %r3:Int =
+      Restore(form.3630)
+    In
+    (Let %r4:Bool =
+      (IfEq %r3 %r2 Then
+        (Let %r4:Int =
+          Restore(Ti328.4062)
+        In
+        Mr(%r4))
+      Else
+        (Let %r4:Int =
+          Restore(m_invert.3641)
+        In
+        Mr(%r4)))
+    In
+    (Let %r5:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+      Mr(%hp)
+    In
+    (Let %hp:Int =
+      Add(%hp, -10)
+    In
+    (Let %zero:Unit =
+      Store(%r1, %r5, -9)
+    In
+    (Let %r6:Int =
+      Restore(color.3645)
+    In
+    (Let %zero:Unit =
+      Store(%r6, %r5, -8)
+    In
+    (Let %r6:Int =
+      Restore(reflparam.3642)
+    In
+    (Let %zero:Unit =
+      Store(%r6, %r5, -7)
+    In
+    (Let %zero:Unit =
+      Store(%r4, %r5, -6)
+    In
+    (Let %r4:Int =
+      Restore(xyz.3637)
+    In
+    (Let %zero:Unit =
+      Store(%r4, %r5, -5)
+    In
+    (Let %r4:Int =
+      Restore(abc.3633)
+    In
+    (Let %zero:Unit =
+      Store(%r4, %r5, -4)
+    In
+    (Let %r6:Int =
+      Restore(isrot_p.3632)
+    In
+    (Let %zero:Unit =
+      Store(%r6, %r5, -3)
+    In
+    (Let %r7:Int =
+      Restore(refltype.3631)
+    In
+    (Let %zero:Unit =
+      Store(%r7, %r5, -2)
+    In
+    (Let %zero:Unit =
+      Store(%r3, %r5, -1)
+    In
+    (Let %r7:Int =
+      Restore(texture.3628)
+    In
+    (Let %zero:Unit =
+      Store(%r7, %r5, 0)
+    In
+    (Let %r5:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+      Mr(%r5)
+    In
+    (Let %r7:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+      SetL(min_caml_objects)
+    In
+    (Let %r8:Int =
+      Restore(n.2032)
+    In
+    (Let %zero:Unit =
+      Store(%r5, %r7, %r8)
+    In
+    (Let %r5:Int =
+      Restore(Ti323.4068)
+    In
+    (Let Tu5006:Unit =
+      Save(%r4, abc.3633)
+    In
+    (Let Tu5005:Unit =
+      Save(%r1, rotation.3649)
+    In
+    (Let Tu5004:Unit =
+      Save(%r6, isrot_p.3632)
+    In
+    (Let %zero:Unit =
+      (IfEq %r3 %r5 Then
+        (Let %f0:Float =
+          FLoad(%r4, 0)
+        In
+        (Let %f1:Float =
+          Restore(Td324.4069)
+        In
+        (Let Tu4980:Unit =
+          Save(%r1, rotation.3649)
+        In
+        (Let Tu4979:Unit =
+          Save(%r6, isrot_p.3632)
+        In
+        (Let Tu4978:Unit =
+          Save(%f1, Td324.4069)
+        In
+        (Let Tu4977:Unit =
+          Save(%r4, abc.3633)
+        In
+        (Let %f0:Float =
+          (IfFEq %f1 %f0 Then
+            FMr(%f1)
+          Else
+            (Let Tu4975:Unit =
+              Save(%r1, rotation.3649)
+            In
+            (Let Tu4974:Unit =
+              Save(%r6, isrot_p.3632)
+            In
+            (Let Tu4973:Unit =
+              Save(%f1, Td324.4069)
+            In
+            (Let Tu4972:Unit =
+              Save(%r4, abc.3633)
+            In
+            (Let Tu4971:Unit =
+              Save(%f0, a.3984)
+            In
+            (Let %f0:Float =
+              CallDir(sgn.2025, [], [%f0])
+            In
+            (Let %f1:Float =
+              Restore(a.3984)
+            In
+            (Let Tu4976:Unit =
+              Save(%f0, Td388.4004)
+            In
+            (Let %f0:Float =
+              CallDir(fsqr.1980, [], [%f1])
+            In
+            (Let %f1:Float =
+              Restore(Td388.4004)
+            In
+            FDiv(%f1, %f0))))))))))))
+        In
+        (Let %r1:Int =
+          Restore(abc.3633)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 0)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 1)
+        In
+        (Let %f1:Float =
+          Restore(Td324.4069)
+        In
+        (Let Tu4989:Unit =
+          Save(%f1, Td324.4069)
+        In
+        (Let Tu4988:Unit =
+          Save(%r1, abc.3633)
+        In
+        (Let %f0:Float =
+          (IfFEq %f1 %f0 Then
+            FMr(%f1)
+          Else
+            (Let Tu4986:Unit =
+              Save(%f1, Td324.4069)
+            In
+            (Let Tu4985:Unit =
+              Save(%r1, abc.3633)
+            In
+            (Let Tu4984:Unit =
+              Save(%f0, b.3986)
+            In
+            (Let %f0:Float =
+              CallDir(sgn.2025, [], [%f0])
+            In
+            (Let %f1:Float =
+              Restore(b.3986)
+            In
+            (Let Tu4987:Unit =
+              Save(%f0, Td394.3998)
+            In
+            (Let %f0:Float =
+              CallDir(fsqr.1980, [], [%f1])
+            In
+            (Let %f1:Float =
+              Restore(Td394.3998)
+            In
+            FDiv(%f1, %f0))))))))))
+        In
+        (Let %r1:Int =
+          Restore(abc.3633)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 1)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 2)
+        In
+        (Let %f1:Float =
+          Restore(Td324.4069)
+        In
+        (Let Tu4996:Unit =
+          Save(%r1, abc.3633)
+        In
+        (Let %f0:Float =
+          (IfFEq %f1 %f0 Then
+            FMr(%f1)
+          Else
+            (Let Tu4994:Unit =
+              Save(%r1, abc.3633)
+            In
+            (Let Tu4993:Unit =
+              Save(%f0, c.3988)
+            In
+            (Let %f0:Float =
+              CallDir(sgn.2025, [], [%f0])
+            In
+            (Let %f1:Float =
+              Restore(c.3988)
+            In
+            (Let Tu4995:Unit =
+              Save(%f0, Td400.3992)
+            In
+            (Let %f0:Float =
+              CallDir(fsqr.1980, [], [%f1])
+            In
+            (Let %f1:Float =
+              Restore(Td400.3992)
+            In
+            FDiv(%f1, %f0)))))))))
+        In
+        (Let %r1:Int =
+          Restore(abc.3633)
+        In
+        FStore(%f0, %r1, 2))))))))))))))))))))))
+      Else
+        (Let Tu5003:Unit =
+          Save(%r4, abc.3633)
+        In
+        (Let Tu5002:Unit =
+          Save(%r1, rotation.3649)
+        In
+        (Let Tu5001:Unit =
+          Save(%r6, isrot_p.3632)
+        In
+        (IfEq %r3 %r2 Then
+          (Let %r2:Int =
+            Restore(Ti325.4065)
+          In
+          (Let %r3:Int =
+            Restore(m_invert.3641)
+          In
+          (Let %r3:Int =
+            (IfEq %r3 %r2 Then
+              (Let %r3:Int =
+                Restore(Ti328.4062)
+              In
+              Mr(%r3))
+            Else
+              Mr(%r2))
+          In
+          (Let Tu5000:Unit =
+            Save(%r4, abc.3633)
+          In
+          (Let Tu4999:Unit =
+            Save(%r1, rotation.3649)
+          In
+          (Let Tu4998:Unit =
+            Save(%r2, Ti325.4065)
+          In
+          (Let Tu4997:Unit =
+            Save(%r6, isrot_p.3632)
+          In
+          CallDir(normalize_vector.2022, [%r4; %r3], []))))))))
+        Else
+          Nop)))))
+    In
+    (Let %r1:Int =
+      Restore(Ti325.4065)
+    In
+    (Let %r2:Int =
+      Restore(isrot_p.3632)
+    In
+    (Let %zero:Unit =
+      (IfEq %r2 %r1 Then
+        Nop
+      Else
+        (Let %r1:Array(Float) =
+          SetL(min_caml_cs_temp)
+        In
+        (Let %f0:Float =
+          Restore(rotation.3649)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 0)
+        In
+        (Let Tu5090:Unit =
+          Save(%f0, rotation.3649)
+        In
+        (Let Tu5089:Unit =
+          Save(%r1, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_cos, [], [%f1])
+        In
+        (Let %r1:Int =
+          Restore(Ta407.3975)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 10)
+        In
+        (Let %f0:Float =
+          Restore(rotation.3649)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 0)
+        In
+        (Let Tu5092:Unit =
+          Save(%f0, rotation.3649)
+        In
+        (Let Tu5091:Unit =
+          Save(%r1, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_sin, [], [%f1])
+        In
+        (Let %r1:Int =
+          Restore(Ta407.3975)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 11)
+        In
+        (Let %f0:Float =
+          Restore(rotation.3649)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 1)
+        In
+        (Let Tu5094:Unit =
+          Save(%f0, rotation.3649)
+        In
+        (Let Tu5093:Unit =
+          Save(%r1, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_cos, [], [%f1])
+        In
+        (Let %r1:Int =
+          Restore(Ta407.3975)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 12)
+        In
+        (Let %f0:Float =
+          Restore(rotation.3649)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 1)
+        In
+        (Let Tu5096:Unit =
+          Save(%f0, rotation.3649)
+        In
+        (Let Tu5095:Unit =
+          Save(%r1, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_sin, [], [%f1])
+        In
+        (Let %r1:Int =
+          Restore(Ta407.3975)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 13)
+        In
+        (Let %f0:Float =
+          Restore(rotation.3649)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 2)
+        In
+        (Let Tu5098:Unit =
+          Save(%f0, rotation.3649)
+        In
+        (Let Tu5097:Unit =
+          Save(%r1, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_cos, [], [%f1])
+        In
+        (Let %r1:Int =
+          Restore(Ta407.3975)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 14)
+        In
+        (Let %f0:Float =
+          Restore(rotation.3649)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 2)
+        In
+        (Let Tu5100:Unit =
+          Save(%f0, rotation.3649)
+        In
+        (Let Tu5099:Unit =
+          Save(%r1, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_sin, [], [%f1])
+        In
+        (Let %r1:Int =
+          Restore(Ta407.3975)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 15)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 12)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 14)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 0)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 11)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 13)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 14)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 10)
+        In
+        (Let %f2:Float =
+          FLoad(%r1, 15)
+        In
+        (Let %f1:Float =
+          FMul(%f1, %f2)
+        In
+        (Let %f0:Float =
+          FSub(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 1)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 10)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 13)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 14)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 11)
+        In
+        (Let %f2:Float =
+          FLoad(%r1, 15)
+        In
+        (Let %f1:Float =
+          FMul(%f1, %f2)
+        In
+        (Let %f0:Float =
+          FAdd(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 2)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 12)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 15)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 3)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 11)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 13)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 15)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 10)
+        In
+        (Let %f2:Float =
+          FLoad(%r1, 14)
+        In
+        (Let %f1:Float =
+          FMul(%f1, %f2)
+        In
+        (Let %f0:Float =
+          FAdd(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 4)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 10)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 13)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 15)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 11)
+        In
+        (Let %f2:Float =
+          FLoad(%r1, 14)
+        In
+        (Let %f1:Float =
+          FMul(%f1, %f2)
+        In
+        (Let %f0:Float =
+          FSub(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 5)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 13)
+        In
+        (Let %f0:Float =
+          FNeg(%f0)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 6)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 11)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 12)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 7)
+        In
+        (Let %f0:Float =
+          FLoad(%r1, 10)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 12)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 8)
+        In
+        (Let %f0:Float =
+          Restore(abc.3633)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 0)
+        In
+        (Let %f2:Float =
+          FLoad(%f0, 1)
+        In
+        (Let %f3:Float =
+          FLoad(%f0, 2)
+        In
+        (Let %f4:Float =
+          FLoad(%r1, 0)
+        In
+        (Let Tu5105:Unit =
+          Save(%f0, abc.3633)
+        In
+        (Let Tu5104:Unit =
+          Save(%f3, co.3674)
+        In
+        (Let Tu5103:Unit =
+          Save(%f2, bo.3673)
+        In
+        (Let Tu5102:Unit =
+          Save(%r1, Ta407.3975)
+        In
+        (Let Tu5101:Unit =
+          Save(%f1, ao.3672)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f4])
+        In
+        (Let %f1:Float =
+          Restore(ao.3672)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 3)
+        In
+        (Let Tu5108:Unit =
+          Save(%f1, ao.3672)
+        In
+        (Let Tu5107:Unit =
+          Save(%f2, Ta407.3975)
+        In
+        (Let Tu5106:Unit =
+          Save(%f0, Td571.3811)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f3])
+        In
+        (Let %f1:Float =
+          Restore(bo.3673)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Td571.3811)
+        In
+        (Let %f0:Float =
+          FAdd(%f2, %f0)
+        In
+        (Let %f2:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 6)
+        In
+        (Let Tu5111:Unit =
+          Save(%f1, bo.3673)
+        In
+        (Let Tu5110:Unit =
+          Save(%f2, Ta407.3975)
+        In
+        (Let Tu5109:Unit =
+          Save(%f0, Td577.3805)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f3])
+        In
+        (Let %f1:Float =
+          Restore(co.3674)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Td577.3805)
+        In
+        (Let %f0:Float =
+          FAdd(%f2, %f0)
+        In
+        (Let %r1:Int =
+          Restore(abc.3633)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 0)
+        In
+        (Let %f0:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f2:Float =
+          FLoad(%f0, 1)
+        In
+        (Let Tu5114:Unit =
+          Save(%r1, abc.3633)
+        In
+        (Let Tu5113:Unit =
+          Save(%f1, co.3674)
+        In
+        (Let Tu5112:Unit =
+          Save(%f0, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f2])
+        In
+        (Let %f1:Float =
+          Restore(ao.3672)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 4)
+        In
+        (Let Tu5117:Unit =
+          Save(%f1, ao.3672)
+        In
+        (Let Tu5116:Unit =
+          Save(%f2, Ta407.3975)
+        In
+        (Let Tu5115:Unit =
+          Save(%f0, Td589.3793)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f3])
+        In
+        (Let %f1:Float =
+          Restore(bo.3673)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Td589.3793)
+        In
+        (Let %f0:Float =
+          FAdd(%f2, %f0)
+        In
+        (Let %f2:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 7)
+        In
+        (Let Tu5120:Unit =
+          Save(%f1, bo.3673)
+        In
+        (Let Tu5119:Unit =
+          Save(%f2, Ta407.3975)
+        In
+        (Let Tu5118:Unit =
+          Save(%f0, Td595.3787)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f3])
+        In
+        (Let %f1:Float =
+          Restore(co.3674)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Td595.3787)
+        In
+        (Let %f0:Float =
+          FAdd(%f2, %f0)
+        In
+        (Let %r1:Int =
+          Restore(abc.3633)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 1)
+        In
+        (Let %f0:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f2:Float =
+          FLoad(%f0, 2)
+        In
+        (Let Tu5123:Unit =
+          Save(%r1, abc.3633)
+        In
+        (Let Tu5122:Unit =
+          Save(%f1, co.3674)
+        In
+        (Let Tu5121:Unit =
+          Save(%f0, Ta407.3975)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f2])
+        In
+        (Let %f1:Float =
+          Restore(ao.3672)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 5)
+        In
+        (Let Tu5126:Unit =
+          Save(%f1, ao.3672)
+        In
+        (Let Tu5125:Unit =
+          Save(%f2, Ta407.3975)
+        In
+        (Let Tu5124:Unit =
+          Save(%f0, Td607.3775)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f3])
+        In
+        (Let %f1:Float =
+          Restore(bo.3673)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Td607.3775)
+        In
+        (Let %f0:Float =
+          FAdd(%f2, %f0)
+        In
+        (Let %f2:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 8)
+        In
+        (Let Tu5129:Unit =
+          Save(%f1, bo.3673)
+        In
+        (Let Tu5128:Unit =
+          Save(%f2, Ta407.3975)
+        In
+        (Let Tu5127:Unit =
+          Save(%f0, Td613.3769)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f3])
+        In
+        (Let %f1:Float =
+          Restore(co.3674)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f2:Float =
+          Restore(Td613.3769)
+        In
+        (Let %f0:Float =
+          FAdd(%f2, %f0)
+        In
+        (Let %r1:Int =
+          Restore(abc.3633)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 2)
+        In
+        (Let %f0:Float =
+          FLi(2.)
+        In
+        (Let %f2:Float =
+          Restore(Ta407.3975)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 1)
+        In
+        (Let %f4:Float =
+          Restore(ao.3672)
+        In
+        (Let %f3:Float =
+          FMul(%f3, %f4)
+        In
+        (Let %f5:Float =
+          FLoad(%f2, 2)
+        In
+        (Let %f3:Float =
+          FMul(%f3, %f5)
+        In
+        (Let %f5:Float =
+          FLoad(%f2, 4)
+        In
+        (Let %f6:Float =
+          Restore(bo.3673)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f6)
+        In
+        (Let %f7:Float =
+          FLoad(%f2, 5)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f7)
+        In
+        (Let %f3:Float =
+          FAdd(%f3, %f5)
+        In
+        (Let %f5:Float =
+          FLoad(%f2, 7)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f1)
+        In
+        (Let %f7:Float =
+          FLoad(%f2, 8)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f7)
+        In
+        (Let %f3:Float =
+          FAdd(%f3, %f5)
+        In
+        (Let %f3:Float =
+          FMul(%f0, %f3)
+        In
+        (Let %r1:Int =
+          Restore(rotation.3649)
+        In
+        (Let %zero:Unit =
+          FStore(%f3, %r1, 0)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 0)
+        In
+        (Let %f3:Float =
+          FMul(%f3, %f4)
+        In
+        (Let %f5:Float =
+          FLoad(%f2, 2)
+        In
+        (Let %f3:Float =
+          FMul(%f3, %f5)
+        In
+        (Let %f5:Float =
+          FLoad(%f2, 3)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f6)
+        In
+        (Let %f7:Float =
+          FLoad(%f2, 5)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f7)
+        In
+        (Let %f3:Float =
+          FAdd(%f3, %f5)
+        In
+        (Let %f5:Float =
+          FLoad(%f2, 6)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f1)
+        In
+        (Let %f7:Float =
+          FLoad(%f2, 8)
+        In
+        (Let %f5:Float =
+          FMul(%f5, %f7)
+        In
+        (Let %f3:Float =
+          FAdd(%f3, %f5)
+        In
+        (Let %f3:Float =
+          FMul(%f0, %f3)
+        In
+        (Let %zero:Unit =
+          FStore(%f3, %r1, 1)
+        In
+        (Let %f3:Float =
+          FLoad(%f2, 0)
+        In
+        (Let %f3:Float =
+          FMul(%f3, %f4)
+        In
+        (Let %f4:Float =
+          FLoad(%f2, 1)
+        In
+        (Let %f3:Float =
+          FMul(%f3, %f4)
+        In
+        (Let %f4:Float =
+          FLoad(%f2, 3)
+        In
+        (Let %f4:Float =
+          FMul(%f4, %f6)
+        In
+        (Let %f5:Float =
+          FLoad(%f2, 4)
+        In
+        (Let %f4:Float =
+          FMul(%f4, %f5)
+        In
+        (Let %f3:Float =
+          FAdd(%f3, %f4)
+        In
+        (Let %f4:Float =
+          FLoad(%f2, 6)
+        In
+        (Let %f1:Float =
+          FMul(%f4, %f1)
+        In
+        (Let %f2:Float =
+          FLoad(%f2, 7)
+        In
+        (Let %f1:Float =
+          FMul(%f1, %f2)
+        In
+        (Let %f1:Float =
+          FAdd(%f3, %f1)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        FStore(%f0, %r1, 2)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+    In
+    (Let %r1:Int =
+      Restore(Ti328.4062)
+    In
+    Mr(%r1)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function read_object.2033 Args(%r1) FArgs() Ret:Unit =
+  (Let %r2:Int =
+    Li(61)
+  In
+  (IfLE %r2 %r1 Then
+    Nop
+  Else
+    (Let Tu5131:Unit =
+      Save(%r1, n.2034)
+    In
+    (Let %r1:Bool =
+      CallDir(read_nth_object.2031, [%r1], [])
+    In
+    (Let %r2:Int =
+      Li(0)
+    In
+    (IfEq %r1 %r2 Then
+      Nop
+    Else
+      (Let %r1:Int =
+        Restore(n.2034)
+      In
+      (Let %r1:Int =
+        Add(%r1, 1)
+      In
+      CallDir(read_object.2033, [%r1], [])))))))))
+
+Function read_all_object.2035 Args() FArgs() Ret:Unit =
+  (Let %r1:Int =
+    Li(0)
+  In
+  CallDir(read_object.2033, [%r1], []))
+
+Function read_net_item.2037 Args(%r1) FArgs() Ret:Array(Int) =
+  (Let %zero:Unit =
+    Nop
+  In
+  (Let Tu5133:Unit =
+    Save(%r1, length.2038)
+  In
+  (Let %r1:Int =
+    CallDir(min_caml_read_int, [], [])
+  In
+  (Let %r2:Int =
+    Li(-1)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %r1:Int =
+      Restore(length.2038)
+    In
+    (Let %r1:Int =
+      Add(%r1, 1)
+    In
+    CallDir(min_caml_create_array, [%r1; %r2], [])))
+  Else
+    (Let %r2:Int =
+      Restore(length.2038)
+    In
+    (Let %r3:Int =
+      Add(%r2, 1)
+    In
+    (Let Tu5135:Unit =
+      Save(%r2, length.2038)
+    In
+    (Let Tu5134:Unit =
+      Save(%r1, item.3610)
+    In
+    (Let %r1:Array(Int) =
+      CallDir(read_net_item.2037, [%r3], [])
+    In
+    (Let %r2:Int =
+      Restore(length.2038)
+    In
+    (Let %r3:Int =
+      Restore(item.3610)
+    In
+    (Let %zero:Unit =
+      Store(%r3, %r1, %r2)
+    In
+    Mr(%r1))))))))))))))
+
+Function read_or_network.2039 Args(%r1) FArgs() Ret:Array(Array(Int)) =
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let Tu5136:Unit =
+    Save(%r1, length.2040)
+  In
+  (Let %r2:Array(Int) =
+    CallDir(read_net_item.2037, [%r2], [])
+  In
+  (Let %r1:Int =
+    Load(%r2, 0)
+  In
+  (Let %r3:Int =
+    Li(-1)
+  In
+  (IfEq %r1 %r3 Then
+    (Let %r1:Int =
+      Restore(length.2040)
+    In
+    (Let %r1:Int =
+      Add(%r1, 1)
+    In
+    CallDir(min_caml_create_array, [%r1; %r2], [])))
+  Else
+    (Let %r1:Int =
+      Restore(length.2040)
+    In
+    (Let %r3:Int =
+      Add(%r1, 1)
+    In
+    (Let Tu5138:Unit =
+      Save(%r1, length.2040)
+    In
+    (Let Tu5137:Unit =
+      Save(%r2, net.3598)
+    In
+    (Let %r1:Array(Array(Int)) =
+      CallDir(read_or_network.2039, [%r3], [])
+    In
+    (Let %r2:Int =
+      Restore(length.2040)
+    In
+    (Let %r3:Int =
+      Restore(net.3598)
+    In
+    (Let %zero:Unit =
+      Store(%r3, %r1, %r2)
+    In
+    Mr(%r1)))))))))))))))
+
+Function read_and_network.2041 Args(%r1) FArgs() Ret:Unit =
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let Tu5140:Unit =
+    Save(%r1, n.2042)
+  In
+  (Let %r1:Array(Int) =
+    CallDir(read_net_item.2037, [%r2], [])
+  In
+  (Let %r2:Int =
+    Load(%r1, 0)
+  In
+  (Let %r3:Int =
+    Li(-1)
+  In
+  (IfEq %r2 %r3 Then
+    Nop
+  Else
+    (Let %r2:Array(Array(Int)) =
+      SetL(min_caml_and_net)
+    In
+    (Let %r3:Int =
+      Restore(n.2042)
+    In
+    (Let %zero:Unit =
+      Store(%r1, %r2, %r3)
+    In
+    (Let %r1:Int =
+      Add(%r3, 1)
+    In
+    CallDir(read_and_network.2041, [%r1], [])))))))))))
+
+Function read_parameter.2043 Args() FArgs() Ret:Unit =
+  (Let %zero:Unit =
+    Nop
+  In
+  (Let %zero:Unit =
+    CallDir(read_environ.2029, [], [])
+  In
+  (Let %zero:Unit =
+    CallDir(read_all_object.2035, [], [])
+  In
+  (Let %r1:Int =
+    Li(0)
+  In
+  (Let Tu5142:Unit =
+    Save(%r1, Ti741.3585)
+  In
+  (Let %zero:Unit =
+    CallDir(read_and_network.2041, [%r1], [])
+  In
+  (Let %r1:Array(Array(Array(Int))) =
+    SetL(min_caml_or_net)
+  In
+  (Let %r2:Int =
+    Restore(Ti741.3585)
+  In
+  (Let Tu5143:Unit =
+    Save(%r1, Ta742.3581)
+  In
+  (Let %r1:Array(Array(Int)) =
+    CallDir(read_or_network.2039, [%r2], [])
+  In
+  (Let %r2:Int =
+    Restore(Ta742.3581)
+  In
+  Store(%r1, %r2, 0))))))))))))
+
+Function solver_rect.2045 Args(%r1 %r2) FArgs() Ret:Int =
+  (Let %f0:Float =
+    FLi(0.)
+  In
+  (Let %r3:Int =
+    Li(0)
+  In
+  (Let %f1:Float =
+    FLoad(%r2, 0)
+  In
+  (Let Tu5177:Unit =
+    Save(%r1, m.2046)
+  In
+  (Let Tu5176:Unit =
+    Save(%f0, Td746.3538)
+  In
+  (Let Tu5175:Unit =
+    Save(%r2, l.2047)
+  In
+  (Let Tu5174:Unit =
+    Save(%r3, Ti747.3577)
+  In
+  (Let %r1:Bool =
+    (IfFEq %f0 %f1 Then
+      Mr(%r3)
+    Else
+      (Let Tu5147:Unit =
+        Save(%r1, m.2046)
+      In
+      (Let Tu5146:Unit =
+        Save(%r3, Ti747.3577)
+      In
+      (Let Tu5145:Unit =
+        Save(%f0, Td746.3538)
+      In
+      (Let Tu5144:Unit =
+        Save(%r2, l.2047)
+      In
+      (Let %r1:Bool =
+        CallDir(o_isinvert.1990, [%r1], [])
+      In
+      (Let %f0:Float =
+        Restore(l.2047)
+      In
+      (Let %f1:Float =
+        FLoad(%f0, 0)
+      In
+      (Let %f2:Float =
+        Restore(Td746.3538)
+      In
+      (Let %r2:Int =
+        (IfFLE %f2 %f1 Then
+          (Let %r2:Int =
+            Restore(Ti747.3577)
+          In
+          Mr(%r2))
+        Else
+          Li(1))
+      In
+      (Let Tu5149:Unit =
+        Save(%f2, Td746.3538)
+      In
+      (Let Tu5148:Unit =
+        Save(%f0, l.2047)
+      In
+      (Let %r1:Bool =
+        CallDir(xor.1977, [%r1; %r2], [])
+      In
+      (Let %r2:Int =
+        Restore(Ti747.3577)
+      In
+      (Let Tu5156:Unit =
+        Save(%r2, Ti747.3577)
+      In
+      (Let %f0:Float =
+        (IfEq %r1 %r2 Then
+          (Let %r1:Int =
+            Restore(m.2046)
+          In
+          (Let Tu5153:Unit =
+            Save(%r2, Ti747.3577)
+          In
+          (Let Tu5152:Unit =
+            Save(%r1, m.2046)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_a.1994, [%r1], [])
+          In
+          FNeg(%f0)))))
+        Else
+          (Let %r1:Int =
+            Restore(m.2046)
+          In
+          (Let Tu5155:Unit =
+            Save(%r2, Ti747.3577)
+          In
+          (Let Tu5154:Unit =
+            Save(%r1, m.2046)
+          In
+          CallDir(o_param_a.1994, [%r1], [])))))
+      In
+      (Let %r1:Array(Float) =
+        SetL(min_caml_solver_w_vec)
+      In
+      (Let %f1:Float =
+        FLoad(%r1, 0)
+      In
+      (Let %f0:Float =
+        FSub(%f0, %f1)
+      In
+      (Let %f1:Float =
+        Restore(l.2047)
+      In
+      (Let %f2:Float =
+        FLoad(%f1, 0)
+      In
+      (Let %f0:Float =
+        FDiv(%f0, %f2)
+      In
+      (Let %r2:Int =
+        Restore(m.2046)
+      In
+      (Let Tu5160:Unit =
+        Save(%r2, m.2046)
+      In
+      (Let Tu5159:Unit =
+        Save(%r1, Ta757.3567)
+      In
+      (Let Tu5158:Unit =
+        Save(%f0, d2.3541)
+      In
+      (Let Tu5157:Unit =
+        Save(%f1, l.2047)
+      In
+      (Let %f0:Float =
+        CallDir(o_param_b.1996, [%r2], [])
+      In
+      (Let %r1:Int =
+        Li(1)
+      In
+      (Let %f1:Float =
+        Restore(l.2047)
+      In
+      (Let %f2:Float =
+        FLoad(%f1, 1)
+      In
+      (Let %f3:Float =
+        Restore(d2.3541)
+      In
+      (Let %f2:Float =
+        FMul(%f2, %f3)
+      In
+      (Let %f4:Float =
+        Restore(Ta757.3567)
+      In
+      (Let %f5:Float =
+        FLoad(%f4, 1)
+      In
+      (Let %f2:Float =
+        FAdd(%f2, %f5)
+      In
+      (Let Tu5165:Unit =
+        Save(%r1, Ti764.3562)
+      In
+      (Let Tu5164:Unit =
+        Save(%f4, Ta757.3567)
+      In
+      (Let Tu5163:Unit =
+        Save(%f3, d2.3541)
+      In
+      (Let Tu5162:Unit =
+        Save(%f1, l.2047)
+      In
+      (Let Tu5161:Unit =
+        Save(%f0, Td763.3542)
+      In
+      (Let %f0:Float =
+        CallDir(min_caml_abs_float, [], [%f2])
+      In
+      (Let %f1:Float =
+        Restore(Td763.3542)
+      In
+      (IfFLE %f1 %f0 Then
+        (Let %r1:Int =
+          Restore(Ti747.3577)
+        In
+        Mr(%r1))
+      Else
+        (Let %r1:Int =
+          Restore(m.2046)
+        In
+        (Let Tu5170:Unit =
+          Save(%r1, m.2046)
+        In
+        (Let %f0:Float =
+          CallDir(o_param_c.1998, [%r1], [])
+        In
+        (Let %f1:Float =
+          Restore(l.2047)
+        In
+        (Let %f2:Float =
+          FLoad(%f1, 2)
+        In
+        (Let %f3:Float =
+          Restore(d2.3541)
+        In
+        (Let %f2:Float =
+          FMul(%f2, %f3)
+        In
+        (Let %f4:Float =
+          Restore(Ta757.3567)
+        In
+        (Let %f4:Float =
+          FLoad(%f4, 2)
+        In
+        (Let %f2:Float =
+          FAdd(%f2, %f4)
+        In
+        (Let Tu5173:Unit =
+          Save(%f1, l.2047)
+        In
+        (Let Tu5172:Unit =
+          Save(%f3, d2.3541)
+        In
+        (Let Tu5171:Unit =
+          Save(%f0, Td772.3544)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_abs_float, [], [%f2])
+        In
+        (Let %f1:Float =
+          Restore(Td772.3544)
+        In
+        (IfFLE %f1 %f0 Then
+          (Let %r1:Int =
+            Restore(Ti747.3577)
+          In
+          Mr(%r1))
+        Else
+          (Let %r1:Array(Float) =
+            SetL(min_caml_solver_dist)
+          In
+          (Let %f0:Float =
+            Restore(d2.3541)
+          In
+          (Let %zero:Unit =
+            FStore(%f0, %r1, 0)
+          In
+          (Let %r1:Int =
+            Restore(Ti764.3562)
+          In
+          Mr(%r1)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  In
+  (Let %r2:Int =
+    Restore(Ti747.3577)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %r1:Int =
+      Li(1)
+    In
+    (Let %f0:Float =
+      Restore(l.2047)
+    In
+    (Let %f1:Float =
+      FLoad(%f0, 1)
+    In
+    (Let %f2:Float =
+      Restore(Td746.3538)
+    In
+    (Let Tu5393:Unit =
+      Save(%r1, Ti785.3537)
+    In
+    (Let Tu5392:Unit =
+      Save(%f2, Td746.3538)
+    In
+    (Let Tu5391:Unit =
+      Save(%f0, l.2047)
+    In
+    (Let Tu5390:Unit =
+      Save(%r2, Ti747.3577)
+    In
+    (Let %r1:Bool =
+      (IfFEq %f2 %f1 Then
+        Mr(%r2)
+      Else
+        (Let %r3:Int =
+          Restore(m.2046)
+        In
+        (Let Tu5364:Unit =
+          Save(%r3, m.2046)
+        In
+        (Let Tu5363:Unit =
+          Save(%r1, Ti785.3537)
+        In
+        (Let Tu5362:Unit =
+          Save(%r2, Ti747.3577)
+        In
+        (Let Tu5361:Unit =
+          Save(%f2, Td746.3538)
+        In
+        (Let Tu5360:Unit =
+          Save(%f0, l.2047)
+        In
+        (Let %r1:Bool =
+          CallDir(o_isinvert.1990, [%r3], [])
+        In
+        (Let %f0:Float =
+          Restore(l.2047)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 1)
+        In
+        (Let %f2:Float =
+          Restore(Td746.3538)
+        In
+        (Let %r2:Int =
+          (IfFLE %f2 %f1 Then
+            (Let %r2:Int =
+              Restore(Ti747.3577)
+            In
+            Mr(%r2))
+          Else
+            (Let %r2:Int =
+              Restore(Ti785.3537)
+            In
+            Mr(%r2)))
+        In
+        (Let Tu5366:Unit =
+          Save(%f2, Td746.3538)
+        In
+        (Let Tu5365:Unit =
+          Save(%f0, l.2047)
+        In
+        (Let %r1:Bool =
+          CallDir(xor.1977, [%r1; %r2], [])
+        In
+        (Let %r2:Int =
+          Restore(Ti747.3577)
+        In
+        (Let Tu5373:Unit =
+          Save(%r2, Ti747.3577)
+        In
+        (Let %f0:Float =
+          (IfEq %r1 %r2 Then
+            (Let %r1:Int =
+              Restore(m.2046)
+            In
+            (Let Tu5370:Unit =
+              Save(%r2, Ti747.3577)
+            In
+            (Let Tu5369:Unit =
+              Save(%r1, m.2046)
+            In
+            (Let %f0:Float =
+              CallDir(o_param_b.1996, [%r1], [])
+            In
+            FNeg(%f0)))))
+          Else
+            (Let %r1:Int =
+              Restore(m.2046)
+            In
+            (Let Tu5372:Unit =
+              Save(%r2, Ti747.3577)
+            In
+            (Let Tu5371:Unit =
+              Save(%r1, m.2046)
+            In
+            CallDir(o_param_b.1996, [%r1], [])))))
+        In
+        (Let %r1:Array(Float) =
+          SetL(min_caml_solver_w_vec)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 1)
+        In
+        (Let %f0:Float =
+          FSub(%f0, %f1)
+        In
+        (Let %f1:Float =
+          Restore(l.2047)
+        In
+        (Let %f2:Float =
+          FLoad(%f1, 1)
+        In
+        (Let %f0:Float =
+          FDiv(%f0, %f2)
+        In
+        (Let %r2:Int =
+          Restore(m.2046)
+        In
+        (Let Tu5377:Unit =
+          Save(%r2, m.2046)
+        In
+        (Let Tu5376:Unit =
+          Save(%r1, Ta795.3527)
+        In
+        (Let Tu5375:Unit =
+          Save(%f0, d2.3501)
+        In
+        (Let Tu5374:Unit =
+          Save(%f1, l.2047)
+        In
+        (Let %f0:Float =
+          CallDir(o_param_c.1998, [%r2], [])
+        In
+        (Let %f1:Float =
+          Restore(l.2047)
+        In
+        (Let %f2:Float =
+          FLoad(%f1, 2)
+        In
+        (Let %f3:Float =
+          Restore(d2.3501)
+        In
+        (Let %f2:Float =
+          FMul(%f2, %f3)
+        In
+        (Let %f4:Float =
+          Restore(Ta795.3527)
+        In
+        (Let %f5:Float =
+          FLoad(%f4, 2)
+        In
+        (Let %f2:Float =
+          FAdd(%f2, %f5)
+        In
+        (Let Tu5381:Unit =
+          Save(%f4, Ta795.3527)
+        In
+        (Let Tu5380:Unit =
+          Save(%f3, d2.3501)
+        In
+        (Let Tu5379:Unit =
+          Save(%f1, l.2047)
+        In
+        (Let Tu5378:Unit =
+          Save(%f0, Td801.3502)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_abs_float, [], [%f2])
+        In
+        (Let %f1:Float =
+          Restore(Td801.3502)
+        In
+        (IfFLE %f1 %f0 Then
+          (Let %r1:Int =
+            Restore(Ti747.3577)
+          In
+          Mr(%r1))
+        Else
+          (Let %r1:Int =
+            Restore(m.2046)
+          In
+          (Let Tu5386:Unit =
+            Save(%r1, m.2046)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_a.1994, [%r1], [])
+          In
+          (Let %f1:Float =
+            Restore(l.2047)
+          In
+          (Let %f2:Float =
+            FLoad(%f1, 0)
+          In
+          (Let %f3:Float =
+            Restore(d2.3501)
+          In
+          (Let %f2:Float =
+            FMul(%f2, %f3)
+          In
+          (Let %f4:Float =
+            Restore(Ta795.3527)
+          In
+          (Let %f4:Float =
+            FLoad(%f4, 0)
+          In
+          (Let %f2:Float =
+            FAdd(%f2, %f4)
+          In
+          (Let Tu5389:Unit =
+            Save(%f1, l.2047)
+          In
+          (Let Tu5388:Unit =
+            Save(%f3, d2.3501)
+          In
+          (Let Tu5387:Unit =
+            Save(%f0, Td810.3504)
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_abs_float, [], [%f2])
+          In
+          (Let %f1:Float =
+            Restore(Td810.3504)
+          In
+          (IfFLE %f1 %f0 Then
+            (Let %r1:Int =
+              Restore(Ti747.3577)
+            In
+            Mr(%r1))
+          Else
+            (Let %r1:Array(Float) =
+              SetL(min_caml_solver_dist)
+            In
+            (Let %f0:Float =
+              Restore(d2.3501)
+            In
+            (Let %zero:Unit =
+              FStore(%f0, %r1, 0)
+            In
+            (Let %r1:Int =
+              Restore(Ti785.3537)
+            In
+            Mr(%r1)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+    In
+    (Let %r2:Int =
+      Restore(Ti747.3577)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %f0:Float =
+        Restore(l.2047)
+      In
+      (Let %f1:Float =
+        FLoad(%f0, 2)
+      In
+      (Let %f2:Float =
+        Restore(Td746.3538)
+      In
+      (Let Tu5486:Unit =
+        Save(%r2, Ti747.3577)
+      In
+      (Let %r1:Bool =
+        (IfFEq %f2 %f1 Then
+          Mr(%r2)
+        Else
+          (Let %r1:Int =
+            Restore(m.2046)
+          In
+          (Let Tu5465:Unit =
+            Save(%r1, m.2046)
+          In
+          (Let Tu5464:Unit =
+            Save(%r2, Ti747.3577)
+          In
+          (Let Tu5463:Unit =
+            Save(%f2, Td746.3538)
+          In
+          (Let Tu5462:Unit =
+            Save(%f0, l.2047)
+          In
+          (Let %r1:Bool =
+            CallDir(o_isinvert.1990, [%r1], [])
+          In
+          (Let %f0:Float =
+            Restore(l.2047)
+          In
+          (Let %f1:Float =
+            FLoad(%f0, 2)
+          In
+          (Let %f2:Float =
+            Restore(Td746.3538)
+          In
+          (Let %r2:Int =
+            (IfFLE %f2 %f1 Then
+              (Let %r2:Int =
+                Restore(Ti747.3577)
+              In
+              Mr(%r2))
+            Else
+              (Let %r2:Int =
+                Restore(Ti785.3537)
+              In
+              Mr(%r2)))
+          In
+          (Let Tu5466:Unit =
+            Save(%f0, l.2047)
+          In
+          (Let %r1:Bool =
+            CallDir(xor.1977, [%r1; %r2], [])
+          In
+          (Let %r2:Int =
+            Restore(Ti747.3577)
+          In
+          (Let Tu5473:Unit =
+            Save(%r2, Ti747.3577)
+          In
+          (Let %f0:Float =
+            (IfEq %r1 %r2 Then
+              (Let %r1:Int =
+                Restore(m.2046)
+              In
+              (Let Tu5470:Unit =
+                Save(%r2, Ti747.3577)
+              In
+              (Let Tu5469:Unit =
+                Save(%r1, m.2046)
+              In
+              (Let %f0:Float =
+                CallDir(o_param_c.1998, [%r1], [])
+              In
+              FNeg(%f0)))))
+            Else
+              (Let %r1:Int =
+                Restore(m.2046)
+              In
+              (Let Tu5472:Unit =
+                Save(%r2, Ti747.3577)
+              In
+              (Let Tu5471:Unit =
+                Save(%r1, m.2046)
+              In
+              CallDir(o_param_c.1998, [%r1], [])))))
+          In
+          (Let %r1:Array(Float) =
+            SetL(min_caml_solver_w_vec)
+          In
+          (Let %f1:Float =
+            FLoad(%r1, 2)
+          In
+          (Let %f0:Float =
+            FSub(%f0, %f1)
+          In
+          (Let %f1:Float =
+            Restore(l.2047)
+          In
+          (Let %f2:Float =
+            FLoad(%f1, 2)
+          In
+          (Let %f0:Float =
+            FDiv(%f0, %f2)
+          In
+          (Let %r2:Int =
+            Restore(m.2046)
+          In
+          (Let Tu5477:Unit =
+            Save(%r2, m.2046)
+          In
+          (Let Tu5476:Unit =
+            Save(%r1, Ta833.3487)
+          In
+          (Let Tu5475:Unit =
+            Save(%f0, d2.3461)
+          In
+          (Let Tu5474:Unit =
+            Save(%f1, l.2047)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_a.1994, [%r2], [])
+          In
+          (Let %f1:Float =
+            Restore(l.2047)
+          In
+          (Let %f2:Float =
+            FLoad(%f1, 0)
+          In
+          (Let %f3:Float =
+            Restore(d2.3461)
+          In
+          (Let %f2:Float =
+            FMul(%f2, %f3)
+          In
+          (Let %f4:Float =
+            Restore(Ta833.3487)
+          In
+          (Let %f5:Float =
+            FLoad(%f4, 0)
+          In
+          (Let %f2:Float =
+            FAdd(%f2, %f5)
+          In
+          (Let Tu5481:Unit =
+            Save(%f4, Ta833.3487)
+          In
+          (Let Tu5480:Unit =
+            Save(%f3, d2.3461)
+          In
+          (Let Tu5479:Unit =
+            Save(%f1, l.2047)
+          In
+          (Let Tu5478:Unit =
+            Save(%f0, Td839.3462)
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_abs_float, [], [%f2])
+          In
+          (Let %f1:Float =
+            Restore(Td839.3462)
+          In
+          (IfFLE %f1 %f0 Then
+            (Let %r1:Int =
+              Restore(Ti747.3577)
+            In
+            Mr(%r1))
+          Else
+            (Let %r1:Int =
+              Restore(m.2046)
+            In
+            (Let %f0:Float =
+              CallDir(o_param_b.1996, [%r1], [])
+            In
+            (Let %f1:Float =
+              Restore(l.2047)
+            In
+            (Let %f1:Float =
+              FLoad(%f1, 1)
+            In
+            (Let %f2:Float =
+              Restore(d2.3461)
+            In
+            (Let %f1:Float =
+              FMul(%f1, %f2)
+            In
+            (Let %f3:Float =
+              Restore(Ta833.3487)
+            In
+            (Let %f3:Float =
+              FLoad(%f3, 1)
+            In
+            (Let %f1:Float =
+              FAdd(%f1, %f3)
+            In
+            (Let Tu5485:Unit =
+              Save(%f2, d2.3461)
+            In
+            (Let Tu5484:Unit =
+              Save(%f0, Td848.3464)
+            In
+            (Let %f0:Float =
+              CallDir(min_caml_abs_float, [], [%f1])
+            In
+            (Let %f1:Float =
+              Restore(Td848.3464)
+            In
+            (IfFLE %f1 %f0 Then
+              (Let %r1:Int =
+                Restore(Ti747.3577)
+              In
+              Mr(%r1))
+            Else
+              (Let %r1:Array(Float) =
+                SetL(min_caml_solver_dist)
+              In
+              (Let %f0:Float =
+                Restore(d2.3461)
+              In
+              (Let %zero:Unit =
+                FStore(%f0, %r1, 0)
+              In
+              (Let %r1:Int =
+                Restore(Ti785.3537)
+              In
+              Mr(%r1)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+      In
+      (Let %r2:Int =
+        Restore(Ti747.3577)
+      In
+      (IfEq %r1 %r2 Then
+        Mr(%r2)
+      Else
+        Li(3))))))))
+    Else
+      Li(2))))))))))))
+  Else
+    Li(1)))))))))))
+
+Function solver_surface.2048 Args(%r1 %r2) FArgs() Ret:Int =
+  (Let %r3:Int =
+    Li(0)
+  In
+  (Let %f0:Float =
+    FLoad(%r2, 0)
+  In
+  (Let Tu5490:Unit =
+    Save(%r3, Ti860.3451)
+  In
+  (Let Tu5489:Unit =
+    Save(%r1, m.2049)
+  In
+  (Let Tu5488:Unit =
+    Save(%r2, l.2050)
+  In
+  (Let Tu5487:Unit =
+    Save(%f0, Td861.3449)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td861.3449)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Li(1)
+  In
+  (Let %f1:Float =
+    Restore(l.2050)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %r2:Int =
+    Restore(m.2049)
+  In
+  (Let Tu5495:Unit =
+    Save(%r1, Ti864.3448)
+  In
+  (Let Tu5494:Unit =
+    Save(%r2, m.2049)
+  In
+  (Let Tu5493:Unit =
+    Save(%f1, l.2050)
+  In
+  (Let Tu5492:Unit =
+    Save(%f0, Td863.3444)
+  In
+  (Let Tu5491:Unit =
+    Save(%f2, Td865.3446)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_b.1996, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Td865.3446)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td863.3444)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(l.2050)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %r1:Int =
+    Restore(m.2049)
+  In
+  (Let Tu5498:Unit =
+    Save(%r1, m.2049)
+  In
+  (Let Tu5497:Unit =
+    Save(%f0, Td868.3439)
+  In
+  (Let Tu5496:Unit =
+    Save(%f1, Td870.3441)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_c.1998, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td870.3441)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td868.3439)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    FLi(0.)
+  In
+  (IfFLE %f0 %f1 Then
+    (Let %r1:Int =
+      Restore(Ti860.3451)
+    In
+    Mr(%r1))
+  Else
+    (Let %r1:Array(Float) =
+      SetL(min_caml_solver_w_vec)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 0)
+    In
+    (Let %r2:Int =
+      Restore(m.2049)
+    In
+    (Let Tu5502:Unit =
+      Save(%f0, q.3415)
+    In
+    (Let Tu5501:Unit =
+      Save(%r2, m.2049)
+    In
+    (Let Tu5500:Unit =
+      Save(%r1, Ta874.3437)
+    In
+    (Let Tu5499:Unit =
+      Save(%f1, Td876.3435)
+    In
+    (Let %f0:Float =
+      CallDir(o_param_a.1994, [%r2], [])
+    In
+    (Let %f1:Float =
+      Restore(Td876.3435)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(Ta874.3437)
+    In
+    (Let %f2:Float =
+      FLoad(%f1, 1)
+    In
+    (Let %r1:Int =
+      Restore(m.2049)
+    In
+    (Let Tu5506:Unit =
+      Save(%r1, m.2049)
+    In
+    (Let Tu5505:Unit =
+      Save(%f1, Ta874.3437)
+    In
+    (Let Tu5504:Unit =
+      Save(%f0, Td878.3429)
+    In
+    (Let Tu5503:Unit =
+      Save(%f2, Td881.3431)
+    In
+    (Let %f0:Float =
+      CallDir(o_param_b.1996, [%r1], [])
+    In
+    (Let %f1:Float =
+      Restore(Td881.3431)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(Td878.3429)
+    In
+    (Let %f0:Float =
+      FAdd(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(Ta874.3437)
+    In
+    (Let %f1:Float =
+      FLoad(%f1, 2)
+    In
+    (Let %r1:Int =
+      Restore(m.2049)
+    In
+    (Let Tu5508:Unit =
+      Save(%f0, Td884.3423)
+    In
+    (Let Tu5507:Unit =
+      Save(%f1, Td887.3425)
+    In
+    (Let %f0:Float =
+      CallDir(o_param_c.1998, [%r1], [])
+    In
+    (Let %f1:Float =
+      Restore(Td887.3425)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(Td884.3423)
+    In
+    (Let %f0:Float =
+      FAdd(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(q.3415)
+    In
+    (Let %f0:Float =
+      FDiv(%f0, %f1)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_solver_dist)
+    In
+    (Let %f0:Float =
+      FNeg(%f0)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let %r1:Int =
+      Restore(Ti864.3448)
+    In
+    Mr(%r1)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function in_prod_sqr_obj.2051 Args(%r1 %r2) FArgs() Ret:Float =
+  (Let %f0:Float =
+    FLoad(%r2, 0)
+  In
+  (Let Tu5510:Unit =
+    Save(%r2, v.2053)
+  In
+  (Let Tu5509:Unit =
+    Save(%r1, m.2052)
+  In
+  (Let %f0:Float =
+    CallDir(fsqr.1980, [], [%f0])
+  In
+  (Let %r1:Int =
+    Restore(m.2052)
+  In
+  (Let Tu5512:Unit =
+    Save(%r1, m.2052)
+  In
+  (Let Tu5511:Unit =
+    Save(%f0, Td896.3411)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td896.3411)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(v.2053)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let Tu5514:Unit =
+    Save(%f1, v.2053)
+  In
+  (Let Tu5513:Unit =
+    Save(%f0, Td898.3405)
+  In
+  (Let %f0:Float =
+    CallDir(fsqr.1980, [], [%f2])
+  In
+  (Let %r1:Int =
+    Restore(m.2052)
+  In
+  (Let Tu5516:Unit =
+    Save(%r1, m.2052)
+  In
+  (Let Tu5515:Unit =
+    Save(%f0, Td901.3407)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_b.1996, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td901.3407)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td898.3405)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(v.2053)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 2)
+  In
+  (Let Tu5517:Unit =
+    Save(%f0, Td904.3399)
+  In
+  (Let %f0:Float =
+    CallDir(fsqr.1980, [], [%f1])
+  In
+  (Let %r1:Int =
+    Restore(m.2052)
+  In
+  (Let Tu5518:Unit =
+    Save(%f0, Td907.3401)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_c.1998, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td907.3401)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td904.3399)
+  In
+  FAdd(%f1, %f0))))))))))))))))))))))))))))))))))
+
+Function in_prod_co_objrot.2054 Args(%r1 %r2) FArgs() Ret:Float =
+  (Let %f0:Float =
+    FLoad(%r2, 1)
+  In
+  (Let %f1:Float =
+    FLoad(%r2, 2)
+  In
+  (Let %f0:Float =
+    FMul(%f0, %f1)
+  In
+  (Let Tu5521:Unit =
+    Save(%r1, m.2055)
+  In
+  (Let Tu5520:Unit =
+    Save(%r2, v.2056)
+  In
+  (Let Tu5519:Unit =
+    Save(%f0, Td914.3393)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r1.2016, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td914.3393)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(v.2056)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %f3:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %f2:Float =
+    FMul(%f2, %f3)
+  In
+  (Let %r1:Int =
+    Restore(m.2055)
+  In
+  (Let Tu5525:Unit =
+    Save(%r1, m.2055)
+  In
+  (Let Tu5524:Unit =
+    Save(%f1, v.2056)
+  In
+  (Let Tu5523:Unit =
+    Save(%f0, Td916.3385)
+  In
+  (Let Tu5522:Unit =
+    Save(%f2, Td921.3387)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r2.2018, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td921.3387)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td916.3385)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(v.2056)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %f1:Float =
+    FMul(%f2, %f1)
+  In
+  (Let %r1:Int =
+    Restore(m.2055)
+  In
+  (Let Tu5527:Unit =
+    Save(%f0, Td924.3377)
+  In
+  (Let Tu5526:Unit =
+    Save(%f1, Td929.3379)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r3.2020, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td929.3379)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td924.3377)
+  In
+  FAdd(%f1, %f0)))))))))))))))))))))))))))))))))))
+
+Function solver2nd_mul_b.2057 Args(%r1 %r2) FArgs() Ret:Float =
+  (Let %r3:Array(Float) =
+    SetL(min_caml_solver_w_vec)
+  In
+  (Let %f0:Float =
+    FLoad(%r3, 0)
+  In
+  (Let %f1:Float =
+    FLoad(%r2, 0)
+  In
+  (Let %f0:Float =
+    FMul(%f0, %f1)
+  In
+  (Let Tu5531:Unit =
+    Save(%r1, m.2058)
+  In
+  (Let Tu5530:Unit =
+    Save(%r2, l.2059)
+  In
+  (Let Tu5529:Unit =
+    Save(%r3, Ta932.3375)
+  In
+  (Let Tu5528:Unit =
+    Save(%f0, Td937.3370)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td937.3370)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta932.3375)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %f3:Float =
+    Restore(l.2059)
+  In
+  (Let %f4:Float =
+    FLoad(%f3, 1)
+  In
+  (Let %f2:Float =
+    FMul(%f2, %f4)
+  In
+  (Let %r1:Int =
+    Restore(m.2058)
+  In
+  (Let Tu5536:Unit =
+    Save(%r1, m.2058)
+  In
+  (Let Tu5535:Unit =
+    Save(%f3, l.2059)
+  In
+  (Let Tu5534:Unit =
+    Save(%f1, Ta932.3375)
+  In
+  (Let Tu5533:Unit =
+    Save(%f0, Td939.3361)
+  In
+  (Let Tu5532:Unit =
+    Save(%f2, Td945.3363)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_b.1996, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td945.3363)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td939.3361)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta932.3375)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %f2:Float =
+    Restore(l.2059)
+  In
+  (Let %f2:Float =
+    FLoad(%f2, 2)
+  In
+  (Let %f1:Float =
+    FMul(%f1, %f2)
+  In
+  (Let %r1:Int =
+    Restore(m.2058)
+  In
+  (Let Tu5538:Unit =
+    Save(%f0, Td948.3352)
+  In
+  (Let Tu5537:Unit =
+    Save(%f1, Td954.3354)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_c.1998, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td954.3354)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td948.3352)
+  In
+  FAdd(%f1, %f0))))))))))))))))))))))))))))))))))))))))
+
+Function solver2nd_rot_b.2060 Args(%r1 %r2) FArgs() Ret:Float =
+  (Let %r3:Array(Float) =
+    SetL(min_caml_solver_w_vec)
+  In
+  (Let %f0:Float =
+    FLoad(%r3, 2)
+  In
+  (Let %f1:Float =
+    FLoad(%r2, 1)
+  In
+  (Let %f0:Float =
+    FMul(%f0, %f1)
+  In
+  (Let %f1:Float =
+    FLoad(%r3, 1)
+  In
+  (Let %f2:Float =
+    FLoad(%r2, 2)
+  In
+  (Let %f1:Float =
+    FMul(%f1, %f2)
+  In
+  (Let %f0:Float =
+    FAdd(%f0, %f1)
+  In
+  (Let Tu5542:Unit =
+    Save(%r1, m.2061)
+  In
+  (Let Tu5541:Unit =
+    Save(%r2, l.2062)
+  In
+  (Let Tu5540:Unit =
+    Save(%r3, Ta957.3350)
+  In
+  (Let Tu5539:Unit =
+    Save(%f0, Td969.3338)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r1.2016, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td969.3338)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta957.3350)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %f3:Float =
+    Restore(l.2062)
+  In
+  (Let %f4:Float =
+    FLoad(%f3, 2)
+  In
+  (Let %f2:Float =
+    FMul(%f2, %f4)
+  In
+  (Let %f4:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %f5:Float =
+    FLoad(%f3, 0)
+  In
+  (Let %f4:Float =
+    FMul(%f4, %f5)
+  In
+  (Let %f2:Float =
+    FAdd(%f2, %f4)
+  In
+  (Let %r1:Int =
+    Restore(m.2061)
+  In
+  (Let Tu5547:Unit =
+    Save(%r1, m.2061)
+  In
+  (Let Tu5546:Unit =
+    Save(%f3, l.2062)
+  In
+  (Let Tu5545:Unit =
+    Save(%f1, Ta957.3350)
+  In
+  (Let Tu5544:Unit =
+    Save(%f0, Td971.3322)
+  In
+  (Let Tu5543:Unit =
+    Save(%f2, Td984.3324)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r2.2018, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td984.3324)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td971.3322)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta957.3350)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %f3:Float =
+    Restore(l.2062)
+  In
+  (Let %f4:Float =
+    FLoad(%f3, 1)
+  In
+  (Let %f2:Float =
+    FMul(%f2, %f4)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %f3:Float =
+    FLoad(%f3, 0)
+  In
+  (Let %f1:Float =
+    FMul(%f1, %f3)
+  In
+  (Let %f1:Float =
+    FAdd(%f2, %f1)
+  In
+  (Let %r1:Int =
+    Restore(m.2061)
+  In
+  (Let Tu5549:Unit =
+    Save(%f0, Td987.3306)
+  In
+  (Let Tu5548:Unit =
+    Save(%f1, Td1000.3308)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r3.2020, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1000.3308)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td987.3306)
+  In
+  FAdd(%f0, %f1))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function solver_second.2063 Args(%r1 %r2) FArgs() Ret:Int =
+  (Let Tu5551:Unit =
+    Save(%r2, l.2065)
+  In
+  (Let Tu5550:Unit =
+    Save(%r1, m.2064)
+  In
+  (Let %f0:Float =
+    CallDir(in_prod_sqr_obj.2051, [%r1; %r2], [])
+  In
+  (Let %r1:Int =
+    Restore(m.2064)
+  In
+  (Let Tu5553:Unit =
+    Save(%r1, m.2064)
+  In
+  (Let Tu5552:Unit =
+    Save(%f0, aa0.3265)
+  In
+  (Let %r1:Int =
+    CallDir(o_isrot.1992, [%r1], [])
+  In
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let Tu5557:Unit =
+    Save(%r2, Ti1004.3304)
+  In
+  (Let %f0:Float =
+    (IfEq %r1 %r2 Then
+      (Let %f0:Float =
+        Restore(aa0.3265)
+      In
+      FMr(%f0))
+    Else
+      (Let %r1:Int =
+        Restore(m.2064)
+      In
+      (Let %r3:Int =
+        Restore(l.2065)
+      In
+      (Let Tu5556:Unit =
+        Save(%r3, l.2065)
+      In
+      (Let Tu5555:Unit =
+        Save(%r1, m.2064)
+      In
+      (Let Tu5554:Unit =
+        Save(%r2, Ti1004.3304)
+      In
+      (Let %f0:Float =
+        CallDir(in_prod_co_objrot.2054, [%r1; %r3], [])
+      In
+      (Let %f1:Float =
+        Restore(aa0.3265)
+      In
+      FAdd(%f0, %f1)))))))))
+  In
+  (Let %f1:Float =
+    FLi(0.)
+  In
+  (IfFEq %f1 %f0 Then
+    (Let %r1:Int =
+      Restore(Ti1004.3304)
+    In
+    Mr(%r1))
+  Else
+    (Let %f2:Float =
+      FLi(2.)
+    In
+    (Let %r1:Int =
+      Restore(m.2064)
+    In
+    (Let %r2:Int =
+      Restore(l.2065)
+    In
+    (Let Tu5562:Unit =
+      Save(%f1, Td1006.3267)
+    In
+    (Let Tu5561:Unit =
+      Save(%f0, aa.3266)
+    In
+    (Let Tu5560:Unit =
+      Save(%r2, l.2065)
+    In
+    (Let Tu5559:Unit =
+      Save(%r1, m.2064)
+    In
+    (Let Tu5558:Unit =
+      Save(%f2, Td1007.3301)
+    In
+    (Let %f0:Float =
+      CallDir(solver2nd_mul_b.2057, [%r1; %r2], [])
+    In
+    (Let %f1:Float =
+      Restore(Td1007.3301)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %r1:Int =
+      Restore(m.2064)
+    In
+    (Let Tu5565:Unit =
+      Save(%f1, Td1007.3301)
+    In
+    (Let Tu5564:Unit =
+      Save(%r1, m.2064)
+    In
+    (Let Tu5563:Unit =
+      Save(%f0, bb0.3268)
+    In
+    (Let %r1:Int =
+      CallDir(o_isrot.1992, [%r1], [])
+    In
+    (Let %r2:Int =
+      Restore(Ti1004.3304)
+    In
+    (Let Tu5569:Unit =
+      Save(%r2, Ti1004.3304)
+    In
+    (Let %f0:Float =
+      (IfEq %r1 %r2 Then
+        (Let %f0:Float =
+          Restore(bb0.3268)
+        In
+        FMr(%f0))
+      Else
+        (Let %r1:Int =
+          Restore(m.2064)
+        In
+        (Let %r3:Int =
+          Restore(l.2065)
+        In
+        (Let Tu5568:Unit =
+          Save(%r2, Ti1004.3304)
+        In
+        (Let Tu5567:Unit =
+          Save(%r1, m.2064)
+        In
+        (Let %f0:Float =
+          CallDir(solver2nd_rot_b.2060, [%r1; %r3], [])
+        In
+        (Let %f1:Float =
+          Restore(bb0.3268)
+        In
+        FAdd(%f0, %f1))))))))
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_solver_w_vec)
+    In
+    (Let %r1:Int =
+      Restore(m.2064)
+    In
+    (Let Tu5572:Unit =
+      Save(%f0, bb.3269)
+    In
+    (Let Tu5571:Unit =
+      Save(%r2, Ta1012.3297)
+    In
+    (Let Tu5570:Unit =
+      Save(%r1, m.2064)
+    In
+    (Let %f0:Float =
+      CallDir(in_prod_sqr_obj.2051, [%r1; %r2], [])
+    In
+    (Let %r1:Int =
+      Restore(m.2064)
+    In
+    (Let Tu5574:Unit =
+      Save(%r1, m.2064)
+    In
+    (Let Tu5573:Unit =
+      Save(%f0, cc0.3270)
+    In
+    (Let %r1:Int =
+      CallDir(o_isrot.1992, [%r1], [])
+    In
+    (Let %r2:Int =
+      Restore(Ti1004.3304)
+    In
+    (Let Tu5578:Unit =
+      Save(%r2, Ti1004.3304)
+    In
+    (Let %f0:Float =
+      (IfEq %r1 %r2 Then
+        (Let %f0:Float =
+          Restore(cc0.3270)
+        In
+        FMr(%f0))
+      Else
+        (Let %r1:Int =
+          Restore(m.2064)
+        In
+        (Let %r3:Int =
+          Restore(Ta1012.3297)
+        In
+        (Let Tu5577:Unit =
+          Save(%r2, Ti1004.3304)
+        In
+        (Let Tu5576:Unit =
+          Save(%r1, m.2064)
+        In
+        (Let %f0:Float =
+          CallDir(in_prod_co_objrot.2054, [%r1; %r3], [])
+        In
+        (Let %f1:Float =
+          Restore(cc0.3270)
+        In
+        FAdd(%f0, %f1))))))))
+    In
+    (Let %r1:Int =
+      Restore(m.2064)
+    In
+    (Let Tu5580:Unit =
+      Save(%r1, m.2064)
+    In
+    (Let Tu5579:Unit =
+      Save(%f0, cc1.3271)
+    In
+    (Let %r1:Int =
+      CallDir(o_form.1986, [%r1], [])
+    In
+    (Let %r2:Int =
+      Li(3)
+    In
+    (Let %f0:Float =
+      (IfEq %r1 %r2 Then
+        (Let %f0:Float =
+          FLi(1.)
+        In
+        (Let %f1:Float =
+          Restore(cc1.3271)
+        In
+        FSub(%f1, %f0)))
+      Else
+        (Let %f0:Float =
+          Restore(cc1.3271)
+        In
+        FMr(%f0)))
+    In
+    (Let %f1:Float =
+      FLi(4.)
+    In
+    (Let %f2:Float =
+      Restore(aa.3266)
+    In
+    (Let %f1:Float =
+      FMul(%f1, %f2)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(bb.3269)
+    In
+    (Let Tu5583:Unit =
+      Save(%f2, aa.3266)
+    In
+    (Let Tu5582:Unit =
+      Save(%f1, bb.3269)
+    In
+    (Let Tu5581:Unit =
+      Save(%f0, d2.3286)
+    In
+    (Let %f0:Float =
+      CallDir(fsqr.1980, [], [%f1])
+    In
+    (Let %f1:Float =
+      Restore(d2.3286)
+    In
+    (Let %f0:Float =
+      FSub(%f0, %f1)
+    In
+    (Let %f1:Float =
+      Restore(Td1006.3267)
+    In
+    (IfFLE %f0 %f1 Then
+      (Let %r1:Int =
+        Restore(Ti1004.3304)
+      In
+      Mr(%r1))
+    Else
+      (Let %f0:Float =
+        CallDir(min_caml_sqrt, [], [%f0])
+      In
+      (Let %r1:Int =
+        Restore(m.2064)
+      In
+      (Let Tu5585:Unit =
+        Save(%f0, sd.3275)
+      In
+      (Let %r1:Bool =
+        CallDir(o_isinvert.1990, [%r1], [])
+      In
+      (Let %r2:Int =
+        Restore(Ti1004.3304)
+      In
+      (Let %f0:Float =
+        (IfEq %r1 %r2 Then
+          (Let %f0:Float =
+            Restore(sd.3275)
+          In
+          FNeg(%f0))
+        Else
+          (Let %f0:Float =
+            Restore(sd.3275)
+          In
+          FMr(%f0)))
+      In
+      (Let %r1:Array(Float) =
+        SetL(min_caml_solver_dist)
+      In
+      (Let %f1:Float =
+        Restore(bb.3269)
+      In
+      (Let %f0:Float =
+        FSub(%f0, %f1)
+      In
+      (Let %f1:Float =
+        Restore(Td1007.3301)
+      In
+      (Let %f0:Float =
+        FDiv(%f0, %f1)
+      In
+      (Let %f1:Float =
+        Restore(aa.3266)
+      In
+      (Let %f0:Float =
+        FDiv(%f0, %f1)
+      In
+      (Let %zero:Unit =
+        FStore(%f0, %r1, 0)
+      In
+      Li(1))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function solver.2066 Args(%r1 %r2 %r3) FArgs() Ret:Int =
+  (Let %r4:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+    SetL(min_caml_objects)
+  In
+  (Let %r1:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+    Load(%r4, %r1)
+  In
+  (Let %r4:Array(Float) =
+    SetL(min_caml_solver_w_vec)
+  In
+  (Let %f0:Float =
+    FLoad(%r3, 0)
+  In
+  (Let Tu5590:Unit =
+    Save(%r2, l.2068)
+  In
+  (Let Tu5589:Unit =
+    Save(%r1, m.3239)
+  In
+  (Let Tu5588:Unit =
+    Save(%r3, p.2069)
+  In
+  (Let Tu5587:Unit =
+    Save(%r4, Ta1033.3258)
+  In
+  (Let Tu5586:Unit =
+    Save(%f0, Td1036.3261)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_x.2000, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1036.3261)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1033.3258)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r2:Int =
+    Li(1)
+  In
+  (Let %f0:Float =
+    Restore(p.2069)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 1)
+  In
+  (Let %r3:Int =
+    Restore(m.3239)
+  In
+  (Let Tu5595:Unit =
+    Save(%r2, Ti1040.3253)
+  In
+  (Let Tu5594:Unit =
+    Save(%r3, m.3239)
+  In
+  (Let Tu5593:Unit =
+    Save(%f0, p.2069)
+  In
+  (Let Tu5592:Unit =
+    Save(%r1, Ta1033.3258)
+  In
+  (Let Tu5591:Unit =
+    Save(%f1, Td1042.3255)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_y.2002, [%r3], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1042.3255)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1033.3258)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %r2:Int =
+    Li(2)
+  In
+  (Let %f0:Float =
+    Restore(p.2069)
+  In
+  (Let %f0:Float =
+    FLoad(%f0, 2)
+  In
+  (Let %r3:Int =
+    Restore(m.3239)
+  In
+  (Let Tu5599:Unit =
+    Save(%r2, Ti1046.3247)
+  In
+  (Let Tu5598:Unit =
+    Save(%r3, m.3239)
+  In
+  (Let Tu5597:Unit =
+    Save(%r1, Ta1033.3258)
+  In
+  (Let Tu5596:Unit =
+    Save(%f0, Td1048.3249)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_z.2004, [%r3], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1048.3249)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1033.3258)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r1:Int =
+    Restore(m.3239)
+  In
+  (Let Tu5600:Unit =
+    Save(%r1, m.3239)
+  In
+  (Let %r1:Int =
+    CallDir(o_form.1986, [%r1], [])
+  In
+  (Let %r2:Int =
+    Restore(Ti1040.3253)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %r1:Int =
+      Restore(m.3239)
+    In
+    (Let %r2:Int =
+      Restore(l.2068)
+    In
+    CallDir(solver_rect.2045, [%r1; %r2], [])))
+  Else
+    (Let %r2:Int =
+      Restore(Ti1046.3247)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %r1:Int =
+        Restore(m.3239)
+      In
+      (Let %r2:Int =
+        Restore(l.2068)
+      In
+      CallDir(solver_surface.2048, [%r1; %r2], [])))
+    Else
+      (Let %r1:Int =
+        Restore(m.3239)
+      In
+      (Let %r2:Int =
+        Restore(l.2068)
+      In
+      CallDir(solver_second.2063, [%r1; %r2], [])))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function is_rect_outside.2070 Args(%r1) FArgs() Ret:Bool =
+  (Let Tu5601:Unit =
+    Save(%r1, m.2071)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r1], [])
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_isoutside_q)
+  In
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let %f1:Float =
+    FLoad(%r1, 0)
+  In
+  (Let Tu5604:Unit =
+    Save(%r1, Ta1054.3237)
+  In
+  (Let Tu5603:Unit =
+    Save(%r2, Ti1055.3238)
+  In
+  (Let Tu5602:Unit =
+    Save(%f0, Td1053.3224)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_abs_float, [], [%f1])
+  In
+  (Let %f1:Float =
+    Restore(Td1053.3224)
+  In
+  (Let %r1:Int =
+    (IfFLE %f1 %f0 Then
+      (Let %r1:Int =
+        Restore(Ti1055.3238)
+      In
+      Mr(%r1))
+    Else
+      (Let %r1:Int =
+        Restore(m.2071)
+      In
+      (Let Tu5613:Unit =
+        Save(%r1, m.2071)
+      In
+      (Let %f0:Float =
+        CallDir(o_param_b.1996, [%r1], [])
+      In
+      (Let %r1:Int =
+        Li(1)
+      In
+      (Let %f1:Float =
+        Restore(Ta1054.3237)
+      In
+      (Let %f2:Float =
+        FLoad(%f1, 1)
+      In
+      (Let Tu5616:Unit =
+        Save(%r1, Ti1060.3235)
+      In
+      (Let Tu5615:Unit =
+        Save(%f1, Ta1054.3237)
+      In
+      (Let Tu5614:Unit =
+        Save(%f0, Td1058.3226)
+      In
+      (Let %f0:Float =
+        CallDir(min_caml_abs_float, [], [%f2])
+      In
+      (Let %f1:Float =
+        Restore(Td1058.3226)
+      In
+      (IfFLE %f1 %f0 Then
+        (Let %r1:Int =
+          Restore(Ti1055.3238)
+        In
+        Mr(%r1))
+      Else
+        (Let %r1:Int =
+          Restore(m.2071)
+        In
+        (Let Tu5619:Unit =
+          Save(%r1, m.2071)
+        In
+        (Let %f0:Float =
+          CallDir(o_param_c.1998, [%r1], [])
+        In
+        (Let %f1:Float =
+          Restore(Ta1054.3237)
+        In
+        (Let %f1:Float =
+          FLoad(%f1, 2)
+        In
+        (Let Tu5620:Unit =
+          Save(%f0, Td1063.3228)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_abs_float, [], [%f1])
+        In
+        (Let %f1:Float =
+          Restore(Td1063.3228)
+        In
+        (IfFLE %f1 %f0 Then
+          (Let %r1:Int =
+            Restore(Ti1055.3238)
+          In
+          Mr(%r1))
+        Else
+          (Let %r1:Int =
+            Restore(Ti1060.3235)
+          In
+          Mr(%r1))))))))))))))))))))))))
+  In
+  (Let %r2:Int =
+    Restore(Ti1055.3238)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %r1:Int =
+      Restore(m.2071)
+    In
+    (Let Tu5621:Unit =
+      Save(%r2, Ti1055.3238)
+    In
+    (Let %r1:Bool =
+      CallDir(o_isinvert.1990, [%r1], [])
+    In
+    (Let %r2:Int =
+      Restore(Ti1055.3238)
+    In
+    (IfEq %r1 %r2 Then
+      Li(1)
+    Else
+      Mr(%r2))))))
+  Else
+    (Let %r1:Int =
+      Restore(m.2071)
+    In
+    CallDir(o_isinvert.1990, [%r1], [])))))))))))))))
+
+Function is_plane_outside.2072 Args(%r1) FArgs() Ret:Bool =
+  (Let Tu5622:Unit =
+    Save(%r1, m.2073)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r1], [])
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_isoutside_q)
+  In
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let %f1:Float =
+    FLoad(%r1, 0)
+  In
+  (Let %f0:Float =
+    FMul(%f0, %f1)
+  In
+  (Let %r3:Int =
+    Restore(m.2073)
+  In
+  (Let Tu5626:Unit =
+    Save(%r2, Ti1074.3219)
+  In
+  (Let Tu5625:Unit =
+    Save(%r3, m.2073)
+  In
+  (Let Tu5624:Unit =
+    Save(%f0, Td1076.3210)
+  In
+  (Let Tu5623:Unit =
+    Save(%r1, Ta1073.3218)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_b.1996, [%r3], [])
+  In
+  (Let %r1:Int =
+    Li(1)
+  In
+  (Let %f1:Float =
+    Restore(Ta1073.3218)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %f0:Float =
+    FMul(%f0, %f2)
+  In
+  (Let %f2:Float =
+    Restore(Td1076.3210)
+  In
+  (Let %f0:Float =
+    FAdd(%f2, %f0)
+  In
+  (Let %r2:Int =
+    Restore(m.2073)
+  In
+  (Let Tu5630:Unit =
+    Save(%r2, m.2073)
+  In
+  (Let Tu5629:Unit =
+    Save(%r1, Ti1079.3215)
+  In
+  (Let Tu5628:Unit =
+    Save(%f0, Td1082.3204)
+  In
+  (Let Tu5627:Unit =
+    Save(%f1, Ta1073.3218)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_c.1998, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Ta1073.3218)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %f0:Float =
+    FMul(%f0, %f1)
+  In
+  (Let %f1:Float =
+    Restore(Td1082.3204)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f1:Float =
+    FLi(0.)
+  In
+  (Let %r1:Bool =
+    (IfFLE %f1 %f0 Then
+      (Let %r1:Int =
+        Restore(Ti1074.3219)
+      In
+      Mr(%r1))
+    Else
+      (Let %r1:Int =
+        Restore(Ti1079.3215)
+      In
+      Mr(%r1)))
+  In
+  (Let %r2:Int =
+    Restore(m.2073)
+  In
+  (Let Tu5631:Unit =
+    Save(%r1, s.3199)
+  In
+  (Let %r1:Bool =
+    CallDir(o_isinvert.1990, [%r2], [])
+  In
+  (Let %r2:Int =
+    Restore(s.3199)
+  In
+  (Let %r1:Bool =
+    CallDir(xor.1977, [%r1; %r2], [])
+  In
+  (Let %r2:Int =
+    Restore(Ti1074.3219)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %r1:Int =
+      Restore(Ti1079.3215)
+    In
+    Mr(%r1))
+  Else
+    Mr(%r2)))))))))))))))))))))))))))))))))))))))
+
+Function is_second_outside.2074 Args(%r1) FArgs() Ret:Bool =
+  (Let %r2:Array(Float) =
+    SetL(min_caml_isoutside_q)
+  In
+  (Let Tu5633:Unit =
+    Save(%r2, Ta1092.3197)
+  In
+  (Let Tu5632:Unit =
+    Save(%r1, m.2075)
+  In
+  (Let %f0:Float =
+    CallDir(in_prod_sqr_obj.2051, [%r1; %r2], [])
+  In
+  (Let %r1:Int =
+    Restore(m.2075)
+  In
+  (Let Tu5635:Unit =
+    Save(%r1, m.2075)
+  In
+  (Let Tu5634:Unit =
+    Save(%f0, w.3182)
+  In
+  (Let %r1:Int =
+    CallDir(o_form.1986, [%r1], [])
+  In
+  (Let %r2:Int =
+    Li(3)
+  In
+  (Let %f0:Float =
+    (IfEq %r1 %r2 Then
+      (Let %f0:Float =
+        FLi(1.)
+      In
+      (Let %f1:Float =
+        Restore(w.3182)
+      In
+      FSub(%f1, %f0)))
+    Else
+      (Let %f0:Float =
+        Restore(w.3182)
+      In
+      FMr(%f0)))
+  In
+  (Let %r1:Int =
+    Restore(m.2075)
+  In
+  (Let Tu5637:Unit =
+    Save(%r1, m.2075)
+  In
+  (Let Tu5636:Unit =
+    Save(%f0, w2.3183)
+  In
+  (Let %r1:Int =
+    CallDir(o_isrot.1992, [%r1], [])
+  In
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let Tu5640:Unit =
+    Save(%r2, Ti1097.3191)
+  In
+  (Let %f0:Float =
+    (IfEq %r1 %r2 Then
+      (Let %f0:Float =
+        Restore(w2.3183)
+      In
+      FMr(%f0))
+    Else
+      (Let %r1:Int =
+        Restore(m.2075)
+      In
+      (Let %r3:Int =
+        Restore(Ta1092.3197)
+      In
+      (Let Tu5639:Unit =
+        Save(%r1, m.2075)
+      In
+      (Let Tu5638:Unit =
+        Save(%r2, Ti1097.3191)
+      In
+      (Let %f0:Float =
+        CallDir(in_prod_co_objrot.2054, [%r1; %r3], [])
+      In
+      (Let %f1:Float =
+        Restore(w2.3183)
+      In
+      FAdd(%f0, %f1))))))))
+  In
+  (Let %f1:Float =
+    FLi(0.)
+  In
+  (Let %r1:Bool =
+    (IfFLE %f1 %f0 Then
+      (Let %r1:Int =
+        Restore(Ti1097.3191)
+      In
+      Mr(%r1))
+    Else
+      Li(1))
+  In
+  (Let %r2:Int =
+    Restore(m.2075)
+  In
+  (Let Tu5641:Unit =
+    Save(%r1, s.3185)
+  In
+  (Let %r1:Bool =
+    CallDir(o_isinvert.1990, [%r2], [])
+  In
+  (Let %r2:Int =
+    Restore(s.3185)
+  In
+  (Let %r1:Bool =
+    CallDir(xor.1977, [%r1; %r2], [])
+  In
+  (Let %r2:Int =
+    Restore(Ti1097.3191)
+  In
+  (IfEq %r1 %r2 Then
+    Li(1)
+  Else
+    Mr(%r2)))))))))))))))))))))))))))
+
+Function is_outside.2076 Args(%r1) FArgs() Ret:Bool =
+  (Let %r2:Array(Float) =
+    SetL(min_caml_isoutside_q)
+  In
+  (Let %r3:Array(Float) =
+    SetL(min_caml_chkinside_p)
+  In
+  (Let %f0:Float =
+    FLoad(%r3, 0)
+  In
+  (Let Tu5645:Unit =
+    Save(%r1, m.2077)
+  In
+  (Let Tu5644:Unit =
+    Save(%r3, Ta1106.3180)
+  In
+  (Let Tu5643:Unit =
+    Save(%r2, Ta1104.3175)
+  In
+  (Let Tu5642:Unit =
+    Save(%f0, Td1108.3178)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_x.2000, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1108.3178)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1104.3175)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r2:Int =
+    Li(1)
+  In
+  (Let %f0:Float =
+    Restore(Ta1106.3180)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 1)
+  In
+  (Let %r3:Int =
+    Restore(m.2077)
+  In
+  (Let Tu5650:Unit =
+    Save(%r2, Ti1112.3169)
+  In
+  (Let Tu5649:Unit =
+    Save(%r3, m.2077)
+  In
+  (Let Tu5648:Unit =
+    Save(%f0, Ta1106.3180)
+  In
+  (Let Tu5647:Unit =
+    Save(%r1, Ta1104.3175)
+  In
+  (Let Tu5646:Unit =
+    Save(%f1, Td1115.3171)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_y.2002, [%r3], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1115.3171)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1104.3175)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %r2:Int =
+    Li(2)
+  In
+  (Let %f0:Float =
+    Restore(Ta1106.3180)
+  In
+  (Let %f0:Float =
+    FLoad(%f0, 2)
+  In
+  (Let %r3:Int =
+    Restore(m.2077)
+  In
+  (Let Tu5654:Unit =
+    Save(%r2, Ti1119.3162)
+  In
+  (Let Tu5653:Unit =
+    Save(%r3, m.2077)
+  In
+  (Let Tu5652:Unit =
+    Save(%r1, Ta1104.3175)
+  In
+  (Let Tu5651:Unit =
+    Save(%f0, Td1122.3164)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_z.2004, [%r3], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1122.3164)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1104.3175)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r1:Int =
+    Restore(m.2077)
+  In
+  (Let Tu5655:Unit =
+    Save(%r1, m.2077)
+  In
+  (Let %r1:Int =
+    CallDir(o_form.1986, [%r1], [])
+  In
+  (Let %r2:Int =
+    Restore(Ti1112.3169)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %r1:Int =
+      Restore(m.2077)
+    In
+    CallDir(is_rect_outside.2070, [%r1], []))
+  Else
+    (Let %r2:Int =
+      Restore(Ti1119.3162)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %r1:Int =
+        Restore(m.2077)
+      In
+      CallDir(is_plane_outside.2072, [%r1], []))
+    Else
+      (Let %r1:Int =
+        Restore(m.2077)
+      In
+      CallDir(is_second_outside.2074, [%r1], []))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function check_all_inside.2078 Args(%r1 %r2) FArgs() Ret:Bool =
+  (Let %r3:Int =
+    Load(%r2, %r1)
+  In
+  (Let %r4:Int =
+    Li(-1)
+  In
+  (IfEq %r3 %r4 Then
+    Li(1)
+  Else
+    (Let %r4:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+      SetL(min_caml_objects)
+    In
+    (Let %r3:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+      Load(%r4, %r3)
+    In
+    (Let Tu5657:Unit =
+      Save(%r2, iand.2080)
+    In
+    (Let Tu5656:Unit =
+      Save(%r1, ofs.2079)
+    In
+    (Let %r1:Bool =
+      CallDir(is_outside.2076, [%r3], [])
+    In
+    (Let %r2:Int =
+      Li(0)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %r1:Int =
+        Restore(ofs.2079)
+      In
+      (Let %r1:Int =
+        Add(%r1, 1)
+      In
+      (Let %r2:Int =
+        Restore(iand.2080)
+      In
+      CallDir(check_all_inside.2078, [%r1; %r2], []))))
+    Else
+      Mr(%r2)))))))))))
+
+Function shadow_check_and_group.2081 Args(%r1 %r2 %r3) FArgs() Ret:Bool =
+  (Let %r4:Int =
+    Load(%r2, %r1)
+  In
+  (Let %r5:Int =
+    Li(-1)
+  In
+  (IfEq %r4 %r5 Then
+    Li(0)
+  Else
+    (Let %r4:Int =
+      Load(%r2, %r1)
+    In
+    (Let %r5:Array(Float) =
+      SetL(min_caml_light)
+    In
+    (Let Tu5662:Unit =
+      Save(%r5, Ta1138.3144)
+    In
+    (Let Tu5661:Unit =
+      Save(%r3, p.2084)
+    In
+    (Let Tu5660:Unit =
+      Save(%r2, and_group.2083)
+    In
+    (Let Tu5659:Unit =
+      Save(%r1, iand_ofs.2082)
+    In
+    (Let Tu5658:Unit =
+      Save(%r4, obj.3092)
+    In
+    (Let %r1:Int =
+      CallDir(solver.2066, [%r4; %r5; %r3], [])
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_solver_dist)
+    In
+    (Let %r3:Int =
+      Li(0)
+    In
+    (Let %f0:Float =
+      FLoad(%r2, 0)
+    In
+    (Let %r1:Int =
+      (IfEq %r1 %r3 Then
+        Mr(%r3)
+      Else
+        (Let %f1:Float =
+          FLi(-0.2)
+        In
+        (IfFLE %f1 %f0 Then
+          Mr(%r3)
+        Else
+          Li(1))))
+    In
+    (IfEq %r1 %r3 Then
+      (Let %r1:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+        SetL(min_caml_objects)
+      In
+      (Let %r2:Int =
+        Restore(obj.3092)
+      In
+      (Let %r1:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+        Load(%r1, %r2)
+      In
+      (Let Tu5663:Unit =
+        Save(%r3, Ti1140.3143)
+      In
+      (Let %r1:Bool =
+        CallDir(o_isinvert.1990, [%r1], [])
+      In
+      (Let %r2:Int =
+        Restore(Ti1140.3143)
+      In
+      (IfEq %r1 %r2 Then
+        Mr(%r2)
+      Else
+        (Let %r1:Int =
+          Restore(iand_ofs.2082)
+        In
+        (Let %r1:Int =
+          Add(%r1, 1)
+        In
+        (Let %r2:Int =
+          Restore(and_group.2083)
+        In
+        (Let %r3:Int =
+          Restore(p.2084)
+        In
+        CallDir(shadow_check_and_group.2081, [%r1; %r2; %r3], []))))))))))))
+    Else
+      (Let %f1:Float =
+        FLi(0.01)
+      In
+      (Let %f0:Float =
+        FAdd(%f1, %f0)
+      In
+      (Let %r1:Array(Float) =
+        SetL(min_caml_chkinside_p)
+      In
+      (Let %f1:Float =
+        Restore(Ta1138.3144)
+      In
+      (Let %f2:Float =
+        FLoad(%f1, 0)
+      In
+      (Let %f2:Float =
+        FMul(%f2, %f0)
+      In
+      (Let %f3:Float =
+        Restore(p.2084)
+      In
+      (Let %f4:Float =
+        FLoad(%f3, 0)
+      In
+      (Let %f2:Float =
+        FAdd(%f2, %f4)
+      In
+      (Let %zero:Unit =
+        FStore(%f2, %r1, 0)
+      In
+      (Let %r2:Int =
+        Li(1)
+      In
+      (Let %f2:Float =
+        FLoad(%f1, 1)
+      In
+      (Let %f2:Float =
+        FMul(%f2, %f0)
+      In
+      (Let %f4:Float =
+        FLoad(%f3, 1)
+      In
+      (Let %f2:Float =
+        FAdd(%f2, %f4)
+      In
+      (Let %zero:Unit =
+        FStore(%f2, %r1, 1)
+      In
+      (Let %f1:Float =
+        FLoad(%f1, 2)
+      In
+      (Let %f0:Float =
+        FMul(%f1, %f0)
+      In
+      (Let %f1:Float =
+        FLoad(%f3, 2)
+      In
+      (Let %f0:Float =
+        FAdd(%f0, %f1)
+      In
+      (Let %zero:Unit =
+        FStore(%f0, %r1, 2)
+      In
+      (Let %r1:Int =
+        Restore(and_group.2083)
+      In
+      (Let Tu5667:Unit =
+        Save(%r2, Ti1162.3116)
+      In
+      (Let Tu5666:Unit =
+        Save(%f3, p.2084)
+      In
+      (Let Tu5665:Unit =
+        Save(%r1, and_group.2083)
+      In
+      (Let Tu5664:Unit =
+        Save(%r3, Ti1140.3143)
+      In
+      (Let %r1:Bool =
+        CallDir(check_all_inside.2078, [%r3; %r1], [])
+      In
+      (Let %r2:Int =
+        Restore(Ti1140.3143)
+      In
+      (IfEq %r1 %r2 Then
+        (Let %r1:Int =
+          Restore(iand_ofs.2082)
+        In
+        (Let %r1:Int =
+          Add(%r1, 1)
+        In
+        (Let %r2:Int =
+          Restore(and_group.2083)
+        In
+        (Let %r3:Int =
+          Restore(p.2084)
+        In
+        CallDir(shadow_check_and_group.2081, [%r1; %r2; %r3], [])))))
+      Else
+        (Let %r1:Int =
+          Restore(Ti1162.3116)
+        In
+        Mr(%r1)))))))))))))))))))))))))))))))))))))))))))))))
+
+Function shadow_check_one_or_group.2085 Args(%r1 %r2 %r3) FArgs() Ret:Bool =
+  (Let %r4:Int =
+    Load(%r2, %r1)
+  In
+  (Let %r5:Int =
+    Li(-1)
+  In
+  (IfEq %r4 %r5 Then
+    Li(0)
+  Else
+    (Let %r5:Array(Array(Int)) =
+      SetL(min_caml_and_net)
+    In
+    (Let %r4:Array(Int) =
+      Load(%r5, %r4)
+    In
+    (Let %r5:Int =
+      Li(0)
+    In
+    (Let Tu5671:Unit =
+      Save(%r3, p.2088)
+    In
+    (Let Tu5670:Unit =
+      Save(%r2, or_group.2087)
+    In
+    (Let Tu5669:Unit =
+      Save(%r1, ofs.2086)
+    In
+    (Let Tu5668:Unit =
+      Save(%r5, Ti1187.3087)
+    In
+    (Let %r1:Bool =
+      CallDir(shadow_check_and_group.2081, [%r5; %r4; %r3], [])
+    In
+    (Let %r2:Int =
+      Restore(Ti1187.3087)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %r1:Int =
+        Restore(ofs.2086)
+      In
+      (Let %r1:Int =
+        Add(%r1, 1)
+      In
+      (Let %r2:Int =
+        Restore(or_group.2087)
+      In
+      (Let %r3:Int =
+        Restore(p.2088)
+      In
+      CallDir(shadow_check_one_or_group.2085, [%r1; %r2; %r3], [])))))
+    Else
+      Li(1))))))))))))))
+
+Function shadow_check_one_or_matrix.2089 Args(%r1 %r2 %r3) FArgs() Ret:Bool =
+  (Let %r4:Array(Int) =
+    Load(%r2, %r1)
+  In
+  (Let %r5:Int =
+    Li(0)
+  In
+  (Let %r6:Int =
+    Load(%r4, 0)
+  In
+  (Let %r7:Int =
+    Li(-1)
+  In
+  (IfEq %r6 %r7 Then
+    Mr(%r5)
+  Else
+    (Let %r7:Int =
+      Li(99)
+    In
+    (IfEq %r6 %r7 Then
+      (Let %r6:Int =
+        Li(1)
+      In
+      (Let Tu5676:Unit =
+        Save(%r6, Ti1195.3077)
+      In
+      (Let Tu5675:Unit =
+        Save(%r3, p.2092)
+      In
+      (Let Tu5674:Unit =
+        Save(%r2, or_matrix.2091)
+      In
+      (Let Tu5673:Unit =
+        Save(%r1, ofs.2090)
+      In
+      (Let Tu5672:Unit =
+        Save(%r5, Ti1191.3079)
+      In
+      (Let %r1:Bool =
+        CallDir(shadow_check_one_or_group.2085, [%r6; %r4; %r3], [])
+      In
+      (Let %r2:Int =
+        Restore(Ti1191.3079)
+      In
+      (IfEq %r1 %r2 Then
+        (Let %r1:Int =
+          Restore(ofs.2090)
+        In
+        (Let %r1:Int =
+          Add(%r1, 1)
+        In
+        (Let %r2:Int =
+          Restore(or_matrix.2091)
+        In
+        (Let %r3:Int =
+          Restore(p.2092)
+        In
+        CallDir(shadow_check_one_or_matrix.2089, [%r1; %r2; %r3], [])))))
+      Else
+        (Let %r1:Int =
+          Restore(Ti1195.3077)
+        In
+        Mr(%r1)))))))))))
+    Else
+      (Let %r7:Array(Float) =
+        SetL(min_caml_light)
+      In
+      (Let Tu5681:Unit =
+        Save(%r4, head.3053)
+      In
+      (Let Tu5680:Unit =
+        Save(%r3, p.2092)
+      In
+      (Let Tu5679:Unit =
+        Save(%r2, or_matrix.2091)
+      In
+      (Let Tu5678:Unit =
+        Save(%r1, ofs.2090)
+      In
+      (Let Tu5677:Unit =
+        Save(%r5, Ti1191.3079)
+      In
+      (Let %r1:Int =
+        CallDir(solver.2066, [%r6; %r7; %r3], [])
+      In
+      (Let %r2:Int =
+        Restore(Ti1191.3079)
+      In
+      (IfEq %r1 %r2 Then
+        (Let %r1:Int =
+          Restore(ofs.2090)
+        In
+        (Let %r1:Int =
+          Add(%r1, 1)
+        In
+        (Let %r2:Int =
+          Restore(or_matrix.2091)
+        In
+        (Let %r3:Int =
+          Restore(p.2092)
+        In
+        CallDir(shadow_check_one_or_matrix.2089, [%r1; %r2; %r3], [])))))
+      Else
+        (Let %f0:Float =
+          FLi(-0.1)
+        In
+        (Let %r1:Array(Float) =
+          SetL(min_caml_solver_dist)
+        In
+        (Let %f1:Float =
+          FLoad(%r1, 0)
+        In
+        (IfFLE %f0 %f1 Then
+          (Let %r1:Int =
+            Restore(ofs.2090)
+          In
+          (Let %r1:Int =
+            Add(%r1, 1)
+          In
+          (Let %r2:Int =
+            Restore(or_matrix.2091)
+          In
+          (Let %r3:Int =
+            Restore(p.2092)
+          In
+          CallDir(shadow_check_one_or_matrix.2089, [%r1; %r2; %r3], [])))))
+        Else
+          (Let %r1:Int =
+            Li(1)
+          In
+          (Let %r3:Int =
+            Restore(head.3053)
+          In
+          (Let %r4:Int =
+            Restore(p.2092)
+          In
+          (Let Tu5686:Unit =
+            Save(%r1, Ti1210.3065)
+          In
+          (Let Tu5685:Unit =
+            Save(%r4, p.2092)
+          In
+          (Let Tu5684:Unit =
+            Save(%r2, Ti1191.3079)
+          In
+          (Let %r1:Bool =
+            CallDir(shadow_check_one_or_group.2085, [%r1; %r3; %r4], [])
+          In
+          (Let %r2:Int =
+            Restore(Ti1191.3079)
+          In
+          (IfEq %r1 %r2 Then
+            (Let %r1:Int =
+              Restore(ofs.2090)
+            In
+            (Let %r1:Int =
+              Add(%r1, 1)
+            In
+            (Let %r2:Int =
+              Restore(or_matrix.2091)
+            In
+            (Let %r3:Int =
+              Restore(p.2092)
+            In
+            CallDir(shadow_check_one_or_matrix.2089, [%r1; %r2; %r3], [])))))
+          Else
+            (Let %r1:Int =
+              Restore(Ti1210.3065)
+            In
+            Mr(%r1)))))))))))))))))))))))))))))))
+
+Function solve_each_element.2093 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let %r3:Int =
+    Load(%r2, %r1)
+  In
+  (Let %r4:Int =
+    Li(-1)
+  In
+  (IfEq %r3 %r4 Then
+    Nop
+  Else
+    (Let %r4:Array(Float) =
+      SetL(min_caml_vscan)
+    In
+    (Let %r5:Array(Float) =
+      SetL(min_caml_viewpoint)
+    In
+    (Let Tu5692:Unit =
+      Save(%r1, iand_ofs.2094)
+    In
+    (Let Tu5691:Unit =
+      Save(%r2, and_group.2095)
+    In
+    (Let Tu5690:Unit =
+      Save(%r5, Ta1218.3051)
+    In
+    (Let Tu5689:Unit =
+      Save(%r4, Ta1217.3050)
+    In
+    (Let Tu5688:Unit =
+      Save(%r3, iobj.2961)
+    In
+    (Let %r1:Int =
+      CallDir(solver.2066, [%r3; %r4; %r5], [])
+    In
+    (Let %r2:Int =
+      Li(0)
+    In
+    (Let %zero:Unit =
+      (IfEq %r1 %r2 Then
+        (Let %r1:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+          SetL(min_caml_objects)
+        In
+        (Let %r3:Int =
+          Restore(iobj.2961)
+        In
+        (Let %r1:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+          Load(%r1, %r3)
+        In
+        (Let Tu5693:Unit =
+          Save(%r2, Ti1219.2971)
+        In
+        (Let %r1:Bool =
+          CallDir(o_isinvert.1990, [%r1], [])
+        In
+        (Let %r2:Int =
+          Restore(Ti1219.2971)
+        In
+        (IfEq %r1 %r2 Then
+          (Let %r1:Array(Bool) =
+            SetL(min_caml_end_flag)
+          In
+          (Let %r3:Int =
+            Li(1)
+          In
+          Store(%r3, %r1, 0)))
+        Else
+          Nop)))))))
+      Else
+        (Let %r3:Array(Float) =
+          SetL(min_caml_solver_dist)
+        In
+        (Let %f0:Float =
+          FLoad(%r3, 0)
+        In
+        (Let %f1:Float =
+          FLi(-0.1)
+        In
+        (IfFLE %f0 %f1 Then
+          Nop
+        Else
+          (Let %r3:Array(Float) =
+            SetL(min_caml_tmin)
+          In
+          (Let %f1:Float =
+            FLoad(%r3, 0)
+          In
+          (IfFLE %f1 %f0 Then
+            Nop
+          Else
+            (Let %f1:Float =
+              FLi(0.01)
+            In
+            (Let %f0:Float =
+              FAdd(%f1, %f0)
+            In
+            (Let %r4:Array(Float) =
+              SetL(min_caml_chkinside_p)
+            In
+            (Let %f1:Float =
+              Restore(Ta1217.3050)
+            In
+            (Let %f2:Float =
+              FLoad(%f1, 0)
+            In
+            (Let %f2:Float =
+              FMul(%f2, %f0)
+            In
+            (Let %f3:Float =
+              Restore(Ta1218.3051)
+            In
+            (Let %f4:Float =
+              FLoad(%f3, 0)
+            In
+            (Let %f2:Float =
+              FAdd(%f2, %f4)
+            In
+            (Let %zero:Unit =
+              FStore(%f2, %r4, 0)
+            In
+            (Let %f2:Float =
+              FLoad(%f1, 1)
+            In
+            (Let %f2:Float =
+              FMul(%f2, %f0)
+            In
+            (Let %f4:Float =
+              FLoad(%f3, 1)
+            In
+            (Let %f2:Float =
+              FAdd(%f2, %f4)
+            In
+            (Let %zero:Unit =
+              FStore(%f2, %r4, 1)
+            In
+            (Let %f1:Float =
+              FLoad(%f1, 2)
+            In
+            (Let %f1:Float =
+              FMul(%f1, %f0)
+            In
+            (Let %f2:Float =
+              FLoad(%f3, 2)
+            In
+            (Let %f1:Float =
+              FAdd(%f1, %f2)
+            In
+            (Let %zero:Unit =
+              FStore(%f1, %r4, 2)
+            In
+            (Let %r5:Int =
+              Restore(and_group.2095)
+            In
+            (Let Tu5699:Unit =
+              Save(%r5, and_group.2095)
+            In
+            (Let Tu5698:Unit =
+              Save(%r1, t0.2963)
+            In
+            (Let Tu5697:Unit =
+              Save(%r4, Ta1234.3028)
+            In
+            (Let Tu5696:Unit =
+              Save(%r3, Ta1230.3039)
+            In
+            (Let Tu5695:Unit =
+              Save(%f0, t.2975)
+            In
+            (Let Tu5694:Unit =
+              Save(%r2, Ti1219.2971)
+            In
+            (Let %r1:Bool =
+              CallDir(check_all_inside.2078, [%r2; %r5], [])
+            In
+            (Let %r2:Int =
+              Restore(Ti1219.2971)
+            In
+            (IfEq %r1 %r2 Then
+              Nop
+            Else
+              (Let %r1:Int =
+                Restore(Ta1230.3039)
+              In
+              (Let %f0:Float =
+                Restore(t.2975)
+              In
+              (Let %zero:Unit =
+                FStore(%f0, %r1, 0)
+              In
+              (Let %r1:Array(Float) =
+                SetL(min_caml_crashed_point)
+              In
+              (Let %f0:Float =
+                Restore(Ta1234.3028)
+              In
+              (Let %f1:Float =
+                FLoad(%f0, 0)
+              In
+              (Let %zero:Unit =
+                FStore(%f1, %r1, 0)
+              In
+              (Let %f1:Float =
+                FLoad(%f0, 1)
+              In
+              (Let %zero:Unit =
+                FStore(%f1, %r1, 1)
+              In
+              (Let %f0:Float =
+                FLoad(%f0, 2)
+              In
+              (Let %zero:Unit =
+                FStore(%f0, %r1, 2)
+              In
+              (Let %r1:Array(Int) =
+                SetL(min_caml_intsec_rectside)
+              In
+              (Let %r3:Int =
+                Restore(t0.2963)
+              In
+              (Let %zero:Unit =
+                Store(%r3, %r1, 0)
+              In
+              (Let %r1:Array(Int) =
+                SetL(min_caml_crashed_object)
+              In
+              (Let %r3:Int =
+                Restore(iobj.2961)
+              In
+              Store(%r3, %r1, 0)))))))))))))))))))))))))))))))))))))))))))))))))))))))
+    In
+    (Let %r1:Array(Bool) =
+      SetL(min_caml_end_flag)
+    In
+    (Let %r1:Bool =
+      Load(%r1, 0)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %r1:Int =
+        Restore(iand_ofs.2094)
+      In
+      (Let %r1:Int =
+        Add(%r1, 1)
+      In
+      (Let %r2:Int =
+        Restore(and_group.2095)
+      In
+      CallDir(solve_each_element.2093, [%r1; %r2], []))))
+    Else
+      Nop))))))))))))))))
+
+Function solve_one_or_network.2096 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let %r3:Int =
+    Load(%r2, %r1)
+  In
+  (Let %r4:Int =
+    Li(-1)
+  In
+  (IfEq %r3 %r4 Then
+    Nop
+  Else
+    (Let %r4:Array(Array(Int)) =
+      SetL(min_caml_and_net)
+    In
+    (Let %r3:Array(Int) =
+      Load(%r4, %r3)
+    In
+    (Let %r4:Array(Bool) =
+      SetL(min_caml_end_flag)
+    In
+    (Let %r5:Int =
+      Li(0)
+    In
+    (Let %zero:Unit =
+      Store(%r5, %r4, 0)
+    In
+    (Let Tu5702:Unit =
+      Save(%r2, or_group.2098)
+    In
+    (Let Tu5701:Unit =
+      Save(%r1, ofs.2097)
+    In
+    (Let %zero:Unit =
+      CallDir(solve_each_element.2093, [%r5; %r3], [])
+    In
+    (Let %r1:Int =
+      Restore(ofs.2097)
+    In
+    (Let %r1:Int =
+      Add(%r1, 1)
+    In
+    (Let %r2:Int =
+      Restore(or_group.2098)
+    In
+    CallDir(solve_one_or_network.2096, [%r1; %r2], [])))))))))))))))
+
+Function trace_or_matrix.2099 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let %r3:Array(Int) =
+    Load(%r2, %r1)
+  In
+  (Let %r4:Int =
+    Li(0)
+  In
+  (Let %r5:Int =
+    Load(%r3, 0)
+  In
+  (Let %r6:Int =
+    Li(-1)
+  In
+  (IfEq %r5 %r6 Then
+    Nop
+  Else
+    (Let %r6:Int =
+      Li(99)
+    In
+    (Let Tu5711:Unit =
+      Save(%r2, or_network.2101)
+    In
+    (Let Tu5710:Unit =
+      Save(%r1, ofs.2100)
+    In
+    (Let %zero:Unit =
+      (IfEq %r5 %r6 Then
+        (Let %r4:Int =
+          Li(1)
+        In
+        (Let Tu5705:Unit =
+          Save(%r2, or_network.2101)
+        In
+        (Let Tu5704:Unit =
+          Save(%r1, ofs.2100)
+        In
+        CallDir(solve_one_or_network.2096, [%r4; %r3], []))))
+      Else
+        (Let %r6:Array(Float) =
+          SetL(min_caml_vscan)
+        In
+        (Let %r7:Array(Float) =
+          SetL(min_caml_viewpoint)
+        In
+        (Let Tu5709:Unit =
+          Save(%r2, or_network.2101)
+        In
+        (Let Tu5708:Unit =
+          Save(%r1, ofs.2100)
+        In
+        (Let Tu5707:Unit =
+          Save(%r3, head.2927)
+        In
+        (Let Tu5706:Unit =
+          Save(%r4, Ti1303.2947)
+        In
+        (Let %r1:Int =
+          CallDir(solver.2066, [%r5; %r6; %r7], [])
+        In
+        (Let %r2:Int =
+          Restore(Ti1303.2947)
+        In
+        (IfEq %r1 %r2 Then
+          Nop
+        Else
+          (Let %r1:Array(Float) =
+            SetL(min_caml_solver_dist)
+          In
+          (Let %f0:Float =
+            FLoad(%r1, 0)
+          In
+          (Let %r1:Array(Float) =
+            SetL(min_caml_tmin)
+          In
+          (Let %f1:Float =
+            FLoad(%r1, 0)
+          In
+          (IfFLE %f1 %f0 Then
+            Nop
+          Else
+            (Let %r1:Int =
+              Li(1)
+            In
+            (Let %r2:Int =
+              Restore(head.2927)
+            In
+            CallDir(solve_one_or_network.2096, [%r1; %r2], []))))))))))))))))))
+    In
+    (Let %r1:Int =
+      Restore(ofs.2100)
+    In
+    (Let %r1:Int =
+      Add(%r1, 1)
+    In
+    (Let %r2:Int =
+      Restore(or_network.2101)
+    In
+    CallDir(trace_or_matrix.2099, [%r1; %r2], [])))))))))))))
+
+Function tracer.2102 Args(%r1 %r2) FArgs() Ret:Bool =
+  (Let %r1:Array(Float) =
+    SetL(min_caml_tmin)
+  In
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let %f0:Float =
+    FLi(1000000000.)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r3:Array(Array(Array(Int))) =
+    SetL(min_caml_or_net)
+  In
+  (Let %r3:Array(Array(Int)) =
+    Load(%r3, 0)
+  In
+  (Let Tu5713:Unit =
+    Save(%r2, Ti1320.2925)
+  In
+  (Let Tu5712:Unit =
+    Save(%r1, Ta1319.2924)
+  In
+  (Let %zero:Unit =
+    CallDir(trace_or_matrix.2099, [%r2; %r3], [])
+  In
+  (Let %f0:Float =
+    Restore(Ta1319.2924)
+  In
+  (Let %f0:Float =
+    FLoad(%f0, 0)
+  In
+  (Let %f1:Float =
+    FLi(-0.1)
+  In
+  (IfFLE %f0 %f1 Then
+    (Let %r1:Int =
+      Restore(Ti1320.2925)
+    In
+    Mr(%r1))
+  Else
+    (Let %f1:Float =
+      FLi(100000000.)
+    In
+    (IfFLE %f1 %f0 Then
+      (Let %r1:Int =
+        Restore(Ti1320.2925)
+      In
+      Mr(%r1))
+    Else
+      Li(1))))))))))))))))
+
+Function get_nvector_rect.2105 Args() FArgs() Ret:Unit =
+  (Let %r1:Array(Int) =
+    SetL(min_caml_intsec_rectside)
+  In
+  (Let %r1:Int =
+    Load(%r1, 0)
+  In
+  (Let %r2:Int =
+    Li(1)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %r1:Array(Float) =
+      SetL(min_caml_nvector)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_vscan)
+    In
+    (Let %f0:Float =
+      FLoad(%r2, 0)
+    In
+    (Let Tu5715:Unit =
+      Save(%r1, Ta1333.2904)
+    In
+    (Let %f0:Float =
+      CallDir(sgn.2025, [], [%f0])
+    In
+    (Let %f0:Float =
+      FNeg(%f0)
+    In
+    (Let %r1:Int =
+      Restore(Ta1333.2904)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let %f0:Float =
+      FLi(0.)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 1)
+    In
+    FStore(%f0, %r1, 2)))))))))))
+  Else
+    (Let %r2:Int =
+      Li(2)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %r1:Array(Float) =
+        SetL(min_caml_nvector)
+      In
+      (Let %f0:Float =
+        FLi(0.)
+      In
+      (Let %zero:Unit =
+        FStore(%f0, %r1, 0)
+      In
+      (Let %r2:Array(Float) =
+        SetL(min_caml_vscan)
+      In
+      (Let %f1:Float =
+        FLoad(%r2, 1)
+      In
+      (Let Tu5717:Unit =
+        Save(%f0, Td1349.2895)
+      In
+      (Let Tu5716:Unit =
+        Save(%r1, Ta1347.2893)
+      In
+      (Let %f0:Float =
+        CallDir(sgn.2025, [], [%f1])
+      In
+      (Let %f0:Float =
+        FNeg(%f0)
+      In
+      (Let %r1:Int =
+        Restore(Ta1347.2893)
+      In
+      (Let %zero:Unit =
+        FStore(%f0, %r1, 1)
+      In
+      (Let %f0:Float =
+        Restore(Td1349.2895)
+      In
+      FStore(%f0, %r1, 2)))))))))))))
+    Else
+      (Let %r2:Int =
+        Li(3)
+      In
+      (IfEq %r1 %r2 Then
+        (Let %r1:Array(Float) =
+          SetL(min_caml_nvector)
+        In
+        (Let %f0:Float =
+          FLi(0.)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 0)
+        In
+        (Let %zero:Unit =
+          FStore(%f0, %r1, 1)
+        In
+        (Let %r2:Array(Float) =
+          SetL(min_caml_vscan)
+        In
+        (Let %f0:Float =
+          FLoad(%r2, 2)
+        In
+        (Let Tu5718:Unit =
+          Save(%r1, Ta1361.2878)
+        In
+        (Let %f0:Float =
+          CallDir(sgn.2025, [], [%f0])
+        In
+        (Let %f0:Float =
+          FNeg(%f0)
+        In
+        (Let %r1:Int =
+          Restore(Ta1361.2878)
+        In
+        FStore(%f0, %r1, 2)))))))))))
+      Else
+        Nop))))))))
+
+Function get_nvector_plane.2107 Args(%r1) FArgs() Ret:Unit =
+  (Let %r2:Array(Float) =
+    SetL(min_caml_nvector)
+  In
+  (Let Tu5721:Unit =
+    Save(%r1, m.2108)
+  In
+  (Let Tu5720:Unit =
+    Save(%r2, Ta1374.2858)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r1], [])
+  In
+  (Let %f0:Float =
+    FNeg(%f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1374.2858)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r2:Int =
+    Restore(m.2108)
+  In
+  (Let Tu5723:Unit =
+    Save(%r2, m.2108)
+  In
+  (Let Tu5722:Unit =
+    Save(%r1, Ta1374.2858)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_b.1996, [%r2], [])
+  In
+  (Let %f0:Float =
+    FNeg(%f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1374.2858)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %r2:Int =
+    Restore(m.2108)
+  In
+  (Let Tu5724:Unit =
+    Save(%r1, Ta1374.2858)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_c.1998, [%r2], [])
+  In
+  (Let %f0:Float =
+    FNeg(%f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1374.2858)
+  In
+  FStore(%f0, %r1, 2))))))))))))))))))))
+
+Function get_nvector_second_norot.2109 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let %r3:Array(Float) =
+    SetL(min_caml_nvector)
+  In
+  (Let %f0:Float =
+    FLoad(%r2, 0)
+  In
+  (Let Tu5729:Unit =
+    Save(%r2, p.2111)
+  In
+  (Let Tu5728:Unit =
+    Save(%r3, Ta1386.2840)
+  In
+  (Let Tu5727:Unit =
+    Save(%r1, m.2110)
+  In
+  (Let Tu5726:Unit =
+    Save(%f0, Td1389.2845)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_x.2000, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1389.2845)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(m.2110)
+  In
+  (Let Tu5731:Unit =
+    Save(%r1, m.2110)
+  In
+  (Let Tu5730:Unit =
+    Save(%f0, Td1391.2843)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1391.2843)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1386.2840)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %f0:Float =
+    Restore(p.2111)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 1)
+  In
+  (Let %r2:Int =
+    Restore(m.2110)
+  In
+  (Let Tu5735:Unit =
+    Save(%f0, p.2111)
+  In
+  (Let Tu5734:Unit =
+    Save(%r1, Ta1386.2840)
+  In
+  (Let Tu5733:Unit =
+    Save(%r2, m.2110)
+  In
+  (Let Tu5732:Unit =
+    Save(%f1, Td1397.2837)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_y.2002, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1397.2837)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(m.2110)
+  In
+  (Let Tu5737:Unit =
+    Save(%r1, m.2110)
+  In
+  (Let Tu5736:Unit =
+    Save(%f0, Td1399.2835)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_b.1996, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1399.2835)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1386.2840)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %f0:Float =
+    Restore(p.2111)
+  In
+  (Let %f0:Float =
+    FLoad(%f0, 2)
+  In
+  (Let %r2:Int =
+    Restore(m.2110)
+  In
+  (Let Tu5740:Unit =
+    Save(%r1, Ta1386.2840)
+  In
+  (Let Tu5739:Unit =
+    Save(%r2, m.2110)
+  In
+  (Let Tu5738:Unit =
+    Save(%f0, Td1405.2829)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_z.2004, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1405.2829)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(m.2110)
+  In
+  (Let Tu5742:Unit =
+    Save(%r1, m.2110)
+  In
+  (Let Tu5741:Unit =
+    Save(%f0, Td1407.2827)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_c.1998, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1407.2827)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1386.2840)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r2:Int =
+    Restore(m.2110)
+  In
+  (Let Tu5743:Unit =
+    Save(%r1, Ta1386.2840)
+  In
+  (Let %r2:Bool =
+    CallDir(o_isinvert.1990, [%r2], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta1386.2840)
+  In
+  CallDir(normalize_vector.2022, [%r1; %r2], [])))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function get_nvector_second_rot.2112 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let %r3:Array(Float) =
+    SetL(min_caml_nvector_w)
+  In
+  (Let %f0:Float =
+    FLoad(%r2, 0)
+  In
+  (Let Tu5748:Unit =
+    Save(%r1, m.2113)
+  In
+  (Let Tu5747:Unit =
+    Save(%r2, p.2114)
+  In
+  (Let Tu5746:Unit =
+    Save(%r3, Ta1412.2813)
+  In
+  (Let Tu5745:Unit =
+    Save(%f0, Td1415.2816)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_x.2000, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1415.2816)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1412.2813)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %f0:Float =
+    Restore(p.2114)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 1)
+  In
+  (Let %r2:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5752:Unit =
+    Save(%r2, m.2113)
+  In
+  (Let Tu5751:Unit =
+    Save(%f0, p.2114)
+  In
+  (Let Tu5750:Unit =
+    Save(%r1, Ta1412.2813)
+  In
+  (Let Tu5749:Unit =
+    Save(%f1, Td1421.2810)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_y.2002, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1421.2810)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1412.2813)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %f0:Float =
+    Restore(p.2114)
+  In
+  (Let %f0:Float =
+    FLoad(%f0, 2)
+  In
+  (Let %r2:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5755:Unit =
+    Save(%r2, m.2113)
+  In
+  (Let Tu5754:Unit =
+    Save(%r1, Ta1412.2813)
+  In
+  (Let Tu5753:Unit =
+    Save(%f0, Td1427.2804)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_z.2004, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1427.2804)
+  In
+  (Let %f0:Float =
+    FSub(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1412.2813)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r2:Array(Float) =
+    SetL(min_caml_nvector)
+  In
+  (Let %f0:Float =
+    FLoad(%r1, 0)
+  In
+  (Let %r3:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5759:Unit =
+    Save(%r2, Ta1430.2781)
+  In
+  (Let Tu5758:Unit =
+    Save(%r3, m.2113)
+  In
+  (Let Tu5757:Unit =
+    Save(%r1, Ta1412.2813)
+  In
+  (Let Tu5756:Unit =
+    Save(%f0, Td1434.2797)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_a.1994, [%r3], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1434.2797)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %r1:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5763:Unit =
+    Save(%f0, Td1436.2784)
+  In
+  (Let Tu5762:Unit =
+    Save(%r1, m.2113)
+  In
+  (Let Tu5761:Unit =
+    Save(%f1, Ta1412.2813)
+  In
+  (Let Tu5760:Unit =
+    Save(%f2, Td1439.2793)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r3.2020, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1439.2793)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %r1:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5767:Unit =
+    Save(%r1, m.2113)
+  In
+  (Let Tu5766:Unit =
+    Save(%f1, Ta1412.2813)
+  In
+  (Let Tu5765:Unit =
+    Save(%f0, Td1441.2787)
+  In
+  (Let Tu5764:Unit =
+    Save(%f2, Td1444.2789)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r2.2018, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1444.2789)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td1441.2787)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f0:Float =
+    CallDir(fhalf.1982, [], [%f0])
+  In
+  (Let %f1:Float =
+    Restore(Td1436.2784)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1430.2781)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %f0:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 1)
+  In
+  (Let %r2:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5771:Unit =
+    Save(%r1, Ta1430.2781)
+  In
+  (Let Tu5770:Unit =
+    Save(%r2, m.2113)
+  In
+  (Let Tu5769:Unit =
+    Save(%f0, Ta1412.2813)
+  In
+  (Let Tu5768:Unit =
+    Save(%f1, Td1454.2777)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_b.1996, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1454.2777)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %r1:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5775:Unit =
+    Save(%f0, Td1456.2764)
+  In
+  (Let Tu5774:Unit =
+    Save(%r1, m.2113)
+  In
+  (Let Tu5773:Unit =
+    Save(%f1, Ta1412.2813)
+  In
+  (Let Tu5772:Unit =
+    Save(%f2, Td1459.2773)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r3.2020, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1459.2773)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 2)
+  In
+  (Let %r1:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5779:Unit =
+    Save(%r1, m.2113)
+  In
+  (Let Tu5778:Unit =
+    Save(%f1, Ta1412.2813)
+  In
+  (Let Tu5777:Unit =
+    Save(%f0, Td1461.2767)
+  In
+  (Let Tu5776:Unit =
+    Save(%f2, Td1464.2769)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r1.2016, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1464.2769)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td1461.2767)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f0:Float =
+    CallDir(fhalf.1982, [], [%f0])
+  In
+  (Let %f1:Float =
+    Restore(Td1456.2764)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1430.2781)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %f0:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 2)
+  In
+  (Let %r2:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5783:Unit =
+    Save(%r1, Ta1430.2781)
+  In
+  (Let Tu5782:Unit =
+    Save(%r2, m.2113)
+  In
+  (Let Tu5781:Unit =
+    Save(%f0, Ta1412.2813)
+  In
+  (Let Tu5780:Unit =
+    Save(%f1, Td1474.2757)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_c.1998, [%r2], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1474.2757)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f2:Float =
+    FLoad(%f1, 0)
+  In
+  (Let %r1:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5787:Unit =
+    Save(%f0, Td1476.2744)
+  In
+  (Let Tu5786:Unit =
+    Save(%r1, m.2113)
+  In
+  (Let Tu5785:Unit =
+    Save(%f1, Ta1412.2813)
+  In
+  (Let Tu5784:Unit =
+    Save(%f2, Td1479.2753)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r2.2018, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1479.2753)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Ta1412.2813)
+  In
+  (Let %f1:Float =
+    FLoad(%f1, 1)
+  In
+  (Let %r1:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5790:Unit =
+    Save(%r1, m.2113)
+  In
+  (Let Tu5789:Unit =
+    Save(%f0, Td1481.2747)
+  In
+  (Let Tu5788:Unit =
+    Save(%f1, Td1484.2749)
+  In
+  (Let %f0:Float =
+    CallDir(o_param_r1.2016, [%r1], [])
+  In
+  (Let %f1:Float =
+    Restore(Td1484.2749)
+  In
+  (Let %f0:Float =
+    FMul(%f1, %f0)
+  In
+  (Let %f1:Float =
+    Restore(Td1481.2747)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %f0:Float =
+    CallDir(fhalf.1982, [], [%f0])
+  In
+  (Let %f1:Float =
+    Restore(Td1476.2744)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  (Let %r1:Int =
+    Restore(Ta1430.2781)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r2:Int =
+    Restore(m.2113)
+  In
+  (Let Tu5791:Unit =
+    Save(%r1, Ta1430.2781)
+  In
+  (Let %r2:Bool =
+    CallDir(o_isinvert.1990, [%r2], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta1430.2781)
+  In
+  CallDir(normalize_vector.2022, [%r1; %r2], [])))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function get_nvector.2115 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let Tu5794:Unit =
+    Save(%r2, p.2117)
+  In
+  (Let Tu5793:Unit =
+    Save(%r1, m.2116)
+  In
+  (Let %r1:Int =
+    CallDir(o_form.1986, [%r1], [])
+  In
+  (Let %r2:Int =
+    Li(1)
+  In
+  (IfEq %r1 %r2 Then
+    (Let %zero:Unit =
+      Nop
+    In
+    CallDir(get_nvector_rect.2105, [], []))
+  Else
+    (Let %r2:Int =
+      Li(2)
+    In
+    (IfEq %r1 %r2 Then
+      (Let %r1:Int =
+        Restore(m.2116)
+      In
+      CallDir(get_nvector_plane.2107, [%r1], []))
+    Else
+      (Let %r1:Int =
+        Restore(m.2116)
+      In
+      (Let Tu5795:Unit =
+        Save(%r1, m.2116)
+      In
+      (Let %r1:Int =
+        CallDir(o_isrot.1992, [%r1], [])
+      In
+      (Let %r2:Int =
+        Li(0)
+      In
+      (IfEq %r1 %r2 Then
+        (Let %r1:Int =
+          Restore(m.2116)
+        In
+        (Let %r2:Int =
+          Restore(p.2117)
+        In
+        CallDir(get_nvector_second_norot.2109, [%r1; %r2], [])))
+      Else
+        (Let %r1:Int =
+          Restore(m.2116)
+        In
+        (Let %r2:Int =
+          Restore(p.2117)
+        In
+        CallDir(get_nvector_second_rot.2112, [%r1; %r2], [])))))))))))))))
+
+Function utexture.2118 Args(%r1 %r2) FArgs() Ret:Unit =
+  (Let Tu5798:Unit =
+    Save(%r2, p.2120)
+  In
+  (Let Tu5797:Unit =
+    Save(%r1, m.2119)
+  In
+  (Let %r1:Int =
+    CallDir(o_texturetype.1984, [%r1], [])
+  In
+  (Let %r2:Array(Float) =
+    SetL(min_caml_texture_color)
+  In
+  (Let %r3:Int =
+    Li(0)
+  In
+  (Let %r4:Int =
+    Restore(m.2119)
+  In
+  (Let Tu5802:Unit =
+    Save(%r3, Ti1498.2725)
+  In
+  (Let Tu5801:Unit =
+    Save(%r1, m_tex.2569)
+  In
+  (Let Tu5800:Unit =
+    Save(%r4, m.2119)
+  In
+  (Let Tu5799:Unit =
+    Save(%r2, Ta1497.2724)
+  In
+  (Let %f0:Float =
+    CallDir(o_color_red.2010, [%r4], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta1497.2724)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r2:Int =
+    Li(1)
+  In
+  (Let %r3:Int =
+    Restore(m.2119)
+  In
+  (Let Tu5805:Unit =
+    Save(%r2, Ti1501.2722)
+  In
+  (Let Tu5804:Unit =
+    Save(%r3, m.2119)
+  In
+  (Let Tu5803:Unit =
+    Save(%r1, Ta1497.2724)
+  In
+  (Let %f0:Float =
+    CallDir(o_color_green.2012, [%r3], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta1497.2724)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 1)
+  In
+  (Let %r2:Int =
+    Li(2)
+  In
+  (Let %r3:Int =
+    Restore(m.2119)
+  In
+  (Let Tu5808:Unit =
+    Save(%r2, Ti1504.2719)
+  In
+  (Let Tu5807:Unit =
+    Save(%r3, m.2119)
+  In
+  (Let Tu5806:Unit =
+    Save(%r1, Ta1497.2724)
+  In
+  (Let %f0:Float =
+    CallDir(o_color_blue.2014, [%r3], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta1497.2724)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 2)
+  In
+  (Let %r2:Int =
+    Restore(Ti1501.2722)
+  In
+  (Let %r3:Int =
+    Restore(m_tex.2569)
+  In
+  (IfEq %r3 %r2 Then
+    (Let %f0:Float =
+      Restore(p.2120)
+    In
+    (Let %f1:Float =
+      FLoad(%f0, 0)
+    In
+    (Let %r3:Int =
+      Restore(m.2119)
+    In
+    (Let Tu6394:Unit =
+      Save(%r1, Ta1497.2724)
+    In
+    (Let Tu6393:Unit =
+      Save(%r3, m.2119)
+    In
+    (Let Tu6392:Unit =
+      Save(%f0, p.2120)
+    In
+    (Let Tu6391:Unit =
+      Save(%r2, Ti1501.2722)
+    In
+    (Let Tu6390:Unit =
+      Save(%f1, Td1508.2715)
+    In
+    (Let %f0:Float =
+      CallDir(o_param_x.2000, [%r3], [])
+    In
+    (Let %f1:Float =
+      Restore(Td1508.2715)
+    In
+    (Let %f0:Float =
+      FSub(%f1, %f0)
+    In
+    (Let %f1:Float =
+      FLi(0.05)
+    In
+    (Let %f2:Float =
+      FMul(%f1, %f0)
+    In
+    (Let Tu6396:Unit =
+      Save(%f1, Td1510.2714)
+    In
+    (Let Tu6395:Unit =
+      Save(%f0, w1.2688)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_floor, [], [%f2])
+    In
+    (Let %f1:Float =
+      FLi(20.)
+    In
+    (Let %f0:Float =
+      FMul(%f0, %f1)
+    In
+    (Let %f2:Float =
+      FLi(10.)
+    In
+    (Let %f3:Float =
+      Restore(w1.2688)
+    In
+    (Let %f0:Float =
+      FSub(%f3, %f0)
+    In
+    (Let %r1:Bool =
+      (IfFLE %f2 %f0 Then
+        (Let %r1:Int =
+          Restore(Ti1498.2725)
+        In
+        Mr(%r1))
+      Else
+        (Let %r1:Int =
+          Restore(Ti1501.2722)
+        In
+        Mr(%r1)))
+    In
+    (Let %f0:Float =
+      Restore(p.2120)
+    In
+    (Let %f0:Float =
+      FLoad(%f0, 2)
+    In
+    (Let %r2:Int =
+      Restore(m.2119)
+    In
+    (Let Tu6400:Unit =
+      Save(%r1, flag1.2689)
+    In
+    (Let Tu6399:Unit =
+      Save(%f2, Td1514.2709)
+    In
+    (Let Tu6398:Unit =
+      Save(%f1, Td1513.2712)
+    In
+    (Let Tu6397:Unit =
+      Save(%f0, Td1517.2705)
+    In
+    (Let %f0:Float =
+      CallDir(o_param_z.2004, [%r2], [])
+    In
+    (Let %f1:Float =
+      Restore(Td1517.2705)
+    In
+    (Let %f0:Float =
+      FSub(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(Td1510.2714)
+    In
+    (Let %f1:Float =
+      FMul(%f1, %f0)
+    In
+    (Let Tu6401:Unit =
+      Save(%f0, w3.2690)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_floor, [], [%f1])
+    In
+    (Let %f1:Float =
+      Restore(Td1513.2712)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(w3.2690)
+    In
+    (Let %f0:Float =
+      FSub(%f1, %f0)
+    In
+    (Let %f1:Float =
+      Restore(Td1514.2709)
+    In
+    (Let %r1:Bool =
+      (IfFLE %f1 %f0 Then
+        (Let %r1:Int =
+          Restore(Ti1498.2725)
+        In
+        Mr(%r1))
+      Else
+        (Let %r1:Int =
+          Restore(Ti1501.2722)
+        In
+        Mr(%r1)))
+    In
+    (Let %r2:Int =
+      Restore(Ti1498.2725)
+    In
+    (Let %r3:Int =
+      Restore(flag1.2689)
+    In
+    (Let %f0:Float =
+      (IfEq %r3 %r2 Then
+        (IfEq %r1 %r2 Then
+          FLi(255.)
+        Else
+          FLi(0.))
+      Else
+        (IfEq %r1 %r2 Then
+          FLi(0.)
+        Else
+          FLi(255.)))
+    In
+    (Let %r1:Int =
+      Restore(Ta1497.2724)
+    In
+    FStore(%f0, %r1, 1)))))))))))))))))))))))))))))))))))))))))))))))
+  Else
+    (Let %r2:Int =
+      Restore(Ti1504.2719)
+    In
+    (IfEq %r3 %r2 Then
+      (Let %f0:Float =
+        Restore(p.2120)
+      In
+      (Let %f0:Float =
+        FLoad(%f0, 1)
+      In
+      (Let %f1:Float =
+        FLi(0.25)
+      In
+      (Let %f0:Float =
+        FMul(%f0, %f1)
+      In
+      (Let Tu6445:Unit =
+        Save(%r1, Ta1497.2724)
+      In
+      (Let %f0:Float =
+        CallDir(min_caml_sin, [], [%f0])
+      In
+      (Let %f0:Float =
+        CallDir(fsqr.1980, [], [%f0])
+      In
+      (Let %f1:Float =
+        FLi(255.)
+      In
+      (Let %f2:Float =
+        FMul(%f1, %f0)
+      In
+      (Let %r1:Int =
+        Restore(Ta1497.2724)
+      In
+      (Let %zero:Unit =
+        FStore(%f2, %r1, 0)
+      In
+      (Let %f2:Float =
+        FLi(1.)
+      In
+      (Let %f0:Float =
+        FSub(%f2, %f0)
+      In
+      (Let %f0:Float =
+        FMul(%f1, %f0)
+      In
+      FStore(%f0, %r1, 1)))))))))))))))
+    Else
+      (Let %r2:Int =
+        Li(3)
+      In
+      (IfEq %r3 %r2 Then
+        (Let %f0:Float =
+          Restore(p.2120)
+        In
+        (Let %f1:Float =
+          FLoad(%f0, 0)
+        In
+        (Let %r2:Int =
+          Restore(m.2119)
+        In
+        (Let Tu6449:Unit =
+          Save(%r1, Ta1497.2724)
+        In
+        (Let Tu6448:Unit =
+          Save(%r2, m.2119)
+        In
+        (Let Tu6447:Unit =
+          Save(%f0, p.2120)
+        In
+        (Let Tu6446:Unit =
+          Save(%f1, Td1549.2668)
+        In
+        (Let %f0:Float =
+          CallDir(o_param_x.2000, [%r2], [])
+        In
+        (Let %f1:Float =
+          Restore(Td1549.2668)
+        In
+        (Let %f0:Float =
+          FSub(%f1, %f0)
+        In
+        (Let %f1:Float =
+          Restore(p.2120)
+        In
+        (Let %f1:Float =
+          FLoad(%f1, 2)
+        In
+        (Let %r1:Int =
+          Restore(m.2119)
+        In
+        (Let Tu6451:Unit =
+          Save(%f0, w1.2640)
+        In
+        (Let Tu6450:Unit =
+          Save(%f1, Td1552.2665)
+        In
+        (Let %f0:Float =
+          CallDir(o_param_z.2004, [%r1], [])
+        In
+        (Let %f1:Float =
+          Restore(Td1552.2665)
+        In
+        (Let %f0:Float =
+          FSub(%f1, %f0)
+        In
+        (Let %f1:Float =
+          Restore(w1.2640)
+        In
+        (Let Tu6452:Unit =
+          Save(%f0, w3.2641)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f1])
+        In
+        (Let %f1:Float =
+          Restore(w3.2641)
+        In
+        (Let Tu6453:Unit =
+          Save(%f0, Td1554.2663)
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f1])
+        In
+        (Let %f1:Float =
+          Restore(Td1554.2663)
+        In
+        (Let %f0:Float =
+          FAdd(%f1, %f0)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_sqrt, [], [%f0])
+        In
+        (Let %f1:Float =
+          FLi(10.)
+        In
+        (Let %f0:Float =
+          FDiv(%f0, %f1)
+        In
+        (Let Tu6454:Unit =
+          Save(%f0, w2.2642)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_floor, [], [%f0])
+        In
+        (Let %f1:Float =
+          Restore(w2.2642)
+        In
+        (Let %f0:Float =
+          FSub(%f1, %f0)
+        In
+        (Let %f1:Float =
+          FLi(3.1415927)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %f0:Float =
+          CallDir(min_caml_cos, [], [%f0])
+        In
+        (Let %f0:Float =
+          CallDir(fsqr.1980, [], [%f0])
+        In
+        (Let %f1:Float =
+          FLi(255.)
+        In
+        (Let %f2:Float =
+          FMul(%f1, %f0)
+        In
+        (Let %r1:Int =
+          Restore(Ta1497.2724)
+        In
+        (Let %zero:Unit =
+          FStore(%f2, %r1, 1)
+        In
+        (Let %f2:Float =
+          FLi(1.)
+        In
+        (Let %f0:Float =
+          FSub(%f2, %f0)
+        In
+        (Let %f0:Float =
+          FMul(%f1, %f0)
+        In
+        FStore(%f0, %r1, 2)))))))))))))))))))))))))))))))))))))))))))))
+      Else
+        (Let %r2:Int =
+          Li(4)
+        In
+        (IfEq %r3 %r2 Then
+          (Let %f0:Float =
+            Restore(p.2120)
+          In
+          (Let %f1:Float =
+            FLoad(%f0, 0)
+          In
+          (Let %r2:Int =
+            Restore(m.2119)
+          In
+          (Let Tu6458:Unit =
+            Save(%r1, Ta1497.2724)
+          In
+          (Let Tu6457:Unit =
+            Save(%f0, p.2120)
+          In
+          (Let Tu6456:Unit =
+            Save(%r2, m.2119)
+          In
+          (Let Tu6455:Unit =
+            Save(%f1, Td1575.2637)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_x.2000, [%r2], [])
+          In
+          (Let %f1:Float =
+            Restore(Td1575.2637)
+          In
+          (Let %f0:Float =
+            FSub(%f1, %f0)
+          In
+          (Let %r1:Int =
+            Restore(m.2119)
+          In
+          (Let Tu6460:Unit =
+            Save(%r1, m.2119)
+          In
+          (Let Tu6459:Unit =
+            Save(%f0, Td1577.2634)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_a.1994, [%r1], [])
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_sqrt, [], [%f0])
+          In
+          (Let %f1:Float =
+            Restore(Td1577.2634)
+          In
+          (Let %f0:Float =
+            FMul(%f1, %f0)
+          In
+          (Let %f1:Float =
+            Restore(p.2120)
+          In
+          (Let %f2:Float =
+            FLoad(%f1, 2)
+          In
+          (Let %r1:Int =
+            Restore(m.2119)
+          In
+          (Let Tu6464:Unit =
+            Save(%f1, p.2120)
+          In
+          (Let Tu6463:Unit =
+            Save(%f0, w1.2577)
+          In
+          (Let Tu6462:Unit =
+            Save(%r1, m.2119)
+          In
+          (Let Tu6461:Unit =
+            Save(%f2, Td1581.2631)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_z.2004, [%r1], [])
+          In
+          (Let %f1:Float =
+            Restore(Td1581.2631)
+          In
+          (Let %f0:Float =
+            FSub(%f1, %f0)
+          In
+          (Let %r1:Int =
+            Restore(m.2119)
+          In
+          (Let Tu6466:Unit =
+            Save(%r1, m.2119)
+          In
+          (Let Tu6465:Unit =
+            Save(%f0, Td1583.2628)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_c.1998, [%r1], [])
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_sqrt, [], [%f0])
+          In
+          (Let %f1:Float =
+            Restore(Td1583.2628)
+          In
+          (Let %f0:Float =
+            FMul(%f1, %f0)
+          In
+          (Let %f1:Float =
+            Restore(w1.2577)
+          In
+          (Let Tu6468:Unit =
+            Save(%f1, w1.2577)
+          In
+          (Let Tu6467:Unit =
+            Save(%f0, w3.2578)
+          In
+          (Let %f0:Float =
+            CallDir(fsqr.1980, [], [%f1])
+          In
+          (Let %f1:Float =
+            Restore(w3.2578)
+          In
+          (Let Tu6470:Unit =
+            Save(%f1, w3.2578)
+          In
+          (Let Tu6469:Unit =
+            Save(%f0, Td1586.2626)
+          In
+          (Let %f0:Float =
+            CallDir(fsqr.1980, [], [%f1])
+          In
+          (Let %f1:Float =
+            Restore(Td1586.2626)
+          In
+          (Let %f0:Float =
+            FAdd(%f1, %f0)
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_sqrt, [], [%f0])
+          In
+          (Let %f1:Float =
+            FLi(0.0001)
+          In
+          (Let %f2:Float =
+            Restore(w1.2577)
+          In
+          (Let Tu6473:Unit =
+            Save(%f0, w4.2579)
+          In
+          (Let Tu6472:Unit =
+            Save(%f2, w1.2577)
+          In
+          (Let Tu6471:Unit =
+            Save(%f1, Td1589.2617)
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_abs_float, [], [%f2])
+          In
+          (Let %f1:Float =
+            Restore(Td1589.2617)
+          In
+          (Let Tu6475:Unit =
+            Save(%f1, Td1589.2617)
+          In
+          (Let %f0:Float =
+            (IfFLE %f1 %f0 Then
+              (Let %f0:Float =
+                Restore(w1.2577)
+              In
+              (Let %f2:Float =
+                Restore(w3.2578)
+              In
+              (Let %f0:Float =
+                FDiv(%f2, %f0)
+              In
+              (Let Tu6474:Unit =
+                Save(%f1, Td1589.2617)
+              In
+              (Let %f0:Float =
+                CallDir(min_caml_abs_float, [], [%f0])
+              In
+              (Let %f0:Float =
+                CallDir(min_caml_atan, [], [%f0])
+              In
+              (Let %f1:Float =
+                FLi(9.54929644444)
+              In
+              FMul(%f0, %f1))))))))
+            Else
+              FLi(15.))
+          In
+          (Let Tu6476:Unit =
+            Save(%f0, w7.2580)
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_floor, [], [%f0])
+          In
+          (Let %f1:Float =
+            Restore(w7.2580)
+          In
+          (Let %f0:Float =
+            FSub(%f1, %f0)
+          In
+          (Let %f2:Float =
+            Restore(p.2120)
+          In
+          (Let %f2:Float =
+            FLoad(%f2, 1)
+          In
+          (Let %r1:Int =
+            Restore(m.2119)
+          In
+          (Let Tu6480:Unit =
+            Save(%f0, w9.2581)
+          In
+          (Let Tu6479:Unit =
+            Save(%f1, w7.2580)
+          In
+          (Let Tu6478:Unit =
+            Save(%r1, m.2119)
+          In
+          (Let Tu6477:Unit =
+            Save(%f2, Td1598.2613)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_y.2002, [%r1], [])
+          In
+          (Let %f1:Float =
+            Restore(Td1598.2613)
+          In
+          (Let %f0:Float =
+            FSub(%f1, %f0)
+          In
+          (Let %r1:Int =
+            Restore(m.2119)
+          In
+          (Let Tu6481:Unit =
+            Save(%f0, Td1600.2610)
+          In
+          (Let %f0:Float =
+            CallDir(o_param_b.1996, [%r1], [])
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_sqrt, [], [%f0])
+          In
+          (Let %f1:Float =
+            Restore(Td1600.2610)
+          In
+          (Let %f0:Float =
+            FMul(%f1, %f0)
+          In
+          (Let %f1:Float =
+            Restore(w7.2580)
+          In
+          (Let Tu6482:Unit =
+            Save(%f0, w2.2582)
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_abs_float, [], [%f1])
+          In
+          (Let %f1:Float =
+            Restore(Td1589.2617)
+          In
+          (Let %f0:Float =
+            (IfFLE %f1 %f0 Then
+              (Let %f0:Float =
+                Restore(w4.2579)
+              In
+              (Let %f1:Float =
+                Restore(w2.2582)
+              In
+              (Let %f0:Float =
+                FDiv(%f1, %f0)
+              In
+              (Let %f0:Float =
+                CallDir(min_caml_abs_float, [], [%f0])
+              In
+              (Let %f0:Float =
+                CallDir(min_caml_atan, [], [%f0])
+              In
+              (Let %f1:Float =
+                FLi(9.54929644444)
+              In
+              FMul(%f0, %f1)))))))
+            Else
+              FLi(15.))
+          In
+          (Let Tu6483:Unit =
+            Save(%f0, w8.2583)
+          In
+          (Let %f0:Float =
+            CallDir(min_caml_floor, [], [%f0])
+          In
+          (Let %f1:Float =
+            Restore(w8.2583)
+          In
+          (Let %f0:Float =
+            FSub(%f1, %f0)
+          In
+          (Let %f1:Float =
+            FLi(0.15)
+          In
+          (Let %f2:Float =
+            FLi(0.5)
+          In
+          (Let %f3:Float =
+            Restore(w9.2581)
+          In
+          (Let %f3:Float =
+            FSub(%f2, %f3)
+          In
+          (Let Tu6486:Unit =
+            Save(%f0, w10.2584)
+          In
+          (Let Tu6485:Unit =
+            Save(%f2, Td1612.2600)
+          In
+          (Let Tu6484:Unit =
+            Save(%f1, Td1611.2597)
+          In
+          (Let %f0:Float =
+            CallDir(fsqr.1980, [], [%f3])
+          In
+          (Let %f1:Float =
+            Restore(Td1611.2597)
+          In
+          (Let %f0:Float =
+            FSub(%f1, %f0)
+          In
+          (Let %f1:Float =
+            Restore(w10.2584)
+          In
+          (Let %f2:Float =
+            Restore(Td1612.2600)
+          In
+          (Let %f1:Float =
+            FSub(%f2, %f1)
+          In
+          (Let Tu6487:Unit =
+            Save(%f0, Td1615.2593)
+          In
+          (Let %f0:Float =
+            CallDir(fsqr.1980, [], [%f1])
+          In
+          (Let %f1:Float =
+            Restore(Td1615.2593)
+          In
+          (Let %f0:Float =
+            FSub(%f1, %f0)
+          In
+          (Let %f1:Float =
+            FLi(0.)
+          In
+          (Let %f0:Float =
+            (IfFLE %f0 %f1 Then
+              FMr(%f1)
+            Else
+              (Let %f1:Float =
+                FLi(850.)
+              In
+              FMul(%f1, %f0)))
+          In
+          (Let %r1:Int =
+            Restore(Ta1497.2724)
+          In
+          FStore(%f0, %r1, 2))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+        Else
+          Nop))))))))))))))))))))))))))))))))))))))
+
+Function in_prod.2121 Args(%r1 %r2) FArgs() Ret:Float =
+  (Let %f0:Float =
+    FLoad(%r1, 0)
+  In
+  (Let %f1:Float =
+    FLoad(%r2, 0)
+  In
+  (Let %f0:Float =
+    FMul(%f0, %f1)
+  In
+  (Let %f1:Float =
+    FLoad(%r1, 1)
+  In
+  (Let %f2:Float =
+    FLoad(%r2, 1)
+  In
+  (Let %f1:Float =
+    FMul(%f1, %f2)
+  In
+  (Let %f0:Float =
+    FAdd(%f0, %f1)
+  In
+  (Let %f1:Float =
+    FLoad(%r1, 2)
+  In
+  (Let %f2:Float =
+    FLoad(%r2, 2)
+  In
+  (Let %f1:Float =
+    FMul(%f1, %f2)
+  In
+  FAdd(%f0, %f1)))))))))))
+
+Function accumulate_vec_mul.2124 Args(%r1 %r2) FArgs(%f0) Ret:Unit =
+  (Let %f1:Float =
+    FLoad(%r1, 0)
+  In
+  (Let %f2:Float =
+    FLoad(%r2, 0)
+  In
+  (Let %f2:Float =
+    FMul(%f2, %f0)
+  In
+  (Let %f1:Float =
+    FAdd(%f1, %f2)
+  In
+  (Let %zero:Unit =
+    FStore(%f1, %r1, 0)
+  In
+  (Let %f1:Float =
+    FLoad(%r1, 1)
+  In
+  (Let %f2:Float =
+    FLoad(%r2, 1)
+  In
+  (Let %f2:Float =
+    FMul(%f2, %f0)
+  In
+  (Let %f1:Float =
+    FAdd(%f1, %f2)
+  In
+  (Let %zero:Unit =
+    FStore(%f1, %r1, 1)
+  In
+  (Let %f1:Float =
+    FLoad(%r1, 2)
+  In
+  (Let %f2:Float =
+    FLoad(%r2, 2)
+  In
+  (Let %f0:Float =
+    FMul(%f2, %f0)
+  In
+  (Let %f0:Float =
+    FAdd(%f1, %f0)
+  In
+  FStore(%f0, %r1, 2)))))))))))))))
+
+Function raytracing.2128 Args(%r1) FArgs(%f0) Ret:Unit =
+  (Let %r2:Array(Float) =
+    SetL(min_caml_viewpoint)
+  In
+  (Let %r3:Array(Float) =
+    SetL(min_caml_vscan)
+  In
+  (Let Tu6493:Unit =
+    Save(%r2, Ta1663.2528)
+  In
+  (Let Tu6492:Unit =
+    Save(%f0, energy.2130)
+  In
+  (Let Tu6491:Unit =
+    Save(%r3, Ta1664.2529)
+  In
+  (Let Tu6490:Unit =
+    Save(%r1, nref.2129)
+  In
+  (Let %r1:Bool =
+    CallDir(tracer.2102, [%r2; %r3], [])
+  In
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let Tu6507:Unit =
+    Save(%r2, Ti1665.2494)
+  In
+  (Let Tu6506:Unit =
+    Save(%r1, crashed_p.2392)
+  In
+  (Let %zero:Unit =
+    (IfEq %r1 %r2 Then
+      (Let %r3:Int =
+        Restore(nref.2129)
+      In
+      (Let Tu6505:Unit =
+        Save(%r3, nref.2129)
+      In
+      (Let Tu6504:Unit =
+        Save(%r2, Ti1665.2494)
+      In
+      (Let Tu6503:Unit =
+        Save(%r1, crashed_p.2392)
+      In
+      (IfEq %r3 %r2 Then
+        Nop
+      Else
+        (Let %r4:Array(Float) =
+          SetL(min_caml_light)
+        In
+        (Let %r5:Int =
+          Restore(Ta1664.2529)
+        In
+        (Let Tu6501:Unit =
+          Save(%r5, Ta1664.2529)
+        In
+        (Let Tu6500:Unit =
+          Save(%r3, nref.2129)
+        In
+        (Let Tu6499:Unit =
+          Save(%r2, Ti1665.2494)
+        In
+        (Let Tu6498:Unit =
+          Save(%r1, crashed_p.2392)
+        In
+        (Let %f0:Float =
+          CallDir(in_prod.2121, [%r5; %r4], [])
+        In
+        (Let %f0:Float =
+          FNeg(%f0)
+        In
+        (Let %f1:Float =
+          FLi(0.)
+        In
+        (IfFLE %f0 %f1 Then
+          Nop
+        Else
+          (Let Tu6502:Unit =
+            Save(%f0, hl.2496)
+          In
+          (Let %f0:Float =
+            CallDir(fsqr.1980, [], [%f0])
+          In
+          (Let %f1:Float =
+            Restore(hl.2496)
+          In
+          (Let %f0:Float =
+            FMul(%f0, %f1)
+          In
+          (Let %f1:Float =
+            Restore(energy.2130)
+          In
+          (Let %f0:Float =
+            FMul(%f0, %f1)
+          In
+          (Let %r1:Array(Float) =
+            SetL(min_caml_beam)
+          In
+          (Let %f2:Float =
+            FLoad(%r1, 0)
+          In
+          (Let %f0:Float =
+            FMul(%f0, %f2)
+          In
+          (Let %r1:Array(Float) =
+            SetL(min_caml_rgb)
+          In
+          (Let %f2:Float =
+            FLoad(%r1, 0)
+          In
+          (Let %f2:Float =
+            FAdd(%f2, %f0)
+          In
+          (Let %zero:Unit =
+            FStore(%f2, %r1, 0)
+          In
+          (Let %f2:Float =
+            FLoad(%r1, 1)
+          In
+          (Let %f2:Float =
+            FAdd(%f2, %f0)
+          In
+          (Let %zero:Unit =
+            FStore(%f2, %r1, 1)
+          In
+          (Let %f2:Float =
+            FLoad(%r1, 2)
+          In
+          (Let %f0:Float =
+            FAdd(%f2, %f0)
+          In
+          FStore(%f0, %r1, 2))))))))))))))))))))))))))))))))))
+    Else
+      Nop)
+  In
+  (Let %r1:Int =
+    Restore(Ti1665.2494)
+  In
+  (Let %r2:Int =
+    Restore(crashed_p.2392)
+  In
+  (IfEq %r2 %r1 Then
+    Nop
+  Else
+    (Let %r2:Array((Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float))) =
+      SetL(min_caml_objects)
+    In
+    (Let %r3:Array(Int) =
+      SetL(min_caml_crashed_object)
+    In
+    (Let %r3:Int =
+      Load(%r3, 0)
+    In
+    (Let %r2:(Int * Int * Int * Int * Array(Float) * Array(Float) * Bool * Array(Float) * Array(Float) * Array(Float)) =
+      Load(%r2, %r3)
+    In
+    (Let %r3:Array(Float) =
+      SetL(min_caml_crashed_point)
+    In
+    (Let Tu6653:Unit =
+      Save(%r2, cobj.2395)
+    In
+    (Let Tu6652:Unit =
+      Save(%r3, Ta1700.2489)
+    In
+    (Let Tu6651:Unit =
+      Save(%r1, Ti1665.2494)
+    In
+    (Let %zero:Unit =
+      CallDir(get_nvector.2115, [%r2; %r3], [])
+    In
+    (Let %r1:Array(Array(Array(Int))) =
+      SetL(min_caml_or_net)
+    In
+    (Let %r2:Array(Array(Int)) =
+      Load(%r1, 0)
+    In
+    (Let %r1:Int =
+      Restore(Ti1665.2494)
+    In
+    (Let %r3:Int =
+      Restore(Ta1700.2489)
+    In
+    (Let Tu6655:Unit =
+      Save(%r3, Ta1700.2489)
+    In
+    (Let Tu6654:Unit =
+      Save(%r1, Ti1665.2494)
+    In
+    (Let %r1:Bool =
+      CallDir(shadow_check_one_or_matrix.2089, [%r1; %r2; %r3], [])
+    In
+    (Let %r2:Int =
+      Restore(Ti1665.2494)
+    In
+    (Let %f0:Float =
+      (IfEq %r1 %r2 Then
+        (Let %r1:Array(Float) =
+          SetL(min_caml_nvector)
+        In
+        (Let %r2:Array(Float) =
+          SetL(min_caml_light)
+        In
+        (Let %f0:Float =
+          CallDir(in_prod.2121, [%r1; %r2], [])
+        In
+        (Let %f0:Float =
+          FNeg(%f0)
+        In
+        (Let %f1:Float =
+          FLi(0.)
+        In
+        (Let %f0:Float =
+          (IfFLE %f1 %f0 Then
+            (Let %f1:Float =
+              FLi(0.2)
+            In
+            FAdd(%f1, %f0))
+          Else
+            FLi(0.2))
+        In
+        (Let %f1:Float =
+          Restore(energy.2130)
+        In
+        (Let %f0:Float =
+          FMul(%f0, %f1)
+        In
+        (Let %r1:Int =
+          Restore(cobj.2395)
+        In
+        (Let Tu6661:Unit =
+          Save(%f1, energy.2130)
+        In
+        (Let Tu6660:Unit =
+          Save(%r1, cobj.2395)
+        In
+        (Let Tu6659:Unit =
+          Save(%f0, Td1713.2477)
+        In
+        (Let %f0:Float =
+          CallDir(o_diffuse.2006, [%r1], [])
+        In
+        (Let %f1:Float =
+          Restore(Td1713.2477)
+        In
+        FMul(%f1, %f0)))))))))))))))
+      Else
+        FLi(0.))
+    In
+    (Let %r1:Int =
+      Restore(cobj.2395)
+    In
+    (Let %r2:Int =
+      Restore(Ta1700.2489)
+    In
+    (Let Tu6664:Unit =
+      Save(%r2, Ta1700.2489)
+    In
+    (Let Tu6663:Unit =
+      Save(%r1, cobj.2395)
+    In
+    (Let Tu6662:Unit =
+      Save(%f0, bright.2397)
+    In
+    (Let %zero:Unit =
+      CallDir(utexture.2118, [%r1; %r2], [])
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_rgb)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_texture_color)
+    In
+    (Let %f0:Float =
+      Restore(bright.2397)
+    In
+    (Let Tu6666:Unit =
+      Save(%r1, Ta1716.2470)
+    In
+    (Let Tu6665:Unit =
+      Save(%f0, bright.2397)
+    In
+    (Let %zero:Unit =
+      CallDir(accumulate_vec_mul.2124, [%r1; %r2], [%f0])
+    In
+    (Let %r1:Int =
+      Li(4)
+    In
+    (Let %r2:Int =
+      Restore(nref.2129)
+    In
+    (IfLE %r2 %r1 Then
+      (Let %f0:Float =
+        FLi(0.1)
+      In
+      (Let %f1:Float =
+        Restore(energy.2130)
+      In
+      (IfFLE %f1 %f0 Then
+        Nop
+      Else
+        (Let %f0:Float =
+          FLi(-2.)
+        In
+        (Let %r1:Array(Float) =
+          SetL(min_caml_nvector)
+        In
+        (Let %r3:Int =
+          Restore(Ta1664.2529)
+        In
+        (Let Tu6712:Unit =
+          Save(%r2, nref.2129)
+        In
+        (Let Tu6711:Unit =
+          Save(%f1, energy.2130)
+        In
+        (Let Tu6710:Unit =
+          Save(%r1, Ta1722.2469)
+        In
+        (Let Tu6709:Unit =
+          Save(%r3, Ta1664.2529)
+        In
+        (Let Tu6708:Unit =
+          Save(%f0, Td1720.2466)
+        In
+        (Let %f0:Float =
+          CallDir(in_prod.2121, [%r3; %r1], [])
+        In
+        (Let %f1:Float =
+          Restore(Td1720.2466)
+        In
+        (Let %f0:Float =
+          FMul(%f1, %f0)
+        In
+        (Let %r1:Int =
+          Restore(Ta1664.2529)
+        In
+        (Let %r2:Int =
+          Restore(Ta1722.2469)
+        In
+        (Let Tu6713:Unit =
+          Save(%r1, Ta1664.2529)
+        In
+        (Let %zero:Unit =
+          CallDir(accumulate_vec_mul.2124, [%r1; %r2], [%f0])
+        In
+        (Let %r1:Int =
+          Restore(cobj.2395)
+        In
+        (Let Tu6714:Unit =
+          Save(%r1, cobj.2395)
+        In
+        (Let %r1:Int =
+          CallDir(o_reflectiontype.1988, [%r1], [])
+        In
+        (Let %r2:Int =
+          Li(1)
+        In
+        (IfEq %r1 %r2 Then
+          (Let %f0:Float =
+            FLi(0.)
+          In
+          (Let %r1:Int =
+            Restore(cobj.2395)
+          In
+          (Let Tu6716:Unit =
+            Save(%r1, cobj.2395)
+          In
+          (Let Tu6715:Unit =
+            Save(%f0, Td1727.2431)
+          In
+          (Let %f0:Float =
+            CallDir(o_hilight.2008, [%r1], [])
+          In
+          (Let %f1:Float =
+            Restore(Td1727.2431)
+          In
+          (IfFEq %f1 %f0 Then
+            Nop
+          Else
+            (Let %r2:Array(Float) =
+              SetL(min_caml_light)
+            In
+            (Let %r1:Int =
+              Restore(Ta1664.2529)
+            In
+            (Let Tu6719:Unit =
+              Save(%f1, Td1727.2431)
+            In
+            (Let %f0:Float =
+              CallDir(in_prod.2121, [%r1; %r2], [])
+            In
+            (Let %f0:Float =
+              FNeg(%f0)
+            In
+            (Let %f1:Float =
+              Restore(Td1727.2431)
+            In
+            (IfFLE %f0 %f1 Then
+              Nop
+            Else
+              (Let %f0:Float =
+                CallDir(fsqr.1980, [], [%f0])
+              In
+              (Let %f0:Float =
+                CallDir(fsqr.1980, [], [%f0])
+              In
+              (Let %f1:Float =
+                Restore(energy.2130)
+              In
+              (Let %f0:Float =
+                FMul(%f0, %f1)
+              In
+              (Let %f1:Float =
+                Restore(bright.2397)
+              In
+              (Let %f0:Float =
+                FMul(%f0, %f1)
+              In
+              (Let %r1:Int =
+                Restore(cobj.2395)
+              In
+              (Let Tu6721:Unit =
+                Save(%f0, Td1736.2456)
+              In
+              (Let %f0:Float =
+                CallDir(o_hilight.2008, [%r1], [])
+              In
+              (Let %f1:Float =
+                Restore(Td1736.2456)
+              In
+              (Let %f0:Float =
+                FMul(%f1, %f0)
+              In
+              (Let %f1:Float =
+                Restore(Ta1716.2470)
+              In
+              (Let %f2:Float =
+                FLoad(%f1, 0)
+              In
+              (Let %f2:Float =
+                FAdd(%f2, %f0)
+              In
+              (Let %zero:Unit =
+                FStore(%f2, %f1, 0)
+              In
+              (Let %f2:Float =
+                FLoad(%f1, 1)
+              In
+              (Let %f2:Float =
+                FAdd(%f2, %f0)
+              In
+              (Let %zero:Unit =
+                FStore(%f2, %f1, 1)
+              In
+              (Let %f2:Float =
+                FLoad(%f1, 2)
+              In
+              (Let %f0:Float =
+                FAdd(%f2, %f0)
+              In
+              FStore(%f0, %f1, 2)))))))))))))))))))))))))))))))))))
+        Else
+          (Let %r2:Int =
+            Li(2)
+          In
+          (IfEq %r1 %r2 Then
+            (Let %f0:Float =
+              Restore(Ta1700.2489)
+            In
+            (Let %f1:Float =
+              FLoad(%f0, 0)
+            In
+            (Let %r1:Int =
+              Restore(Ta1663.2528)
+            In
+            (Let %zero:Unit =
+              FStore(%f1, %r1, 0)
+            In
+            (Let %f1:Float =
+              FLoad(%f0, 1)
+            In
+            (Let %zero:Unit =
+              FStore(%f1, %r1, 1)
+            In
+            (Let %f0:Float =
+              FLoad(%f0, 2)
+            In
+            (Let %zero:Unit =
+              FStore(%f0, %r1, 2)
+            In
+            (Let %f0:Float =
+              FLi(1.)
+            In
+            (Let %r1:Int =
+              Restore(cobj.2395)
+            In
+            (Let Tu6722:Unit =
+              Save(%f0, Td1772.2414)
+            In
+            (Let %f0:Float =
+              CallDir(o_diffuse.2006, [%r1], [])
+            In
+            (Let %f1:Float =
+              Restore(Td1772.2414)
+            In
+            (Let %f0:Float =
+              FSub(%f1, %f0)
+            In
+            (Let %f1:Float =
+              Restore(energy.2130)
+            In
+            (Let %f0:Float =
+              FMul(%f0, %f1)
+            In
+            (Let %r1:Int =
+              Restore(nref.2129)
+            In
+            (Let %r1:Int =
+              Add(%r1, 1)
+            In
+            CallDir(raytracing.2128, [%r1], [%f0])))))))))))))))))))
+          Else
+            Nop)))))))))))))))))))))))))
+    Else
+      Nop)))))))))))))))))))))))))))))))))))))))))))))))
+
+Function write_rgb.2131 Args() FArgs() Ret:Unit =
+  (Let %r1:Array(Float) =
+    SetL(min_caml_rgb)
+  In
+  (Let %f0:Float =
+    FLoad(%r1, 0)
+  In
+  (Let Tu6724:Unit =
+    Save(%r1, Ta1777.2390)
+  In
+  (Let %r1:Int =
+    CallDir(min_caml_int_of_float, [], [%f0])
+  In
+  (Let %r2:Int =
+    Li(255)
+  In
+  (Let %r1:Int =
+    (IfLE %r1 %r2 Then
+      Mr(%r1)
+    Else
+      Mr(%r2))
+  In
+  (Let Tu6725:Unit =
+    Save(%r2, Ti1780.2388)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_byte, [%r1], [])
+  In
+  (Let %f0:Float =
+    Restore(Ta1777.2390)
+  In
+  (Let %f1:Float =
+    FLoad(%f0, 1)
+  In
+  (Let Tu6726:Unit =
+    Save(%f0, Ta1777.2390)
+  In
+  (Let %r1:Int =
+    CallDir(min_caml_int_of_float, [], [%f1])
+  In
+  (Let %r2:Int =
+    Restore(Ti1780.2388)
+  In
+  (Let %r1:Int =
+    (IfLE %r1 %r2 Then
+      Mr(%r1)
+    Else
+      Mr(%r2))
+  In
+  (Let Tu6727:Unit =
+    Save(%r2, Ti1780.2388)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_byte, [%r1], [])
+  In
+  (Let %f0:Float =
+    Restore(Ta1777.2390)
+  In
+  (Let %f0:Float =
+    FLoad(%f0, 2)
+  In
+  (Let %r1:Int =
+    CallDir(min_caml_int_of_float, [], [%f0])
+  In
+  (Let %r2:Int =
+    Restore(Ti1780.2388)
+  In
+  (Let %r1:Int =
+    (IfLE %r1 %r2 Then
+      Mr(%r1)
+    Else
+      Mr(%r2))
+  In
+  CallDir(min_caml_print_byte, [%r1], []))))))))))))))))))))))
+
+Function write_ppm_header.2133 Args() FArgs() Ret:Unit =
+  (Let %r1:Int =
+    Li(80)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_byte, [%r1], [])
+  In
+  (Let %r1:Int =
+    Li(54)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_byte, [%r1], [])
+  In
+  (Let %r1:Int =
+    Li(10)
+  In
+  (Let Tu6729:Unit =
+    Save(%r1, Ti1793.2367)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_byte, [%r1], [])
+  In
+  (Let %r1:Array(Int) =
+    SetL(min_caml_size)
+  In
+  (Let %r2:Int =
+    Load(%r1, 0)
+  In
+  (Let Tu6730:Unit =
+    Save(%r1, Ta1794.2365)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_int, [%r2], [])
+  In
+  (Let %r1:Int =
+    Li(32)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_byte, [%r1], [])
+  In
+  (Let %r1:Int =
+    Restore(Ta1794.2365)
+  In
+  (Let %r1:Int =
+    Load(%r1, 1)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_int, [%r1], [])
+  In
+  (Let %r1:Int =
+    Restore(Ti1793.2367)
+  In
+  (Let Tu6731:Unit =
+    Save(%r1, Ti1793.2367)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_byte, [%r1], [])
+  In
+  (Let %r1:Int =
+    Li(255)
+  In
+  (Let %zero:Unit =
+    CallDir(min_caml_print_int, [%r1], [])
+  In
+  (Let %r1:Int =
+    Restore(Ti1793.2367)
+  In
+  CallDir(min_caml_print_byte, [%r1], [])))))))))))))))))))))))
+
+Function scan_point.2135 Args(%r1) FArgs() Ret:Unit =
+  (Let %r2:Array(Int) =
+    SetL(min_caml_size)
+  In
+  (Let %r3:Int =
+    Li(0)
+  In
+  (Let %r2:Int =
+    Load(%r2, 0)
+  In
+  (IfLE %r2 %r1 Then
+    Nop
+  Else
+    (Let Tu6734:Unit =
+      Save(%r1, scanx.2136)
+    In
+    (Let Tu6733:Unit =
+      Save(%r3, Ti1805.2348)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_float_of_int, [%r1], [])
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_scan_offset)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 0)
+    In
+    (Let %f0:Float =
+      FSub(%f0, %f1)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_scan_d)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 0)
+    In
+    (Let %f0:Float =
+      FMul(%f0, %f1)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_vscan)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_cos_v)
+    In
+    (Let %f1:Float =
+      FLoad(%r2, 1)
+    In
+    (Let %f1:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %r3:Array(Float) =
+      SetL(min_caml_wscan)
+    In
+    (Let %f2:Float =
+      FLoad(%r3, 0)
+    In
+    (Let %f1:Float =
+      FAdd(%f1, %f2)
+    In
+    (Let %zero:Unit =
+      FStore(%f1, %r1, 0)
+    In
+    (Let %r4:Array(Float) =
+      SetL(min_caml_scan_sscany)
+    In
+    (Let %f1:Float =
+      FLoad(%r4, 0)
+    In
+    (Let %f2:Float =
+      FLoad(%r2, 0)
+    In
+    (Let %f1:Float =
+      FMul(%f1, %f2)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_vp)
+    In
+    (Let %f2:Float =
+      FLoad(%r2, 1)
+    In
+    (Let %f1:Float =
+      FSub(%f1, %f2)
+    In
+    (Let %zero:Unit =
+      FStore(%f1, %r1, 1)
+    In
+    (Let %f1:Float =
+      FNeg(%f0)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_sin_v)
+    In
+    (Let %f2:Float =
+      FLoad(%r2, 1)
+    In
+    (Let %f1:Float =
+      FMul(%f1, %f2)
+    In
+    (Let %f2:Float =
+      FLoad(%r3, 2)
+    In
+    (Let %f1:Float =
+      FAdd(%f1, %f2)
+    In
+    (Let %zero:Unit =
+      FStore(%f1, %r1, 2)
+    In
+    (Let Tu6735:Unit =
+      Save(%r1, Ta1815.2329)
+    In
+    (Let %f0:Float =
+      CallDir(fsqr.1980, [], [%f0])
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_scan_met1)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 0)
+    In
+    (Let %f0:Float =
+      FAdd(%f0, %f1)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_sqrt, [], [%f0])
+    In
+    (Let %f1:Float =
+      Restore(Ta1815.2329)
+    In
+    (Let %f2:Float =
+      FLoad(%f1, 0)
+    In
+    (Let %f2:Float =
+      FDiv(%f2, %f0)
+    In
+    (Let %zero:Unit =
+      FStore(%f2, %f1, 0)
+    In
+    (Let %f2:Float =
+      FLoad(%f1, 1)
+    In
+    (Let %f2:Float =
+      FDiv(%f2, %f0)
+    In
+    (Let %zero:Unit =
+      FStore(%f2, %f1, 1)
+    In
+    (Let %f2:Float =
+      FLoad(%f1, 2)
+    In
+    (Let %f0:Float =
+      FDiv(%f2, %f0)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %f1, 2)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_viewpoint)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_view)
+    In
+    (Let %f0:Float =
+      FLoad(%r2, 0)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let %f0:Float =
+      FLoad(%r2, 1)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 1)
+    In
+    (Let %f0:Float =
+      FLoad(%r2, 2)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 2)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_rgb)
+    In
+    (Let %f0:Float =
+      FLi(0.)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 1)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 2)
+    In
+    (Let %f0:Float =
+      FLi(1.)
+    In
+    (Let %r1:Int =
+      Restore(Ti1805.2348)
+    In
+    (Let %zero:Unit =
+      CallDir(raytracing.2128, [%r1], [%f0])
+    In
+    (Let %zero:Unit =
+      Nop
+    In
+    (Let %zero:Unit =
+      CallDir(write_rgb.2131, [], [])
+    In
+    (Let %r1:Int =
+      Restore(scanx.2136)
+    In
+    (Let %r1:Int =
+      Add(%r1, 1)
+    In
+    CallDir(scan_point.2135, [%r1], [])))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function scan_line.2137 Args(%r1) FArgs() Ret:Unit =
+  (Let %r2:Array(Int) =
+    SetL(min_caml_size)
+  In
+  (Let %r3:Int =
+    Li(0)
+  In
+  (Let %r2:Int =
+    Load(%r2, 0)
+  In
+  (IfLE %r2 %r1 Then
+    Nop
+  Else
+    (Let %r2:Array(Float) =
+      SetL(min_caml_scan_sscany)
+    In
+    (Let %r4:Array(Float) =
+      SetL(min_caml_scan_offset)
+    In
+    (Let %f0:Float =
+      FLoad(%r4, 0)
+    In
+    (Let %f1:Float =
+      FLi(1.)
+    In
+    (Let %f0:Float =
+      FSub(%f0, %f1)
+    In
+    (Let Tu6740:Unit =
+      Save(%r1, scany.2138)
+    In
+    (Let Tu6739:Unit =
+      Save(%r3, Ti1902.2235)
+    In
+    (Let Tu6738:Unit =
+      Save(%r2, Ta1904.2221)
+    In
+    (Let Tu6737:Unit =
+      Save(%f0, Td1910.2228)
+    In
+    (Let %f0:Float =
+      CallDir(min_caml_float_of_int, [%r1], [])
+    In
+    (Let %f1:Float =
+      Restore(Td1910.2228)
+    In
+    (Let %f0:Float =
+      FSub(%f1, %f0)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_scan_d)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 0)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %r1:Int =
+      Restore(Ta1904.2221)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_scan_met1)
+    In
+    (Let %f0:Float =
+      FLoad(%r1, 0)
+    In
+    (Let Tu6742:Unit =
+      Save(%r1, Ta1904.2221)
+    In
+    (Let Tu6741:Unit =
+      Save(%r2, Ta1916.2213)
+    In
+    (Let %f0:Float =
+      CallDir(fsqr.1980, [], [%f0])
+    In
+    (Let %f1:Float =
+      FLi(40000.)
+    In
+    (Let %f0:Float =
+      FAdd(%f0, %f1)
+    In
+    (Let %r1:Int =
+      Restore(Ta1916.2213)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r1, 0)
+    In
+    (Let %f0:Float =
+      Restore(Ta1904.2221)
+    In
+    (Let %f0:Float =
+      FLoad(%f0, 0)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_sin_v)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 0)
+    In
+    (Let %f0:Float =
+      FMul(%f0, %f1)
+    In
+    (Let %r2:Array(Float) =
+      SetL(min_caml_wscan)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 1)
+    In
+    (Let %f1:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %r1:Array(Float) =
+      SetL(min_caml_vp)
+    In
+    (Let %f2:Float =
+      FLoad(%r1, 0)
+    In
+    (Let %f1:Float =
+      FSub(%f1, %f2)
+    In
+    (Let %zero:Unit =
+      FStore(%f1, %r2, 0)
+    In
+    (Let %r3:Array(Float) =
+      SetL(min_caml_cos_v)
+    In
+    (Let %f1:Float =
+      FLoad(%r3, 1)
+    In
+    (Let %f0:Float =
+      FMul(%f1, %f0)
+    In
+    (Let %f1:Float =
+      FLoad(%r1, 2)
+    In
+    (Let %f0:Float =
+      FSub(%f0, %f1)
+    In
+    (Let %zero:Unit =
+      FStore(%f0, %r2, 2)
+    In
+    (Let %r1:Int =
+      Restore(Ti1902.2235)
+    In
+    (Let %zero:Unit =
+      CallDir(scan_point.2135, [%r1], [])
+    In
+    (Let %r1:Int =
+      Restore(scany.2138)
+    In
+    (Let %r1:Int =
+      Add(%r1, 1)
+    In
+    CallDir(scan_line.2137, [%r1], [])))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Function scan_start.2139 Args() FArgs() Ret:Unit =
+  (Let %zero:Unit =
+    Nop
+  In
+  (Let %zero:Unit =
+    CallDir(write_ppm_header.2133, [], [])
+  In
+  (Let %r1:Array(Int) =
+    SetL(min_caml_size)
+  In
+  (Let %r2:Int =
+    Li(0)
+  In
+  (Let %r1:Int =
+    Load(%r1, 0)
+  In
+  (Let Tu6744:Unit =
+    Save(%r2, Ti1955.2175)
+  In
+  (Let %f0:Float =
+    CallDir(min_caml_float_of_int, [%r1], [])
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_scan_d)
+  In
+  (Let %f1:Float =
+    FLi(128.)
+  In
+  (Let %f1:Float =
+    FDiv(%f1, %f0)
+  In
+  (Let %zero:Unit =
+    FStore(%f1, %r1, 0)
+  In
+  (Let %r1:Array(Float) =
+    SetL(min_caml_scan_offset)
+  In
+  (Let %f1:Float =
+    FLi(2.)
+  In
+  (Let %f0:Float =
+    FDiv(%f0, %f1)
+  In
+  (Let %zero:Unit =
+    FStore(%f0, %r1, 0)
+  In
+  (Let %r1:Int =
+    Restore(Ti1955.2175)
+  In
+  CallDir(scan_line.2137, [%r1], [])))))))))))))))))
+
+Function rt.2141 Args(%r1 %r2 %r3) FArgs() Ret:Unit =
+  (Let %r4:Array(Int) =
+    SetL(min_caml_size)
+  In
+  (Let %zero:Unit =
+    Store(%r1, %r4, 0)
+  In
+  (Let %zero:Unit =
+    Store(%r2, %r4, 1)
+  In
+  (Let %r1:Array(Bool) =
+    SetL(min_caml_dbg)
+  In
+  (Let %zero:Unit =
+    Store(%r3, %r1, 0)
+  In
+  (Let %zero:Unit =
+    Nop
+  In
+  (Let %zero:Unit =
+    CallDir(read_parameter.2043, [], [])
+  In
+  CallDir(scan_start.2139, [], []))))))))
+
+Main Expression:
+(Let %r1:Int =
+  Li(768)
+In
+(Let %r3:Int =
+  Li(0)
+In
+CallDir(rt.2141, [%r1; %r1; %r3], [])))
+

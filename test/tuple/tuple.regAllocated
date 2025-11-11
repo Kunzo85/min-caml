@@ -1,0 +1,72 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let %r1:Int =
+  Li(1)
+In
+(Let %r2:Int =
+  Li(2)
+In
+(Let %r3:Int =
+  Li(3)
+In
+(Let %r4:(Int * Int * Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, -3)
+In
+(Let %zero:Unit =
+  Store(%r3, %r4, -2)
+In
+(Let %zero:Unit =
+  Store(%r2, %r4, -1)
+In
+(Let %zero:Unit =
+  Store(%r1, %r4, 0)
+In
+(Let %r2:(Int * Int * Int) =
+  Mr(%r4)
+In
+(Let %r1:Array((Int * Int * Int)) =
+  CallDir(min_caml_create_array, [%r1; %r2], [])
+In
+(Let %r1:(Int * Int * Int) =
+  Load(%r1, 0)
+In
+(Let %r2:Int =
+  Load(%r1, 2)
+In
+(Let %r3:Int =
+  Load(%r1, 1)
+In
+(Let %r1:Int =
+  Load(%r1, 0)
+In
+(Let Tu39:Unit =
+  Save(%r2, Ti30)
+In
+(Let Tu38:Unit =
+  Save(%r3, Ti29)
+In
+(Let %zero:Unit =
+  CallDir(min_caml_print_int, [%r1], [])
+In
+(Let %r1:Int =
+  Restore(Ti29)
+In
+(Let %zero:Unit =
+  CallDir(min_caml_print_int, [%r1], [])
+In
+(Let %r1:Int =
+  Restore(Ti30)
+In
+(Let %zero:Unit =
+  CallDir(min_caml_print_int, [%r1], [])
+In
+(Let %zero:Unit =
+  Nop
+In
+CallDir(min_caml_print_newline, [], [])))))))))))))))))))))))
+

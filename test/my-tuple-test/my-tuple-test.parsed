@@ -1,0 +1,38 @@
+(Let a:Var(?) =
+  (App
+    f
+    ())
+In
+(LetTuple (x:Var(?), y:Var(?)) =
+  a
+In
+(LetTuple (y1:Var(?), y2:Var(?)) =
+  y
+In
+(Let Tu1:Unit =
+  (App
+    print_int
+    (Add
+      x
+      y1))
+In
+(LetRec g:Var(?) x:Var(?) =
+  (Tuple
+    1,
+    (Tuple
+      2,
+      3))
+In
+(Let b:Var(?) =
+  (App
+    g
+    ())
+In
+(Let c:Var(?) =
+  (App
+    h
+    b)
+In
+(App
+  print_int
+  c))))))))

@@ -1,0 +1,67 @@
+Toplevel Functions:
+Function g.15 Args() FArgs() Ret:(Int * Int * Int) =
+  (Let %r1:Int =
+    Li(1)
+  In
+  (Let %r2:Int =
+    Li(2)
+  In
+  (Let %r3:Int =
+    Li(3)
+  In
+  (Let %r4:(Int * Int) =
+    Mr(%hp)
+  In
+  (Let %hp:Int =
+    Add(%hp, -2)
+  In
+  (Let %zero:Unit =
+    Store(%r3, %r4, -1)
+  In
+  (Let %zero:Unit =
+    Store(%r2, %r4, 0)
+  In
+  (Let %r2:(Int * Int) =
+    Mr(%r4)
+  In
+  (Let %r3:(Int * (Int * Int)) =
+    Mr(%hp)
+  In
+  (Let %hp:Int =
+    Add(%hp, -2)
+  In
+  (Let %zero:Unit =
+    Store(%r2, %r3, -1)
+  In
+  (Let %zero:Unit =
+    Store(%r1, %r3, 0)
+  In
+  Mr(%r3)))))))))))))
+
+Main Expression:
+(Let %zero:Unit =
+  Nop
+In
+(Let %r1:(Int * Int * Int) =
+  CallDir(min_caml_f, [], [])
+In
+(Let %r2:Int =
+  Load(%r1, 1)
+In
+(Let %r1:Int =
+  Load(%r1, 0)
+In
+(Let %r1:Int =
+  Add(%r1, %r2)
+In
+(Let %zero:Unit =
+  CallDir(min_caml_print_int, [%r1], [])
+In
+(Let %r1:(Int * Int * Int) =
+  CallDir(g.15, [], [])
+In
+(Let %r1:Int =
+  CallDir(min_caml_h, [%r1], [])
+In
+CallDir(min_caml_print_int, [%r1], [])))))))))
+

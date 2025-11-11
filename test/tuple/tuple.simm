@@ -1,0 +1,60 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let Ti4.22:Int =
+  Li(1)
+In
+(Let Ti6.26:Int =
+  Li(2)
+In
+(Let Ti7.27:Int =
+  Li(3)
+In
+(Let t.33:(Int * Int * Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, -3)
+In
+(Let Tu36:Unit =
+  Store(Ti7.27, t.33, -2)
+In
+(Let Tu35:Unit =
+  Store(Ti6.26, t.33, -1)
+In
+(Let Tu34:Unit =
+  Store(Ti4.22, t.33, 0)
+In
+(Let Tt9.23:(Int * Int * Int) =
+  Mr(t.33)
+In
+(Let a.11:Array((Int * Int * Int)) =
+  CallDir(min_caml_create_array, [Ti4.22; Tt9.23], [])
+In
+(Let b.13:(Int * Int * Int) =
+  Load(a.11, 0)
+In
+(Let Ti30:Int =
+  Load(b.13, 2)
+In
+(Let Ti29:Int =
+  Load(b.13, 1)
+In
+(Let Ti28:Int =
+  Load(b.13, 0)
+In
+(Let Tu3.18:Unit =
+  CallDir(min_caml_print_int, [Ti28], [])
+In
+(Let Tu2.19:Unit =
+  CallDir(min_caml_print_int, [Ti29], [])
+In
+(Let Tu1.20:Unit =
+  CallDir(min_caml_print_int, [Ti30], [])
+In
+(Let Tu10.21:Unit =
+  Nop
+In
+CallDir(min_caml_print_newline, [], [])))))))))))))))))))
+

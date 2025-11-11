@@ -1,0 +1,46 @@
+(Let a.11:Array((Int * (Int * Int))) =
+  (Let Ti4.22:Int =
+    1
+  In
+  (Let Tt9.23:(Int * (Int * Int)) =
+    (Let Ti5.24:Int =
+      1
+    In
+    (Let Tt8.25:(Int * Int) =
+      (Let Ti6.26:Int =
+        2
+      In
+      (Let Ti7.27:Int =
+        3
+      In
+      (Tuple Ti6.26, Ti7.27)))
+    In
+    (Tuple Ti5.24, Tt8.25)))
+  In
+  create_array Ti4.22 Tt9.23))
+In
+(Let i.12:Int =
+  0
+In
+(Let b.13:(Int * (Int * Int)) =
+  (a.11.(i.12))
+In
+(Let (x.14:Int, c.15:(Int * Int)) = 
+  b.13
+In
+(Let (y.16:Int, z.17:Int) = 
+  c.15
+In
+(Let Tu3.18:Unit =
+  print_int x.14
+In
+(Let Tu2.19:Unit =
+  print_int y.16
+In
+(Let Tu1.20:Unit =
+  print_int z.17
+In
+(Let Tu10.21:Unit =
+  ()
+In
+print_newline Tu10.21)))))))))
