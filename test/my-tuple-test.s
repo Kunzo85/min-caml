@@ -44,13 +44,9 @@ g.15:
     addi     %r2  %zero  2              # !6
     addi     %r3  %zero  3              # !6
     movz     %r4  %hp  %zero            # !6
-    addi     %hp  %hp  -2               # !6
-    sw       %r3  %r4  -1               # !6
-    sw       %r2  %r4  0                # !6
-    movz     %r2  %r4  %zero            # !6
-    movz     %r3  %hp  %zero            # !6
-    addi     %hp  %hp  -2               # !6
-    sw       %r2  %r3  -1               # !6
-    sw       %r1  %r3  0                # !6
-    movz     %r1  %r3  %zero            # !6
+    addi     %hp  %hp  -3               # !6
+    sw       %r3  %r4  -2               # !6
+    sw       %r2  %r4  -1               # !6
+    sw       %r1  %r4  0                # !6
+    movz     %r1  %r4  %zero            # !6
     jr       %ra                        # !6

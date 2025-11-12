@@ -9,34 +9,22 @@ Function g.15 Args() FArgs() Ret:(Int * Int * Int) =
   (Let Ti6.23:Int =
     Li(3)
   In
-  (Let t.34:(Int * Int) =
+  (Let t.34:(Int * Int * Int) =
     Mr(%hp)
   In
   (Let %hp:Int =
-    Add(%hp, -2)
+    Add(%hp, -3)
+  In
+  (Let Tu37:Unit =
+    Store(Ti6.23, t.34, -2)
   In
   (Let Tu36:Unit =
-    Store(Ti6.23, t.34, -1)
+    Store(Ti5.22, t.34, -1)
   In
   (Let Tu35:Unit =
-    Store(Ti5.22, t.34, 0)
+    Store(Ti4.20, t.34, 0)
   In
-  (Let Tt7.21:(Int * Int) =
-    Mr(t.34)
-  In
-  (Let t.37:(Int * (Int * Int)) =
-    Mr(%hp)
-  In
-  (Let %hp:Int =
-    Add(%hp, -2)
-  In
-  (Let Tu39:Unit =
-    Store(Tt7.21, t.37, -1)
-  In
-  (Let Tu38:Unit =
-    Store(Ti4.20, t.37, 0)
-  In
-  Mr(t.37)))))))))))))
+  Mr(t.34)))))))))
 
 Main Expression:
 (Let Tu2.25:Unit =
