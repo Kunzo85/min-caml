@@ -19,7 +19,7 @@ let flatten_tuple known xs ts = (* タプルを構成する変数リストxsと�
         match xs, ts with
         | [], [] -> xacc, flatten_type (Type.Tuple(tacc)) (* flatten_typeは最後にまとめて適用。 *)
         | x :: xs', Type.Tuple(ts) :: ts' -> (* ネストしたタプルがある場合 *)
-            let ys = M.find x known in (* タプル変数->要素変数リストは必ず登録されている *)
+            let ys = M.find x known in (* タプル変数->要素変数リストは必ず登録されているはず *)
             f (xacc @ ys) (tacc @ ts) xs' ts' (* フラットに展開して渡す *)
         | x :: xs', t :: ts' -> (* ネストしていない場合 *)
             f (xacc @ [x]) (tacc @ [t]) xs' ts' 
@@ -74,8 +74,8 @@ let rec g known repenv e = (* メインルーチン *)
                 | _ -> failwith "flatten_tuple: not a tuple type after flattening") in
                 let e1' = g known repenv e1 in
                 let yts = List.map (fun t -> (Id.gentmp t, t)) ts in (* tsに従って、要素を入れる変数を生成 *)
-                let e2' = g (M.add x (List.map fst yts) known) repenv e2 in (* x->生成した変数リストをknownに追加して、e2を処理 *)
-                inherit_loc (Let((x, ft), e1', inherit_loc (LetTuple(yts, x, e2'))))) (* LetTuple式を直後に挿入 *)
+                let e2' = g known repenv (inherit_loc (LetTuple(yts, x, e2))) in (* LetTuple式を挿入してe2を処理。ここでknownに登録されることを想定。 *)
+                inherit_loc (Let((x, ft), e1', e2'))) 
         | _ -> 
             let e1' = g known repenv e1 in
             let e2' = g known repenv e2 in (* e1の処理で更新された環境は(スコープが切れているので)e2に引き継がない。 *)
@@ -91,7 +91,13 @@ let rec g known repenv e = (* メインルーチン *)
     | AppDir(l, ys) ->
         inherit_loc (AppDir(l, List.map (replace repenv) ys))
     | Tuple(xs) -> (* Let((x,t),e1,e2)のe1には現れないことに注意 *)
-        inherit_loc (Tuple(List.map (replace repenv) xs))
+        let xs' = List.fold_left 
+                (fun acc x -> 
+                    if M.mem x known then
+                        acc @ (M.find x known) 
+                    else
+                        acc @ [replace repenv x]) [] xs in
+        inherit_loc (Tuple(xs'))
     | LetTuple(xts, y, e2) -> 
         let xts', e2' = List.fold_left (* xtsを平坦化。その際、展開されたタプル変数がコードから消滅してはいけないので、直後にLet式を挿入 *)
                 (fun (zts, e2') (z, t) -> 
@@ -101,17 +107,23 @@ let rec g known repenv e = (* メインルーチン *)
                         let zts' = List.map (fun t -> (Id.gentmp t, t)) ts in 
                         (zts @ zts', inherit_loc (Let((z, t'), inherit_loc (Tuple(List.map fst zts')), e2')))
                     | _ -> (zts @ [(z, t')], e2')) ([], e2) xts in
-        let ys = M.find y known in (* yは必ずknownに登録されているはず *)
-        (* Printf.eprintf "Flatten LetTuple: %s -> [%s]\n" y (String.concat "; " ys); *)
-        let rec f xts ys env = (* repenvの更新処理。List.fold_left2で書いてもよかった *)
-            (match xts, ys with
-            | [], [] -> env
-            | (x, _t) :: xts', y :: ys' -> f xts' ys' (M.add x (replace repenv y) env)
-            | _ -> failwith "flatten_tuple: length mismatch2") in
-        let repenv' = f xts' ys repenv in
-        (* Printf.eprintf "Flatten LetTuple: repenv': %s\n"
-            (String.concat "; " (List.map (fun (k, v) -> k ^ "->" ^ v) (M.bindings repenv'))); *)
-        let e2'' = g known repenv' e2' in
+        let e2'' =
+            if M.mem y known then (* yがすでにknownに登録されている場合 *)
+                let ys = M.find y known in
+                (* Printf.eprintf "Flatten LetTuple: %s -> [%s]\n" y (String.concat "; " ys); *)
+                let rec f xts ys env = (* repenvの更新処理。List.fold_left2で書いてもよかった *)
+                    (match xts, ys with
+                    | [], [] -> env
+                    | (x, _t) :: xts', y :: ys' -> f xts' ys' (M.add x (replace repenv y) env)
+                    | _ -> failwith "flatten_tuple: length mismatch2") in
+                let repenv' = f xts' ys repenv in
+                (* Printf.eprintf "Flatten LetTuple: repenv': %s\n"
+                    (String.concat "; " (List.map (fun (k, v) -> k ^ "->" ^ v) (M.bindings repenv'))); *)
+                g known repenv' e2' 
+            else (* yがknownに登録されていない場合 *)
+                let known' = M.add y (List.map fst xts') known in (* ここでknownに登録 *)
+                g known' repenv e2'
+        in
         let fvs = fv e2'' in
         if List.exists (fun (x, _t) -> S.mem x fvs) xts' then
             inherit_loc (LetTuple(xts', y, e2''))
@@ -134,10 +146,9 @@ let h { node = { name = (l, t); args = yts; formal_fv = zts; body = e }; loc } =
                     match t' with
                     | Tuple(ts) ->  xytss @ [(x, (List.map (fun t -> (Id.gentmp t, t)) ts))]
                     | _ -> xytss) [] (yts' @ zts') in
-    let known = List.fold_left (fun known (x, yts) -> M.add x (List.map fst yts) known) M.empty xytss in
-    let e' = g known M.empty e in
-    let e'' = List.fold_left (fun e' (x, yts) -> make_wloc (LetTuple(yts, x, e')) loc) e' xytss in (* 関数定義の初めにLetTuple式を挿入 *)
-    { node = { name = (l, t'); args = yts'; formal_fv = zts'; body = e'' }; loc} 
+    let e' = List.fold_left (fun e (x, yts) -> make_wloc (LetTuple(yts, x, e)) loc) e xytss in (* 関数定義の初めにLetTuple式を挿入 *)
+    let e'' = g M.empty M.empty e' in
+    { node = { name = (l, t'); args = yts'; formal_fv = zts'; body = e'' }; loc } 
 
 let f filename p =
     print filename ".before_flatten" p;
