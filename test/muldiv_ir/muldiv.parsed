@@ -1,14 +1,20 @@
 (Let a:Var(?) =
-  (App
-    f
-    ())
+  (Not
+    (LE
+      (App
+        f
+        ())
+      0.))
 In
-(App
-  g
-  (Sub
-    (Div
-      a
-      16)
-    (Mul
-      4
-      2))))
+(If
+  a
+Then
+  (Put
+    io_int
+    0
+    3)
+Else
+  (Put
+    io_char
+    0
+    5)))

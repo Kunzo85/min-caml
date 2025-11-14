@@ -2,17 +2,38 @@ Toplevel Functions:
 
 
 Main Expression:
-(Let Tu1.11:Unit =
+(Let Tu1.21:Unit =
   Nop
 In
-(Let a.6:Int =
+(Let Td2.19:Float =
   CallDir(min_caml_f, [], [])
 In
-(Let Ti2.8:Int =
-  Sra(a.6, 4)
+(Let Td3.20:Float =
+  FLi(0.)
 In
-(Let Ti5.7:Int =
-  Add(Ti2.8, -8)
+(Let a.11:Bool =
+  (IfFLE Td2.19 Td3.20 Then
+    Li(0)
+  Else
+    Li(1))
 In
-CallDir(min_caml_g, [Ti5.7], [])))))
+(Let Ti4.12:Int =
+  Li(0)
+In
+(IfEq a.11 Ti4.12 Then
+  (Let Ta5.16:Array(Int) =
+    SetL(min_caml_io_char)
+  In
+  (Let Ti7.18:Int =
+    Li(5)
+  In
+  Store(Ti7.18, Ta5.16, 0)))
+Else
+  (Let Ta8.13:Array(Int) =
+    SetL(min_caml_io_int)
+  In
+  (Let Ti10.15:Int =
+    Li(3)
+  In
+  Store(Ti10.15, Ta8.13, 0)))))))))
 

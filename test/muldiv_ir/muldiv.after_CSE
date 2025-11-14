@@ -1,19 +1,40 @@
-(Let a.6:Int =
-  (Let Tu1.11:Unit =
-    ()
-  In
-  f Tu1.11)
-In
-(Let Ti5.7:Int =
-  (Let Ti2.8:Int =
-    (Sra a.6 4)
-  In
-  (Let Ti4.9:Int =
-    (Let Ti3.10:Int =
-      4
+(Let a.11:Bool =
+  (Let Td2.19:Float =
+    (Let Tu1.21:Unit =
+      ()
     In
-    (Sll Ti3.10 1))
+    f Tu1.21)
   In
-  (Sub Ti2.8 Ti4.9)))
+  (Let Td3.20:Float =
+    0.
+  In
+  (If (LE Td2.19 Td3.20) Then
+    0
+  Else
+    1)))
 In
-g Ti5.7))
+(Let Ti4.12:Int =
+  0
+In
+(If (EQ a.11 Ti4.12) Then
+  (Let Ta5.16:Array(Int) =
+    (Ext_Array io_char)
+  In
+  (Let Ti6.17:Int =
+    Ti4.12
+  In
+  (Let Ti7.18:Int =
+    5
+  In
+  (Ta5.16.(Ti4.12) <- Ti7.18))))
+Else
+  (Let Ta8.13:Array(Int) =
+    (Ext_Array io_int)
+  In
+  (Let Ti9.14:Int =
+    Ti4.12
+  In
+  (Let Ti10.15:Int =
+    3
+  In
+  (Ta8.13.(Ti4.12) <- Ti10.15)))))))

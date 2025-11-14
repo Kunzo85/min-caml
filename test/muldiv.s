@@ -4,21 +4,38 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    sw       %ra  %sp  0                   # !2
-    addi     %sp  %sp  1                   # !2
-    jal      ~min_caml_f                   # !2
-    addi     %sp  %sp  -1                  # !2
-    lw       %ra  %sp  0                   # !2
-    sra      %r1  %r1  4                   # !3
-    addi     %r1  %r1  -8                  # !3
-    sw       %ra  %sp  0                   # !3
-    addi     %sp  %sp  1                   # !3
-    jal      ~min_caml_g                   # !3
-    addi     %sp  %sp  -1                  # !3
-    lw       %ra  %sp  0                   # !3
-    j        ~inf_loop                     # !0
+    sw %ra %sp 0                           # !1
+    addi %sp %sp 1                         # !1
+    jal ~min_caml_f                        # !1
+    addi %sp %sp -1                        # !1
+    lw %ra %sp 0                           # !1
+    flui %f1 0                             # !1
+    fli %f1 0                              # !1
+    ++
+    fli 0.000000
+    => flui %f1 0b00000000000
+       fli  %f1 0b000000000000000000000
+    ++
+    fblt %f1 %f0 fblt_then.23              # !1
+    addi %r1 %zero 0                       # !1
+    j ~fblt_cont.24                        # !1
+fblt_then.23:
+    addi %r1 %zero 1                       # !1
+fblt_cont.24:
+    addi %r2 %zero 0                       # !3
+    beq %r1 %r2 beq_then.25                # !3
+    setl %r1 ~min_caml_io_int              # !4
+    addi %r2 %zero 3                       # !4
+    sw %r2 %r1 0                           # !4
+    j ~beq_cont.26                         # !3
+beq_then.25:
+    setl %r1 ~min_caml_io_char             # !6
+    addi %r2 %zero 5                       # !6
+    sw %r2 %r1 0                           # !6
+beq_cont.26:
+    j ~inf_loop                            # !0
 inf_loop:
-    j        ~inf_loop                     # !0
+    j ~inf_loop                            # !0
 
 ++
 These are function definitions.

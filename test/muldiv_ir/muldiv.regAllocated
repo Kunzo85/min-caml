@@ -5,14 +5,35 @@ Main Expression:
 (Let %zero:Unit =
   Nop
 In
-(Let %r1:Int =
+(Let %f0:Float =
   CallDir(min_caml_f, [], [])
 In
-(Let %r1:Int =
-  Sra(%r1, 4)
+(Let %f1:Float =
+  FLi(0.)
 In
-(Let %r1:Int =
-  Add(%r1, -8)
+(Let %r1:Bool =
+  (IfFLE %f0 %f1 Then
+    Li(0)
+  Else
+    Li(1))
 In
-CallDir(min_caml_g, [%r1], [])))))
+(Let %r2:Int =
+  Li(0)
+In
+(IfEq %r1 %r2 Then
+  (Let %r1:Array(Int) =
+    SetL(min_caml_io_char)
+  In
+  (Let %r2:Int =
+    Li(5)
+  In
+  Store(%r2, %r1, 0)))
+Else
+  (Let %r1:Array(Int) =
+    SetL(min_caml_io_int)
+  In
+  (Let %r2:Int =
+    Li(3)
+  In
+  Store(%r2, %r1, 0)))))))))
 
