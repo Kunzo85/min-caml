@@ -3,7 +3,7 @@ let create_dir dir =
 
 let print filename ext to_string e =
   let e_str = to_string (Indent.create_indent ()) e ^ "\n" in
-  let dir = filename in
+  let dir = filename ^ "_ir" in
   create_dir dir;
   let base = Filename.basename filename in
   let out_filename = Filename.concat dir (base ^ ext) in

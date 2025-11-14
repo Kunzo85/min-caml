@@ -16,6 +16,8 @@ let update_loc t = { node = t.node; loc = loc_of_rule () }
 %token NOT
 %token MINUS
 %token PLUS
+%token AST
+%token SLASH
 %token MINUS_DOT
 %token PLUS_DOT
 %token AST_DOT
@@ -52,7 +54,7 @@ let update_loc t = { node = t.node; loc = loc_of_rule () }
 %left COMMA
 %left EQUAL LESS_GREATER LESS GREATER LESS_EQUAL GREATER_EQUAL
 %left PLUS MINUS PLUS_DOT MINUS_DOT
-%left AST_DOT SLASH_DOT
+%left AST SLASH AST_DOT SLASH_DOT
 %right prec_unary_minus
 %left prec_app
 %left DOT
@@ -94,6 +96,10 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
     { add_loc (Add($1, $3)) }
 | exp MINUS exp
     { add_loc (Sub($1, $3)) }
+| exp AST exp
+    { add_loc (Mul($1, $3)) }
+| exp SLASH exp
+    { add_loc (Div($1, $3)) }
 | exp EQUAL exp
     { add_loc (Eq($1, $3)) }
 | exp LESS_GREATER exp

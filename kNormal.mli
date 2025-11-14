@@ -7,6 +7,8 @@ type t' =
   | Neg of Id.t
   | Add of Id.t * Id.t
   | Sub of Id.t * Id.t
+  | Sll of Id.t * int (* Shift left logical. 掛け算 *)
+  | Sra of Id.t * int (* Shift right arithmetic. 割り算 *)
   | FNeg of Id.t
   | FAdd of Id.t * Id.t
   | FSub of Id.t * Id.t

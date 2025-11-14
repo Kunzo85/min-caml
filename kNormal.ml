@@ -10,6 +10,8 @@ type t' = (* K正規化後の式 (caml2html: knormal_t) *)
   | Neg of Id.t
   | Add of Id.t * Id.t
   | Sub of Id.t * Id.t
+  | Sll of Id.t * int (* Shift left logical. 掛け算 *)
+  | Sra of Id.t * int (* Shift right arithmetic. 割り算 *)
   | FNeg of Id.t
   | FAdd of Id.t * Id.t
   | FSub of Id.t * Id.t
@@ -34,7 +36,7 @@ and t = t' with_loc
 let rec fv e = (* 式に出現する（自由な）変数 (caml2html: knormal_fv) *)
   match e.node with
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
-  | Neg(x) | FNeg(x) -> S.singleton x
+  | Neg(x) | FNeg(x) | Sll(x, _) | Sra(x, _) -> S.singleton x
   | Add(x, y) | Sub(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) | Get(x, y) -> S.of_list [x; y]
   | IfEq(x, y, e1, e2) | IfLE(x, y, e1, e2) -> S.add x (S.add y (S.union (fv e1) (fv e2)))
   | Let((x, _t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
@@ -76,6 +78,26 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
         insert_let (g env e1) e.loc
           (fun x -> insert_let (g env e2) e.loc
               (fun y -> inherit_loc (Sub(x, y)), Type.Int))
+    | Syntax.Mul(e1, e2) ->
+        (match e2.node with
+        | Syntax.Int(i) when i > 0 && (i land (i - 1)) = 0 -> (* 2のべき乗の場合、シフト命令に変換 *)
+            let shift_amount = int_of_float (log (float_of_int i) /. log 2.) in
+            insert_let (g env e1) e.loc
+              (fun x -> inherit_loc (Sll(x, shift_amount)), Type.Int)
+        | _ -> Error.handle_exn (Error.KNormal_error (e, "not a power of two")))
+        (* insert_let (g env e1) e.loc
+          (fun x -> insert_let (g env e2) e.loc
+              (fun y -> inherit_loc (Mul(x, y)), Type.Int)) *)
+    | Syntax.Div(e1, e2) ->
+        (match e2.node with
+        | Syntax.Int(i) when i > 0 && (i land (i - 1)) = 0 -> (* 2のべき乗の場合、シフト命令に変換 *)
+            let shift_amount = int_of_float (log (float_of_int i) /. log 2.) in
+            insert_let (g env e1) e.loc
+              (fun x -> inherit_loc (Sra(x, shift_amount)), Type.Int)
+        | _ -> Error.handle_exn (Error.KNormal_error (e, "not a power of two")))  
+        (* insert_let (g env e1) e.loc
+          (fun x -> insert_let (g env e2) e.loc
+              (fun y -> inherit_loc (Div(x, y)), Type.Int)) *)
     | Syntax.FNeg(e') ->
         insert_let (g env e') e.loc
           (fun x -> inherit_loc (FNeg(x)), Type.Float)
@@ -200,6 +222,8 @@ let rec t_to_string p t =
   | Neg(x) -> Printf.sprintf "(Neg %s)" x
   | Add(x, y) -> Printf.sprintf "(Add %s %s)" x y
   | Sub(x, y) -> Printf.sprintf "(Sub %s %s)" x y
+  | Sll(x, i) -> Printf.sprintf "(Sll %s %d)" x i
+  | Sra(x, i) -> Printf.sprintf "(Sra %s %d)" x i
   | FNeg(x) -> Printf.sprintf "(FNeg %s)" x
   | FAdd(x, y) -> Printf.sprintf "(FAdd %s %s)" x y
   | FSub(x, y) -> Printf.sprintf "(FSub %s %s)" x y

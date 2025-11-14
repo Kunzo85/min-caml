@@ -11,6 +11,8 @@ type t' = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | Neg of Id.t
   | Add of Id.t * Id.t
   | Sub of Id.t * Id.t
+  | Sll of Id.t * int
+  | Sra of Id.t * int
   | FNeg of Id.t
   | FAdd of Id.t * Id.t
   | FSub of Id.t * Id.t
@@ -41,7 +43,7 @@ type prog = Prog of fundef list * t
 let rec fv e =
   match e.node with
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
-  | Neg(x) | FNeg(x) -> S.singleton x
+  | Neg(x) | FNeg(x) | Sll(x, _) | Sra(x, _) -> S.singleton x
   | Add(x, y) | Sub(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) | Get(x, y) -> S.of_list [x; y]
   | IfEq(x, y, e1, e2)| IfLE(x, y, e1, e2) -> S.add x (S.add y (S.union (fv e1) (fv e2)))
   | Let((x, _t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
@@ -63,6 +65,8 @@ let rec g env known e = (* クロージャ変換ルーチン本体 (caml2html: c
   | KNormal.Neg(x) -> inherit_loc (Neg(x))
   | KNormal.Add(x, y) -> inherit_loc (Add(x, y))
   | KNormal.Sub(x, y) -> inherit_loc (Sub(x, y))
+  | KNormal.Sll(x, i) -> inherit_loc (Sll(x, i))
+  | KNormal.Sra(x, i) -> inherit_loc (Sra(x, i))
   | KNormal.FNeg(x) -> inherit_loc (FNeg(x))
   | KNormal.FAdd(x, y) -> inherit_loc (FAdd(x, y))
   | KNormal.FSub(x, y) -> inherit_loc (FSub(x, y))
@@ -121,6 +125,8 @@ let rec t_to_string p e =
   | Neg(x) -> Printf.sprintf "Neg(%s)" x
   | Add(x, y) -> Printf.sprintf "Add(%s, %s)" x y
   | Sub(x, y) -> Printf.sprintf "Sub(%s, %s)" x y
+  | Sll(x, i) -> Printf.sprintf "Sll(%s, %d)" x i
+  | Sra(x, i) -> Printf.sprintf "Sra(%s, %d)" x i
   | FNeg(x) -> Printf.sprintf "FNeg(%s)" x
   | FAdd(x, y) -> Printf.sprintf "FAdd(%s, %s)" x y
   | FSub(x, y) -> Printf.sprintf "FSub(%s, %s)" x y

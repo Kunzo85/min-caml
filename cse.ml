@@ -5,7 +5,7 @@ open Location
 
 let is_pure = function (* 純粋式。削除可能な式を表す *)
   | Unit | Int(_) | Float(_) | ExtArray(_)
-  | Neg(_) | Add(_, _) | Sub(_, _) | FNeg(_) | FAdd(_, _) | FSub(_, _) | FMul(_, _) | FDiv(_, _)
+  | Neg(_) | Add(_, _) | Sub(_, _) | Sll(_, _) | Sra(_, _) | FNeg(_) | FAdd(_, _) | FSub(_, _) | FMul(_, _) | FDiv(_, _)
   | Tuple(_) -> true
   | _ -> false
 
@@ -46,6 +46,14 @@ let rec g exprenv repenv e = (* 共通部分式削除ルーチン本体 *)
       let x' = replace_id repenv x in
       let y' = replace_id repenv y in
       let e' = Sub(x', y') in
+      inherit_loc (eliminate_expr exprenv e')
+  | Sll(x, i) ->
+      let x' = replace_id repenv x in
+      let e' = Sll(x', i) in
+      inherit_loc (eliminate_expr exprenv e')
+  | Sra(x, i) ->
+      let x' = replace_id repenv x in
+      let e' = Sra(x', i) in
       inherit_loc (eliminate_expr exprenv e')
   | FNeg(x) ->
       let x' = replace_id repenv x in

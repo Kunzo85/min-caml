@@ -12,6 +12,8 @@ and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) 
   | Add of Id.t * id_or_imm
   | Sub of Id.t * Id.t (* 即値がある場合はいずれAddiに変換 *)
   (* | Slw of Id.t * id_or_imm *) (* いらない？？ *)
+  | Sll of Id.t * int
+  | Sra of Id.t * int
   | Load of Id.t * id_or_imm (* いずれ必ず即値に *)
   | Store of Id.t * Id.t * id_or_imm (* いずれ必ず即値に *)
   | FMr of Id.t

@@ -103,6 +103,10 @@ let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
         unify Type.Int (g env e1);
         unify Type.Int (g env e2);
         Type.Int
+    | Mul(e1, e2) | Div(e1, e2) -> (* かけ算（と割り算）の型推論 *)
+        unify Type.Int (g env e1);
+        unify Type.Int (g env e2);
+        Type.Int
     | FNeg(e) ->
         unify Type.Float (g env e);
         Type.Float

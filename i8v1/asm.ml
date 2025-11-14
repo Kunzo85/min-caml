@@ -17,6 +17,8 @@ and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) 
   | Add of Id.t * id_or_imm
   | Sub of Id.t * Id.t (* 即値がある場合はいずれAddiに変換 *)
   (* | Slw of Id.t * id_or_imm *) (* いらない？？ *)
+  | Sll of Id.t * int
+  | Sra of Id.t * int
   | Load of Id.t * id_or_imm 
   | Store of Id.t * Id.t * id_or_imm 
   | FMr of Id.t
@@ -73,7 +75,7 @@ let fv_id_or_imm = function V(x) -> [x] | _ -> []
 let rec fv_exp e =
   match e.node with
   | Nop | Li(_) | FLi(_) | SetL(_) | Comment(_) | Restore(_) -> []
-  | Mr(x) | FMr(x) | FNeg(x) | Save(x, _) -> [x]
+  | Mr(x) | FMr(x) | FNeg(x) | Sll(x, _) | Sra(x, _) | Save(x, _) -> [x]
   | Add(x, y') | Load(x, y') | FLoad(x, y') -> x :: fv_id_or_imm y'
   | Store(x, y, z') | FStore(x, y, z') -> x :: y :: fv_id_or_imm z'
   | Sub(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) -> [x; y]
@@ -112,6 +114,8 @@ let rec exp_to_string p e =
   | Add(x, y) -> Printf.sprintf "Add(%s, %s)" x (id_or_imm_to_string y)
   | Sub(x, y) -> Printf.sprintf "Sub(%s, %s)" x y
   (* | Slw(x, y) -> Printf.sprintf "Slw(%s, %s)" x (id_or_imm_to_string y) *)
+  | Sll(x, i) -> Printf.sprintf "Sll(%s, %d)" x i
+  | Sra(x, i) -> Printf.sprintf "Sra(%s, %d)" x i
   | Load(x, y) -> Printf.sprintf "Load(%s, %s)" x (id_or_imm_to_string y)
   | Store(x, y, z) -> Printf.sprintf "Store(%s, %s, %s)" x y (id_or_imm_to_string z)
   | FMr(x) -> Printf.sprintf "FMr(%s)" x

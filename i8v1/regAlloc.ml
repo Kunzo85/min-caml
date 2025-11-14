@@ -127,6 +127,8 @@ and g' dest cont regenv e = (* 各命令のレジスタ割り当て (caml2html: 
   | Add(x, y') -> (Ans(inherit_loc (Add(find x Type.Int regenv, find' y' regenv))), regenv)
   | Sub(x, y) -> (Ans(inherit_loc (Sub(find x Type.Int regenv, find y Type.Int regenv))), regenv)
   (* | Slw(x, y') -> (Ans(Slw(find x Type.Int regenv, find' y' regenv)), regenv) *)
+  | Sll(x, i) -> (Ans(inherit_loc (Sll(find x Type.Int regenv, i))), regenv)
+  | Sra(x, i) -> (Ans(inherit_loc (Sra(find x Type.Int regenv, i))), regenv)
   | Load(x, y') -> (Ans(inherit_loc (Load(find x Type.Int regenv, find' y' regenv))), regenv)
   | Store(x, y, z') -> (Ans(inherit_loc (Store(find x Type.Int regenv, find y Type.Int regenv, find' z' regenv))), regenv)
   | FMr(x) -> (Ans(inherit_loc (FMr(find x Type.Float regenv))), regenv)

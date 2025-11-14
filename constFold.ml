@@ -27,6 +27,8 @@ let rec g env e = (* 定数畳み込みルーチン本体 (caml2html: constfold_
   | Neg(x) when memi x env -> inherit_loc (Int(-(findi x env)))
   | Add(x, y) when memi x env && memi y env -> inherit_loc (Int(findi x env + findi y env)) (* 足し算のケース (caml2html: constfold_add) *)
   | Sub(x, y) when memi x env && memi y env -> inherit_loc (Int(findi x env - findi y env))
+  | Sll(x, i) when memi x env -> inherit_loc (Int(findi x env lsl i))
+  | Sra(x, i) when memi x env -> inherit_loc (Int(findi x env asr i))
   | FNeg(x) when memf x env -> inherit_loc (Float(-.(findf x env)))
   | FAdd(x, y) when memf x env && memf y env -> inherit_loc (Float(findf x env +. findf y env))
   | FSub(x, y) when memf x env && memf y env -> inherit_loc (Float(findf x env -. findf y env))

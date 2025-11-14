@@ -127,6 +127,8 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
   | NonTail(x), Add(y, V(z)) -> print_inst oc "add" [x; y; z] e.loc
   | NonTail(x), Add(y, C(z)) -> assert (fit_in_signed_16bit z); print_inst oc "addi" [x; y; string_of_int z] e.loc
   | NonTail(x), Sub(y, z) -> print_inst oc "sub" [x; y; z] e.loc
+  | NonTail(x), Sll(y, i) -> assert (0 <= i && i < 32); print_inst oc "sll" [x; y; string_of_int i] e.loc
+  | NonTail(x), Sra(y, i) -> assert (0 <= i && i < 32); print_inst oc "sra" [x; y; string_of_int i] e.loc
   | NonTail(x), Load(y, V(z)) -> print_inst oc "lwv" [x; y; z] e.loc
   | NonTail(x), Load(y, C(z)) -> assert (fit_in_signed_16bit z); print_inst oc "lw" [x; y; string_of_int z] e.loc
   | NonTail(_), Store(x, y, V(z)) -> print_inst oc "swv" [x; y; z] e.loc
@@ -161,7 +163,7 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
   | Tail, (Nop | Store _ | FStore _ | Comment _ | Save _) ->
       g' oc (NonTail(Id.gentmp Type.Unit), e);
       print_inst oc "jr" [reg_ra] e.loc
-  | Tail, (Li _ | SetL _ | Mr _ | Add _ | Sub _ | Load _) ->
+  | Tail, (Li _ | SetL _ | Mr _ | Add _ | Sub _ | Sll _ | Sra _ | Load _) ->
       g' oc (NonTail(regs.(0)), e);
       print_inst oc "jr" [reg_ra] e.loc
   | Tail, (FLi _ | FMr _ | FNeg _ | FAdd _ | FSub _ | FMul _ | FDiv _ | FLoad _) ->
