@@ -50,12 +50,12 @@ let fletd(x, e1, e2) = Let((x, Type.Float), e1, e2)
 let seq(e1, e2) = Let((Id.gentmp Type.Unit, Type.Unit), e1, e2)
 
 let regs = Array.init 28 (fun i -> Printf.sprintf "%%r%d" (i + 1)) (* r1~r28 *)
-let fregs = Array.init 32 (fun i -> Printf.sprintf "%%f%d" i)
+let fregs = Array.init 32 (fun i -> Printf.sprintf "%%f%d" i) (* f0~f31 *)
 let allregs = Array.to_list regs
 let allfregs = Array.to_list fregs
-let reg_cl = regs.(Array.length regs - 2) (* closure address (caml2html: sparcasm_regcl). r28 *)
-let reg_sw = regs.(Array.length regs - 1) (* temporary for swap *) (* これは何？->Emit.shuffleで引数の循環参照を解消するため *)
-let reg_fsw = fregs.(Array.length fregs - 1) (* temporary for swap *) 
+let reg_cl = regs.(Array.length regs - 2) (* closure address (caml2html: sparcasm_regcl). r27 *)
+let reg_sw = regs.(Array.length regs - 1) (* temporary for swap. r28 *) (* これは何？->Emit.shuffleで引数の循環参照を解消するため *)
+let reg_fsw = fregs.(Array.length fregs - 1) (* temporary for swap. f31 *) 
 let reg_zero = "%zero" (* constant 0. r0 *)
 let reg_sp = "%sp" (* stack pointer. r29 *)
 let reg_hp = "%hp" (* heap pointer (caml2html: sparcasm_reghp). r30 *)
