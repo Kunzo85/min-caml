@@ -342,7 +342,7 @@ In
 In
 (LetRec vecunit_sgn:Var(?) v:Var(?) inv:Var(?) =
   (Let l:Var(?) =
-    (FNeg
+    (FSqrt
       (FAdd
         (FAdd
           (FMul
@@ -1895,7 +1895,7 @@ In
           (Get
             abc
             i1)
-          (FNeg
+          (FAbs
             (FAdd
               (FMul
                 d2
@@ -1910,7 +1910,7 @@ In
             (Get
               abc
               i2)
-            (FNeg
+            (FAbs
               (FAdd
                 (FMul
                   d2
@@ -2225,7 +2225,7 @@ In
           0.))
     Then
       (Let sd:Var(?) =
-        (FNeg
+        (FSqrt
           d)
       In
       (Let t1:Var(?) =
@@ -2344,7 +2344,7 @@ In
           (App
             o_param_b
             m)
-          (FNeg
+          (FAbs
             (FAdd
               (FMul
                 d0
@@ -2359,7 +2359,7 @@ In
             (App
               o_param_c
               m)
-            (FNeg
+            (FAbs
               (FAdd
                 (FMul
                   d0
@@ -2405,7 +2405,7 @@ In
             (App
               o_param_a
               m)
-            (FNeg
+            (FAbs
               (FAdd
                 (FMul
                   d1
@@ -2420,7 +2420,7 @@ In
               (App
                 o_param_c
                 m)
-              (FNeg
+              (FAbs
                 (FAdd
                   (FMul
                     d1
@@ -2466,7 +2466,7 @@ In
               (App
                 o_param_a
                 m)
-              (FNeg
+              (FAbs
                 (FAdd
                   (FMul
                     d2
@@ -2481,7 +2481,7 @@ In
                 (App
                   o_param_b
                   m)
-                (FNeg
+                (FAbs
                   (FAdd
                     (FMul
                       d2
@@ -2627,7 +2627,7 @@ In
             (FMul
               (FAdd
                 neg_bb
-                (FNeg
+                (FSqrt
                   d))
               (Get
                 dconst
@@ -2639,7 +2639,7 @@ In
             (FMul
               (FSub
                 neg_bb
-                (FNeg
+                (FSqrt
                   d))
               (Get
                 dconst
@@ -2823,7 +2823,7 @@ In
             (FMul
               (FAdd
                 neg_bb
-                (FNeg
+                (FSqrt
                   d))
               (Get
                 dconst
@@ -2835,7 +2835,7 @@ In
             (FMul
               (FSub
                 neg_bb
-                (FNeg
+                (FSqrt
                   d))
               (Get
                 dconst
@@ -3548,7 +3548,7 @@ In
           (App
             o_param_a
             m)
-          (FNeg
+          (FAbs
             p0)))
     Then
       (If
@@ -3557,7 +3557,7 @@ In
             (App
               o_param_b
               m)
-            (FNeg
+            (FAbs
               p1)))
       Then
         (Not
@@ -3565,7 +3565,7 @@ In
             (App
               o_param_c
               m)
-            (FNeg
+            (FAbs
               p2)))
       Else
         false)
@@ -4824,7 +4824,7 @@ In
     (Let flag1:Var(?) =
       (Let d1:Var(?) =
         (FMul
-          (FNeg
+          (Floor
             (FMul
               w1
               0.05))
@@ -4849,7 +4849,7 @@ In
     (Let flag2:Var(?) =
       (Let d2:Var(?) =
         (FMul
-          (FNeg
+          (Floor
             (FMul
               w3
               0.05))
@@ -4946,7 +4946,7 @@ In
         In
         (Let w2:Var(?) =
           (FDiv
-            (FNeg
+            (FSqrt
               (FAdd
                 (FMul
                   w1
@@ -4960,7 +4960,7 @@ In
           (FMul
             (FSub
               w2
-              (FNeg
+              (Floor
                 w2))
             3.1415927)
         In
@@ -5004,7 +5004,7 @@ In
                 (App
                   o_param_x
                   m))
-              (FNeg
+              (FSqrt
                 (App
                   o_param_a
                   m)))
@@ -5018,7 +5018,7 @@ In
                 (App
                   o_param_z
                   m))
-              (FNeg
+              (FSqrt
                 (App
                   o_param_c
                   m)))
@@ -5037,13 +5037,13 @@ In
               (Not
                 (LE
                   0.0001
-                  (FNeg
+                  (FAbs
                     w1)))
             Then
               15.
             Else
               (Let w5:Var(?) =
-                (FNeg
+                (FAbs
                   (FDiv
                     w3
                     w1))
@@ -5059,7 +5059,7 @@ In
           (Let w9:Var(?) =
             (FSub
               w7
-              (FNeg
+              (Floor
                 w7))
           In
           (Let w2:Var(?) =
@@ -5071,7 +5071,7 @@ In
                 (App
                   o_param_y
                   m))
-              (FNeg
+              (FSqrt
                 (App
                   o_param_b
                   m)))
@@ -5081,13 +5081,13 @@ In
               (Not
                 (LE
                   0.0001
-                  (FNeg
+                  (FAbs
                     w4)))
             Then
               15.
             Else
               (Let w6:Var(?) =
-                (FNeg
+                (FAbs
                   (FDiv
                     w2
                     w4))
@@ -5103,7 +5103,7 @@ In
           (Let w10:Var(?) =
             (FSub
               w8
-              (FNeg
+              (Floor
                 w8))
           In
           (Let w11:Var(?) =
@@ -6321,7 +6321,8 @@ In
 In
 (LetRec write_rgb_element_int:Var(?) x:Var(?) =
   (Let ix:Var(?) =
-    0
+    (FloatToInt
+      x)
   In
   (Let elem:Var(?) =
     (If
@@ -6349,7 +6350,8 @@ In
 In
 (LetRec write_rgb_element_char:Var(?) x:Var(?) =
   (Let ix:Var(?) =
-    0
+    (FloatToInt
+      x)
   In
   (Let elem:Var(?) =
     (If
@@ -6536,7 +6538,12 @@ In
         (Get
           scan_pitch
           0)
-        0.)
+        (IntToFloat
+          (Sub
+            x
+            (Get
+              image_center
+              0))))
     In
     (Let Tu197:Unit =
       (Put
@@ -6650,7 +6657,12 @@ In
       (Get
         scan_pitch
         0)
-      0.)
+      (IntToFloat
+        (Sub
+          y
+          (Get
+            image_center
+            1))))
   In
   (Let lc0:Var(?) =
     (FAdd
@@ -6964,7 +6976,7 @@ In
 In
 (LetRec adjust_position:Var(?) h:Var(?) ratio:Var(?) =
   (Let l:Var(?) =
-    (FNeg
+    (FSqrt
       (FAdd
         (FMul
           h
@@ -6999,7 +7011,7 @@ In
       icount)
   Then
     (Let l:Var(?) =
-      (FNeg
+      (FSqrt
         (FAdd
           (FAdd
             (FMul
@@ -7150,7 +7162,8 @@ In
     (Let rx:Var(?) =
       (FSub
         (FMul
-          0.
+          (IntToFloat
+            col)
           0.2)
         0.9)
     In
@@ -7168,7 +7181,8 @@ In
     (Let rx2:Var(?) =
       (FAdd
         (FMul
-          0.
+          (IntToFloat
+            col)
           0.2)
         0.1)
     In
@@ -7208,7 +7222,8 @@ In
     (Let ry:Var(?) =
       (FSub
         (FMul
-          0.
+          (IntToFloat
+            row)
           0.2)
         0.9)
     In
@@ -7655,7 +7670,8 @@ In
       0
       (FDiv
         128.
-        0.))
+        (IntToFloat
+          size_x)))
   In
   (Let prev:Var(?) =
     (App

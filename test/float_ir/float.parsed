@@ -1,0 +1,22 @@
+(Put
+  io_int
+  0
+  (FloatToInt
+    (FMul
+      (FSub
+        (FAdd
+          (App
+            sin
+            (App
+              cos
+              (FSqrt
+                (FAbs
+                  -12.3))))
+          4.5)
+        (FDiv
+          (FMul
+            6.7
+            8.9)
+          1.23456789))
+      (IntToFloat
+        1000000))))

@@ -1,0 +1,58 @@
+(Let Ta1:Array(Int) =
+  (Ext_Array io_int)
+In
+(Let Ti2:Int =
+  0
+In
+(Let Ti19:Int =
+  (Let Td18:Float =
+    (Let Td15:Float =
+      (Let Td9:Float =
+        (Let Td7:Float =
+          (Let Ti6:Int =
+            (Let Td5:Float =
+              (Let Td4:Float =
+                (Let Td3:Float =
+                  -12.3
+                In
+                (FAbs Td3))
+              In
+              (FSqrt Td4))
+            In
+            cos Td5)
+          In
+          sin Ti6)
+        In
+        (Let Td8:Float =
+          4.5
+        In
+        (FAdd Td7 Td8)))
+      In
+      (Let Td14:Float =
+        (Let Td12:Float =
+          (Let Td10:Float =
+            6.7
+          In
+          (Let Td11:Float =
+            8.9
+          In
+          (FMul Td10 Td11)))
+        In
+        (Let Td13:Float =
+          1.23456789
+        In
+        (FDiv Td12 Td13)))
+      In
+      (FSub Td9 Td14)))
+    In
+    (Let Td17:Float =
+      (Let Ti16:Int =
+        1000000
+      In
+      (IntToFloat Ti16))
+    In
+    (FMul Td15 Td17)))
+  In
+  (FloatToInt Td18))
+In
+(Ta1.(Ti2) <- Ti19))))

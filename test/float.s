@@ -4,77 +4,55 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    flui     %f0  -502                  # !7
-    fli      %f0  314573                # !7
+    setl %r1 ~min_caml_io_int              # !5
+    flui %f0 515                           # !7
+    fli %f0 29929                          # !7
     ++
-    fli -12.300000
-    => flui %f0 0b11000001010
-       fli  %f0 0b001001100110011001101
+    fli 3.507136
+    => flui %f0 0b01000000011
+       fli  %f0 0b000000111010011101001
     ++
-    sw       %ra  %sp  0                # !7
-    addi     %sp  %sp  1                # !7
-    jal      ~min_caml_abs_float        # !7
-    addi     %sp  %sp  -1               # !7
-    lw       %ra  %sp  0                # !7
-    sw       %ra  %sp  0                # !7
-    addi     %sp  %sp  1                # !7
-    jal      ~min_caml_sqrt             # !7
-    addi     %sp  %sp  -1               # !7
-    lw       %ra  %sp  0                # !7
-    sw       %ra  %sp  0                # !7
-    addi     %sp  %sp  1                # !7
-    jal      ~min_caml_cos              # !7
-    addi     %sp  %sp  -1               # !7
-    lw       %ra  %sp  0                # !7
-    sw       %ra  %sp  0                # !7
-    addi     %sp  %sp  1                # !7
-    jal      ~min_caml_sin              # !7
-    addi     %sp  %sp  -1               # !7
-    lw       %ra  %sp  0                # !7
-    flui     %f1  516                   # !8
-    fli      %f1  -1048576              # !8
+    sw %r1 %sp 0                           # !7
+    sw %ra %sp 1                           # !7
+    addi %sp %sp 2                         # !7
+    jal ~min_caml_cos                      # !7
+    addi %sp %sp -2                        # !7
+    lw %ra %sp 1                           # !7
+    sw %ra %sp 1                           # !7
+    addi %sp %sp 2                         # !7
+    jal ~min_caml_sin                      # !7
+    addi %sp %sp -2                        # !7
+    lw %ra %sp 1                           # !7
+    flui %f1 516                           # !8
+    fli %f1 -1048576                       # !8
     ++
     fli 4.500000
     => flui %f1 0b01000000100
        fli  %f1 0b100000000000000000000
     ++
-    fadd     %f0  %f0  %f1              # !7
-    flui     %f1  530                   # !8
-    fli      %f1  78722                 # !8
+    fadd %f0 %f0 %f1                       # !7
+    flui %f1 530                           # !8
+    fli %f1 78722                          # !8
     ++
     fli 48.300300
     => flui %f1 0b01000010010
        fli  %f1 0b000010011001110000010
     ++
-    fsub     %f0  %f0  %f1              # !7
-    lui      %r1  0                     # !9
-    li       %r1  1000000               # !9
+    fsub %f0 %f0 %f1                       # !7
+    flui %f1 587                           # !9
+    fli %f1 -777216                        # !9
     ++
-    li 1000000
-    => lui %r1 0b00000000000
-       li  %r1 0b011110100001001000000
+    fli 1000000.000000
+    => flui %f1 0b01001001011
+       fli  %f1 0b101000010010000000000
     ++
-    fsw      %f0  %sp  0                # !9
-    sw       %ra  %sp  1                # !9
-    addi     %sp  %sp  2                # !9
-    jal      ~min_caml_float_of_int     # !9
-    addi     %sp  %sp  -2               # !9
-    lw       %ra  %sp  1                # !9
-    flw      %f1  %sp  0                # !7
-    fmul     %f0  %f1  %f0              # !7
-    sw       %ra  %sp  1                # !6
-    addi     %sp  %sp  2                # !6
-    jal      ~min_caml_int_of_float     # !6
-    addi     %sp  %sp  -2               # !6
-    lw       %ra  %sp  1                # !6
-    sw       %ra  %sp  1                # !5
-    addi     %sp  %sp  2                # !5
-    jal      ~min_caml_print_int        # !5
-    addi     %sp  %sp  -2               # !5
-    lw       %ra  %sp  1                # !5
-    j        ~inf_loop                  # !0
+    fmul %f0 %f0 %f1                       # !7
+    ftoi %r1 %f0                           # !7
+    lw %r2 %sp 0                           # !5
+    sw %r1 %r2 0                           # !5
+    j ~inf_loop                            # !0
 inf_loop:
-    j        ~inf_loop                  # !0
+    j ~inf_loop                            # !0
 
 ++
 These are function definitions.

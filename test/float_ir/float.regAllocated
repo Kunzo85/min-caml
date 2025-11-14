@@ -1,0 +1,45 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let %r1:Array(Int) =
+  SetL(min_caml_io_int)
+In
+(Let %f0:Float =
+  FLi(3.50713558335)
+In
+(Let Tu40:Unit =
+  Save(%r1, Ta1.20)
+In
+(Let %r1:Int =
+  CallDir(min_caml_cos, [], [%f0])
+In
+(Let %f0:Float =
+  CallDir(min_caml_sin, [%r1], [])
+In
+(Let %f1:Float =
+  FLi(4.5)
+In
+(Let %f0:Float =
+  FAdd(%f0, %f1)
+In
+(Let %f1:Float =
+  FLi(48.3003004395)
+In
+(Let %f0:Float =
+  FSub(%f0, %f1)
+In
+(Let %f1:Float =
+  FLi(1000000.)
+In
+(Let %f0:Float =
+  FMul(%f0, %f1)
+In
+(Let %r1:Int =
+  FloatToInt(%f0)
+In
+(Let %r2:Int =
+  Restore(Ta1.20)
+In
+Store(%r1, %r2, 0))))))))))))))
+
