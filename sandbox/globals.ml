@@ -117,3 +117,7 @@ let reflections =
 (* reflectionsの有効な要素数 *)
 let n_reflections = Array.make 1 0
 (*MINCAML*) in
+
+(**************** ここまでグローバル変数の宣言 ****************)
+
+
