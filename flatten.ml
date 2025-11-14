@@ -52,6 +52,11 @@ let rec g known repenv e = (* メインルーチン *)
     | FSub(x, y) -> inherit_loc (FSub(replace repenv x, replace repenv y))
     | FMul(x, y) -> inherit_loc (FMul(replace repenv x, replace repenv y))
     | FDiv(x, y) -> inherit_loc (FDiv(replace repenv x, replace repenv y))
+    | FAbs(x) -> inherit_loc (FAbs(replace repenv x))
+    | FSqrt(x) -> inherit_loc (FSqrt(replace repenv x))
+    | Floor(x) -> inherit_loc (Floor(replace repenv x))
+    | FloatToInt(x) -> inherit_loc (FloatToInt(replace repenv x))
+    | IntToFloat(x) -> inherit_loc (IntToFloat(replace repenv x))
     | IfEq(x, y, e1, e2) ->
         inherit_loc (IfEq(replace repenv x, replace repenv y, g known repenv e1, g known repenv e2))
     | IfLE(x, y, e1, e2) ->

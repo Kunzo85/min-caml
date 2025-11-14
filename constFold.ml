@@ -34,6 +34,11 @@ let rec g env e = (* 定数畳み込みルーチン本体 (caml2html: constfold_
   | FSub(x, y) when memf x env && memf y env -> inherit_loc (Float(findf x env -. findf y env))
   | FMul(x, y) when memf x env && memf y env -> inherit_loc (Float(findf x env *. findf y env))
   | FDiv(x, y) when memf x env && memf y env -> inherit_loc (Float(findf x env /. findf y env))
+  | FAbs(x) when memf x env -> inherit_loc (Float(abs_float (findf x env)))
+  | FSqrt(x) when memf x env -> inherit_loc (Float(sqrt (findf x env)))
+  | Floor(x) when memf x env -> inherit_loc (Float(floor (findf x env)))
+  | FloatToInt(x) when memf x env -> inherit_loc (Int(int_of_float (findf x env)))
+  | IntToFloat(x) when memi x env -> inherit_loc (Float(float_of_int (findi x env)))
   | IfEq(x, y, e1, e2) when memi x env && memi y env -> if findi x env = findi y env then g env e1 else g env e2
   | IfEq(x, y, e1, e2) when memf x env && memf y env -> if findf x env = findf y env then g env e1 else g env e2
   | IfEq(x, y, e1, e2) -> inherit_loc (IfEq(x, y, g env e1, g env e2))

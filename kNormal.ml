@@ -17,6 +17,11 @@ type t' = (* K正規化後の式 (caml2html: knormal_t) *)
   | FSub of Id.t * Id.t
   | FMul of Id.t * Id.t
   | FDiv of Id.t * Id.t
+  | FAbs of Id.t
+  | FSqrt of Id.t
+  | Floor of Id.t
+  | FloatToInt of Id.t
+  | IntToFloat of Id.t
   | IfEq of Id.t * Id.t * t * t
   | IfLE of Id.t * Id.t * t * t
   | Let of (Id.t * Type.t) * t * t
@@ -36,7 +41,7 @@ and t = t' with_loc
 let rec fv e = (* 式に出現する（自由な）変数 (caml2html: knormal_fv) *)
   match e.node with
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
-  | Neg(x) | FNeg(x) | Sll(x, _) | Sra(x, _) -> S.singleton x
+  | Neg(x) | FNeg(x) | FAbs(x) | FSqrt(x) | Floor(x) | FloatToInt(x) | IntToFloat(x) | Sll(x, _) | Sra(x, _) -> S.singleton x
   | Add(x, y) | Sub(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) | Get(x, y) -> S.of_list [x; y]
   | IfEq(x, y, e1, e2) | IfLE(x, y, e1, e2) -> S.add x (S.add y (S.union (fv e1) (fv e2)))
   | Let((x, _t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
@@ -111,6 +116,21 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
         insert_let (g env e1) e.loc
           (fun x -> insert_let (g env e2) e.loc
               (fun y -> inherit_loc (FDiv(x, y)), Type.Float))
+    | Syntax.FAbs(e') ->
+        insert_let (g env e') e.loc
+          (fun x -> inherit_loc (FAbs(x)), Type.Float)
+    | Syntax.FSqrt(e') ->
+        insert_let (g env e') e.loc
+          (fun x -> inherit_loc (FSqrt(x)), Type.Float)
+    | Syntax.Floor(e') ->
+        insert_let (g env e') e.loc
+          (fun x -> inherit_loc (Floor(x)), Type.Float)
+    | Syntax.FloatToInt(e') ->
+        insert_let (g env e') e.loc
+          (fun x -> inherit_loc (FloatToInt(x)), Type.Int)
+    | Syntax.IntToFloat(e') ->
+        insert_let (g env e') e.loc
+          (fun x -> inherit_loc (IntToFloat(x)), Type.Float)
     | Syntax.Eq _ | Syntax.LE _ as cmp ->
         g env (inherit_loc
                 (Syntax.If(inherit_loc cmp, inherit_loc (Syntax.Bool(true)), inherit_loc (Syntax.Bool(false))))) (* 比較式をIf式に変換 (caml2html: knormal_cmp) *)
@@ -223,6 +243,11 @@ let rec t_to_string p t =
   | FSub(x, y) -> Printf.sprintf "(FSub %s %s)" x y
   | FMul(x, y) -> Printf.sprintf "(FMul %s %s)" x y
   | FDiv(x, y) -> Printf.sprintf "(FDiv %s %s)" x y
+  | FAbs(x) -> Printf.sprintf "(FAbs %s)" x
+  | FSqrt(x) -> Printf.sprintf "(FSqrt %s)" x
+  | Floor(x) -> Printf.sprintf "(Floor %s)" x
+  | FloatToInt(x) -> Printf.sprintf "(FloatToInt %s)" x
+  | IntToFloat(x) -> Printf.sprintf "(IntToFloat %s)" x
   | IfEq(x, y, e1, e2) ->
       let then_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e1)) in
       let else_str = Indent.with_indent p (fun () -> Indent.indent p ^ (t_to_string p e2)) in

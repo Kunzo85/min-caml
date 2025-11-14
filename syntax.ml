@@ -85,6 +85,21 @@ let rec t_to_string p = function (* 式(:Syntax.t)を表現する文字列を生
       let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e1) in
       let e2_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e2) in
       Printf.sprintf "(FDiv\n%s\n%s)" e1_str e2_str
+  | { node = FAbs(e); _ } -> 
+      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e) in
+      Printf.sprintf "(FAbs\n%s)" e_str
+  | { node = FSqrt(e); _ } -> 
+      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e) in
+      Printf.sprintf "(FSqrt\n%s)" e_str
+  | { node = Floor(e); _ } -> 
+      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e) in
+      Printf.sprintf "(Floor\n%s)" e_str
+  | { node = FloatToInt(e); _ } -> 
+      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e) in
+      Printf.sprintf "(FloatToInt\n%s)" e_str
+  | { node = IntToFloat(e); _ } -> 
+      let e_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e) in
+      Printf.sprintf "(IntToFloat\n%s)" e_str
   | { node = Eq(e1, e2); _ } -> 
       let e1_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e1) in
       let e2_str = Indent.with_indent p (fun () -> Indent.indent p ^ t_to_string p e2) in

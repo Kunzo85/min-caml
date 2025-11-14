@@ -27,6 +27,11 @@ and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) 
   | FSub of Id.t * Id.t
   | FMul of Id.t * Id.t
   | FDiv of Id.t * Id.t
+  | FAbs of Id.t
+  | FSqrt of Id.t
+  | Floor of Id.t
+  | FloatToInt of Id.t
+  | IntToFloat of Id.t
   | FLoad of Id.t * id_or_imm 
   | FStore of Id.t * Id.t * id_or_imm 
   | Comment of string
@@ -75,7 +80,8 @@ let fv_id_or_imm = function V(x) -> [x] | _ -> []
 let rec fv_exp e =
   match e.node with
   | Nop | Li(_) | FLi(_) | SetL(_) | Comment(_) | Restore(_) -> []
-  | Mr(x) | FMr(x) | FNeg(x) | Sll(x, _) | Sra(x, _) | Save(x, _) -> [x]
+  | Mr(x) | FMr(x) | FNeg(x) | Sll(x, _) | Sra(x, _) 
+  | FAbs(x) | FSqrt(x) | Floor(x) | FloatToInt(x) | IntToFloat(x) | Save(x, _) -> [x]
   | Add(x, y') | Load(x, y') | FLoad(x, y') -> x :: fv_id_or_imm y'
   | Store(x, y, z') | FStore(x, y, z') -> x :: y :: fv_id_or_imm z'
   | Sub(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) -> [x; y]
@@ -124,6 +130,11 @@ let rec exp_to_string p e =
   | FSub(x, y) -> Printf.sprintf "FSub(%s, %s)" x y
   | FMul(x, y) -> Printf.sprintf "FMul(%s, %s)" x y
   | FDiv(x, y) -> Printf.sprintf "FDiv(%s, %s)" x y
+  | FAbs(x) -> Printf.sprintf "FAbs(%s)" x
+  | FSqrt(x) -> Printf.sprintf "FSqrt(%s)" x
+  | Floor(x) -> Printf.sprintf "Floor(%s)" x
+  | FloatToInt(x) -> Printf.sprintf "FloatToInt(%s)" x
+  | IntToFloat(x) -> Printf.sprintf "IntToFloat(%s)" x
   | FLoad(x, y) -> Printf.sprintf "FLoad(%s, %s)" x (id_or_imm_to_string y)
   | FStore(x, y, z) -> Printf.sprintf "FStore(%s, %s, %s)" x y (id_or_imm_to_string z)
   | Comment(s) -> Printf.sprintf "Comment(%s)" s

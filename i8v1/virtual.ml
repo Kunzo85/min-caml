@@ -52,6 +52,11 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
   | Closure.FSub(x, y) -> Ans(inherit_loc (FSub(x, y)))
   | Closure.FMul(x, y) -> Ans(inherit_loc (FMul(x, y)))
   | Closure.FDiv(x, y) -> Ans(inherit_loc (FDiv(x, y)))
+  | Closure.FAbs(x) -> Ans(inherit_loc (FAbs(x)))
+  | Closure.FSqrt(x) -> Ans(inherit_loc (FSqrt(x)))
+  | Closure.Floor(x) -> Ans(inherit_loc (Floor(x)))
+  | Closure.FloatToInt(x) -> Ans(inherit_loc (FloatToInt(x)))
+  | Closure.IntToFloat(x) -> Ans(inherit_loc (IntToFloat(x)))
   | Closure.IfEq(x, y, e1, e2) ->
       (match M.find x env with
       | Type.Bool | Type.Int -> Ans(inherit_loc (IfEq(x, y, g env e1, g env e2)))

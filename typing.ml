@@ -37,6 +37,11 @@ let rec deref_term e =
   | FSub(e1, e2) -> make_wloc (FSub(deref_term e1, deref_term e2)) e.loc
   | FMul(e1, e2) -> make_wloc (FMul(deref_term e1, deref_term e2)) e.loc
   | FDiv(e1, e2) -> make_wloc (FDiv(deref_term e1, deref_term e2)) e.loc
+  | FAbs(e) -> make_wloc (FAbs(deref_term e)) e.loc
+  | FSqrt(e) -> make_wloc (FSqrt(deref_term e)) e.loc
+  | Floor(e) -> make_wloc (Floor(deref_term e)) e.loc
+  | FloatToInt(e) -> make_wloc (FloatToInt(deref_term e)) e.loc
+  | IntToFloat(e) -> make_wloc (IntToFloat(deref_term e)) e.loc
   | If(e1, e2, e3) -> make_wloc (If(deref_term e1, deref_term e2, deref_term e3)) e.loc
   | Let(xt, e1, e2) -> make_wloc (Let(deref_id_typ xt, deref_term e1, deref_term e2)) e.loc
   | LetRec({ node = { name = xt; args = yts; body = e1 }; _}, e2) ->
@@ -107,12 +112,18 @@ let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
         unify Type.Int (g env e1);
         unify Type.Int (g env e2);
         Type.Int
-    | FNeg(e) ->
+    | FNeg(e) | FAbs(e) | FSqrt(e) | Floor(e) ->
         unify Type.Float (g env e);
         Type.Float
     | FAdd(e1, e2) | FSub(e1, e2) | FMul(e1, e2) | FDiv(e1, e2) ->
         unify Type.Float (g env e1);
         unify Type.Float (g env e2);
+        Type.Float
+    | FloatToInt(e) ->
+        unify Type.Float (g env e);
+        Type.Int
+    | IntToFloat(e) ->
+        unify Type.Int (g env e);
         Type.Float
     | Eq(e1, e2) | LE(e1, e2) ->
         unify (g env e1) (g env e2);

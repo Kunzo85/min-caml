@@ -22,6 +22,11 @@ and exp' = (* 一つ一つの命令に対応する式 (caml2html: sparcasm_exp) 
   | FSub of Id.t * Id.t
   | FMul of Id.t * Id.t
   | FDiv of Id.t * Id.t
+  | FAbs of Id.t
+  | FSqrt of Id.t
+  | Floor of Id.t
+  | FloatToInt of Id.t
+  | IntToFloat of Id.t
   | FLoad of Id.t * id_or_imm (* いずれ必ず即値に *)
   | FStore of Id.t * Id.t * id_or_imm (* いずれ必ず即値に *)
   | Comment of string

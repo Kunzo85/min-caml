@@ -175,22 +175,22 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
     { add_loc (FMul($2, $2)) }
 | FABS simple_exp
     %prec prec_app
-    { add_loc (FNeg($2)) } (* 後で変更！ *)
+    { add_loc (FAbs($2)) }
 | FNEG simple_exp
     %prec prec_app
     { add_loc (FNeg($2)) }
 | SQRT simple_exp
     %prec prec_app
-    { add_loc (FNeg($2)) } (* 後で変更！ *)
+    { add_loc (FSqrt($2)) }
 | FLOOR simple_exp
     %prec prec_app
-    { add_loc (FNeg($2)) }  (* 後で変更！ *)
+    { add_loc (Floor($2)) }
 | INT_OF_FLOAT simple_exp
     %prec prec_app
-    { add_loc (Int(0)) }  (* 後で変更！ *)
+    { add_loc (FloatToInt($2)) }
 | FLOAT_OF_INT simple_exp
     %prec prec_app
-    { add_loc (Float(0.0)) }  (* 後で変更！ *)
+    { add_loc (IntToFloat($2)) }
 | PRINT_CHAR simple_exp
     %prec prec_app
     { add_loc (Put(add_loc (Var("io_char")), add_loc (Int(0)), $2)) }

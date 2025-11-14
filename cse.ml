@@ -5,7 +5,9 @@ open Location
 
 let is_pure = function (* 純粋式。削除可能な式を表す *)
   | Unit | Int(_) | Float(_) | ExtArray(_)
-  | Neg(_) | Add(_, _) | Sub(_, _) | Sll(_, _) | Sra(_, _) | FNeg(_) | FAdd(_, _) | FSub(_, _) | FMul(_, _) | FDiv(_, _)
+  | Neg(_) | Add(_, _) | Sub(_, _) | Sll(_, _) | Sra(_, _) 
+  | FNeg(_) | FAdd(_, _) | FSub(_, _) | FMul(_, _) | FDiv(_, _)
+  | FAbs(_) | FSqrt(_) | Floor(_) | FloatToInt(_) | IntToFloat(_)
   | Tuple(_) -> true
   | _ -> false
 
@@ -78,6 +80,26 @@ let rec g exprenv repenv e = (* 共通部分式削除ルーチン本体 *)
       let x' = replace_id repenv x in
       let y' = replace_id repenv y in
       let e' = FDiv(x', y') in
+      inherit_loc (eliminate_expr exprenv e')
+  | FAbs(x) ->
+      let x' = replace_id repenv x in
+      let e' = FAbs(x') in
+      inherit_loc (eliminate_expr exprenv e')
+  | FSqrt(x) ->
+      let x' = replace_id repenv x in
+      let e' = FSqrt(x') in
+      inherit_loc (eliminate_expr exprenv e')
+  | Floor(x) ->
+      let x' = replace_id repenv x in
+      let e' = Floor(x') in
+      inherit_loc (eliminate_expr exprenv e')
+  | FloatToInt(x) ->
+      let x' = replace_id repenv x in
+      let e' = FloatToInt(x') in
+      inherit_loc (eliminate_expr exprenv e')
+  | IntToFloat(x) ->
+      let x' = replace_id repenv x in
+      let e' = IntToFloat(x') in
       inherit_loc (eliminate_expr exprenv e')
   | IfEq(x, y, e1, e2) ->
       inherit_loc (IfEq(replace_id repenv x, replace_id repenv y, g (Hashtbl.copy exprenv) repenv e1, g (Hashtbl.copy exprenv) repenv e2))
