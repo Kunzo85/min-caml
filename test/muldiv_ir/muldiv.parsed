@@ -1,0 +1,14 @@
+(Let a:Var(?) =
+  (App
+    f
+    ())
+In
+(App
+  g
+  (Sub
+    (Div
+      a
+      16)
+    (Mul
+      4
+      2))))

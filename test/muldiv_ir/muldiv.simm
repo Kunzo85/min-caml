@@ -1,0 +1,18 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let Tu1.11:Unit =
+  Nop
+In
+(Let a.6:Int =
+  CallDir(min_caml_f, [], [])
+In
+(Let Ti2.8:Int =
+  Sra(a.6, 4)
+In
+(Let Ti5.7:Int =
+  Add(Ti2.8, -8)
+In
+CallDir(min_caml_g, [Ti5.7], [])))))
+

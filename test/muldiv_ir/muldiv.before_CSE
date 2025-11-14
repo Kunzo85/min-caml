@@ -1,0 +1,19 @@
+(Let a.6:Int =
+  (Let Tu1.11:Unit =
+    ()
+  In
+  f Tu1.11)
+In
+(Let Ti5.7:Int =
+  (Let Ti2.8:Int =
+    (Sra a.6 4)
+  In
+  (Let Ti4.9:Int =
+    (Let Ti3.10:Int =
+      4
+    In
+    (Sll Ti3.10 1))
+  In
+  (Sub Ti2.8 Ti4.9)))
+In
+g Ti5.7))

@@ -1,0 +1,18 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let %zero:Unit =
+  Nop
+In
+(Let %r1:Int =
+  CallDir(min_caml_f, [], [])
+In
+(Let %r1:Int =
+  Sra(%r1, 4)
+In
+(Let %r1:Int =
+  Add(%r1, -8)
+In
+CallDir(min_caml_g, [%r1], [])))))
+
