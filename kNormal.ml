@@ -85,19 +85,13 @@ let rec g env e = (* K正規化ルーチン本体 (caml2html: knormal_g) *)
             insert_let (g env e1) e.loc
               (fun x -> inherit_loc (Sll(x, shift_amount)), Type.Int)
         | _ -> Error.handle_exn (Error.KNormal_error (e, "not a power of two")))
-        (* insert_let (g env e1) e.loc
-          (fun x -> insert_let (g env e2) e.loc
-              (fun y -> inherit_loc (Mul(x, y)), Type.Int)) *)
     | Syntax.Div(e1, e2) ->
         (match e2.node with
         | Syntax.Int(i) when i > 0 && (i land (i - 1)) = 0 -> (* 2のべき乗の場合、シフト命令に変換 *)
             let shift_amount = int_of_float (log (float_of_int i) /. log 2.) in
             insert_let (g env e1) e.loc
               (fun x -> inherit_loc (Sra(x, shift_amount)), Type.Int)
-        | _ -> Error.handle_exn (Error.KNormal_error (e, "not a power of two")))  
-        (* insert_let (g env e1) e.loc
-          (fun x -> insert_let (g env e2) e.loc
-              (fun y -> inherit_loc (Div(x, y)), Type.Int)) *)
+        | _ -> Error.handle_exn (Error.KNormal_error (e, "not a power of two")))
     | Syntax.FNeg(e') ->
         insert_let (g env e') e.loc
           (fun x -> inherit_loc (FNeg(x)), Type.Float)

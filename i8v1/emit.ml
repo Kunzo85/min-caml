@@ -6,9 +6,12 @@ open Lexing
 external getlo : float -> int32 = "getlo" *)
 
 let tab = "    "
-let print_inst oc inst args loc =
+(* let print_inst oc inst args loc =
   let inst_str = Printf.sprintf "%s%-5s%s%s" tab inst tab (String.concat "  " args) in
-  Printf.fprintf oc "%-40s%s%d\n" inst_str ("# !") loc.start_pos.pos_lnum
+  Printf.fprintf oc "%-43s%s%d\n" inst_str ("# !") loc.start_pos.pos_lnum *)
+let print_inst oc inst args loc = (* 引数間のスペースを1にする用 *)
+  let inst_str = Printf.sprintf "%s%s%s%s" tab inst " " (String.concat " " args) in
+  Printf.fprintf oc "%-43s%s%d\n" inst_str ("# !") loc.start_pos.pos_lnum
 
 (* let print_inst oc inst args loc comment =
   Printf.fprintf oc "%s%s%s%s%s%d%s# %s\n" tab inst tab (String.concat " " args) (tab ^ tab ^ "# !") loc.Lexing.start_pos.Lexing.pos_lnum (tab ^ tab) comment *)

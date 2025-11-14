@@ -160,3 +160,5 @@ let f filename p =
     let p' = Prog(fundefs', e') in
     print filename ".after_flatten" p';
     p'
+
+let f _filename p = p (* 一時的に無効化 *)
