@@ -3,6 +3,17 @@
 (* lexerが利用する変数、関数、型などの定義 *)
 open MyParser
 (* open Type *)
+
+let forbidden_words = ["io_char"; "io_int"; "io_float"]
+
+let check_identifier lexbuf id =
+  if List.mem id forbidden_words then
+    raise (Error.Lexing_error ({
+      Location.start_pos = lexbuf.Lexing.lex_curr_p;
+      Location.end_pos = lexbuf.Lexing.lex_curr_p
+    }, "Identifier '" ^ id ^ "' is forbidden "))
+  else
+    id
 }
 
 (* 正規表現の略記 *)
@@ -86,10 +97,47 @@ rule token = parse
     { LESS_MINUS }
 | ';'
     { SEMICOLON }
+| "fequal"
+    { FEQUAL }
+| "fless"
+    { FLESS }
+| "fispos"
+    { FISPOS }
+| "fisneg"
+    { FISNEG }
+| "fiszero"
+    { FISZERO }
+| "fhalf"
+    { FHALF }
+| "fsqr"
+    { FSQR }
+| "fabs"
+    { FABS }
+| "fneg"
+    { FNEG }
+| "sqrt"
+    { SQRT }
+| "floor"
+    { FLOOR }
+| "int_of_float"
+    { INT_OF_FLOAT }
+| "float_of_int"
+    { FLOAT_OF_INT }
+| "print_char"
+    { PRINT_CHAR }
+| "print_int"
+    { PRINT_INT }
+| "read_float"
+    { READ_FLOAT }
+| "read_int"
+    { READ_INT }
 | eof
     { EOF }
+(* | lower (digit|lower|upper|'_')* 
+    { IDENT(Lexing.lexeme lexbuf) } *)
 | lower (digit|lower|upper|'_')* (* 他の「予約語」より後でないといけない *)
-    { IDENT(Lexing.lexeme lexbuf) }
+    { let id = Lexing.lexeme lexbuf in
+      IDENT(check_identifier lexbuf id) }
 | _
     { let pos = lexbuf.lex_curr_p in
       let loc = { Location.start_pos = pos; Location.end_pos = pos } in
@@ -97,7 +145,7 @@ rule token = parse
         (Lexing.lexeme lexbuf)
         pos.pos_lnum
         (pos.pos_cnum - pos.pos_bol + 1);
-      raise (Error.Lexing_error loc) }
+      raise (Error.Lexing_error (loc, "Unknown token")) }
 and comment = parse
 | "\n"
     { Lexing.new_line lexbuf;

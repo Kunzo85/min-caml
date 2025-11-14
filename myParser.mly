@@ -40,6 +40,26 @@ let update_loc t = { node = t.node; loc = loc_of_rule () }
 %token DOT
 %token LESS_MINUS
 %token SEMICOLON
+
+(* 追加した組み込み命令 *)
+%token FEQUAL
+%token FLESS
+%token FISPOS
+%token FISNEG
+%token FISZERO
+%token FHALF
+%token FSQR
+%token FABS
+%token FNEG
+%token SQRT
+%token FLOOR
+%token INT_OF_FLOAT
+%token FLOAT_OF_INT
+%token PRINT_CHAR
+%token PRINT_INT
+%token READ_FLOAT
+%token READ_INT
+
 %token LPAREN
 %token RPAREN
 %token EOF
@@ -132,6 +152,57 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
 | LET REC fundef IN exp
     %prec prec_let
     { add_loc (LetRec($3, $5)) }
+| FEQUAL simple_exp simple_exp
+    %prec prec_app
+    { add_loc (Eq($2, $3)) }
+| FLESS simple_exp simple_exp
+    %prec prec_app
+    { add_loc (Not(add_loc (LE($3, $2)))) }
+| FISPOS simple_exp
+    %prec prec_app
+    { add_loc (Not(add_loc (LE($2, add_loc (Float 0.0))))) }
+| FISNEG simple_exp
+    %prec prec_app
+    { add_loc (Not(add_loc (LE(add_loc (Float 0.0), $2)))) }
+| FISZERO simple_exp
+    %prec prec_app
+    { add_loc (Eq($2, add_loc (Float 0.0))) }
+| FHALF simple_exp
+    %prec prec_app
+    { add_loc (FMul($2, add_loc (Float 0.5))) }
+| FSQR simple_exp
+    %prec prec_app
+    { add_loc (FMul($2, $2)) }
+| FABS simple_exp
+    %prec prec_app
+    { add_loc (FNeg($2)) } (* 後で変更！ *)
+| FNEG simple_exp
+    %prec prec_app
+    { add_loc (FNeg($2)) }
+| SQRT simple_exp
+    %prec prec_app
+    { add_loc (FNeg($2)) } (* 後で変更！ *)
+| FLOOR simple_exp
+    %prec prec_app
+    { add_loc (FNeg($2)) }  (* 後で変更！ *)
+| INT_OF_FLOAT simple_exp
+    %prec prec_app
+    { add_loc (Int(0)) }  (* 後で変更！ *)
+| FLOAT_OF_INT simple_exp
+    %prec prec_app
+    { add_loc (Float(0.0)) }  (* 後で変更！ *)
+| PRINT_CHAR simple_exp
+    %prec prec_app
+    { add_loc (Put(add_loc (Var("io_char")), add_loc (Int(0)), $2)) }
+| PRINT_INT simple_exp
+    %prec prec_app
+    { add_loc (Put(add_loc (Var("io_int")), add_loc (Int(0)), $2)) }
+| READ_FLOAT LPAREN RPAREN
+    %prec prec_app
+    { add_loc (Get(add_loc (Var("io_float")), add_loc (Int(0)))) }
+| READ_INT LPAREN RPAREN
+    %prec prec_app
+    { add_loc (Get(add_loc (Var("io_int")), add_loc (Int(0)))) }
 | simple_exp actual_args
     %prec prec_app
     { add_loc (App($1, $2)) }

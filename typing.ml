@@ -167,6 +167,9 @@ let f e =
   | Type.Unit -> ()
   | _ -> Format.eprintf "warning: final result does not have type unit@.");
 *)
+  extenv := M.add "io_char" (Type.Array(Type.Int)) !extenv;
+  extenv := M.add "io_int" (Type.Array(Type.Int)) !extenv;
+  extenv := M.add "io_float" (Type.Array(Type.Float)) !extenv;
   (try unify Type.Unit 
     (try g M.empty e with
     | e -> Error.handle_exn e)
