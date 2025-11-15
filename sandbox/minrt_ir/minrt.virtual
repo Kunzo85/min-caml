@@ -961,7 +961,7 @@ Function read_screen_settings.2606 Args() FArgs() Ret:Unit =
     Li(0)
   In
   (Let Ta576.5352:Array(Float) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let Td578.5351:Float =
     FLoad(Ta576.5352, Ti575.5350)
@@ -1120,7 +1120,7 @@ Function read_light.2608 Args() FArgs() Ret:Unit =
     Load(read_light.2608, 1)
   In
   (Let Ta637.5270:Array(Float) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let Ti638.5271:Int =
     Li(0)
@@ -1459,7 +1459,7 @@ Function read_nth_object.2613 Args(n.2614) FArgs() Ret:Bool =
     Load(read_nth_object.2613, 1)
   In
   (Let Ta740.5134:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let Ti741.5135:Int =
     Li(0)
@@ -1492,7 +1492,7 @@ Function read_nth_object.2613 Args(n.2614) FArgs() Ret:Bool =
       CallDir(min_caml_create_float_array, [Ti750.5125], [Td751.5126])
     In
     (Let Ta753.5123:Array(Float) =
-      Li(3735928563)
+      Li(4294967288)
     In
     (Let Td755.5122:Float =
       FLoad(Ta753.5123, Ti741.5135)
@@ -1789,7 +1789,7 @@ Function read_all_object.2617 Args() FArgs() Ret:Unit =
 
 Function read_net_item.2619 Args(length.2620) FArgs() Ret:Array(Int) =
   (Let Ta857.4982:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let Ti858.4983:Int =
     Li(0)
@@ -6559,7 +6559,7 @@ Function write_ppm_header.2868 Args(version.2869) FArgs() Ret:Unit =
     Load(write_ppm_header.2868, 1)
   In
   (Let Ta2036.3501:Array(Int) =
-    Li(3735928559)
+    Li(4294967292)
   In
   (Let Ti2037.3502:Int =
     Li(0)
@@ -6586,7 +6586,7 @@ Function write_ppm_header.2868 Args(version.2869) FArgs() Ret:Unit =
     Store(Ti2045.3496, Ta2036.3501, Ti2037.3502)
   In
   (Let Ta2046.3490:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let Ti2049.3492:Int =
     Load(image_size.2460, Ti2037.3502)
@@ -6640,7 +6640,7 @@ Function write_rgb_element_int.2870 Args() FArgs(x.2871) Ret:Unit =
       Mr(Ti2066.3464))
   In
   (Let Ta2068.3462:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let Ti2069.3463:Int =
     Li(0)
@@ -6667,7 +6667,7 @@ Function write_rgb_element_char.2872 Args() FArgs(x.2873) Ret:Unit =
       Mr(Ti2070.3458))
   In
   (Let Ta2072.3456:Array(Int) =
-    Li(3735928559)
+    Li(4294967292)
   In
   (Let Ti2073.3457:Int =
     Li(0)
@@ -6692,7 +6692,7 @@ Function write_rgb.2874 Args(version.2875) FArgs() Ret:Unit =
       CallDir(write_rgb_element_int.2870, [], [Td2076.3452])
     In
     (Let Ta2077.3449:Array(Int) =
-      Li(3735928559)
+      Li(4294967292)
     In
     (Let Ti2079.3451:Int =
       Li(32)

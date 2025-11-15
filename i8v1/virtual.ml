@@ -151,7 +151,7 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
       | Closure.ExtArray(Id.L(x)) ->
           (match x with
           | "io_char" -> Ans(inherit_loc (Li(mmio_char)))
-          | "io_int" | "io_float" -> Ans(inherit_loc (Li(mmio_int)))
+          | "io_int" | "io_float" -> Ans(inherit_loc (Li(mmio_word)))
           | _ -> Ans(inherit_loc (SetL(Id.L("min_caml_" ^ x)))))
 
 (* 関数の仮想マシンコード生成 (caml2html: virtual_h) *)

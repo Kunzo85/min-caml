@@ -64,7 +64,7 @@ val reg_sp : Id.t
 val reg_ra : Id.t
 val is_reg : Id.t -> bool
 val mmio_char : int
-val mmio_int : int
+val mmio_word : int
 
 val fv : t -> Id.t list
 val concat : t -> Id.t * Type.t -> t -> t

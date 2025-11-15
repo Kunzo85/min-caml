@@ -862,7 +862,7 @@ Function read_screen_settings.2606 Args() FArgs() Ret:Unit =
     Load(%r27, 1)
   In
   (Let %r6:Array(Float) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let %f0:Float =
     FLoad(%r6, 0)
@@ -1081,7 +1081,7 @@ Function read_light.2608 Args() FArgs() Ret:Unit =
     Load(%r27, 1)
   In
   (Let %r3:Array(Float) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let %f0:Float =
     FLoad(%r3, 0)
@@ -1540,7 +1540,7 @@ Function read_nth_object.2613 Args(%r1) FArgs() Ret:Bool =
     Load(%r27, 1)
   In
   (Let %r3:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let %r4:Int =
     Li(0)
@@ -1600,7 +1600,7 @@ Function read_nth_object.2613 Args(%r1) FArgs() Ret:Bool =
       CallDir(min_caml_create_float_array, [%r8], [%f0])
     In
     (Let %r2:Array(Float) =
-      Li(3735928563)
+      Li(4294967288)
     In
     (Let %f0:Float =
       FLoad(%r2, 0)
@@ -2266,7 +2266,7 @@ Function read_all_object.2617 Args() FArgs() Ret:Unit =
 
 Function read_net_item.2619 Args(%r1) FArgs() Ret:Array(Int) =
   (Let %r2:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let %r2:Int =
     Load(%r2, 0)
@@ -12580,7 +12580,7 @@ Function write_ppm_header.2868 Args(%r1) FArgs() Ret:Unit =
     Load(%r27, 1)
   In
   (Let %r3:Array(Int) =
-    Li(3735928559)
+    Li(4294967292)
   In
   (Let %r4:Int =
     Li(80)
@@ -12601,7 +12601,7 @@ Function write_ppm_header.2868 Args(%r1) FArgs() Ret:Unit =
     Store(%r1, %r3, 0)
   In
   (Let %r4:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   (Let %r5:Int =
     Load(%r2, 0)
@@ -12652,7 +12652,7 @@ Function write_rgb_element_int.2870 Args() FArgs(%f0) Ret:Unit =
       Mr(%r2))
   In
   (Let %r2:Array(Int) =
-    Li(3735928563)
+    Li(4294967288)
   In
   Store(%r1, %r2, 0)))))
 
@@ -12676,7 +12676,7 @@ Function write_rgb_element_char.2872 Args() FArgs(%f0) Ret:Unit =
       Mr(%r2))
   In
   (Let %r2:Array(Int) =
-    Li(3735928559)
+    Li(4294967292)
   In
   Store(%r1, %r2, 0)))))
 
@@ -12698,7 +12698,7 @@ Function write_rgb.2874 Args(%r1) FArgs() Ret:Unit =
       CallDir(write_rgb_element_int.2870, [], [%f0])
     In
     (Let %r1:Array(Int) =
-      Li(3735928559)
+      Li(4294967292)
     In
     (Let %r2:Int =
       Li(32)
