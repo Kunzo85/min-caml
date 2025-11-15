@@ -68,6 +68,8 @@ let reg_sp = "%sp" (* stack pointer. r29 *)
 let reg_hp = "%hp" (* heap pointer (caml2html: sparcasm_reghp). r30 *)
 let reg_ra = "%ra" (* return address. r31 *)
 let is_reg x = (x.[0] = '%')
+let mmio_char = 0xdeadbeef (* memory-mapped I/O address for char *) (* 後で変更！ *)
+let mmio_int = 0xdeadbeef + 4 (* memory-mapped I/O address for int *) (* 後で変更！ *)
 
 (* super-tenuki *)
 let rec remove_and_uniq xs = function
@@ -102,8 +104,12 @@ let rec concat e1 xt e2 =
 
 (* let align i = (if i mod 8 = 0 then i else i + 4) *)
 
-let fit_in_signed_16bit i =
-  -0x8000 <= i && i < 0x8000
+let fit_in_signed b i =
+  if b <= 0 || b > 31 then
+    failwith "fit_in_signed: invalid bit size"
+  else
+  (* -0x8000 <= i && i < 0x8000 *)
+  - (1 lsl (b - 1)) <= i && i < (1 lsl (b - 1))
 
 let id_or_imm_to_string = function
   | V(x) -> x

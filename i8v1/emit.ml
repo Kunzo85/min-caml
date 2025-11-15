@@ -107,7 +107,7 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
   (* 末尾でなかったら計算結果をdestにセット (caml2html: emit_nontail) *)
   match dest, e.node with
   | NonTail(_), Nop -> ()
-  | NonTail(x), Li(i) when fit_in_signed_16bit i -> print_inst oc "addi" [x; reg_zero; string_of_int i] e.loc (* 符号拡張してほしいのでliではなくaddiを使う *)
+  | NonTail(x), Li(i) when fit_in_signed 16 i -> print_inst oc "addi" [x; reg_zero; string_of_int i] e.loc (* 符号拡張してほしいのでliではなくaddiを使う *)
   | NonTail(x), Li(i) -> (* iが16bitで表せないとき *)
       let bits = Int32.of_int i in
       let h, l = divide_imm bits in
@@ -133,14 +133,14 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
   | NonTail(x), Mr(y) when x = y -> ()
   | NonTail(x), Mr(y) -> print_inst oc "movz" [x; y; reg_zero] e.loc
   | NonTail(x), Add(y, V(z)) -> print_inst oc "add" [x; y; z] e.loc
-  | NonTail(x), Add(y, C(z)) -> assert (fit_in_signed_16bit z); print_inst oc "addi" [x; y; string_of_int z] e.loc
+  | NonTail(x), Add(y, C(z)) -> assert (fit_in_signed 16 z); print_inst oc "addi" [x; y; string_of_int z] e.loc
   | NonTail(x), Sub(y, z) -> print_inst oc "sub" [x; y; z] e.loc
   | NonTail(x), Sll(y, i) -> assert (0 <= i && i < 32); print_inst oc "sll" [x; y; string_of_int i] e.loc
   | NonTail(x), Sra(y, i) -> assert (0 <= i && i < 32); print_inst oc "sra" [x; y; string_of_int i] e.loc
   | NonTail(x), Load(y, V(z)) -> print_inst oc "lwv" [x; y; z] e.loc
-  | NonTail(x), Load(y, C(z)) -> assert (fit_in_signed_16bit z); print_inst oc "lw" [x; y; string_of_int z] e.loc
+  | NonTail(x), Load(y, C(z)) -> assert (fit_in_signed 16 z); print_inst oc "lw" [x; y; string_of_int z] e.loc
   | NonTail(_), Store(x, y, V(z)) -> print_inst oc "swv" [x; y; z] e.loc
-  | NonTail(_), Store(x, y, C(z)) -> assert (fit_in_signed_16bit z); print_inst oc "sw" [x; y; string_of_int z] e.loc
+  | NonTail(_), Store(x, y, C(z)) -> assert (fit_in_signed 16 z); print_inst oc "sw" [x; y; string_of_int z] e.loc
   | NonTail(x), FMr(y) when x = y -> ()
   | NonTail(x), FMr(y) -> print_inst oc "fmovz" [x; y; reg_zero] e.loc
   | NonTail(x), FNeg(y) -> print_inst oc "fneg" [x; y] e.loc
@@ -154,9 +154,9 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
   | NonTail(x), FloatToInt(y) -> print_inst oc "ftoi" [x; y] e.loc
   | NonTail(x), IntToFloat(y) -> print_inst oc "itof" [x; y] e.loc
   | NonTail(x), FLoad(y, V(z)) -> print_inst oc "flwv" [x; y; z] e.loc
-  | NonTail(x), FLoad(y, C(z)) -> assert (fit_in_signed_16bit z); print_inst oc "flw" [x; y; string_of_int z] e.loc
+  | NonTail(x), FLoad(y, C(z)) -> assert (fit_in_signed 16 z); print_inst oc "flw" [x; y; string_of_int z] e.loc
   | NonTail(_), FStore(x, y, V(z)) -> print_inst oc "fswv" [x; y; z] e.loc
-  | NonTail(_), FStore(x, y, C(z)) -> assert (fit_in_signed_16bit z); print_inst oc "fsw" [x; y; string_of_int z] e.loc
+  | NonTail(_), FStore(x, y, C(z)) -> assert (fit_in_signed 16 z); print_inst oc "fsw" [x; y; string_of_int z] e.loc
   | NonTail(_), Comment(s) -> print_comment oc s
   (* 退避の仮想命令の実装 (caml2html: emit_save) *)
   | NonTail(_), Save(x, y) when List.mem x allregs && not (S.mem y !stackset) ->
@@ -226,7 +226,7 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
       Printf.fprintf oc "\tbctrl\n";
       Printf.fprintf oc "\tsubi\t%s, %s, %d\n" (reg reg_sp) (reg reg_sp) ss;
       Printf.fprintf oc "\tlwz\t%s, %d(%s)\n" (reg reg_tmp) (ss - 4) (reg reg_sp); *)
-      assert (fit_in_signed_16bit ss);
+      assert (fit_in_signed 16 ss);
       print_inst oc "sw" [reg_ra; reg_sp; string_of_int (- (ss - 1))] e.loc;
       print_inst oc "addi" [reg_sp; reg_sp; string_of_int (-ss)] e.loc;
       print_inst oc "lw" [reg_sw; reg_cl; "0"] e.loc;
@@ -249,7 +249,7 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
       Printf.fprintf oc "\tbl\t%s\n" x;
       Printf.fprintf oc "\tsubi\t%s, %s, %d\n" (reg reg_sp) (reg reg_sp) ss;
       Printf.fprintf oc "\tlwz\t%s, %d(%s)\n" (reg reg_tmp) (ss - 4) (reg reg_sp); *)
-      assert (fit_in_signed_16bit ss);
+      assert (fit_in_signed 16 ss);
       print_inst oc "sw" [reg_ra; reg_sp; string_of_int (- (ss - 1))] e.loc;
       print_inst oc "addi" [reg_sp; reg_sp; string_of_int (-ss)] e.loc;
       print_inst oc "jal" [abs_label x] e.loc;

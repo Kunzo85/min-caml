@@ -147,7 +147,12 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
               Ans(inherit_loc (Store(z, x, V(offset))))) *)
           Ans(inherit_loc (Store(z, x, V(y))))
       | _ -> assert false)
-  | Closure.ExtArray(Id.L(x)) -> Ans(inherit_loc (SetL(Id.L("min_caml_" ^ x))))
+  (* | Closure.ExtArray(Id.L(x)) -> Ans(inherit_loc (SetL(Id.L("min_caml_" ^ x)))) *)
+      | Closure.ExtArray(Id.L(x)) ->
+          (match x with
+          | "io_char" -> Ans(inherit_loc (Li(mmio_char)))
+          | "io_int" | "io_float" -> Ans(inherit_loc (Li(mmio_int)))
+          | _ -> Ans(inherit_loc (SetL(Id.L("min_caml_" ^ x)))))
 
 (* 関数の仮想マシンコード生成 (caml2html: virtual_h) *)
 let h { node = { Closure.name = (Id.L(x), t); Closure.args = yts; Closure.formal_fv = zts; Closure.body = e }; loc } =
