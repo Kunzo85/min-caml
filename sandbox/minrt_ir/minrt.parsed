@@ -1,3 +1,486 @@
+(Let n_objects:Var(?) =
+  (Array
+    1
+    0)
+In
+(Let objects:Var(?) =
+  (Let dummy:Var(?) =
+    (Array
+      0
+      0.)
+  In
+  (Array
+    60
+    (Tuple
+      0,
+      0,
+      0,
+      0,
+      dummy,
+      dummy,
+      false,
+      dummy,
+      dummy,
+      dummy,
+      dummy)))
+In
+(Let screen:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let viewpoint:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let light:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let beam:Var(?) =
+  (Array
+    1
+    255.)
+In
+(Let and_net:Var(?) =
+  (Array
+    50
+    (Array
+      1
+      (Neg
+        1)))
+In
+(Let or_net:Var(?) =
+  (Array
+    1
+    (Array
+      1
+      (Get
+        and_net
+        0)))
+In
+(Let solver_dist:Var(?) =
+  (Array
+    1
+    0.)
+In
+(Let intsec_rectside:Var(?) =
+  (Array
+    1
+    0)
+In
+(Let tmin:Var(?) =
+  (Array
+    1
+    1000000000.)
+In
+(Let intersection_point:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let intersected_object_id:Var(?) =
+  (Array
+    1
+    0)
+In
+(Let nvector:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let texture_color:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let diffuse_ray:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let rgb:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let image_size:Var(?) =
+  (Array
+    2
+    0)
+In
+(Let image_center:Var(?) =
+  (Array
+    2
+    0)
+In
+(Let scan_pitch:Var(?) =
+  (Array
+    1
+    0.)
+In
+(Let startp:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let startp_fast:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let screenx_dir:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let screeny_dir:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let screenz_dir:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let ptrace_dirvec:Var(?) =
+  (Array
+    3
+    0.)
+In
+(Let dirvecs:Var(?) =
+  (Let dummyf:Var(?) =
+    (Array
+      0
+      0.)
+  In
+  (Let dummyff:Var(?) =
+    (Array
+      0
+      dummyf)
+  In
+  (Let dummy_vs:Var(?) =
+    (Array
+      0
+      (Tuple
+        dummyf,
+        dummyff))
+  In
+  (Array
+    5
+    dummy_vs))))
+In
+(Let light_dirvec:Var(?) =
+  (Let dummyf2:Var(?) =
+    (Array
+      0
+      0.)
+  In
+  (Let v3:Var(?) =
+    (Array
+      3
+      0.)
+  In
+  (Let consts:Var(?) =
+    (Array
+      60
+      dummyf2)
+  In
+  (Tuple
+    v3,
+    consts))))
+In
+(Let reflections:Var(?) =
+  (Let dummyf3:Var(?) =
+    (Array
+      0
+      0.)
+  In
+  (Let dummyff3:Var(?) =
+    (Array
+      0
+      dummyf3)
+  In
+  (Let dummydv:Var(?) =
+    (Tuple
+      dummyf3,
+      dummyff3)
+  In
+  (Array
+    180
+    (Tuple
+      0,
+      dummydv,
+      0.)))))
+In
+(Let n_reflections:Var(?) =
+  (Array
+    1
+    0)
+In
+(LetRec fmod:Var(?) x:Var(?) y:Var(?) =
+  (FSub
+    x
+    (FMul
+      (App
+        floor
+        (FDiv
+          x
+          y))
+      y))
+In
+(LetRec reduce_to_pi:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let two_pi:Var(?) =
+    (FMul
+      2.
+      pi)
+  In
+  (Let r:Var(?) =
+    (App
+      fmod
+      x
+      two_pi)
+  In
+  (If
+    (Not
+      (LE
+        r
+        pi))
+  Then
+    (FSub
+      r
+      two_pi)
+  Else
+    (If
+      (Not
+        (LE
+          (FNeg
+            pi)
+          r))
+    Then
+      (FAdd
+        r
+        two_pi)
+    Else
+      r)))))
+In
+(LetRec sin:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let half_pi:Var(?) =
+    (FMul
+      0.5
+      pi)
+  In
+  (Let x:Var(?) =
+    (App
+      reduce_to_pi
+      x)
+  In
+  (Let x:Var(?) =
+    (If
+      (Not
+        (LE
+          x
+          half_pi))
+    Then
+      (FSub
+        pi
+        x)
+    Else
+      (If
+        (Not
+          (LE
+            (FNeg
+              half_pi)
+            x))
+      Then
+        (FSub
+          (FNeg
+            pi)
+          x)
+      Else
+        x))
+  In
+  (Let x2:Var(?) =
+    (FMul
+      x
+      x)
+  In
+  (Let a3:Var(?) =
+    (FDiv
+      (FNeg
+        1.)
+      6.)
+  In
+  (Let a5:Var(?) =
+    (FDiv
+      1.
+      120.)
+  In
+  (Let a7:Var(?) =
+    (FDiv
+      (FNeg
+        1.)
+      5040.)
+  In
+  (Let a9:Var(?) =
+    (FDiv
+      1.
+      362880.)
+  In
+  (Let a11:Var(?) =
+    (FDiv
+      (FNeg
+        1.)
+      39916800.)
+  In
+  (FAdd
+    x
+    (FMul
+      (FMul
+        x
+        x2)
+      (FAdd
+        a3
+        (FMul
+          x2
+          (FAdd
+            a5
+            (FMul
+              x2
+              (FAdd
+                a7
+                (FMul
+                  x2
+                  (FAdd
+                    a9
+                    (FMul
+                      x2
+                      a11))))))))))))))))))))
+In
+(LetRec cos:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let half_pi:Var(?) =
+    (FMul
+      0.5
+      pi)
+  In
+  (App
+    sin
+    (FSub
+      half_pi
+      x))))
+In
+(LetRec atan:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let half_pi:Var(?) =
+    (FMul
+      0.5
+      pi)
+  In
+  (LetRec atan_poly:Var(?) x:Var(?) =
+    (Let x2:Var(?) =
+      (FMul
+        x
+        x)
+    In
+    (Let a3:Var(?) =
+      (FDiv
+        (FNeg
+          1.)
+        3.)
+    In
+    (Let a5:Var(?) =
+      (FDiv
+        1.
+        5.)
+    In
+    (Let a7:Var(?) =
+      (FDiv
+        (FNeg
+          1.)
+        7.)
+    In
+    (Let a9:Var(?) =
+      (FDiv
+        1.
+        9.)
+    In
+    (Let a11:Var(?) =
+      (FDiv
+        (FNeg
+          1.)
+        11.)
+    In
+    (FAdd
+      x
+      (FMul
+        (FMul
+          x
+          x2)
+        (FAdd
+          a3
+          (FMul
+            x2
+            (FAdd
+              a5
+              (FMul
+                x2
+                (FAdd
+                  a7
+                  (FMul
+                    x2
+                    (FAdd
+                      a9
+                      (FMul
+                        x2
+                        a11))))))))))))))))
+  In
+  (If
+    (Not
+      (LE
+        x
+        1.))
+  Then
+    (FSub
+      half_pi
+      (App
+        atan_poly
+        (FDiv
+          1.
+          x)))
+  Else
+    (If
+      (Not
+        (LE
+          -1.
+          x))
+    Then
+      (FSub
+        (FNeg
+          half_pi)
+        (App
+          atan_poly
+          (FDiv
+            1.
+            x)))
+    Else
+      (App
+        atan_poly
+        x))))))
+In
 (LetRec xor:Var(?) x:Var(?) y:Var(?) =
   (If
     x
@@ -9,17 +492,16 @@
 In
 (LetRec sgn:Var(?) x:Var(?) =
   (If
-    (Eq
-      x
-      0.)
+    (App
+      fiszero
+      x)
   Then
     0.
   Else
     (If
-      (Not
-        (LE
-          x
-          0.))
+      (App
+        fispos
+        x)
     Then
       1.
     Else
@@ -31,7 +513,8 @@ In
   Then
     x
   Else
-    (FNeg
+    (App
+      fneg
       x))
 In
 (LetRec add_mod5:Var(?) x:Var(?) y:Var(?) =
@@ -119,36 +602,31 @@ In
 In
 (LetRec vecunit_sgn:Var(?) v:Var(?) inv:Var(?) =
   (Let l:Var(?) =
-    (FSqrt
+    (App
+      sqrt
       (FAdd
         (FAdd
-          (FMul
-            (Get
-              v
-              0)
+          (App
+            fsqr
             (Get
               v
               0))
-          (FMul
-            (Get
-              v
-              1)
+          (App
+            fsqr
             (Get
               v
               1)))
-        (FMul
-          (Get
-            v
-            2)
+        (App
+          fsqr
           (Get
             v
             2))))
   In
   (Let il:Var(?) =
     (If
-      (Eq
-        l
-        0.)
+      (App
+        fiszero
+        l)
     Then
       1.
     Else
@@ -645,32 +1123,32 @@ In
     (Put
       screen
       0
-      (Get
-        io_float
-        0))
+      (App
+        read_float
+        ()))
   In
   (Let Tu30:Unit =
     (Put
       screen
       1
-      (Get
-        io_float
-        0))
+      (App
+        read_float
+        ()))
   In
   (Let Tu29:Unit =
     (Put
       screen
       2
-      (Get
-        io_float
-        0))
+      (App
+        read_float
+        ()))
   In
   (Let v1:Var(?) =
     (App
       rad
-      (Get
-        io_float
-        0))
+      (App
+        read_float
+        ()))
   In
   (Let cos_v1:Var(?) =
     (App
@@ -685,9 +1163,9 @@ In
   (Let v2:Var(?) =
     (App
       rad
-      (Get
-        io_float
-        0))
+      (App
+        read_float
+        ()))
   In
   (Let cos_v2:Var(?) =
     (App
@@ -743,7 +1221,8 @@ In
     (Put
       screenx_dir
       2
-      (FNeg
+      (App
+        fneg
         sin_v2))
   In
   (Let Tu22:Unit =
@@ -751,7 +1230,8 @@ In
       screeny_dir
       0
       (FMul
-        (FNeg
+        (App
+          fneg
           sin_v1)
         sin_v2))
   In
@@ -759,7 +1239,8 @@ In
     (Put
       screeny_dir
       1
-      (FNeg
+      (App
+        fneg
         cos_v1))
   In
   (Let Tu20:Unit =
@@ -767,7 +1248,8 @@ In
       screeny_dir
       2
       (FMul
-        (FNeg
+        (App
+          fneg
           sin_v1)
         cos_v2))
   In
@@ -808,16 +1290,16 @@ In
 In
 (LetRec read_light:Var(?) Tu32:Var(?) =
   (Let Tu33:Var(?) =
-    (Get
-      io_int
-      0)
+    (App
+      read_int
+      ())
   In
   (Let l1:Var(?) =
     (App
       rad
-      (Get
-        io_float
-        0))
+      (App
+        read_float
+        ()))
   In
   (Let sl1:Var(?) =
     (App
@@ -828,15 +1310,16 @@ In
     (Put
       light
       1
-      (FNeg
+      (App
+        fneg
         sl1))
   In
   (Let l2:Var(?) =
     (App
       rad
-      (Get
-        io_float
-        0))
+      (App
+        read_float
+        ()))
   In
   (Let cl1:Var(?) =
     (App
@@ -872,9 +1355,9 @@ In
   (Put
     beam
     0
-    (Get
-      io_float
-      0))))))))))))
+    (App
+      read_float
+      ()))))))))))))
 In
 (LetRec rotate_quadratic_matrix:Var(?) abc:Var(?) rot:Var(?) =
   (Let cos_x:Var(?) =
@@ -974,7 +1457,8 @@ In
         cos_z))
   In
   (Let m20:Var(?) =
-    (FNeg
+    (App
+      fneg
       sin_y)
   In
   (Let m21:Var(?) =
@@ -1010,18 +1494,18 @@ In
         (FAdd
           (FMul
             ao
-            (FMul
-              m00
+            (App
+              fsqr
               m00))
           (FMul
             bo
-            (FMul
-              m10
+            (App
+              fsqr
               m10)))
         (FMul
           co
-          (FMul
-            m20
+          (App
+            fsqr
             m20))))
   In
   (Let Tu40:Unit =
@@ -1032,18 +1516,18 @@ In
         (FAdd
           (FMul
             ao
-            (FMul
-              m01
+            (App
+              fsqr
               m01))
           (FMul
             bo
-            (FMul
-              m11
+            (App
+              fsqr
               m11)))
         (FMul
           co
-          (FMul
-            m21
+          (App
+            fsqr
             m21))))
   In
   (Let Tu39:Unit =
@@ -1054,18 +1538,18 @@ In
         (FAdd
           (FMul
             ao
-            (FMul
-              m02
+            (App
+              fsqr
               m02))
           (FMul
             bo
-            (FMul
-              m12
+            (App
+              fsqr
               m12)))
         (FMul
           co
-          (FMul
-            m22
+          (App
+            fsqr
             m22))))
   In
   (Let Tu38:Unit =
@@ -1141,9 +1625,9 @@ In
 In
 (LetRec read_nth_object:Var(?) n:Var(?) =
   (Let texture:Var(?) =
-    (Get
-      io_int
-      0)
+    (App
+      read_int
+      ())
   In
   (If
     (Not
@@ -1153,19 +1637,19 @@ In
           1)))
   Then
     (Let form:Var(?) =
-      (Get
-        io_int
-        0)
+      (App
+        read_int
+        ())
     In
     (Let refltype:Var(?) =
-      (Get
-        io_int
-        0)
+      (App
+        read_int
+        ())
     In
     (Let isrot_p:Var(?) =
-      (Get
-        io_int
-        0)
+      (App
+        read_int
+        ())
     In
     (Let abc:Var(?) =
       (Array
@@ -1176,25 +1660,25 @@ In
       (Put
         abc
         0
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let Tu59:Unit =
       (Put
         abc
         1
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let Tu58:Unit =
       (Put
         abc
         2
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let xyz:Var(?) =
       (Array
@@ -1205,33 +1689,32 @@ In
       (Put
         xyz
         0
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let Tu56:Unit =
       (Put
         xyz
         1
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let Tu55:Unit =
       (Put
         xyz
         2
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let m_invert:Var(?) =
-      (Not
-        (LE
-          0.
-          (Get
-            io_float
-            0)))
+      (App
+        fisneg
+        (App
+          read_float
+          ()))
     In
     (Let reflparam:Var(?) =
       (Array
@@ -1242,17 +1725,17 @@ In
       (Put
         reflparam
         0
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let Tu53:Unit =
       (Put
         reflparam
         1
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let color:Var(?) =
       (Array
@@ -1263,25 +1746,25 @@ In
       (Put
         color
         0
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let Tu51:Unit =
       (Put
         color
         1
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let Tu50:Unit =
       (Put
         color
         2
-        (Get
-          io_float
-          0))
+        (App
+          read_float
+          ()))
     In
     (Let rotation:Var(?) =
       (Array
@@ -1301,9 +1784,9 @@ In
             0
             (App
               rad
-              (Get
-                io_float
-                0)))
+              (App
+                read_float
+                ())))
         In
         (Let Tu42:Unit =
           (Put
@@ -1311,18 +1794,18 @@ In
             1
             (App
               rad
-              (Get
-                io_float
-                0)))
+              (App
+                read_float
+                ())))
         In
         (Put
           rotation
           2
           (App
             rad
-            (Get
-              io_float
-              0)))))
+            (App
+              read_float
+              ())))))
       Else
         ())
     In
@@ -1377,9 +1860,9 @@ In
             abc
             0
             (If
-              (Eq
-                a
-                0.)
+              (App
+                fiszero
+                a)
             Then
               0.
             Else
@@ -1387,8 +1870,8 @@ In
                 (App
                   sgn
                   a)
-                (FMul
-                  a
+                (App
+                  fsqr
                   a))))
         In
         (Let b:Var(?) =
@@ -1401,9 +1884,9 @@ In
             abc
             1
             (If
-              (Eq
-                b
-                0.)
+              (App
+                fiszero
+                b)
             Then
               0.
             Else
@@ -1411,8 +1894,8 @@ In
                 (App
                   sgn
                   b)
-                (FMul
-                  b
+                (App
+                  fsqr
                   b))))
         In
         (Let c:Var(?) =
@@ -1424,9 +1907,9 @@ In
           abc
           2
           (If
-            (Eq
-              c
-              0.)
+            (App
+              fiszero
+              c)
           Then
             0.
           Else
@@ -1434,8 +1917,8 @@ In
               (App
                 sgn
                 c)
-              (FMul
-                c
+              (App
+                fsqr
                 c)))))))))
       Else
         (If
@@ -1501,9 +1984,9 @@ In
 In
 (LetRec read_net_item:Var(?) length:Var(?) =
   (Let item:Var(?) =
-    (Get
-      io_int
-      0)
+    (App
+      read_int
+      ())
   In
   (If
     (Eq
@@ -1626,11 +2109,11 @@ In
 In
 (LetRec solver_rect_surface:Var(?) m:Var(?) dirvec:Var(?) b0:Var(?) b1:Var(?) b2:Var(?) i0:Var(?) i1:Var(?) i2:Var(?) =
   (If
-    (Eq
+    (App
+      fiszero
       (Get
         dirvec
-        i0)
-      0.)
+        i0))
   Then
     false
   Else
@@ -1647,12 +2130,11 @@ In
           (App
             o_isinvert
             m)
-          (Not
-            (LE
-              0.
-              (Get
-                dirvec
-                i0))))
+          (App
+            fisneg
+            (Get
+              dirvec
+              i0)))
         (Get
           abc
           i0))
@@ -1667,34 +2149,36 @@ In
           i0))
     In
     (If
-      (Not
-        (LE
-          (Get
-            abc
-            i1)
-          (FAbs
+      (App
+        fless
+        (App
+          fabs
+          (FAdd
+            (FMul
+              d2
+              (Get
+                dirvec
+                i1))
+            b1))
+        (Get
+          abc
+          i1))
+    Then
+      (If
+        (App
+          fless
+          (App
+            fabs
             (FAdd
               (FMul
                 d2
                 (Get
                   dirvec
-                  i1))
-              b1))))
-    Then
-      (If
-        (Not
-          (LE
-            (Get
-              abc
-              i2)
-            (FAbs
-              (FAdd
-                (FMul
-                  d2
-                  (Get
-                    dirvec
-                    i2))
-                b2))))
+                  i2))
+              b2))
+          (Get
+            abc
+            i2))
       Then
         (Let Tu70:Unit =
           (Put
@@ -1766,17 +2250,17 @@ In
       abc)
   In
   (If
-    (Not
-      (LE
-        d
-        0.))
+    (App
+      fispos
+      d)
   Then
     (Let Tu71:Unit =
       (Put
         solver_dist
         0
         (FDiv
-          (FNeg
+          (App
+            fneg
             (App
               veciprod2
               abc
@@ -1794,22 +2278,22 @@ In
     (FAdd
       (FAdd
         (FMul
-          (FMul
-            v0
+          (App
+            fsqr
             v0)
           (App
             o_param_a
             m))
         (FMul
-          (FMul
-            v1
+          (App
+            fsqr
             v1)
           (App
             o_param_b
             m)))
       (FMul
-        (FMul
-          v2
+        (App
+          fsqr
           v2)
         (App
           o_param_c
@@ -1887,7 +2371,8 @@ In
   Else
     (FAdd
       diag_part
-      (FMul
+      (App
+        fhalf
         (FAdd
           (FAdd
             (FMul
@@ -1922,8 +2407,7 @@ In
                 w0))
             (App
               o_param_r3
-              m)))
-        0.5))))
+              m)))))))
 In
 (LetRec solver_second:Var(?) m:Var(?) dirvec:Var(?) b0:Var(?) b1:Var(?) b2:Var(?) =
   (Let aa:Var(?) =
@@ -1941,9 +2425,9 @@ In
         2))
   In
   (If
-    (Eq
-      aa
-      0.)
+    (App
+      fiszero
+      aa)
   Then
     0
   Else
@@ -1988,21 +2472,21 @@ In
     In
     (Let d:Var(?) =
       (FSub
-        (FMul
-          bb
+        (App
+          fsqr
           bb)
         (FMul
           aa
           cc))
     In
     (If
-      (Not
-        (LE
-          d
-          0.))
+      (App
+        fispos
+        d)
     Then
       (Let sd:Var(?) =
-        (FSqrt
+        (App
+          sqrt
           d)
       In
       (Let t1:Var(?) =
@@ -2013,7 +2497,8 @@ In
         Then
           sd
         Else
-          (FNeg
+          (App
+            fneg
             sd))
       In
       (Let Tu72:Unit =
@@ -2116,41 +2601,43 @@ In
   In
   (If
     (If
-      (Not
-        (LE
+      (App
+        fless
+        (App
+          fabs
+          (FAdd
+            (FMul
+              d0
+              (Get
+                v
+                1))
+            b1))
+        (App
+          o_param_b
+          m))
+    Then
+      (If
+        (App
+          fless
           (App
-            o_param_b
-            m)
-          (FAbs
+            fabs
             (FAdd
               (FMul
                 d0
                 (Get
                   v
-                  1))
-              b1))))
-    Then
-      (If
-        (Not
-          (LE
-            (App
-              o_param_c
-              m)
-            (FAbs
-              (FAdd
-                (FMul
-                  d0
-                  (Get
-                    v
-                    2))
-                b2))))
+                  2))
+              b2))
+          (App
+            o_param_c
+            m))
       Then
         (Not
-          (Eq
+          (App
+            fiszero
             (Get
               dconst
-              1)
-            0.))
+              1)))
       Else
         false)
     Else
@@ -2177,41 +2664,43 @@ In
     In
     (If
       (If
-        (Not
-          (LE
+        (App
+          fless
+          (App
+            fabs
+            (FAdd
+              (FMul
+                d1
+                (Get
+                  v
+                  0))
+              b0))
+          (App
+            o_param_a
+            m))
+      Then
+        (If
+          (App
+            fless
             (App
-              o_param_a
-              m)
-            (FAbs
+              fabs
               (FAdd
                 (FMul
                   d1
                   (Get
                     v
-                    0))
-                b0))))
-      Then
-        (If
-          (Not
-            (LE
-              (App
-                o_param_c
-                m)
-              (FAbs
-                (FAdd
-                  (FMul
-                    d1
-                    (Get
-                      v
-                      2))
-                  b2))))
+                    2))
+                b2))
+            (App
+              o_param_c
+              m))
         Then
           (Not
-            (Eq
+            (App
+              fiszero
               (Get
                 dconst
-                3)
-              0.))
+                3)))
         Else
           false)
       Else
@@ -2238,41 +2727,43 @@ In
       In
       (If
         (If
-          (Not
-            (LE
+          (App
+            fless
+            (App
+              fabs
+              (FAdd
+                (FMul
+                  d2
+                  (Get
+                    v
+                    0))
+                b0))
+            (App
+              o_param_a
+              m))
+        Then
+          (If
+            (App
+              fless
               (App
-                o_param_a
-                m)
-              (FAbs
+                fabs
                 (FAdd
                   (FMul
                     d2
                     (Get
                       v
-                      0))
-                  b0))))
-        Then
-          (If
-            (Not
-              (LE
-                (App
-                  o_param_b
-                  m)
-                (FAbs
-                  (FAdd
-                    (FMul
-                      d2
-                      (Get
-                        v
-                        1))
-                    b1))))
+                      1))
+                  b1))
+              (App
+                o_param_b
+                m))
           Then
             (Not
-              (Eq
+              (App
+                fiszero
                 (Get
                   dconst
-                  5)
-                0.))
+                  5)))
           Else
             false)
         Else
@@ -2290,12 +2781,11 @@ In
 In
 (LetRec solver_surface_fast:Var(?) m:Var(?) dconst:Var(?) b0:Var(?) b1:Var(?) b2:Var(?) =
   (If
-    (Not
-      (LE
-        0.
-        (Get
-          dconst
-          0)))
+    (App
+      fisneg
+      (Get
+        dconst
+        0))
   Then
     (Let Tu76:Unit =
       (Put
@@ -2330,9 +2820,9 @@ In
       0)
   In
   (If
-    (Eq
-      aa
-      0.)
+    (App
+      fiszero
+      aa)
   Then
     0
   Else
@@ -2379,18 +2869,17 @@ In
     In
     (Let d:Var(?) =
       (FSub
-        (FMul
-          neg_bb
+        (App
+          fsqr
           neg_bb)
         (FMul
           aa
           cc))
     In
     (If
-      (Not
-        (LE
-          d
-          0.))
+      (App
+        fispos
+        d)
     Then
       (Let Tu77:Unit =
         (If
@@ -2404,7 +2893,8 @@ In
             (FMul
               (FAdd
                 neg_bb
-                (FSqrt
+                (App
+                  sqrt
                   d))
               (Get
                 dconst
@@ -2416,7 +2906,8 @@ In
             (FMul
               (FSub
                 neg_bb
-                (FSqrt
+                (App
+                  sqrt
                   d))
               (Get
                 dconst
@@ -2513,12 +3004,11 @@ In
 In
 (LetRec solver_surface_fast2:Var(?) m:Var(?) dconst:Var(?) sconst:Var(?) b0:Var(?) b1:Var(?) b2:Var(?) =
   (If
-    (Not
-      (LE
-        0.
-        (Get
-          dconst
-          0)))
+    (App
+      fisneg
+      (Get
+        dconst
+        0))
   Then
     (Let Tu78:Unit =
       (Put
@@ -2543,9 +3033,9 @@ In
       0)
   In
   (If
-    (Eq
-      aa
-      0.)
+    (App
+      fiszero
+      aa)
   Then
     0
   Else
@@ -2575,18 +3065,17 @@ In
     In
     (Let d:Var(?) =
       (FSub
-        (FMul
-          neg_bb
+        (App
+          fsqr
           neg_bb)
         (FMul
           aa
           cc))
     In
     (If
-      (Not
-        (LE
-          d
-          0.))
+      (App
+        fispos
+        d)
     Then
       (Let Tu79:Unit =
         (If
@@ -2600,7 +3089,8 @@ In
             (FMul
               (FAdd
                 neg_bb
-                (FSqrt
+                (App
+                  sqrt
                   d))
               (Get
                 dconst
@@ -2612,7 +3102,8 @@ In
             (FMul
               (FSub
                 neg_bb
-                (FSqrt
+                (App
+                  sqrt
                   d))
               (Get
                 dconst
@@ -2710,11 +3201,11 @@ In
   In
   (Let Tu85:Unit =
     (If
-      (Eq
+      (App
+        fiszero
         (Get
           vec
-          0)
-        0.)
+          0))
     Then
       (Put
         const
@@ -2732,12 +3223,11 @@ In
               (App
                 o_isinvert
                 m)
-              (Not
-                (LE
-                  0.
-                  (Get
-                    vec
-                    0))))
+              (App
+                fisneg
+                (Get
+                  vec
+                  0)))
             (App
               o_param_a
               m)))
@@ -2753,11 +3243,11 @@ In
   In
   (Let Tu84:Unit =
     (If
-      (Eq
+      (App
+        fiszero
         (Get
           vec
-          1)
-        0.)
+          1))
     Then
       (Put
         const
@@ -2775,12 +3265,11 @@ In
               (App
                 o_isinvert
                 m)
-              (Not
-                (LE
-                  0.
-                  (Get
-                    vec
-                    1))))
+              (App
+                fisneg
+                (Get
+                  vec
+                  1)))
             (App
               o_param_b
               m)))
@@ -2796,11 +3285,11 @@ In
   In
   (Let Tu83:Unit =
     (If
-      (Eq
+      (App
+        fiszero
         (Get
           vec
-          2)
-        0.)
+          2))
     Then
       (Put
         const
@@ -2818,12 +3307,11 @@ In
               (App
                 o_isinvert
                 m)
-              (Not
-                (LE
-                  0.
-                  (Get
-                    vec
-                    2))))
+              (App
+                fisneg
+                (Get
+                  vec
+                  2)))
             (App
               o_param_c
               m)))
@@ -2872,10 +3360,9 @@ In
   In
   (Let Tu89:Unit =
     (If
-      (Not
-        (LE
-          d
-          0.))
+      (App
+        fispos
+        d)
     Then
       (Let Tu88:Unit =
         (Put
@@ -2889,7 +3376,8 @@ In
         (Put
           const
           1
-          (FNeg
+          (App
+            fneg
             (FDiv
               (App
                 o_param_a
@@ -2900,7 +3388,8 @@ In
         (Put
           const
           2
-          (FNeg
+          (App
+            fneg
             (FDiv
               (App
                 o_param_b
@@ -2910,7 +3399,8 @@ In
       (Put
         const
         3
-        (FNeg
+        (App
+          fneg
           (FDiv
             (App
               o_param_c
@@ -2945,7 +3435,8 @@ In
         2))
   In
   (Let c1:Var(?) =
-    (FNeg
+    (App
+      fneg
       (FMul
         (Get
           v
@@ -2955,7 +3446,8 @@ In
           m)))
   In
   (Let c2:Var(?) =
-    (FNeg
+    (App
+      fneg
       (FMul
         (Get
           v
@@ -2965,7 +3457,8 @@ In
           m)))
   In
   (Let c3:Var(?) =
-    (FNeg
+    (App
+      fneg
       (FMul
         (Get
           v
@@ -2995,7 +3488,8 @@ In
           1
           (FSub
             c1
-            (FMul
+            (App
+              fhalf
               (FAdd
                 (FMul
                   (Get
@@ -3010,8 +3504,7 @@ In
                     1)
                   (App
                     o_param_r3
-                    m)))
-              0.5)))
+                    m))))))
       In
       (Let Tu90:Unit =
         (Put
@@ -3019,7 +3512,8 @@ In
           2
           (FSub
             c2
-            (FMul
+            (App
+              fhalf
               (FAdd
                 (FMul
                   (Get
@@ -3034,15 +3528,15 @@ In
                     0)
                   (App
                     o_param_r3
-                    m)))
-              0.5)))
+                    m))))))
       In
       (Put
         const
         3
         (FSub
           c3
-          (FMul
+          (App
+            fhalf
             (FAdd
               (FMul
                 (Get
@@ -3057,8 +3551,7 @@ In
                   0)
                 (App
                   o_param_r2
-                  m)))
-            0.5)))))
+                  m))))))))
     Else
       (Let Tu93:Unit =
         (Put
@@ -3080,9 +3573,9 @@ In
   (Let Tu94:Unit =
     (If
       (Not
-        (Eq
-          aa
-          0.))
+        (App
+          fiszero
+          aa))
     Then
       (Put
         const
@@ -3320,30 +3813,33 @@ In
 (LetRec is_rect_outside:Var(?) m:Var(?) p0:Var(?) p1:Var(?) p2:Var(?) =
   (If
     (If
-      (Not
-        (LE
-          (App
-            o_param_a
-            m)
-          (FAbs
-            p0)))
+      (App
+        fless
+        (App
+          fabs
+          p0)
+        (App
+          o_param_a
+          m))
     Then
       (If
-        (Not
-          (LE
-            (App
-              o_param_b
-              m)
-            (FAbs
-              p1)))
+        (App
+          fless
+          (App
+            fabs
+            p1)
+          (App
+            o_param_b
+            m))
       Then
-        (Not
-          (LE
-            (App
-              o_param_c
-              m)
-            (FAbs
-              p2)))
+        (App
+          fless
+          (App
+            fabs
+            p2)
+          (App
+            o_param_c
+            m))
       Else
         false)
     Else
@@ -3375,10 +3871,9 @@ In
       (App
         o_isinvert
         m)
-      (Not
-        (LE
-          0.
-          w)))))
+      (App
+        fisneg
+        w))))
 In
 (LetRec is_second_outside:Var(?) m:Var(?) p0:Var(?) p1:Var(?) p2:Var(?) =
   (Let w:Var(?) =
@@ -3409,10 +3904,9 @@ In
       (App
         o_isinvert
         m)
-      (Not
-        (LE
-          0.
-          w2))))))
+      (App
+        fisneg
+        w2)))))
 In
 (LetRec is_outside:Var(?) m:Var(?) q0:Var(?) q1:Var(?) q2:Var(?) =
   (Let p0:Var(?) =
@@ -3543,10 +4037,10 @@ In
             t0
             0))
       Then
-        (Not
-          (LE
-            -0.2
-            t0p))
+        (App
+          fless
+          t0p
+          -0.2)
       Else
         false)
     Then
@@ -3700,12 +4194,12 @@ In
               0))
         Then
           (If
-            (Not
-              (LE
-                -0.1
-                (Get
-                  solver_dist
-                  0)))
+            (App
+              fless
+              (Get
+                solver_dist
+                0)
+              -0.1)
           Then
             (If
               (App
@@ -3777,18 +4271,18 @@ In
       In
       (Let Tu106:Unit =
         (If
-          (Not
-            (LE
-              t0p
-              0.))
+          (App
+            fless
+            0.
+            t0p)
         Then
           (If
-            (Not
-              (LE
-                (Get
-                  tmin
-                  0)
-                t0p))
+            (App
+              fless
+              t0p
+              (Get
+                tmin
+                0))
           Then
             (Let t:Var(?) =
               (FAdd
@@ -3978,12 +4472,12 @@ In
               0)
           In
           (If
-            (Not
-              (LE
-                (Get
-                  tmin
-                  0)
-                tp))
+            (App
+              fless
+              tp
+              (Get
+                tmin
+                0))
           Then
             (App
               solve_one_or_network
@@ -4025,15 +4519,15 @@ In
       0)
   In
   (If
-    (Not
-      (LE
-        t
-        -0.1))
+    (App
+      fless
+      -0.1
+      t)
   Then
-    (Not
-      (LE
-        100000000.
-        t))
+    (App
+      fless
+      t
+      100000000.)
   Else
     false))))
 In
@@ -4075,18 +4569,18 @@ In
       In
       (Let Tu114:Unit =
         (If
-          (Not
-            (LE
-              t0p
-              0.))
+          (App
+            fless
+            0.
+            t0p)
         Then
           (If
-            (Not
-              (LE
-                (Get
-                  tmin
-                  0)
-                t0p))
+            (App
+              fless
+              t0p
+              (Get
+                tmin
+                0))
           Then
             (Let t:Var(?) =
               (FAdd
@@ -4275,12 +4769,12 @@ In
               0)
           In
           (If
-            (Not
-              (LE
-                (Get
-                  tmin
-                  0)
-                tp))
+            (App
+              fless
+              tp
+              (Get
+                tmin
+                0))
           Then
             (App
               solve_one_or_network_fast
@@ -4322,15 +4816,15 @@ In
       0)
   In
   (If
-    (Not
-      (LE
-        t
-        -0.1))
+    (App
+      fless
+      -0.1
+      t)
   Then
-    (Not
-      (LE
-        100000000.
-        t))
+    (App
+      fless
+      t
+      100000000.)
   Else
     false))))
 In
@@ -4350,7 +4844,8 @@ In
     (Sub
       rectside
       1)
-    (FNeg
+    (App
+      fneg
       (App
         sgn
         (Get
@@ -4364,7 +4859,8 @@ In
     (Put
       nvector
       0
-      (FNeg
+      (App
+        fneg
         (App
           o_param_a
           m)))
@@ -4373,7 +4869,8 @@ In
     (Put
       nvector
       1
-      (FNeg
+      (App
+        fneg
         (App
           o_param_b
           m)))
@@ -4381,7 +4878,8 @@ In
   (Put
     nvector
     2
-    (FNeg
+    (App
+      fneg
       (App
         o_param_c
         m)))))
@@ -4466,7 +4964,8 @@ In
           0
           (FAdd
             d0
-            (FMul
+            (App
+              fhalf
               (FAdd
                 (FMul
                   p1
@@ -4477,8 +4976,7 @@ In
                   p2
                   (App
                     o_param_r2
-                    m)))
-              0.5)))
+                    m))))))
       In
       (Let Tu124:Unit =
         (Put
@@ -4486,7 +4984,8 @@ In
           1
           (FAdd
             d1
-            (FMul
+            (App
+              fhalf
               (FAdd
                 (FMul
                   p0
@@ -4497,15 +4996,15 @@ In
                   p2
                   (App
                     o_param_r1
-                    m)))
-              0.5)))
+                    m))))))
       In
       (Put
         nvector
         2
         (FAdd
           d2
-          (FMul
+          (App
+            fhalf
             (FAdd
               (FMul
                 p0
@@ -4516,8 +5015,7 @@ In
                 p1
                 (App
                   o_param_r1
-                  m)))
-            0.5))))))
+                  m)))))))))
   In
   (App
     vecunit_sgn
@@ -4601,18 +5099,19 @@ In
     (Let flag1:Var(?) =
       (Let d1:Var(?) =
         (FMul
-          (Floor
+          (App
+            floor
             (FMul
               w1
               0.05))
           20.)
       In
-      (Not
-        (LE
-          10.
-          (FSub
-            w1
-            d1))))
+      (App
+        fless
+        (FSub
+          w1
+          d1)
+        10.))
     In
     (Let w3:Var(?) =
       (FSub
@@ -4626,18 +5125,19 @@ In
     (Let flag2:Var(?) =
       (Let d2:Var(?) =
         (FMul
-          (Floor
+          (App
+            floor
             (FMul
               w3
               0.05))
           20.)
       In
-      (Not
-        (LE
-          10.
-          (FSub
-            w3
-            d2))))
+      (App
+        fless
+        (FSub
+          w3
+          d2)
+        10.))
     In
     (Put
       texture_color
@@ -4665,14 +5165,8 @@ In
         2)
     Then
       (Let w2:Var(?) =
-        (FMul
-          (App
-            sin
-            (FMul
-              (Get
-                p
-                1)
-              0.25))
+        (App
+          fsqr
           (App
             sin
             (FMul
@@ -4723,13 +5217,14 @@ In
         In
         (Let w2:Var(?) =
           (FDiv
-            (FSqrt
+            (App
+              sqrt
               (FAdd
-                (FMul
-                  w1
+                (App
+                  fsqr
                   w1)
-                (FMul
-                  w3
+                (App
+                  fsqr
                   w3)))
             10.)
         In
@@ -4737,15 +5232,14 @@ In
           (FMul
             (FSub
               w2
-              (Floor
+              (App
+                floor
                 w2))
             3.1415927)
         In
         (Let cws:Var(?) =
-          (FMul
-            (App
-              cos
-              w4)
+          (App
+            fsqr
             (App
               cos
               w4))
@@ -4781,7 +5275,8 @@ In
                 (App
                   o_param_x
                   m))
-              (FSqrt
+              (App
+                sqrt
                 (App
                   o_param_a
                   m)))
@@ -4795,32 +5290,35 @@ In
                 (App
                   o_param_z
                   m))
-              (FSqrt
+              (App
+                sqrt
                 (App
                   o_param_c
                   m)))
           In
           (Let w4:Var(?) =
             (FAdd
-              (FMul
-                w1
+              (App
+                fsqr
                 w1)
-              (FMul
-                w3
+              (App
+                fsqr
                 w3))
           In
           (Let w7:Var(?) =
             (If
-              (Not
-                (LE
-                  0.0001
-                  (FAbs
-                    w1)))
+              (App
+                fless
+                (App
+                  fabs
+                  w1)
+                0.0001)
             Then
               15.
             Else
               (Let w5:Var(?) =
-                (FAbs
+                (App
+                  fabs
                   (FDiv
                     w3
                     w1))
@@ -4836,7 +5334,8 @@ In
           (Let w9:Var(?) =
             (FSub
               w7
-              (Floor
+              (App
+                floor
                 w7))
           In
           (Let w2:Var(?) =
@@ -4848,23 +5347,26 @@ In
                 (App
                   o_param_y
                   m))
-              (FSqrt
+              (App
+                sqrt
                 (App
                   o_param_b
                   m)))
           In
           (Let w8:Var(?) =
             (If
-              (Not
-                (LE
-                  0.0001
-                  (FAbs
-                    w4)))
+              (App
+                fless
+                (App
+                  fabs
+                  w4)
+                0.0001)
             Then
               15.
             Else
               (Let w6:Var(?) =
-                (FAbs
+                (App
+                  fabs
                   (FDiv
                     w2
                     w4))
@@ -4880,34 +5382,30 @@ In
           (Let w10:Var(?) =
             (FSub
               w8
-              (Floor
+              (App
+                floor
                 w8))
           In
           (Let w11:Var(?) =
             (FSub
               (FSub
                 0.15
-                (FMul
-                  (FSub
-                    0.5
-                    w9)
+                (App
+                  fsqr
                   (FSub
                     0.5
                     w9)))
-              (FMul
-                (FSub
-                  0.5
-                  w10)
+              (App
+                fsqr
                 (FSub
                   0.5
                   w10)))
           In
           (Let w12:Var(?) =
             (If
-              (Not
-                (LE
-                  0.
-                  w11))
+              (App
+                fisneg
+                w11)
             Then
               0.
             Else
@@ -4927,10 +5425,9 @@ In
 (LetRec add_light:Var(?) bright:Var(?) hilight:Var(?) hilight_scale:Var(?) =
   (Let Tu134:Unit =
     (If
-      (Not
-        (LE
-          bright
-          0.))
+      (App
+        fispos
+        bright)
     Then
       (App
         vecaccum
@@ -4941,19 +5438,16 @@ In
       ())
   In
   (If
-    (Not
-      (LE
-        hilight
-        0.))
+    (App
+      fispos
+      hilight)
   Then
     (Let ihl:Var(?) =
       (FMul
-        (FMul
-          (FMul
-            hilight
-            hilight)
-          (FMul
-            hilight
+        (App
+          fsqr
+          (App
+            fsqr
             hilight))
         hilight_scale)
     In
@@ -5178,12 +5672,12 @@ In
       In
       (Let Tu144:Unit =
         (If
-          (Not
-            (LE
-              0.5
-              (App
-                o_diffuse
-                obj)))
+          (App
+            fless
+            (App
+              o_diffuse
+              obj)
+            0.5)
         Then
           (Put
             calc_diffuse
@@ -5267,7 +5761,8 @@ In
         Then
           (Let bright:Var(?) =
             (FMul
-              (FNeg
+              (App
+                fneg
                 (App
                   veciprod
                   nvector
@@ -5275,7 +5770,8 @@ In
               diffuse)
           In
           (Let hilight:Var(?) =
-            (FNeg
+            (App
+              fneg
               (App
                 veciprod
                 dirvec
@@ -5307,10 +5803,10 @@ In
           dirvec)
       In
       (If
-        (Not
-          (LE
-            energy
-            0.1))
+        (App
+          fless
+          0.1
+          energy)
       Then
         (Let Tu139:Unit =
           (If
@@ -5375,24 +5871,24 @@ In
             0))
       Then
         (Let hl:Var(?) =
-          (FNeg
+          (App
+            fneg
             (App
               veciprod
               dirvec
               light))
         In
         (If
-          (Not
-            (LE
-              hl
-              0.))
+          (App
+            fispos
+            hl)
         Then
           (Let ihl:Var(?) =
             (FMul
               (FMul
                 (FMul
-                  (FMul
-                    hl
+                  (App
+                    fsqr
                     hl)
                   hl)
                 energy)
@@ -5472,7 +5968,8 @@ In
             0)))
     Then
       (Let br:Var(?) =
-        (FNeg
+        (App
+          fneg
           (App
             veciprod
             nvector
@@ -5480,10 +5977,9 @@ In
       In
       (Let bright:Var(?) =
         (If
-          (Not
-            (LE
-              br
-              0.))
+          (App
+            fispos
+            br)
         Then
           br
         Else
@@ -5523,10 +6019,9 @@ In
     In
     (Let Tu155:Unit =
       (If
-        (Not
-          (LE
-            0.
-            p))
+        (App
+          fisneg
+          p)
       Then
         (App
           trace_diffuse_ray
@@ -6038,67 +6533,59 @@ In
 In
 (LetRec write_ppm_header:Var(?) version:Var(?) =
   (Let Tu177:Unit =
-    (Put
-      io_char
-      0
+    (App
+      print_char
       80)
   In
   (Let Tu176:Unit =
-    (Put
-      io_char
-      0
+    (App
+      print_char
       (Add
         48
         version))
   In
   (Let Tu175:Unit =
-    (Put
-      io_char
-      0
+    (App
+      print_char
       10)
   In
   (Let Tu174:Unit =
-    (Put
-      io_int
-      0
+    (App
+      print_int
       (Get
         image_size
         0))
   In
   (Let Tu173:Unit =
-    (Put
-      io_char
-      0
+    (App
+      print_char
       32)
   In
   (Let Tu172:Unit =
-    (Put
-      io_int
-      0
+    (App
+      print_int
       (Get
         image_size
         1))
   In
   (Let Tu171:Unit =
-    (Put
-      io_char
-      0
+    (App
+      print_char
       32)
   In
   (Let Tu170:Unit =
-    (Put
-      io_int
-      0
+    (App
+      print_int
       255)
   In
-  (Put
-    io_char
-    0
+  (App
+    print_char
     10)))))))))
 In
 (LetRec write_rgb_element_int:Var(?) x:Var(?) =
   (Let ix:Var(?) =
-    (FloatToInt
+    (App
+      int_of_float
       x)
   In
   (Let elem:Var(?) =
@@ -6120,14 +6607,14 @@ In
       Else
         ix))
   In
-  (Put
-    io_int
-    0
+  (App
+    print_int
     elem)))
 In
 (LetRec write_rgb_element_char:Var(?) x:Var(?) =
   (Let ix:Var(?) =
-    (FloatToInt
+    (App
+      int_of_float
       x)
   In
   (Let elem:Var(?) =
@@ -6149,9 +6636,8 @@ In
       Else
         ix))
   In
-  (Put
-    io_char
-    0
+  (App
+    print_char
     elem)))
 In
 (LetRec write_rgb:Var(?) version:Var(?) =
@@ -6168,9 +6654,8 @@ In
           0))
     In
     (Let Tu181:Unit =
-      (Put
-        io_char
-        0
+      (App
+        print_char
         32)
     In
     (Let Tu180:Unit =
@@ -6181,9 +6666,8 @@ In
           1))
     In
     (Let Tu179:Unit =
-      (Put
-        io_char
-        0
+      (App
+        print_char
         32)
     In
     (Let Tu178:Unit =
@@ -6193,9 +6677,8 @@ In
           rgb
           2))
     In
-    (Put
-      io_char
-      0
+    (App
+      print_char
       10))))))
   Else
     (Let Tu184:Unit =
@@ -6315,7 +6798,8 @@ In
         (Get
           scan_pitch
           0)
-        (IntToFloat
+        (App
+          float_of_int
           (Sub
             x
             (Get
@@ -6434,7 +6918,8 @@ In
       (Get
         scan_pitch
         0)
-      (IntToFloat
+      (App
+        float_of_int
         (Sub
           y
           (Get
@@ -6753,7 +7238,8 @@ In
 In
 (LetRec adjust_position:Var(?) h:Var(?) ratio:Var(?) =
   (Let l:Var(?) =
-    (FSqrt
+    (App
+      sqrt
       (FAdd
         (FMul
           h
@@ -6788,14 +7274,15 @@ In
       icount)
   Then
     (Let l:Var(?) =
-      (FSqrt
+      (App
+        sqrt
         (FAdd
           (FAdd
-            (FMul
-              x
+            (App
+              fsqr
               x)
-            (FMul
-              y
+            (App
+              fsqr
               y))
           1.))
     In
@@ -6843,7 +7330,8 @@ In
               40)))
         vx
         vz
-        (FNeg
+        (App
+          fneg
           vy))
     In
     (Let Tu213:Unit =
@@ -6857,9 +7345,11 @@ In
               index
               80)))
         vz
-        (FNeg
+        (App
+          fneg
           vx)
-        (FNeg
+        (App
+          fneg
           vy))
     In
     (Let Tu212:Unit =
@@ -6872,11 +7362,14 @@ In
             (Add
               index
               1)))
-        (FNeg
+        (App
+          fneg
           vx)
-        (FNeg
+        (App
+          fneg
           vy)
-        (FNeg
+        (App
+          fneg
           vz))
     In
     (Let Tu211:Unit =
@@ -6889,9 +7382,11 @@ In
             (Add
               index
               41)))
-        (FNeg
+        (App
+          fneg
           vx)
-        (FNeg
+        (App
+          fneg
           vz)
         vy)
     In
@@ -6904,7 +7399,8 @@ In
           (Add
             index
             81)))
-      (FNeg
+      (App
+        fneg
         vz)
       vx
       vy)))))))))))
@@ -6939,7 +7435,8 @@ In
     (Let rx:Var(?) =
       (FSub
         (FMul
-          (IntToFloat
+          (App
+            float_of_int
             col)
           0.2)
         0.9)
@@ -6958,7 +7455,8 @@ In
     (Let rx2:Var(?) =
       (FAdd
         (FMul
-          (IntToFloat
+          (App
+            float_of_int
             col)
           0.2)
         0.1)
@@ -6999,7 +7497,8 @@ In
     (Let ry:Var(?) =
       (FSub
         (FMul
-          (IntToFloat
+          (App
+            float_of_int
             row)
           0.2)
         0.9)
@@ -7208,19 +7707,22 @@ In
         obj))
   In
   (Let n0:Var(?) =
-    (FNeg
+    (App
+      fneg
       (Get
         light
         0))
   In
   (Let n1:Var(?) =
-    (FNeg
+    (App
+      fneg
       (Get
         light
         1))
   In
   (Let n2:Var(?) =
-    (FNeg
+    (App
+      fneg
       (Get
         light
         2))
@@ -7372,12 +7874,12 @@ In
         2)
     Then
       (If
-        (Not
-          (LE
-            1.
-            (App
-              o_diffuse
-              obj)))
+        (App
+          fless
+          (App
+            o_diffuse
+            obj)
+          1.)
       Then
         (Let m_shape:Var(?) =
           (App
@@ -7447,7 +7949,8 @@ In
       0
       (FDiv
         128.
-        (IntToFloat
+        (App
+          float_of_int
           size_x)))
   In
   (Let prev:Var(?) =
@@ -7525,4 +8028,4 @@ In
     512
     3)
 In
-())))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+()))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
