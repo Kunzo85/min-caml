@@ -1,0 +1,28 @@
+(Let Ti2.23:Int =
+  5
+In
+(Let Ti3.24:Int =
+  0
+In
+(Let a.12:Array(Int) =
+  create_array Ti2.23 Ti3.24
+In
+(Let Ti5.22:Int =
+  2
+In
+(Let Tu1.14:Unit =
+  (a.12.(Ti3.24) <- Ti5.22)
+In
+(Let Ti7.15:Int =
+  (a.12.(Ti3.24))
+In
+(Let Ti9.16:Int =
+  (a.12.(Ti3.24))
+In
+(If (EQ Ti7.15 Ti9.16) Then
+  (Let Ti10.18:Int =
+    1
+  In
+  print_int Ti10.18)
+Else
+  print_int Ti3.24))))))))

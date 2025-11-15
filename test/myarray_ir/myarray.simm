@@ -1,0 +1,33 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let Ti2.23:Int =
+  Li(5)
+In
+(Let Ti3.24:Int =
+  Li(0)
+In
+(Let a.12:Array(Int) =
+  CallDir(min_caml_create_array, [Ti2.23; Ti3.24], [])
+In
+(Let Ti5.22:Int =
+  Li(2)
+In
+(Let Tu1.14:Unit =
+  Store(Ti5.22, a.12, 0)
+In
+(Let Ti7.15:Int =
+  Load(a.12, 0)
+In
+(Let Ti9.16:Int =
+  Load(a.12, 0)
+In
+(IfEq Ti7.15 Ti9.16 Then
+  (Let Ti10.18:Int =
+    Li(1)
+  In
+  CallDir(min_caml_print_int, [Ti10.18], []))
+Else
+  CallDir(min_caml_print_int, [Ti3.24], [])))))))))
+

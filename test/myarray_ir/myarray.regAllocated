@@ -1,0 +1,39 @@
+Toplevel Functions:
+
+
+Main Expression:
+(Let %r1:Int =
+  Li(5)
+In
+(Let %r2:Int =
+  Li(0)
+In
+(Let Tu26:Unit =
+  Save(%r2, Ti3.24)
+In
+(Let %r1:Array(Int) =
+  CallDir(min_caml_create_array, [%r1; %r2], [])
+In
+(Let %r2:Int =
+  Li(2)
+In
+(Let %zero:Unit =
+  Store(%r2, %r1, 0)
+In
+(Let %r2:Int =
+  Load(%r1, 0)
+In
+(Let %r1:Int =
+  Load(%r1, 0)
+In
+(IfEq %r2 %r1 Then
+  (Let %r1:Int =
+    Li(1)
+  In
+  CallDir(min_caml_print_int, [%r1], []))
+Else
+  (Let %r1:Int =
+    Restore(Ti3.24)
+  In
+  CallDir(min_caml_print_int, [%r1], [])))))))))))
+

@@ -1,0 +1,67 @@
+Toplevel Functions:
+Function fmod.13 Args() FArgs(x.14 y.15) Ret:Float =
+  (Let Td3.25:Float =
+    FDiv(x.14, y.15)
+  In
+  (Let Td4.24:Float =
+    Floor(Td3.25)
+  In
+  (Let Td5.23:Float =
+    FMul(Td4.24, y.15)
+  In
+  FSub(x.14, Td5.23))))
+
+Function reduce_to_pi.16 Args() FArgs(x.17) Ret:Float =
+  (Let two_pi.11:Float =
+    FLoad(reduce_to_pi.16, 2)
+  In
+  (Let pi.10:Float =
+    FLoad(reduce_to_pi.16, 1)
+  In
+  (Let r.21:Float =
+    CallDir(fmod.13, [], [x.17; two_pi.11])
+  In
+  (IfFLE r.21 pi.10 Then
+    (Let Td6.22:Float =
+      FLi(-3.14159265359)
+    In
+    (IfFLE Td6.22 r.21 Then
+      FMr(r.21)
+    Else
+      FAdd(r.21, two_pi.11)))
+  Else
+    FSub(r.21, two_pi.11)))))
+
+Main Expression:
+(Let pi.10:Float =
+  FLi(3.14159265359)
+In
+(Let two_pi.11:Float =
+  FLi(6.28318530718)
+In
+(Let reduce_to_pi.16:(Float -> Float) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, -3)
+In
+(Let l.30:Int =
+  SetL(reduce_to_pi.16)
+In
+(Let Tu31:Unit =
+  Store(l.30, reduce_to_pi.16, 0)
+In
+(Let Tu29:Unit =
+  FStore(two_pi.11, reduce_to_pi.16, -2)
+In
+(Let Tu28:Unit =
+  FStore(pi.10, reduce_to_pi.16, -1)
+In
+(Let Td8.19:Float =
+  FLi(9.42477796077)
+In
+(Let Td9.18:Float =
+  CallCls(reduce_to_pi.16, [], [Td8.19])
+In
+CallDir(min_caml_print, [], [Td9.18])))))))))))
+

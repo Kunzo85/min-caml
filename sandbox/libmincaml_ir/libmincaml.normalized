@@ -1,0 +1,52 @@
+(Let pi:Float =
+  3.14159265359
+In
+(Let two_pi:Float =
+  (Let Td1:Float =
+    2.
+  In
+  (FMul Td1 pi))
+In
+(Let half_pi:Float =
+  (Let Td2:Float =
+    0.5
+  In
+  (FMul Td2 pi))
+In
+(LetRec fmod:(Float -> Float -> Float) x:Float y:Float =
+  (Let Td5:Float =
+    (Let Td4:Float =
+      (Let Td3:Float =
+        (FDiv x y)
+      In
+      (Floor Td3))
+    In
+    (FMul Td4 y))
+  In
+  (FSub x Td5))
+In
+(LetRec reduce_to_pi:(Float -> Float) x:Float =
+  (Let r:Float =
+    (fmod x two_pi)
+  In
+  (If (LE r pi) Then
+    (Let Td6:Float =
+      (FNeg pi)
+    In
+    (If (LE Td6 r) Then
+      r
+    Else
+      (FAdd r two_pi)))
+  Else
+    (FSub r two_pi)))
+In
+(Let Td9:Float =
+  (Let Td8:Float =
+    (Let Td7:Float =
+      3.
+    In
+    (FMul Td7 pi))
+  In
+  (reduce_to_pi Td8))
+In
+print Td9))))))
