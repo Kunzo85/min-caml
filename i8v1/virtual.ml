@@ -83,10 +83,10 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
         expand
           (List.map (fun y -> (y, M.find y env)) ys)
           (1, e2')
-          (fun y offset store_fv -> seq(inherit_loc (FStore(y, x, C(-offset))), store_fv))
-          (fun y _ offset store_fv -> seq(inherit_loc (Store(y, x, C(-offset))), store_fv)) in
+          (fun y offset store_fv -> seq(inherit_loc (FStore(y, x, C(offset))), store_fv))
+          (fun y _ offset store_fv -> seq(inherit_loc (Store(y, x, C(offset))), store_fv)) in
       Let((x, t), inherit_loc (Mr(reg_hp)),
-          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(-offset))),
+          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(offset))),
               let z = Id.genid "l" in
               Let((z, Type.Int), inherit_loc (SetL(l)),
                   seq(inherit_loc (Store(z, x, C(0))),
@@ -103,10 +103,10 @@ let rec g env e = (* 式の仮想マシンコード生成 (caml2html: virtual_g)
         expand
           (List.map (fun x -> (x, M.find x env)) xs)
           (0, Ans(inherit_loc (Mr(y))))
-          (fun x offset store -> seq(inherit_loc (FStore(x, y, C(-offset))), store))
-          (fun x _ offset store -> seq(inherit_loc (Store(x, y, C(-offset))), store))  in
+          (fun x offset store -> seq(inherit_loc (FStore(x, y, C(offset))), store))
+          (fun x _ offset store -> seq(inherit_loc (Store(x, y, C(offset))), store))  in
       Let((y, Type.Tuple(List.map (fun x -> M.find x env) xs)), inherit_loc (Mr(reg_hp)),
-          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(-offset))),
+          Let((reg_hp, Type.Int), inherit_loc (Add(reg_hp, C(offset))),
               store))
   | Closure.LetTuple(xts, y, e2) ->
       let s = Closure.fv e2 in

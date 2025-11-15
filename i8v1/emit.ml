@@ -6,12 +6,12 @@ open Lexing
 external getlo : float -> int32 = "getlo" *)
 
 let tab = "    "
-(* let print_inst oc inst args loc =
+let print_inst oc inst args loc =
   let inst_str = Printf.sprintf "%s%-5s%s%s" tab inst tab (String.concat "  " args) in
-  Printf.fprintf oc "%-43s%s%d\n" inst_str ("# !") loc.start_pos.pos_lnum *)
-let print_inst oc inst args loc = (* 引数間のスペースを1にする用 *)
-  let inst_str = Printf.sprintf "%s%s%s%s" tab inst " " (String.concat " " args) in
   Printf.fprintf oc "%-43s%s%d\n" inst_str ("# !") loc.start_pos.pos_lnum
+(* let print_inst oc inst args loc = (* 引数間のスペースを1にする用 *)
+  let inst_str = Printf.sprintf "%s%s%s%s" tab inst " " (String.concat " " args) in
+  Printf.fprintf oc "%-43s%s%d\n" inst_str ("# !") loc.start_pos.pos_lnum *)
 
 (* let print_inst oc inst args loc comment =
   Printf.fprintf oc "%s%s%s%s%s%d%s# %s\n" tab inst tab (String.concat " " args) (tab ^ tab ^ "# !") loc.Lexing.start_pos.Lexing.pos_lnum (tab ^ tab) comment *)
@@ -24,6 +24,11 @@ let print_block_comment oc ss with_tab =
   Printf.fprintf oc "%s++\n" tab;
   List.iter (fun s -> Printf.fprintf oc "%s%s\n" tab s) ss;
   Printf.fprintf oc "%s++\n" tab
+
+let copy_file_to_channel oc filename =
+  In_channel.with_open_text filename (fun ic ->
+    let content = In_channel.input_all ic in
+    Out_channel.output_string oc content)
 
 let divide_imm i32 =
   let high = Int32.shift_right i32 21 in
@@ -156,17 +161,17 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
   (* 退避の仮想命令の実装 (caml2html: emit_save) *)
   | NonTail(_), Save(x, y) when List.mem x allregs && not (S.mem y !stackset) ->
       save y IntType;
-      print_inst oc "sw" [x; reg_sp; string_of_int (offset y)] e.loc
+      print_inst oc "sw" [x; reg_sp; string_of_int (- (offset y))] e.loc
   | NonTail(_), Save(x, y) when List.mem x allfregs && not (S.mem y !stackset) ->
       save y FloatType;
-      print_inst oc "fsw" [x; reg_sp; string_of_int (offset y)] e.loc
+      print_inst oc "fsw" [x; reg_sp; string_of_int (- (offset y))] e.loc
   | NonTail(_), Save(_x, y) -> assert (S.mem y !stackset); () (* α変換済みなので、同じ名前の変数が退避されていたらOK *)
   (* 復帰の仮想命令の実装 (caml2html: emit_restore) *)
   | NonTail(x), Restore(y) when List.mem x allregs ->
-      print_inst oc "lw" [x; reg_sp; string_of_int (offset y)] e.loc
+      print_inst oc "lw" [x; reg_sp; string_of_int (- (offset y))] e.loc
   | NonTail(x), Restore(y) ->
       assert (List.mem x allfregs);
-      print_inst oc "flw" [x; reg_sp; string_of_int (offset y)] e.loc
+      print_inst oc "flw" [x; reg_sp; string_of_int (- (offset y))] e.loc
   (* 末尾だったら計算結果を第一レジスタにセットしてリターン (caml2html: emit_tailret) *)
   | Tail, (Nop | Store _ | FStore _ | Comment _ | Save _) ->
       g' oc (NonTail(Id.gentmp Type.Unit), e);
@@ -222,12 +227,12 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
       Printf.fprintf oc "\tsubi\t%s, %s, %d\n" (reg reg_sp) (reg reg_sp) ss;
       Printf.fprintf oc "\tlwz\t%s, %d(%s)\n" (reg reg_tmp) (ss - 4) (reg reg_sp); *)
       assert (fit_in_signed_16bit ss);
-      print_inst oc "sw" [reg_ra; reg_sp; string_of_int (ss - 1)] e.loc;
-      print_inst oc "addi" [reg_sp; reg_sp; string_of_int ss] e.loc;
+      print_inst oc "sw" [reg_ra; reg_sp; string_of_int (- (ss - 1))] e.loc;
+      print_inst oc "addi" [reg_sp; reg_sp; string_of_int (-ss)] e.loc;
       print_inst oc "lw" [reg_sw; reg_cl; "0"] e.loc;
       print_inst oc "jalr" [reg_sw] e.loc;
-      print_inst oc "addi" [reg_sp; reg_sp; string_of_int (-ss)] e.loc;
-      print_inst oc "lw" [reg_ra; reg_sp; string_of_int (ss - 1)] e.loc;
+      print_inst oc "addi" [reg_sp; reg_sp; string_of_int ss] e.loc;
+      print_inst oc "lw" [reg_ra; reg_sp; string_of_int (- (ss - 1))] e.loc;
       if List.mem a allregs && a <> regs.(0) then
         (* Printf.fprintf oc "\tmr\t%s, %s\n" (reg a) (reg regs.(0)) *)
         print_inst oc "movz" [a; regs.(0); reg_zero] e.loc
@@ -245,11 +250,11 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
       Printf.fprintf oc "\tsubi\t%s, %s, %d\n" (reg reg_sp) (reg reg_sp) ss;
       Printf.fprintf oc "\tlwz\t%s, %d(%s)\n" (reg reg_tmp) (ss - 4) (reg reg_sp); *)
       assert (fit_in_signed_16bit ss);
-      print_inst oc "sw" [reg_ra; reg_sp; string_of_int (ss - 1)] e.loc;
-      print_inst oc "addi" [reg_sp; reg_sp; string_of_int ss] e.loc;
-      print_inst oc "jal" [abs_label x] e.loc;
+      print_inst oc "sw" [reg_ra; reg_sp; string_of_int (- (ss - 1))] e.loc;
       print_inst oc "addi" [reg_sp; reg_sp; string_of_int (-ss)] e.loc;
-      print_inst oc "lw" [reg_ra; reg_sp; string_of_int (ss - 1)] e.loc;
+      print_inst oc "jal" [abs_label x] e.loc;
+      print_inst oc "addi" [reg_sp; reg_sp; string_of_int ss] e.loc;
+      print_inst oc "lw" [reg_ra; reg_sp; string_of_int (- (ss - 1))] e.loc;
       if List.mem a allregs && a <> regs.(0) then
         (* Printf.fprintf oc "\tmr\t%s, %s\n" (reg a) (reg regs.(0)) *)
         print_inst oc "movz" [a; regs.(0); reg_zero] e.loc
@@ -341,4 +346,5 @@ let f oc (Prog(fundefs, e)) =
     "These are function definitions."
   ] false;
   List.iter (fun fundef -> h oc fundef) fundefs;
+  copy_file_to_channel oc "i8v1/libArray.s";
   ()

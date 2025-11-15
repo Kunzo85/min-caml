@@ -4,9284 +4,10664 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    addi %r1 %zero 1                       # !6
-    addi %r2 %zero 0                       # !6
-    sw %r1 %sp 0                           # !6
-    sw %r2 %sp 1                           # !6
-    sw %ra %sp 2                           # !6
-    addi %sp %sp 3                         # !6
-    jal ~min_caml_create_array             # !6
-    addi %sp %sp -3                        # !6
-    lw %ra %sp 2                           # !6
-    flui %f0 0                             # !11
-    fli %f0 0                              # !11
+    addi     %r1  %zero  1                 # !68
+    addi     %r2  %zero  0                 # !68
+    sw       %r1  %sp  0                   # !68
+    sw       %r2  %sp  1                   # !68
+    sw       %ra  %sp  2                   # !68
+    addi     %sp  %sp  3                   # !68
+    jal      ~min_caml_create_array        # !68
+    addi     %sp  %sp  -3                  # !68
+    lw       %ra  %sp  2                   # !68
+    flui     %f0  0                        # !73
+    fli      %f0  0                        # !73
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    lw %r2 %sp 1                           # !11
-    sw %r1 %sp 2                           # !11
-    fsw %f0 %sp 3                          # !11
-    movz %r1 %r2 %zero                     # !11
-    sw %ra %sp 4                           # !11
-    addi %sp %sp 5                         # !11
-    jal ~min_caml_create_float_array       # !11
-    addi %sp %sp -5                        # !11
-    lw %ra %sp 4                           # !11
-    addi %r2 %zero 60                      # !12
-    movz %r3 %hp %zero                     # !12
-    addi %hp %hp -11                       # !12
-    sw %r1 %r3 -10                         # !12
-    sw %r1 %r3 -9                          # !12
-    sw %r1 %r3 -8                          # !12
-    sw %r1 %r3 -7                          # !12
-    lw %r4 %sp 1                           # !12
-    sw %r4 %r3 -6                          # !12
-    sw %r1 %r3 -5                          # !12
-    sw %r1 %r3 -4                          # !12
-    sw %r4 %r3 -3                          # !12
-    sw %r4 %r3 -2                          # !12
-    sw %r4 %r3 -1                          # !12
-    sw %r4 %r3 0                           # !12
-    movz %r1 %r3 %zero                     # !12
-    sw %r2 %sp 4                           # !12
-    movz %r28 %r2 %zero                    # !12
-    movz %r2 %r1 %zero                     # !12
-    movz %r1 %r28 %zero                    # !12
-    sw %ra %sp 5                           # !12
-    addi %sp %sp 6                         # !12
-    jal ~min_caml_create_array             # !12
-    addi %sp %sp -6                        # !12
-    lw %ra %sp 5                           # !12
-    addi %r2 %zero 3                       # !16
-    flw %f0 %sp 3                          # !16
-    sw %r1 %sp 5                           # !16
-    sw %r2 %sp 6                           # !16
-    movz %r1 %r2 %zero                     # !16
-    sw %ra %sp 7                           # !16
-    addi %sp %sp 8                         # !16
-    jal ~min_caml_create_float_array       # !16
-    addi %sp %sp -8                        # !16
-    lw %ra %sp 7                           # !16
-    flw %f0 %sp 3                          # !19
-    lw %r2 %sp 6                           # !19
-    sw %r1 %sp 7                           # !19
-    movz %r1 %r2 %zero                     # !19
-    sw %ra %sp 8                           # !19
-    addi %sp %sp 9                         # !19
-    jal ~min_caml_create_float_array       # !19
-    addi %sp %sp -9                        # !19
-    lw %ra %sp 8                           # !19
-    flw %f0 %sp 3                          # !22
-    lw %r2 %sp 6                           # !22
-    sw %r1 %sp 8                           # !22
-    movz %r1 %r2 %zero                     # !22
-    sw %ra %sp 9                           # !22
-    addi %sp %sp 10                        # !22
-    jal ~min_caml_create_float_array       # !22
-    addi %sp %sp -10                       # !22
-    lw %ra %sp 9                           # !22
-    flui %f0 539                           # !25
-    fli %f0 -65536                         # !25
+    lw       %r2  %sp  1                   # !73
+    sw       %r1  %sp  2                   # !73
+    fsw      %f0  %sp  3                   # !73
+    movz     %r1  %r2  %zero               # !73
+    sw       %ra  %sp  4                   # !73
+    addi     %sp  %sp  5                   # !73
+    jal      ~min_caml_create_float_array  # !73
+    addi     %sp  %sp  -5                  # !73
+    lw       %ra  %sp  4                   # !73
+    addi     %r2  %zero  60                # !74
+    movz     %r3  %hp  %zero               # !74
+    addi     %hp  %hp  -11                 # !74
+    sw       %r1  %r3  -10                 # !74
+    sw       %r1  %r3  -9                  # !74
+    sw       %r1  %r3  -8                  # !74
+    sw       %r1  %r3  -7                  # !74
+    lw       %r4  %sp  1                   # !74
+    sw       %r4  %r3  -6                  # !74
+    sw       %r1  %r3  -5                  # !74
+    sw       %r1  %r3  -4                  # !74
+    sw       %r4  %r3  -3                  # !74
+    sw       %r4  %r3  -2                  # !74
+    sw       %r4  %r3  -1                  # !74
+    sw       %r4  %r3  0                   # !74
+    movz     %r1  %r3  %zero               # !74
+    sw       %r2  %sp  4                   # !74
+    movz     %r28  %r2  %zero              # !74
+    movz     %r2  %r1  %zero               # !74
+    movz     %r1  %r28  %zero              # !74
+    sw       %ra  %sp  5                   # !74
+    addi     %sp  %sp  6                   # !74
+    jal      ~min_caml_create_array        # !74
+    addi     %sp  %sp  -6                  # !74
+    lw       %ra  %sp  5                   # !74
+    addi     %r2  %zero  3                 # !78
+    flw      %f0  %sp  3                   # !78
+    sw       %r1  %sp  5                   # !78
+    sw       %r2  %sp  6                   # !78
+    movz     %r1  %r2  %zero               # !78
+    sw       %ra  %sp  7                   # !78
+    addi     %sp  %sp  8                   # !78
+    jal      ~min_caml_create_float_array  # !78
+    addi     %sp  %sp  -8                  # !78
+    lw       %ra  %sp  7                   # !78
+    flw      %f0  %sp  3                   # !81
+    lw       %r2  %sp  6                   # !81
+    sw       %r1  %sp  7                   # !81
+    movz     %r1  %r2  %zero               # !81
+    sw       %ra  %sp  8                   # !81
+    addi     %sp  %sp  9                   # !81
+    jal      ~min_caml_create_float_array  # !81
+    addi     %sp  %sp  -9                  # !81
+    lw       %ra  %sp  8                   # !81
+    flw      %f0  %sp  3                   # !84
+    lw       %r2  %sp  6                   # !84
+    sw       %r1  %sp  8                   # !84
+    movz     %r1  %r2  %zero               # !84
+    sw       %ra  %sp  9                   # !84
+    addi     %sp  %sp  10                  # !84
+    jal      ~min_caml_create_float_array  # !84
+    addi     %sp  %sp  -10                 # !84
+    lw       %ra  %sp  9                   # !84
+    flui     %f0  539                      # !87
+    fli      %f0  -65536                   # !87
     ++
     fli 255.000000
     => flui %f0 0b01000011011
        fli  %f0 0b111110000000000000000
     ++
-    lw %r2 %sp 0                           # !25
-    sw %r1 %sp 9                           # !25
-    movz %r1 %r2 %zero                     # !25
-    sw %ra %sp 10                          # !25
-    addi %sp %sp 11                        # !25
-    jal ~min_caml_create_float_array       # !25
-    addi %sp %sp -11                       # !25
-    lw %ra %sp 10                          # !25
-    addi %r2 %zero 50                      # !28
-    addi %r3 %zero -1                      # !28
-    lw %r4 %sp 0                           # !28
-    sw %r1 %sp 10                          # !28
-    sw %r2 %sp 11                          # !28
-    movz %r2 %r3 %zero                     # !28
-    movz %r1 %r4 %zero                     # !28
-    sw %ra %sp 12                          # !28
-    addi %sp %sp 13                        # !28
-    jal ~min_caml_create_array             # !28
-    addi %sp %sp -13                       # !28
-    lw %ra %sp 12                          # !28
-    movz %r2 %r1 %zero                     # !28
-    lw %r1 %sp 11                          # !28
-    sw %ra %sp 12                          # !28
-    addi %sp %sp 13                        # !28
-    jal ~min_caml_create_array             # !28
-    addi %sp %sp -13                       # !28
-    lw %ra %sp 12                          # !28
-    lw %r2 %r1 0                           # !31
-    lw %r3 %sp 0                           # !31
-    sw %r1 %sp 12                          # !31
-    movz %r1 %r3 %zero                     # !31
-    sw %ra %sp 13                          # !31
-    addi %sp %sp 14                        # !31
-    jal ~min_caml_create_array             # !31
-    addi %sp %sp -14                       # !31
-    lw %ra %sp 13                          # !31
-    movz %r2 %r1 %zero                     # !31
-    lw %r1 %sp 0                           # !31
-    sw %ra %sp 13                          # !31
-    addi %sp %sp 14                        # !31
-    jal ~min_caml_create_array             # !31
-    addi %sp %sp -14                       # !31
-    lw %ra %sp 13                          # !31
-    flw %f0 %sp 3                          # !36
-    lw %r2 %sp 0                           # !36
-    sw %r1 %sp 13                          # !36
-    movz %r1 %r2 %zero                     # !36
-    sw %ra %sp 14                          # !36
-    addi %sp %sp 15                        # !36
-    jal ~min_caml_create_float_array       # !36
-    addi %sp %sp -15                       # !36
-    lw %ra %sp 14                          # !36
-    lw %r2 %sp 0                           # !39
-    lw %r3 %sp 1                           # !39
-    sw %r1 %sp 14                          # !39
-    movz %r1 %r2 %zero                     # !39
-    movz %r2 %r3 %zero                     # !39
-    sw %ra %sp 15                          # !39
-    addi %sp %sp 16                        # !39
-    jal ~min_caml_create_array             # !39
-    addi %sp %sp -16                       # !39
-    lw %ra %sp 15                          # !39
-    flui %f0 627                           # !42
-    fli %f0 944936                         # !42
+    lw       %r2  %sp  0                   # !87
+    sw       %r1  %sp  9                   # !87
+    movz     %r1  %r2  %zero               # !87
+    sw       %ra  %sp  10                  # !87
+    addi     %sp  %sp  11                  # !87
+    jal      ~min_caml_create_float_array  # !87
+    addi     %sp  %sp  -11                 # !87
+    lw       %ra  %sp  10                  # !87
+    addi     %r2  %zero  50                # !90
+    addi     %r3  %zero  -1                # !90
+    lw       %r4  %sp  0                   # !90
+    sw       %r1  %sp  10                  # !90
+    sw       %r2  %sp  11                  # !90
+    movz     %r2  %r3  %zero               # !90
+    movz     %r1  %r4  %zero               # !90
+    sw       %ra  %sp  12                  # !90
+    addi     %sp  %sp  13                  # !90
+    jal      ~min_caml_create_array        # !90
+    addi     %sp  %sp  -13                 # !90
+    lw       %ra  %sp  12                  # !90
+    movz     %r2  %r1  %zero               # !90
+    lw       %r1  %sp  11                  # !90
+    sw       %ra  %sp  12                  # !90
+    addi     %sp  %sp  13                  # !90
+    jal      ~min_caml_create_array        # !90
+    addi     %sp  %sp  -13                 # !90
+    lw       %ra  %sp  12                  # !90
+    lw       %r2  %r1  0                   # !93
+    lw       %r3  %sp  0                   # !93
+    sw       %r1  %sp  12                  # !93
+    movz     %r1  %r3  %zero               # !93
+    sw       %ra  %sp  13                  # !93
+    addi     %sp  %sp  14                  # !93
+    jal      ~min_caml_create_array        # !93
+    addi     %sp  %sp  -14                 # !93
+    lw       %ra  %sp  13                  # !93
+    movz     %r2  %r1  %zero               # !93
+    lw       %r1  %sp  0                   # !93
+    sw       %ra  %sp  13                  # !93
+    addi     %sp  %sp  14                  # !93
+    jal      ~min_caml_create_array        # !93
+    addi     %sp  %sp  -14                 # !93
+    lw       %ra  %sp  13                  # !93
+    flw      %f0  %sp  3                   # !98
+    lw       %r2  %sp  0                   # !98
+    sw       %r1  %sp  13                  # !98
+    movz     %r1  %r2  %zero               # !98
+    sw       %ra  %sp  14                  # !98
+    addi     %sp  %sp  15                  # !98
+    jal      ~min_caml_create_float_array  # !98
+    addi     %sp  %sp  -15                 # !98
+    lw       %ra  %sp  14                  # !98
+    lw       %r2  %sp  0                   # !101
+    lw       %r3  %sp  1                   # !101
+    sw       %r1  %sp  14                  # !101
+    movz     %r1  %r2  %zero               # !101
+    movz     %r2  %r3  %zero               # !101
+    sw       %ra  %sp  15                  # !101
+    addi     %sp  %sp  16                  # !101
+    jal      ~min_caml_create_array        # !101
+    addi     %sp  %sp  -16                 # !101
+    lw       %ra  %sp  15                  # !101
+    flui     %f0  627                      # !104
+    fli      %f0  944936                   # !104
     ++
     fli 1000000000.000000
     => flui %f0 0b01001110011
        fli  %f0 0b011100110101100101000
     ++
-    lw %r2 %sp 0                           # !42
-    sw %r1 %sp 15                          # !42
-    movz %r1 %r2 %zero                     # !42
-    sw %ra %sp 16                          # !42
-    addi %sp %sp 17                        # !42
-    jal ~min_caml_create_float_array       # !42
-    addi %sp %sp -17                       # !42
-    lw %ra %sp 16                          # !42
-    flw %f0 %sp 3                          # !45
-    lw %r2 %sp 6                           # !45
-    sw %r1 %sp 16                          # !45
-    movz %r1 %r2 %zero                     # !45
-    sw %ra %sp 17                          # !45
-    addi %sp %sp 18                        # !45
-    jal ~min_caml_create_float_array       # !45
-    addi %sp %sp -18                       # !45
-    lw %ra %sp 17                          # !45
-    lw %r2 %sp 0                           # !48
-    lw %r3 %sp 1                           # !48
-    sw %r1 %sp 17                          # !48
-    movz %r1 %r2 %zero                     # !48
-    movz %r2 %r3 %zero                     # !48
-    sw %ra %sp 18                          # !48
-    addi %sp %sp 19                        # !48
-    jal ~min_caml_create_array             # !48
-    addi %sp %sp -19                       # !48
-    lw %ra %sp 18                          # !48
-    flw %f0 %sp 3                          # !51
-    lw %r2 %sp 6                           # !51
-    sw %r1 %sp 18                          # !51
-    movz %r1 %r2 %zero                     # !51
-    sw %ra %sp 19                          # !51
-    addi %sp %sp 20                        # !51
-    jal ~min_caml_create_float_array       # !51
-    addi %sp %sp -20                       # !51
-    lw %ra %sp 19                          # !51
-    flw %f0 %sp 3                          # !54
-    lw %r2 %sp 6                           # !54
-    sw %r1 %sp 19                          # !54
-    movz %r1 %r2 %zero                     # !54
-    sw %ra %sp 20                          # !54
-    addi %sp %sp 21                        # !54
-    jal ~min_caml_create_float_array       # !54
-    addi %sp %sp -21                       # !54
-    lw %ra %sp 20                          # !54
-    flw %f0 %sp 3                          # !58
-    lw %r2 %sp 6                           # !58
-    sw %r1 %sp 20                          # !58
-    movz %r1 %r2 %zero                     # !58
-    sw %ra %sp 21                          # !58
-    addi %sp %sp 22                        # !58
-    jal ~min_caml_create_float_array       # !58
-    addi %sp %sp -22                       # !58
-    lw %ra %sp 21                          # !58
-    flw %f0 %sp 3                          # !61
-    lw %r2 %sp 6                           # !61
-    sw %r1 %sp 21                          # !61
-    movz %r1 %r2 %zero                     # !61
-    sw %ra %sp 22                          # !61
-    addi %sp %sp 23                        # !61
-    jal ~min_caml_create_float_array       # !61
-    addi %sp %sp -23                       # !61
-    lw %ra %sp 22                          # !61
-    addi %r2 %zero 2                       # !65
-    lw %r3 %sp 1                           # !65
-    sw %r1 %sp 22                          # !65
-    sw %r2 %sp 23                          # !65
-    movz %r1 %r2 %zero                     # !65
-    movz %r2 %r3 %zero                     # !65
-    sw %ra %sp 24                          # !65
-    addi %sp %sp 25                        # !65
-    jal ~min_caml_create_array             # !65
-    addi %sp %sp -25                       # !65
-    lw %ra %sp 24                          # !65
-    lw %r2 %sp 23                          # !68
-    lw %r3 %sp 1                           # !68
-    sw %r1 %sp 24                          # !68
-    movz %r1 %r2 %zero                     # !68
-    movz %r2 %r3 %zero                     # !68
-    sw %ra %sp 25                          # !68
-    addi %sp %sp 26                        # !68
-    jal ~min_caml_create_array             # !68
-    addi %sp %sp -26                       # !68
-    lw %ra %sp 25                          # !68
-    flw %f0 %sp 3                          # !71
-    lw %r2 %sp 0                           # !71
-    sw %r1 %sp 25                          # !71
-    movz %r1 %r2 %zero                     # !71
-    sw %ra %sp 26                          # !71
-    addi %sp %sp 27                        # !71
-    jal ~min_caml_create_float_array       # !71
-    addi %sp %sp -27                       # !71
-    lw %ra %sp 26                          # !71
-    flw %f0 %sp 3                          # !75
-    lw %r2 %sp 6                           # !75
-    sw %r1 %sp 26                          # !75
-    movz %r1 %r2 %zero                     # !75
-    sw %ra %sp 27                          # !75
-    addi %sp %sp 28                        # !75
-    jal ~min_caml_create_float_array       # !75
-    addi %sp %sp -28                       # !75
-    lw %ra %sp 27                          # !75
-    flw %f0 %sp 3                          # !78
-    lw %r2 %sp 6                           # !78
-    sw %r1 %sp 27                          # !78
-    movz %r1 %r2 %zero                     # !78
-    sw %ra %sp 28                          # !78
-    addi %sp %sp 29                        # !78
-    jal ~min_caml_create_float_array       # !78
-    addi %sp %sp -29                       # !78
-    lw %ra %sp 28                          # !78
-    flw %f0 %sp 3                          # !82
-    lw %r2 %sp 6                           # !82
-    sw %r1 %sp 28                          # !82
-    movz %r1 %r2 %zero                     # !82
-    sw %ra %sp 29                          # !82
-    addi %sp %sp 30                        # !82
-    jal ~min_caml_create_float_array       # !82
-    addi %sp %sp -30                       # !82
-    lw %ra %sp 29                          # !82
-    flw %f0 %sp 3                          # !84
-    lw %r2 %sp 6                           # !84
-    sw %r1 %sp 29                          # !84
-    movz %r1 %r2 %zero                     # !84
-    sw %ra %sp 30                          # !84
-    addi %sp %sp 31                        # !84
-    jal ~min_caml_create_float_array       # !84
-    addi %sp %sp -31                       # !84
-    lw %ra %sp 30                          # !84
-    flw %f0 %sp 3                          # !86
-    lw %r2 %sp 6                           # !86
-    sw %r1 %sp 30                          # !86
-    movz %r1 %r2 %zero                     # !86
-    sw %ra %sp 31                          # !86
-    addi %sp %sp 32                        # !86
-    jal ~min_caml_create_float_array       # !86
-    addi %sp %sp -32                       # !86
-    lw %ra %sp 31                          # !86
-    flw %f0 %sp 3                          # !90
-    lw %r2 %sp 6                           # !90
-    sw %r1 %sp 31                          # !90
-    movz %r1 %r2 %zero                     # !90
-    sw %ra %sp 32                          # !90
-    addi %sp %sp 33                        # !90
-    jal ~min_caml_create_float_array       # !90
-    addi %sp %sp -33                       # !90
-    lw %ra %sp 32                          # !90
-    flw %f0 %sp 3                          # !95
-    lw %r2 %sp 1                           # !95
-    sw %r1 %sp 32                          # !95
-    movz %r1 %r2 %zero                     # !95
-    sw %ra %sp 33                          # !95
-    addi %sp %sp 34                        # !95
-    jal ~min_caml_create_float_array       # !95
-    addi %sp %sp -34                       # !95
-    lw %ra %sp 33                          # !95
-    movz %r2 %r1 %zero                     # !95
-    lw %r1 %sp 1                           # !96
-    sw %r2 %sp 33                          # !96
-    sw %ra %sp 34                          # !96
-    addi %sp %sp 35                        # !96
-    jal ~min_caml_create_array             # !96
-    addi %sp %sp -35                       # !96
-    lw %ra %sp 34                          # !96
-    movz %r2 %hp %zero                     # !97
-    addi %hp %hp -2                        # !97
-    sw %r1 %r2 -1                          # !97
-    lw %r1 %sp 33                          # !97
-    sw %r1 %r2 0                           # !97
-    lw %r1 %sp 1                           # !97
-    sw %ra %sp 34                          # !97
-    addi %sp %sp 35                        # !97
-    jal ~min_caml_create_array             # !97
-    addi %sp %sp -35                       # !97
-    lw %ra %sp 34                          # !97
-    movz %r2 %r1 %zero                     # !97
-    addi %r1 %zero 5                       # !98
-    sw %ra %sp 34                          # !98
-    addi %sp %sp 35                        # !98
-    jal ~min_caml_create_array             # !98
-    addi %sp %sp -35                       # !98
-    lw %ra %sp 34                          # !98
-    flw %f0 %sp 3                          # !103
-    lw %r2 %sp 1                           # !103
-    sw %r1 %sp 34                          # !103
-    movz %r1 %r2 %zero                     # !103
-    sw %ra %sp 35                          # !103
-    addi %sp %sp 36                        # !103
-    jal ~min_caml_create_float_array       # !103
-    addi %sp %sp -36                       # !103
-    lw %ra %sp 35                          # !103
-    flw %f0 %sp 3                          # !104
-    lw %r2 %sp 6                           # !104
-    sw %r1 %sp 35                          # !104
-    movz %r1 %r2 %zero                     # !104
-    sw %ra %sp 36                          # !104
-    addi %sp %sp 37                        # !104
-    jal ~min_caml_create_float_array       # !104
-    addi %sp %sp -37                       # !104
-    lw %ra %sp 36                          # !104
-    lw %r2 %sp 4                           # !105
-    lw %r3 %sp 35                          # !105
-    sw %r1 %sp 36                          # !105
-    movz %r1 %r2 %zero                     # !105
-    movz %r2 %r3 %zero                     # !105
-    sw %ra %sp 37                          # !105
-    addi %sp %sp 38                        # !105
-    jal ~min_caml_create_array             # !105
-    addi %sp %sp -38                       # !105
-    lw %ra %sp 37                          # !105
-    movz %r2 %hp %zero                     # !106
-    addi %hp %hp -2                        # !106
-    sw %r1 %r2 -1                          # !106
-    lw %r1 %sp 36                          # !106
-    sw %r1 %r2 0                           # !106
-    movz %r1 %r2 %zero                     # !106
-    flw %f0 %sp 3                          # !111
-    lw %r2 %sp 1                           # !111
-    sw %r1 %sp 37                          # !111
-    movz %r1 %r2 %zero                     # !111
-    sw %ra %sp 38                          # !111
-    addi %sp %sp 39                        # !111
-    jal ~min_caml_create_float_array       # !111
-    addi %sp %sp -39                       # !111
-    lw %ra %sp 38                          # !111
-    movz %r2 %r1 %zero                     # !111
-    lw %r1 %sp 1                           # !112
-    sw %r2 %sp 38                          # !112
-    sw %ra %sp 39                          # !112
-    addi %sp %sp 40                        # !112
-    jal ~min_caml_create_array             # !112
-    addi %sp %sp -40                       # !112
-    lw %ra %sp 39                          # !112
-    movz %r2 %hp %zero                     # !113
-    addi %hp %hp -2                        # !113
-    sw %r1 %r2 -1                          # !113
-    lw %r1 %sp 38                          # !113
-    sw %r1 %r2 0                           # !113
-    movz %r1 %r2 %zero                     # !113
-    addi %r2 %zero 180                     # !114
-    movz %r3 %hp %zero                     # !114
-    addi %hp %hp -3                        # !114
-    flw %f0 %sp 3                          # !114
-    fsw %f0 %r3 -2                         # !114
-    sw %r1 %r3 -1                          # !114
-    lw %r1 %sp 1                           # !114
-    sw %r1 %r3 0                           # !114
-    movz %r1 %r2 %zero                     # !114
-    movz %r2 %r3 %zero                     # !114
-    sw %ra %sp 39                          # !114
-    addi %sp %sp 40                        # !114
-    jal ~min_caml_create_array             # !114
-    addi %sp %sp -40                       # !114
-    lw %ra %sp 39                          # !114
-    lw %r2 %sp 0                           # !118
-    lw %r3 %sp 1                           # !118
-    sw %r1 %sp 39                          # !118
-    movz %r1 %r2 %zero                     # !118
-    movz %r2 %r3 %zero                     # !118
-    sw %ra %sp 40                          # !118
-    addi %sp %sp 41                        # !118
-    jal ~min_caml_create_array             # !118
-    addi %sp %sp -41                       # !118
-    lw %ra %sp 40                          # !118
-    movz %r2 %hp %zero                     # !615
-    addi %hp %hp -6                        # !615
-    setl %r3 ~read_screen_settings.2529    # !615
-    sw %r3 %r2 0                           # !615
-    lw %r3 %sp 8                           # !615
-    sw %r3 %r2 -5                          # !615
-    lw %r4 %sp 31                          # !615
-    sw %r4 %r2 -4                          # !615
-    lw %r5 %sp 30                          # !615
-    sw %r5 %r2 -3                          # !615
-    lw %r6 %sp 29                          # !615
-    sw %r6 %r2 -2                          # !615
-    lw %r7 %sp 7                           # !615
-    sw %r7 %r2 -1                          # !615
-    movz %r7 %hp %zero                     # !648
-    addi %hp %hp -3                        # !648
-    setl %r8 ~read_light.2531              # !648
-    sw %r8 %r7 0                           # !648
-    lw %r8 %sp 9                           # !648
-    sw %r8 %r7 -2                          # !648
-    lw %r9 %sp 10                          # !648
-    sw %r9 %r7 -1                          # !648
-    movz %r10 %hp %zero                    # !711
-    addi %hp %hp -2                        # !711
-    setl %r11 ~read_nth_object.2536        # !711
-    sw %r11 %r10 0                         # !711
-    lw %r11 %sp 5                          # !711
-    sw %r11 %r10 -1                        # !711
-    movz %r12 %hp %zero                    # !794
-    addi %hp %hp -3                        # !794
-    setl %r13 ~read_object.2538            # !794
-    sw %r13 %r12 0                         # !794
-    sw %r10 %r12 -2                        # !794
-    lw %r10 %sp 2                          # !794
-    sw %r10 %r12 -1                        # !794
-    movz %r13 %hp %zero                    # !803
-    addi %hp %hp -2                        # !803
-    setl %r14 ~read_all_object.2540        # !803
-    sw %r14 %r13 0                         # !803
-    sw %r12 %r13 -1                        # !803
-    movz %r12 %hp %zero                    # !827
-    addi %hp %hp -2                        # !827
-    setl %r14 ~read_and_network.2546       # !827
-    sw %r14 %r12 0                         # !827
-    lw %r14 %sp 12                         # !827
-    sw %r14 %r12 -1                        # !827
-    movz %r15 %hp %zero                    # !836
-    addi %hp %hp -6                        # !836
-    setl %r16 ~read_parameter.2548         # !836
-    sw %r16 %r15 0                         # !836
-    sw %r2 %r15 -5                         # !836
-    sw %r7 %r15 -4                         # !836
-    sw %r12 %r15 -3                        # !836
-    sw %r13 %r15 -2                        # !836
-    lw %r2 %sp 13                          # !836
-    sw %r2 %r15 -1                         # !836
-    movz %r7 %hp %zero                     # !861
-    addi %hp %hp -2                        # !861
-    setl %r12 ~solver_rect_surface.2550    # !861
-    sw %r12 %r7 0                          # !861
-    lw %r12 %sp 14                         # !861
-    sw %r12 %r7 -1                         # !861
-    movz %r13 %hp %zero                    # !876
-    addi %hp %hp -2                        # !876
-    setl %r16 ~solver_rect.2559            # !876
-    sw %r16 %r13 0                         # !876
-    sw %r7 %r13 -1                         # !876
-    movz %r7 %hp %zero                     # !885
-    addi %hp %hp -2                        # !885
-    setl %r16 ~solver_surface.2565         # !885
-    sw %r16 %r7 0                          # !885
-    sw %r12 %r7 -1                         # !885
-    movz %r16 %hp %zero                    # !936
-    addi %hp %hp -2                        # !936
-    setl %r17 ~solver_second.2584          # !936
-    sw %r17 %r16 0                         # !936
-    sw %r12 %r16 -1                        # !936
-    movz %r17 %hp %zero                    # !965
-    addi %hp %hp -5                        # !965
-    setl %r18 ~solver.2590                 # !965
-    sw %r18 %r17 0                         # !965
-    sw %r7 %r17 -4                         # !965
-    sw %r16 %r17 -3                        # !965
-    sw %r13 %r17 -2                        # !965
-    sw %r11 %r17 -1                        # !965
-    movz %r7 %hp %zero                     # !997
-    addi %hp %hp -2                        # !997
-    setl %r13 ~solver_rect_fast.2594       # !997
-    sw %r13 %r7 0                          # !997
-    sw %r12 %r7 -1                         # !997
-    movz %r13 %hp %zero                    # !1030
-    addi %hp %hp -2                        # !1030
-    setl %r16 ~solver_surface_fast.2601    # !1030
-    sw %r16 %r13 0                         # !1030
-    sw %r12 %r13 -1                        # !1030
-    movz %r16 %hp %zero                    # !1039
-    addi %hp %hp -2                        # !1039
-    setl %r18 ~solver_second_fast.2607     # !1039
-    sw %r18 %r16 0                         # !1039
-    sw %r12 %r16 -1                        # !1039
-    movz %r18 %hp %zero                    # !1059
-    addi %hp %hp -5                        # !1059
-    setl %r19 ~solver_fast.2613            # !1059
-    sw %r19 %r18 0                         # !1059
-    sw %r13 %r18 -4                        # !1059
-    sw %r16 %r18 -3                        # !1059
-    sw %r7 %r18 -2                         # !1059
-    sw %r11 %r18 -1                        # !1059
-    movz %r13 %hp %zero                    # !1079
-    addi %hp %hp -2                        # !1079
-    setl %r16 ~solver_surface_fast2.2617   # !1079
-    sw %r16 %r13 0                         # !1079
-    sw %r12 %r13 -1                        # !1079
-    movz %r16 %hp %zero                    # !1087
-    addi %hp %hp -2                        # !1087
-    setl %r19 ~solver_second_fast2.2624    # !1087
-    sw %r19 %r16 0                         # !1087
-    sw %r12 %r16 -1                        # !1087
-    movz %r19 %hp %zero                    # !1106
-    addi %hp %hp -5                        # !1106
-    setl %r20 ~solver_fast2.2631           # !1106
-    sw %r20 %r19 0                         # !1106
-    sw %r13 %r19 -4                        # !1106
-    sw %r16 %r19 -3                        # !1106
-    sw %r7 %r19 -2                         # !1106
-    sw %r11 %r19 -1                        # !1106
-    movz %r7 %hp %zero                     # !1203
-    addi %hp %hp -2                        # !1203
-    setl %r13 ~iter_setup_dirvec_constants.2643# !1203
-    sw %r13 %r7 0                          # !1203
-    sw %r11 %r7 -1                         # !1203
-    movz %r13 %hp %zero                    # !1220
-    addi %hp %hp -3                        # !1220
-    setl %r16 ~setup_dirvec_constants.2646 # !1220
-    sw %r16 %r13 0                         # !1220
-    sw %r10 %r13 -2                        # !1220
-    sw %r7 %r13 -1                         # !1220
-    movz %r7 %hp %zero                     # !1228
-    addi %hp %hp -2                        # !1228
-    setl %r16 ~setup_startp_constants.2648 # !1228
-    sw %r16 %r7 0                          # !1228
-    sw %r11 %r7 -1                         # !1228
-    movz %r16 %hp %zero                    # !1247
-    addi %hp %hp -4                        # !1247
-    setl %r20 ~setup_startp.2651           # !1247
-    sw %r20 %r16 0                         # !1247
-    lw %r20 %sp 28                         # !1247
-    sw %r20 %r16 -3                        # !1247
-    sw %r7 %r16 -2                         # !1247
-    sw %r10 %r16 -1                        # !1247
-    movz %r7 %hp %zero                     # !1297
-    addi %hp %hp -2                        # !1297
-    setl %r21 ~check_all_inside.2673       # !1297
-    sw %r21 %r7 0                          # !1297
-    sw %r11 %r7 -1                         # !1297
-    movz %r21 %hp %zero                    # !1317
-    addi %hp %hp -8                        # !1317
-    setl %r22 ~shadow_check_and_group.2679 # !1317
-    sw %r22 %r21 0                         # !1317
-    sw %r18 %r21 -7                        # !1317
-    sw %r12 %r21 -6                        # !1317
-    sw %r11 %r21 -5                        # !1317
-    lw %r22 %sp 37                         # !1317
-    sw %r22 %r21 -4                        # !1317
-    sw %r8 %r21 -3                         # !1317
-    lw %r23 %sp 17                         # !1317
-    sw %r23 %r21 -2                        # !1317
-    sw %r7 %r21 -1                         # !1317
-    movz %r24 %hp %zero                    # !1347
-    addi %hp %hp -3                        # !1347
-    setl %r25 ~shadow_check_one_or_group.2682# !1347
-    sw %r25 %r24 0                         # !1347
-    sw %r21 %r24 -2                        # !1347
-    sw %r14 %r24 -1                        # !1347
-    movz %r21 %hp %zero                    # !1362
-    addi %hp %hp -6                        # !1362
-    setl %r25 ~shadow_check_one_or_matrix.2685# !1362
-    sw %r25 %r21 0                         # !1362
-    sw %r18 %r21 -5                        # !1362
-    sw %r12 %r21 -4                        # !1362
-    sw %r24 %r21 -3                        # !1362
-    sw %r22 %r21 -2                        # !1362
-    sw %r23 %r21 -1                        # !1362
-    movz %r18 %hp %zero                    # !1398
-    addi %hp %hp -10                       # !1398
-    setl %r24 ~solve_each_element.2688     # !1398
-    sw %r24 %r18 0                         # !1398
-    lw %r24 %sp 16                         # !1398
-    sw %r24 %r18 -9                        # !1398
-    lw %r25 %sp 27                         # !1398
-    sw %r25 %r18 -8                        # !1398
-    sw %r12 %r18 -7                        # !1398
-    sw %r17 %r18 -6                        # !1398
-    sw %r11 %r18 -5                        # !1398
-    lw %r26 %sp 15                         # !1398
-    sw %r26 %r18 -4                        # !1398
-    sw %r23 %r18 -3                        # !1398
-    lw %r27 %sp 18                         # !1398
-    sw %r27 %r18 -2                        # !1398
-    sw %r7 %r18 -1                         # !1398
-    movz %r28 %hp %zero                    # !1439
-    addi %hp %hp -3                        # !1439
-    setl %r22 ~solve_one_or_network.2692   # !1439
-    sw %r22 %r28 0                         # !1439
-    sw %r18 %r28 -2                        # !1439
-    sw %r14 %r28 -1                        # !1439
-    movz %r18 %hp %zero                    # !1449
-    addi %hp %hp -6                        # !1449
-    setl %r22 ~trace_or_matrix.2696        # !1449
-    sw %r22 %r18 0                         # !1449
-    sw %r24 %r18 -5                        # !1449
-    sw %r25 %r18 -4                        # !1449
-    sw %r12 %r18 -3                        # !1449
-    sw %r17 %r18 -2                        # !1449
-    sw %r28 %r18 -1                        # !1449
-    movz %r17 %hp %zero                    # !1476
-    addi %hp %hp -4                        # !1476
-    setl %r22 ~judge_intersection.2700     # !1476
-    sw %r22 %r17 0                         # !1476
-    sw %r18 %r17 -3                        # !1476
-    sw %r24 %r17 -2                        # !1476
-    sw %r2 %r17 -1                         # !1476
-    movz %r18 %hp %zero                    # !1491
-    addi %hp %hp -10                       # !1491
-    setl %r22 ~solve_each_element_fast.2702# !1491
-    sw %r22 %r18 0                         # !1491
-    sw %r24 %r18 -9                        # !1491
-    sw %r20 %r18 -8                        # !1491
-    sw %r19 %r18 -7                        # !1491
-    sw %r12 %r18 -6                        # !1491
-    sw %r11 %r18 -5                        # !1491
-    sw %r26 %r18 -4                        # !1491
-    sw %r23 %r18 -3                        # !1491
-    sw %r27 %r18 -2                        # !1491
-    sw %r7 %r18 -1                         # !1491
-    movz %r7 %hp %zero                     # !1532
-    addi %hp %hp -3                        # !1532
-    setl %r20 ~solve_one_or_network_fast.2706# !1532
-    sw %r20 %r7 0                          # !1532
-    sw %r18 %r7 -2                         # !1532
-    sw %r14 %r7 -1                         # !1532
-    movz %r14 %hp %zero                    # !1542
-    addi %hp %hp -5                        # !1542
-    setl %r18 ~trace_or_matrix_fast.2710   # !1542
-    sw %r18 %r14 0                         # !1542
-    sw %r24 %r14 -4                        # !1542
-    sw %r19 %r14 -3                        # !1542
-    sw %r12 %r14 -2                        # !1542
-    sw %r7 %r14 -1                         # !1542
-    movz %r7 %hp %zero                     # !1566
-    addi %hp %hp -4                        # !1566
-    setl %r12 ~judge_intersection_fast.2714# !1566
-    sw %r12 %r7 0                          # !1566
-    sw %r14 %r7 -3                         # !1566
-    sw %r24 %r7 -2                         # !1566
-    sw %r2 %r7 -1                          # !1566
-    movz %r12 %hp %zero                    # !1587
-    addi %hp %hp -3                        # !1587
-    setl %r14 ~get_nvector_rect.2716       # !1587
-    sw %r14 %r12 0                         # !1587
-    lw %r14 %sp 19                         # !1587
-    sw %r14 %r12 -2                        # !1587
-    sw %r26 %r12 -1                        # !1587
-    movz %r18 %hp %zero                    # !1595
-    addi %hp %hp -2                        # !1595
-    setl %r19 ~get_nvector_plane.2718      # !1595
-    sw %r19 %r18 0                         # !1595
-    sw %r14 %r18 -1                        # !1595
-    movz %r19 %hp %zero                    # !1603
-    addi %hp %hp -3                        # !1603
-    setl %r20 ~get_nvector_second.2720     # !1603
-    sw %r20 %r19 0                         # !1603
-    sw %r14 %r19 -2                        # !1603
-    sw %r23 %r19 -1                        # !1603
-    movz %r20 %hp %zero                    # !1625
-    addi %hp %hp -4                        # !1625
-    setl %r22 ~get_nvector.2722            # !1625
-    sw %r22 %r20 0                         # !1625
-    sw %r19 %r20 -3                        # !1625
-    sw %r12 %r20 -2                        # !1625
-    sw %r18 %r20 -1                        # !1625
-    movz %r12 %hp %zero                    # !1641
-    addi %hp %hp -2                        # !1641
-    setl %r18 ~utexture.2725               # !1641
-    sw %r18 %r12 0                         # !1641
-    lw %r18 %sp 20                         # !1641
-    sw %r18 %r12 -1                        # !1641
-    movz %r19 %hp %zero                    # !1719
-    addi %hp %hp -3                        # !1719
-    setl %r22 ~add_light.2728              # !1719
-    sw %r22 %r19 0                         # !1719
-    sw %r18 %r19 -2                        # !1719
-    lw %r22 %sp 22                         # !1719
-    sw %r22 %r19 -1                        # !1719
-    movz %r28 %hp %zero                    # !1736
-    addi %hp %hp -9                        # !1736
-    sw %r15 %sp 40                         # !1736
-    setl %r15 ~trace_reflections.2732      # !1736
-    sw %r15 %r28 0                         # !1736
-    sw %r21 %r28 -8                        # !1736
-    lw %r15 %sp 39                         # !1736
-    sw %r15 %r28 -7                        # !1736
-    sw %r2 %r28 -6                         # !1736
-    sw %r14 %r28 -5                        # !1736
-    sw %r7 %r28 -4                         # !1736
-    sw %r26 %r28 -3                        # !1736
-    sw %r27 %r28 -2                        # !1736
-    sw %r19 %r28 -1                        # !1736
-    movz %r15 %hp %zero                    # !1765
-    addi %hp %hp -21                       # !1765
-    sw %r13 %sp 41                         # !1765
-    setl %r13 ~trace_ray.2737              # !1765
-    sw %r13 %r15 0                         # !1765
-    sw %r12 %r15 -20                       # !1765
-    sw %r28 %r15 -19                       # !1765
-    sw %r24 %r15 -18                       # !1765
-    sw %r18 %r15 -17                       # !1765
-    sw %r25 %r15 -16                       # !1765
-    sw %r21 %r15 -15                       # !1765
-    sw %r16 %r15 -14                       # !1765
-    sw %r22 %r15 -13                       # !1765
-    sw %r2 %r15 -12                        # !1765
-    sw %r11 %r15 -11                       # !1765
-    sw %r14 %r15 -10                       # !1765
-    sw %r1 %r15 -9                         # !1765
-    sw %r8 %r15 -8                         # !1765
-    sw %r17 %r15 -7                        # !1765
-    sw %r26 %r15 -6                        # !1765
-    sw %r23 %r15 -5                        # !1765
-    sw %r27 %r15 -4                        # !1765
-    sw %r20 %r15 -3                        # !1765
-    sw %r9 %r15 -2                         # !1765
-    sw %r19 %r15 -1                        # !1765
-    movz %r9 %hp %zero                     # !1858
-    addi %hp %hp -13                       # !1858
-    setl %r13 ~trace_diffuse_ray.2743      # !1858
-    sw %r13 %r9 0                          # !1858
-    sw %r12 %r9 -12                        # !1858
-    sw %r18 %r9 -11                        # !1858
-    sw %r21 %r9 -10                        # !1858
-    sw %r2 %r9 -9                          # !1858
-    sw %r11 %r9 -8                         # !1858
-    sw %r14 %r9 -7                         # !1858
-    sw %r8 %r9 -6                          # !1858
-    sw %r7 %r9 -5                          # !1858
-    sw %r23 %r9 -4                         # !1858
-    sw %r27 %r9 -3                         # !1858
-    sw %r20 %r9 -2                         # !1858
-    lw %r2 %sp 21                          # !1858
-    sw %r2 %r9 -1                          # !1858
-    movz %r7 %hp %zero                     # !1877
-    addi %hp %hp -2                        # !1877
-    setl %r12 ~iter_trace_diffuse_rays.2746# !1877
-    sw %r12 %r7 0                          # !1877
-    sw %r9 %r7 -1                          # !1877
-    movz %r9 %hp %zero                     # !1893
-    addi %hp %hp -3                        # !1893
-    setl %r12 ~trace_diffuse_rays.2751     # !1893
-    sw %r12 %r9 0                          # !1893
-    sw %r16 %r9 -2                         # !1893
-    sw %r7 %r9 -1                          # !1893
-    movz %r7 %hp %zero                     # !1903
-    addi %hp %hp -3                        # !1903
-    setl %r12 ~trace_diffuse_ray_80percent.2755# !1903
-    sw %r12 %r7 0                          # !1903
-    sw %r9 %r7 -2                          # !1903
-    lw %r12 %sp 34                         # !1903
-    sw %r12 %r7 -1                         # !1903
-    movz %r13 %hp %zero                    # !1929
-    addi %hp %hp -4                        # !1929
-    setl %r14 ~calc_diffuse_using_1point.2759# !1929
-    sw %r14 %r13 0                         # !1929
-    sw %r7 %r13 -3                         # !1929
-    sw %r22 %r13 -2                        # !1929
-    sw %r2 %r13 -1                         # !1929
-    movz %r7 %hp %zero                     # !1948
-    addi %hp %hp -3                        # !1948
-    setl %r14 ~calc_diffuse_using_5points.2762# !1948
-    sw %r14 %r7 0                          # !1948
-    sw %r22 %r7 -2                         # !1948
-    sw %r2 %r7 -1                          # !1948
-    movz %r14 %hp %zero                    # !1968
-    addi %hp %hp -2                        # !1968
-    setl %r16 ~do_without_neighbors.2768   # !1968
-    sw %r16 %r14 0                         # !1968
-    sw %r13 %r14 -1                        # !1968
-    movz %r13 %hp %zero                    # !1983
-    addi %hp %hp -2                        # !1983
-    setl %r16 ~neighbors_exist.2771        # !1983
-    sw %r16 %r13 0                         # !1983
-    lw %r16 %sp 24                         # !1983
-    sw %r16 %r13 -1                        # !1983
-    movz %r17 %hp %zero                    # !2020
-    addi %hp %hp -3                        # !2020
-    setl %r18 ~try_exploit_neighbors.2784  # !2020
-    sw %r18 %r17 0                         # !2020
-    sw %r14 %r17 -2                        # !2020
-    sw %r7 %r17 -1                         # !2020
-    movz %r7 %hp %zero                     # !2047
-    addi %hp %hp -2                        # !2047
-    setl %r18 ~write_ppm_header.2791       # !2047
-    sw %r18 %r7 0                          # !2047
-    sw %r16 %r7 -1                         # !2047
-    movz %r18 %hp %zero                    # !2073
-    addi %hp %hp -2                        # !2073
-    setl %r19 ~write_rgb.2797              # !2073
-    sw %r19 %r18 0                         # !2073
-    sw %r22 %r18 -1                        # !2073
-    movz %r19 %hp %zero                    # !2096
-    addi %hp %hp -4                        # !2096
-    setl %r20 ~pretrace_diffuse_rays.2799  # !2096
-    sw %r20 %r19 0                         # !2096
-    sw %r9 %r19 -3                         # !2096
-    sw %r12 %r19 -2                        # !2096
-    sw %r2 %r19 -1                         # !2096
-    movz %r2 %hp %zero                     # !2126
-    addi %hp %hp -10                       # !2126
-    setl %r9 ~pretrace_pixels.2802         # !2126
-    sw %r9 %r2 0                           # !2126
-    sw %r3 %r2 -9                          # !2126
-    sw %r15 %r2 -8                         # !2126
-    sw %r25 %r2 -7                         # !2126
-    sw %r6 %r2 -6                          # !2126
-    lw %r3 %sp 26                          # !2126
-    sw %r3 %r2 -5                          # !2126
-    sw %r22 %r2 -4                         # !2126
-    lw %r6 %sp 32                          # !2126
-    sw %r6 %r2 -3                          # !2126
-    sw %r19 %r2 -2                         # !2126
-    lw %r6 %sp 25                          # !2126
-    sw %r6 %r2 -1                          # !2126
-    movz %r9 %hp %zero                     # !2151
-    addi %hp %hp -7                        # !2151
-    setl %r15 ~pretrace_line.2809          # !2151
-    sw %r15 %r9 0                          # !2151
-    sw %r4 %r9 -6                          # !2151
-    sw %r5 %r9 -5                          # !2151
-    sw %r3 %r9 -4                          # !2151
-    sw %r2 %r9 -3                          # !2151
-    sw %r16 %r9 -2                         # !2151
-    sw %r6 %r9 -1                          # !2151
-    movz %r2 %hp %zero                     # !2167
-    addi %hp %hp -7                        # !2167
-    setl %r4 ~scan_pixel.2813              # !2167
-    sw %r4 %r2 0                           # !2167
-    sw %r18 %r2 -6                         # !2167
-    sw %r17 %r2 -5                         # !2167
-    sw %r22 %r2 -4                         # !2167
-    sw %r13 %r2 -3                         # !2167
-    sw %r16 %r2 -2                         # !2167
-    sw %r14 %r2 -1                         # !2167
-    movz %r4 %hp %zero                     # !2187
-    addi %hp %hp -4                        # !2187
-    setl %r5 ~scan_line.2820               # !2187
-    sw %r5 %r4 0                           # !2187
-    sw %r2 %r4 -3                          # !2187
-    sw %r9 %r4 -2                          # !2187
-    sw %r16 %r4 -1                         # !2187
-    movz %r2 %hp %zero                     # !2239
-    addi %hp %hp -2                        # !2239
-    setl %r5 ~create_pixelline.2834        # !2239
-    sw %r5 %r2 0                           # !2239
-    sw %r16 %r2 -1                         # !2239
-    movz %r5 %hp %zero                     # !2267
-    addi %hp %hp -2                        # !2267
-    setl %r13 ~calc_dirvec.2841            # !2267
-    sw %r13 %r5 0                          # !2267
-    sw %r12 %r5 -1                         # !2267
-    movz %r13 %hp %zero                    # !2288
-    addi %hp %hp -2                        # !2288
-    setl %r14 ~calc_dirvecs.2849           # !2288
-    sw %r14 %r13 0                         # !2288
-    sw %r5 %r13 -1                         # !2288
-    movz %r5 %hp %zero                     # !2302
-    addi %hp %hp -2                        # !2302
-    setl %r14 ~calc_dirvec_rows.2854       # !2302
-    sw %r14 %r5 0                          # !2302
-    sw %r13 %r5 -1                         # !2302
-    movz %r13 %hp %zero                    # !2315
-    addi %hp %hp -2                        # !2315
-    setl %r14 ~create_dirvec.2858          # !2315
-    sw %r14 %r13 0                         # !2315
-    sw %r10 %r13 -1                        # !2315
-    movz %r14 %hp %zero                    # !2321
-    addi %hp %hp -2                        # !2321
-    setl %r15 ~create_dirvec_elements.2860 # !2321
-    sw %r15 %r14 0                         # !2321
-    sw %r13 %r14 -1                        # !2321
-    movz %r15 %hp %zero                    # !2328
-    addi %hp %hp -4                        # !2328
-    setl %r17 ~create_dirvecs.2863         # !2328
-    sw %r17 %r15 0                         # !2328
-    sw %r12 %r15 -3                        # !2328
-    sw %r14 %r15 -2                        # !2328
-    sw %r13 %r15 -1                        # !2328
-    movz %r14 %hp %zero                    # !2340
-    addi %hp %hp -2                        # !2340
-    setl %r17 ~init_dirvec_constants.2865  # !2340
-    sw %r17 %r14 0                         # !2340
-    lw %r17 %sp 41                         # !2340
-    sw %r17 %r14 -1                        # !2340
-    movz %r18 %hp %zero                    # !2347
-    addi %hp %hp -3                        # !2347
-    setl %r19 ~init_vecset_constants.2868  # !2347
-    sw %r19 %r18 0                         # !2347
-    sw %r14 %r18 -2                        # !2347
-    sw %r12 %r18 -1                        # !2347
-    movz %r12 %hp %zero                    # !2354
-    addi %hp %hp -4                        # !2354
-    setl %r14 ~init_dirvecs.2870           # !2354
-    sw %r14 %r12 0                         # !2354
-    sw %r18 %r12 -3                        # !2354
-    sw %r15 %r12 -2                        # !2354
-    sw %r5 %r12 -1                         # !2354
-    movz %r5 %hp %zero                     # !2365
-    addi %hp %hp -4                        # !2365
-    setl %r14 ~add_reflection.2872         # !2365
-    sw %r14 %r5 0                          # !2365
-    sw %r17 %r5 -3                         # !2365
-    lw %r14 %sp 39                         # !2365
-    sw %r14 %r5 -2                         # !2365
-    sw %r13 %r5 -1                         # !2365
-    movz %r13 %hp %zero                    # !2374
-    addi %hp %hp -4                        # !2374
-    setl %r14 ~setup_rect_reflection.2879  # !2374
-    sw %r14 %r13 0                         # !2374
-    sw %r1 %r13 -3                         # !2374
-    sw %r8 %r13 -2                         # !2374
-    sw %r5 %r13 -1                         # !2374
-    movz %r14 %hp %zero                    # !2388
-    addi %hp %hp -4                        # !2388
-    setl %r15 ~setup_surface_reflection.2882# !2388
-    sw %r15 %r14 0                         # !2388
-    sw %r1 %r14 -3                         # !2388
-    sw %r8 %r14 -2                         # !2388
-    sw %r5 %r14 -1                         # !2388
-    movz %r1 %hp %zero                     # !2403
-    addi %hp %hp -4                        # !2403
-    setl %r5 ~setup_reflections.2885       # !2403
-    sw %r5 %r1 0                           # !2403
-    sw %r14 %r1 -3                         # !2403
-    sw %r13 %r1 -2                         # !2403
-    sw %r11 %r1 -1                         # !2403
-    movz %r27 %hp %zero                    # !2425
-    addi %hp %hp -15                       # !2425
-    setl %r5 ~rt.2887                      # !2425
-    sw %r5 %r27 0                          # !2425
-    sw %r7 %r27 -14                        # !2425
-    sw %r1 %r27 -13                        # !2425
-    sw %r17 %r27 -12                       # !2425
-    sw %r3 %r27 -11                        # !2425
-    sw %r4 %r27 -10                        # !2425
-    lw %r1 %sp 40                          # !2425
-    sw %r1 %r27 -9                         # !2425
-    sw %r9 %r27 -8                         # !2425
-    sw %r10 %r27 -7                        # !2425
-    lw %r1 %sp 37                          # !2425
-    sw %r1 %r27 -6                         # !2425
-    sw %r8 %r27 -5                         # !2425
-    sw %r12 %r27 -4                        # !2425
-    sw %r16 %r27 -3                        # !2425
-    sw %r6 %r27 -2                         # !2425
-    sw %r2 %r27 -1                         # !2425
-    addi %r1 %zero 512                     # !2446
-    lw %r3 %sp 6                           # !2446
-    movz %r2 %r1 %zero                     # !2446
-    sw %ra %sp 42                          # !2446
-    addi %sp %sp 43                        # !2446
-    lw %r28 %r27 0                         # !2446
-    jalr %r28                              # !2446
-    addi %sp %sp -43                       # !2446
-    lw %ra %sp 42                          # !2446
-    j ~inf_loop                            # !0
+    lw       %r2  %sp  0                   # !104
+    sw       %r1  %sp  15                  # !104
+    movz     %r1  %r2  %zero               # !104
+    sw       %ra  %sp  16                  # !104
+    addi     %sp  %sp  17                  # !104
+    jal      ~min_caml_create_float_array  # !104
+    addi     %sp  %sp  -17                 # !104
+    lw       %ra  %sp  16                  # !104
+    flw      %f0  %sp  3                   # !107
+    lw       %r2  %sp  6                   # !107
+    sw       %r1  %sp  16                  # !107
+    movz     %r1  %r2  %zero               # !107
+    sw       %ra  %sp  17                  # !107
+    addi     %sp  %sp  18                  # !107
+    jal      ~min_caml_create_float_array  # !107
+    addi     %sp  %sp  -18                 # !107
+    lw       %ra  %sp  17                  # !107
+    lw       %r2  %sp  0                   # !110
+    lw       %r3  %sp  1                   # !110
+    sw       %r1  %sp  17                  # !110
+    movz     %r1  %r2  %zero               # !110
+    movz     %r2  %r3  %zero               # !110
+    sw       %ra  %sp  18                  # !110
+    addi     %sp  %sp  19                  # !110
+    jal      ~min_caml_create_array        # !110
+    addi     %sp  %sp  -19                 # !110
+    lw       %ra  %sp  18                  # !110
+    flw      %f0  %sp  3                   # !113
+    lw       %r2  %sp  6                   # !113
+    sw       %r1  %sp  18                  # !113
+    movz     %r1  %r2  %zero               # !113
+    sw       %ra  %sp  19                  # !113
+    addi     %sp  %sp  20                  # !113
+    jal      ~min_caml_create_float_array  # !113
+    addi     %sp  %sp  -20                 # !113
+    lw       %ra  %sp  19                  # !113
+    flw      %f0  %sp  3                   # !116
+    lw       %r2  %sp  6                   # !116
+    sw       %r1  %sp  19                  # !116
+    movz     %r1  %r2  %zero               # !116
+    sw       %ra  %sp  20                  # !116
+    addi     %sp  %sp  21                  # !116
+    jal      ~min_caml_create_float_array  # !116
+    addi     %sp  %sp  -21                 # !116
+    lw       %ra  %sp  20                  # !116
+    flw      %f0  %sp  3                   # !120
+    lw       %r2  %sp  6                   # !120
+    sw       %r1  %sp  20                  # !120
+    movz     %r1  %r2  %zero               # !120
+    sw       %ra  %sp  21                  # !120
+    addi     %sp  %sp  22                  # !120
+    jal      ~min_caml_create_float_array  # !120
+    addi     %sp  %sp  -22                 # !120
+    lw       %ra  %sp  21                  # !120
+    flw      %f0  %sp  3                   # !123
+    lw       %r2  %sp  6                   # !123
+    sw       %r1  %sp  21                  # !123
+    movz     %r1  %r2  %zero               # !123
+    sw       %ra  %sp  22                  # !123
+    addi     %sp  %sp  23                  # !123
+    jal      ~min_caml_create_float_array  # !123
+    addi     %sp  %sp  -23                 # !123
+    lw       %ra  %sp  22                  # !123
+    addi     %r2  %zero  2                 # !127
+    lw       %r3  %sp  1                   # !127
+    sw       %r1  %sp  22                  # !127
+    sw       %r2  %sp  23                  # !127
+    movz     %r1  %r2  %zero               # !127
+    movz     %r2  %r3  %zero               # !127
+    sw       %ra  %sp  24                  # !127
+    addi     %sp  %sp  25                  # !127
+    jal      ~min_caml_create_array        # !127
+    addi     %sp  %sp  -25                 # !127
+    lw       %ra  %sp  24                  # !127
+    lw       %r2  %sp  23                  # !130
+    lw       %r3  %sp  1                   # !130
+    sw       %r1  %sp  24                  # !130
+    movz     %r1  %r2  %zero               # !130
+    movz     %r2  %r3  %zero               # !130
+    sw       %ra  %sp  25                  # !130
+    addi     %sp  %sp  26                  # !130
+    jal      ~min_caml_create_array        # !130
+    addi     %sp  %sp  -26                 # !130
+    lw       %ra  %sp  25                  # !130
+    flw      %f0  %sp  3                   # !133
+    lw       %r2  %sp  0                   # !133
+    sw       %r1  %sp  25                  # !133
+    movz     %r1  %r2  %zero               # !133
+    sw       %ra  %sp  26                  # !133
+    addi     %sp  %sp  27                  # !133
+    jal      ~min_caml_create_float_array  # !133
+    addi     %sp  %sp  -27                 # !133
+    lw       %ra  %sp  26                  # !133
+    flw      %f0  %sp  3                   # !137
+    lw       %r2  %sp  6                   # !137
+    sw       %r1  %sp  26                  # !137
+    movz     %r1  %r2  %zero               # !137
+    sw       %ra  %sp  27                  # !137
+    addi     %sp  %sp  28                  # !137
+    jal      ~min_caml_create_float_array  # !137
+    addi     %sp  %sp  -28                 # !137
+    lw       %ra  %sp  27                  # !137
+    flw      %f0  %sp  3                   # !140
+    lw       %r2  %sp  6                   # !140
+    sw       %r1  %sp  27                  # !140
+    movz     %r1  %r2  %zero               # !140
+    sw       %ra  %sp  28                  # !140
+    addi     %sp  %sp  29                  # !140
+    jal      ~min_caml_create_float_array  # !140
+    addi     %sp  %sp  -29                 # !140
+    lw       %ra  %sp  28                  # !140
+    flw      %f0  %sp  3                   # !144
+    lw       %r2  %sp  6                   # !144
+    sw       %r1  %sp  28                  # !144
+    movz     %r1  %r2  %zero               # !144
+    sw       %ra  %sp  29                  # !144
+    addi     %sp  %sp  30                  # !144
+    jal      ~min_caml_create_float_array  # !144
+    addi     %sp  %sp  -30                 # !144
+    lw       %ra  %sp  29                  # !144
+    flw      %f0  %sp  3                   # !146
+    lw       %r2  %sp  6                   # !146
+    sw       %r1  %sp  29                  # !146
+    movz     %r1  %r2  %zero               # !146
+    sw       %ra  %sp  30                  # !146
+    addi     %sp  %sp  31                  # !146
+    jal      ~min_caml_create_float_array  # !146
+    addi     %sp  %sp  -31                 # !146
+    lw       %ra  %sp  30                  # !146
+    flw      %f0  %sp  3                   # !148
+    lw       %r2  %sp  6                   # !148
+    sw       %r1  %sp  30                  # !148
+    movz     %r1  %r2  %zero               # !148
+    sw       %ra  %sp  31                  # !148
+    addi     %sp  %sp  32                  # !148
+    jal      ~min_caml_create_float_array  # !148
+    addi     %sp  %sp  -32                 # !148
+    lw       %ra  %sp  31                  # !148
+    flw      %f0  %sp  3                   # !152
+    lw       %r2  %sp  6                   # !152
+    sw       %r1  %sp  31                  # !152
+    movz     %r1  %r2  %zero               # !152
+    sw       %ra  %sp  32                  # !152
+    addi     %sp  %sp  33                  # !152
+    jal      ~min_caml_create_float_array  # !152
+    addi     %sp  %sp  -33                 # !152
+    lw       %ra  %sp  32                  # !152
+    flw      %f0  %sp  3                   # !157
+    lw       %r2  %sp  1                   # !157
+    sw       %r1  %sp  32                  # !157
+    movz     %r1  %r2  %zero               # !157
+    sw       %ra  %sp  33                  # !157
+    addi     %sp  %sp  34                  # !157
+    jal      ~min_caml_create_float_array  # !157
+    addi     %sp  %sp  -34                 # !157
+    lw       %ra  %sp  33                  # !157
+    movz     %r2  %r1  %zero               # !157
+    lw       %r1  %sp  1                   # !158
+    sw       %r2  %sp  33                  # !158
+    sw       %ra  %sp  34                  # !158
+    addi     %sp  %sp  35                  # !158
+    jal      ~min_caml_create_array        # !158
+    addi     %sp  %sp  -35                 # !158
+    lw       %ra  %sp  34                  # !158
+    movz     %r2  %hp  %zero               # !159
+    addi     %hp  %hp  -2                  # !159
+    sw       %r1  %r2  -1                  # !159
+    lw       %r1  %sp  33                  # !159
+    sw       %r1  %r2  0                   # !159
+    lw       %r1  %sp  1                   # !159
+    sw       %ra  %sp  34                  # !159
+    addi     %sp  %sp  35                  # !159
+    jal      ~min_caml_create_array        # !159
+    addi     %sp  %sp  -35                 # !159
+    lw       %ra  %sp  34                  # !159
+    movz     %r2  %r1  %zero               # !159
+    addi     %r1  %zero  5                 # !160
+    sw       %ra  %sp  34                  # !160
+    addi     %sp  %sp  35                  # !160
+    jal      ~min_caml_create_array        # !160
+    addi     %sp  %sp  -35                 # !160
+    lw       %ra  %sp  34                  # !160
+    flw      %f0  %sp  3                   # !165
+    lw       %r2  %sp  1                   # !165
+    sw       %r1  %sp  34                  # !165
+    movz     %r1  %r2  %zero               # !165
+    sw       %ra  %sp  35                  # !165
+    addi     %sp  %sp  36                  # !165
+    jal      ~min_caml_create_float_array  # !165
+    addi     %sp  %sp  -36                 # !165
+    lw       %ra  %sp  35                  # !165
+    flw      %f0  %sp  3                   # !166
+    lw       %r2  %sp  6                   # !166
+    sw       %r1  %sp  35                  # !166
+    movz     %r1  %r2  %zero               # !166
+    sw       %ra  %sp  36                  # !166
+    addi     %sp  %sp  37                  # !166
+    jal      ~min_caml_create_float_array  # !166
+    addi     %sp  %sp  -37                 # !166
+    lw       %ra  %sp  36                  # !166
+    lw       %r2  %sp  4                   # !167
+    lw       %r3  %sp  35                  # !167
+    sw       %r1  %sp  36                  # !167
+    movz     %r1  %r2  %zero               # !167
+    movz     %r2  %r3  %zero               # !167
+    sw       %ra  %sp  37                  # !167
+    addi     %sp  %sp  38                  # !167
+    jal      ~min_caml_create_array        # !167
+    addi     %sp  %sp  -38                 # !167
+    lw       %ra  %sp  37                  # !167
+    movz     %r2  %hp  %zero               # !168
+    addi     %hp  %hp  -2                  # !168
+    sw       %r1  %r2  -1                  # !168
+    lw       %r1  %sp  36                  # !168
+    sw       %r1  %r2  0                   # !168
+    movz     %r1  %r2  %zero               # !168
+    flw      %f0  %sp  3                   # !173
+    lw       %r2  %sp  1                   # !173
+    sw       %r1  %sp  37                  # !173
+    movz     %r1  %r2  %zero               # !173
+    sw       %ra  %sp  38                  # !173
+    addi     %sp  %sp  39                  # !173
+    jal      ~min_caml_create_float_array  # !173
+    addi     %sp  %sp  -39                 # !173
+    lw       %ra  %sp  38                  # !173
+    movz     %r2  %r1  %zero               # !173
+    lw       %r1  %sp  1                   # !174
+    sw       %r2  %sp  38                  # !174
+    sw       %ra  %sp  39                  # !174
+    addi     %sp  %sp  40                  # !174
+    jal      ~min_caml_create_array        # !174
+    addi     %sp  %sp  -40                 # !174
+    lw       %ra  %sp  39                  # !174
+    movz     %r2  %hp  %zero               # !175
+    addi     %hp  %hp  -2                  # !175
+    sw       %r1  %r2  -1                  # !175
+    lw       %r1  %sp  38                  # !175
+    sw       %r1  %r2  0                   # !175
+    movz     %r1  %r2  %zero               # !175
+    addi     %r2  %zero  180               # !176
+    movz     %r3  %hp  %zero               # !176
+    addi     %hp  %hp  -3                  # !176
+    flw      %f0  %sp  3                   # !176
+    fsw      %f0  %r3  -2                  # !176
+    sw       %r1  %r3  -1                  # !176
+    lw       %r1  %sp  1                   # !176
+    sw       %r1  %r3  0                   # !176
+    movz     %r1  %r2  %zero               # !176
+    movz     %r2  %r3  %zero               # !176
+    sw       %ra  %sp  39                  # !176
+    addi     %sp  %sp  40                  # !176
+    jal      ~min_caml_create_array        # !176
+    addi     %sp  %sp  -40                 # !176
+    lw       %ra  %sp  39                  # !176
+    lw       %r2  %sp  0                   # !180
+    lw       %r3  %sp  1                   # !180
+    sw       %r1  %sp  39                  # !180
+    movz     %r1  %r2  %zero               # !180
+    movz     %r2  %r3  %zero               # !180
+    sw       %ra  %sp  40                  # !180
+    addi     %sp  %sp  41                  # !180
+    jal      ~min_caml_create_array        # !180
+    addi     %sp  %sp  -41                 # !180
+    lw       %ra  %sp  40                  # !180
+    movz     %r2  %hp  %zero               # !677
+    addi     %hp  %hp  -6                  # !677
+    setl     %r3  ~read_screen_settings.2596# !677
+    sw       %r3  %r2  0                   # !677
+    lw       %r3  %sp  8                   # !677
+    sw       %r3  %r2  -5                  # !677
+    lw       %r4  %sp  31                  # !677
+    sw       %r4  %r2  -4                  # !677
+    lw       %r5  %sp  30                  # !677
+    sw       %r5  %r2  -3                  # !677
+    lw       %r6  %sp  29                  # !677
+    sw       %r6  %r2  -2                  # !677
+    lw       %r7  %sp  7                   # !677
+    sw       %r7  %r2  -1                  # !677
+    movz     %r7  %hp  %zero               # !710
+    addi     %hp  %hp  -3                  # !710
+    setl     %r8  ~read_light.2598         # !710
+    sw       %r8  %r7  0                   # !710
+    lw       %r8  %sp  9                   # !710
+    sw       %r8  %r7  -2                  # !710
+    lw       %r9  %sp  10                  # !710
+    sw       %r9  %r7  -1                  # !710
+    movz     %r10  %hp  %zero              # !773
+    addi     %hp  %hp  -2                  # !773
+    setl     %r11  ~read_nth_object.2603   # !773
+    sw       %r11  %r10  0                 # !773
+    lw       %r11  %sp  5                  # !773
+    sw       %r11  %r10  -1                # !773
+    movz     %r12  %hp  %zero              # !856
+    addi     %hp  %hp  -3                  # !856
+    setl     %r13  ~read_object.2605       # !856
+    sw       %r13  %r12  0                 # !856
+    sw       %r10  %r12  -2                # !856
+    lw       %r10  %sp  2                  # !856
+    sw       %r10  %r12  -1                # !856
+    movz     %r13  %hp  %zero              # !865
+    addi     %hp  %hp  -2                  # !865
+    setl     %r14  ~read_all_object.2607   # !865
+    sw       %r14  %r13  0                 # !865
+    sw       %r12  %r13  -1                # !865
+    movz     %r12  %hp  %zero              # !889
+    addi     %hp  %hp  -2                  # !889
+    setl     %r14  ~read_and_network.2613  # !889
+    sw       %r14  %r12  0                 # !889
+    lw       %r14  %sp  12                 # !889
+    sw       %r14  %r12  -1                # !889
+    movz     %r15  %hp  %zero              # !898
+    addi     %hp  %hp  -6                  # !898
+    setl     %r16  ~read_parameter.2615    # !898
+    sw       %r16  %r15  0                 # !898
+    sw       %r2  %r15  -5                 # !898
+    sw       %r7  %r15  -4                 # !898
+    sw       %r12  %r15  -3                # !898
+    sw       %r13  %r15  -2                # !898
+    lw       %r2  %sp  13                  # !898
+    sw       %r2  %r15  -1                 # !898
+    movz     %r7  %hp  %zero               # !923
+    addi     %hp  %hp  -2                  # !923
+    setl     %r12  ~solver_rect_surface.2617# !923
+    sw       %r12  %r7  0                  # !923
+    lw       %r12  %sp  14                 # !923
+    sw       %r12  %r7  -1                 # !923
+    movz     %r13  %hp  %zero              # !938
+    addi     %hp  %hp  -2                  # !938
+    setl     %r16  ~solver_rect.2626       # !938
+    sw       %r16  %r13  0                 # !938
+    sw       %r7  %r13  -1                 # !938
+    movz     %r7  %hp  %zero               # !947
+    addi     %hp  %hp  -2                  # !947
+    setl     %r16  ~solver_surface.2632    # !947
+    sw       %r16  %r7  0                  # !947
+    sw       %r12  %r7  -1                 # !947
+    movz     %r16  %hp  %zero              # !998
+    addi     %hp  %hp  -2                  # !998
+    setl     %r17  ~solver_second.2651     # !998
+    sw       %r17  %r16  0                 # !998
+    sw       %r12  %r16  -1                # !998
+    movz     %r17  %hp  %zero              # !1027
+    addi     %hp  %hp  -5                  # !1027
+    setl     %r18  ~solver.2657            # !1027
+    sw       %r18  %r17  0                 # !1027
+    sw       %r7  %r17  -4                 # !1027
+    sw       %r16  %r17  -3                # !1027
+    sw       %r13  %r17  -2                # !1027
+    sw       %r11  %r17  -1                # !1027
+    movz     %r7  %hp  %zero               # !1059
+    addi     %hp  %hp  -2                  # !1059
+    setl     %r13  ~solver_rect_fast.2661  # !1059
+    sw       %r13  %r7  0                  # !1059
+    sw       %r12  %r7  -1                 # !1059
+    movz     %r13  %hp  %zero              # !1092
+    addi     %hp  %hp  -2                  # !1092
+    setl     %r16  ~solver_surface_fast.2668# !1092
+    sw       %r16  %r13  0                 # !1092
+    sw       %r12  %r13  -1                # !1092
+    movz     %r16  %hp  %zero              # !1101
+    addi     %hp  %hp  -2                  # !1101
+    setl     %r18  ~solver_second_fast.2674# !1101
+    sw       %r18  %r16  0                 # !1101
+    sw       %r12  %r16  -1                # !1101
+    movz     %r18  %hp  %zero              # !1121
+    addi     %hp  %hp  -5                  # !1121
+    setl     %r19  ~solver_fast.2680       # !1121
+    sw       %r19  %r18  0                 # !1121
+    sw       %r13  %r18  -4                # !1121
+    sw       %r16  %r18  -3                # !1121
+    sw       %r7  %r18  -2                 # !1121
+    sw       %r11  %r18  -1                # !1121
+    movz     %r13  %hp  %zero              # !1141
+    addi     %hp  %hp  -2                  # !1141
+    setl     %r16  ~solver_surface_fast2.2684# !1141
+    sw       %r16  %r13  0                 # !1141
+    sw       %r12  %r13  -1                # !1141
+    movz     %r16  %hp  %zero              # !1149
+    addi     %hp  %hp  -2                  # !1149
+    setl     %r19  ~solver_second_fast2.2691# !1149
+    sw       %r19  %r16  0                 # !1149
+    sw       %r12  %r16  -1                # !1149
+    movz     %r19  %hp  %zero              # !1168
+    addi     %hp  %hp  -5                  # !1168
+    setl     %r20  ~solver_fast2.2698      # !1168
+    sw       %r20  %r19  0                 # !1168
+    sw       %r13  %r19  -4                # !1168
+    sw       %r16  %r19  -3                # !1168
+    sw       %r7  %r19  -2                 # !1168
+    sw       %r11  %r19  -1                # !1168
+    movz     %r7  %hp  %zero               # !1265
+    addi     %hp  %hp  -2                  # !1265
+    setl     %r13  ~iter_setup_dirvec_constants.2710# !1265
+    sw       %r13  %r7  0                  # !1265
+    sw       %r11  %r7  -1                 # !1265
+    movz     %r13  %hp  %zero              # !1282
+    addi     %hp  %hp  -3                  # !1282
+    setl     %r16  ~setup_dirvec_constants.2713# !1282
+    sw       %r16  %r13  0                 # !1282
+    sw       %r10  %r13  -2                # !1282
+    sw       %r7  %r13  -1                 # !1282
+    movz     %r7  %hp  %zero               # !1290
+    addi     %hp  %hp  -2                  # !1290
+    setl     %r16  ~setup_startp_constants.2715# !1290
+    sw       %r16  %r7  0                  # !1290
+    sw       %r11  %r7  -1                 # !1290
+    movz     %r16  %hp  %zero              # !1309
+    addi     %hp  %hp  -4                  # !1309
+    setl     %r20  ~setup_startp.2718      # !1309
+    sw       %r20  %r16  0                 # !1309
+    lw       %r20  %sp  28                 # !1309
+    sw       %r20  %r16  -3                # !1309
+    sw       %r7  %r16  -2                 # !1309
+    sw       %r10  %r16  -1                # !1309
+    movz     %r7  %hp  %zero               # !1359
+    addi     %hp  %hp  -2                  # !1359
+    setl     %r21  ~check_all_inside.2740  # !1359
+    sw       %r21  %r7  0                  # !1359
+    sw       %r11  %r7  -1                 # !1359
+    movz     %r21  %hp  %zero              # !1379
+    addi     %hp  %hp  -8                  # !1379
+    setl     %r22  ~shadow_check_and_group.2746# !1379
+    sw       %r22  %r21  0                 # !1379
+    sw       %r18  %r21  -7                # !1379
+    sw       %r12  %r21  -6                # !1379
+    sw       %r11  %r21  -5                # !1379
+    lw       %r22  %sp  37                 # !1379
+    sw       %r22  %r21  -4                # !1379
+    sw       %r8  %r21  -3                 # !1379
+    lw       %r23  %sp  17                 # !1379
+    sw       %r23  %r21  -2                # !1379
+    sw       %r7  %r21  -1                 # !1379
+    movz     %r24  %hp  %zero              # !1409
+    addi     %hp  %hp  -3                  # !1409
+    setl     %r25  ~shadow_check_one_or_group.2749# !1409
+    sw       %r25  %r24  0                 # !1409
+    sw       %r21  %r24  -2                # !1409
+    sw       %r14  %r24  -1                # !1409
+    movz     %r21  %hp  %zero              # !1424
+    addi     %hp  %hp  -6                  # !1424
+    setl     %r25  ~shadow_check_one_or_matrix.2752# !1424
+    sw       %r25  %r21  0                 # !1424
+    sw       %r18  %r21  -5                # !1424
+    sw       %r12  %r21  -4                # !1424
+    sw       %r24  %r21  -3                # !1424
+    sw       %r22  %r21  -2                # !1424
+    sw       %r23  %r21  -1                # !1424
+    movz     %r18  %hp  %zero              # !1460
+    addi     %hp  %hp  -10                 # !1460
+    setl     %r24  ~solve_each_element.2755# !1460
+    sw       %r24  %r18  0                 # !1460
+    lw       %r24  %sp  16                 # !1460
+    sw       %r24  %r18  -9                # !1460
+    lw       %r25  %sp  27                 # !1460
+    sw       %r25  %r18  -8                # !1460
+    sw       %r12  %r18  -7                # !1460
+    sw       %r17  %r18  -6                # !1460
+    sw       %r11  %r18  -5                # !1460
+    lw       %r26  %sp  15                 # !1460
+    sw       %r26  %r18  -4                # !1460
+    sw       %r23  %r18  -3                # !1460
+    lw       %r27  %sp  18                 # !1460
+    sw       %r27  %r18  -2                # !1460
+    sw       %r7  %r18  -1                 # !1460
+    movz     %r28  %hp  %zero              # !1501
+    addi     %hp  %hp  -3                  # !1501
+    setl     %r22  ~solve_one_or_network.2759# !1501
+    sw       %r22  %r28  0                 # !1501
+    sw       %r18  %r28  -2                # !1501
+    sw       %r14  %r28  -1                # !1501
+    movz     %r18  %hp  %zero              # !1511
+    addi     %hp  %hp  -6                  # !1511
+    setl     %r22  ~trace_or_matrix.2763   # !1511
+    sw       %r22  %r18  0                 # !1511
+    sw       %r24  %r18  -5                # !1511
+    sw       %r25  %r18  -4                # !1511
+    sw       %r12  %r18  -3                # !1511
+    sw       %r17  %r18  -2                # !1511
+    sw       %r28  %r18  -1                # !1511
+    movz     %r17  %hp  %zero              # !1538
+    addi     %hp  %hp  -4                  # !1538
+    setl     %r22  ~judge_intersection.2767# !1538
+    sw       %r22  %r17  0                 # !1538
+    sw       %r18  %r17  -3                # !1538
+    sw       %r24  %r17  -2                # !1538
+    sw       %r2  %r17  -1                 # !1538
+    movz     %r18  %hp  %zero              # !1553
+    addi     %hp  %hp  -10                 # !1553
+    setl     %r22  ~solve_each_element_fast.2769# !1553
+    sw       %r22  %r18  0                 # !1553
+    sw       %r24  %r18  -9                # !1553
+    sw       %r20  %r18  -8                # !1553
+    sw       %r19  %r18  -7                # !1553
+    sw       %r12  %r18  -6                # !1553
+    sw       %r11  %r18  -5                # !1553
+    sw       %r26  %r18  -4                # !1553
+    sw       %r23  %r18  -3                # !1553
+    sw       %r27  %r18  -2                # !1553
+    sw       %r7  %r18  -1                 # !1553
+    movz     %r7  %hp  %zero               # !1594
+    addi     %hp  %hp  -3                  # !1594
+    setl     %r20  ~solve_one_or_network_fast.2773# !1594
+    sw       %r20  %r7  0                  # !1594
+    sw       %r18  %r7  -2                 # !1594
+    sw       %r14  %r7  -1                 # !1594
+    movz     %r14  %hp  %zero              # !1604
+    addi     %hp  %hp  -5                  # !1604
+    setl     %r18  ~trace_or_matrix_fast.2777# !1604
+    sw       %r18  %r14  0                 # !1604
+    sw       %r24  %r14  -4                # !1604
+    sw       %r19  %r14  -3                # !1604
+    sw       %r12  %r14  -2                # !1604
+    sw       %r7  %r14  -1                 # !1604
+    movz     %r7  %hp  %zero               # !1628
+    addi     %hp  %hp  -4                  # !1628
+    setl     %r12  ~judge_intersection_fast.2781# !1628
+    sw       %r12  %r7  0                  # !1628
+    sw       %r14  %r7  -3                 # !1628
+    sw       %r24  %r7  -2                 # !1628
+    sw       %r2  %r7  -1                  # !1628
+    movz     %r12  %hp  %zero              # !1649
+    addi     %hp  %hp  -3                  # !1649
+    setl     %r14  ~get_nvector_rect.2783  # !1649
+    sw       %r14  %r12  0                 # !1649
+    lw       %r14  %sp  19                 # !1649
+    sw       %r14  %r12  -2                # !1649
+    sw       %r26  %r12  -1                # !1649
+    movz     %r18  %hp  %zero              # !1657
+    addi     %hp  %hp  -2                  # !1657
+    setl     %r19  ~get_nvector_plane.2785 # !1657
+    sw       %r19  %r18  0                 # !1657
+    sw       %r14  %r18  -1                # !1657
+    movz     %r19  %hp  %zero              # !1665
+    addi     %hp  %hp  -3                  # !1665
+    setl     %r20  ~get_nvector_second.2787# !1665
+    sw       %r20  %r19  0                 # !1665
+    sw       %r14  %r19  -2                # !1665
+    sw       %r23  %r19  -1                # !1665
+    movz     %r20  %hp  %zero              # !1687
+    addi     %hp  %hp  -4                  # !1687
+    setl     %r22  ~get_nvector.2789       # !1687
+    sw       %r22  %r20  0                 # !1687
+    sw       %r19  %r20  -3                # !1687
+    sw       %r12  %r20  -2                # !1687
+    sw       %r18  %r20  -1                # !1687
+    movz     %r12  %hp  %zero              # !1703
+    addi     %hp  %hp  -2                  # !1703
+    setl     %r18  ~utexture.2792          # !1703
+    sw       %r18  %r12  0                 # !1703
+    lw       %r18  %sp  20                 # !1703
+    sw       %r18  %r12  -1                # !1703
+    movz     %r19  %hp  %zero              # !1781
+    addi     %hp  %hp  -3                  # !1781
+    setl     %r22  ~add_light.2795         # !1781
+    sw       %r22  %r19  0                 # !1781
+    sw       %r18  %r19  -2                # !1781
+    lw       %r22  %sp  22                 # !1781
+    sw       %r22  %r19  -1                # !1781
+    movz     %r28  %hp  %zero              # !1798
+    addi     %hp  %hp  -9                  # !1798
+    sw       %r15  %sp  40                 # !1798
+    setl     %r15  ~trace_reflections.2799 # !1798
+    sw       %r15  %r28  0                 # !1798
+    sw       %r21  %r28  -8                # !1798
+    lw       %r15  %sp  39                 # !1798
+    sw       %r15  %r28  -7                # !1798
+    sw       %r2  %r28  -6                 # !1798
+    sw       %r14  %r28  -5                # !1798
+    sw       %r7  %r28  -4                 # !1798
+    sw       %r26  %r28  -3                # !1798
+    sw       %r27  %r28  -2                # !1798
+    sw       %r19  %r28  -1                # !1798
+    movz     %r15  %hp  %zero              # !1827
+    addi     %hp  %hp  -21                 # !1827
+    sw       %r13  %sp  41                 # !1827
+    setl     %r13  ~trace_ray.2804         # !1827
+    sw       %r13  %r15  0                 # !1827
+    sw       %r12  %r15  -20               # !1827
+    sw       %r28  %r15  -19               # !1827
+    sw       %r24  %r15  -18               # !1827
+    sw       %r18  %r15  -17               # !1827
+    sw       %r25  %r15  -16               # !1827
+    sw       %r21  %r15  -15               # !1827
+    sw       %r16  %r15  -14               # !1827
+    sw       %r22  %r15  -13               # !1827
+    sw       %r2  %r15  -12                # !1827
+    sw       %r11  %r15  -11               # !1827
+    sw       %r14  %r15  -10               # !1827
+    sw       %r1  %r15  -9                 # !1827
+    sw       %r8  %r15  -8                 # !1827
+    sw       %r17  %r15  -7                # !1827
+    sw       %r26  %r15  -6                # !1827
+    sw       %r23  %r15  -5                # !1827
+    sw       %r27  %r15  -4                # !1827
+    sw       %r20  %r15  -3                # !1827
+    sw       %r9  %r15  -2                 # !1827
+    sw       %r19  %r15  -1                # !1827
+    movz     %r9  %hp  %zero               # !1920
+    addi     %hp  %hp  -13                 # !1920
+    setl     %r13  ~trace_diffuse_ray.2810 # !1920
+    sw       %r13  %r9  0                  # !1920
+    sw       %r12  %r9  -12                # !1920
+    sw       %r18  %r9  -11                # !1920
+    sw       %r21  %r9  -10                # !1920
+    sw       %r2  %r9  -9                  # !1920
+    sw       %r11  %r9  -8                 # !1920
+    sw       %r14  %r9  -7                 # !1920
+    sw       %r8  %r9  -6                  # !1920
+    sw       %r7  %r9  -5                  # !1920
+    sw       %r23  %r9  -4                 # !1920
+    sw       %r27  %r9  -3                 # !1920
+    sw       %r20  %r9  -2                 # !1920
+    lw       %r2  %sp  21                  # !1920
+    sw       %r2  %r9  -1                  # !1920
+    movz     %r7  %hp  %zero               # !1939
+    addi     %hp  %hp  -2                  # !1939
+    setl     %r12  ~iter_trace_diffuse_rays.2813# !1939
+    sw       %r12  %r7  0                  # !1939
+    sw       %r9  %r7  -1                  # !1939
+    movz     %r9  %hp  %zero               # !1955
+    addi     %hp  %hp  -3                  # !1955
+    setl     %r12  ~trace_diffuse_rays.2818# !1955
+    sw       %r12  %r9  0                  # !1955
+    sw       %r16  %r9  -2                 # !1955
+    sw       %r7  %r9  -1                  # !1955
+    movz     %r7  %hp  %zero               # !1965
+    addi     %hp  %hp  -3                  # !1965
+    setl     %r12  ~trace_diffuse_ray_80percent.2822# !1965
+    sw       %r12  %r7  0                  # !1965
+    sw       %r9  %r7  -2                  # !1965
+    lw       %r12  %sp  34                 # !1965
+    sw       %r12  %r7  -1                 # !1965
+    movz     %r13  %hp  %zero              # !1991
+    addi     %hp  %hp  -4                  # !1991
+    setl     %r14  ~calc_diffuse_using_1point.2826# !1991
+    sw       %r14  %r13  0                 # !1991
+    sw       %r7  %r13  -3                 # !1991
+    sw       %r22  %r13  -2                # !1991
+    sw       %r2  %r13  -1                 # !1991
+    movz     %r7  %hp  %zero               # !2010
+    addi     %hp  %hp  -3                  # !2010
+    setl     %r14  ~calc_diffuse_using_5points.2829# !2010
+    sw       %r14  %r7  0                  # !2010
+    sw       %r22  %r7  -2                 # !2010
+    sw       %r2  %r7  -1                  # !2010
+    movz     %r14  %hp  %zero              # !2030
+    addi     %hp  %hp  -2                  # !2030
+    setl     %r16  ~do_without_neighbors.2835# !2030
+    sw       %r16  %r14  0                 # !2030
+    sw       %r13  %r14  -1                # !2030
+    movz     %r13  %hp  %zero              # !2045
+    addi     %hp  %hp  -2                  # !2045
+    setl     %r16  ~neighbors_exist.2838   # !2045
+    sw       %r16  %r13  0                 # !2045
+    lw       %r16  %sp  24                 # !2045
+    sw       %r16  %r13  -1                # !2045
+    movz     %r17  %hp  %zero              # !2082
+    addi     %hp  %hp  -3                  # !2082
+    setl     %r18  ~try_exploit_neighbors.2851# !2082
+    sw       %r18  %r17  0                 # !2082
+    sw       %r14  %r17  -2                # !2082
+    sw       %r7  %r17  -1                 # !2082
+    movz     %r7  %hp  %zero               # !2109
+    addi     %hp  %hp  -2                  # !2109
+    setl     %r18  ~write_ppm_header.2858  # !2109
+    sw       %r18  %r7  0                  # !2109
+    sw       %r16  %r7  -1                 # !2109
+    movz     %r18  %hp  %zero              # !2135
+    addi     %hp  %hp  -2                  # !2135
+    setl     %r19  ~write_rgb.2864         # !2135
+    sw       %r19  %r18  0                 # !2135
+    sw       %r22  %r18  -1                # !2135
+    movz     %r19  %hp  %zero              # !2158
+    addi     %hp  %hp  -4                  # !2158
+    setl     %r20  ~pretrace_diffuse_rays.2866# !2158
+    sw       %r20  %r19  0                 # !2158
+    sw       %r9  %r19  -3                 # !2158
+    sw       %r12  %r19  -2                # !2158
+    sw       %r2  %r19  -1                 # !2158
+    movz     %r2  %hp  %zero               # !2188
+    addi     %hp  %hp  -10                 # !2188
+    setl     %r9  ~pretrace_pixels.2869    # !2188
+    sw       %r9  %r2  0                   # !2188
+    sw       %r3  %r2  -9                  # !2188
+    sw       %r15  %r2  -8                 # !2188
+    sw       %r25  %r2  -7                 # !2188
+    sw       %r6  %r2  -6                  # !2188
+    lw       %r3  %sp  26                  # !2188
+    sw       %r3  %r2  -5                  # !2188
+    sw       %r22  %r2  -4                 # !2188
+    lw       %r6  %sp  32                  # !2188
+    sw       %r6  %r2  -3                  # !2188
+    sw       %r19  %r2  -2                 # !2188
+    lw       %r6  %sp  25                  # !2188
+    sw       %r6  %r2  -1                  # !2188
+    movz     %r9  %hp  %zero               # !2213
+    addi     %hp  %hp  -7                  # !2213
+    setl     %r15  ~pretrace_line.2876     # !2213
+    sw       %r15  %r9  0                  # !2213
+    sw       %r4  %r9  -6                  # !2213
+    sw       %r5  %r9  -5                  # !2213
+    sw       %r3  %r9  -4                  # !2213
+    sw       %r2  %r9  -3                  # !2213
+    sw       %r16  %r9  -2                 # !2213
+    sw       %r6  %r9  -1                  # !2213
+    movz     %r2  %hp  %zero               # !2229
+    addi     %hp  %hp  -7                  # !2229
+    setl     %r4  ~scan_pixel.2880         # !2229
+    sw       %r4  %r2  0                   # !2229
+    sw       %r18  %r2  -6                 # !2229
+    sw       %r17  %r2  -5                 # !2229
+    sw       %r22  %r2  -4                 # !2229
+    sw       %r13  %r2  -3                 # !2229
+    sw       %r16  %r2  -2                 # !2229
+    sw       %r14  %r2  -1                 # !2229
+    movz     %r4  %hp  %zero               # !2249
+    addi     %hp  %hp  -4                  # !2249
+    setl     %r5  ~scan_line.2887          # !2249
+    sw       %r5  %r4  0                   # !2249
+    sw       %r2  %r4  -3                  # !2249
+    sw       %r9  %r4  -2                  # !2249
+    sw       %r16  %r4  -1                 # !2249
+    movz     %r2  %hp  %zero               # !2301
+    addi     %hp  %hp  -2                  # !2301
+    setl     %r5  ~create_pixelline.2901   # !2301
+    sw       %r5  %r2  0                   # !2301
+    sw       %r16  %r2  -1                 # !2301
+    movz     %r5  %hp  %zero               # !2329
+    addi     %hp  %hp  -2                  # !2329
+    setl     %r13  ~calc_dirvec.2908       # !2329
+    sw       %r13  %r5  0                  # !2329
+    sw       %r12  %r5  -1                 # !2329
+    movz     %r13  %hp  %zero              # !2350
+    addi     %hp  %hp  -2                  # !2350
+    setl     %r14  ~calc_dirvecs.2916      # !2350
+    sw       %r14  %r13  0                 # !2350
+    sw       %r5  %r13  -1                 # !2350
+    movz     %r5  %hp  %zero               # !2364
+    addi     %hp  %hp  -2                  # !2364
+    setl     %r14  ~calc_dirvec_rows.2921  # !2364
+    sw       %r14  %r5  0                  # !2364
+    sw       %r13  %r5  -1                 # !2364
+    movz     %r13  %hp  %zero              # !2377
+    addi     %hp  %hp  -2                  # !2377
+    setl     %r14  ~create_dirvec.2925     # !2377
+    sw       %r14  %r13  0                 # !2377
+    sw       %r10  %r13  -1                # !2377
+    movz     %r14  %hp  %zero              # !2383
+    addi     %hp  %hp  -2                  # !2383
+    setl     %r15  ~create_dirvec_elements.2927# !2383
+    sw       %r15  %r14  0                 # !2383
+    sw       %r13  %r14  -1                # !2383
+    movz     %r15  %hp  %zero              # !2390
+    addi     %hp  %hp  -4                  # !2390
+    setl     %r17  ~create_dirvecs.2930    # !2390
+    sw       %r17  %r15  0                 # !2390
+    sw       %r12  %r15  -3                # !2390
+    sw       %r14  %r15  -2                # !2390
+    sw       %r13  %r15  -1                # !2390
+    movz     %r14  %hp  %zero              # !2402
+    addi     %hp  %hp  -2                  # !2402
+    setl     %r17  ~init_dirvec_constants.2932# !2402
+    sw       %r17  %r14  0                 # !2402
+    lw       %r17  %sp  41                 # !2402
+    sw       %r17  %r14  -1                # !2402
+    movz     %r18  %hp  %zero              # !2409
+    addi     %hp  %hp  -3                  # !2409
+    setl     %r19  ~init_vecset_constants.2935# !2409
+    sw       %r19  %r18  0                 # !2409
+    sw       %r14  %r18  -2                # !2409
+    sw       %r12  %r18  -1                # !2409
+    movz     %r12  %hp  %zero              # !2416
+    addi     %hp  %hp  -4                  # !2416
+    setl     %r14  ~init_dirvecs.2937      # !2416
+    sw       %r14  %r12  0                 # !2416
+    sw       %r18  %r12  -3                # !2416
+    sw       %r15  %r12  -2                # !2416
+    sw       %r5  %r12  -1                 # !2416
+    movz     %r5  %hp  %zero               # !2427
+    addi     %hp  %hp  -4                  # !2427
+    setl     %r14  ~add_reflection.2939    # !2427
+    sw       %r14  %r5  0                  # !2427
+    sw       %r17  %r5  -3                 # !2427
+    lw       %r14  %sp  39                 # !2427
+    sw       %r14  %r5  -2                 # !2427
+    sw       %r13  %r5  -1                 # !2427
+    movz     %r13  %hp  %zero              # !2436
+    addi     %hp  %hp  -4                  # !2436
+    setl     %r14  ~setup_rect_reflection.2946# !2436
+    sw       %r14  %r13  0                 # !2436
+    sw       %r1  %r13  -3                 # !2436
+    sw       %r8  %r13  -2                 # !2436
+    sw       %r5  %r13  -1                 # !2436
+    movz     %r14  %hp  %zero              # !2450
+    addi     %hp  %hp  -4                  # !2450
+    setl     %r15  ~setup_surface_reflection.2949# !2450
+    sw       %r15  %r14  0                 # !2450
+    sw       %r1  %r14  -3                 # !2450
+    sw       %r8  %r14  -2                 # !2450
+    sw       %r5  %r14  -1                 # !2450
+    movz     %r1  %hp  %zero               # !2465
+    addi     %hp  %hp  -4                  # !2465
+    setl     %r5  ~setup_reflections.2952  # !2465
+    sw       %r5  %r1  0                   # !2465
+    sw       %r14  %r1  -3                 # !2465
+    sw       %r13  %r1  -2                 # !2465
+    sw       %r11  %r1  -1                 # !2465
+    movz     %r27  %hp  %zero              # !2487
+    addi     %hp  %hp  -15                 # !2487
+    setl     %r5  ~rt.2954                 # !2487
+    sw       %r5  %r27  0                  # !2487
+    sw       %r7  %r27  -14                # !2487
+    sw       %r1  %r27  -13                # !2487
+    sw       %r17  %r27  -12               # !2487
+    sw       %r3  %r27  -11                # !2487
+    sw       %r4  %r27  -10                # !2487
+    lw       %r1  %sp  40                  # !2487
+    sw       %r1  %r27  -9                 # !2487
+    sw       %r9  %r27  -8                 # !2487
+    sw       %r10  %r27  -7                # !2487
+    lw       %r1  %sp  37                  # !2487
+    sw       %r1  %r27  -6                 # !2487
+    sw       %r8  %r27  -5                 # !2487
+    sw       %r12  %r27  -4                # !2487
+    sw       %r16  %r27  -3                # !2487
+    sw       %r6  %r27  -2                 # !2487
+    sw       %r2  %r27  -1                 # !2487
+    addi     %r1  %zero  512               # !2508
+    lw       %r3  %sp  6                   # !2508
+    movz     %r2  %r1  %zero               # !2508
+    sw       %ra  %sp  42                  # !2508
+    addi     %sp  %sp  43                  # !2508
+    lw       %r28  %r27  0                 # !2508
+    jalr     %r28                          # !2508
+    addi     %sp  %sp  -43                 # !2508
+    lw       %ra  %sp  42                  # !2508
+    j        ~inf_loop                     # !0
 inf_loop:
-    j ~inf_loop                            # !0
+    j        ~inf_loop                     # !0
 
 ++
 These are function definitions.
 ++
-xor.2407:
-    addi %r3 %zero 0                       # !138
-    beq %r1 %r3 beq_then.8594              # !138
-    beq %r2 %r3 beq_then.8595              # !138
-    movz %r1 %r3 %zero                     # !138
-    jr %ra                                 # !138
-beq_then.8595:
-    addi %r1 %zero 1                       # !138
-    jr %ra                                 # !138
-beq_then.8594:
-    movz %r1 %r2 %zero                     # !138
-    jr %ra                                 # !138
-sgn.2410:
-    flui %f1 0                             # !146
-    fli %f1 0                              # !146
+fmod.2433:
+    fdiv     %f2  %f0  %f1                 # !8
+    fsw      %f0  %sp  0                   # !8
+    fsw      %f1  %sp  1                   # !8
+    fmovz    %f0  %f2  %zero               # !8
+    sw       %ra  %sp  2                   # !8
+    addi     %sp  %sp  3                   # !8
+    jal      ~min_caml_floor               # !8
+    addi     %sp  %sp  -3                  # !8
+    lw       %ra  %sp  2                   # !8
+    flw      %f1  %sp  1                   # !8
+    fmul     %f0  %f0  %f1                 # !8
+    flw      %f1  %sp  0                   # !8
+    fsub     %f0  %f1  %f0                 # !8
+    jr       %ra                           # !8
+reduce_to_pi.2436:
+    flui     %f1  514                      # !12
+    fli      %f1  593883                   # !12
     ++
-    fli 0.000000
-    => flui %f1 0b00000000000
+    fli 3.141593
+    => flui %f1 0b01000000010
+       fli  %f1 0b010010000111111011011
+    ++
+    flui     %f2  518                      # !13
+    fli      %f2  593883                   # !13
+    ++
+    fli 6.283185
+    => flui %f2 0b01000000110
+       fli  %f2 0b010010000111111011011
+    ++
+    fsw      %f2  %sp  0                   # !14
+    fsw      %f1  %sp  1                   # !14
+    fmovz    %f1  %f2  %zero               # !14
+    sw       %ra  %sp  2                   # !14
+    addi     %sp  %sp  3                   # !14
+    jal      ~fmod.2433                    # !14
+    addi     %sp  %sp  -3                  # !14
+    lw       %ra  %sp  2                   # !14
+    flw      %f1  %sp  1                   # !15
+    fblt     %f1  %f0  fblt_then.9268      # !15
+    flui     %f1  -510                     # !16
+    fli      %f1  593883                   # !16
+    ++
+    fli -3.141593
+    => flui %f1 0b11000000010
+       fli  %f1 0b010010000111111011011
+    ++
+    fblt     %f0  %f1  fblt_then.9269      # !16
+    jr       %ra                           # !17
+fblt_then.9269:
+    flw      %f1  %sp  0                   # !16
+    fadd     %f0  %f0  %f1                 # !16
+    jr       %ra                           # !16
+fblt_then.9268:
+    flw      %f1  %sp  0                   # !15
+    fsub     %f0  %f0  %f1                 # !15
+    jr       %ra                           # !15
+sin.2438:
+    flui     %f1  514                      # !21
+    fli      %f1  593883                   # !21
+    ++
+    fli 3.141593
+    => flui %f1 0b01000000010
+       fli  %f1 0b010010000111111011011
+    ++
+    flui     %f2  510                      # !22
+    fli      %f2  593883                   # !22
+    ++
+    fli 1.570796
+    => flui %f2 0b00111111110
+       fli  %f2 0b010010000111111011011
+    ++
+    fsw      %f1  %sp  0                   # !23
+    fsw      %f2  %sp  1                   # !23
+    sw       %ra  %sp  2                   # !23
+    addi     %sp  %sp  3                   # !23
+    jal      ~reduce_to_pi.2436            # !23
+    addi     %sp  %sp  -3                  # !23
+    lw       %ra  %sp  2                   # !23
+    flw      %f1  %sp  1                   # !25
+    fblt     %f1  %f0  fblt_then.9270      # !25
+    flui     %f1  -514                     # !26
+    fli      %f1  593883                   # !26
+    ++
+    fli -1.570796
+    => flui %f1 0b10111111110
+       fli  %f1 0b010010000111111011011
+    ++
+    fblt     %f0  %f1  fblt_then.9272      # !26
+    j        ~fblt_cont.9273               # !26
+fblt_then.9272:
+    flui     %f1  -510                     # !26
+    fli      %f1  593883                   # !26
+    ++
+    fli -3.141593
+    => flui %f1 0b11000000010
+       fli  %f1 0b010010000111111011011
+    ++
+    fsub     %f0  %f1  %f0                 # !26
+fblt_cont.9273:
+    j        ~fblt_cont.9271               # !25
+fblt_then.9270:
+    flw      %f1  %sp  0                   # !25
+    fsub     %f0  %f1  %f0                 # !25
+fblt_cont.9271:
+    fmul     %f1  %f0  %f0                 # !29
+    flui     %f2  -527                     # !30
+    fli      %f2  699051                   # !30
+    ++
+    fli -0.166667
+    => flui %f2 0b10111110001
+       fli  %f2 0b010101010101010101011
+    ++
+    flui     %f3  480                      # !31
+    fli      %f3  559241                   # !31
+    ++
+    fli 0.008333
+    => flui %f3 0b00111100000
+       fli  %f3 0b010001000100010001001
+    ++
+    flui     %f4  -566                     # !32
+    fli      %f4  -1045247                 # !32
+    ++
+    fli -0.000198
+    => flui %f4 0b10111001010
+       fli  %f4 0b100000000110100000001
+    ++
+    flui     %f5  433                      # !33
+    fli      %f5  -463075                  # !33
+    ++
+    fli 0.000003
+    => flui %f5 0b00110110001
+       fli  %f5 0b110001110111100011101
+    ++
+    flui     %f6  -618                     # !34
+    fli      %f6  -576981                  # !34
+    ++
+    fli -0.000000
+    => flui %f6 0b10110010110
+       fli  %f6 0b101110011001000101011
+    ++
+    fmul     %f7  %f0  %f1                 # !35
+    fmul     %f6  %f6  %f1                 # !35
+    fadd     %f5  %f6  %f5                 # !35
+    fmul     %f5  %f5  %f1                 # !35
+    fadd     %f4  %f5  %f4                 # !35
+    fmul     %f4  %f4  %f1                 # !35
+    fadd     %f3  %f4  %f3                 # !35
+    fmul     %f1  %f3  %f1                 # !35
+    fadd     %f1  %f1  %f2                 # !35
+    fmul     %f1  %f7  %f1                 # !35
+    fadd     %f0  %f1  %f0                 # !35
+    jr       %ra                           # !35
+cos.2440:
+    flui     %f1  510                      # !40
+    fli      %f1  593883                   # !40
+    ++
+    fli 1.570796
+    => flui %f1 0b00111111110
+       fli  %f1 0b010010000111111011011
+    ++
+    fsub     %f0  %f1  %f0                 # !41
+    j        ~sin.2438                     # !41
+atan_poly.5943:
+    fmul     %f1  %f0  %f0                 # !48
+    flui     %f2  -523                     # !49
+    fli      %f2  699051                   # !49
+    ++
+    fli -0.333333
+    => flui %f2 0b10111110101
+       fli  %f2 0b010101010101010101011
+    ++
+    flui     %f3  498                      # !50
+    fli      %f3  838861                   # !50
+    ++
+    fli 0.200000
+    => flui %f3 0b00111110010
+       fli  %f3 0b011001100110011001101
+    ++
+    flui     %f4  -528                     # !51
+    fli      %f4  -898779                  # !51
+    ++
+    fli -0.142857
+    => flui %f4 0b10111110000
+       fli  %f4 0b100100100100100100101
+    ++
+    flui     %f5  495                      # !52
+    fli      %f5  233017                   # !52
+    ++
+    fli 0.111111
+    => flui %f5 0b00111101111
+       fli  %f5 0b000111000111000111001
+    ++
+    flui     %f6  -531                     # !53
+    fli      %f6  -381300                  # !53
+    ++
+    fli -0.090909
+    => flui %f6 0b10111101101
+       fli  %f6 0b110100010111010001100
+    ++
+    fmul     %f7  %f0  %f1                 # !54
+    fmul     %f6  %f6  %f1                 # !54
+    fadd     %f5  %f6  %f5                 # !54
+    fmul     %f5  %f5  %f1                 # !54
+    fadd     %f4  %f5  %f4                 # !54
+    fmul     %f4  %f4  %f1                 # !54
+    fadd     %f3  %f4  %f3                 # !54
+    fmul     %f1  %f3  %f1                 # !54
+    fadd     %f1  %f1  %f2                 # !54
+    fmul     %f1  %f7  %f1                 # !54
+    fadd     %f0  %f1  %f0                 # !54
+    jr       %ra                           # !54
+atan.2442:
+    flui     %f1  510                      # !46
+    fli      %f1  593883                   # !46
+    ++
+    fli 1.570796
+    => flui %f1 0b00111111110
+       fli  %f1 0b010010000111111011011
+    ++
+    flui     %f2  508                      # !56
+    fli      %f2  0                        # !56
+    ++
+    fli 1.000000
+    => flui %f2 0b00111111100
+       fli  %f2 0b000000000000000000000
+    ++
+    fblt     %f2  %f0  fblt_then.9274      # !56
+    flui     %f1  -516                     # !57
+    fli      %f1  0                        # !57
+    ++
+    fli -1.000000
+    => flui %f1 0b10111111100
        fli  %f1 0b000000000000000000000
     ++
-    fbeq %f0 %f1 fbeq_then.8596            # !146
-    fblt %f1 %f0 fblt_then.8597            # !147
-    flui %f0 -516                          # !148
-    fli %f0 0                              # !148
+    fblt     %f0  %f1  fblt_then.9275      # !57
+    j        ~atan_poly.5943               # !58
+fblt_then.9275:
+    flui     %f1  -514                     # !57
+    fli      %f1  593883                   # !57
+    ++
+    fli -1.570796
+    => flui %f1 0b10111111110
+       fli  %f1 0b010010000111111011011
+    ++
+    fdiv     %f0  %f2  %f0                 # !57
+    fsw      %f1  %sp  0                   # !57
+    sw       %ra  %sp  1                   # !57
+    addi     %sp  %sp  2                   # !57
+    jal      ~atan_poly.5943               # !57
+    addi     %sp  %sp  -2                  # !57
+    lw       %ra  %sp  1                   # !57
+    flw      %f1  %sp  0                   # !57
+    fsub     %f0  %f1  %f0                 # !57
+    jr       %ra                           # !57
+fblt_then.9274:
+    fdiv     %f0  %f2  %f0                 # !56
+    fsw      %f1  %sp  1                   # !56
+    sw       %ra  %sp  2                   # !56
+    addi     %sp  %sp  3                   # !56
+    jal      ~atan_poly.5943               # !56
+    addi     %sp  %sp  -3                  # !56
+    lw       %ra  %sp  2                   # !56
+    flw      %f1  %sp  1                   # !56
+    fsub     %f0  %f1  %f0                 # !56
+    jr       %ra                           # !56
+xor.2474:
+    addi     %r3  %zero  0                 # !200
+    beq      %r1  %r3  beq_then.9276       # !200
+    beq      %r2  %r3  beq_then.9277       # !200
+    movz     %r1  %r3  %zero               # !200
+    jr       %ra                           # !200
+beq_then.9277:
+    addi     %r1  %zero  1                 # !200
+    jr       %ra                           # !200
+beq_then.9276:
+    movz     %r1  %r2  %zero               # !200
+    jr       %ra                           # !200
+sgn.2477:
+    fsw      %f0  %sp  0                   # !208
+    sw       %ra  %sp  1                   # !208
+    addi     %sp  %sp  2                   # !208
+    jal      ~min_caml_fiszero             # !208
+    addi     %sp  %sp  -2                  # !208
+    lw       %ra  %sp  1                   # !208
+    addi     %r2  %zero  0                 # !208
+    beq      %r1  %r2  beq_then.9278       # !208
+    flui     %f0  0                        # !208
+    fli      %f0  0                        # !208
+    ++
+    fli 0.000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
+    ++
+    jr       %ra                           # !208
+beq_then.9278:
+    flw      %f0  %sp  0                   # !209
+    sw       %r2  %sp  1                   # !209
+    sw       %ra  %sp  2                   # !209
+    addi     %sp  %sp  3                   # !209
+    jal      ~min_caml_fispos              # !209
+    addi     %sp  %sp  -3                  # !209
+    lw       %ra  %sp  2                   # !209
+    lw       %r2  %sp  1                   # !209
+    beq      %r1  %r2  beq_then.9279       # !209
+    flui     %f0  508                      # !209
+    fli      %f0  0                        # !209
+    ++
+    fli 1.000000
+    => flui %f0 0b00111111100
+       fli  %f0 0b000000000000000000000
+    ++
+    jr       %ra                           # !209
+beq_then.9279:
+    flui     %f0  -516                     # !210
+    fli      %f0  0                        # !210
     ++
     fli -1.000000
     => flui %f0 0b10111111100
        fli  %f0 0b000000000000000000000
     ++
-    jr %ra                                 # !148
-fblt_then.8597:
-    flui %f0 508                           # !147
-    fli %f0 0                              # !147
-    ++
-    fli 1.000000
-    => flui %f0 0b00111111100
-       fli  %f0 0b000000000000000000000
-    ++
-    jr %ra                                 # !147
-fbeq_then.8596:
-    fmovz %f0 %f1 %zero                    # !146
-    jr %ra                                 # !146
-fneg_cond.2412:
-    addi %r2 %zero 0                       # !153
-    beq %r1 %r2 beq_then.8598              # !153
-    jr %ra                                 # !153
-beq_then.8598:
-    fneg %f0 %f0                           # !153
-    jr %ra                                 # !153
-add_mod5.2415:
-    add %r1 %r1 %r2                        # !158
-    addi %r2 %zero 5                       # !159
-    blt %r1 %r2 blt_then.8599              # !159
-    addi %r1 %r1 -5                        # !159
-    jr %ra                                 # !159
-blt_then.8599:
-    jr %ra                                 # !159
-vecset.2418:
-    fsw %f0 %r1 0                          # !174
-    fsw %f1 %r1 1                          # !175
-    fsw %f2 %r1 2                          # !176
-    jr %ra                                 # !176
-vecfill.2423:
-    fsw %f0 %r1 0                          # !181
-    fsw %f0 %r1 1                          # !182
-    fsw %f0 %r1 2                          # !183
-    jr %ra                                 # !183
-vecbzero.2426:
-    flui %f0 0                             # !188
-    fli %f0 0                              # !188
+    jr       %ra                           # !210
+fneg_cond.2479:
+    addi     %r2  %zero  0                 # !215
+    beq      %r1  %r2  beq_then.9280       # !215
+    jr       %ra                           # !215
+beq_then.9280:
+    j        ~min_caml_fneg                # !215
+add_mod5.2482:
+    add      %r1  %r1  %r2                 # !220
+    addi     %r2  %zero  5                 # !221
+    blt      %r1  %r2  blt_then.9281       # !221
+    addi     %r1  %r1  -5                  # !221
+    jr       %ra                           # !221
+blt_then.9281:
+    jr       %ra                           # !221
+vecset.2485:
+    fsw      %f0  %r1  0                   # !236
+    fsw      %f1  %r1  1                   # !237
+    fsw      %f2  %r1  2                   # !238
+    jr       %ra                           # !238
+vecfill.2490:
+    fsw      %f0  %r1  0                   # !243
+    fsw      %f0  %r1  1                   # !244
+    fsw      %f0  %r1  2                   # !245
+    jr       %ra                           # !245
+vecbzero.2493:
+    flui     %f0  0                        # !250
+    fli      %f0  0                        # !250
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    j ~vecfill.2423                        # !188
-veccpy.2428:
-    flw %f0 %r2 0                          # !193
-    fsw %f0 %r1 0                          # !193
-    flw %f0 %r2 1                          # !194
-    fsw %f0 %r1 1                          # !194
-    flw %f0 %r2 2                          # !195
-    fsw %f0 %r1 2                          # !195
-    jr %ra                                 # !195
-vecunit_sgn.2431:
-    addi %r3 %zero 0                       # !217
-    flw %f0 %r1 0                          # !217
-    flw %f1 %r1 0                          # !217
-    fmul %f0 %f0 %f1                       # !217
-    flw %f1 %r1 1                          # !217
-    flw %f2 %r1 1                          # !217
-    fmul %f1 %f1 %f2                       # !217
-    fadd %f0 %f0 %f1                       # !217
-    flw %f1 %r1 2                          # !217
-    flw %f2 %r1 2                          # !217
-    fmul %f1 %f1 %f2                       # !217
-    fadd %f0 %f0 %f1                       # !217
-    fsqrt %f0 %f0                          # !217
-    flui %f1 0                             # !218
-    fli %f1 0                              # !218
-    ++
-    fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
-    ++
-    fbeq %f0 %f1 fbeq_then.8603            # !218
-    beq %r2 %r3 beq_then.8605              # !218
-    flui %f1 -516                          # !218
-    fli %f1 0                              # !218
-    ++
-    fli -1.000000
-    => flui %f1 0b10111111100
-       fli  %f1 0b000000000000000000000
-    ++
-    fdiv %f0 %f1 %f0                       # !218
-    j ~beq_cont.8606                       # !218
-beq_then.8605:
-    flui %f1 508                           # !218
-    fli %f1 0                              # !218
-    ++
-    fli 1.000000
-    => flui %f1 0b00111111100
-       fli  %f1 0b000000000000000000000
-    ++
-    fdiv %f0 %f1 %f0                       # !218
-beq_cont.8606:
-    j ~fbeq_cont.8604                      # !218
-fbeq_then.8603:
-    flui %f0 508                           # !218
-    fli %f0 0                              # !218
+    j        ~vecfill.2490                 # !250
+veccpy.2495:
+    flw      %f0  %r2  0                   # !255
+    fsw      %f0  %r1  0                   # !255
+    flw      %f0  %r2  1                   # !256
+    fsw      %f0  %r1  1                   # !256
+    flw      %f0  %r2  2                   # !257
+    fsw      %f0  %r1  2                   # !257
+    jr       %ra                           # !257
+vecunit_sgn.2498:
+    addi     %r3  %zero  0                 # !279
+    flw      %f0  %r1  0                   # !279
+    sw       %r2  %sp  0                   # !279
+    sw       %r3  %sp  1                   # !279
+    sw       %r1  %sp  2                   # !279
+    sw       %ra  %sp  3                   # !279
+    addi     %sp  %sp  4                   # !279
+    jal      ~min_caml_fsqr                # !279
+    addi     %sp  %sp  -4                  # !279
+    lw       %ra  %sp  3                   # !279
+    flw      %f1  %sp  2                   # !279
+    flw      %f2  %f1  1                   # !279
+    fsw      %f0  %sp  3                   # !279
+    fmovz    %f0  %f2  %zero               # !279
+    sw       %ra  %sp  4                   # !279
+    addi     %sp  %sp  5                   # !279
+    jal      ~min_caml_fsqr                # !279
+    addi     %sp  %sp  -5                  # !279
+    lw       %ra  %sp  4                   # !279
+    flw      %f1  %sp  3                   # !279
+    fadd     %f0  %f1  %f0                 # !279
+    flw      %f1  %sp  2                   # !279
+    flw      %f2  %f1  2                   # !279
+    fsw      %f0  %sp  4                   # !279
+    fmovz    %f0  %f2  %zero               # !279
+    sw       %ra  %sp  5                   # !279
+    addi     %sp  %sp  6                   # !279
+    jal      ~min_caml_fsqr                # !279
+    addi     %sp  %sp  -6                  # !279
+    lw       %ra  %sp  5                   # !279
+    flw      %f1  %sp  4                   # !279
+    fadd     %f0  %f1  %f0                 # !279
+    sw       %ra  %sp  5                   # !279
+    addi     %sp  %sp  6                   # !279
+    jal      ~min_caml_sqrt                # !279
+    addi     %sp  %sp  -6                  # !279
+    lw       %ra  %sp  5                   # !279
+    fsw      %f0  %sp  5                   # !280
+    sw       %ra  %sp  6                   # !280
+    addi     %sp  %sp  7                   # !280
+    jal      ~min_caml_fiszero             # !280
+    addi     %sp  %sp  -7                  # !280
+    lw       %ra  %sp  6                   # !280
+    lw       %r2  %sp  1                   # !280
+    beq      %r1  %r2  beq_then.9285       # !280
+    flui     %f0  508                      # !280
+    fli      %f0  0                        # !280
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-fbeq_cont.8604:
-    flw %f1 %r1 0                          # !219
-    fmul %f1 %f1 %f0                       # !219
-    fsw %f1 %r1 0                          # !219
-    flw %f1 %r1 1                          # !220
-    fmul %f1 %f1 %f0                       # !220
-    fsw %f1 %r1 1                          # !220
-    flw %f1 %r1 2                          # !221
-    fmul %f0 %f1 %f0                       # !221
-    fsw %f0 %r1 2                          # !221
-    jr %ra                                 # !221
-veciprod.2434:
-    flw %f0 %r1 0                          # !226
-    flw %f1 %r2 0                          # !226
-    fmul %f0 %f0 %f1                       # !226
-    flw %f1 %r1 1                          # !226
-    flw %f2 %r2 1                          # !226
-    fmul %f1 %f1 %f2                       # !226
-    fadd %f0 %f0 %f1                       # !226
-    flw %f1 %r1 2                          # !226
-    flw %f2 %r2 2                          # !226
-    fmul %f1 %f1 %f2                       # !226
-    fadd %f0 %f0 %f1                       # !226
-    jr %ra                                 # !226
-veciprod2.2437:
-    flw %f3 %r1 0                          # !231
-    fmul %f0 %f3 %f0                       # !231
-    flw %f3 %r1 1                          # !231
-    fmul %f1 %f3 %f1                       # !231
-    fadd %f0 %f0 %f1                       # !231
-    flw %f1 %r1 2                          # !231
-    fmul %f1 %f1 %f2                       # !231
-    fadd %f0 %f0 %f1                       # !231
-    jr %ra                                 # !231
-vecaccum.2442:
-    flw %f1 %r1 0                          # !236
-    flw %f2 %r2 0                          # !236
-    fmul %f2 %f2 %f0                       # !236
-    fadd %f1 %f1 %f2                       # !236
-    fsw %f1 %r1 0                          # !236
-    flw %f1 %r1 1                          # !237
-    flw %f2 %r2 1                          # !237
-    fmul %f2 %f2 %f0                       # !237
-    fadd %f1 %f1 %f2                       # !237
-    fsw %f1 %r1 1                          # !237
-    flw %f1 %r1 2                          # !238
-    flw %f2 %r2 2                          # !238
-    fmul %f0 %f2 %f0                       # !238
-    fadd %f0 %f1 %f0                       # !238
-    fsw %f0 %r1 2                          # !238
-    jr %ra                                 # !238
-vecadd.2446:
-    flw %f0 %r1 0                          # !243
-    flw %f1 %r2 0                          # !243
-    fadd %f0 %f0 %f1                       # !243
-    fsw %f0 %r1 0                          # !243
-    flw %f0 %r1 1                          # !244
-    flw %f1 %r2 1                          # !244
-    fadd %f0 %f0 %f1                       # !244
-    fsw %f0 %r1 1                          # !244
-    flw %f0 %r1 2                          # !245
-    flw %f1 %r2 2                          # !245
-    fadd %f0 %f0 %f1                       # !245
-    fsw %f0 %r1 2                          # !245
-    jr %ra                                 # !245
-vecscale.2449:
-    flw %f1 %r1 0                          # !259
-    fmul %f1 %f1 %f0                       # !259
-    fsw %f1 %r1 0                          # !259
-    flw %f1 %r1 1                          # !260
-    fmul %f1 %f1 %f0                       # !260
-    fsw %f1 %r1 1                          # !260
-    flw %f1 %r1 2                          # !261
-    fmul %f0 %f1 %f0                       # !261
-    fsw %f0 %r1 2                          # !261
-    jr %ra                                 # !261
-vecaccumv.2452:
-    flw %f0 %r1 0                          # !266
-    flw %f1 %r2 0                          # !266
-    flw %f2 %r3 0                          # !266
-    fmul %f1 %f1 %f2                       # !266
-    fadd %f0 %f0 %f1                       # !266
-    fsw %f0 %r1 0                          # !266
-    flw %f0 %r1 1                          # !267
-    flw %f1 %r2 1                          # !267
-    flw %f2 %r3 1                          # !267
-    fmul %f1 %f1 %f2                       # !267
-    fadd %f0 %f0 %f1                       # !267
-    fsw %f0 %r1 1                          # !267
-    flw %f0 %r1 2                          # !268
-    flw %f1 %r2 2                          # !268
-    flw %f2 %r3 2                          # !268
-    fmul %f1 %f1 %f2                       # !268
-    fadd %f0 %f0 %f1                       # !268
-    fsw %f0 %r1 2                          # !268
-    jr %ra                                 # !268
-o_texturetype.2456:
-    lw %r1 %r1 0                           # !277
-    jr %ra                                 # !282
-o_form.2458:
-    lw %r1 %r1 1                           # !287
-    jr %ra                                 # !292
-o_reflectiontype.2460:
-    lw %r1 %r1 2                           # !297
-    jr %ra                                 # !302
-o_isinvert.2462:
-    lw %r1 %r1 6                           # !307
-    jr %ra                                 # !311
-o_isrot.2464:
-    lw %r1 %r1 3                           # !316
-    jr %ra                                 # !320
-o_param_a.2466:
-    lw %r1 %r1 4                           # !325
-    flw %f0 %r1 0                          # !330
-    jr %ra                                 # !330
-o_param_b.2468:
-    lw %r1 %r1 4                           # !335
-    flw %f0 %r1 1                          # !340
-    jr %ra                                 # !340
-o_param_c.2470:
-    lw %r1 %r1 4                           # !345
-    flw %f0 %r1 2                          # !350
-    jr %ra                                 # !350
-o_param_abc.2472:
-    lw %r1 %r1 4                           # !355
-    jr %ra                                 # !360
-o_param_x.2474:
-    lw %r1 %r1 5                           # !365
-    flw %f0 %r1 0                          # !370
-    jr %ra                                 # !370
-o_param_y.2476:
-    lw %r1 %r1 5                           # !375
-    flw %f0 %r1 1                          # !380
-    jr %ra                                 # !380
-o_param_z.2478:
-    lw %r1 %r1 5                           # !385
-    flw %f0 %r1 2                          # !390
-    jr %ra                                 # !390
-o_diffuse.2480:
-    lw %r1 %r1 7                           # !395
-    flw %f0 %r1 0                          # !400
-    jr %ra                                 # !400
-o_hilight.2482:
-    lw %r1 %r1 7                           # !405
-    flw %f0 %r1 1                          # !410
-    jr %ra                                 # !410
-o_color_red.2484:
-    lw %r1 %r1 8                           # !415
-    flw %f0 %r1 0                          # !420
-    jr %ra                                 # !420
-o_color_green.2486:
-    lw %r1 %r1 8                           # !425
-    flw %f0 %r1 1                          # !430
-    jr %ra                                 # !430
-o_color_blue.2488:
-    lw %r1 %r1 8                           # !435
-    flw %f0 %r1 2                          # !440
-    jr %ra                                 # !440
-o_param_r1.2490:
-    lw %r1 %r1 9                           # !445
-    flw %f0 %r1 0                          # !450
-    jr %ra                                 # !450
-o_param_r2.2492:
-    lw %r1 %r1 9                           # !455
-    flw %f0 %r1 1                          # !460
-    jr %ra                                 # !460
-o_param_r3.2494:
-    lw %r1 %r1 9                           # !465
-    flw %f0 %r1 2                          # !470
-    jr %ra                                 # !470
-o_param_ctbl.2496:
-    lw %r1 %r1 10                          # !482
-    jr %ra                                 # !487
-p_rgb.2498:
-    lw %r1 %r1 0                           # !496
-    jr %ra                                 # !498
-p_intersection_points.2500:
-    lw %r1 %r1 1                           # !503
-    jr %ra                                 # !505
-p_surface_ids.2502:
-    lw %r1 %r1 2                           # !511
-    jr %ra                                 # !513
-p_calc_diffuse.2504:
-    lw %r1 %r1 3                           # !518
-    jr %ra                                 # !520
-p_energy.2506:
-    lw %r1 %r1 4                           # !525
-    jr %ra                                 # !527
-p_received_ray_20percent.2508:
-    lw %r1 %r1 5                           # !532
-    jr %ra                                 # !534
-p_group_id.2510:
-    lw %r1 %r1 6                           # !548
-    lw %r1 %r1 0                           # !550
-    jr %ra                                 # !550
-p_set_group_id.2512:
-    lw %r1 %r1 6                           # !555
-    sw %r2 %r1 0                           # !557
-    jr %ra                                 # !557
-p_nvectors.2515:
-    lw %r1 %r1 7                           # !562
-    jr %ra                                 # !564
-d_vec.2517:
-    lw %r1 %r1 0                           # !573
-    jr %ra                                 # !574
-d_const.2519:
-    lw %r1 %r1 1                           # !579
-    jr %ra                                 # !580
-r_surface_id.2521:
-    lw %r1 %r1 0                           # !589
-    jr %ra                                 # !590
-r_dvec.2523:
-    lw %r1 %r1 1                           # !595
-    jr %ra                                 # !596
-r_bright.2525:
-    flw %f0 %r1 2                          # !601
-    jr %ra                                 # !602
-rad.2527:
-    flui %f1 484                           # !611
-    fli %f1 981557                         # !611
+    j        ~beq_cont.9286                # !280
+beq_then.9285:
+    lw       %r1  %sp  0                   # !280
+    beq      %r1  %r2  beq_then.9287       # !280
+    flui     %f0  -516                     # !280
+    fli      %f0  0                        # !280
+    ++
+    fli -1.000000
+    => flui %f0 0b10111111100
+       fli  %f0 0b000000000000000000000
+    ++
+    flw      %f1  %sp  5                   # !280
+    fdiv     %f0  %f0  %f1                 # !280
+    j        ~beq_cont.9288                # !280
+beq_then.9287:
+    flui     %f0  508                      # !280
+    fli      %f0  0                        # !280
+    ++
+    fli 1.000000
+    => flui %f0 0b00111111100
+       fli  %f0 0b000000000000000000000
+    ++
+    flw      %f1  %sp  5                   # !280
+    fdiv     %f0  %f0  %f1                 # !280
+beq_cont.9288:
+beq_cont.9286:
+    flw      %f1  %sp  2                   # !281
+    flw      %f2  %f1  0                   # !281
+    fmul     %f2  %f2  %f0                 # !281
+    fsw      %f2  %f1  0                   # !281
+    flw      %f2  %f1  1                   # !282
+    fmul     %f2  %f2  %f0                 # !282
+    fsw      %f2  %f1  1                   # !282
+    flw      %f2  %f1  2                   # !283
+    fmul     %f0  %f2  %f0                 # !283
+    fsw      %f0  %f1  2                   # !283
+    jr       %ra                           # !283
+veciprod.2501:
+    flw      %f0  %r1  0                   # !288
+    flw      %f1  %r2  0                   # !288
+    fmul     %f0  %f0  %f1                 # !288
+    flw      %f1  %r1  1                   # !288
+    flw      %f2  %r2  1                   # !288
+    fmul     %f1  %f1  %f2                 # !288
+    fadd     %f0  %f0  %f1                 # !288
+    flw      %f1  %r1  2                   # !288
+    flw      %f2  %r2  2                   # !288
+    fmul     %f1  %f1  %f2                 # !288
+    fadd     %f0  %f0  %f1                 # !288
+    jr       %ra                           # !288
+veciprod2.2504:
+    flw      %f3  %r1  0                   # !293
+    fmul     %f0  %f3  %f0                 # !293
+    flw      %f3  %r1  1                   # !293
+    fmul     %f1  %f3  %f1                 # !293
+    fadd     %f0  %f0  %f1                 # !293
+    flw      %f1  %r1  2                   # !293
+    fmul     %f1  %f1  %f2                 # !293
+    fadd     %f0  %f0  %f1                 # !293
+    jr       %ra                           # !293
+vecaccum.2509:
+    flw      %f1  %r1  0                   # !298
+    flw      %f2  %r2  0                   # !298
+    fmul     %f2  %f2  %f0                 # !298
+    fadd     %f1  %f1  %f2                 # !298
+    fsw      %f1  %r1  0                   # !298
+    flw      %f1  %r1  1                   # !299
+    flw      %f2  %r2  1                   # !299
+    fmul     %f2  %f2  %f0                 # !299
+    fadd     %f1  %f1  %f2                 # !299
+    fsw      %f1  %r1  1                   # !299
+    flw      %f1  %r1  2                   # !300
+    flw      %f2  %r2  2                   # !300
+    fmul     %f0  %f2  %f0                 # !300
+    fadd     %f0  %f1  %f0                 # !300
+    fsw      %f0  %r1  2                   # !300
+    jr       %ra                           # !300
+vecadd.2513:
+    flw      %f0  %r1  0                   # !305
+    flw      %f1  %r2  0                   # !305
+    fadd     %f0  %f0  %f1                 # !305
+    fsw      %f0  %r1  0                   # !305
+    flw      %f0  %r1  1                   # !306
+    flw      %f1  %r2  1                   # !306
+    fadd     %f0  %f0  %f1                 # !306
+    fsw      %f0  %r1  1                   # !306
+    flw      %f0  %r1  2                   # !307
+    flw      %f1  %r2  2                   # !307
+    fadd     %f0  %f0  %f1                 # !307
+    fsw      %f0  %r1  2                   # !307
+    jr       %ra                           # !307
+vecscale.2516:
+    flw      %f1  %r1  0                   # !321
+    fmul     %f1  %f1  %f0                 # !321
+    fsw      %f1  %r1  0                   # !321
+    flw      %f1  %r1  1                   # !322
+    fmul     %f1  %f1  %f0                 # !322
+    fsw      %f1  %r1  1                   # !322
+    flw      %f1  %r1  2                   # !323
+    fmul     %f0  %f1  %f0                 # !323
+    fsw      %f0  %r1  2                   # !323
+    jr       %ra                           # !323
+vecaccumv.2519:
+    flw      %f0  %r1  0                   # !328
+    flw      %f1  %r2  0                   # !328
+    flw      %f2  %r3  0                   # !328
+    fmul     %f1  %f1  %f2                 # !328
+    fadd     %f0  %f0  %f1                 # !328
+    fsw      %f0  %r1  0                   # !328
+    flw      %f0  %r1  1                   # !329
+    flw      %f1  %r2  1                   # !329
+    flw      %f2  %r3  1                   # !329
+    fmul     %f1  %f1  %f2                 # !329
+    fadd     %f0  %f0  %f1                 # !329
+    fsw      %f0  %r1  1                   # !329
+    flw      %f0  %r1  2                   # !330
+    flw      %f1  %r2  2                   # !330
+    flw      %f2  %r3  2                   # !330
+    fmul     %f1  %f1  %f2                 # !330
+    fadd     %f0  %f0  %f1                 # !330
+    fsw      %f0  %r1  2                   # !330
+    jr       %ra                           # !330
+o_texturetype.2523:
+    lw       %r1  %r1  0                   # !339
+    jr       %ra                           # !344
+o_form.2525:
+    lw       %r1  %r1  1                   # !349
+    jr       %ra                           # !354
+o_reflectiontype.2527:
+    lw       %r1  %r1  2                   # !359
+    jr       %ra                           # !364
+o_isinvert.2529:
+    lw       %r1  %r1  6                   # !369
+    jr       %ra                           # !373
+o_isrot.2531:
+    lw       %r1  %r1  3                   # !378
+    jr       %ra                           # !382
+o_param_a.2533:
+    lw       %r1  %r1  4                   # !387
+    flw      %f0  %r1  0                   # !392
+    jr       %ra                           # !392
+o_param_b.2535:
+    lw       %r1  %r1  4                   # !397
+    flw      %f0  %r1  1                   # !402
+    jr       %ra                           # !402
+o_param_c.2537:
+    lw       %r1  %r1  4                   # !407
+    flw      %f0  %r1  2                   # !412
+    jr       %ra                           # !412
+o_param_abc.2539:
+    lw       %r1  %r1  4                   # !417
+    jr       %ra                           # !422
+o_param_x.2541:
+    lw       %r1  %r1  5                   # !427
+    flw      %f0  %r1  0                   # !432
+    jr       %ra                           # !432
+o_param_y.2543:
+    lw       %r1  %r1  5                   # !437
+    flw      %f0  %r1  1                   # !442
+    jr       %ra                           # !442
+o_param_z.2545:
+    lw       %r1  %r1  5                   # !447
+    flw      %f0  %r1  2                   # !452
+    jr       %ra                           # !452
+o_diffuse.2547:
+    lw       %r1  %r1  7                   # !457
+    flw      %f0  %r1  0                   # !462
+    jr       %ra                           # !462
+o_hilight.2549:
+    lw       %r1  %r1  7                   # !467
+    flw      %f0  %r1  1                   # !472
+    jr       %ra                           # !472
+o_color_red.2551:
+    lw       %r1  %r1  8                   # !477
+    flw      %f0  %r1  0                   # !482
+    jr       %ra                           # !482
+o_color_green.2553:
+    lw       %r1  %r1  8                   # !487
+    flw      %f0  %r1  1                   # !492
+    jr       %ra                           # !492
+o_color_blue.2555:
+    lw       %r1  %r1  8                   # !497
+    flw      %f0  %r1  2                   # !502
+    jr       %ra                           # !502
+o_param_r1.2557:
+    lw       %r1  %r1  9                   # !507
+    flw      %f0  %r1  0                   # !512
+    jr       %ra                           # !512
+o_param_r2.2559:
+    lw       %r1  %r1  9                   # !517
+    flw      %f0  %r1  1                   # !522
+    jr       %ra                           # !522
+o_param_r3.2561:
+    lw       %r1  %r1  9                   # !527
+    flw      %f0  %r1  2                   # !532
+    jr       %ra                           # !532
+o_param_ctbl.2563:
+    lw       %r1  %r1  10                  # !544
+    jr       %ra                           # !549
+p_rgb.2565:
+    lw       %r1  %r1  0                   # !558
+    jr       %ra                           # !560
+p_intersection_points.2567:
+    lw       %r1  %r1  1                   # !565
+    jr       %ra                           # !567
+p_surface_ids.2569:
+    lw       %r1  %r1  2                   # !573
+    jr       %ra                           # !575
+p_calc_diffuse.2571:
+    lw       %r1  %r1  3                   # !580
+    jr       %ra                           # !582
+p_energy.2573:
+    lw       %r1  %r1  4                   # !587
+    jr       %ra                           # !589
+p_received_ray_20percent.2575:
+    lw       %r1  %r1  5                   # !594
+    jr       %ra                           # !596
+p_group_id.2577:
+    lw       %r1  %r1  6                   # !610
+    lw       %r1  %r1  0                   # !612
+    jr       %ra                           # !612
+p_set_group_id.2579:
+    lw       %r1  %r1  6                   # !617
+    sw       %r2  %r1  0                   # !619
+    jr       %ra                           # !619
+p_nvectors.2582:
+    lw       %r1  %r1  7                   # !624
+    jr       %ra                           # !626
+d_vec.2584:
+    lw       %r1  %r1  0                   # !635
+    jr       %ra                           # !636
+d_const.2586:
+    lw       %r1  %r1  1                   # !641
+    jr       %ra                           # !642
+r_surface_id.2588:
+    lw       %r1  %r1  0                   # !651
+    jr       %ra                           # !652
+r_dvec.2590:
+    lw       %r1  %r1  1                   # !657
+    jr       %ra                           # !658
+r_bright.2592:
+    flw      %f0  %r1  2                   # !663
+    jr       %ra                           # !664
+rad.2594:
+    flui     %f1  484                      # !673
+    fli      %f1  981557                   # !673
     ++
     fli 0.017453
     => flui %f1 0b00111100100
        fli  %f1 0b011101111101000110101
     ++
-    fmul %f0 %f1 %f0                       # !611
-    jr %ra                                 # !611
-read_screen_settings.2529:
-    lw %r1 %r27 5                          # !615
-    lw %r2 %r27 4                          # !615
-    lw %r3 %r27 3                          # !615
-    lw %r4 %r27 2                          # !615
-    lw %r5 %r27 1                          # !615
-    setl %r6 ~min_caml_io_float            # !618
-    flw %f0 %r6 0                          # !618
-    fsw %f0 %r5 0                          # !618
-    flw %f0 %r6 0                          # !619
-    fsw %f0 %r5 1                          # !619
-    flw %f0 %r6 0                          # !620
-    fsw %f0 %r5 2                          # !620
-    flw %f0 %r6 0                          # !622
-    sw %r1 %sp 0                           # !622
-    sw %r5 %sp 1                           # !622
-    sw %r3 %sp 2                           # !622
-    sw %r4 %sp 3                           # !622
-    sw %r2 %sp 4                           # !622
-    sw %r6 %sp 5                           # !622
-    sw %ra %sp 6                           # !622
-    addi %sp %sp 7                         # !622
-    jal ~rad.2527                          # !622
-    addi %sp %sp -7                        # !622
-    lw %ra %sp 6                           # !622
-    fsw %f0 %sp 6                          # !623
-    sw %ra %sp 7                           # !623
-    addi %sp %sp 8                         # !623
-    jal ~min_caml_cos                      # !623
-    addi %sp %sp -8                        # !623
-    lw %ra %sp 7                           # !623
-    flw %f1 %sp 6                          # !624
-    fsw %f0 %sp 7                          # !624
-    fmovz %f0 %f1 %zero                    # !624
-    sw %ra %sp 8                           # !624
-    addi %sp %sp 9                         # !624
-    jal ~min_caml_sin                      # !624
-    addi %sp %sp -9                        # !624
-    lw %ra %sp 8                           # !624
-    flw %f1 %sp 5                          # !625
-    flw %f1 %f1 0                          # !625
-    fsw %f0 %sp 8                          # !625
-    fmovz %f0 %f1 %zero                    # !625
-    sw %ra %sp 9                           # !625
-    addi %sp %sp 10                        # !625
-    jal ~rad.2527                          # !625
-    addi %sp %sp -10                       # !625
-    lw %ra %sp 9                           # !625
-    fsw %f0 %sp 9                          # !626
-    sw %ra %sp 10                          # !626
-    addi %sp %sp 11                        # !626
-    jal ~min_caml_cos                      # !626
-    addi %sp %sp -11                       # !626
-    lw %ra %sp 10                          # !626
-    flw %f1 %sp 9                          # !627
-    fsw %f0 %sp 10                         # !627
-    fmovz %f0 %f1 %zero                    # !627
-    sw %ra %sp 11                          # !627
-    addi %sp %sp 12                        # !627
-    jal ~min_caml_sin                      # !627
-    addi %sp %sp -12                       # !627
-    lw %ra %sp 11                          # !627
-    flw %f1 %sp 7                          # !629
-    fmul %f2 %f1 %f0                       # !629
-    flui %f3 538                           # !629
-    fli %f3 524288                         # !629
+    fmul     %f0  %f1  %f0                 # !673
+    jr       %ra                           # !673
+read_screen_settings.2596:
+    lw       %r1  %r27  5                  # !677
+    lw       %r2  %r27  4                  # !677
+    lw       %r3  %r27  3                  # !677
+    lw       %r4  %r27  2                  # !677
+    lw       %r5  %r27  1                  # !677
+    sw       %r1  %sp  0                   # !680
+    sw       %r3  %sp  1                   # !680
+    sw       %r4  %sp  2                   # !680
+    sw       %r2  %sp  3                   # !680
+    sw       %r5  %sp  4                   # !680
+    sw       %ra  %sp  5                   # !680
+    addi     %sp  %sp  6                   # !680
+    jal      ~min_caml_read_float          # !680
+    addi     %sp  %sp  -6                  # !680
+    lw       %ra  %sp  5                   # !680
+    lw       %r1  %sp  4                   # !680
+    fsw      %f0  %r1  0                   # !680
+    sw       %ra  %sp  5                   # !681
+    addi     %sp  %sp  6                   # !681
+    jal      ~min_caml_read_float          # !681
+    addi     %sp  %sp  -6                  # !681
+    lw       %ra  %sp  5                   # !681
+    lw       %r1  %sp  4                   # !681
+    fsw      %f0  %r1  1                   # !681
+    sw       %ra  %sp  5                   # !682
+    addi     %sp  %sp  6                   # !682
+    jal      ~min_caml_read_float          # !682
+    addi     %sp  %sp  -6                  # !682
+    lw       %ra  %sp  5                   # !682
+    lw       %r1  %sp  4                   # !682
+    fsw      %f0  %r1  2                   # !682
+    sw       %ra  %sp  5                   # !684
+    addi     %sp  %sp  6                   # !684
+    jal      ~min_caml_read_float          # !684
+    addi     %sp  %sp  -6                  # !684
+    lw       %ra  %sp  5                   # !684
+    sw       %ra  %sp  5                   # !684
+    addi     %sp  %sp  6                   # !684
+    jal      ~rad.2594                     # !684
+    addi     %sp  %sp  -6                  # !684
+    lw       %ra  %sp  5                   # !684
+    fsw      %f0  %sp  5                   # !685
+    sw       %ra  %sp  6                   # !685
+    addi     %sp  %sp  7                   # !685
+    jal      ~cos.2440                     # !685
+    addi     %sp  %sp  -7                  # !685
+    lw       %ra  %sp  6                   # !685
+    flw      %f1  %sp  5                   # !686
+    fsw      %f0  %sp  6                   # !686
+    fmovz    %f0  %f1  %zero               # !686
+    sw       %ra  %sp  7                   # !686
+    addi     %sp  %sp  8                   # !686
+    jal      ~sin.2438                     # !686
+    addi     %sp  %sp  -8                  # !686
+    lw       %ra  %sp  7                   # !686
+    fsw      %f0  %sp  7                   # !687
+    sw       %ra  %sp  8                   # !687
+    addi     %sp  %sp  9                   # !687
+    jal      ~min_caml_read_float          # !687
+    addi     %sp  %sp  -9                  # !687
+    lw       %ra  %sp  8                   # !687
+    sw       %ra  %sp  8                   # !687
+    addi     %sp  %sp  9                   # !687
+    jal      ~rad.2594                     # !687
+    addi     %sp  %sp  -9                  # !687
+    lw       %ra  %sp  8                   # !687
+    fsw      %f0  %sp  8                   # !688
+    sw       %ra  %sp  9                   # !688
+    addi     %sp  %sp  10                  # !688
+    jal      ~cos.2440                     # !688
+    addi     %sp  %sp  -10                 # !688
+    lw       %ra  %sp  9                   # !688
+    flw      %f1  %sp  8                   # !689
+    fsw      %f0  %sp  9                   # !689
+    fmovz    %f0  %f1  %zero               # !689
+    sw       %ra  %sp  10                  # !689
+    addi     %sp  %sp  11                  # !689
+    jal      ~sin.2438                     # !689
+    addi     %sp  %sp  -11                 # !689
+    lw       %ra  %sp  10                  # !689
+    flw      %f1  %sp  6                   # !691
+    fmul     %f2  %f1  %f0                 # !691
+    flui     %f3  538                      # !691
+    fli      %f3  524288                   # !691
     ++
     fli 200.000000
     => flui %f3 0b01000011010
        fli  %f3 0b010000000000000000000
     ++
-    fmul %f2 %f2 %f3                       # !629
-    lw %r1 %sp 4                           # !629
-    fsw %f2 %r1 0                          # !629
-    flui %f2 -486                          # !630
-    fli %f2 524288                         # !630
+    fmul     %f2  %f2  %f3                 # !691
+    lw       %r1  %sp  3                   # !691
+    fsw      %f2  %r1  0                   # !691
+    flui     %f2  -486                     # !692
+    fli      %f2  524288                   # !692
     ++
     fli -200.000000
     => flui %f2 0b11000011010
        fli  %f2 0b010000000000000000000
     ++
-    flw %f4 %sp 8                          # !630
-    fmul %f2 %f2 %f4                       # !630
-    fsw %f2 %r1 1                          # !630
-    flw %f2 %sp 10                         # !631
-    fmul %f5 %f1 %f2                       # !631
-    fmul %f3 %f3 %f5                       # !631
-    fsw %f3 %r1 2                          # !631
-    lw %r2 %sp 3                           # !633
-    fsw %f2 %r2 0                          # !633
-    flui %f3 0                             # !634
-    fli %f3 0                              # !634
+    flw      %f4  %sp  7                   # !692
+    fmul     %f2  %f2  %f4                 # !692
+    fsw      %f2  %r1  1                   # !692
+    flw      %f2  %sp  9                   # !693
+    fmul     %f5  %f1  %f2                 # !693
+    fmul     %f3  %f3  %f5                 # !693
+    fsw      %f3  %r1  2                   # !693
+    lw       %r2  %sp  2                   # !695
+    fsw      %f2  %r2  0                   # !695
+    flui     %f3  0                        # !696
+    fli      %f3  0                        # !696
     ++
     fli 0.000000
     => flui %f3 0b00000000000
        fli  %f3 0b000000000000000000000
     ++
-    fsw %f3 %r2 1                          # !634
-    fneg %f3 %f0                           # !635
-    fsw %f3 %r2 2                          # !635
-    fneg %f3 %f4                           # !637
-    fmul %f0 %f3 %f0                       # !637
-    lw %r2 %sp 2                           # !637
-    fsw %f0 %r2 0                          # !637
-    fneg %f0 %f1                           # !638
-    fsw %f0 %r2 1                          # !638
-    fmul %f0 %f3 %f2                       # !639
-    fsw %f0 %r2 2                          # !639
-    flw %f0 %sp 1                          # !641
-    flw %f1 %f0 0                          # !641
-    flw %f2 %r1 0                          # !641
-    fsub %f1 %f1 %f2                       # !641
-    lw %r2 %sp 0                           # !641
-    fsw %f1 %r2 0                          # !641
-    flw %f1 %f0 1                          # !642
-    flw %f2 %r1 1                          # !642
-    fsub %f1 %f1 %f2                       # !642
-    fsw %f1 %r2 1                          # !642
-    flw %f0 %f0 2                          # !643
-    flw %f1 %r1 2                          # !643
-    fsub %f0 %f0 %f1                       # !643
-    fsw %f0 %r2 2                          # !643
-    jr %ra                                 # !643
-read_light.2531:
-    lw %r1 %r27 2                          # !648
-    lw %r2 %r27 1                          # !648
-    setl %r3 ~min_caml_io_float            # !653
-    flw %f0 %r3 0                          # !653
-    sw %r2 %sp 0                           # !653
-    sw %r3 %sp 1                           # !653
-    sw %r1 %sp 2                           # !653
-    sw %ra %sp 3                           # !653
-    addi %sp %sp 4                         # !653
-    jal ~rad.2527                          # !653
-    addi %sp %sp -4                        # !653
-    lw %ra %sp 3                           # !653
-    fsw %f0 %sp 3                          # !654
-    sw %ra %sp 4                           # !654
-    addi %sp %sp 5                         # !654
-    jal ~min_caml_sin                      # !654
-    addi %sp %sp -5                        # !654
-    lw %ra %sp 4                           # !654
-    fneg %f0 %f0                           # !655
-    lw %r1 %sp 2                           # !655
-    fsw %f0 %r1 1                          # !655
-    flw %f0 %sp 1                          # !656
-    flw %f1 %f0 0                          # !656
-    fmovz %f0 %f1 %zero                    # !656
-    sw %ra %sp 4                           # !656
-    addi %sp %sp 5                         # !656
-    jal ~rad.2527                          # !656
-    addi %sp %sp -5                        # !656
-    lw %ra %sp 4                           # !656
-    flw %f1 %sp 3                          # !657
-    fsw %f0 %sp 4                          # !657
-    fmovz %f0 %f1 %zero                    # !657
-    sw %ra %sp 5                           # !657
-    addi %sp %sp 6                         # !657
-    jal ~min_caml_cos                      # !657
-    addi %sp %sp -6                        # !657
-    lw %ra %sp 5                           # !657
-    flw %f1 %sp 4                          # !658
-    fsw %f0 %sp 5                          # !658
-    fmovz %f0 %f1 %zero                    # !658
-    sw %ra %sp 6                           # !658
-    addi %sp %sp 7                         # !658
-    jal ~min_caml_sin                      # !658
-    addi %sp %sp -7                        # !658
-    lw %ra %sp 6                           # !658
-    flw %f1 %sp 5                          # !659
-    fmul %f0 %f1 %f0                       # !659
-    lw %r1 %sp 2                           # !659
-    fsw %f0 %r1 0                          # !659
-    flw %f0 %sp 4                          # !660
-    sw %ra %sp 6                           # !660
-    addi %sp %sp 7                         # !660
-    jal ~min_caml_cos                      # !660
-    addi %sp %sp -7                        # !660
-    lw %ra %sp 6                           # !660
-    flw %f1 %sp 5                          # !661
-    fmul %f0 %f1 %f0                       # !661
-    lw %r1 %sp 2                           # !661
-    fsw %f0 %r1 2                          # !661
-    flw %f0 %sp 1                          # !662
-    flw %f0 %f0 0                          # !662
-    lw %r1 %sp 0                           # !662
-    fsw %f0 %r1 0                          # !662
-    jr %ra                                 # !662
-rotate_quadratic_matrix.2533:
-    flw %f0 %r2 0                          # !672
-    sw %r1 %sp 0                           # !672
-    sw %r2 %sp 1                           # !672
-    sw %ra %sp 2                           # !672
-    addi %sp %sp 3                         # !672
-    jal ~min_caml_cos                      # !672
-    addi %sp %sp -3                        # !672
-    lw %ra %sp 2                           # !672
-    flw %f1 %sp 1                          # !673
-    flw %f2 %f1 0                          # !673
-    fsw %f0 %sp 2                          # !673
-    fmovz %f0 %f2 %zero                    # !673
-    sw %ra %sp 3                           # !673
-    addi %sp %sp 4                         # !673
-    jal ~min_caml_sin                      # !673
-    addi %sp %sp -4                        # !673
-    lw %ra %sp 3                           # !673
-    flw %f1 %sp 1                          # !674
-    flw %f2 %f1 1                          # !674
-    fsw %f0 %sp 3                          # !674
-    fmovz %f0 %f2 %zero                    # !674
-    sw %ra %sp 4                           # !674
-    addi %sp %sp 5                         # !674
-    jal ~min_caml_cos                      # !674
-    addi %sp %sp -5                        # !674
-    lw %ra %sp 4                           # !674
-    flw %f1 %sp 1                          # !675
-    flw %f2 %f1 1                          # !675
-    fsw %f0 %sp 4                          # !675
-    fmovz %f0 %f2 %zero                    # !675
-    sw %ra %sp 5                           # !675
-    addi %sp %sp 6                         # !675
-    jal ~min_caml_sin                      # !675
-    addi %sp %sp -6                        # !675
-    lw %ra %sp 5                           # !675
-    flw %f1 %sp 1                          # !676
-    flw %f2 %f1 2                          # !676
-    fsw %f0 %sp 5                          # !676
-    fmovz %f0 %f2 %zero                    # !676
-    sw %ra %sp 6                           # !676
-    addi %sp %sp 7                         # !676
-    jal ~min_caml_cos                      # !676
-    addi %sp %sp -7                        # !676
-    lw %ra %sp 6                           # !676
-    flw %f1 %sp 1                          # !677
-    flw %f2 %f1 2                          # !677
-    fsw %f0 %sp 6                          # !677
-    fmovz %f0 %f2 %zero                    # !677
-    sw %ra %sp 7                           # !677
-    addi %sp %sp 8                         # !677
-    jal ~min_caml_sin                      # !677
-    addi %sp %sp -8                        # !677
-    lw %ra %sp 7                           # !677
-    flw %f1 %sp 6                          # !679
-    flw %f2 %sp 4                          # !679
-    fmul %f3 %f2 %f1                       # !679
-    flw %f4 %sp 5                          # !680
-    flw %f5 %sp 3                          # !680
-    fmul %f6 %f5 %f4                       # !680
-    fmul %f7 %f6 %f1                       # !680
-    flw %f8 %sp 2                          # !680
-    fmul %f9 %f8 %f0                       # !680
-    fsub %f7 %f7 %f9                       # !680
-    fmul %f9 %f8 %f4                       # !681
-    fmul %f10 %f9 %f1                      # !681
-    fmul %f11 %f5 %f0                      # !681
-    fadd %f10 %f10 %f11                    # !681
-    fmul %f11 %f2 %f0                      # !683
-    fmul %f6 %f6 %f0                       # !684
-    fmul %f12 %f8 %f1                      # !684
-    fadd %f6 %f6 %f12                      # !684
-    fmul %f0 %f9 %f0                       # !685
-    fmul %f1 %f1 %f5                       # !685
-    fsub %f0 %f0 %f1                       # !685
-    fneg %f1 %f4                           # !687
-    fmul %f4 %f2 %f5                       # !688
-    fmul %f2 %f8 %f2                       # !689
-    flw %f5 %sp 0                          # !692
-    flw %f8 %f5 0                          # !692
-    flw %f9 %f5 1                          # !693
-    flw %f12 %f5 2                         # !694
-    fmul %f13 %f3 %f3                      # !699
-    fmul %f13 %f13 %f8                     # !699
-    fmul %f14 %f11 %f11                    # !699
-    fmul %f14 %f14 %f9                     # !699
-    fadd %f13 %f13 %f14                    # !699
-    fmul %f14 %f1 %f1                      # !699
-    fmul %f14 %f14 %f12                    # !699
-    fadd %f13 %f13 %f14                    # !699
-    fsw %f13 %f5 0                         # !699
-    fmul %f13 %f7 %f7                      # !700
-    fmul %f13 %f13 %f8                     # !700
-    fmul %f14 %f6 %f6                      # !700
-    fmul %f14 %f14 %f9                     # !700
-    fadd %f13 %f13 %f14                    # !700
-    fmul %f14 %f4 %f4                      # !700
-    fmul %f14 %f14 %f12                    # !700
-    fadd %f13 %f13 %f14                    # !700
-    fsw %f13 %f5 1                         # !700
-    fmul %f13 %f10 %f10                    # !701
-    fmul %f13 %f13 %f8                     # !701
-    fmul %f14 %f0 %f0                      # !701
-    fmul %f14 %f14 %f9                     # !701
-    fadd %f13 %f13 %f14                    # !701
-    fmul %f14 %f2 %f2                      # !701
-    fmul %f14 %f14 %f12                    # !701
-    fadd %f13 %f13 %f14                    # !701
-    fsw %f13 %f5 2                         # !701
-    flui %f5 512                           # !704
-    fli %f5 0                              # !704
+    fsw      %f3  %r2  1                   # !696
+    fsw      %f0  %sp  10                  # !697
+    sw       %ra  %sp  11                  # !697
+    addi     %sp  %sp  12                  # !697
+    jal      ~min_caml_fneg                # !697
+    addi     %sp  %sp  -12                 # !697
+    lw       %ra  %sp  11                  # !697
+    lw       %r1  %sp  2                   # !697
+    fsw      %f0  %r1  2                   # !697
+    flw      %f0  %sp  7                   # !699
+    sw       %ra  %sp  11                  # !699
+    addi     %sp  %sp  12                  # !699
+    jal      ~min_caml_fneg                # !699
+    addi     %sp  %sp  -12                 # !699
+    lw       %ra  %sp  11                  # !699
+    flw      %f1  %sp  10                  # !699
+    fmul     %f0  %f0  %f1                 # !699
+    lw       %r1  %sp  1                   # !699
+    fsw      %f0  %r1  0                   # !699
+    flw      %f0  %sp  6                   # !700
+    sw       %ra  %sp  11                  # !700
+    addi     %sp  %sp  12                  # !700
+    jal      ~min_caml_fneg                # !700
+    addi     %sp  %sp  -12                 # !700
+    lw       %ra  %sp  11                  # !700
+    lw       %r1  %sp  1                   # !700
+    fsw      %f0  %r1  1                   # !700
+    flw      %f0  %sp  7                   # !701
+    sw       %ra  %sp  11                  # !701
+    addi     %sp  %sp  12                  # !701
+    jal      ~min_caml_fneg                # !701
+    addi     %sp  %sp  -12                 # !701
+    lw       %ra  %sp  11                  # !701
+    flw      %f1  %sp  9                   # !701
+    fmul     %f0  %f0  %f1                 # !701
+    lw       %r1  %sp  1                   # !701
+    fsw      %f0  %r1  2                   # !701
+    flw      %f0  %sp  4                   # !703
+    flw      %f1  %f0  0                   # !703
+    flw      %f2  %sp  3                   # !703
+    flw      %f3  %f2  0                   # !703
+    fsub     %f1  %f1  %f3                 # !703
+    lw       %r1  %sp  0                   # !703
+    fsw      %f1  %r1  0                   # !703
+    flw      %f1  %f0  1                   # !704
+    flw      %f3  %f2  1                   # !704
+    fsub     %f1  %f1  %f3                 # !704
+    fsw      %f1  %r1  1                   # !704
+    flw      %f0  %f0  2                   # !705
+    flw      %f1  %f2  2                   # !705
+    fsub     %f0  %f0  %f1                 # !705
+    fsw      %f0  %r1  2                   # !705
+    jr       %ra                           # !705
+read_light.2598:
+    lw       %r1  %r27  2                  # !710
+    lw       %r2  %r27  1                  # !710
+    sw       %r2  %sp  0                   # !712
+    sw       %r1  %sp  1                   # !712
+    sw       %ra  %sp  2                   # !712
+    addi     %sp  %sp  3                   # !712
+    jal      ~min_caml_read_int            # !712
+    addi     %sp  %sp  -3                  # !712
+    lw       %ra  %sp  2                   # !712
+    sw       %ra  %sp  2                   # !715
+    addi     %sp  %sp  3                   # !715
+    jal      ~min_caml_read_float          # !715
+    addi     %sp  %sp  -3                  # !715
+    lw       %ra  %sp  2                   # !715
+    sw       %ra  %sp  2                   # !715
+    addi     %sp  %sp  3                   # !715
+    jal      ~rad.2594                     # !715
+    addi     %sp  %sp  -3                  # !715
+    lw       %ra  %sp  2                   # !715
+    fsw      %f0  %sp  2                   # !716
+    sw       %ra  %sp  3                   # !716
+    addi     %sp  %sp  4                   # !716
+    jal      ~sin.2438                     # !716
+    addi     %sp  %sp  -4                  # !716
+    lw       %ra  %sp  3                   # !716
+    sw       %ra  %sp  3                   # !717
+    addi     %sp  %sp  4                   # !717
+    jal      ~min_caml_fneg                # !717
+    addi     %sp  %sp  -4                  # !717
+    lw       %ra  %sp  3                   # !717
+    lw       %r1  %sp  1                   # !717
+    fsw      %f0  %r1  1                   # !717
+    sw       %ra  %sp  3                   # !718
+    addi     %sp  %sp  4                   # !718
+    jal      ~min_caml_read_float          # !718
+    addi     %sp  %sp  -4                  # !718
+    lw       %ra  %sp  3                   # !718
+    sw       %ra  %sp  3                   # !718
+    addi     %sp  %sp  4                   # !718
+    jal      ~rad.2594                     # !718
+    addi     %sp  %sp  -4                  # !718
+    lw       %ra  %sp  3                   # !718
+    flw      %f1  %sp  2                   # !719
+    fsw      %f0  %sp  3                   # !719
+    fmovz    %f0  %f1  %zero               # !719
+    sw       %ra  %sp  4                   # !719
+    addi     %sp  %sp  5                   # !719
+    jal      ~cos.2440                     # !719
+    addi     %sp  %sp  -5                  # !719
+    lw       %ra  %sp  4                   # !719
+    flw      %f1  %sp  3                   # !720
+    fsw      %f0  %sp  4                   # !720
+    fmovz    %f0  %f1  %zero               # !720
+    sw       %ra  %sp  5                   # !720
+    addi     %sp  %sp  6                   # !720
+    jal      ~sin.2438                     # !720
+    addi     %sp  %sp  -6                  # !720
+    lw       %ra  %sp  5                   # !720
+    flw      %f1  %sp  4                   # !721
+    fmul     %f0  %f1  %f0                 # !721
+    lw       %r1  %sp  1                   # !721
+    fsw      %f0  %r1  0                   # !721
+    flw      %f0  %sp  3                   # !722
+    sw       %ra  %sp  5                   # !722
+    addi     %sp  %sp  6                   # !722
+    jal      ~cos.2440                     # !722
+    addi     %sp  %sp  -6                  # !722
+    lw       %ra  %sp  5                   # !722
+    flw      %f1  %sp  4                   # !723
+    fmul     %f0  %f1  %f0                 # !723
+    lw       %r1  %sp  1                   # !723
+    fsw      %f0  %r1  2                   # !723
+    sw       %ra  %sp  5                   # !724
+    addi     %sp  %sp  6                   # !724
+    jal      ~min_caml_read_float          # !724
+    addi     %sp  %sp  -6                  # !724
+    lw       %ra  %sp  5                   # !724
+    lw       %r1  %sp  0                   # !724
+    fsw      %f0  %r1  0                   # !724
+    jr       %ra                           # !724
+rotate_quadratic_matrix.2600:
+    flw      %f0  %r2  0                   # !734
+    sw       %r1  %sp  0                   # !734
+    sw       %r2  %sp  1                   # !734
+    sw       %ra  %sp  2                   # !734
+    addi     %sp  %sp  3                   # !734
+    jal      ~cos.2440                     # !734
+    addi     %sp  %sp  -3                  # !734
+    lw       %ra  %sp  2                   # !734
+    flw      %f1  %sp  1                   # !735
+    flw      %f2  %f1  0                   # !735
+    fsw      %f0  %sp  2                   # !735
+    fmovz    %f0  %f2  %zero               # !735
+    sw       %ra  %sp  3                   # !735
+    addi     %sp  %sp  4                   # !735
+    jal      ~sin.2438                     # !735
+    addi     %sp  %sp  -4                  # !735
+    lw       %ra  %sp  3                   # !735
+    flw      %f1  %sp  1                   # !736
+    flw      %f2  %f1  1                   # !736
+    fsw      %f0  %sp  3                   # !736
+    fmovz    %f0  %f2  %zero               # !736
+    sw       %ra  %sp  4                   # !736
+    addi     %sp  %sp  5                   # !736
+    jal      ~cos.2440                     # !736
+    addi     %sp  %sp  -5                  # !736
+    lw       %ra  %sp  4                   # !736
+    flw      %f1  %sp  1                   # !737
+    flw      %f2  %f1  1                   # !737
+    fsw      %f0  %sp  4                   # !737
+    fmovz    %f0  %f2  %zero               # !737
+    sw       %ra  %sp  5                   # !737
+    addi     %sp  %sp  6                   # !737
+    jal      ~sin.2438                     # !737
+    addi     %sp  %sp  -6                  # !737
+    lw       %ra  %sp  5                   # !737
+    flw      %f1  %sp  1                   # !738
+    flw      %f2  %f1  2                   # !738
+    fsw      %f0  %sp  5                   # !738
+    fmovz    %f0  %f2  %zero               # !738
+    sw       %ra  %sp  6                   # !738
+    addi     %sp  %sp  7                   # !738
+    jal      ~cos.2440                     # !738
+    addi     %sp  %sp  -7                  # !738
+    lw       %ra  %sp  6                   # !738
+    flw      %f1  %sp  1                   # !739
+    flw      %f2  %f1  2                   # !739
+    fsw      %f0  %sp  6                   # !739
+    fmovz    %f0  %f2  %zero               # !739
+    sw       %ra  %sp  7                   # !739
+    addi     %sp  %sp  8                   # !739
+    jal      ~sin.2438                     # !739
+    addi     %sp  %sp  -8                  # !739
+    lw       %ra  %sp  7                   # !739
+    flw      %f1  %sp  6                   # !741
+    flw      %f2  %sp  4                   # !741
+    fmul     %f3  %f2  %f1                 # !741
+    flw      %f4  %sp  5                   # !742
+    flw      %f5  %sp  3                   # !742
+    fmul     %f6  %f5  %f4                 # !742
+    fmul     %f7  %f6  %f1                 # !742
+    flw      %f8  %sp  2                   # !742
+    fmul     %f9  %f8  %f0                 # !742
+    fsub     %f7  %f7  %f9                 # !742
+    fmul     %f9  %f8  %f4                 # !743
+    fmul     %f10  %f9  %f1                # !743
+    fmul     %f11  %f5  %f0                # !743
+    fadd     %f10  %f10  %f11              # !743
+    fmul     %f11  %f2  %f0                # !745
+    fmul     %f6  %f6  %f0                 # !746
+    fmul     %f12  %f8  %f1                # !746
+    fadd     %f6  %f6  %f12                # !746
+    fmul     %f0  %f9  %f0                 # !747
+    fmul     %f1  %f1  %f5                 # !747
+    fsub     %f0  %f0  %f1                 # !747
+    fsw      %f0  %sp  7                   # !749
+    fsw      %f10  %sp  8                  # !749
+    fsw      %f6  %sp  9                   # !749
+    fsw      %f7  %sp  10                  # !749
+    fsw      %f11  %sp  11                 # !749
+    fsw      %f3  %sp  12                  # !749
+    fmovz    %f0  %f4  %zero               # !749
+    sw       %ra  %sp  13                  # !749
+    addi     %sp  %sp  14                  # !749
+    jal      ~min_caml_fneg                # !749
+    addi     %sp  %sp  -14                 # !749
+    lw       %ra  %sp  13                  # !749
+    flw      %f1  %sp  3                   # !750
+    flw      %f2  %sp  4                   # !750
+    fmul     %f1  %f2  %f1                 # !750
+    flw      %f3  %sp  2                   # !751
+    fmul     %f2  %f3  %f2                 # !751
+    flw      %f3  %sp  0                   # !754
+    flw      %f4  %f3  0                   # !754
+    flw      %f5  %f3  1                   # !755
+    flw      %f6  %f3  2                   # !756
+    flw      %f7  %sp  12                  # !761
+    fsw      %f2  %sp  13                  # !761
+    fsw      %f1  %sp  14                  # !761
+    fsw      %f6  %sp  15                  # !761
+    fsw      %f0  %sp  16                  # !761
+    fsw      %f5  %sp  17                  # !761
+    fsw      %f4  %sp  18                  # !761
+    fmovz    %f0  %f7  %zero               # !761
+    sw       %ra  %sp  19                  # !761
+    addi     %sp  %sp  20                  # !761
+    jal      ~min_caml_fsqr                # !761
+    addi     %sp  %sp  -20                 # !761
+    lw       %ra  %sp  19                  # !761
+    flw      %f1  %sp  18                  # !761
+    fmul     %f0  %f0  %f1                 # !761
+    flw      %f2  %sp  11                  # !761
+    fsw      %f0  %sp  19                  # !761
+    fmovz    %f0  %f2  %zero               # !761
+    sw       %ra  %sp  20                  # !761
+    addi     %sp  %sp  21                  # !761
+    jal      ~min_caml_fsqr                # !761
+    addi     %sp  %sp  -21                 # !761
+    lw       %ra  %sp  20                  # !761
+    flw      %f1  %sp  17                  # !761
+    fmul     %f0  %f0  %f1                 # !761
+    flw      %f2  %sp  19                  # !761
+    fadd     %f0  %f2  %f0                 # !761
+    flw      %f2  %sp  16                  # !761
+    fsw      %f0  %sp  20                  # !761
+    fmovz    %f0  %f2  %zero               # !761
+    sw       %ra  %sp  21                  # !761
+    addi     %sp  %sp  22                  # !761
+    jal      ~min_caml_fsqr                # !761
+    addi     %sp  %sp  -22                 # !761
+    lw       %ra  %sp  21                  # !761
+    flw      %f1  %sp  15                  # !761
+    fmul     %f0  %f0  %f1                 # !761
+    flw      %f2  %sp  20                  # !761
+    fadd     %f0  %f2  %f0                 # !761
+    lw       %r1  %sp  0                   # !761
+    fsw      %f0  %r1  0                   # !761
+    flw      %f0  %sp  10                  # !762
+    sw       %ra  %sp  21                  # !762
+    addi     %sp  %sp  22                  # !762
+    jal      ~min_caml_fsqr                # !762
+    addi     %sp  %sp  -22                 # !762
+    lw       %ra  %sp  21                  # !762
+    flw      %f1  %sp  18                  # !762
+    fmul     %f0  %f0  %f1                 # !762
+    flw      %f2  %sp  9                   # !762
+    fsw      %f0  %sp  21                  # !762
+    fmovz    %f0  %f2  %zero               # !762
+    sw       %ra  %sp  22                  # !762
+    addi     %sp  %sp  23                  # !762
+    jal      ~min_caml_fsqr                # !762
+    addi     %sp  %sp  -23                 # !762
+    lw       %ra  %sp  22                  # !762
+    flw      %f1  %sp  17                  # !762
+    fmul     %f0  %f0  %f1                 # !762
+    flw      %f2  %sp  21                  # !762
+    fadd     %f0  %f2  %f0                 # !762
+    flw      %f2  %sp  14                  # !762
+    fsw      %f0  %sp  22                  # !762
+    fmovz    %f0  %f2  %zero               # !762
+    sw       %ra  %sp  23                  # !762
+    addi     %sp  %sp  24                  # !762
+    jal      ~min_caml_fsqr                # !762
+    addi     %sp  %sp  -24                 # !762
+    lw       %ra  %sp  23                  # !762
+    flw      %f1  %sp  15                  # !762
+    fmul     %f0  %f0  %f1                 # !762
+    flw      %f2  %sp  22                  # !762
+    fadd     %f0  %f2  %f0                 # !762
+    lw       %r1  %sp  0                   # !762
+    fsw      %f0  %r1  1                   # !762
+    flw      %f0  %sp  8                   # !763
+    sw       %ra  %sp  23                  # !763
+    addi     %sp  %sp  24                  # !763
+    jal      ~min_caml_fsqr                # !763
+    addi     %sp  %sp  -24                 # !763
+    lw       %ra  %sp  23                  # !763
+    flw      %f1  %sp  18                  # !763
+    fmul     %f0  %f0  %f1                 # !763
+    flw      %f2  %sp  7                   # !763
+    fsw      %f0  %sp  23                  # !763
+    fmovz    %f0  %f2  %zero               # !763
+    sw       %ra  %sp  24                  # !763
+    addi     %sp  %sp  25                  # !763
+    jal      ~min_caml_fsqr                # !763
+    addi     %sp  %sp  -25                 # !763
+    lw       %ra  %sp  24                  # !763
+    flw      %f1  %sp  17                  # !763
+    fmul     %f0  %f0  %f1                 # !763
+    flw      %f2  %sp  23                  # !763
+    fadd     %f0  %f2  %f0                 # !763
+    flw      %f2  %sp  13                  # !763
+    fsw      %f0  %sp  24                  # !763
+    fmovz    %f0  %f2  %zero               # !763
+    sw       %ra  %sp  25                  # !763
+    addi     %sp  %sp  26                  # !763
+    jal      ~min_caml_fsqr                # !763
+    addi     %sp  %sp  -26                 # !763
+    lw       %ra  %sp  25                  # !763
+    flw      %f1  %sp  15                  # !763
+    fmul     %f0  %f0  %f1                 # !763
+    flw      %f2  %sp  24                  # !763
+    fadd     %f0  %f2  %f0                 # !763
+    lw       %r1  %sp  0                   # !763
+    fsw      %f0  %r1  2                   # !763
+    flui     %f0  512                      # !766
+    fli      %f0  0                        # !766
     ++
     fli 2.000000
-    => flui %f5 0b01000000000
-       fli  %f5 0b000000000000000000000
+    => flui %f0 0b01000000000
+       fli  %f0 0b000000000000000000000
     ++
-    fmul %f13 %f8 %f7                      # !704
-    fmul %f13 %f13 %f10                    # !704
-    fmul %f14 %f9 %f6                      # !704
-    fmul %f14 %f14 %f0                     # !704
-    fadd %f13 %f13 %f14                    # !704
-    fmul %f14 %f12 %f4                     # !704
-    fmul %f14 %f14 %f2                     # !704
-    fadd %f13 %f13 %f14                    # !704
-    fmul %f13 %f5 %f13                     # !704
-    lw %r1 %sp 1                           # !704
-    fsw %f13 %r1 0                         # !704
-    fmul %f3 %f8 %f3                       # !705
-    fmul %f8 %f3 %f10                      # !705
-    fmul %f9 %f9 %f11                      # !705
-    fmul %f0 %f9 %f0                       # !705
-    fadd %f0 %f8 %f0                       # !705
-    fmul %f1 %f12 %f1                      # !705
-    fmul %f2 %f1 %f2                       # !705
-    fadd %f0 %f0 %f2                       # !705
-    fmul %f0 %f5 %f0                       # !705
-    fsw %f0 %r1 1                          # !705
-    fmul %f0 %f3 %f7                       # !706
-    fmul %f2 %f9 %f6                       # !706
-    fadd %f0 %f0 %f2                       # !706
-    fmul %f1 %f1 %f4                       # !706
-    fadd %f0 %f0 %f1                       # !706
-    fmul %f0 %f5 %f0                       # !706
-    fsw %f0 %r1 2                          # !706
-    jr %ra                                 # !706
-read_nth_object.2536:
-    lw %r2 %r27 1                          # !711
-    setl %r3 ~min_caml_io_int              # !713
-    addi %r4 %zero 0                       # !713
-    lw %r5 %r3 0                           # !713
-    addi %r6 %zero -1                      # !714
-    beq %r5 %r6 beq_then.8616              # !714
-    lw %r6 %r3 0                           # !716
-    lw %r7 %r3 0                           # !717
-    lw %r3 %r3 0                           # !718
-    addi %r8 %zero 3                       # !720
-    flui %f0 0                             # !720
-    fli %f0 0                              # !720
+    flw      %f2  %sp  10                  # !766
+    flw      %f3  %sp  18                  # !766
+    fmul     %f4  %f3  %f2                 # !766
+    flw      %f5  %sp  8                   # !766
+    fmul     %f4  %f4  %f5                 # !766
+    flw      %f6  %sp  9                   # !766
+    flw      %f7  %sp  17                  # !766
+    fmul     %f8  %f7  %f6                 # !766
+    flw      %f9  %sp  7                   # !766
+    fmul     %f8  %f8  %f9                 # !766
+    fadd     %f4  %f4  %f8                 # !766
+    flw      %f8  %sp  14                  # !766
+    fmul     %f10  %f1  %f8                # !766
+    flw      %f11  %sp  13                 # !766
+    fmul     %f10  %f10  %f11              # !766
+    fadd     %f4  %f4  %f10                # !766
+    fmul     %f4  %f0  %f4                 # !766
+    lw       %r1  %sp  1                   # !766
+    fsw      %f4  %r1  0                   # !766
+    flw      %f4  %sp  12                  # !767
+    fmul     %f3  %f3  %f4                 # !767
+    fmul     %f4  %f3  %f5                 # !767
+    flw      %f5  %sp  11                  # !767
+    fmul     %f5  %f7  %f5                 # !767
+    fmul     %f7  %f5  %f9                 # !767
+    fadd     %f4  %f4  %f7                 # !767
+    flw      %f7  %sp  16                  # !767
+    fmul     %f1  %f1  %f7                 # !767
+    fmul     %f7  %f1  %f11                # !767
+    fadd     %f4  %f4  %f7                 # !767
+    fmul     %f4  %f0  %f4                 # !767
+    fsw      %f4  %r1  1                   # !767
+    fmul     %f2  %f3  %f2                 # !768
+    fmul     %f3  %f5  %f6                 # !768
+    fadd     %f2  %f2  %f3                 # !768
+    fmul     %f1  %f1  %f8                 # !768
+    fadd     %f1  %f2  %f1                 # !768
+    fmul     %f0  %f0  %f1                 # !768
+    fsw      %f0  %r1  2                   # !768
+    jr       %ra                           # !768
+read_nth_object.2603:
+    lw       %r2  %r27  1                  # !773
+    sw       %r1  %sp  0                   # !775
+    sw       %r2  %sp  1                   # !775
+    sw       %ra  %sp  2                   # !775
+    addi     %sp  %sp  3                   # !775
+    jal      ~min_caml_read_int            # !775
+    addi     %sp  %sp  -3                  # !775
+    lw       %ra  %sp  2                   # !775
+    addi     %r2  %zero  -1                # !776
+    beq      %r1  %r2  beq_then.9298       # !776
+    sw       %r1  %sp  2                   # !778
+    sw       %ra  %sp  3                   # !778
+    addi     %sp  %sp  4                   # !778
+    jal      ~min_caml_read_int            # !778
+    addi     %sp  %sp  -4                  # !778
+    lw       %ra  %sp  3                   # !778
+    sw       %r1  %sp  3                   # !779
+    sw       %ra  %sp  4                   # !779
+    addi     %sp  %sp  5                   # !779
+    jal      ~min_caml_read_int            # !779
+    addi     %sp  %sp  -5                  # !779
+    lw       %ra  %sp  4                   # !779
+    sw       %r1  %sp  4                   # !780
+    sw       %ra  %sp  5                   # !780
+    addi     %sp  %sp  6                   # !780
+    jal      ~min_caml_read_int            # !780
+    addi     %sp  %sp  -6                  # !780
+    lw       %ra  %sp  5                   # !780
+    addi     %r2  %zero  3                 # !782
+    flui     %f0  0                        # !782
+    fli      %f0  0                        # !782
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    sw %r1 %sp 0                           # !720
-    sw %r2 %sp 1                           # !720
-    sw %r5 %sp 2                           # !720
-    sw %r7 %sp 3                           # !720
-    sw %r6 %sp 4                           # !720
-    sw %r3 %sp 5                           # !720
-    sw %r4 %sp 6                           # !720
-    fsw %f0 %sp 7                          # !720
-    sw %r8 %sp 8                           # !720
-    movz %r1 %r8 %zero                     # !720
-    sw %ra %sp 9                           # !720
-    addi %sp %sp 10                        # !720
-    jal ~min_caml_create_float_array       # !720
-    addi %sp %sp -10                       # !720
-    lw %ra %sp 9                           # !720
-    setl %r2 ~min_caml_io_float            # !721
-    flw %f0 %r2 0                          # !721
-    fsw %f0 %r1 0                          # !721
-    addi %r3 %zero 1                       # !722
-    flw %f0 %r2 0                          # !722
-    fsw %f0 %r1 1                          # !722
-    addi %r4 %zero 2                       # !723
-    flw %f0 %r2 0                          # !723
-    fsw %f0 %r1 2                          # !723
-    flw %f0 %sp 7                          # !725
-    lw %r5 %sp 8                           # !725
-    sw %r1 %sp 9                           # !725
-    sw %r4 %sp 10                          # !725
-    sw %r3 %sp 11                          # !725
-    sw %r2 %sp 12                          # !725
-    movz %r1 %r5 %zero                     # !725
-    sw %ra %sp 13                          # !725
-    addi %sp %sp 14                        # !725
-    jal ~min_caml_create_float_array       # !725
-    addi %sp %sp -14                       # !725
-    lw %ra %sp 13                          # !725
-    flw %f0 %sp 12                         # !726
-    flw %f1 %f0 0                          # !726
-    fsw %f1 %r1 0                          # !726
-    flw %f1 %f0 0                          # !727
-    fsw %f1 %r1 1                          # !727
-    flw %f1 %f0 0                          # !728
-    fsw %f1 %r1 2                          # !728
-    flw %f1 %f0 0                          # !730
-    flw %f2 %sp 7                          # !730
-    fblt %f1 %f2 fblt_then.8617            # !730
-    lw %r2 %sp 6                           # !730
-    j ~fblt_cont.8618                      # !730
-fblt_then.8617:
-    lw %r2 %sp 11                          # !730
-fblt_cont.8618:
-    lw %r3 %sp 10                          # !732
-    sw %r1 %sp 13                          # !732
-    sw %r2 %sp 14                          # !732
-    movz %r1 %r3 %zero                     # !732
-    fmovz %f0 %f2 %zero                    # !732
-    sw %ra %sp 15                          # !732
-    addi %sp %sp 16                        # !732
-    jal ~min_caml_create_float_array       # !732
-    addi %sp %sp -16                       # !732
-    lw %ra %sp 15                          # !732
-    flw %f0 %sp 12                         # !733
-    flw %f1 %f0 0                          # !733
-    fsw %f1 %r1 0                          # !733
-    flw %f1 %f0 0                          # !734
-    fsw %f1 %r1 1                          # !734
-    flw %f1 %sp 7                          # !736
-    lw %r2 %sp 8                           # !736
-    sw %r1 %sp 15                          # !736
-    movz %r1 %r2 %zero                     # !736
-    fmovz %f0 %f1 %zero                    # !736
-    sw %ra %sp 16                          # !736
-    addi %sp %sp 17                        # !736
-    jal ~min_caml_create_float_array       # !736
-    addi %sp %sp -17                       # !736
-    lw %ra %sp 16                          # !736
-    flw %f0 %sp 12                         # !737
-    flw %f1 %f0 0                          # !737
-    fsw %f1 %r1 0                          # !737
-    flw %f1 %f0 0                          # !738
-    fsw %f1 %r1 1                          # !738
-    flw %f1 %f0 0                          # !739
-    fsw %f1 %r1 2                          # !739
-    flw %f1 %sp 7                          # !741
-    lw %r2 %sp 8                           # !741
-    sw %r1 %sp 16                          # !741
-    movz %r1 %r2 %zero                     # !741
-    fmovz %f0 %f1 %zero                    # !741
-    sw %ra %sp 17                          # !741
-    addi %sp %sp 18                        # !741
-    jal ~min_caml_create_float_array       # !741
-    addi %sp %sp -18                       # !741
-    lw %ra %sp 17                          # !741
-    lw %r2 %sp 6                           # !742
-    lw %r3 %sp 5                           # !742
-    beq %r3 %r2 beq_then.8619              # !742
-    flw %f0 %sp 12                         # !744
-    flw %f1 %f0 0                          # !744
-    sw %r1 %sp 17                          # !744
-    fmovz %f0 %f1 %zero                    # !744
-    sw %ra %sp 18                          # !744
-    addi %sp %sp 19                        # !744
-    jal ~rad.2527                          # !744
-    addi %sp %sp -19                       # !744
-    lw %ra %sp 18                          # !744
-    lw %r1 %sp 17                          # !744
-    fsw %f0 %r1 0                          # !744
-    flw %f0 %sp 12                         # !745
-    flw %f1 %f0 0                          # !745
-    fmovz %f0 %f1 %zero                    # !745
-    sw %ra %sp 18                          # !745
-    addi %sp %sp 19                        # !745
-    jal ~rad.2527                          # !745
-    addi %sp %sp -19                       # !745
-    lw %ra %sp 18                          # !745
-    lw %r1 %sp 17                          # !745
-    fsw %f0 %r1 1                          # !745
-    flw %f0 %sp 12                         # !746
-    flw %f0 %f0 0                          # !746
-    sw %ra %sp 18                          # !746
-    addi %sp %sp 19                        # !746
-    jal ~rad.2527                          # !746
-    addi %sp %sp -19                       # !746
-    lw %ra %sp 18                          # !746
-    lw %r1 %sp 17                          # !746
-    fsw %f0 %r1 2                          # !746
-    j ~beq_cont.8620                       # !742
-beq_then.8619:
-beq_cont.8620:
-    lw %r2 %sp 10                          # !753
-    lw %r3 %sp 4                           # !753
-    beq %r3 %r2 beq_then.8621              # !753
-    lw %r4 %sp 14                          # !753
-    j ~beq_cont.8622                       # !753
-beq_then.8621:
-    lw %r4 %sp 11                          # !753
-beq_cont.8622:
-    addi %r5 %zero 4                       # !754
-    flw %f0 %sp 7                          # !754
-    sw %r4 %sp 18                          # !754
-    sw %r1 %sp 17                          # !754
-    movz %r1 %r5 %zero                     # !754
-    sw %ra %sp 19                          # !754
-    addi %sp %sp 20                        # !754
-    jal ~min_caml_create_float_array       # !754
-    addi %sp %sp -20                       # !754
-    lw %ra %sp 19                          # !754
-    movz %r2 %hp %zero                     # !756
-    addi %hp %hp -11                       # !756
-    sw %r1 %r2 -10                         # !756
-    lw %r1 %sp 17                          # !756
-    sw %r1 %r2 -9                          # !756
-    lw %r3 %sp 16                          # !756
-    sw %r3 %r2 -8                          # !756
-    lw %r3 %sp 15                          # !756
-    sw %r3 %r2 -7                          # !756
-    lw %r3 %sp 18                          # !756
-    sw %r3 %r2 -6                          # !756
-    lw %r3 %sp 13                          # !756
-    sw %r3 %r2 -5                          # !756
-    lw %r3 %sp 9                           # !756
-    sw %r3 %r2 -4                          # !756
-    lw %r4 %sp 5                           # !756
-    sw %r4 %r2 -3                          # !756
-    lw %r5 %sp 3                           # !756
-    sw %r5 %r2 -2                          # !756
-    lw %r5 %sp 4                           # !756
-    sw %r5 %r2 -1                          # !756
-    lw %r6 %sp 2                           # !756
-    sw %r6 %r2 0                           # !756
-    lw %r6 %sp 0                           # !765
-    lw %r7 %sp 1                           # !765
-    swv %r2 %r7 %r6                        # !765
-    lw %r2 %sp 8                           # !767
-    beq %r5 %r2 beq_then.8623              # !767
-    lw %r2 %sp 10                          # !777
-    beq %r5 %r2 beq_then.8625              # !777
-    j ~beq_cont.8626                       # !777
-beq_then.8625:
-    lw %r2 %sp 6                           # !779
-    lw %r5 %sp 14                          # !779
-    beq %r5 %r2 beq_then.8627              # !779
-    movz %r5 %r2 %zero                     # !779
-    j ~beq_cont.8628                       # !779
-beq_then.8627:
-    lw %r5 %sp 11                          # !779
-beq_cont.8628:
-    movz %r2 %r5 %zero                     # !779
-    movz %r1 %r3 %zero                     # !779
-    sw %ra %sp 19                          # !779
-    addi %sp %sp 20                        # !779
-    jal ~vecunit_sgn.2431                  # !779
-    addi %sp %sp -20                       # !779
-    lw %ra %sp 19                          # !779
-beq_cont.8626:
-    j ~beq_cont.8624                       # !767
-beq_then.8623:
-    flw %f0 %r3 0                          # !770
-    flw %f1 %sp 7                          # !771
-    fbeq %f0 %f1 fbeq_then.8629            # !771
-    fsw %f0 %sp 19                         # !771
-    sw %ra %sp 20                          # !771
-    addi %sp %sp 21                        # !771
-    jal ~sgn.2410                          # !771
-    addi %sp %sp -21                       # !771
-    lw %ra %sp 20                          # !771
-    flw %f1 %sp 19                         # !771
-    fmul %f1 %f1 %f1                       # !771
-    fdiv %f0 %f0 %f1                       # !771
-    j ~fbeq_cont.8630                      # !771
-fbeq_then.8629:
-    fmovz %f0 %f1 %zero                    # !771
-fbeq_cont.8630:
-    lw %r1 %sp 9                           # !771
-    fsw %f0 %r1 0                          # !771
-    flw %f0 %r1 1                          # !772
-    flw %f1 %sp 7                          # !773
-    fbeq %f0 %f1 fbeq_then.8631            # !773
-    fsw %f0 %sp 20                         # !773
-    sw %ra %sp 21                          # !773
-    addi %sp %sp 22                        # !773
-    jal ~sgn.2410                          # !773
-    addi %sp %sp -22                       # !773
-    lw %ra %sp 21                          # !773
-    flw %f1 %sp 20                         # !773
-    fmul %f1 %f1 %f1                       # !773
-    fdiv %f0 %f0 %f1                       # !773
-    j ~fbeq_cont.8632                      # !773
-fbeq_then.8631:
-    fmovz %f0 %f1 %zero                    # !773
-fbeq_cont.8632:
-    lw %r1 %sp 9                           # !773
-    fsw %f0 %r1 1                          # !773
-    flw %f0 %r1 2                          # !774
-    flw %f1 %sp 7                          # !775
-    fbeq %f0 %f1 fbeq_then.8633            # !775
-    fsw %f0 %sp 21                         # !775
-    sw %ra %sp 22                          # !775
-    addi %sp %sp 23                        # !775
-    jal ~sgn.2410                          # !775
-    addi %sp %sp -23                       # !775
-    lw %ra %sp 22                          # !775
-    flw %f1 %sp 21                         # !775
-    fmul %f1 %f1 %f1                       # !775
-    fdiv %f0 %f0 %f1                       # !775
-    j ~fbeq_cont.8634                      # !775
-fbeq_then.8633:
-    fmovz %f0 %f1 %zero                    # !775
-fbeq_cont.8634:
-    lw %r1 %sp 9                           # !775
-    fsw %f0 %r1 2                          # !775
-beq_cont.8624:
-    lw %r1 %sp 6                           # !783
-    lw %r2 %sp 5                           # !783
-    beq %r2 %r1 beq_then.8635              # !783
-    lw %r1 %sp 9                           # !784
-    lw %r2 %sp 17                          # !784
-    sw %ra %sp 22                          # !784
-    addi %sp %sp 23                        # !784
-    jal ~rotate_quadratic_matrix.2533      # !784
-    addi %sp %sp -23                       # !784
-    lw %ra %sp 22                          # !784
-    j ~beq_cont.8636                       # !783
-beq_then.8635:
-beq_cont.8636:
-    lw %r1 %sp 11                          # !787
-    jr %ra                                 # !787
-beq_then.8616:
-    movz %r1 %r4 %zero                     # !790
-    jr %ra                                 # !790
-read_object.2538:
-    lw %r2 %r27 2                          # !794
-    lw %r3 %r27 1                          # !794
-    addi %r4 %zero 60                      # !795
-    blt %r1 %r4 blt_then.8637              # !795
-    jr %ra                                 # !800
-blt_then.8637:
-    sw %r27 %sp 0                          # !796
-    sw %r3 %sp 1                           # !796
-    sw %r1 %sp 2                           # !796
-    movz %r27 %r2 %zero                    # !796
-    sw %ra %sp 3                           # !796
-    addi %sp %sp 4                         # !796
-    lw %r28 %r27 0                         # !796
-    jalr %r28                              # !796
-    addi %sp %sp -4                        # !796
-    lw %ra %sp 3                           # !796
-    addi %r2 %zero 0                       # !796
-    beq %r1 %r2 beq_then.8639              # !796
-    lw %r1 %sp 2                           # !797
-    addi %r1 %r1 1                         # !797
-    lw %r27 %sp 0                          # !797
-    lw %r28 %r27 0                         # !797
-    jr %r28                                # !797
-beq_then.8639:
-    lw %r1 %sp 1                           # !799
-    lw %r2 %sp 2                           # !799
-    sw %r2 %r1 0                           # !799
-    jr %ra                                 # !799
-read_all_object.2540:
-    lw %r27 %r27 1                         # !803
-    addi %r1 %zero 0                       # !804
-    lw %r28 %r27 0                         # !804
-    jr %r28                                # !804
-read_net_item.2542:
-    setl %r2 ~min_caml_io_int              # !811
-    lw %r2 %r2 0                           # !811
-    addi %r3 %zero -1                      # !812
-    beq %r2 %r3 beq_then.8641              # !812
-    addi %r3 %r1 1                         # !814
-    sw %r1 %sp 0                           # !814
-    sw %r2 %sp 1                           # !814
-    movz %r1 %r3 %zero                     # !814
-    sw %ra %sp 2                           # !814
-    addi %sp %sp 3                         # !814
-    jal ~read_net_item.2542                # !814
-    addi %sp %sp -3                        # !814
-    lw %ra %sp 2                           # !814
-    lw %r2 %sp 0                           # !815
-    lw %r3 %sp 1                           # !815
-    swv %r3 %r1 %r2                        # !815
-    jr %ra                                 # !815
-beq_then.8641:
-    addi %r1 %r1 1                         # !812
-    movz %r2 %r3 %zero                     # !812
-    j ~min_caml_create_array               # !812
-read_or_network.2544:
-    addi %r2 %zero 0                       # !819
-    sw %r1 %sp 0                           # !819
-    movz %r1 %r2 %zero                     # !819
-    sw %ra %sp 1                           # !819
-    addi %sp %sp 2                         # !819
-    jal ~read_net_item.2542                # !819
-    addi %sp %sp -2                        # !819
-    lw %ra %sp 1                           # !819
-    movz %r2 %r1 %zero                     # !819
-    lw %r1 %r2 0                           # !820
-    addi %r3 %zero -1                      # !820
-    beq %r1 %r3 beq_then.8642              # !820
-    lw %r1 %sp 0                           # !823
-    addi %r3 %r1 1                         # !823
-    sw %r2 %sp 1                           # !823
-    movz %r1 %r3 %zero                     # !823
-    sw %ra %sp 2                           # !823
-    addi %sp %sp 3                         # !823
-    jal ~read_or_network.2544              # !823
-    addi %sp %sp -3                        # !823
-    lw %ra %sp 2                           # !823
-    lw %r2 %sp 0                           # !824
-    lw %r3 %sp 1                           # !824
-    swv %r3 %r1 %r2                        # !824
-    jr %ra                                 # !824
-beq_then.8642:
-    lw %r1 %sp 0                           # !821
-    addi %r1 %r1 1                         # !821
-    j ~min_caml_create_array               # !821
-read_and_network.2546:
-    lw %r2 %r27 1                          # !827
-    addi %r3 %zero 0                       # !828
-    sw %r27 %sp 0                          # !828
-    sw %r1 %sp 1                           # !828
-    sw %r2 %sp 2                           # !828
-    movz %r1 %r3 %zero                     # !828
-    sw %ra %sp 3                           # !828
-    addi %sp %sp 4                         # !828
-    jal ~read_net_item.2542                # !828
-    addi %sp %sp -4                        # !828
-    lw %ra %sp 3                           # !828
-    lw %r2 %r1 0                           # !829
-    addi %r3 %zero -1                      # !829
-    beq %r2 %r3 beq_then.8643              # !829
-    lw %r2 %sp 1                           # !831
-    lw %r3 %sp 2                           # !831
-    swv %r1 %r3 %r2                        # !831
-    addi %r1 %r2 1                         # !832
-    lw %r27 %sp 0                          # !832
-    lw %r28 %r27 0                         # !832
-    jr %r28                                # !832
-beq_then.8643:
-    jr %ra                                 # !829
-read_parameter.2548:
-    lw %r1 %r27 5                          # !836
-    lw %r2 %r27 4                          # !836
-    lw %r3 %r27 3                          # !836
-    lw %r4 %r27 2                          # !836
-    lw %r5 %r27 1                          # !836
-    sw %r5 %sp 0                           # !838
-    sw %r3 %sp 1                           # !838
-    sw %r4 %sp 2                           # !838
-    sw %r2 %sp 3                           # !838
-    movz %r27 %r1 %zero                    # !838
-    sw %ra %sp 4                           # !838
-    addi %sp %sp 5                         # !838
-    lw %r28 %r27 0                         # !838
-    jalr %r28                              # !838
-    addi %sp %sp -5                        # !838
-    lw %ra %sp 4                           # !838
-    lw %r27 %sp 3                          # !839
-    sw %ra %sp 4                           # !839
-    addi %sp %sp 5                         # !839
-    lw %r28 %r27 0                         # !839
-    jalr %r28                              # !839
-    addi %sp %sp -5                        # !839
-    lw %ra %sp 4                           # !839
-    lw %r27 %sp 2                          # !840
-    sw %ra %sp 4                           # !840
-    addi %sp %sp 5                         # !840
-    lw %r28 %r27 0                         # !840
-    jalr %r28                              # !840
-    addi %sp %sp -5                        # !840
-    lw %ra %sp 4                           # !840
-    addi %r1 %zero 0                       # !841
-    lw %r27 %sp 1                          # !841
-    sw %r1 %sp 4                           # !841
-    sw %ra %sp 5                           # !841
-    addi %sp %sp 6                         # !841
-    lw %r28 %r27 0                         # !841
-    jalr %r28                              # !841
-    addi %sp %sp -6                        # !841
-    lw %ra %sp 5                           # !841
-    lw %r1 %sp 4                           # !842
-    sw %ra %sp 5                           # !842
-    addi %sp %sp 6                         # !842
-    jal ~read_or_network.2544              # !842
-    addi %sp %sp -6                        # !842
-    lw %ra %sp 5                           # !842
-    lw %r2 %sp 0                           # !842
-    sw %r1 %r2 0                           # !842
-    jr %ra                                 # !842
-solver_rect_surface.2550:
-    lw %r6 %r27 1                          # !861
-    flwv %f3 %r2 %r3                       # !862
-    flui %f4 0                             # !862
-    fli %f4 0                              # !862
-    ++
-    fli 0.000000
-    => flui %f4 0b00000000000
-       fli  %f4 0b000000000000000000000
-    ++
-    fbeq %f3 %f4 fbeq_then.8646            # !862
-    sw %r6 %sp 0                           # !863
-    fsw %f2 %sp 1                          # !863
-    sw %r5 %sp 2                           # !863
-    fsw %f1 %sp 3                          # !863
-    sw %r4 %sp 4                           # !863
-    fsw %f0 %sp 5                          # !863
-    fsw %f4 %sp 6                          # !863
-    sw %r3 %sp 7                           # !863
-    sw %r2 %sp 8                           # !863
-    sw %r1 %sp 9                           # !863
-    sw %ra %sp 10                          # !863
-    addi %sp %sp 11                        # !863
-    jal ~o_param_abc.2472                  # !863
-    addi %sp %sp -11                       # !863
-    lw %ra %sp 10                          # !863
-    lw %r2 %sp 9                           # !864
-    sw %r1 %sp 10                          # !864
-    movz %r1 %r2 %zero                     # !864
-    sw %ra %sp 11                          # !864
-    addi %sp %sp 12                        # !864
-    jal ~o_isinvert.2462                   # !864
-    addi %sp %sp -12                       # !864
-    lw %ra %sp 11                          # !864
-    lw %r2 %sp 7                           # !864
-    flw %f0 %sp 8                          # !864
-    flwv %f1 %f0 %r2                       # !864
-    flw %f2 %sp 6                          # !864
-    fblt %f1 %f2 fblt_then.8647            # !864
-    addi %r3 %zero 0                       # !864
-    j ~fblt_cont.8648                      # !864
-fblt_then.8647:
-    addi %r3 %zero 1                       # !864
-fblt_cont.8648:
-    movz %r2 %r3 %zero                     # !864
-    sw %ra %sp 11                          # !864
-    addi %sp %sp 12                        # !864
-    jal ~xor.2407                          # !864
-    addi %sp %sp -12                       # !864
-    lw %ra %sp 11                          # !864
-    lw %r2 %sp 7                           # !864
-    flw %f0 %sp 10                         # !864
-    flwv %f1 %f0 %r2                       # !864
-    fmovz %f0 %f1 %zero                    # !864
-    sw %ra %sp 11                          # !864
-    addi %sp %sp 12                        # !864
-    jal ~fneg_cond.2412                    # !864
-    addi %sp %sp -12                       # !864
-    lw %ra %sp 11                          # !864
-    flw %f1 %sp 5                          # !866
-    fsub %f0 %f0 %f1                       # !866
-    lw %r1 %sp 7                           # !866
-    flw %f1 %sp 8                          # !866
-    flwv %f2 %f1 %r1                       # !866
-    fdiv %f0 %f0 %f2                       # !866
-    lw %r1 %sp 4                           # !867
-    flw %f2 %sp 10                         # !867
-    flwv %f3 %f2 %r1                       # !867
-    flwv %f4 %f1 %r1                       # !867
-    fmul %f4 %f4 %f0                       # !867
-    flw %f5 %sp 3                          # !867
-    fadd %f4 %f4 %f5                       # !867
-    fabs %f4 %f4                           # !867
-    fblt %f4 %f3 fblt_then.8649            # !867
-    addi %r1 %zero 0                       # !871
-    jr %ra                                 # !871
-fblt_then.8649:
-    lw %r1 %sp 2                           # !868
-    flwv %f2 %f2 %r1                       # !868
-    flwv %f1 %f1 %r1                       # !868
-    fmul %f1 %f1 %f0                       # !868
-    flw %f3 %sp 1                          # !868
-    fadd %f1 %f1 %f3                       # !868
-    fabs %f1 %f1                           # !868
-    fblt %f1 %f2 fblt_then.8650            # !868
-    addi %r1 %zero 0                       # !870
-    jr %ra                                 # !870
-fblt_then.8650:
-    lw %r1 %sp 0                           # !869
-    fsw %f0 %r1 0                          # !869
-    addi %r1 %zero 1                       # !869
-    jr %ra                                 # !869
-fbeq_then.8646:
-    addi %r1 %zero 0                       # !862
-    jr %ra                                 # !862
-solver_rect.2559:
-    lw %r27 %r27 1                         # !876
-    addi %r3 %zero 0                       # !877
-    addi %r4 %zero 1                       # !877
-    addi %r5 %zero 2                       # !877
-    fsw %f0 %sp 0                          # !877
-    fsw %f2 %sp 1                          # !877
-    fsw %f1 %sp 2                          # !877
-    sw %r5 %sp 3                           # !877
-    sw %r4 %sp 4                           # !877
-    sw %r2 %sp 5                           # !877
-    sw %r1 %sp 6                           # !877
-    sw %r27 %sp 7                          # !877
-    sw %r3 %sp 8                           # !877
-    sw %ra %sp 9                           # !877
-    addi %sp %sp 10                        # !877
-    lw %r28 %r27 0                         # !877
-    jalr %r28                              # !877
-    addi %sp %sp -10                       # !877
-    lw %ra %sp 9                           # !877
-    lw %r5 %sp 8                           # !877
-    beq %r1 %r5 beq_then.8651              # !877
-    lw %r1 %sp 4                           # !877
-    jr %ra                                 # !877
-beq_then.8651:
-    flw %f0 %sp 2                          # !878
-    flw %f1 %sp 1                          # !878
-    flw %f2 %sp 0                          # !878
-    lw %r1 %sp 6                           # !878
-    lw %r2 %sp 5                           # !878
-    lw %r3 %sp 4                           # !878
-    lw %r4 %sp 3                           # !878
-    lw %r27 %sp 7                          # !878
-    sw %ra %sp 9                           # !878
-    addi %sp %sp 10                        # !878
-    lw %r28 %r27 0                         # !878
-    jalr %r28                              # !878
-    addi %sp %sp -10                       # !878
-    lw %ra %sp 9                           # !878
-    lw %r4 %sp 8                           # !878
-    beq %r1 %r4 beq_then.8652              # !878
-    lw %r1 %sp 3                           # !878
-    jr %ra                                 # !878
-beq_then.8652:
-    flw %f0 %sp 1                          # !879
-    flw %f1 %sp 0                          # !879
-    flw %f2 %sp 2                          # !879
-    lw %r1 %sp 6                           # !879
-    lw %r2 %sp 5                           # !879
-    lw %r3 %sp 3                           # !879
-    lw %r5 %sp 4                           # !879
-    lw %r27 %sp 7                          # !879
-    sw %ra %sp 9                           # !879
-    addi %sp %sp 10                        # !879
-    lw %r28 %r27 0                         # !879
-    jalr %r28                              # !879
-    addi %sp %sp -10                       # !879
-    lw %ra %sp 9                           # !879
-    lw %r2 %sp 8                           # !879
-    beq %r1 %r2 beq_then.8653              # !879
-    addi %r1 %zero 3                       # !879
-    jr %ra                                 # !879
-beq_then.8653:
-    movz %r1 %r2 %zero                     # !880
-    jr %ra                                 # !880
-solver_surface.2565:
-    lw %r3 %r27 1                          # !885
-    sw %r3 %sp 0                           # !888
-    fsw %f2 %sp 1                          # !888
-    fsw %f1 %sp 2                          # !888
-    fsw %f0 %sp 3                          # !888
-    sw %r2 %sp 4                           # !888
-    sw %ra %sp 5                           # !888
-    addi %sp %sp 6                         # !888
-    jal ~o_param_abc.2472                  # !888
-    addi %sp %sp -6                        # !888
-    lw %ra %sp 5                           # !888
-    movz %r2 %r1 %zero                     # !888
-    lw %r1 %sp 4                           # !889
-    sw %r2 %sp 5                           # !889
-    sw %ra %sp 6                           # !889
-    addi %sp %sp 7                         # !889
-    jal ~veciprod.2434                     # !889
-    addi %sp %sp -7                        # !889
-    lw %ra %sp 6                           # !889
-    flui %f1 0                             # !890
-    fli %f1 0                              # !890
-    ++
-    fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
-    ++
-    fblt %f1 %f0 fblt_then.8654            # !890
-    addi %r1 %zero 0                       # !893
-    jr %ra                                 # !893
-fblt_then.8654:
-    flw %f1 %sp 3                          # !891
-    flw %f2 %sp 2                          # !891
-    flw %f3 %sp 1                          # !891
-    lw %r1 %sp 5                           # !891
-    fsw %f0 %sp 6                          # !891
-    fmovz %f0 %f1 %zero                    # !891
-    fmovz %f1 %f2 %zero                    # !891
-    fmovz %f2 %f3 %zero                    # !891
-    sw %ra %sp 7                           # !891
-    addi %sp %sp 8                         # !891
-    jal ~veciprod2.2437                    # !891
-    addi %sp %sp -8                        # !891
-    lw %ra %sp 7                           # !891
-    fneg %f0 %f0                           # !891
-    flw %f1 %sp 6                          # !891
-    fdiv %f0 %f0 %f1                       # !891
-    lw %r1 %sp 0                           # !891
-    fsw %f0 %r1 0                          # !891
-    addi %r1 %zero 1                       # !892
-    jr %ra                                 # !892
-quadratic.2571:
-    fmul %f3 %f0 %f0                       # !901
-    fsw %f0 %sp 0                          # !901
-    fsw %f2 %sp 1                          # !901
-    sw %r1 %sp 2                           # !901
-    fsw %f1 %sp 3                          # !901
-    fsw %f3 %sp 4                          # !901
-    sw %ra %sp 5                           # !901
-    addi %sp %sp 6                         # !901
-    jal ~o_param_a.2466                    # !901
-    addi %sp %sp -6                        # !901
-    lw %ra %sp 5                           # !901
-    flw %f1 %sp 4                          # !901
-    fmul %f0 %f1 %f0                       # !901
-    flw %f1 %sp 3                          # !901
-    fmul %f2 %f1 %f1                       # !901
-    lw %r1 %sp 2                           # !901
-    fsw %f0 %sp 5                          # !901
-    fsw %f2 %sp 6                          # !901
-    sw %ra %sp 7                           # !901
-    addi %sp %sp 8                         # !901
-    jal ~o_param_b.2468                    # !901
-    addi %sp %sp -8                        # !901
-    lw %ra %sp 7                           # !901
-    flw %f1 %sp 6                          # !901
-    fmul %f0 %f1 %f0                       # !901
-    flw %f1 %sp 5                          # !901
-    fadd %f0 %f1 %f0                       # !901
-    flw %f1 %sp 1                          # !901
-    fmul %f2 %f1 %f1                       # !901
-    lw %r1 %sp 2                           # !901
-    fsw %f0 %sp 7                          # !901
-    fsw %f2 %sp 8                          # !901
-    sw %ra %sp 9                           # !901
-    addi %sp %sp 10                        # !901
-    jal ~o_param_c.2470                    # !901
-    addi %sp %sp -10                       # !901
-    lw %ra %sp 9                           # !901
-    flw %f1 %sp 8                          # !901
-    fmul %f0 %f1 %f0                       # !901
-    flw %f1 %sp 7                          # !901
-    fadd %f0 %f1 %f0                       # !901
-    lw %r1 %sp 2                           # !903
-    fsw %f0 %sp 9                          # !903
-    sw %ra %sp 10                          # !903
-    addi %sp %sp 11                        # !903
-    jal ~o_isrot.2464                      # !903
-    addi %sp %sp -11                       # !903
-    lw %ra %sp 10                          # !903
-    addi %r2 %zero 0                       # !903
-    beq %r1 %r2 beq_then.8655              # !903
-    flw %f0 %sp 1                          # !907
-    flw %f1 %sp 3                          # !907
-    fmul %f2 %f1 %f0                       # !907
-    lw %r1 %sp 2                           # !907
-    fsw %f2 %sp 10                         # !907
-    sw %ra %sp 11                          # !907
-    addi %sp %sp 12                        # !907
-    jal ~o_param_r1.2490                   # !907
-    addi %sp %sp -12                       # !907
-    lw %ra %sp 11                          # !907
-    flw %f1 %sp 10                         # !907
-    fmul %f0 %f1 %f0                       # !907
-    flw %f1 %sp 9                          # !906
-    fadd %f0 %f0 %f1                       # !906
-    flw %f1 %sp 1                          # !908
-    flw %f2 %sp 0                          # !908
-    fmul %f1 %f2 %f1                       # !908
-    lw %r1 %sp 2                           # !908
-    fsw %f0 %sp 11                         # !908
-    fsw %f1 %sp 12                         # !908
-    sw %ra %sp 13                          # !908
-    addi %sp %sp 14                        # !908
-    jal ~o_param_r2.2492                   # !908
-    addi %sp %sp -14                       # !908
-    lw %ra %sp 13                          # !908
-    flw %f1 %sp 12                         # !908
-    fmul %f0 %f1 %f0                       # !908
-    flw %f1 %sp 11                         # !906
-    fadd %f0 %f1 %f0                       # !906
-    flw %f1 %sp 3                          # !909
-    flw %f2 %sp 0                          # !909
-    fmul %f1 %f2 %f1                       # !909
-    lw %r1 %sp 2                           # !909
-    fsw %f0 %sp 13                         # !909
-    fsw %f1 %sp 14                         # !909
-    sw %ra %sp 15                          # !909
-    addi %sp %sp 16                        # !909
-    jal ~o_param_r3.2494                   # !909
-    addi %sp %sp -16                       # !909
-    lw %ra %sp 15                          # !909
-    flw %f1 %sp 14                         # !909
-    fmul %f0 %f1 %f0                       # !909
-    flw %f1 %sp 13                         # !906
-    fadd %f0 %f1 %f0                       # !906
-    jr %ra                                 # !906
-beq_then.8655:
-    flw %f0 %sp 9                          # !904
-    jr %ra                                 # !904
-bilinear.2576:
-    fmul %f6 %f0 %f3                       # !915
-    fsw %f3 %sp 0                          # !915
-    fsw %f0 %sp 1                          # !915
-    fsw %f5 %sp 2                          # !915
-    fsw %f2 %sp 3                          # !915
-    sw %r1 %sp 4                           # !915
-    fsw %f4 %sp 5                          # !915
-    fsw %f1 %sp 6                          # !915
-    fsw %f6 %sp 7                          # !915
-    sw %ra %sp 8                           # !915
-    addi %sp %sp 9                         # !915
-    jal ~o_param_a.2466                    # !915
-    addi %sp %sp -9                        # !915
-    lw %ra %sp 8                           # !915
-    flw %f1 %sp 7                          # !915
-    fmul %f0 %f1 %f0                       # !915
-    flw %f1 %sp 5                          # !916
-    flw %f2 %sp 6                          # !916
-    fmul %f3 %f2 %f1                       # !916
-    lw %r1 %sp 4                           # !916
-    fsw %f0 %sp 8                          # !916
-    fsw %f3 %sp 9                          # !916
-    sw %ra %sp 10                          # !916
-    addi %sp %sp 11                        # !916
-    jal ~o_param_b.2468                    # !916
-    addi %sp %sp -11                       # !916
-    lw %ra %sp 10                          # !916
-    flw %f1 %sp 9                          # !916
-    fmul %f0 %f1 %f0                       # !916
-    flw %f1 %sp 8                          # !915
-    fadd %f0 %f1 %f0                       # !915
-    flw %f1 %sp 2                          # !917
-    flw %f2 %sp 3                          # !917
-    fmul %f3 %f2 %f1                       # !917
-    lw %r1 %sp 4                           # !917
-    fsw %f0 %sp 10                         # !917
-    fsw %f3 %sp 11                         # !917
-    sw %ra %sp 12                          # !917
-    addi %sp %sp 13                        # !917
-    jal ~o_param_c.2470                    # !917
-    addi %sp %sp -13                       # !917
-    lw %ra %sp 12                          # !917
-    flw %f1 %sp 11                         # !917
-    fmul %f0 %f1 %f0                       # !917
-    flw %f1 %sp 10                         # !915
-    fadd %f0 %f1 %f0                       # !915
-    lw %r1 %sp 4                           # !919
-    fsw %f0 %sp 12                         # !919
-    sw %ra %sp 13                          # !919
-    addi %sp %sp 14                        # !919
-    jal ~o_isrot.2464                      # !919
-    addi %sp %sp -14                       # !919
-    lw %ra %sp 13                          # !919
-    addi %r2 %zero 0                       # !919
-    beq %r1 %r2 beq_then.8656              # !919
-    flw %f0 %sp 5                          # !923
-    flw %f1 %sp 3                          # !923
-    fmul %f2 %f1 %f0                       # !923
-    flw %f3 %sp 2                          # !923
-    flw %f4 %sp 6                          # !923
-    fmul %f5 %f4 %f3                       # !923
-    fadd %f2 %f2 %f5                       # !923
-    lw %r1 %sp 4                           # !923
-    fsw %f2 %sp 13                         # !923
-    sw %ra %sp 14                          # !923
-    addi %sp %sp 15                        # !923
-    jal ~o_param_r1.2490                   # !923
-    addi %sp %sp -15                       # !923
-    lw %ra %sp 14                          # !923
-    flw %f1 %sp 13                         # !923
-    fmul %f0 %f1 %f0                       # !923
-    flw %f1 %sp 2                          # !924
-    flw %f2 %sp 1                          # !924
-    fmul %f1 %f2 %f1                       # !924
-    flw %f3 %sp 0                          # !924
-    flw %f4 %sp 3                          # !924
-    fmul %f4 %f4 %f3                       # !924
-    fadd %f1 %f1 %f4                       # !924
-    lw %r1 %sp 4                           # !924
-    fsw %f0 %sp 14                         # !924
-    fsw %f1 %sp 15                         # !924
-    sw %ra %sp 16                          # !924
-    addi %sp %sp 17                        # !924
-    jal ~o_param_r2.2492                   # !924
-    addi %sp %sp -17                       # !924
-    lw %ra %sp 16                          # !924
-    flw %f1 %sp 15                         # !924
-    fmul %f0 %f1 %f0                       # !924
-    flw %f1 %sp 14                         # !923
-    fadd %f0 %f1 %f0                       # !923
-    flw %f1 %sp 5                          # !925
-    flw %f2 %sp 1                          # !925
-    fmul %f1 %f2 %f1                       # !925
-    flw %f2 %sp 0                          # !925
-    flw %f3 %sp 6                          # !925
-    fmul %f2 %f3 %f2                       # !925
-    fadd %f1 %f1 %f2                       # !925
-    lw %r1 %sp 4                           # !925
-    fsw %f0 %sp 16                         # !925
-    fsw %f1 %sp 17                         # !925
-    sw %ra %sp 18                          # !925
-    addi %sp %sp 19                        # !925
-    jal ~o_param_r3.2494                   # !925
-    addi %sp %sp -19                       # !925
-    lw %ra %sp 18                          # !925
-    flw %f1 %sp 17                         # !925
-    fmul %f0 %f1 %f0                       # !925
-    flw %f1 %sp 16                         # !923
-    fadd %f0 %f1 %f0                       # !923
-    flui %f1 504                           # !922
-    fli %f1 0                              # !922
-    ++
-    fli 0.500000
-    => flui %f1 0b00111111000
-       fli  %f1 0b000000000000000000000
-    ++
-    fmul %f0 %f0 %f1                       # !922
-    flw %f1 %sp 12                         # !922
-    fadd %f0 %f0 %f1                       # !922
-    jr %ra                                 # !922
-beq_then.8656:
-    flw %f0 %sp 12                         # !920
-    jr %ra                                 # !920
-solver_second.2584:
-    lw %r3 %r27 1                          # !936
-    addi %r4 %zero 0                       # !940
-    flw %f3 %r2 0                          # !940
-    addi %r5 %zero 1                       # !940
-    flw %f4 %r2 1                          # !940
-    flw %f5 %r2 2                          # !940
-    sw %r5 %sp 0                           # !940
-    sw %r3 %sp 1                           # !940
-    fsw %f2 %sp 2                          # !940
-    fsw %f1 %sp 3                          # !940
-    fsw %f0 %sp 4                          # !940
-    sw %r1 %sp 5                           # !940
-    sw %r2 %sp 6                           # !940
-    sw %r4 %sp 7                           # !940
-    fmovz %f2 %f5 %zero                    # !940
-    fmovz %f1 %f4 %zero                    # !940
-    fmovz %f0 %f3 %zero                    # !940
-    sw %ra %sp 8                           # !940
-    addi %sp %sp 9                         # !940
-    jal ~quadratic.2571                    # !940
-    addi %sp %sp -9                        # !940
-    lw %ra %sp 8                           # !940
-    flui %f1 0                             # !942
-    fli %f1 0                              # !942
-    ++
-    fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
-    ++
-    fbeq %f0 %f1 fbeq_then.8657            # !942
-    flw %f2 %sp 6                          # !947
-    flw %f3 %f2 0                          # !947
-    flw %f4 %f2 1                          # !947
-    flw %f2 %f2 2                          # !947
-    flw %f5 %sp 4                          # !947
-    flw %f6 %sp 3                          # !947
-    flw %f7 %sp 2                          # !947
-    lw %r1 %sp 5                           # !947
-    fsw %f1 %sp 8                          # !947
-    fsw %f0 %sp 9                          # !947
-    fmovz %f1 %f4 %zero                    # !947
-    fmovz %f0 %f3 %zero                    # !947
-    fmovz %f4 %f6 %zero                    # !947
-    fmovz %f3 %f5 %zero                    # !947
-    fmovz %f5 %f7 %zero                    # !947
-    sw %ra %sp 10                          # !947
-    addi %sp %sp 11                        # !947
-    jal ~bilinear.2576                     # !947
-    addi %sp %sp -11                       # !947
-    lw %ra %sp 10                          # !947
-    flw %f1 %sp 4                          # !949
-    flw %f2 %sp 3                          # !949
-    flw %f3 %sp 2                          # !949
-    lw %r1 %sp 5                           # !949
-    fsw %f0 %sp 10                         # !949
-    fmovz %f0 %f1 %zero                    # !949
-    fmovz %f1 %f2 %zero                    # !949
-    fmovz %f2 %f3 %zero                    # !949
-    sw %ra %sp 11                          # !949
-    addi %sp %sp 12                        # !949
-    jal ~quadratic.2571                    # !949
-    addi %sp %sp -12                       # !949
-    lw %ra %sp 11                          # !949
-    lw %r1 %sp 5                           # !950
-    fsw %f0 %sp 11                         # !950
-    sw %ra %sp 12                          # !950
-    addi %sp %sp 13                        # !950
-    jal ~o_form.2458                       # !950
-    addi %sp %sp -13                       # !950
-    lw %ra %sp 12                          # !950
-    addi %r2 %zero 3                       # !950
-    beq %r1 %r2 beq_then.8658              # !950
-    flw %f0 %sp 11                         # !950
-    j ~beq_cont.8659                       # !950
-beq_then.8658:
-    flui %f0 508                           # !950
-    fli %f0 0                              # !950
-    ++
-    fli 1.000000
-    => flui %f0 0b00111111100
-       fli  %f0 0b000000000000000000000
-    ++
-    flw %f1 %sp 11                         # !950
-    fsub %f0 %f1 %f0                       # !950
-beq_cont.8659:
-    flw %f1 %sp 10                         # !952
-    fmul %f2 %f1 %f1                       # !952
-    flw %f3 %sp 9                          # !952
-    fmul %f0 %f3 %f0                       # !952
-    fsub %f0 %f2 %f0                       # !952
-    flw %f2 %sp 8                          # !954
-    fblt %f2 %f0 fblt_then.8660            # !954
-    lw %r1 %sp 7                           # !960
-    jr %ra                                 # !960
-fblt_then.8660:
-    fsqrt %f0 %f0                          # !955
-    lw %r1 %sp 5                           # !956
-    fsw %f0 %sp 12                         # !956
-    sw %ra %sp 13                          # !956
-    addi %sp %sp 14                        # !956
-    jal ~o_isinvert.2462                   # !956
-    addi %sp %sp -14                       # !956
-    lw %ra %sp 13                          # !956
-    lw %r2 %sp 7                           # !956
-    beq %r1 %r2 beq_then.8661              # !956
-    flw %f0 %sp 12                         # !956
-    j ~beq_cont.8662                       # !956
-beq_then.8661:
-    flw %f0 %sp 12                         # !956
-    fneg %f0 %f0                           # !956
-beq_cont.8662:
-    flw %f1 %sp 10                         # !957
-    fsub %f0 %f0 %f1                       # !957
-    flw %f1 %sp 9                          # !957
-    fdiv %f0 %f0 %f1                       # !957
-    lw %r1 %sp 1                           # !957
-    fsw %f0 %r1 0                          # !957
-    lw %r1 %sp 0                           # !957
-    jr %ra                                 # !957
-fbeq_then.8657:
-    lw %r1 %sp 7                           # !943
-    jr %ra                                 # !943
-solver.2590:
-    lw %r4 %r27 4                          # !965
-    lw %r5 %r27 3                          # !965
-    lw %r6 %r27 2                          # !965
-    lw %r7 %r27 1                          # !965
-    lwv %r1 %r7 %r1                        # !966
-    flw %f0 %r3 0                          # !968
-    sw %r5 %sp 0                           # !968
-    sw %r4 %sp 1                           # !968
-    sw %r2 %sp 2                           # !968
-    sw %r6 %sp 3                           # !968
-    sw %r1 %sp 4                           # !968
-    sw %r3 %sp 5                           # !968
-    fsw %f0 %sp 6                          # !968
-    sw %ra %sp 7                           # !968
-    addi %sp %sp 8                         # !968
-    jal ~o_param_x.2474                    # !968
-    addi %sp %sp -8                        # !968
-    lw %ra %sp 7                           # !968
-    flw %f1 %sp 6                          # !968
-    fsub %f0 %f1 %f0                       # !968
-    addi %r1 %zero 1                       # !969
-    flw %f1 %sp 5                          # !969
-    flw %f2 %f1 1                          # !969
-    lw %r2 %sp 4                           # !969
-    fsw %f0 %sp 7                          # !969
-    sw %r1 %sp 8                           # !969
-    fsw %f2 %sp 9                          # !969
-    movz %r1 %r2 %zero                     # !969
-    sw %ra %sp 10                          # !969
-    addi %sp %sp 11                        # !969
-    jal ~o_param_y.2476                    # !969
-    addi %sp %sp -11                       # !969
-    lw %ra %sp 10                          # !969
-    flw %f1 %sp 9                          # !969
-    fsub %f0 %f1 %f0                       # !969
-    addi %r1 %zero 2                       # !970
-    flw %f1 %sp 5                          # !970
-    flw %f1 %f1 2                          # !970
-    lw %r2 %sp 4                           # !970
-    sw %r1 %sp 10                          # !970
-    fsw %f0 %sp 11                         # !970
-    fsw %f1 %sp 12                         # !970
-    movz %r1 %r2 %zero                     # !970
-    sw %ra %sp 13                          # !970
-    addi %sp %sp 14                        # !970
-    jal ~o_param_z.2478                    # !970
-    addi %sp %sp -14                       # !970
-    lw %ra %sp 13                          # !970
-    flw %f1 %sp 12                         # !970
-    fsub %f0 %f1 %f0                       # !970
-    lw %r1 %sp 4                           # !971
-    fsw %f0 %sp 13                         # !971
-    sw %ra %sp 14                          # !971
-    addi %sp %sp 15                        # !971
-    jal ~o_form.2458                       # !971
-    addi %sp %sp -15                       # !971
-    lw %ra %sp 14                          # !971
-    lw %r2 %sp 8                           # !973
-    beq %r1 %r2 beq_then.8663              # !973
-    lw %r2 %sp 10                          # !974
-    beq %r1 %r2 beq_then.8664              # !974
-    flw %f0 %sp 7                          # !975
-    flw %f1 %sp 11                         # !975
-    flw %f2 %sp 13                         # !975
-    lw %r1 %sp 4                           # !975
-    lw %r2 %sp 2                           # !975
-    lw %r27 %sp 0                          # !975
-    lw %r28 %r27 0                         # !975
-    jr %r28                                # !975
-beq_then.8664:
-    flw %f0 %sp 7                          # !974
-    flw %f1 %sp 11                         # !974
-    flw %f2 %sp 13                         # !974
-    lw %r1 %sp 4                           # !974
-    lw %r2 %sp 2                           # !974
-    lw %r27 %sp 1                          # !974
-    lw %r28 %r27 0                         # !974
-    jr %r28                                # !974
-beq_then.8663:
-    flw %f0 %sp 7                          # !973
-    flw %f1 %sp 11                         # !973
-    flw %f2 %sp 13                         # !973
-    lw %r1 %sp 4                           # !973
-    lw %r2 %sp 2                           # !973
-    lw %r27 %sp 3                          # !973
-    lw %r28 %r27 0                         # !973
-    jr %r28                                # !973
-solver_rect_fast.2594:
-    lw %r4 %r27 1                          # !997
-    addi %r5 %zero 0                       # !998
-    flw %f3 %r3 0                          # !998
-    fsub %f3 %f3 %f0                       # !998
-    addi %r6 %zero 1                       # !998
-    flw %f4 %r3 1                          # !998
-    fmul %f3 %f3 %f4                       # !998
-    sw %r4 %sp 0                           # !1000
-    fsw %f0 %sp 1                          # !1000
-    sw %r6 %sp 2                           # !1000
-    sw %r3 %sp 3                           # !1000
-    fsw %f2 %sp 4                          # !1000
-    sw %r1 %sp 5                           # !1000
-    sw %r5 %sp 6                           # !1000
-    fsw %f1 %sp 7                          # !1000
-    fsw %f3 %sp 8                          # !1000
-    sw %r2 %sp 9                           # !1000
-    sw %ra %sp 10                          # !1000
-    addi %sp %sp 11                        # !1000
-    jal ~o_param_b.2468                    # !1000
-    addi %sp %sp -11                       # !1000
-    lw %ra %sp 10                          # !1000
-    flw %f1 %sp 9                          # !1000
-    flw %f2 %f1 1                          # !1000
-    flw %f3 %sp 8                          # !1000
-    fmul %f2 %f2 %f3                       # !1000
-    flw %f4 %sp 7                          # !1000
-    fadd %f2 %f2 %f4                       # !1000
-    fabs %f2 %f2                           # !1000
-    fblt %f2 %f0 fblt_then.8665            # !1000
-    lw %r1 %sp 6                           # !1004
-    j ~fblt_cont.8666                      # !1000
-fblt_then.8665:
-    lw %r1 %sp 5                           # !1001
-    sw %ra %sp 10                          # !1001
-    addi %sp %sp 11                        # !1001
-    jal ~o_param_c.2470                    # !1001
-    addi %sp %sp -11                       # !1001
-    lw %ra %sp 10                          # !1001
-    flw %f1 %sp 9                          # !1001
-    flw %f2 %f1 2                          # !1001
-    flw %f3 %sp 8                          # !1001
-    fmul %f2 %f2 %f3                       # !1001
-    flw %f4 %sp 4                          # !1001
-    fadd %f2 %f2 %f4                       # !1001
-    fabs %f2 %f2                           # !1001
-    fblt %f2 %f0 fblt_then.8667            # !1001
-    lw %r1 %sp 6                           # !1003
-    j ~fblt_cont.8668                      # !1001
-fblt_then.8667:
-    flw %f0 %sp 3                          # !1002
-    flw %f2 %f0 1                          # !1002
-    flui %f5 0                             # !1002
-    fli %f5 0                              # !1002
-    ++
-    fli 0.000000
-    => flui %f5 0b00000000000
-       fli  %f5 0b000000000000000000000
-    ++
-    fbeq %f2 %f5 fbeq_then.8669            # !1002
-    lw %r1 %sp 2                           # !1002
-    j ~fbeq_cont.8670                      # !1002
-fbeq_then.8669:
-    lw %r1 %sp 6                           # !1002
-fbeq_cont.8670:
-fblt_cont.8668:
-fblt_cont.8666:
-    lw %r2 %sp 6                           # !999
-    beq %r1 %r2 beq_then.8671              # !999
-    lw %r1 %sp 0                           # !1006
-    fsw %f3 %r1 0                          # !1006
-    lw %r1 %sp 2                           # !1006
-    jr %ra                                 # !1006
-beq_then.8671:
-    addi %r1 %zero 2                       # !1007
-    flw %f0 %sp 3                          # !1007
-    flw %f2 %f0 2                          # !1007
-    flw %f3 %sp 7                          # !1007
-    fsub %f2 %f2 %f3                       # !1007
-    addi %r3 %zero 3                       # !1007
-    flw %f4 %f0 3                          # !1007
-    fmul %f2 %f2 %f4                       # !1007
-    lw %r4 %sp 5                           # !1009
-    sw %r1 %sp 10                          # !1009
-    sw %r3 %sp 11                          # !1009
-    fsw %f2 %sp 12                         # !1009
-    movz %r1 %r4 %zero                     # !1009
-    sw %ra %sp 13                          # !1009
-    addi %sp %sp 14                        # !1009
-    jal ~o_param_a.2466                    # !1009
-    addi %sp %sp -14                       # !1009
-    lw %ra %sp 13                          # !1009
-    flw %f1 %sp 9                          # !1009
-    flw %f2 %f1 0                          # !1009
-    flw %f3 %sp 12                         # !1009
-    fmul %f2 %f2 %f3                       # !1009
-    flw %f4 %sp 1                          # !1009
-    fadd %f2 %f2 %f4                       # !1009
-    fabs %f2 %f2                           # !1009
-    fblt %f2 %f0 fblt_then.8672            # !1009
-    lw %r1 %sp 6                           # !1013
-    j ~fblt_cont.8673                      # !1009
-fblt_then.8672:
-    lw %r1 %sp 5                           # !1010
-    sw %ra %sp 13                          # !1010
-    addi %sp %sp 14                        # !1010
-    jal ~o_param_c.2470                    # !1010
-    addi %sp %sp -14                       # !1010
-    lw %ra %sp 13                          # !1010
-    flw %f1 %sp 9                          # !1010
-    flw %f2 %f1 2                          # !1010
-    flw %f3 %sp 12                         # !1010
-    fmul %f2 %f2 %f3                       # !1010
-    flw %f4 %sp 4                          # !1010
-    fadd %f2 %f2 %f4                       # !1010
-    fabs %f2 %f2                           # !1010
-    fblt %f2 %f0 fblt_then.8674            # !1010
-    lw %r1 %sp 6                           # !1012
-    j ~fblt_cont.8675                      # !1010
-fblt_then.8674:
-    flw %f0 %sp 3                          # !1011
-    flw %f2 %f0 3                          # !1011
-    flui %f5 0                             # !1011
-    fli %f5 0                              # !1011
-    ++
-    fli 0.000000
-    => flui %f5 0b00000000000
-       fli  %f5 0b000000000000000000000
-    ++
-    fbeq %f2 %f5 fbeq_then.8676            # !1011
-    lw %r1 %sp 2                           # !1011
-    j ~fbeq_cont.8677                      # !1011
-fbeq_then.8676:
-    lw %r1 %sp 6                           # !1011
-fbeq_cont.8677:
-fblt_cont.8675:
-fblt_cont.8673:
-    lw %r2 %sp 6                           # !1008
-    beq %r1 %r2 beq_then.8678              # !1008
-    lw %r1 %sp 0                           # !1015
-    fsw %f3 %r1 0                          # !1015
-    lw %r1 %sp 10                          # !1015
-    jr %ra                                 # !1015
-beq_then.8678:
-    flw %f0 %sp 3                          # !1016
-    flw %f2 %f0 4                          # !1016
-    flw %f3 %sp 4                          # !1016
-    fsub %f2 %f2 %f3                       # !1016
-    flw %f3 %f0 5                          # !1016
-    fmul %f2 %f2 %f3                       # !1016
-    lw %r1 %sp 5                           # !1018
-    fsw %f2 %sp 13                         # !1018
-    sw %ra %sp 14                          # !1018
-    addi %sp %sp 15                        # !1018
-    jal ~o_param_a.2466                    # !1018
-    addi %sp %sp -15                       # !1018
-    lw %ra %sp 14                          # !1018
-    flw %f1 %sp 9                          # !1018
-    flw %f2 %f1 0                          # !1018
-    flw %f3 %sp 13                         # !1018
-    fmul %f2 %f2 %f3                       # !1018
-    flw %f4 %sp 1                          # !1018
-    fadd %f2 %f2 %f4                       # !1018
-    fabs %f2 %f2                           # !1018
-    fblt %f2 %f0 fblt_then.8679            # !1018
-    lw %r1 %sp 6                           # !1022
-    j ~fblt_cont.8680                      # !1018
-fblt_then.8679:
-    lw %r1 %sp 5                           # !1019
-    sw %ra %sp 14                          # !1019
-    addi %sp %sp 15                        # !1019
-    jal ~o_param_b.2468                    # !1019
-    addi %sp %sp -15                       # !1019
-    lw %ra %sp 14                          # !1019
-    flw %f1 %sp 9                          # !1019
-    flw %f1 %f1 1                          # !1019
-    flw %f2 %sp 13                         # !1019
-    fmul %f1 %f1 %f2                       # !1019
-    flw %f3 %sp 7                          # !1019
-    fadd %f1 %f1 %f3                       # !1019
-    fabs %f1 %f1                           # !1019
-    fblt %f1 %f0 fblt_then.8681            # !1019
-    lw %r1 %sp 6                           # !1021
-    j ~fblt_cont.8682                      # !1019
-fblt_then.8681:
-    flw %f0 %sp 3                          # !1020
-    flw %f0 %f0 5                          # !1020
-    flui %f1 0                             # !1020
-    fli %f1 0                              # !1020
-    ++
-    fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
-    ++
-    fbeq %f0 %f1 fbeq_then.8683            # !1020
-    lw %r1 %sp 2                           # !1020
-    j ~fbeq_cont.8684                      # !1020
-fbeq_then.8683:
-    lw %r1 %sp 6                           # !1020
-fbeq_cont.8684:
-fblt_cont.8682:
-fblt_cont.8680:
-    lw %r2 %sp 6                           # !1017
-    beq %r1 %r2 beq_then.8685              # !1017
-    lw %r1 %sp 0                           # !1024
-    flw %f0 %sp 13                         # !1024
-    fsw %f0 %r1 0                          # !1024
-    lw %r1 %sp 11                          # !1024
-    jr %ra                                 # !1024
-beq_then.8685:
-    movz %r1 %r2 %zero                     # !1026
-    jr %ra                                 # !1026
-solver_surface_fast.2601:
-    lw %r1 %r27 1                          # !1030
-    flui %f3 0                             # !1031
-    fli %f3 0                              # !1031
-    ++
-    fli 0.000000
-    => flui %f3 0b00000000000
-       fli  %f3 0b000000000000000000000
-    ++
-    addi %r3 %zero 0                       # !1031
-    flw %f4 %r2 0                          # !1031
-    fblt %f4 %f3 fblt_then.8686            # !1031
-    movz %r1 %r3 %zero                     # !1035
-    jr %ra                                 # !1035
-fblt_then.8686:
-    addi %r3 %zero 1                       # !1033
-    flw %f3 %r2 1                          # !1033
-    fmul %f0 %f3 %f0                       # !1033
-    flw %f3 %r2 2                          # !1033
-    fmul %f1 %f3 %f1                       # !1033
-    fadd %f0 %f0 %f1                       # !1033
-    flw %f1 %r2 3                          # !1033
-    fmul %f1 %f1 %f2                       # !1033
-    fadd %f0 %f0 %f1                       # !1033
-    fsw %f0 %r1 0                          # !1032
-    movz %r1 %r3 %zero                     # !1034
-    jr %ra                                 # !1034
-solver_second_fast.2607:
-    lw %r3 %r27 1                          # !1039
-    addi %r4 %zero 0                       # !1041
-    flw %f3 %r2 0                          # !1041
-    flui %f4 0                             # !1042
-    fli %f4 0                              # !1042
-    ++
-    fli 0.000000
-    => flui %f4 0b00000000000
-       fli  %f4 0b000000000000000000000
-    ++
-    fbeq %f3 %f4 fbeq_then.8687            # !1042
-    addi %r5 %zero 1                       # !1045
-    flw %f5 %r2 1                          # !1045
-    fmul %f5 %f5 %f0                       # !1045
-    flw %f6 %r2 2                          # !1045
-    fmul %f6 %f6 %f1                       # !1045
-    fadd %f5 %f5 %f6                       # !1045
-    addi %r6 %zero 3                       # !1045
-    flw %f6 %r2 3                          # !1045
-    fmul %f6 %f6 %f2                       # !1045
-    fadd %f5 %f5 %f6                       # !1045
-    sw %r5 %sp 0                           # !1046
-    sw %r3 %sp 1                           # !1046
-    sw %r2 %sp 2                           # !1046
-    sw %r4 %sp 3                           # !1046
-    fsw %f4 %sp 4                          # !1046
-    fsw %f3 %sp 5                          # !1046
-    fsw %f5 %sp 6                          # !1046
-    sw %r6 %sp 7                           # !1046
-    sw %r1 %sp 8                           # !1046
-    sw %ra %sp 9                           # !1046
-    addi %sp %sp 10                        # !1046
-    jal ~quadratic.2571                    # !1046
-    addi %sp %sp -10                       # !1046
-    lw %ra %sp 9                           # !1046
-    lw %r1 %sp 8                           # !1047
-    fsw %f0 %sp 9                          # !1047
-    sw %ra %sp 10                          # !1047
-    addi %sp %sp 11                        # !1047
-    jal ~o_form.2458                       # !1047
-    addi %sp %sp -11                       # !1047
-    lw %ra %sp 10                          # !1047
-    lw %r2 %sp 7                           # !1047
-    beq %r1 %r2 beq_then.8688              # !1047
-    flw %f0 %sp 9                          # !1047
-    j ~beq_cont.8689                       # !1047
-beq_then.8688:
-    flui %f0 508                           # !1047
-    fli %f0 0                              # !1047
+    sw       %r1  %sp  5                   # !782
+    fsw      %f0  %sp  6                   # !782
+    sw       %r2  %sp  7                   # !782
+    movz     %r1  %r2  %zero               # !782
+    sw       %ra  %sp  8                   # !782
+    addi     %sp  %sp  9                   # !782
+    jal      ~min_caml_create_float_array  # !782
+    addi     %sp  %sp  -9                  # !782
+    lw       %ra  %sp  8                   # !782
+    addi     %r2  %zero  0                 # !783
+    sw       %r2  %sp  8                   # !783
+    sw       %r1  %sp  9                   # !783
+    sw       %ra  %sp  10                  # !783
+    addi     %sp  %sp  11                  # !783
+    jal      ~min_caml_read_float          # !783
+    addi     %sp  %sp  -11                 # !783
+    lw       %ra  %sp  10                  # !783
+    lw       %r1  %sp  9                   # !783
+    fsw      %f0  %r1  0                   # !783
+    addi     %r2  %zero  1                 # !784
+    sw       %r2  %sp  10                  # !784
+    sw       %ra  %sp  11                  # !784
+    addi     %sp  %sp  12                  # !784
+    jal      ~min_caml_read_float          # !784
+    addi     %sp  %sp  -12                 # !784
+    lw       %ra  %sp  11                  # !784
+    lw       %r1  %sp  9                   # !784
+    fsw      %f0  %r1  1                   # !784
+    addi     %r2  %zero  2                 # !785
+    sw       %r2  %sp  11                  # !785
+    sw       %ra  %sp  12                  # !785
+    addi     %sp  %sp  13                  # !785
+    jal      ~min_caml_read_float          # !785
+    addi     %sp  %sp  -13                 # !785
+    lw       %ra  %sp  12                  # !785
+    lw       %r1  %sp  9                   # !785
+    fsw      %f0  %r1  2                   # !785
+    flw      %f0  %sp  6                   # !787
+    lw       %r2  %sp  7                   # !787
+    movz     %r1  %r2  %zero               # !787
+    sw       %ra  %sp  12                  # !787
+    addi     %sp  %sp  13                  # !787
+    jal      ~min_caml_create_float_array  # !787
+    addi     %sp  %sp  -13                 # !787
+    lw       %ra  %sp  12                  # !787
+    sw       %r1  %sp  12                  # !788
+    sw       %ra  %sp  13                  # !788
+    addi     %sp  %sp  14                  # !788
+    jal      ~min_caml_read_float          # !788
+    addi     %sp  %sp  -14                 # !788
+    lw       %ra  %sp  13                  # !788
+    lw       %r1  %sp  12                  # !788
+    fsw      %f0  %r1  0                   # !788
+    sw       %ra  %sp  13                  # !789
+    addi     %sp  %sp  14                  # !789
+    jal      ~min_caml_read_float          # !789
+    addi     %sp  %sp  -14                 # !789
+    lw       %ra  %sp  13                  # !789
+    lw       %r1  %sp  12                  # !789
+    fsw      %f0  %r1  1                   # !789
+    sw       %ra  %sp  13                  # !790
+    addi     %sp  %sp  14                  # !790
+    jal      ~min_caml_read_float          # !790
+    addi     %sp  %sp  -14                 # !790
+    lw       %ra  %sp  13                  # !790
+    lw       %r1  %sp  12                  # !790
+    fsw      %f0  %r1  2                   # !790
+    sw       %ra  %sp  13                  # !792
+    addi     %sp  %sp  14                  # !792
+    jal      ~min_caml_read_float          # !792
+    addi     %sp  %sp  -14                 # !792
+    lw       %ra  %sp  13                  # !792
+    sw       %ra  %sp  13                  # !792
+    addi     %sp  %sp  14                  # !792
+    jal      ~min_caml_fisneg              # !792
+    addi     %sp  %sp  -14                 # !792
+    lw       %ra  %sp  13                  # !792
+    flw      %f0  %sp  6                   # !794
+    lw       %r2  %sp  11                  # !794
+    sw       %r1  %sp  13                  # !794
+    movz     %r1  %r2  %zero               # !794
+    sw       %ra  %sp  14                  # !794
+    addi     %sp  %sp  15                  # !794
+    jal      ~min_caml_create_float_array  # !794
+    addi     %sp  %sp  -15                 # !794
+    lw       %ra  %sp  14                  # !794
+    sw       %r1  %sp  14                  # !795
+    sw       %ra  %sp  15                  # !795
+    addi     %sp  %sp  16                  # !795
+    jal      ~min_caml_read_float          # !795
+    addi     %sp  %sp  -16                 # !795
+    lw       %ra  %sp  15                  # !795
+    lw       %r1  %sp  14                  # !795
+    fsw      %f0  %r1  0                   # !795
+    sw       %ra  %sp  15                  # !796
+    addi     %sp  %sp  16                  # !796
+    jal      ~min_caml_read_float          # !796
+    addi     %sp  %sp  -16                 # !796
+    lw       %ra  %sp  15                  # !796
+    lw       %r1  %sp  14                  # !796
+    fsw      %f0  %r1  1                   # !796
+    flw      %f0  %sp  6                   # !798
+    lw       %r2  %sp  7                   # !798
+    movz     %r1  %r2  %zero               # !798
+    sw       %ra  %sp  15                  # !798
+    addi     %sp  %sp  16                  # !798
+    jal      ~min_caml_create_float_array  # !798
+    addi     %sp  %sp  -16                 # !798
+    lw       %ra  %sp  15                  # !798
+    sw       %r1  %sp  15                  # !799
+    sw       %ra  %sp  16                  # !799
+    addi     %sp  %sp  17                  # !799
+    jal      ~min_caml_read_float          # !799
+    addi     %sp  %sp  -17                 # !799
+    lw       %ra  %sp  16                  # !799
+    lw       %r1  %sp  15                  # !799
+    fsw      %f0  %r1  0                   # !799
+    sw       %ra  %sp  16                  # !800
+    addi     %sp  %sp  17                  # !800
+    jal      ~min_caml_read_float          # !800
+    addi     %sp  %sp  -17                 # !800
+    lw       %ra  %sp  16                  # !800
+    lw       %r1  %sp  15                  # !800
+    fsw      %f0  %r1  1                   # !800
+    sw       %ra  %sp  16                  # !801
+    addi     %sp  %sp  17                  # !801
+    jal      ~min_caml_read_float          # !801
+    addi     %sp  %sp  -17                 # !801
+    lw       %ra  %sp  16                  # !801
+    lw       %r1  %sp  15                  # !801
+    fsw      %f0  %r1  2                   # !801
+    flw      %f0  %sp  6                   # !803
+    lw       %r2  %sp  7                   # !803
+    movz     %r1  %r2  %zero               # !803
+    sw       %ra  %sp  16                  # !803
+    addi     %sp  %sp  17                  # !803
+    jal      ~min_caml_create_float_array  # !803
+    addi     %sp  %sp  -17                 # !803
+    lw       %ra  %sp  16                  # !803
+    lw       %r2  %sp  8                   # !804
+    lw       %r3  %sp  5                   # !804
+    beq      %r3  %r2  beq_then.9299       # !804
+    sw       %r1  %sp  16                  # !806
+    sw       %ra  %sp  17                  # !806
+    addi     %sp  %sp  18                  # !806
+    jal      ~min_caml_read_float          # !806
+    addi     %sp  %sp  -18                 # !806
+    lw       %ra  %sp  17                  # !806
+    sw       %ra  %sp  17                  # !806
+    addi     %sp  %sp  18                  # !806
+    jal      ~rad.2594                     # !806
+    addi     %sp  %sp  -18                 # !806
+    lw       %ra  %sp  17                  # !806
+    lw       %r1  %sp  16                  # !806
+    fsw      %f0  %r1  0                   # !806
+    sw       %ra  %sp  17                  # !807
+    addi     %sp  %sp  18                  # !807
+    jal      ~min_caml_read_float          # !807
+    addi     %sp  %sp  -18                 # !807
+    lw       %ra  %sp  17                  # !807
+    sw       %ra  %sp  17                  # !807
+    addi     %sp  %sp  18                  # !807
+    jal      ~rad.2594                     # !807
+    addi     %sp  %sp  -18                 # !807
+    lw       %ra  %sp  17                  # !807
+    lw       %r1  %sp  16                  # !807
+    fsw      %f0  %r1  1                   # !807
+    sw       %ra  %sp  17                  # !808
+    addi     %sp  %sp  18                  # !808
+    jal      ~min_caml_read_float          # !808
+    addi     %sp  %sp  -18                 # !808
+    lw       %ra  %sp  17                  # !808
+    sw       %ra  %sp  17                  # !808
+    addi     %sp  %sp  18                  # !808
+    jal      ~rad.2594                     # !808
+    addi     %sp  %sp  -18                 # !808
+    lw       %ra  %sp  17                  # !808
+    lw       %r1  %sp  16                  # !808
+    fsw      %f0  %r1  2                   # !808
+    j        ~beq_cont.9300                # !804
+beq_then.9299:
+beq_cont.9300:
+    lw       %r2  %sp  11                  # !815
+    lw       %r3  %sp  3                   # !815
+    beq      %r3  %r2  beq_then.9301       # !815
+    lw       %r4  %sp  13                  # !815
+    j        ~beq_cont.9302                # !815
+beq_then.9301:
+    lw       %r4  %sp  10                  # !815
+beq_cont.9302:
+    addi     %r5  %zero  4                 # !816
+    flw      %f0  %sp  6                   # !816
+    sw       %r4  %sp  17                  # !816
+    sw       %r1  %sp  16                  # !816
+    movz     %r1  %r5  %zero               # !816
+    sw       %ra  %sp  18                  # !816
+    addi     %sp  %sp  19                  # !816
+    jal      ~min_caml_create_float_array  # !816
+    addi     %sp  %sp  -19                 # !816
+    lw       %ra  %sp  18                  # !816
+    movz     %r2  %hp  %zero               # !818
+    addi     %hp  %hp  -11                 # !818
+    sw       %r1  %r2  -10                 # !818
+    lw       %r1  %sp  16                  # !818
+    sw       %r1  %r2  -9                  # !818
+    lw       %r3  %sp  15                  # !818
+    sw       %r3  %r2  -8                  # !818
+    lw       %r3  %sp  14                  # !818
+    sw       %r3  %r2  -7                  # !818
+    lw       %r3  %sp  17                  # !818
+    sw       %r3  %r2  -6                  # !818
+    lw       %r3  %sp  12                  # !818
+    sw       %r3  %r2  -5                  # !818
+    lw       %r3  %sp  9                   # !818
+    sw       %r3  %r2  -4                  # !818
+    lw       %r4  %sp  5                   # !818
+    sw       %r4  %r2  -3                  # !818
+    lw       %r5  %sp  4                   # !818
+    sw       %r5  %r2  -2                  # !818
+    lw       %r5  %sp  3                   # !818
+    sw       %r5  %r2  -1                  # !818
+    lw       %r6  %sp  2                   # !818
+    sw       %r6  %r2  0                   # !818
+    lw       %r6  %sp  0                   # !827
+    lw       %r7  %sp  1                   # !827
+    swv      %r2  %r7  %r6                 # !827
+    lw       %r2  %sp  7                   # !829
+    beq      %r5  %r2  beq_then.9303       # !829
+    lw       %r2  %sp  11                  # !839
+    beq      %r5  %r2  beq_then.9305       # !839
+    j        ~beq_cont.9306                # !839
+beq_then.9305:
+    lw       %r2  %sp  8                   # !841
+    lw       %r5  %sp  13                  # !841
+    beq      %r5  %r2  beq_then.9307       # !841
+    movz     %r5  %r2  %zero               # !841
+    j        ~beq_cont.9308                # !841
+beq_then.9307:
+    lw       %r5  %sp  10                  # !841
+beq_cont.9308:
+    movz     %r2  %r5  %zero               # !841
+    movz     %r1  %r3  %zero               # !841
+    sw       %ra  %sp  18                  # !841
+    addi     %sp  %sp  19                  # !841
+    jal      ~vecunit_sgn.2498             # !841
+    addi     %sp  %sp  -19                 # !841
+    lw       %ra  %sp  18                  # !841
+beq_cont.9306:
+    j        ~beq_cont.9304                # !829
+beq_then.9303:
+    flw      %f0  %r3  0                   # !832
+    fsw      %f0  %sp  18                  # !833
+    sw       %ra  %sp  19                  # !833
+    addi     %sp  %sp  20                  # !833
+    jal      ~min_caml_fiszero             # !833
+    addi     %sp  %sp  -20                 # !833
+    lw       %ra  %sp  19                  # !833
+    lw       %r2  %sp  8                   # !833
+    beq      %r1  %r2  beq_then.9309       # !833
+    flw      %f0  %sp  6                   # !833
+    j        ~beq_cont.9310                # !833
+beq_then.9309:
+    flw      %f0  %sp  18                  # !833
+    sw       %ra  %sp  19                  # !833
+    addi     %sp  %sp  20                  # !833
+    jal      ~sgn.2477                     # !833
+    addi     %sp  %sp  -20                 # !833
+    lw       %ra  %sp  19                  # !833
+    flw      %f1  %sp  18                  # !833
+    fsw      %f0  %sp  19                  # !833
+    fmovz    %f0  %f1  %zero               # !833
+    sw       %ra  %sp  20                  # !833
+    addi     %sp  %sp  21                  # !833
+    jal      ~min_caml_fsqr                # !833
+    addi     %sp  %sp  -21                 # !833
+    lw       %ra  %sp  20                  # !833
+    flw      %f1  %sp  19                  # !833
+    fdiv     %f0  %f1  %f0                 # !833
+beq_cont.9310:
+    lw       %r1  %sp  9                   # !833
+    fsw      %f0  %r1  0                   # !833
+    flw      %f0  %r1  1                   # !834
+    fsw      %f0  %sp  20                  # !835
+    sw       %ra  %sp  21                  # !835
+    addi     %sp  %sp  22                  # !835
+    jal      ~min_caml_fiszero             # !835
+    addi     %sp  %sp  -22                 # !835
+    lw       %ra  %sp  21                  # !835
+    lw       %r2  %sp  8                   # !835
+    beq      %r1  %r2  beq_then.9311       # !835
+    flw      %f0  %sp  6                   # !835
+    j        ~beq_cont.9312                # !835
+beq_then.9311:
+    flw      %f0  %sp  20                  # !835
+    sw       %ra  %sp  21                  # !835
+    addi     %sp  %sp  22                  # !835
+    jal      ~sgn.2477                     # !835
+    addi     %sp  %sp  -22                 # !835
+    lw       %ra  %sp  21                  # !835
+    flw      %f1  %sp  20                  # !835
+    fsw      %f0  %sp  21                  # !835
+    fmovz    %f0  %f1  %zero               # !835
+    sw       %ra  %sp  22                  # !835
+    addi     %sp  %sp  23                  # !835
+    jal      ~min_caml_fsqr                # !835
+    addi     %sp  %sp  -23                 # !835
+    lw       %ra  %sp  22                  # !835
+    flw      %f1  %sp  21                  # !835
+    fdiv     %f0  %f1  %f0                 # !835
+beq_cont.9312:
+    lw       %r1  %sp  9                   # !835
+    fsw      %f0  %r1  1                   # !835
+    flw      %f0  %r1  2                   # !836
+    fsw      %f0  %sp  22                  # !837
+    sw       %ra  %sp  23                  # !837
+    addi     %sp  %sp  24                  # !837
+    jal      ~min_caml_fiszero             # !837
+    addi     %sp  %sp  -24                 # !837
+    lw       %ra  %sp  23                  # !837
+    lw       %r2  %sp  8                   # !837
+    beq      %r1  %r2  beq_then.9313       # !837
+    flw      %f0  %sp  6                   # !837
+    j        ~beq_cont.9314                # !837
+beq_then.9313:
+    flw      %f0  %sp  22                  # !837
+    sw       %ra  %sp  23                  # !837
+    addi     %sp  %sp  24                  # !837
+    jal      ~sgn.2477                     # !837
+    addi     %sp  %sp  -24                 # !837
+    lw       %ra  %sp  23                  # !837
+    flw      %f1  %sp  22                  # !837
+    fsw      %f0  %sp  23                  # !837
+    fmovz    %f0  %f1  %zero               # !837
+    sw       %ra  %sp  24                  # !837
+    addi     %sp  %sp  25                  # !837
+    jal      ~min_caml_fsqr                # !837
+    addi     %sp  %sp  -25                 # !837
+    lw       %ra  %sp  24                  # !837
+    flw      %f1  %sp  23                  # !837
+    fdiv     %f0  %f1  %f0                 # !837
+beq_cont.9314:
+    lw       %r1  %sp  9                   # !837
+    fsw      %f0  %r1  2                   # !837
+beq_cont.9304:
+    lw       %r1  %sp  8                   # !845
+    lw       %r2  %sp  5                   # !845
+    beq      %r2  %r1  beq_then.9315       # !845
+    lw       %r1  %sp  9                   # !846
+    lw       %r2  %sp  16                  # !846
+    sw       %ra  %sp  24                  # !846
+    addi     %sp  %sp  25                  # !846
+    jal      ~rotate_quadratic_matrix.2600 # !846
+    addi     %sp  %sp  -25                 # !846
+    lw       %ra  %sp  24                  # !846
+    j        ~beq_cont.9316                # !845
+beq_then.9315:
+beq_cont.9316:
+    lw       %r1  %sp  10                  # !849
+    jr       %ra                           # !849
+beq_then.9298:
+    addi     %r1  %zero  0                 # !852
+    jr       %ra                           # !852
+read_object.2605:
+    lw       %r2  %r27  2                  # !856
+    lw       %r3  %r27  1                  # !856
+    addi     %r4  %zero  60                # !857
+    blt      %r1  %r4  blt_then.9317       # !857
+    jr       %ra                           # !862
+blt_then.9317:
+    sw       %r27  %sp  0                  # !858
+    sw       %r3  %sp  1                   # !858
+    sw       %r1  %sp  2                   # !858
+    movz     %r27  %r2  %zero              # !858
+    sw       %ra  %sp  3                   # !858
+    addi     %sp  %sp  4                   # !858
+    lw       %r28  %r27  0                 # !858
+    jalr     %r28                          # !858
+    addi     %sp  %sp  -4                  # !858
+    lw       %ra  %sp  3                   # !858
+    addi     %r2  %zero  0                 # !858
+    beq      %r1  %r2  beq_then.9319       # !858
+    lw       %r1  %sp  2                   # !859
+    addi     %r1  %r1  1                   # !859
+    lw       %r27  %sp  0                  # !859
+    lw       %r28  %r27  0                 # !859
+    jr       %r28                          # !859
+beq_then.9319:
+    lw       %r1  %sp  1                   # !861
+    lw       %r2  %sp  2                   # !861
+    sw       %r2  %r1  0                   # !861
+    jr       %ra                           # !861
+read_all_object.2607:
+    lw       %r27  %r27  1                 # !865
+    addi     %r1  %zero  0                 # !866
+    lw       %r28  %r27  0                 # !866
+    jr       %r28                          # !866
+read_net_item.2609:
+    sw       %r1  %sp  0                   # !873
+    sw       %ra  %sp  1                   # !873
+    addi     %sp  %sp  2                   # !873
+    jal      ~min_caml_read_int            # !873
+    addi     %sp  %sp  -2                  # !873
+    lw       %ra  %sp  1                   # !873
+    addi     %r2  %zero  -1                # !874
+    beq      %r1  %r2  beq_then.9321       # !874
+    lw       %r2  %sp  0                   # !876
+    addi     %r3  %r2  1                   # !876
+    sw       %r1  %sp  1                   # !876
+    movz     %r1  %r3  %zero               # !876
+    sw       %ra  %sp  2                   # !876
+    addi     %sp  %sp  3                   # !876
+    jal      ~read_net_item.2609           # !876
+    addi     %sp  %sp  -3                  # !876
+    lw       %ra  %sp  2                   # !876
+    lw       %r2  %sp  0                   # !877
+    lw       %r3  %sp  1                   # !877
+    swv      %r3  %r1  %r2                 # !877
+    jr       %ra                           # !877
+beq_then.9321:
+    lw       %r1  %sp  0                   # !874
+    addi     %r1  %r1  1                   # !874
+    j        ~min_caml_create_array        # !874
+read_or_network.2611:
+    addi     %r2  %zero  0                 # !881
+    sw       %r1  %sp  0                   # !881
+    movz     %r1  %r2  %zero               # !881
+    sw       %ra  %sp  1                   # !881
+    addi     %sp  %sp  2                   # !881
+    jal      ~read_net_item.2609           # !881
+    addi     %sp  %sp  -2                  # !881
+    lw       %ra  %sp  1                   # !881
+    movz     %r2  %r1  %zero               # !881
+    lw       %r1  %r2  0                   # !882
+    addi     %r3  %zero  -1                # !882
+    beq      %r1  %r3  beq_then.9322       # !882
+    lw       %r1  %sp  0                   # !885
+    addi     %r3  %r1  1                   # !885
+    sw       %r2  %sp  1                   # !885
+    movz     %r1  %r3  %zero               # !885
+    sw       %ra  %sp  2                   # !885
+    addi     %sp  %sp  3                   # !885
+    jal      ~read_or_network.2611         # !885
+    addi     %sp  %sp  -3                  # !885
+    lw       %ra  %sp  2                   # !885
+    lw       %r2  %sp  0                   # !886
+    lw       %r3  %sp  1                   # !886
+    swv      %r3  %r1  %r2                 # !886
+    jr       %ra                           # !886
+beq_then.9322:
+    lw       %r1  %sp  0                   # !883
+    addi     %r1  %r1  1                   # !883
+    j        ~min_caml_create_array        # !883
+read_and_network.2613:
+    lw       %r2  %r27  1                  # !889
+    addi     %r3  %zero  0                 # !890
+    sw       %r27  %sp  0                  # !890
+    sw       %r1  %sp  1                   # !890
+    sw       %r2  %sp  2                   # !890
+    movz     %r1  %r3  %zero               # !890
+    sw       %ra  %sp  3                   # !890
+    addi     %sp  %sp  4                   # !890
+    jal      ~read_net_item.2609           # !890
+    addi     %sp  %sp  -4                  # !890
+    lw       %ra  %sp  3                   # !890
+    lw       %r2  %r1  0                   # !891
+    addi     %r3  %zero  -1                # !891
+    beq      %r2  %r3  beq_then.9323       # !891
+    lw       %r2  %sp  1                   # !893
+    lw       %r3  %sp  2                   # !893
+    swv      %r1  %r3  %r2                 # !893
+    addi     %r1  %r2  1                   # !894
+    lw       %r27  %sp  0                  # !894
+    lw       %r28  %r27  0                 # !894
+    jr       %r28                          # !894
+beq_then.9323:
+    jr       %ra                           # !891
+read_parameter.2615:
+    lw       %r1  %r27  5                  # !898
+    lw       %r2  %r27  4                  # !898
+    lw       %r3  %r27  3                  # !898
+    lw       %r4  %r27  2                  # !898
+    lw       %r5  %r27  1                  # !898
+    sw       %r5  %sp  0                   # !900
+    sw       %r3  %sp  1                   # !900
+    sw       %r4  %sp  2                   # !900
+    sw       %r2  %sp  3                   # !900
+    movz     %r27  %r1  %zero              # !900
+    sw       %ra  %sp  4                   # !900
+    addi     %sp  %sp  5                   # !900
+    lw       %r28  %r27  0                 # !900
+    jalr     %r28                          # !900
+    addi     %sp  %sp  -5                  # !900
+    lw       %ra  %sp  4                   # !900
+    lw       %r27  %sp  3                  # !901
+    sw       %ra  %sp  4                   # !901
+    addi     %sp  %sp  5                   # !901
+    lw       %r28  %r27  0                 # !901
+    jalr     %r28                          # !901
+    addi     %sp  %sp  -5                  # !901
+    lw       %ra  %sp  4                   # !901
+    lw       %r27  %sp  2                  # !902
+    sw       %ra  %sp  4                   # !902
+    addi     %sp  %sp  5                   # !902
+    lw       %r28  %r27  0                 # !902
+    jalr     %r28                          # !902
+    addi     %sp  %sp  -5                  # !902
+    lw       %ra  %sp  4                   # !902
+    addi     %r1  %zero  0                 # !903
+    lw       %r27  %sp  1                  # !903
+    sw       %r1  %sp  4                   # !903
+    sw       %ra  %sp  5                   # !903
+    addi     %sp  %sp  6                   # !903
+    lw       %r28  %r27  0                 # !903
+    jalr     %r28                          # !903
+    addi     %sp  %sp  -6                  # !903
+    lw       %ra  %sp  5                   # !903
+    lw       %r1  %sp  4                   # !904
+    sw       %ra  %sp  5                   # !904
+    addi     %sp  %sp  6                   # !904
+    jal      ~read_or_network.2611         # !904
+    addi     %sp  %sp  -6                  # !904
+    lw       %ra  %sp  5                   # !904
+    lw       %r2  %sp  0                   # !904
+    sw       %r1  %r2  0                   # !904
+    jr       %ra                           # !904
+solver_rect_surface.2617:
+    lw       %r6  %r27  1                  # !923
+    flwv     %f3  %r2  %r3                 # !924
+    sw       %r6  %sp  0                   # !924
+    fsw      %f2  %sp  1                   # !924
+    sw       %r5  %sp  2                   # !924
+    fsw      %f1  %sp  3                   # !924
+    sw       %r4  %sp  4                   # !924
+    fsw      %f0  %sp  5                   # !924
+    sw       %r3  %sp  6                   # !924
+    sw       %r2  %sp  7                   # !924
+    sw       %r1  %sp  8                   # !924
+    fmovz    %f0  %f3  %zero               # !924
+    sw       %ra  %sp  9                   # !924
+    addi     %sp  %sp  10                  # !924
+    jal      ~min_caml_fiszero             # !924
+    addi     %sp  %sp  -10                 # !924
+    lw       %ra  %sp  9                   # !924
+    addi     %r2  %zero  0                 # !924
+    beq      %r1  %r2  beq_then.9326       # !924
+    movz     %r1  %r2  %zero               # !924
+    jr       %ra                           # !924
+beq_then.9326:
+    lw       %r1  %sp  8                   # !925
+    sw       %r2  %sp  9                   # !925
+    sw       %ra  %sp  10                  # !925
+    addi     %sp  %sp  11                  # !925
+    jal      ~o_param_abc.2539             # !925
+    addi     %sp  %sp  -11                 # !925
+    lw       %ra  %sp  10                  # !925
+    lw       %r2  %sp  8                   # !926
+    sw       %r1  %sp  10                  # !926
+    movz     %r1  %r2  %zero               # !926
+    sw       %ra  %sp  11                  # !926
+    addi     %sp  %sp  12                  # !926
+    jal      ~o_isinvert.2529              # !926
+    addi     %sp  %sp  -12                 # !926
+    lw       %ra  %sp  11                  # !926
+    lw       %r2  %sp  6                   # !926
+    flw      %f0  %sp  7                   # !926
+    flwv     %f1  %f0  %r2                 # !926
+    sw       %r1  %sp  11                  # !926
+    fmovz    %f0  %f1  %zero               # !926
+    sw       %ra  %sp  12                  # !926
+    addi     %sp  %sp  13                  # !926
+    jal      ~min_caml_fisneg              # !926
+    addi     %sp  %sp  -13                 # !926
+    lw       %ra  %sp  12                  # !926
+    movz     %r2  %r1  %zero               # !926
+    lw       %r1  %sp  11                  # !926
+    sw       %ra  %sp  12                  # !926
+    addi     %sp  %sp  13                  # !926
+    jal      ~xor.2474                     # !926
+    addi     %sp  %sp  -13                 # !926
+    lw       %ra  %sp  12                  # !926
+    lw       %r2  %sp  6                   # !926
+    flw      %f0  %sp  10                  # !926
+    flwv     %f1  %f0  %r2                 # !926
+    fmovz    %f0  %f1  %zero               # !926
+    sw       %ra  %sp  12                  # !926
+    addi     %sp  %sp  13                  # !926
+    jal      ~fneg_cond.2479               # !926
+    addi     %sp  %sp  -13                 # !926
+    lw       %ra  %sp  12                  # !926
+    flw      %f1  %sp  5                   # !928
+    fsub     %f0  %f0  %f1                 # !928
+    lw       %r1  %sp  6                   # !928
+    flw      %f1  %sp  7                   # !928
+    flwv     %f2  %f1  %r1                 # !928
+    fdiv     %f0  %f0  %f2                 # !928
+    lw       %r1  %sp  4                   # !929
+    flwv     %f2  %f1  %r1                 # !929
+    fmul     %f2  %f2  %f0                 # !929
+    flw      %f3  %sp  3                   # !929
+    fadd     %f2  %f2  %f3                 # !929
+    fsw      %f0  %sp  12                  # !929
+    fmovz    %f0  %f2  %zero               # !929
+    sw       %ra  %sp  13                  # !929
+    addi     %sp  %sp  14                  # !929
+    jal      ~min_caml_fabs                # !929
+    addi     %sp  %sp  -14                 # !929
+    lw       %ra  %sp  13                  # !929
+    lw       %r1  %sp  4                   # !929
+    flw      %f1  %sp  10                  # !929
+    flwv     %f2  %f1  %r1                 # !929
+    fmovz    %f1  %f2  %zero               # !929
+    sw       %ra  %sp  13                  # !929
+    addi     %sp  %sp  14                  # !929
+    jal      ~min_caml_fless               # !929
+    addi     %sp  %sp  -14                 # !929
+    lw       %ra  %sp  13                  # !929
+    lw       %r2  %sp  9                   # !929
+    beq      %r1  %r2  beq_then.9327       # !929
+    lw       %r1  %sp  2                   # !930
+    flw      %f0  %sp  7                   # !930
+    flwv     %f0  %f0  %r1                 # !930
+    flw      %f1  %sp  12                  # !930
+    fmul     %f0  %f0  %f1                 # !930
+    flw      %f2  %sp  1                   # !930
+    fadd     %f0  %f0  %f2                 # !930
+    sw       %ra  %sp  13                  # !930
+    addi     %sp  %sp  14                  # !930
+    jal      ~min_caml_fabs                # !930
+    addi     %sp  %sp  -14                 # !930
+    lw       %ra  %sp  13                  # !930
+    lw       %r1  %sp  2                   # !930
+    flw      %f1  %sp  10                  # !930
+    flwv     %f1  %f1  %r1                 # !930
+    sw       %ra  %sp  13                  # !930
+    addi     %sp  %sp  14                  # !930
+    jal      ~min_caml_fless               # !930
+    addi     %sp  %sp  -14                 # !930
+    lw       %ra  %sp  13                  # !930
+    lw       %r2  %sp  9                   # !930
+    beq      %r1  %r2  beq_then.9328       # !930
+    lw       %r1  %sp  0                   # !931
+    flw      %f0  %sp  12                  # !931
+    fsw      %f0  %r1  0                   # !931
+    addi     %r1  %zero  1                 # !931
+    jr       %ra                           # !931
+beq_then.9328:
+    movz     %r1  %r2  %zero               # !932
+    jr       %ra                           # !932
+beq_then.9327:
+    movz     %r1  %r2  %zero               # !933
+    jr       %ra                           # !933
+solver_rect.2626:
+    lw       %r27  %r27  1                 # !938
+    addi     %r3  %zero  0                 # !939
+    addi     %r4  %zero  1                 # !939
+    addi     %r5  %zero  2                 # !939
+    fsw      %f0  %sp  0                   # !939
+    fsw      %f2  %sp  1                   # !939
+    fsw      %f1  %sp  2                   # !939
+    sw       %r5  %sp  3                   # !939
+    sw       %r4  %sp  4                   # !939
+    sw       %r2  %sp  5                   # !939
+    sw       %r1  %sp  6                   # !939
+    sw       %r27  %sp  7                  # !939
+    sw       %r3  %sp  8                   # !939
+    sw       %ra  %sp  9                   # !939
+    addi     %sp  %sp  10                  # !939
+    lw       %r28  %r27  0                 # !939
+    jalr     %r28                          # !939
+    addi     %sp  %sp  -10                 # !939
+    lw       %ra  %sp  9                   # !939
+    lw       %r5  %sp  8                   # !939
+    beq      %r1  %r5  beq_then.9329       # !939
+    lw       %r1  %sp  4                   # !939
+    jr       %ra                           # !939
+beq_then.9329:
+    flw      %f0  %sp  2                   # !940
+    flw      %f1  %sp  1                   # !940
+    flw      %f2  %sp  0                   # !940
+    lw       %r1  %sp  6                   # !940
+    lw       %r2  %sp  5                   # !940
+    lw       %r3  %sp  4                   # !940
+    lw       %r4  %sp  3                   # !940
+    lw       %r27  %sp  7                  # !940
+    sw       %ra  %sp  9                   # !940
+    addi     %sp  %sp  10                  # !940
+    lw       %r28  %r27  0                 # !940
+    jalr     %r28                          # !940
+    addi     %sp  %sp  -10                 # !940
+    lw       %ra  %sp  9                   # !940
+    lw       %r4  %sp  8                   # !940
+    beq      %r1  %r4  beq_then.9330       # !940
+    lw       %r1  %sp  3                   # !940
+    jr       %ra                           # !940
+beq_then.9330:
+    flw      %f0  %sp  1                   # !941
+    flw      %f1  %sp  0                   # !941
+    flw      %f2  %sp  2                   # !941
+    lw       %r1  %sp  6                   # !941
+    lw       %r2  %sp  5                   # !941
+    lw       %r3  %sp  3                   # !941
+    lw       %r5  %sp  4                   # !941
+    lw       %r27  %sp  7                  # !941
+    sw       %ra  %sp  9                   # !941
+    addi     %sp  %sp  10                  # !941
+    lw       %r28  %r27  0                 # !941
+    jalr     %r28                          # !941
+    addi     %sp  %sp  -10                 # !941
+    lw       %ra  %sp  9                   # !941
+    lw       %r2  %sp  8                   # !941
+    beq      %r1  %r2  beq_then.9331       # !941
+    addi     %r1  %zero  3                 # !941
+    jr       %ra                           # !941
+beq_then.9331:
+    movz     %r1  %r2  %zero               # !942
+    jr       %ra                           # !942
+solver_surface.2632:
+    lw       %r3  %r27  1                  # !947
+    sw       %r3  %sp  0                   # !950
+    fsw      %f2  %sp  1                   # !950
+    fsw      %f1  %sp  2                   # !950
+    fsw      %f0  %sp  3                   # !950
+    sw       %r2  %sp  4                   # !950
+    sw       %ra  %sp  5                   # !950
+    addi     %sp  %sp  6                   # !950
+    jal      ~o_param_abc.2539             # !950
+    addi     %sp  %sp  -6                  # !950
+    lw       %ra  %sp  5                   # !950
+    movz     %r2  %r1  %zero               # !950
+    lw       %r1  %sp  4                   # !951
+    sw       %r2  %sp  5                   # !951
+    sw       %ra  %sp  6                   # !951
+    addi     %sp  %sp  7                   # !951
+    jal      ~veciprod.2501                # !951
+    addi     %sp  %sp  -7                  # !951
+    lw       %ra  %sp  6                   # !951
+    fsw      %f0  %sp  6                   # !952
+    sw       %ra  %sp  7                   # !952
+    addi     %sp  %sp  8                   # !952
+    jal      ~min_caml_fispos              # !952
+    addi     %sp  %sp  -8                  # !952
+    lw       %ra  %sp  7                   # !952
+    addi     %r2  %zero  0                 # !952
+    beq      %r1  %r2  beq_then.9332       # !952
+    flw      %f0  %sp  3                   # !953
+    flw      %f1  %sp  2                   # !953
+    flw      %f2  %sp  1                   # !953
+    lw       %r1  %sp  5                   # !953
+    sw       %ra  %sp  7                   # !953
+    addi     %sp  %sp  8                   # !953
+    jal      ~veciprod2.2504               # !953
+    addi     %sp  %sp  -8                  # !953
+    lw       %ra  %sp  7                   # !953
+    sw       %ra  %sp  7                   # !953
+    addi     %sp  %sp  8                   # !953
+    jal      ~min_caml_fneg                # !953
+    addi     %sp  %sp  -8                  # !953
+    lw       %ra  %sp  7                   # !953
+    flw      %f1  %sp  6                   # !953
+    fdiv     %f0  %f0  %f1                 # !953
+    lw       %r1  %sp  0                   # !953
+    fsw      %f0  %r1  0                   # !953
+    addi     %r1  %zero  1                 # !954
+    jr       %ra                           # !954
+beq_then.9332:
+    movz     %r1  %r2  %zero               # !955
+    jr       %ra                           # !955
+quadratic.2638:
+    fsw      %f0  %sp  0                   # !963
+    fsw      %f2  %sp  1                   # !963
+    fsw      %f1  %sp  2                   # !963
+    sw       %r1  %sp  3                   # !963
+    sw       %ra  %sp  4                   # !963
+    addi     %sp  %sp  5                   # !963
+    jal      ~min_caml_fsqr                # !963
+    addi     %sp  %sp  -5                  # !963
+    lw       %ra  %sp  4                   # !963
+    lw       %r1  %sp  3                   # !963
+    fsw      %f0  %sp  4                   # !963
+    sw       %ra  %sp  5                   # !963
+    addi     %sp  %sp  6                   # !963
+    jal      ~o_param_a.2533               # !963
+    addi     %sp  %sp  -6                  # !963
+    lw       %ra  %sp  5                   # !963
+    flw      %f1  %sp  4                   # !963
+    fmul     %f0  %f1  %f0                 # !963
+    flw      %f1  %sp  2                   # !963
+    fsw      %f0  %sp  5                   # !963
+    fmovz    %f0  %f1  %zero               # !963
+    sw       %ra  %sp  6                   # !963
+    addi     %sp  %sp  7                   # !963
+    jal      ~min_caml_fsqr                # !963
+    addi     %sp  %sp  -7                  # !963
+    lw       %ra  %sp  6                   # !963
+    lw       %r1  %sp  3                   # !963
+    fsw      %f0  %sp  6                   # !963
+    sw       %ra  %sp  7                   # !963
+    addi     %sp  %sp  8                   # !963
+    jal      ~o_param_b.2535               # !963
+    addi     %sp  %sp  -8                  # !963
+    lw       %ra  %sp  7                   # !963
+    flw      %f1  %sp  6                   # !963
+    fmul     %f0  %f1  %f0                 # !963
+    flw      %f1  %sp  5                   # !963
+    fadd     %f0  %f1  %f0                 # !963
+    flw      %f1  %sp  1                   # !963
+    fsw      %f0  %sp  7                   # !963
+    fmovz    %f0  %f1  %zero               # !963
+    sw       %ra  %sp  8                   # !963
+    addi     %sp  %sp  9                   # !963
+    jal      ~min_caml_fsqr                # !963
+    addi     %sp  %sp  -9                  # !963
+    lw       %ra  %sp  8                   # !963
+    lw       %r1  %sp  3                   # !963
+    fsw      %f0  %sp  8                   # !963
+    sw       %ra  %sp  9                   # !963
+    addi     %sp  %sp  10                  # !963
+    jal      ~o_param_c.2537               # !963
+    addi     %sp  %sp  -10                 # !963
+    lw       %ra  %sp  9                   # !963
+    flw      %f1  %sp  8                   # !963
+    fmul     %f0  %f1  %f0                 # !963
+    flw      %f1  %sp  7                   # !963
+    fadd     %f0  %f1  %f0                 # !963
+    lw       %r1  %sp  3                   # !965
+    fsw      %f0  %sp  9                   # !965
+    sw       %ra  %sp  10                  # !965
+    addi     %sp  %sp  11                  # !965
+    jal      ~o_isrot.2531                 # !965
+    addi     %sp  %sp  -11                 # !965
+    lw       %ra  %sp  10                  # !965
+    addi     %r2  %zero  0                 # !965
+    beq      %r1  %r2  beq_then.9333       # !965
+    flw      %f0  %sp  1                   # !969
+    flw      %f1  %sp  2                   # !969
+    fmul     %f2  %f1  %f0                 # !969
+    lw       %r1  %sp  3                   # !969
+    fsw      %f2  %sp  10                  # !969
+    sw       %ra  %sp  11                  # !969
+    addi     %sp  %sp  12                  # !969
+    jal      ~o_param_r1.2557              # !969
+    addi     %sp  %sp  -12                 # !969
+    lw       %ra  %sp  11                  # !969
+    flw      %f1  %sp  10                  # !969
+    fmul     %f0  %f1  %f0                 # !969
+    flw      %f1  %sp  9                   # !968
+    fadd     %f0  %f0  %f1                 # !968
+    flw      %f1  %sp  1                   # !970
+    flw      %f2  %sp  0                   # !970
+    fmul     %f1  %f2  %f1                 # !970
+    lw       %r1  %sp  3                   # !970
+    fsw      %f0  %sp  11                  # !970
+    fsw      %f1  %sp  12                  # !970
+    sw       %ra  %sp  13                  # !970
+    addi     %sp  %sp  14                  # !970
+    jal      ~o_param_r2.2559              # !970
+    addi     %sp  %sp  -14                 # !970
+    lw       %ra  %sp  13                  # !970
+    flw      %f1  %sp  12                  # !970
+    fmul     %f0  %f1  %f0                 # !970
+    flw      %f1  %sp  11                  # !968
+    fadd     %f0  %f1  %f0                 # !968
+    flw      %f1  %sp  2                   # !971
+    flw      %f2  %sp  0                   # !971
+    fmul     %f1  %f2  %f1                 # !971
+    lw       %r1  %sp  3                   # !971
+    fsw      %f0  %sp  13                  # !971
+    fsw      %f1  %sp  14                  # !971
+    sw       %ra  %sp  15                  # !971
+    addi     %sp  %sp  16                  # !971
+    jal      ~o_param_r3.2561              # !971
+    addi     %sp  %sp  -16                 # !971
+    lw       %ra  %sp  15                  # !971
+    flw      %f1  %sp  14                  # !971
+    fmul     %f0  %f1  %f0                 # !971
+    flw      %f1  %sp  13                  # !968
+    fadd     %f0  %f1  %f0                 # !968
+    jr       %ra                           # !968
+beq_then.9333:
+    flw      %f0  %sp  9                   # !966
+    jr       %ra                           # !966
+bilinear.2643:
+    fmul     %f6  %f0  %f3                 # !977
+    fsw      %f3  %sp  0                   # !977
+    fsw      %f0  %sp  1                   # !977
+    fsw      %f5  %sp  2                   # !977
+    fsw      %f2  %sp  3                   # !977
+    sw       %r1  %sp  4                   # !977
+    fsw      %f4  %sp  5                   # !977
+    fsw      %f1  %sp  6                   # !977
+    fsw      %f6  %sp  7                   # !977
+    sw       %ra  %sp  8                   # !977
+    addi     %sp  %sp  9                   # !977
+    jal      ~o_param_a.2533               # !977
+    addi     %sp  %sp  -9                  # !977
+    lw       %ra  %sp  8                   # !977
+    flw      %f1  %sp  7                   # !977
+    fmul     %f0  %f1  %f0                 # !977
+    flw      %f1  %sp  5                   # !978
+    flw      %f2  %sp  6                   # !978
+    fmul     %f3  %f2  %f1                 # !978
+    lw       %r1  %sp  4                   # !978
+    fsw      %f0  %sp  8                   # !978
+    fsw      %f3  %sp  9                   # !978
+    sw       %ra  %sp  10                  # !978
+    addi     %sp  %sp  11                  # !978
+    jal      ~o_param_b.2535               # !978
+    addi     %sp  %sp  -11                 # !978
+    lw       %ra  %sp  10                  # !978
+    flw      %f1  %sp  9                   # !978
+    fmul     %f0  %f1  %f0                 # !978
+    flw      %f1  %sp  8                   # !977
+    fadd     %f0  %f1  %f0                 # !977
+    flw      %f1  %sp  2                   # !979
+    flw      %f2  %sp  3                   # !979
+    fmul     %f3  %f2  %f1                 # !979
+    lw       %r1  %sp  4                   # !979
+    fsw      %f0  %sp  10                  # !979
+    fsw      %f3  %sp  11                  # !979
+    sw       %ra  %sp  12                  # !979
+    addi     %sp  %sp  13                  # !979
+    jal      ~o_param_c.2537               # !979
+    addi     %sp  %sp  -13                 # !979
+    lw       %ra  %sp  12                  # !979
+    flw      %f1  %sp  11                  # !979
+    fmul     %f0  %f1  %f0                 # !979
+    flw      %f1  %sp  10                  # !977
+    fadd     %f0  %f1  %f0                 # !977
+    lw       %r1  %sp  4                   # !981
+    fsw      %f0  %sp  12                  # !981
+    sw       %ra  %sp  13                  # !981
+    addi     %sp  %sp  14                  # !981
+    jal      ~o_isrot.2531                 # !981
+    addi     %sp  %sp  -14                 # !981
+    lw       %ra  %sp  13                  # !981
+    addi     %r2  %zero  0                 # !981
+    beq      %r1  %r2  beq_then.9334       # !981
+    flw      %f0  %sp  5                   # !985
+    flw      %f1  %sp  3                   # !985
+    fmul     %f2  %f1  %f0                 # !985
+    flw      %f3  %sp  2                   # !985
+    flw      %f4  %sp  6                   # !985
+    fmul     %f5  %f4  %f3                 # !985
+    fadd     %f2  %f2  %f5                 # !985
+    lw       %r1  %sp  4                   # !985
+    fsw      %f2  %sp  13                  # !985
+    sw       %ra  %sp  14                  # !985
+    addi     %sp  %sp  15                  # !985
+    jal      ~o_param_r1.2557              # !985
+    addi     %sp  %sp  -15                 # !985
+    lw       %ra  %sp  14                  # !985
+    flw      %f1  %sp  13                  # !985
+    fmul     %f0  %f1  %f0                 # !985
+    flw      %f1  %sp  2                   # !986
+    flw      %f2  %sp  1                   # !986
+    fmul     %f1  %f2  %f1                 # !986
+    flw      %f3  %sp  0                   # !986
+    flw      %f4  %sp  3                   # !986
+    fmul     %f4  %f4  %f3                 # !986
+    fadd     %f1  %f1  %f4                 # !986
+    lw       %r1  %sp  4                   # !986
+    fsw      %f0  %sp  14                  # !986
+    fsw      %f1  %sp  15                  # !986
+    sw       %ra  %sp  16                  # !986
+    addi     %sp  %sp  17                  # !986
+    jal      ~o_param_r2.2559              # !986
+    addi     %sp  %sp  -17                 # !986
+    lw       %ra  %sp  16                  # !986
+    flw      %f1  %sp  15                  # !986
+    fmul     %f0  %f1  %f0                 # !986
+    flw      %f1  %sp  14                  # !985
+    fadd     %f0  %f1  %f0                 # !985
+    flw      %f1  %sp  5                   # !987
+    flw      %f2  %sp  1                   # !987
+    fmul     %f1  %f2  %f1                 # !987
+    flw      %f2  %sp  0                   # !987
+    flw      %f3  %sp  6                   # !987
+    fmul     %f2  %f3  %f2                 # !987
+    fadd     %f1  %f1  %f2                 # !987
+    lw       %r1  %sp  4                   # !987
+    fsw      %f0  %sp  16                  # !987
+    fsw      %f1  %sp  17                  # !987
+    sw       %ra  %sp  18                  # !987
+    addi     %sp  %sp  19                  # !987
+    jal      ~o_param_r3.2561              # !987
+    addi     %sp  %sp  -19                 # !987
+    lw       %ra  %sp  18                  # !987
+    flw      %f1  %sp  17                  # !987
+    fmul     %f0  %f1  %f0                 # !987
+    flw      %f1  %sp  16                  # !985
+    fadd     %f0  %f1  %f0                 # !985
+    sw       %ra  %sp  18                  # !984
+    addi     %sp  %sp  19                  # !984
+    jal      ~min_caml_fhalf               # !984
+    addi     %sp  %sp  -19                 # !984
+    lw       %ra  %sp  18                  # !984
+    flw      %f1  %sp  12                  # !984
+    fadd     %f0  %f0  %f1                 # !984
+    jr       %ra                           # !984
+beq_then.9334:
+    flw      %f0  %sp  12                  # !982
+    jr       %ra                           # !982
+solver_second.2651:
+    lw       %r3  %r27  1                  # !998
+    addi     %r4  %zero  0                 # !1002
+    flw      %f3  %r2  0                   # !1002
+    addi     %r5  %zero  1                 # !1002
+    flw      %f4  %r2  1                   # !1002
+    flw      %f5  %r2  2                   # !1002
+    sw       %r5  %sp  0                   # !1002
+    sw       %r3  %sp  1                   # !1002
+    fsw      %f2  %sp  2                   # !1002
+    fsw      %f1  %sp  3                   # !1002
+    fsw      %f0  %sp  4                   # !1002
+    sw       %r1  %sp  5                   # !1002
+    sw       %r2  %sp  6                   # !1002
+    sw       %r4  %sp  7                   # !1002
+    fmovz    %f2  %f5  %zero               # !1002
+    fmovz    %f1  %f4  %zero               # !1002
+    fmovz    %f0  %f3  %zero               # !1002
+    sw       %ra  %sp  8                   # !1002
+    addi     %sp  %sp  9                   # !1002
+    jal      ~quadratic.2638               # !1002
+    addi     %sp  %sp  -9                  # !1002
+    lw       %ra  %sp  8                   # !1002
+    fsw      %f0  %sp  8                   # !1004
+    sw       %ra  %sp  9                   # !1004
+    addi     %sp  %sp  10                  # !1004
+    jal      ~min_caml_fiszero             # !1004
+    addi     %sp  %sp  -10                 # !1004
+    lw       %ra  %sp  9                   # !1004
+    lw       %r2  %sp  7                   # !1004
+    beq      %r1  %r2  beq_then.9335       # !1004
+    movz     %r1  %r2  %zero               # !1005
+    jr       %ra                           # !1005
+beq_then.9335:
+    flw      %f0  %sp  6                   # !1009
+    flw      %f1  %f0  0                   # !1009
+    flw      %f2  %f0  1                   # !1009
+    flw      %f0  %f0  2                   # !1009
+    flw      %f3  %sp  4                   # !1009
+    flw      %f4  %sp  3                   # !1009
+    flw      %f5  %sp  2                   # !1009
+    lw       %r1  %sp  5                   # !1009
+    fmovz    %f31  %f2  %zero              # !1009
+    fmovz    %f2  %f0  %zero               # !1009
+    fmovz    %f0  %f1  %zero               # !1009
+    fmovz    %f1  %f31  %zero              # !1009
+    sw       %ra  %sp  9                   # !1009
+    addi     %sp  %sp  10                  # !1009
+    jal      ~bilinear.2643                # !1009
+    addi     %sp  %sp  -10                 # !1009
+    lw       %ra  %sp  9                   # !1009
+    flw      %f1  %sp  4                   # !1011
+    flw      %f2  %sp  3                   # !1011
+    flw      %f3  %sp  2                   # !1011
+    lw       %r1  %sp  5                   # !1011
+    fsw      %f0  %sp  9                   # !1011
+    fmovz    %f0  %f1  %zero               # !1011
+    fmovz    %f1  %f2  %zero               # !1011
+    fmovz    %f2  %f3  %zero               # !1011
+    sw       %ra  %sp  10                  # !1011
+    addi     %sp  %sp  11                  # !1011
+    jal      ~quadratic.2638               # !1011
+    addi     %sp  %sp  -11                 # !1011
+    lw       %ra  %sp  10                  # !1011
+    lw       %r1  %sp  5                   # !1012
+    fsw      %f0  %sp  10                  # !1012
+    sw       %ra  %sp  11                  # !1012
+    addi     %sp  %sp  12                  # !1012
+    jal      ~o_form.2525                  # !1012
+    addi     %sp  %sp  -12                 # !1012
+    lw       %ra  %sp  11                  # !1012
+    addi     %r2  %zero  3                 # !1012
+    beq      %r1  %r2  beq_then.9336       # !1012
+    flw      %f0  %sp  10                  # !1012
+    j        ~beq_cont.9337                # !1012
+beq_then.9336:
+    flui     %f0  508                      # !1012
+    fli      %f0  0                        # !1012
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    flw %f1 %sp 9                          # !1047
-    fsub %f0 %f1 %f0                       # !1047
-beq_cont.8689:
-    flw %f1 %sp 6                          # !1048
-    fmul %f2 %f1 %f1                       # !1048
-    flw %f3 %sp 5                          # !1048
-    fmul %f0 %f3 %f0                       # !1048
-    fsub %f0 %f2 %f0                       # !1048
-    flw %f2 %sp 4                          # !1049
-    fblt %f2 %f0 fblt_then.8690            # !1049
-    lw %r1 %sp 3                           # !1055
-    jr %ra                                 # !1055
-fblt_then.8690:
-    lw %r1 %sp 8                           # !1050
-    fsw %f0 %sp 10                         # !1050
-    sw %ra %sp 11                          # !1050
-    addi %sp %sp 12                        # !1050
-    jal ~o_isinvert.2462                   # !1050
-    addi %sp %sp -12                       # !1050
-    lw %ra %sp 11                          # !1050
-    lw %r2 %sp 3                           # !1050
-    beq %r1 %r2 beq_then.8691              # !1050
-    flw %f0 %sp 10                         # !1051
-    fsqrt %f0 %f0                          # !1051
-    flw %f1 %sp 6                          # !1051
-    fadd %f0 %f0 %f1                       # !1051
-    flw %f1 %sp 2                          # !1051
-    flw %f1 %f1 4                          # !1051
-    fmul %f0 %f0 %f1                       # !1051
-    lw %r1 %sp 1                           # !1051
-    fsw %f0 %r1 0                          # !1051
-    j ~beq_cont.8692                       # !1050
-beq_then.8691:
-    flw %f0 %sp 10                         # !1053
-    fsqrt %f0 %f0                          # !1053
-    flw %f1 %sp 6                          # !1053
-    fsub %f0 %f1 %f0                       # !1053
-    flw %f1 %sp 2                          # !1053
-    flw %f1 %f1 4                          # !1053
-    fmul %f0 %f0 %f1                       # !1053
-    lw %r1 %sp 1                           # !1053
-    fsw %f0 %r1 0                          # !1053
-beq_cont.8692:
-    lw %r1 %sp 0                           # !1054
-    jr %ra                                 # !1054
-fbeq_then.8687:
-    movz %r1 %r4 %zero                     # !1043
-    jr %ra                                 # !1043
-solver_fast.2613:
-    lw %r4 %r27 4                          # !1059
-    lw %r5 %r27 3                          # !1059
-    lw %r6 %r27 2                          # !1059
-    lw %r7 %r27 1                          # !1059
-    lwv %r7 %r7 %r1                        # !1060
-    flw %f0 %r3 0                          # !1061
-    sw %r5 %sp 0                           # !1061
-    sw %r4 %sp 1                           # !1061
-    sw %r6 %sp 2                           # !1061
-    sw %r1 %sp 3                           # !1061
-    sw %r2 %sp 4                           # !1061
-    sw %r7 %sp 5                           # !1061
-    sw %r3 %sp 6                           # !1061
-    fsw %f0 %sp 7                          # !1061
-    movz %r1 %r7 %zero                     # !1061
-    sw %ra %sp 8                           # !1061
-    addi %sp %sp 9                         # !1061
-    jal ~o_param_x.2474                    # !1061
-    addi %sp %sp -9                        # !1061
-    lw %ra %sp 8                           # !1061
-    flw %f1 %sp 7                          # !1061
-    fsub %f0 %f1 %f0                       # !1061
-    addi %r1 %zero 1                       # !1062
-    flw %f1 %sp 6                          # !1062
-    flw %f2 %f1 1                          # !1062
-    lw %r2 %sp 5                           # !1062
-    fsw %f0 %sp 8                          # !1062
-    sw %r1 %sp 9                           # !1062
-    fsw %f2 %sp 10                         # !1062
-    movz %r1 %r2 %zero                     # !1062
-    sw %ra %sp 11                          # !1062
-    addi %sp %sp 12                        # !1062
-    jal ~o_param_y.2476                    # !1062
-    addi %sp %sp -12                       # !1062
-    lw %ra %sp 11                          # !1062
-    flw %f1 %sp 10                         # !1062
-    fsub %f0 %f1 %f0                       # !1062
-    addi %r1 %zero 2                       # !1063
-    flw %f1 %sp 6                          # !1063
-    flw %f1 %f1 2                          # !1063
-    lw %r2 %sp 5                           # !1063
-    sw %r1 %sp 11                          # !1063
-    fsw %f0 %sp 12                         # !1063
-    fsw %f1 %sp 13                         # !1063
-    movz %r1 %r2 %zero                     # !1063
-    sw %ra %sp 14                          # !1063
-    addi %sp %sp 15                        # !1063
-    jal ~o_param_z.2478                    # !1063
-    addi %sp %sp -15                       # !1063
-    lw %ra %sp 14                          # !1063
-    flw %f1 %sp 13                         # !1063
-    fsub %f0 %f1 %f0                       # !1063
-    lw %r1 %sp 4                           # !1064
-    fsw %f0 %sp 14                         # !1064
-    sw %ra %sp 15                          # !1064
-    addi %sp %sp 16                        # !1064
-    jal ~d_const.2519                      # !1064
-    addi %sp %sp -16                       # !1064
-    lw %ra %sp 15                          # !1064
-    lw %r2 %sp 3                           # !1065
-    lwv %r1 %r1 %r2                        # !1065
-    lw %r2 %sp 5                           # !1066
-    sw %r1 %sp 15                          # !1066
-    movz %r1 %r2 %zero                     # !1066
-    sw %ra %sp 16                          # !1066
-    addi %sp %sp 17                        # !1066
-    jal ~o_form.2458                       # !1066
-    addi %sp %sp -17                       # !1066
-    lw %ra %sp 16                          # !1066
-    lw %r2 %sp 9                           # !1067
-    beq %r1 %r2 beq_then.8693              # !1067
-    lw %r2 %sp 11                          # !1069
-    beq %r1 %r2 beq_then.8694              # !1069
-    flw %f0 %sp 8                          # !1072
-    flw %f1 %sp 12                         # !1072
-    flw %f2 %sp 14                         # !1072
-    lw %r1 %sp 5                           # !1072
-    lw %r2 %sp 15                          # !1072
-    lw %r27 %sp 0                          # !1072
-    lw %r28 %r27 0                         # !1072
-    jr %r28                                # !1072
-beq_then.8694:
-    flw %f0 %sp 8                          # !1070
-    flw %f1 %sp 12                         # !1070
-    flw %f2 %sp 14                         # !1070
-    lw %r1 %sp 5                           # !1070
-    lw %r2 %sp 15                          # !1070
-    lw %r27 %sp 1                          # !1070
-    lw %r28 %r27 0                         # !1070
-    jr %r28                                # !1070
-beq_then.8693:
-    lw %r1 %sp 4                           # !1068
-    sw %ra %sp 16                          # !1068
-    addi %sp %sp 17                        # !1068
-    jal ~d_vec.2517                        # !1068
-    addi %sp %sp -17                       # !1068
-    lw %ra %sp 16                          # !1068
-    movz %r2 %r1 %zero                     # !1068
-    flw %f0 %sp 8                          # !1068
-    flw %f1 %sp 12                         # !1068
-    flw %f2 %sp 14                         # !1068
-    lw %r1 %sp 5                           # !1068
-    lw %r3 %sp 15                          # !1068
-    lw %r27 %sp 2                          # !1068
-    lw %r28 %r27 0                         # !1068
-    jr %r28                                # !1068
-solver_surface_fast2.2617:
-    lw %r1 %r27 1                          # !1079
-    flui %f0 0                             # !1080
-    fli %f0 0                              # !1080
+    flw      %f1  %sp  10                  # !1012
+    fsub     %f0  %f1  %f0                 # !1012
+beq_cont.9337:
+    flw      %f1  %sp  9                   # !1014
+    fsw      %f0  %sp  11                  # !1014
+    fmovz    %f0  %f1  %zero               # !1014
+    sw       %ra  %sp  12                  # !1014
+    addi     %sp  %sp  13                  # !1014
+    jal      ~min_caml_fsqr                # !1014
+    addi     %sp  %sp  -13                 # !1014
+    lw       %ra  %sp  12                  # !1014
+    flw      %f1  %sp  11                  # !1014
+    flw      %f2  %sp  8                   # !1014
+    fmul     %f1  %f2  %f1                 # !1014
+    fsub     %f0  %f0  %f1                 # !1014
+    fsw      %f0  %sp  12                  # !1016
+    sw       %ra  %sp  13                  # !1016
+    addi     %sp  %sp  14                  # !1016
+    jal      ~min_caml_fispos              # !1016
+    addi     %sp  %sp  -14                 # !1016
+    lw       %ra  %sp  13                  # !1016
+    lw       %r2  %sp  7                   # !1016
+    beq      %r1  %r2  beq_then.9338       # !1016
+    flw      %f0  %sp  12                  # !1017
+    sw       %ra  %sp  13                  # !1017
+    addi     %sp  %sp  14                  # !1017
+    jal      ~min_caml_sqrt                # !1017
+    addi     %sp  %sp  -14                 # !1017
+    lw       %ra  %sp  13                  # !1017
+    lw       %r1  %sp  5                   # !1018
+    fsw      %f0  %sp  13                  # !1018
+    sw       %ra  %sp  14                  # !1018
+    addi     %sp  %sp  15                  # !1018
+    jal      ~o_isinvert.2529              # !1018
+    addi     %sp  %sp  -15                 # !1018
+    lw       %ra  %sp  14                  # !1018
+    lw       %r2  %sp  7                   # !1018
+    beq      %r1  %r2  beq_then.9339       # !1018
+    flw      %f0  %sp  13                  # !1018
+    j        ~beq_cont.9340                # !1018
+beq_then.9339:
+    flw      %f0  %sp  13                  # !1018
+    sw       %ra  %sp  14                  # !1018
+    addi     %sp  %sp  15                  # !1018
+    jal      ~min_caml_fneg                # !1018
+    addi     %sp  %sp  -15                 # !1018
+    lw       %ra  %sp  14                  # !1018
+beq_cont.9340:
+    flw      %f1  %sp  9                   # !1019
+    fsub     %f0  %f0  %f1                 # !1019
+    flw      %f1  %sp  8                   # !1019
+    fdiv     %f0  %f0  %f1                 # !1019
+    lw       %r1  %sp  1                   # !1019
+    fsw      %f0  %r1  0                   # !1019
+    lw       %r1  %sp  0                   # !1019
+    jr       %ra                           # !1019
+beq_then.9338:
+    movz     %r1  %r2  %zero               # !1022
+    jr       %ra                           # !1022
+solver.2657:
+    lw       %r4  %r27  4                  # !1027
+    lw       %r5  %r27  3                  # !1027
+    lw       %r6  %r27  2                  # !1027
+    lw       %r7  %r27  1                  # !1027
+    lwv      %r1  %r7  %r1                 # !1028
+    flw      %f0  %r3  0                   # !1030
+    sw       %r5  %sp  0                   # !1030
+    sw       %r4  %sp  1                   # !1030
+    sw       %r2  %sp  2                   # !1030
+    sw       %r6  %sp  3                   # !1030
+    sw       %r1  %sp  4                   # !1030
+    sw       %r3  %sp  5                   # !1030
+    fsw      %f0  %sp  6                   # !1030
+    sw       %ra  %sp  7                   # !1030
+    addi     %sp  %sp  8                   # !1030
+    jal      ~o_param_x.2541               # !1030
+    addi     %sp  %sp  -8                  # !1030
+    lw       %ra  %sp  7                   # !1030
+    flw      %f1  %sp  6                   # !1030
+    fsub     %f0  %f1  %f0                 # !1030
+    addi     %r1  %zero  1                 # !1031
+    flw      %f1  %sp  5                   # !1031
+    flw      %f2  %f1  1                   # !1031
+    lw       %r2  %sp  4                   # !1031
+    fsw      %f0  %sp  7                   # !1031
+    sw       %r1  %sp  8                   # !1031
+    fsw      %f2  %sp  9                   # !1031
+    movz     %r1  %r2  %zero               # !1031
+    sw       %ra  %sp  10                  # !1031
+    addi     %sp  %sp  11                  # !1031
+    jal      ~o_param_y.2543               # !1031
+    addi     %sp  %sp  -11                 # !1031
+    lw       %ra  %sp  10                  # !1031
+    flw      %f1  %sp  9                   # !1031
+    fsub     %f0  %f1  %f0                 # !1031
+    addi     %r1  %zero  2                 # !1032
+    flw      %f1  %sp  5                   # !1032
+    flw      %f1  %f1  2                   # !1032
+    lw       %r2  %sp  4                   # !1032
+    sw       %r1  %sp  10                  # !1032
+    fsw      %f0  %sp  11                  # !1032
+    fsw      %f1  %sp  12                  # !1032
+    movz     %r1  %r2  %zero               # !1032
+    sw       %ra  %sp  13                  # !1032
+    addi     %sp  %sp  14                  # !1032
+    jal      ~o_param_z.2545               # !1032
+    addi     %sp  %sp  -14                 # !1032
+    lw       %ra  %sp  13                  # !1032
+    flw      %f1  %sp  12                  # !1032
+    fsub     %f0  %f1  %f0                 # !1032
+    lw       %r1  %sp  4                   # !1033
+    fsw      %f0  %sp  13                  # !1033
+    sw       %ra  %sp  14                  # !1033
+    addi     %sp  %sp  15                  # !1033
+    jal      ~o_form.2525                  # !1033
+    addi     %sp  %sp  -15                 # !1033
+    lw       %ra  %sp  14                  # !1033
+    lw       %r2  %sp  8                   # !1035
+    beq      %r1  %r2  beq_then.9341       # !1035
+    lw       %r2  %sp  10                  # !1036
+    beq      %r1  %r2  beq_then.9342       # !1036
+    flw      %f0  %sp  7                   # !1037
+    flw      %f1  %sp  11                  # !1037
+    flw      %f2  %sp  13                  # !1037
+    lw       %r1  %sp  4                   # !1037
+    lw       %r2  %sp  2                   # !1037
+    lw       %r27  %sp  0                  # !1037
+    lw       %r28  %r27  0                 # !1037
+    jr       %r28                          # !1037
+beq_then.9342:
+    flw      %f0  %sp  7                   # !1036
+    flw      %f1  %sp  11                  # !1036
+    flw      %f2  %sp  13                  # !1036
+    lw       %r1  %sp  4                   # !1036
+    lw       %r2  %sp  2                   # !1036
+    lw       %r27  %sp  1                  # !1036
+    lw       %r28  %r27  0                 # !1036
+    jr       %r28                          # !1036
+beq_then.9341:
+    flw      %f0  %sp  7                   # !1035
+    flw      %f1  %sp  11                  # !1035
+    flw      %f2  %sp  13                  # !1035
+    lw       %r1  %sp  4                   # !1035
+    lw       %r2  %sp  2                   # !1035
+    lw       %r27  %sp  3                  # !1035
+    lw       %r28  %r27  0                 # !1035
+    jr       %r28                          # !1035
+solver_rect_fast.2661:
+    lw       %r4  %r27  1                  # !1059
+    addi     %r5  %zero  0                 # !1060
+    flw      %f3  %r3  0                   # !1060
+    fsub     %f3  %f3  %f0                 # !1060
+    addi     %r6  %zero  1                 # !1060
+    flw      %f4  %r3  1                   # !1060
+    fmul     %f3  %f4  %f3                 # !1060
+    flw      %f4  %r2  1                   # !1062
+    fmul     %f4  %f4  %f3                 # !1062
+    fadd     %f4  %f4  %f1                 # !1062
+    sw       %r4  %sp  0                   # !1062
+    fsw      %f0  %sp  1                   # !1062
+    fsw      %f1  %sp  2                   # !1062
+    sw       %r6  %sp  3                   # !1062
+    sw       %r3  %sp  4                   # !1062
+    fsw      %f2  %sp  5                   # !1062
+    fsw      %f3  %sp  6                   # !1062
+    sw       %r2  %sp  7                   # !1062
+    sw       %r5  %sp  8                   # !1062
+    sw       %r1  %sp  9                   # !1062
+    fmovz    %f0  %f4  %zero               # !1062
+    sw       %ra  %sp  10                  # !1062
+    addi     %sp  %sp  11                  # !1062
+    jal      ~min_caml_fabs                # !1062
+    addi     %sp  %sp  -11                 # !1062
+    lw       %ra  %sp  10                  # !1062
+    lw       %r1  %sp  9                   # !1062
+    fsw      %f0  %sp  10                  # !1062
+    sw       %ra  %sp  11                  # !1062
+    addi     %sp  %sp  12                  # !1062
+    jal      ~o_param_b.2535               # !1062
+    addi     %sp  %sp  -12                 # !1062
+    lw       %ra  %sp  11                  # !1062
+    fmovz    %f1  %f0  %zero               # !1062
+    flw      %f0  %sp  10                  # !1062
+    sw       %ra  %sp  11                  # !1062
+    addi     %sp  %sp  12                  # !1062
+    jal      ~min_caml_fless               # !1062
+    addi     %sp  %sp  -12                 # !1062
+    lw       %ra  %sp  11                  # !1062
+    lw       %r2  %sp  8                   # !1062
+    beq      %r1  %r2  beq_then.9343       # !1062
+    flw      %f0  %sp  7                   # !1063
+    flw      %f1  %f0  2                   # !1063
+    flw      %f2  %sp  6                   # !1063
+    fmul     %f1  %f1  %f2                 # !1063
+    flw      %f3  %sp  5                   # !1063
+    fadd     %f1  %f1  %f3                 # !1063
+    fmovz    %f0  %f1  %zero               # !1063
+    sw       %ra  %sp  11                  # !1063
+    addi     %sp  %sp  12                  # !1063
+    jal      ~min_caml_fabs                # !1063
+    addi     %sp  %sp  -12                 # !1063
+    lw       %ra  %sp  11                  # !1063
+    lw       %r1  %sp  9                   # !1063
+    fsw      %f0  %sp  11                  # !1063
+    sw       %ra  %sp  12                  # !1063
+    addi     %sp  %sp  13                  # !1063
+    jal      ~o_param_c.2537               # !1063
+    addi     %sp  %sp  -13                 # !1063
+    lw       %ra  %sp  12                  # !1063
+    fmovz    %f1  %f0  %zero               # !1063
+    flw      %f0  %sp  11                  # !1063
+    sw       %ra  %sp  12                  # !1063
+    addi     %sp  %sp  13                  # !1063
+    jal      ~min_caml_fless               # !1063
+    addi     %sp  %sp  -13                 # !1063
+    lw       %ra  %sp  12                  # !1063
+    lw       %r2  %sp  8                   # !1063
+    beq      %r1  %r2  beq_then.9345       # !1063
+    flw      %f0  %sp  4                   # !1064
+    flw      %f1  %f0  1                   # !1064
+    fmovz    %f0  %f1  %zero               # !1064
+    sw       %ra  %sp  12                  # !1064
+    addi     %sp  %sp  13                  # !1064
+    jal      ~min_caml_fiszero             # !1064
+    addi     %sp  %sp  -13                 # !1064
+    lw       %ra  %sp  12                  # !1064
+    lw       %r2  %sp  8                   # !1064
+    beq      %r1  %r2  beq_then.9347       # !1064
+    movz     %r1  %r2  %zero               # !1064
+    j        ~beq_cont.9348                # !1064
+beq_then.9347:
+    lw       %r1  %sp  3                   # !1064
+beq_cont.9348:
+    j        ~beq_cont.9346                # !1063
+beq_then.9345:
+    movz     %r1  %r2  %zero               # !1065
+beq_cont.9346:
+    j        ~beq_cont.9344                # !1062
+beq_then.9343:
+    movz     %r1  %r2  %zero               # !1066
+beq_cont.9344:
+    beq      %r1  %r2  beq_then.9349       # !1061
+    lw       %r1  %sp  0                   # !1068
+    flw      %f0  %sp  6                   # !1068
+    fsw      %f0  %r1  0                   # !1068
+    lw       %r1  %sp  3                   # !1068
+    jr       %ra                           # !1068
+beq_then.9349:
+    addi     %r1  %zero  2                 # !1069
+    flw      %f0  %sp  4                   # !1069
+    flw      %f1  %f0  2                   # !1069
+    flw      %f2  %sp  2                   # !1069
+    fsub     %f1  %f1  %f2                 # !1069
+    addi     %r3  %zero  3                 # !1069
+    flw      %f3  %f0  3                   # !1069
+    fmul     %f1  %f1  %f3                 # !1069
+    flw      %f3  %sp  7                   # !1071
+    flw      %f4  %f3  0                   # !1071
+    fmul     %f4  %f4  %f1                 # !1071
+    flw      %f5  %sp  1                   # !1071
+    fadd     %f4  %f4  %f5                 # !1071
+    sw       %r1  %sp  12                  # !1071
+    sw       %r3  %sp  13                  # !1071
+    fsw      %f1  %sp  14                  # !1071
+    fmovz    %f0  %f4  %zero               # !1071
+    sw       %ra  %sp  15                  # !1071
+    addi     %sp  %sp  16                  # !1071
+    jal      ~min_caml_fabs                # !1071
+    addi     %sp  %sp  -16                 # !1071
+    lw       %ra  %sp  15                  # !1071
+    lw       %r1  %sp  9                   # !1071
+    fsw      %f0  %sp  15                  # !1071
+    sw       %ra  %sp  16                  # !1071
+    addi     %sp  %sp  17                  # !1071
+    jal      ~o_param_a.2533               # !1071
+    addi     %sp  %sp  -17                 # !1071
+    lw       %ra  %sp  16                  # !1071
+    fmovz    %f1  %f0  %zero               # !1071
+    flw      %f0  %sp  15                  # !1071
+    sw       %ra  %sp  16                  # !1071
+    addi     %sp  %sp  17                  # !1071
+    jal      ~min_caml_fless               # !1071
+    addi     %sp  %sp  -17                 # !1071
+    lw       %ra  %sp  16                  # !1071
+    lw       %r2  %sp  8                   # !1071
+    beq      %r1  %r2  beq_then.9350       # !1071
+    flw      %f0  %sp  7                   # !1072
+    flw      %f1  %f0  2                   # !1072
+    flw      %f2  %sp  14                  # !1072
+    fmul     %f1  %f1  %f2                 # !1072
+    flw      %f3  %sp  5                   # !1072
+    fadd     %f1  %f1  %f3                 # !1072
+    fmovz    %f0  %f1  %zero               # !1072
+    sw       %ra  %sp  16                  # !1072
+    addi     %sp  %sp  17                  # !1072
+    jal      ~min_caml_fabs                # !1072
+    addi     %sp  %sp  -17                 # !1072
+    lw       %ra  %sp  16                  # !1072
+    lw       %r1  %sp  9                   # !1072
+    fsw      %f0  %sp  16                  # !1072
+    sw       %ra  %sp  17                  # !1072
+    addi     %sp  %sp  18                  # !1072
+    jal      ~o_param_c.2537               # !1072
+    addi     %sp  %sp  -18                 # !1072
+    lw       %ra  %sp  17                  # !1072
+    fmovz    %f1  %f0  %zero               # !1072
+    flw      %f0  %sp  16                  # !1072
+    sw       %ra  %sp  17                  # !1072
+    addi     %sp  %sp  18                  # !1072
+    jal      ~min_caml_fless               # !1072
+    addi     %sp  %sp  -18                 # !1072
+    lw       %ra  %sp  17                  # !1072
+    lw       %r2  %sp  8                   # !1072
+    beq      %r1  %r2  beq_then.9352       # !1072
+    flw      %f0  %sp  4                   # !1073
+    flw      %f1  %f0  3                   # !1073
+    fmovz    %f0  %f1  %zero               # !1073
+    sw       %ra  %sp  17                  # !1073
+    addi     %sp  %sp  18                  # !1073
+    jal      ~min_caml_fiszero             # !1073
+    addi     %sp  %sp  -18                 # !1073
+    lw       %ra  %sp  17                  # !1073
+    lw       %r2  %sp  8                   # !1073
+    beq      %r1  %r2  beq_then.9354       # !1073
+    movz     %r1  %r2  %zero               # !1073
+    j        ~beq_cont.9355                # !1073
+beq_then.9354:
+    lw       %r1  %sp  3                   # !1073
+beq_cont.9355:
+    j        ~beq_cont.9353                # !1072
+beq_then.9352:
+    movz     %r1  %r2  %zero               # !1074
+beq_cont.9353:
+    j        ~beq_cont.9351                # !1071
+beq_then.9350:
+    movz     %r1  %r2  %zero               # !1075
+beq_cont.9351:
+    beq      %r1  %r2  beq_then.9356       # !1070
+    lw       %r1  %sp  0                   # !1077
+    flw      %f0  %sp  14                  # !1077
+    fsw      %f0  %r1  0                   # !1077
+    lw       %r1  %sp  12                  # !1077
+    jr       %ra                           # !1077
+beq_then.9356:
+    flw      %f0  %sp  4                   # !1078
+    flw      %f1  %f0  4                   # !1078
+    flw      %f2  %sp  5                   # !1078
+    fsub     %f1  %f1  %f2                 # !1078
+    flw      %f2  %f0  5                   # !1078
+    fmul     %f1  %f1  %f2                 # !1078
+    flw      %f2  %sp  7                   # !1080
+    flw      %f3  %f2  0                   # !1080
+    fmul     %f3  %f3  %f1                 # !1080
+    flw      %f4  %sp  1                   # !1080
+    fadd     %f3  %f3  %f4                 # !1080
+    fsw      %f1  %sp  17                  # !1080
+    fmovz    %f0  %f3  %zero               # !1080
+    sw       %ra  %sp  18                  # !1080
+    addi     %sp  %sp  19                  # !1080
+    jal      ~min_caml_fabs                # !1080
+    addi     %sp  %sp  -19                 # !1080
+    lw       %ra  %sp  18                  # !1080
+    lw       %r1  %sp  9                   # !1080
+    fsw      %f0  %sp  18                  # !1080
+    sw       %ra  %sp  19                  # !1080
+    addi     %sp  %sp  20                  # !1080
+    jal      ~o_param_a.2533               # !1080
+    addi     %sp  %sp  -20                 # !1080
+    lw       %ra  %sp  19                  # !1080
+    fmovz    %f1  %f0  %zero               # !1080
+    flw      %f0  %sp  18                  # !1080
+    sw       %ra  %sp  19                  # !1080
+    addi     %sp  %sp  20                  # !1080
+    jal      ~min_caml_fless               # !1080
+    addi     %sp  %sp  -20                 # !1080
+    lw       %ra  %sp  19                  # !1080
+    lw       %r2  %sp  8                   # !1080
+    beq      %r1  %r2  beq_then.9357       # !1080
+    flw      %f0  %sp  7                   # !1081
+    flw      %f0  %f0  1                   # !1081
+    flw      %f1  %sp  17                  # !1081
+    fmul     %f0  %f0  %f1                 # !1081
+    flw      %f2  %sp  2                   # !1081
+    fadd     %f0  %f0  %f2                 # !1081
+    sw       %ra  %sp  19                  # !1081
+    addi     %sp  %sp  20                  # !1081
+    jal      ~min_caml_fabs                # !1081
+    addi     %sp  %sp  -20                 # !1081
+    lw       %ra  %sp  19                  # !1081
+    lw       %r1  %sp  9                   # !1081
+    fsw      %f0  %sp  19                  # !1081
+    sw       %ra  %sp  20                  # !1081
+    addi     %sp  %sp  21                  # !1081
+    jal      ~o_param_b.2535               # !1081
+    addi     %sp  %sp  -21                 # !1081
+    lw       %ra  %sp  20                  # !1081
+    fmovz    %f1  %f0  %zero               # !1081
+    flw      %f0  %sp  19                  # !1081
+    sw       %ra  %sp  20                  # !1081
+    addi     %sp  %sp  21                  # !1081
+    jal      ~min_caml_fless               # !1081
+    addi     %sp  %sp  -21                 # !1081
+    lw       %ra  %sp  20                  # !1081
+    lw       %r2  %sp  8                   # !1081
+    beq      %r1  %r2  beq_then.9359       # !1081
+    flw      %f0  %sp  4                   # !1082
+    flw      %f0  %f0  5                   # !1082
+    sw       %ra  %sp  20                  # !1082
+    addi     %sp  %sp  21                  # !1082
+    jal      ~min_caml_fiszero             # !1082
+    addi     %sp  %sp  -21                 # !1082
+    lw       %ra  %sp  20                  # !1082
+    lw       %r2  %sp  8                   # !1082
+    beq      %r1  %r2  beq_then.9361       # !1082
+    movz     %r1  %r2  %zero               # !1082
+    j        ~beq_cont.9362                # !1082
+beq_then.9361:
+    lw       %r1  %sp  3                   # !1082
+beq_cont.9362:
+    j        ~beq_cont.9360                # !1081
+beq_then.9359:
+    movz     %r1  %r2  %zero               # !1083
+beq_cont.9360:
+    j        ~beq_cont.9358                # !1080
+beq_then.9357:
+    movz     %r1  %r2  %zero               # !1084
+beq_cont.9358:
+    beq      %r1  %r2  beq_then.9363       # !1079
+    lw       %r1  %sp  0                   # !1086
+    flw      %f0  %sp  17                  # !1086
+    fsw      %f0  %r1  0                   # !1086
+    lw       %r1  %sp  13                  # !1086
+    jr       %ra                           # !1086
+beq_then.9363:
+    movz     %r1  %r2  %zero               # !1088
+    jr       %ra                           # !1088
+solver_surface_fast.2668:
+    lw       %r1  %r27  1                  # !1092
+    addi     %r3  %zero  0                 # !1093
+    flw      %f3  %r2  0                   # !1093
+    sw       %r1  %sp  0                   # !1093
+    fsw      %f2  %sp  1                   # !1093
+    fsw      %f1  %sp  2                   # !1093
+    fsw      %f0  %sp  3                   # !1093
+    sw       %r2  %sp  4                   # !1093
+    sw       %r3  %sp  5                   # !1093
+    fmovz    %f0  %f3  %zero               # !1093
+    sw       %ra  %sp  6                   # !1093
+    addi     %sp  %sp  7                   # !1093
+    jal      ~min_caml_fisneg              # !1093
+    addi     %sp  %sp  -7                  # !1093
+    lw       %ra  %sp  6                   # !1093
+    lw       %r2  %sp  5                   # !1093
+    beq      %r1  %r2  beq_then.9364       # !1093
+    addi     %r1  %zero  1                 # !1095
+    flw      %f0  %sp  4                   # !1095
+    flw      %f1  %f0  1                   # !1095
+    flw      %f2  %sp  3                   # !1095
+    fmul     %f1  %f1  %f2                 # !1095
+    flw      %f2  %f0  2                   # !1095
+    flw      %f3  %sp  2                   # !1095
+    fmul     %f2  %f2  %f3                 # !1095
+    fadd     %f1  %f1  %f2                 # !1095
+    flw      %f0  %f0  3                   # !1095
+    flw      %f2  %sp  1                   # !1095
+    fmul     %f0  %f0  %f2                 # !1095
+    fadd     %f0  %f1  %f0                 # !1095
+    lw       %r2  %sp  0                   # !1094
+    fsw      %f0  %r2  0                   # !1094
+    jr       %ra                           # !1096
+beq_then.9364:
+    movz     %r1  %r2  %zero               # !1097
+    jr       %ra                           # !1097
+solver_second_fast.2674:
+    lw       %r3  %r27  1                  # !1101
+    addi     %r4  %zero  0                 # !1103
+    flw      %f3  %r2  0                   # !1103
+    sw       %r3  %sp  0                   # !1104
+    fsw      %f3  %sp  1                   # !1104
+    sw       %r1  %sp  2                   # !1104
+    fsw      %f2  %sp  3                   # !1104
+    fsw      %f1  %sp  4                   # !1104
+    fsw      %f0  %sp  5                   # !1104
+    sw       %r2  %sp  6                   # !1104
+    sw       %r4  %sp  7                   # !1104
+    fmovz    %f0  %f3  %zero               # !1104
+    sw       %ra  %sp  8                   # !1104
+    addi     %sp  %sp  9                   # !1104
+    jal      ~min_caml_fiszero             # !1104
+    addi     %sp  %sp  -9                  # !1104
+    lw       %ra  %sp  8                   # !1104
+    lw       %r2  %sp  7                   # !1104
+    beq      %r1  %r2  beq_then.9365       # !1104
+    movz     %r1  %r2  %zero               # !1105
+    jr       %ra                           # !1105
+beq_then.9365:
+    addi     %r1  %zero  1                 # !1107
+    flw      %f0  %sp  6                   # !1107
+    flw      %f1  %f0  1                   # !1107
+    flw      %f2  %sp  5                   # !1107
+    fmul     %f1  %f1  %f2                 # !1107
+    flw      %f3  %f0  2                   # !1107
+    flw      %f4  %sp  4                   # !1107
+    fmul     %f3  %f3  %f4                 # !1107
+    fadd     %f1  %f1  %f3                 # !1107
+    addi     %r3  %zero  3                 # !1107
+    flw      %f3  %f0  3                   # !1107
+    flw      %f5  %sp  3                   # !1107
+    fmul     %f3  %f3  %f5                 # !1107
+    fadd     %f1  %f1  %f3                 # !1107
+    lw       %r4  %sp  2                   # !1108
+    sw       %r1  %sp  8                   # !1108
+    fsw      %f1  %sp  9                   # !1108
+    sw       %r3  %sp  10                  # !1108
+    movz     %r1  %r4  %zero               # !1108
+    fmovz    %f1  %f4  %zero               # !1108
+    fmovz    %f0  %f2  %zero               # !1108
+    fmovz    %f2  %f5  %zero               # !1108
+    sw       %ra  %sp  11                  # !1108
+    addi     %sp  %sp  12                  # !1108
+    jal      ~quadratic.2638               # !1108
+    addi     %sp  %sp  -12                 # !1108
+    lw       %ra  %sp  11                  # !1108
+    lw       %r1  %sp  2                   # !1109
+    fsw      %f0  %sp  11                  # !1109
+    sw       %ra  %sp  12                  # !1109
+    addi     %sp  %sp  13                  # !1109
+    jal      ~o_form.2525                  # !1109
+    addi     %sp  %sp  -13                 # !1109
+    lw       %ra  %sp  12                  # !1109
+    lw       %r2  %sp  10                  # !1109
+    beq      %r1  %r2  beq_then.9366       # !1109
+    flw      %f0  %sp  11                  # !1109
+    j        ~beq_cont.9367                # !1109
+beq_then.9366:
+    flui     %f0  508                      # !1109
+    fli      %f0  0                        # !1109
+    ++
+    fli 1.000000
+    => flui %f0 0b00111111100
+       fli  %f0 0b000000000000000000000
+    ++
+    flw      %f1  %sp  11                  # !1109
+    fsub     %f0  %f1  %f0                 # !1109
+beq_cont.9367:
+    flw      %f1  %sp  9                   # !1110
+    fsw      %f0  %sp  12                  # !1110
+    fmovz    %f0  %f1  %zero               # !1110
+    sw       %ra  %sp  13                  # !1110
+    addi     %sp  %sp  14                  # !1110
+    jal      ~min_caml_fsqr                # !1110
+    addi     %sp  %sp  -14                 # !1110
+    lw       %ra  %sp  13                  # !1110
+    flw      %f1  %sp  12                  # !1110
+    flw      %f2  %sp  1                   # !1110
+    fmul     %f1  %f2  %f1                 # !1110
+    fsub     %f0  %f0  %f1                 # !1110
+    fsw      %f0  %sp  13                  # !1111
+    sw       %ra  %sp  14                  # !1111
+    addi     %sp  %sp  15                  # !1111
+    jal      ~min_caml_fispos              # !1111
+    addi     %sp  %sp  -15                 # !1111
+    lw       %ra  %sp  14                  # !1111
+    lw       %r2  %sp  7                   # !1111
+    beq      %r1  %r2  beq_then.9368       # !1111
+    lw       %r1  %sp  2                   # !1112
+    sw       %ra  %sp  14                  # !1112
+    addi     %sp  %sp  15                  # !1112
+    jal      ~o_isinvert.2529              # !1112
+    addi     %sp  %sp  -15                 # !1112
+    lw       %ra  %sp  14                  # !1112
+    lw       %r2  %sp  7                   # !1112
+    beq      %r1  %r2  beq_then.9369       # !1112
+    flw      %f0  %sp  13                  # !1113
+    sw       %ra  %sp  14                  # !1113
+    addi     %sp  %sp  15                  # !1113
+    jal      ~min_caml_sqrt                # !1113
+    addi     %sp  %sp  -15                 # !1113
+    lw       %ra  %sp  14                  # !1113
+    flw      %f1  %sp  9                   # !1113
+    fadd     %f0  %f0  %f1                 # !1113
+    flw      %f1  %sp  6                   # !1113
+    flw      %f1  %f1  4                   # !1113
+    fmul     %f0  %f0  %f1                 # !1113
+    lw       %r1  %sp  0                   # !1113
+    fsw      %f0  %r1  0                   # !1113
+    j        ~beq_cont.9370                # !1112
+beq_then.9369:
+    flw      %f0  %sp  13                  # !1115
+    sw       %ra  %sp  14                  # !1115
+    addi     %sp  %sp  15                  # !1115
+    jal      ~min_caml_sqrt                # !1115
+    addi     %sp  %sp  -15                 # !1115
+    lw       %ra  %sp  14                  # !1115
+    flw      %f1  %sp  9                   # !1115
+    fsub     %f0  %f1  %f0                 # !1115
+    flw      %f1  %sp  6                   # !1115
+    flw      %f1  %f1  4                   # !1115
+    fmul     %f0  %f0  %f1                 # !1115
+    lw       %r1  %sp  0                   # !1115
+    fsw      %f0  %r1  0                   # !1115
+beq_cont.9370:
+    lw       %r1  %sp  8                   # !1116
+    jr       %ra                           # !1116
+beq_then.9368:
+    movz     %r1  %r2  %zero               # !1117
+    jr       %ra                           # !1117
+solver_fast.2680:
+    lw       %r4  %r27  4                  # !1121
+    lw       %r5  %r27  3                  # !1121
+    lw       %r6  %r27  2                  # !1121
+    lw       %r7  %r27  1                  # !1121
+    lwv      %r7  %r7  %r1                 # !1122
+    flw      %f0  %r3  0                   # !1123
+    sw       %r5  %sp  0                   # !1123
+    sw       %r4  %sp  1                   # !1123
+    sw       %r6  %sp  2                   # !1123
+    sw       %r1  %sp  3                   # !1123
+    sw       %r2  %sp  4                   # !1123
+    sw       %r7  %sp  5                   # !1123
+    sw       %r3  %sp  6                   # !1123
+    fsw      %f0  %sp  7                   # !1123
+    movz     %r1  %r7  %zero               # !1123
+    sw       %ra  %sp  8                   # !1123
+    addi     %sp  %sp  9                   # !1123
+    jal      ~o_param_x.2541               # !1123
+    addi     %sp  %sp  -9                  # !1123
+    lw       %ra  %sp  8                   # !1123
+    flw      %f1  %sp  7                   # !1123
+    fsub     %f0  %f1  %f0                 # !1123
+    addi     %r1  %zero  1                 # !1124
+    flw      %f1  %sp  6                   # !1124
+    flw      %f2  %f1  1                   # !1124
+    lw       %r2  %sp  5                   # !1124
+    fsw      %f0  %sp  8                   # !1124
+    sw       %r1  %sp  9                   # !1124
+    fsw      %f2  %sp  10                  # !1124
+    movz     %r1  %r2  %zero               # !1124
+    sw       %ra  %sp  11                  # !1124
+    addi     %sp  %sp  12                  # !1124
+    jal      ~o_param_y.2543               # !1124
+    addi     %sp  %sp  -12                 # !1124
+    lw       %ra  %sp  11                  # !1124
+    flw      %f1  %sp  10                  # !1124
+    fsub     %f0  %f1  %f0                 # !1124
+    addi     %r1  %zero  2                 # !1125
+    flw      %f1  %sp  6                   # !1125
+    flw      %f1  %f1  2                   # !1125
+    lw       %r2  %sp  5                   # !1125
+    sw       %r1  %sp  11                  # !1125
+    fsw      %f0  %sp  12                  # !1125
+    fsw      %f1  %sp  13                  # !1125
+    movz     %r1  %r2  %zero               # !1125
+    sw       %ra  %sp  14                  # !1125
+    addi     %sp  %sp  15                  # !1125
+    jal      ~o_param_z.2545               # !1125
+    addi     %sp  %sp  -15                 # !1125
+    lw       %ra  %sp  14                  # !1125
+    flw      %f1  %sp  13                  # !1125
+    fsub     %f0  %f1  %f0                 # !1125
+    lw       %r1  %sp  4                   # !1126
+    fsw      %f0  %sp  14                  # !1126
+    sw       %ra  %sp  15                  # !1126
+    addi     %sp  %sp  16                  # !1126
+    jal      ~d_const.2586                 # !1126
+    addi     %sp  %sp  -16                 # !1126
+    lw       %ra  %sp  15                  # !1126
+    lw       %r2  %sp  3                   # !1127
+    lwv      %r1  %r1  %r2                 # !1127
+    lw       %r2  %sp  5                   # !1128
+    sw       %r1  %sp  15                  # !1128
+    movz     %r1  %r2  %zero               # !1128
+    sw       %ra  %sp  16                  # !1128
+    addi     %sp  %sp  17                  # !1128
+    jal      ~o_form.2525                  # !1128
+    addi     %sp  %sp  -17                 # !1128
+    lw       %ra  %sp  16                  # !1128
+    lw       %r2  %sp  9                   # !1129
+    beq      %r1  %r2  beq_then.9371       # !1129
+    lw       %r2  %sp  11                  # !1131
+    beq      %r1  %r2  beq_then.9372       # !1131
+    flw      %f0  %sp  8                   # !1134
+    flw      %f1  %sp  12                  # !1134
+    flw      %f2  %sp  14                  # !1134
+    lw       %r1  %sp  5                   # !1134
+    lw       %r2  %sp  15                  # !1134
+    lw       %r27  %sp  0                  # !1134
+    lw       %r28  %r27  0                 # !1134
+    jr       %r28                          # !1134
+beq_then.9372:
+    flw      %f0  %sp  8                   # !1132
+    flw      %f1  %sp  12                  # !1132
+    flw      %f2  %sp  14                  # !1132
+    lw       %r1  %sp  5                   # !1132
+    lw       %r2  %sp  15                  # !1132
+    lw       %r27  %sp  1                  # !1132
+    lw       %r28  %r27  0                 # !1132
+    jr       %r28                          # !1132
+beq_then.9371:
+    lw       %r1  %sp  4                   # !1130
+    sw       %ra  %sp  16                  # !1130
+    addi     %sp  %sp  17                  # !1130
+    jal      ~d_vec.2584                   # !1130
+    addi     %sp  %sp  -17                 # !1130
+    lw       %ra  %sp  16                  # !1130
+    movz     %r2  %r1  %zero               # !1130
+    flw      %f0  %sp  8                   # !1130
+    flw      %f1  %sp  12                  # !1130
+    flw      %f2  %sp  14                  # !1130
+    lw       %r1  %sp  5                   # !1130
+    lw       %r3  %sp  15                  # !1130
+    lw       %r27  %sp  2                  # !1130
+    lw       %r28  %r27  0                 # !1130
+    jr       %r28                          # !1130
+solver_surface_fast2.2684:
+    lw       %r1  %r27  1                  # !1141
+    addi     %r4  %zero  0                 # !1142
+    flw      %f0  %r2  0                   # !1142
+    sw       %r1  %sp  0                   # !1142
+    sw       %r3  %sp  1                   # !1142
+    sw       %r2  %sp  2                   # !1142
+    sw       %r4  %sp  3                   # !1142
+    sw       %ra  %sp  4                   # !1142
+    addi     %sp  %sp  5                   # !1142
+    jal      ~min_caml_fisneg              # !1142
+    addi     %sp  %sp  -5                  # !1142
+    lw       %ra  %sp  4                   # !1142
+    lw       %r2  %sp  3                   # !1142
+    beq      %r1  %r2  beq_then.9373       # !1142
+    flw      %f0  %sp  2                   # !1143
+    flw      %f0  %f0  0                   # !1143
+    flw      %f1  %sp  1                   # !1143
+    flw      %f1  %f1  3                   # !1143
+    fmul     %f0  %f0  %f1                 # !1143
+    lw       %r1  %sp  0                   # !1143
+    fsw      %f0  %r1  0                   # !1143
+    addi     %r1  %zero  1                 # !1144
+    jr       %ra                           # !1144
+beq_then.9373:
+    movz     %r1  %r2  %zero               # !1145
+    jr       %ra                           # !1145
+solver_second_fast2.2691:
+    lw       %r4  %r27  1                  # !1149
+    addi     %r5  %zero  0                 # !1151
+    flw      %f3  %r2  0                   # !1151
+    sw       %r4  %sp  0                   # !1152
+    sw       %r1  %sp  1                   # !1152
+    fsw      %f3  %sp  2                   # !1152
+    sw       %r3  %sp  3                   # !1152
+    fsw      %f2  %sp  4                   # !1152
+    fsw      %f1  %sp  5                   # !1152
+    fsw      %f0  %sp  6                   # !1152
+    sw       %r2  %sp  7                   # !1152
+    sw       %r5  %sp  8                   # !1152
+    fmovz    %f0  %f3  %zero               # !1152
+    sw       %ra  %sp  9                   # !1152
+    addi     %sp  %sp  10                  # !1152
+    jal      ~min_caml_fiszero             # !1152
+    addi     %sp  %sp  -10                 # !1152
+    lw       %ra  %sp  9                   # !1152
+    lw       %r2  %sp  8                   # !1152
+    beq      %r1  %r2  beq_then.9374       # !1152
+    movz     %r1  %r2  %zero               # !1153
+    jr       %ra                           # !1153
+beq_then.9374:
+    addi     %r1  %zero  1                 # !1155
+    flw      %f0  %sp  7                   # !1155
+    flw      %f1  %f0  1                   # !1155
+    flw      %f2  %sp  6                   # !1155
+    fmul     %f1  %f1  %f2                 # !1155
+    flw      %f2  %f0  2                   # !1155
+    flw      %f3  %sp  5                   # !1155
+    fmul     %f2  %f2  %f3                 # !1155
+    fadd     %f1  %f1  %f2                 # !1155
+    flw      %f2  %f0  3                   # !1155
+    flw      %f3  %sp  4                   # !1155
+    fmul     %f2  %f2  %f3                 # !1155
+    fadd     %f1  %f1  %f2                 # !1155
+    flw      %f2  %sp  3                   # !1156
+    flw      %f2  %f2  3                   # !1156
+    sw       %r1  %sp  9                   # !1157
+    fsw      %f1  %sp  10                  # !1157
+    fsw      %f2  %sp  11                  # !1157
+    fmovz    %f0  %f1  %zero               # !1157
+    sw       %ra  %sp  12                  # !1157
+    addi     %sp  %sp  13                  # !1157
+    jal      ~min_caml_fsqr                # !1157
+    addi     %sp  %sp  -13                 # !1157
+    lw       %ra  %sp  12                  # !1157
+    flw      %f1  %sp  11                  # !1157
+    flw      %f2  %sp  2                   # !1157
+    fmul     %f1  %f2  %f1                 # !1157
+    fsub     %f0  %f0  %f1                 # !1157
+    fsw      %f0  %sp  12                  # !1158
+    sw       %ra  %sp  13                  # !1158
+    addi     %sp  %sp  14                  # !1158
+    jal      ~min_caml_fispos              # !1158
+    addi     %sp  %sp  -14                 # !1158
+    lw       %ra  %sp  13                  # !1158
+    lw       %r2  %sp  8                   # !1158
+    beq      %r1  %r2  beq_then.9375       # !1158
+    lw       %r1  %sp  1                   # !1159
+    sw       %ra  %sp  13                  # !1159
+    addi     %sp  %sp  14                  # !1159
+    jal      ~o_isinvert.2529              # !1159
+    addi     %sp  %sp  -14                 # !1159
+    lw       %ra  %sp  13                  # !1159
+    lw       %r2  %sp  8                   # !1159
+    beq      %r1  %r2  beq_then.9376       # !1159
+    flw      %f0  %sp  12                  # !1160
+    sw       %ra  %sp  13                  # !1160
+    addi     %sp  %sp  14                  # !1160
+    jal      ~min_caml_sqrt                # !1160
+    addi     %sp  %sp  -14                 # !1160
+    lw       %ra  %sp  13                  # !1160
+    flw      %f1  %sp  10                  # !1160
+    fadd     %f0  %f0  %f1                 # !1160
+    flw      %f1  %sp  7                   # !1160
+    flw      %f1  %f1  4                   # !1160
+    fmul     %f0  %f0  %f1                 # !1160
+    lw       %r1  %sp  0                   # !1160
+    fsw      %f0  %r1  0                   # !1160
+    j        ~beq_cont.9377                # !1159
+beq_then.9376:
+    flw      %f0  %sp  12                  # !1162
+    sw       %ra  %sp  13                  # !1162
+    addi     %sp  %sp  14                  # !1162
+    jal      ~min_caml_sqrt                # !1162
+    addi     %sp  %sp  -14                 # !1162
+    lw       %ra  %sp  13                  # !1162
+    flw      %f1  %sp  10                  # !1162
+    fsub     %f0  %f1  %f0                 # !1162
+    flw      %f1  %sp  7                   # !1162
+    flw      %f1  %f1  4                   # !1162
+    fmul     %f0  %f0  %f1                 # !1162
+    lw       %r1  %sp  0                   # !1162
+    fsw      %f0  %r1  0                   # !1162
+beq_cont.9377:
+    lw       %r1  %sp  9                   # !1163
+    jr       %ra                           # !1163
+beq_then.9375:
+    movz     %r1  %r2  %zero               # !1164
+    jr       %ra                           # !1164
+solver_fast2.2698:
+    lw       %r3  %r27  4                  # !1168
+    lw       %r4  %r27  3                  # !1168
+    lw       %r5  %r27  2                  # !1168
+    lw       %r6  %r27  1                  # !1168
+    lwv      %r6  %r6  %r1                 # !1169
+    sw       %r4  %sp  0                   # !1170
+    sw       %r3  %sp  1                   # !1170
+    sw       %r5  %sp  2                   # !1170
+    sw       %r6  %sp  3                   # !1170
+    sw       %r1  %sp  4                   # !1170
+    sw       %r2  %sp  5                   # !1170
+    movz     %r1  %r6  %zero               # !1170
+    sw       %ra  %sp  6                   # !1170
+    addi     %sp  %sp  7                   # !1170
+    jal      ~o_param_ctbl.2563            # !1170
+    addi     %sp  %sp  -7                  # !1170
+    lw       %ra  %sp  6                   # !1170
+    flw      %f0  %r1  0                   # !1171
+    addi     %r2  %zero  1                 # !1172
+    flw      %f1  %r1  1                   # !1172
+    addi     %r3  %zero  2                 # !1173
+    flw      %f2  %r1  2                   # !1173
+    lw       %r4  %sp  5                   # !1174
+    sw       %r1  %sp  6                   # !1174
+    sw       %r3  %sp  7                   # !1174
+    fsw      %f2  %sp  8                   # !1174
+    fsw      %f1  %sp  9                   # !1174
+    fsw      %f0  %sp  10                  # !1174
+    sw       %r2  %sp  11                  # !1174
+    movz     %r1  %r4  %zero               # !1174
+    sw       %ra  %sp  12                  # !1174
+    addi     %sp  %sp  13                  # !1174
+    jal      ~d_const.2586                 # !1174
+    addi     %sp  %sp  -13                 # !1174
+    lw       %ra  %sp  12                  # !1174
+    lw       %r2  %sp  4                   # !1175
+    lwv      %r1  %r1  %r2                 # !1175
+    lw       %r2  %sp  3                   # !1176
+    sw       %r1  %sp  12                  # !1176
+    movz     %r1  %r2  %zero               # !1176
+    sw       %ra  %sp  13                  # !1176
+    addi     %sp  %sp  14                  # !1176
+    jal      ~o_form.2525                  # !1176
+    addi     %sp  %sp  -14                 # !1176
+    lw       %ra  %sp  13                  # !1176
+    lw       %r2  %sp  11                  # !1177
+    beq      %r1  %r2  beq_then.9378       # !1177
+    lw       %r2  %sp  7                   # !1179
+    beq      %r1  %r2  beq_then.9379       # !1179
+    flw      %f0  %sp  10                  # !1182
+    flw      %f1  %sp  9                   # !1182
+    flw      %f2  %sp  8                   # !1182
+    lw       %r1  %sp  3                   # !1182
+    lw       %r2  %sp  12                  # !1182
+    lw       %r3  %sp  6                   # !1182
+    lw       %r27  %sp  0                  # !1182
+    lw       %r28  %r27  0                 # !1182
+    jr       %r28                          # !1182
+beq_then.9379:
+    flw      %f0  %sp  10                  # !1180
+    flw      %f1  %sp  9                   # !1180
+    flw      %f2  %sp  8                   # !1180
+    lw       %r1  %sp  3                   # !1180
+    lw       %r2  %sp  12                  # !1180
+    lw       %r3  %sp  6                   # !1180
+    lw       %r27  %sp  1                  # !1180
+    lw       %r28  %r27  0                 # !1180
+    jr       %r28                          # !1180
+beq_then.9378:
+    lw       %r1  %sp  5                   # !1178
+    sw       %ra  %sp  13                  # !1178
+    addi     %sp  %sp  14                  # !1178
+    jal      ~d_vec.2584                   # !1178
+    addi     %sp  %sp  -14                 # !1178
+    lw       %ra  %sp  13                  # !1178
+    movz     %r2  %r1  %zero               # !1178
+    flw      %f0  %sp  10                  # !1178
+    flw      %f1  %sp  9                   # !1178
+    flw      %f2  %sp  8                   # !1178
+    lw       %r1  %sp  3                   # !1178
+    lw       %r3  %sp  12                  # !1178
+    lw       %r27  %sp  2                  # !1178
+    lw       %r28  %r27  0                 # !1178
+    jr       %r28                          # !1178
+setup_rect_table.2701:
+    addi     %r3  %zero  6                 # !1191
+    flui     %f0  0                        # !1191
+    fli      %f0  0                        # !1191
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    addi %r4 %zero 0                       # !1080
-    flw %f1 %r2 0                          # !1080
-    fblt %f1 %f0 fblt_then.8695            # !1080
-    movz %r1 %r4 %zero                     # !1083
-    jr %ra                                 # !1083
-fblt_then.8695:
-    flw %f0 %r2 0                          # !1081
-    flw %f1 %r3 3                          # !1081
-    fmul %f0 %f0 %f1                       # !1081
-    fsw %f0 %r1 0                          # !1081
-    addi %r1 %zero 1                       # !1082
-    jr %ra                                 # !1082
-solver_second_fast2.2624:
-    lw %r4 %r27 1                          # !1087
-    addi %r5 %zero 0                       # !1089
-    flw %f3 %r2 0                          # !1089
-    flui %f4 0                             # !1090
-    fli %f4 0                              # !1090
-    ++
-    fli 0.000000
-    => flui %f4 0b00000000000
-       fli  %f4 0b000000000000000000000
-    ++
-    fbeq %f3 %f4 fbeq_then.8696            # !1090
-    addi %r6 %zero 1                       # !1093
-    flw %f5 %r2 1                          # !1093
-    fmul %f0 %f5 %f0                       # !1093
-    flw %f5 %r2 2                          # !1093
-    fmul %f1 %f5 %f1                       # !1093
-    fadd %f0 %f0 %f1                       # !1093
-    flw %f1 %r2 3                          # !1093
-    fmul %f1 %f1 %f2                       # !1093
-    fadd %f0 %f0 %f1                       # !1093
-    flw %f1 %r3 3                          # !1094
-    fmul %f2 %f0 %f0                       # !1095
-    fmul %f1 %f3 %f1                       # !1095
-    fsub %f1 %f2 %f1                       # !1095
-    fblt %f4 %f1 fblt_then.8697            # !1096
-    movz %r1 %r5 %zero                     # !1102
-    jr %ra                                 # !1102
-fblt_then.8697:
-    sw %r6 %sp 0                           # !1097
-    sw %r4 %sp 1                           # !1097
-    sw %r2 %sp 2                           # !1097
-    fsw %f0 %sp 3                          # !1097
-    fsw %f1 %sp 4                          # !1097
-    sw %r5 %sp 5                           # !1097
-    sw %ra %sp 6                           # !1097
-    addi %sp %sp 7                         # !1097
-    jal ~o_isinvert.2462                   # !1097
-    addi %sp %sp -7                        # !1097
-    lw %ra %sp 6                           # !1097
-    lw %r2 %sp 5                           # !1097
-    beq %r1 %r2 beq_then.8698              # !1097
-    flw %f0 %sp 4                          # !1098
-    fsqrt %f0 %f0                          # !1098
-    flw %f1 %sp 3                          # !1098
-    fadd %f0 %f0 %f1                       # !1098
-    flw %f1 %sp 2                          # !1098
-    flw %f1 %f1 4                          # !1098
-    fmul %f0 %f0 %f1                       # !1098
-    lw %r1 %sp 1                           # !1098
-    fsw %f0 %r1 0                          # !1098
-    j ~beq_cont.8699                       # !1097
-beq_then.8698:
-    flw %f0 %sp 4                          # !1100
-    fsqrt %f0 %f0                          # !1100
-    flw %f1 %sp 3                          # !1100
-    fsub %f0 %f1 %f0                       # !1100
-    flw %f1 %sp 2                          # !1100
-    flw %f1 %f1 4                          # !1100
-    fmul %f0 %f0 %f1                       # !1100
-    lw %r1 %sp 1                           # !1100
-    fsw %f0 %r1 0                          # !1100
-beq_cont.8699:
-    lw %r1 %sp 0                           # !1101
-    jr %ra                                 # !1101
-fbeq_then.8696:
-    movz %r1 %r5 %zero                     # !1091
-    jr %ra                                 # !1091
-solver_fast2.2631:
-    lw %r3 %r27 4                          # !1106
-    lw %r4 %r27 3                          # !1106
-    lw %r5 %r27 2                          # !1106
-    lw %r6 %r27 1                          # !1106
-    lwv %r6 %r6 %r1                        # !1107
-    sw %r4 %sp 0                           # !1108
-    sw %r3 %sp 1                           # !1108
-    sw %r5 %sp 2                           # !1108
-    sw %r6 %sp 3                           # !1108
-    sw %r1 %sp 4                           # !1108
-    sw %r2 %sp 5                           # !1108
-    movz %r1 %r6 %zero                     # !1108
-    sw %ra %sp 6                           # !1108
-    addi %sp %sp 7                         # !1108
-    jal ~o_param_ctbl.2496                 # !1108
-    addi %sp %sp -7                        # !1108
-    lw %ra %sp 6                           # !1108
-    flw %f0 %r1 0                          # !1109
-    addi %r2 %zero 1                       # !1110
-    flw %f1 %r1 1                          # !1110
-    addi %r3 %zero 2                       # !1111
-    flw %f2 %r1 2                          # !1111
-    lw %r4 %sp 5                           # !1112
-    sw %r1 %sp 6                           # !1112
-    sw %r3 %sp 7                           # !1112
-    fsw %f2 %sp 8                          # !1112
-    fsw %f1 %sp 9                          # !1112
-    fsw %f0 %sp 10                         # !1112
-    sw %r2 %sp 11                          # !1112
-    movz %r1 %r4 %zero                     # !1112
-    sw %ra %sp 12                          # !1112
-    addi %sp %sp 13                        # !1112
-    jal ~d_const.2519                      # !1112
-    addi %sp %sp -13                       # !1112
-    lw %ra %sp 12                          # !1112
-    lw %r2 %sp 4                           # !1113
-    lwv %r1 %r1 %r2                        # !1113
-    lw %r2 %sp 3                           # !1114
-    sw %r1 %sp 12                          # !1114
-    movz %r1 %r2 %zero                     # !1114
-    sw %ra %sp 13                          # !1114
-    addi %sp %sp 14                        # !1114
-    jal ~o_form.2458                       # !1114
-    addi %sp %sp -14                       # !1114
-    lw %ra %sp 13                          # !1114
-    lw %r2 %sp 11                          # !1115
-    beq %r1 %r2 beq_then.8700              # !1115
-    lw %r2 %sp 7                           # !1117
-    beq %r1 %r2 beq_then.8701              # !1117
-    flw %f0 %sp 10                         # !1120
-    flw %f1 %sp 9                          # !1120
-    flw %f2 %sp 8                          # !1120
-    lw %r1 %sp 3                           # !1120
-    lw %r2 %sp 12                          # !1120
-    lw %r3 %sp 6                           # !1120
-    lw %r27 %sp 0                          # !1120
-    lw %r28 %r27 0                         # !1120
-    jr %r28                                # !1120
-beq_then.8701:
-    flw %f0 %sp 10                         # !1118
-    flw %f1 %sp 9                          # !1118
-    flw %f2 %sp 8                          # !1118
-    lw %r1 %sp 3                           # !1118
-    lw %r2 %sp 12                          # !1118
-    lw %r3 %sp 6                           # !1118
-    lw %r27 %sp 1                          # !1118
-    lw %r28 %r27 0                         # !1118
-    jr %r28                                # !1118
-beq_then.8700:
-    lw %r1 %sp 5                           # !1116
-    sw %ra %sp 13                          # !1116
-    addi %sp %sp 14                        # !1116
-    jal ~d_vec.2517                        # !1116
-    addi %sp %sp -14                       # !1116
-    lw %ra %sp 13                          # !1116
-    movz %r2 %r1 %zero                     # !1116
-    flw %f0 %sp 10                         # !1116
-    flw %f1 %sp 9                          # !1116
-    flw %f2 %sp 8                          # !1116
-    lw %r1 %sp 3                           # !1116
-    lw %r3 %sp 12                          # !1116
-    lw %r27 %sp 2                          # !1116
-    lw %r28 %r27 0                         # !1116
-    jr %r28                                # !1116
-setup_rect_table.2634:
-    addi %r3 %zero 6                       # !1129
-    flui %f0 0                             # !1129
-    fli %f0 0                              # !1129
-    ++
-    fli 0.000000
-    => flui %f0 0b00000000000
-       fli  %f0 0b000000000000000000000
-    ++
-    sw %r2 %sp 0                           # !1129
-    fsw %f0 %sp 1                          # !1129
-    sw %r1 %sp 2                           # !1129
-    movz %r1 %r3 %zero                     # !1129
-    sw %ra %sp 3                           # !1129
-    addi %sp %sp 4                         # !1129
-    jal ~min_caml_create_float_array       # !1129
-    addi %sp %sp -4                        # !1129
-    lw %ra %sp 3                           # !1129
-    addi %r2 %zero 0                       # !1131
-    flw %f0 %sp 2                          # !1131
-    flw %f1 %f0 0                          # !1131
-    flw %f2 %sp 1                          # !1131
-    sw %r2 %sp 3                           # !1131
-    fbeq %f1 %f2 fbeq_then.8702            # !1131
-    lw %r3 %sp 0                           # !1135
-    sw %r1 %sp 4                           # !1135
-    movz %r1 %r3 %zero                     # !1135
-    sw %ra %sp 5                           # !1135
-    addi %sp %sp 6                         # !1135
-    jal ~o_isinvert.2462                   # !1135
-    addi %sp %sp -6                        # !1135
-    lw %ra %sp 5                           # !1135
-    flw %f0 %sp 2                          # !1135
-    flw %f1 %f0 0                          # !1135
-    flw %f2 %sp 1                          # !1135
-    fblt %f1 %f2 fblt_then.8704            # !1135
-    lw %r2 %sp 3                           # !1135
-    j ~fblt_cont.8705                      # !1135
-fblt_then.8704:
-    addi %r2 %zero 1                       # !1135
-fblt_cont.8705:
-    sw %ra %sp 5                           # !1135
-    addi %sp %sp 6                         # !1135
-    jal ~xor.2407                          # !1135
-    addi %sp %sp -6                        # !1135
-    lw %ra %sp 5                           # !1135
-    lw %r2 %sp 0                           # !1135
-    sw %r1 %sp 5                           # !1135
-    movz %r1 %r2 %zero                     # !1135
-    sw %ra %sp 6                           # !1135
-    addi %sp %sp 7                         # !1135
-    jal ~o_param_a.2466                    # !1135
-    addi %sp %sp -7                        # !1135
-    lw %ra %sp 6                           # !1135
-    lw %r1 %sp 5                           # !1135
-    sw %ra %sp 6                           # !1135
-    addi %sp %sp 7                         # !1135
-    jal ~fneg_cond.2412                    # !1135
-    addi %sp %sp -7                        # !1135
-    lw %ra %sp 6                           # !1135
-    lw %r1 %sp 4                           # !1135
-    fsw %f0 %r1 0                          # !1135
-    flui %f0 508                           # !1137
-    fli %f0 0                              # !1137
+    fsw      %f0  %sp  0                   # !1191
+    sw       %r2  %sp  1                   # !1191
+    sw       %r1  %sp  2                   # !1191
+    movz     %r1  %r3  %zero               # !1191
+    sw       %ra  %sp  3                   # !1191
+    addi     %sp  %sp  4                   # !1191
+    jal      ~min_caml_create_float_array  # !1191
+    addi     %sp  %sp  -4                  # !1191
+    lw       %ra  %sp  3                   # !1191
+    addi     %r2  %zero  0                 # !1193
+    flw      %f0  %sp  2                   # !1193
+    flw      %f1  %f0  0                   # !1193
+    sw       %r1  %sp  3                   # !1193
+    sw       %r2  %sp  4                   # !1193
+    fmovz    %f0  %f1  %zero               # !1193
+    sw       %ra  %sp  5                   # !1193
+    addi     %sp  %sp  6                   # !1193
+    jal      ~min_caml_fiszero             # !1193
+    addi     %sp  %sp  -6                  # !1193
+    lw       %ra  %sp  5                   # !1193
+    lw       %r2  %sp  4                   # !1193
+    beq      %r1  %r2  beq_then.9380       # !1193
+    lw       %r1  %sp  3                   # !1194
+    flw      %f0  %sp  0                   # !1194
+    fsw      %f0  %r1  1                   # !1194
+    j        ~beq_cont.9381                # !1193
+beq_then.9380:
+    lw       %r1  %sp  1                   # !1197
+    sw       %ra  %sp  5                   # !1197
+    addi     %sp  %sp  6                   # !1197
+    jal      ~o_isinvert.2529              # !1197
+    addi     %sp  %sp  -6                  # !1197
+    lw       %ra  %sp  5                   # !1197
+    flw      %f0  %sp  2                   # !1197
+    flw      %f1  %f0  0                   # !1197
+    sw       %r1  %sp  5                   # !1197
+    fmovz    %f0  %f1  %zero               # !1197
+    sw       %ra  %sp  6                   # !1197
+    addi     %sp  %sp  7                   # !1197
+    jal      ~min_caml_fisneg              # !1197
+    addi     %sp  %sp  -7                  # !1197
+    lw       %ra  %sp  6                   # !1197
+    movz     %r2  %r1  %zero               # !1197
+    lw       %r1  %sp  5                   # !1197
+    sw       %ra  %sp  6                   # !1197
+    addi     %sp  %sp  7                   # !1197
+    jal      ~xor.2474                     # !1197
+    addi     %sp  %sp  -7                  # !1197
+    lw       %ra  %sp  6                   # !1197
+    lw       %r2  %sp  1                   # !1197
+    sw       %r1  %sp  6                   # !1197
+    movz     %r1  %r2  %zero               # !1197
+    sw       %ra  %sp  7                   # !1197
+    addi     %sp  %sp  8                   # !1197
+    jal      ~o_param_a.2533               # !1197
+    addi     %sp  %sp  -8                  # !1197
+    lw       %ra  %sp  7                   # !1197
+    lw       %r1  %sp  6                   # !1197
+    sw       %ra  %sp  7                   # !1197
+    addi     %sp  %sp  8                   # !1197
+    jal      ~fneg_cond.2479               # !1197
+    addi     %sp  %sp  -8                  # !1197
+    lw       %ra  %sp  7                   # !1197
+    lw       %r1  %sp  3                   # !1197
+    fsw      %f0  %r1  0                   # !1197
+    flui     %f0  508                      # !1199
+    fli      %f0  0                        # !1199
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    flw %f1 %sp 2                          # !1137
-    flw %f2 %f1 0                          # !1137
-    fdiv %f0 %f0 %f2                       # !1137
-    fsw %f0 %r1 1                          # !1137
-    j ~fbeq_cont.8703                      # !1131
-fbeq_then.8702:
-    fsw %f2 %r1 1                          # !1132
-fbeq_cont.8703:
-    addi %r2 %zero 1                       # !1139
-    flw %f0 %sp 2                          # !1139
-    flw %f1 %f0 1                          # !1139
-    flw %f2 %sp 1                          # !1139
-    sw %r2 %sp 6                           # !1139
-    fbeq %f1 %f2 fbeq_then.8706            # !1139
-    lw %r3 %sp 0                           # !1142
-    sw %r1 %sp 4                           # !1142
-    movz %r1 %r3 %zero                     # !1142
-    sw %ra %sp 7                           # !1142
-    addi %sp %sp 8                         # !1142
-    jal ~o_isinvert.2462                   # !1142
-    addi %sp %sp -8                        # !1142
-    lw %ra %sp 7                           # !1142
-    flw %f0 %sp 2                          # !1142
-    flw %f1 %f0 1                          # !1142
-    flw %f2 %sp 1                          # !1142
-    fblt %f1 %f2 fblt_then.8708            # !1142
-    lw %r2 %sp 3                           # !1142
-    j ~fblt_cont.8709                      # !1142
-fblt_then.8708:
-    lw %r2 %sp 6                           # !1142
-fblt_cont.8709:
-    sw %ra %sp 7                           # !1142
-    addi %sp %sp 8                         # !1142
-    jal ~xor.2407                          # !1142
-    addi %sp %sp -8                        # !1142
-    lw %ra %sp 7                           # !1142
-    lw %r2 %sp 0                           # !1142
-    sw %r1 %sp 7                           # !1142
-    movz %r1 %r2 %zero                     # !1142
-    sw %ra %sp 8                           # !1142
-    addi %sp %sp 9                         # !1142
-    jal ~o_param_b.2468                    # !1142
-    addi %sp %sp -9                        # !1142
-    lw %ra %sp 8                           # !1142
-    lw %r1 %sp 7                           # !1142
-    sw %ra %sp 8                           # !1142
-    addi %sp %sp 9                         # !1142
-    jal ~fneg_cond.2412                    # !1142
-    addi %sp %sp -9                        # !1142
-    lw %ra %sp 8                           # !1142
-    lw %r1 %sp 4                           # !1142
-    fsw %f0 %r1 2                          # !1142
-    flui %f0 508                           # !1143
-    fli %f0 0                              # !1143
+    flw      %f1  %sp  2                   # !1199
+    flw      %f2  %f1  0                   # !1199
+    fdiv     %f0  %f0  %f2                 # !1199
+    fsw      %f0  %r1  1                   # !1199
+beq_cont.9381:
+    flw      %f0  %sp  2                   # !1201
+    flw      %f1  %f0  1                   # !1201
+    fmovz    %f0  %f1  %zero               # !1201
+    sw       %ra  %sp  7                   # !1201
+    addi     %sp  %sp  8                   # !1201
+    jal      ~min_caml_fiszero             # !1201
+    addi     %sp  %sp  -8                  # !1201
+    lw       %ra  %sp  7                   # !1201
+    lw       %r2  %sp  4                   # !1201
+    beq      %r1  %r2  beq_then.9382       # !1201
+    lw       %r1  %sp  3                   # !1202
+    flw      %f0  %sp  0                   # !1202
+    fsw      %f0  %r1  3                   # !1202
+    j        ~beq_cont.9383                # !1201
+beq_then.9382:
+    lw       %r1  %sp  1                   # !1204
+    sw       %ra  %sp  7                   # !1204
+    addi     %sp  %sp  8                   # !1204
+    jal      ~o_isinvert.2529              # !1204
+    addi     %sp  %sp  -8                  # !1204
+    lw       %ra  %sp  7                   # !1204
+    flw      %f0  %sp  2                   # !1204
+    flw      %f1  %f0  1                   # !1204
+    sw       %r1  %sp  7                   # !1204
+    fmovz    %f0  %f1  %zero               # !1204
+    sw       %ra  %sp  8                   # !1204
+    addi     %sp  %sp  9                   # !1204
+    jal      ~min_caml_fisneg              # !1204
+    addi     %sp  %sp  -9                  # !1204
+    lw       %ra  %sp  8                   # !1204
+    movz     %r2  %r1  %zero               # !1204
+    lw       %r1  %sp  7                   # !1204
+    sw       %ra  %sp  8                   # !1204
+    addi     %sp  %sp  9                   # !1204
+    jal      ~xor.2474                     # !1204
+    addi     %sp  %sp  -9                  # !1204
+    lw       %ra  %sp  8                   # !1204
+    lw       %r2  %sp  1                   # !1204
+    sw       %r1  %sp  8                   # !1204
+    movz     %r1  %r2  %zero               # !1204
+    sw       %ra  %sp  9                   # !1204
+    addi     %sp  %sp  10                  # !1204
+    jal      ~o_param_b.2535               # !1204
+    addi     %sp  %sp  -10                 # !1204
+    lw       %ra  %sp  9                   # !1204
+    lw       %r1  %sp  8                   # !1204
+    sw       %ra  %sp  9                   # !1204
+    addi     %sp  %sp  10                  # !1204
+    jal      ~fneg_cond.2479               # !1204
+    addi     %sp  %sp  -10                 # !1204
+    lw       %ra  %sp  9                   # !1204
+    lw       %r1  %sp  3                   # !1204
+    fsw      %f0  %r1  2                   # !1204
+    flui     %f0  508                      # !1205
+    fli      %f0  0                        # !1205
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    flw %f1 %sp 2                          # !1143
-    flw %f2 %f1 1                          # !1143
-    fdiv %f0 %f0 %f2                       # !1143
-    fsw %f0 %r1 3                          # !1143
-    j ~fbeq_cont.8707                      # !1139
-fbeq_then.8706:
-    fsw %f2 %r1 3                          # !1140
-fbeq_cont.8707:
-    flw %f0 %sp 2                          # !1145
-    flw %f1 %f0 2                          # !1145
-    flw %f2 %sp 1                          # !1145
-    fbeq %f1 %f2 fbeq_then.8710            # !1145
-    lw %r2 %sp 0                           # !1148
-    sw %r1 %sp 4                           # !1148
-    movz %r1 %r2 %zero                     # !1148
-    sw %ra %sp 8                           # !1148
-    addi %sp %sp 9                         # !1148
-    jal ~o_isinvert.2462                   # !1148
-    addi %sp %sp -9                        # !1148
-    lw %ra %sp 8                           # !1148
-    flw %f0 %sp 2                          # !1148
-    flw %f1 %f0 2                          # !1148
-    flw %f2 %sp 1                          # !1148
-    fblt %f1 %f2 fblt_then.8712            # !1148
-    lw %r2 %sp 3                           # !1148
-    j ~fblt_cont.8713                      # !1148
-fblt_then.8712:
-    lw %r2 %sp 6                           # !1148
-fblt_cont.8713:
-    sw %ra %sp 8                           # !1148
-    addi %sp %sp 9                         # !1148
-    jal ~xor.2407                          # !1148
-    addi %sp %sp -9                        # !1148
-    lw %ra %sp 8                           # !1148
-    lw %r2 %sp 0                           # !1148
-    sw %r1 %sp 8                           # !1148
-    movz %r1 %r2 %zero                     # !1148
-    sw %ra %sp 9                           # !1148
-    addi %sp %sp 10                        # !1148
-    jal ~o_param_c.2470                    # !1148
-    addi %sp %sp -10                       # !1148
-    lw %ra %sp 9                           # !1148
-    lw %r1 %sp 8                           # !1148
-    sw %ra %sp 9                           # !1148
-    addi %sp %sp 10                        # !1148
-    jal ~fneg_cond.2412                    # !1148
-    addi %sp %sp -10                       # !1148
-    lw %ra %sp 9                           # !1148
-    lw %r1 %sp 4                           # !1148
-    fsw %f0 %r1 4                          # !1148
-    flui %f0 508                           # !1149
-    fli %f0 0                              # !1149
+    flw      %f1  %sp  2                   # !1205
+    flw      %f2  %f1  1                   # !1205
+    fdiv     %f0  %f0  %f2                 # !1205
+    fsw      %f0  %r1  3                   # !1205
+beq_cont.9383:
+    flw      %f0  %sp  2                   # !1207
+    flw      %f1  %f0  2                   # !1207
+    fmovz    %f0  %f1  %zero               # !1207
+    sw       %ra  %sp  9                   # !1207
+    addi     %sp  %sp  10                  # !1207
+    jal      ~min_caml_fiszero             # !1207
+    addi     %sp  %sp  -10                 # !1207
+    lw       %ra  %sp  9                   # !1207
+    lw       %r2  %sp  4                   # !1207
+    beq      %r1  %r2  beq_then.9384       # !1207
+    lw       %r1  %sp  3                   # !1208
+    flw      %f0  %sp  0                   # !1208
+    fsw      %f0  %r1  5                   # !1208
+    j        ~beq_cont.9385                # !1207
+beq_then.9384:
+    lw       %r1  %sp  1                   # !1210
+    sw       %ra  %sp  9                   # !1210
+    addi     %sp  %sp  10                  # !1210
+    jal      ~o_isinvert.2529              # !1210
+    addi     %sp  %sp  -10                 # !1210
+    lw       %ra  %sp  9                   # !1210
+    flw      %f0  %sp  2                   # !1210
+    flw      %f1  %f0  2                   # !1210
+    sw       %r1  %sp  9                   # !1210
+    fmovz    %f0  %f1  %zero               # !1210
+    sw       %ra  %sp  10                  # !1210
+    addi     %sp  %sp  11                  # !1210
+    jal      ~min_caml_fisneg              # !1210
+    addi     %sp  %sp  -11                 # !1210
+    lw       %ra  %sp  10                  # !1210
+    movz     %r2  %r1  %zero               # !1210
+    lw       %r1  %sp  9                   # !1210
+    sw       %ra  %sp  10                  # !1210
+    addi     %sp  %sp  11                  # !1210
+    jal      ~xor.2474                     # !1210
+    addi     %sp  %sp  -11                 # !1210
+    lw       %ra  %sp  10                  # !1210
+    lw       %r2  %sp  1                   # !1210
+    sw       %r1  %sp  10                  # !1210
+    movz     %r1  %r2  %zero               # !1210
+    sw       %ra  %sp  11                  # !1210
+    addi     %sp  %sp  12                  # !1210
+    jal      ~o_param_c.2537               # !1210
+    addi     %sp  %sp  -12                 # !1210
+    lw       %ra  %sp  11                  # !1210
+    lw       %r1  %sp  10                  # !1210
+    sw       %ra  %sp  11                  # !1210
+    addi     %sp  %sp  12                  # !1210
+    jal      ~fneg_cond.2479               # !1210
+    addi     %sp  %sp  -12                 # !1210
+    lw       %ra  %sp  11                  # !1210
+    lw       %r1  %sp  3                   # !1210
+    fsw      %f0  %r1  4                   # !1210
+    flui     %f0  508                      # !1211
+    fli      %f0  0                        # !1211
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    flw %f1 %sp 2                          # !1149
-    flw %f1 %f1 2                          # !1149
-    fdiv %f0 %f0 %f1                       # !1149
-    fsw %f0 %r1 5                          # !1149
-    j ~fbeq_cont.8711                      # !1145
-fbeq_then.8710:
-    fsw %f2 %r1 5                          # !1146
-fbeq_cont.8711:
-    jr %ra                                 # !1151
-setup_surface_table.2637:
-    addi %r3 %zero 4                       # !1156
-    flui %f0 0                             # !1156
-    fli %f0 0                              # !1156
+    flw      %f1  %sp  2                   # !1211
+    flw      %f1  %f1  2                   # !1211
+    fdiv     %f0  %f0  %f1                 # !1211
+    fsw      %f0  %r1  5                   # !1211
+beq_cont.9385:
+    jr       %ra                           # !1213
+setup_surface_table.2704:
+    addi     %r3  %zero  4                 # !1218
+    flui     %f0  0                        # !1218
+    fli      %f0  0                        # !1218
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    fsw %f0 %sp 0                          # !1156
-    sw %r2 %sp 1                           # !1156
-    sw %r1 %sp 2                           # !1156
-    movz %r1 %r3 %zero                     # !1156
-    sw %ra %sp 3                           # !1156
-    addi %sp %sp 4                         # !1156
-    jal ~min_caml_create_float_array       # !1156
-    addi %sp %sp -4                        # !1156
-    lw %ra %sp 3                           # !1156
-    flw %f0 %sp 2                          # !1158
-    flw %f1 %f0 0                          # !1158
-    lw %r2 %sp 1                           # !1158
-    sw %r1 %sp 3                           # !1158
-    fsw %f1 %sp 4                          # !1158
-    movz %r1 %r2 %zero                     # !1158
-    sw %ra %sp 5                           # !1158
-    addi %sp %sp 6                         # !1158
-    jal ~o_param_a.2466                    # !1158
-    addi %sp %sp -6                        # !1158
-    lw %ra %sp 5                           # !1158
-    flw %f1 %sp 4                          # !1158
-    fmul %f0 %f1 %f0                       # !1158
-    flw %f1 %sp 2                          # !1158
-    flw %f2 %f1 1                          # !1158
-    lw %r1 %sp 1                           # !1158
-    fsw %f0 %sp 5                          # !1158
-    fsw %f2 %sp 6                          # !1158
-    sw %ra %sp 7                           # !1158
-    addi %sp %sp 8                         # !1158
-    jal ~o_param_b.2468                    # !1158
-    addi %sp %sp -8                        # !1158
-    lw %ra %sp 7                           # !1158
-    flw %f1 %sp 6                          # !1158
-    fmul %f0 %f1 %f0                       # !1158
-    flw %f1 %sp 5                          # !1158
-    fadd %f0 %f1 %f0                       # !1158
-    flw %f1 %sp 2                          # !1158
-    flw %f1 %f1 2                          # !1158
-    lw %r1 %sp 1                           # !1158
-    fsw %f0 %sp 7                          # !1158
-    fsw %f1 %sp 8                          # !1158
-    sw %ra %sp 9                           # !1158
-    addi %sp %sp 10                        # !1158
-    jal ~o_param_c.2470                    # !1158
-    addi %sp %sp -10                       # !1158
-    lw %ra %sp 9                           # !1158
-    flw %f1 %sp 8                          # !1158
-    fmul %f0 %f1 %f0                       # !1158
-    flw %f1 %sp 7                          # !1158
-    fadd %f0 %f1 %f0                       # !1158
-    flw %f1 %sp 0                          # !1160
-    fblt %f1 %f0 fblt_then.8714            # !1160
-    lw %r1 %sp 3                           # !1168
-    fsw %f1 %r1 0                          # !1168
-    j ~fblt_cont.8715                      # !1160
-fblt_then.8714:
-    flui %f1 -516                          # !1162
-    fli %f1 0                              # !1162
+    fsw      %f0  %sp  0                   # !1218
+    sw       %r2  %sp  1                   # !1218
+    sw       %r1  %sp  2                   # !1218
+    movz     %r1  %r3  %zero               # !1218
+    sw       %ra  %sp  3                   # !1218
+    addi     %sp  %sp  4                   # !1218
+    jal      ~min_caml_create_float_array  # !1218
+    addi     %sp  %sp  -4                  # !1218
+    lw       %ra  %sp  3                   # !1218
+    addi     %r2  %zero  0                 # !1220
+    flw      %f0  %sp  2                   # !1220
+    flw      %f1  %f0  0                   # !1220
+    lw       %r3  %sp  1                   # !1220
+    sw       %r1  %sp  3                   # !1220
+    sw       %r2  %sp  4                   # !1220
+    fsw      %f1  %sp  5                   # !1220
+    movz     %r1  %r3  %zero               # !1220
+    sw       %ra  %sp  6                   # !1220
+    addi     %sp  %sp  7                   # !1220
+    jal      ~o_param_a.2533               # !1220
+    addi     %sp  %sp  -7                  # !1220
+    lw       %ra  %sp  6                   # !1220
+    flw      %f1  %sp  5                   # !1220
+    fmul     %f0  %f1  %f0                 # !1220
+    flw      %f1  %sp  2                   # !1220
+    flw      %f2  %f1  1                   # !1220
+    lw       %r1  %sp  1                   # !1220
+    fsw      %f0  %sp  6                   # !1220
+    fsw      %f2  %sp  7                   # !1220
+    sw       %ra  %sp  8                   # !1220
+    addi     %sp  %sp  9                   # !1220
+    jal      ~o_param_b.2535               # !1220
+    addi     %sp  %sp  -9                  # !1220
+    lw       %ra  %sp  8                   # !1220
+    flw      %f1  %sp  7                   # !1220
+    fmul     %f0  %f1  %f0                 # !1220
+    flw      %f1  %sp  6                   # !1220
+    fadd     %f0  %f1  %f0                 # !1220
+    flw      %f1  %sp  2                   # !1220
+    flw      %f1  %f1  2                   # !1220
+    lw       %r1  %sp  1                   # !1220
+    fsw      %f0  %sp  8                   # !1220
+    fsw      %f1  %sp  9                   # !1220
+    sw       %ra  %sp  10                  # !1220
+    addi     %sp  %sp  11                  # !1220
+    jal      ~o_param_c.2537               # !1220
+    addi     %sp  %sp  -11                 # !1220
+    lw       %ra  %sp  10                  # !1220
+    flw      %f1  %sp  9                   # !1220
+    fmul     %f0  %f1  %f0                 # !1220
+    flw      %f1  %sp  8                   # !1220
+    fadd     %f0  %f1  %f0                 # !1220
+    fsw      %f0  %sp  10                  # !1222
+    sw       %ra  %sp  11                  # !1222
+    addi     %sp  %sp  12                  # !1222
+    jal      ~min_caml_fispos              # !1222
+    addi     %sp  %sp  -12                 # !1222
+    lw       %ra  %sp  11                  # !1222
+    lw       %r2  %sp  4                   # !1222
+    beq      %r1  %r2  beq_then.9386       # !1222
+    flui     %f0  -516                     # !1224
+    fli      %f0  0                        # !1224
     ++
     fli -1.000000
-    => flui %f1 0b10111111100
-       fli  %f1 0b000000000000000000000
+    => flui %f0 0b10111111100
+       fli  %f0 0b000000000000000000000
     ++
-    fdiv %f1 %f1 %f0                       # !1162
-    lw %r1 %sp 3                           # !1162
-    fsw %f1 %r1 0                          # !1162
-    lw %r2 %sp 1                           # !1164
-    fsw %f0 %sp 9                          # !1164
-    movz %r1 %r2 %zero                     # !1164
-    sw %ra %sp 10                          # !1164
-    addi %sp %sp 11                        # !1164
-    jal ~o_param_a.2466                    # !1164
-    addi %sp %sp -11                       # !1164
-    lw %ra %sp 10                          # !1164
-    flw %f1 %sp 9                          # !1164
-    fdiv %f0 %f0 %f1                       # !1164
-    fneg %f0 %f0                           # !1164
-    lw %r1 %sp 3                           # !1164
-    fsw %f0 %r1 1                          # !1164
-    lw %r2 %sp 1                           # !1165
-    movz %r1 %r2 %zero                     # !1165
-    sw %ra %sp 10                          # !1165
-    addi %sp %sp 11                        # !1165
-    jal ~o_param_b.2468                    # !1165
-    addi %sp %sp -11                       # !1165
-    lw %ra %sp 10                          # !1165
-    flw %f1 %sp 9                          # !1165
-    fdiv %f0 %f0 %f1                       # !1165
-    fneg %f0 %f0                           # !1165
-    lw %r1 %sp 3                           # !1165
-    fsw %f0 %r1 2                          # !1165
-    lw %r2 %sp 1                           # !1166
-    movz %r1 %r2 %zero                     # !1166
-    sw %ra %sp 10                          # !1166
-    addi %sp %sp 11                        # !1166
-    jal ~o_param_c.2470                    # !1166
-    addi %sp %sp -11                       # !1166
-    lw %ra %sp 10                          # !1166
-    flw %f1 %sp 9                          # !1166
-    fdiv %f0 %f0 %f1                       # !1166
-    fneg %f0 %f0                           # !1166
-    lw %r1 %sp 3                           # !1166
-    fsw %f0 %r1 3                          # !1166
-fblt_cont.8715:
-    jr %ra                                 # !1169
-setup_second_table.2640:
-    addi %r3 %zero 5                       # !1175
-    flui %f0 0                             # !1175
-    fli %f0 0                              # !1175
+    flw      %f1  %sp  10                  # !1224
+    fdiv     %f0  %f0  %f1                 # !1224
+    lw       %r1  %sp  3                   # !1224
+    fsw      %f0  %r1  0                   # !1224
+    lw       %r2  %sp  1                   # !1226
+    movz     %r1  %r2  %zero               # !1226
+    sw       %ra  %sp  11                  # !1226
+    addi     %sp  %sp  12                  # !1226
+    jal      ~o_param_a.2533               # !1226
+    addi     %sp  %sp  -12                 # !1226
+    lw       %ra  %sp  11                  # !1226
+    flw      %f1  %sp  10                  # !1226
+    fdiv     %f0  %f0  %f1                 # !1226
+    sw       %ra  %sp  11                  # !1226
+    addi     %sp  %sp  12                  # !1226
+    jal      ~min_caml_fneg                # !1226
+    addi     %sp  %sp  -12                 # !1226
+    lw       %ra  %sp  11                  # !1226
+    lw       %r1  %sp  3                   # !1226
+    fsw      %f0  %r1  1                   # !1226
+    lw       %r2  %sp  1                   # !1227
+    movz     %r1  %r2  %zero               # !1227
+    sw       %ra  %sp  11                  # !1227
+    addi     %sp  %sp  12                  # !1227
+    jal      ~o_param_b.2535               # !1227
+    addi     %sp  %sp  -12                 # !1227
+    lw       %ra  %sp  11                  # !1227
+    flw      %f1  %sp  10                  # !1227
+    fdiv     %f0  %f0  %f1                 # !1227
+    sw       %ra  %sp  11                  # !1227
+    addi     %sp  %sp  12                  # !1227
+    jal      ~min_caml_fneg                # !1227
+    addi     %sp  %sp  -12                 # !1227
+    lw       %ra  %sp  11                  # !1227
+    lw       %r1  %sp  3                   # !1227
+    fsw      %f0  %r1  2                   # !1227
+    lw       %r2  %sp  1                   # !1228
+    movz     %r1  %r2  %zero               # !1228
+    sw       %ra  %sp  11                  # !1228
+    addi     %sp  %sp  12                  # !1228
+    jal      ~o_param_c.2537               # !1228
+    addi     %sp  %sp  -12                 # !1228
+    lw       %ra  %sp  11                  # !1228
+    flw      %f1  %sp  10                  # !1228
+    fdiv     %f0  %f0  %f1                 # !1228
+    sw       %ra  %sp  11                  # !1228
+    addi     %sp  %sp  12                  # !1228
+    jal      ~min_caml_fneg                # !1228
+    addi     %sp  %sp  -12                 # !1228
+    lw       %ra  %sp  11                  # !1228
+    lw       %r1  %sp  3                   # !1228
+    fsw      %f0  %r1  3                   # !1228
+    j        ~beq_cont.9387                # !1222
+beq_then.9386:
+    lw       %r1  %sp  3                   # !1230
+    flw      %f0  %sp  0                   # !1230
+    fsw      %f0  %r1  0                   # !1230
+beq_cont.9387:
+    jr       %ra                           # !1231
+setup_second_table.2707:
+    addi     %r3  %zero  5                 # !1237
+    flui     %f0  0                        # !1237
+    fli      %f0  0                        # !1237
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    fsw %f0 %sp 0                          # !1175
-    sw %r2 %sp 1                           # !1175
-    sw %r1 %sp 2                           # !1175
-    movz %r1 %r3 %zero                     # !1175
-    sw %ra %sp 3                           # !1175
-    addi %sp %sp 4                         # !1175
-    jal ~min_caml_create_float_array       # !1175
-    addi %sp %sp -4                        # !1175
-    lw %ra %sp 3                           # !1175
-    addi %r2 %zero 0                       # !1177
-    flw %f0 %sp 2                          # !1177
-    flw %f1 %f0 0                          # !1177
-    flw %f2 %f0 1                          # !1177
-    flw %f3 %f0 2                          # !1177
-    lw %r3 %sp 1                           # !1177
-    sw %r2 %sp 3                           # !1177
-    sw %r1 %sp 4                           # !1177
-    movz %r1 %r3 %zero                     # !1177
-    fmovz %f0 %f1 %zero                    # !1177
-    fmovz %f1 %f2 %zero                    # !1177
-    fmovz %f2 %f3 %zero                    # !1177
-    sw %ra %sp 5                           # !1177
-    addi %sp %sp 6                         # !1177
-    jal ~quadratic.2571                    # !1177
-    addi %sp %sp -6                        # !1177
-    lw %ra %sp 5                           # !1177
-    flw %f1 %sp 2                          # !1178
-    flw %f2 %f1 0                          # !1178
-    lw %r1 %sp 1                           # !1178
-    fsw %f0 %sp 5                          # !1178
-    fsw %f2 %sp 6                          # !1178
-    sw %ra %sp 7                           # !1178
-    addi %sp %sp 8                         # !1178
-    jal ~o_param_a.2466                    # !1178
-    addi %sp %sp -8                        # !1178
-    lw %ra %sp 7                           # !1178
-    flw %f1 %sp 6                          # !1178
-    fmul %f0 %f1 %f0                       # !1178
-    fneg %f0 %f0                           # !1178
-    flw %f1 %sp 2                          # !1179
-    flw %f2 %f1 1                          # !1179
-    lw %r1 %sp 1                           # !1179
-    fsw %f0 %sp 7                          # !1179
-    fsw %f2 %sp 8                          # !1179
-    sw %ra %sp 9                           # !1179
-    addi %sp %sp 10                        # !1179
-    jal ~o_param_b.2468                    # !1179
-    addi %sp %sp -10                       # !1179
-    lw %ra %sp 9                           # !1179
-    flw %f1 %sp 8                          # !1179
-    fmul %f0 %f1 %f0                       # !1179
-    fneg %f0 %f0                           # !1179
-    flw %f1 %sp 2                          # !1180
-    flw %f2 %f1 2                          # !1180
-    lw %r1 %sp 1                           # !1180
-    fsw %f0 %sp 9                          # !1180
-    fsw %f2 %sp 10                         # !1180
-    sw %ra %sp 11                          # !1180
-    addi %sp %sp 12                        # !1180
-    jal ~o_param_c.2470                    # !1180
-    addi %sp %sp -12                       # !1180
-    lw %ra %sp 11                          # !1180
-    flw %f1 %sp 10                         # !1180
-    fmul %f0 %f1 %f0                       # !1180
-    fneg %f0 %f0                           # !1180
-    lw %r1 %sp 4                           # !1182
-    flw %f1 %sp 5                          # !1182
-    fsw %f1 %r1 0                          # !1182
-    lw %r2 %sp 1                           # !1186
-    fsw %f0 %sp 11                         # !1186
-    movz %r1 %r2 %zero                     # !1186
-    sw %ra %sp 12                          # !1186
-    addi %sp %sp 13                        # !1186
-    jal ~o_isrot.2464                      # !1186
-    addi %sp %sp -13                       # !1186
-    lw %ra %sp 12                          # !1186
-    lw %r2 %sp 3                           # !1186
-    beq %r1 %r2 beq_then.8716              # !1186
-    flw %f0 %sp 2                          # !1187
-    flw %f1 %f0 2                          # !1187
-    lw %r1 %sp 1                           # !1187
-    fsw %f1 %sp 12                         # !1187
-    sw %ra %sp 13                          # !1187
-    addi %sp %sp 14                        # !1187
-    jal ~o_param_r2.2492                   # !1187
-    addi %sp %sp -14                       # !1187
-    lw %ra %sp 13                          # !1187
-    flw %f1 %sp 12                         # !1187
-    fmul %f0 %f1 %f0                       # !1187
-    flw %f1 %sp 2                          # !1187
-    flw %f2 %f1 1                          # !1187
-    lw %r1 %sp 1                           # !1187
-    fsw %f0 %sp 13                         # !1187
-    fsw %f2 %sp 14                         # !1187
-    sw %ra %sp 15                          # !1187
-    addi %sp %sp 16                        # !1187
-    jal ~o_param_r3.2494                   # !1187
-    addi %sp %sp -16                       # !1187
-    lw %ra %sp 15                          # !1187
-    flw %f1 %sp 14                         # !1187
-    fmul %f0 %f1 %f0                       # !1187
-    flw %f1 %sp 13                         # !1187
-    fadd %f0 %f1 %f0                       # !1187
-    flui %f1 504                           # !1187
-    fli %f1 0                              # !1187
-    ++
-    fli 0.500000
-    => flui %f1 0b00111111000
-       fli  %f1 0b000000000000000000000
-    ++
-    fmul %f0 %f0 %f1                       # !1187
-    flw %f2 %sp 7                          # !1187
-    fsub %f0 %f2 %f0                       # !1187
-    lw %r1 %sp 4                           # !1187
-    fsw %f0 %r1 1                          # !1187
-    flw %f0 %sp 2                          # !1188
-    flw %f2 %f0 2                          # !1188
-    lw %r2 %sp 1                           # !1188
-    fsw %f1 %sp 15                         # !1188
-    fsw %f2 %sp 16                         # !1188
-    movz %r1 %r2 %zero                     # !1188
-    sw %ra %sp 17                          # !1188
-    addi %sp %sp 18                        # !1188
-    jal ~o_param_r1.2490                   # !1188
-    addi %sp %sp -18                       # !1188
-    lw %ra %sp 17                          # !1188
-    flw %f1 %sp 16                         # !1188
-    fmul %f0 %f1 %f0                       # !1188
-    flw %f1 %sp 2                          # !1188
-    flw %f2 %f1 0                          # !1188
-    lw %r1 %sp 1                           # !1188
-    fsw %f0 %sp 17                         # !1188
-    fsw %f2 %sp 18                         # !1188
-    sw %ra %sp 19                          # !1188
-    addi %sp %sp 20                        # !1188
-    jal ~o_param_r3.2494                   # !1188
-    addi %sp %sp -20                       # !1188
-    lw %ra %sp 19                          # !1188
-    flw %f1 %sp 18                         # !1188
-    fmul %f0 %f1 %f0                       # !1188
-    flw %f1 %sp 17                         # !1188
-    fadd %f0 %f1 %f0                       # !1188
-    flw %f1 %sp 15                         # !1188
-    fmul %f0 %f1 %f0                       # !1188
-    flw %f2 %sp 9                          # !1188
-    fsub %f0 %f2 %f0                       # !1188
-    lw %r1 %sp 4                           # !1188
-    fsw %f0 %r1 2                          # !1188
-    flw %f0 %sp 2                          # !1189
-    flw %f2 %f0 1                          # !1189
-    lw %r2 %sp 1                           # !1189
-    fsw %f2 %sp 19                         # !1189
-    movz %r1 %r2 %zero                     # !1189
-    sw %ra %sp 20                          # !1189
-    addi %sp %sp 21                        # !1189
-    jal ~o_param_r1.2490                   # !1189
-    addi %sp %sp -21                       # !1189
-    lw %ra %sp 20                          # !1189
-    flw %f1 %sp 19                         # !1189
-    fmul %f0 %f1 %f0                       # !1189
-    flw %f1 %sp 2                          # !1189
-    flw %f1 %f1 0                          # !1189
-    lw %r1 %sp 1                           # !1189
-    fsw %f0 %sp 20                         # !1189
-    fsw %f1 %sp 21                         # !1189
-    sw %ra %sp 22                          # !1189
-    addi %sp %sp 23                        # !1189
-    jal ~o_param_r2.2492                   # !1189
-    addi %sp %sp -23                       # !1189
-    lw %ra %sp 22                          # !1189
-    flw %f1 %sp 21                         # !1189
-    fmul %f0 %f1 %f0                       # !1189
-    flw %f1 %sp 20                         # !1189
-    fadd %f0 %f1 %f0                       # !1189
-    flw %f1 %sp 15                         # !1189
-    fmul %f0 %f1 %f0                       # !1189
-    flw %f1 %sp 11                         # !1189
-    fsub %f0 %f1 %f0                       # !1189
-    lw %r1 %sp 4                           # !1189
-    fsw %f0 %r1 3                          # !1189
-    j ~beq_cont.8717                       # !1186
-beq_then.8716:
-    lw %r1 %sp 4                           # !1191
-    flw %f0 %sp 7                          # !1191
-    fsw %f0 %r1 1                          # !1191
-    flw %f0 %sp 9                          # !1192
-    fsw %f0 %r1 2                          # !1192
-    flw %f0 %sp 11                         # !1193
-    fsw %f0 %r1 3                          # !1193
-beq_cont.8717:
-    flw %f0 %sp 0                          # !1195
-    flw %f1 %sp 5                          # !1195
-    fbeq %f1 %f0 fbeq_then.8718            # !1195
-    flui %f0 508                           # !1196
-    fli %f0 0                              # !1196
+    sw       %r2  %sp  0                   # !1237
+    sw       %r1  %sp  1                   # !1237
+    movz     %r1  %r3  %zero               # !1237
+    sw       %ra  %sp  2                   # !1237
+    addi     %sp  %sp  3                   # !1237
+    jal      ~min_caml_create_float_array  # !1237
+    addi     %sp  %sp  -3                  # !1237
+    lw       %ra  %sp  2                   # !1237
+    addi     %r2  %zero  0                 # !1239
+    flw      %f0  %sp  1                   # !1239
+    flw      %f1  %f0  0                   # !1239
+    flw      %f2  %f0  1                   # !1239
+    flw      %f3  %f0  2                   # !1239
+    lw       %r3  %sp  0                   # !1239
+    sw       %r2  %sp  2                   # !1239
+    sw       %r1  %sp  3                   # !1239
+    movz     %r1  %r3  %zero               # !1239
+    fmovz    %f0  %f1  %zero               # !1239
+    fmovz    %f1  %f2  %zero               # !1239
+    fmovz    %f2  %f3  %zero               # !1239
+    sw       %ra  %sp  4                   # !1239
+    addi     %sp  %sp  5                   # !1239
+    jal      ~quadratic.2638               # !1239
+    addi     %sp  %sp  -5                  # !1239
+    lw       %ra  %sp  4                   # !1239
+    flw      %f1  %sp  1                   # !1240
+    flw      %f2  %f1  0                   # !1240
+    lw       %r1  %sp  0                   # !1240
+    fsw      %f0  %sp  4                   # !1240
+    fsw      %f2  %sp  5                   # !1240
+    sw       %ra  %sp  6                   # !1240
+    addi     %sp  %sp  7                   # !1240
+    jal      ~o_param_a.2533               # !1240
+    addi     %sp  %sp  -7                  # !1240
+    lw       %ra  %sp  6                   # !1240
+    flw      %f1  %sp  5                   # !1240
+    fmul     %f0  %f1  %f0                 # !1240
+    sw       %ra  %sp  6                   # !1240
+    addi     %sp  %sp  7                   # !1240
+    jal      ~min_caml_fneg                # !1240
+    addi     %sp  %sp  -7                  # !1240
+    lw       %ra  %sp  6                   # !1240
+    flw      %f1  %sp  1                   # !1241
+    flw      %f2  %f1  1                   # !1241
+    lw       %r1  %sp  0                   # !1241
+    fsw      %f0  %sp  6                   # !1241
+    fsw      %f2  %sp  7                   # !1241
+    sw       %ra  %sp  8                   # !1241
+    addi     %sp  %sp  9                   # !1241
+    jal      ~o_param_b.2535               # !1241
+    addi     %sp  %sp  -9                  # !1241
+    lw       %ra  %sp  8                   # !1241
+    flw      %f1  %sp  7                   # !1241
+    fmul     %f0  %f1  %f0                 # !1241
+    sw       %ra  %sp  8                   # !1241
+    addi     %sp  %sp  9                   # !1241
+    jal      ~min_caml_fneg                # !1241
+    addi     %sp  %sp  -9                  # !1241
+    lw       %ra  %sp  8                   # !1241
+    flw      %f1  %sp  1                   # !1242
+    flw      %f2  %f1  2                   # !1242
+    lw       %r1  %sp  0                   # !1242
+    fsw      %f0  %sp  8                   # !1242
+    fsw      %f2  %sp  9                   # !1242
+    sw       %ra  %sp  10                  # !1242
+    addi     %sp  %sp  11                  # !1242
+    jal      ~o_param_c.2537               # !1242
+    addi     %sp  %sp  -11                 # !1242
+    lw       %ra  %sp  10                  # !1242
+    flw      %f1  %sp  9                   # !1242
+    fmul     %f0  %f1  %f0                 # !1242
+    sw       %ra  %sp  10                  # !1242
+    addi     %sp  %sp  11                  # !1242
+    jal      ~min_caml_fneg                # !1242
+    addi     %sp  %sp  -11                 # !1242
+    lw       %ra  %sp  10                  # !1242
+    lw       %r1  %sp  3                   # !1244
+    flw      %f1  %sp  4                   # !1244
+    fsw      %f1  %r1  0                   # !1244
+    lw       %r2  %sp  0                   # !1248
+    fsw      %f0  %sp  10                  # !1248
+    movz     %r1  %r2  %zero               # !1248
+    sw       %ra  %sp  11                  # !1248
+    addi     %sp  %sp  12                  # !1248
+    jal      ~o_isrot.2531                 # !1248
+    addi     %sp  %sp  -12                 # !1248
+    lw       %ra  %sp  11                  # !1248
+    lw       %r2  %sp  2                   # !1248
+    beq      %r1  %r2  beq_then.9388       # !1248
+    flw      %f0  %sp  1                   # !1249
+    flw      %f1  %f0  2                   # !1249
+    lw       %r1  %sp  0                   # !1249
+    fsw      %f1  %sp  11                  # !1249
+    sw       %ra  %sp  12                  # !1249
+    addi     %sp  %sp  13                  # !1249
+    jal      ~o_param_r2.2559              # !1249
+    addi     %sp  %sp  -13                 # !1249
+    lw       %ra  %sp  12                  # !1249
+    flw      %f1  %sp  11                  # !1249
+    fmul     %f0  %f1  %f0                 # !1249
+    flw      %f1  %sp  1                   # !1249
+    flw      %f2  %f1  1                   # !1249
+    lw       %r1  %sp  0                   # !1249
+    fsw      %f0  %sp  12                  # !1249
+    fsw      %f2  %sp  13                  # !1249
+    sw       %ra  %sp  14                  # !1249
+    addi     %sp  %sp  15                  # !1249
+    jal      ~o_param_r3.2561              # !1249
+    addi     %sp  %sp  -15                 # !1249
+    lw       %ra  %sp  14                  # !1249
+    flw      %f1  %sp  13                  # !1249
+    fmul     %f0  %f1  %f0                 # !1249
+    flw      %f1  %sp  12                  # !1249
+    fadd     %f0  %f1  %f0                 # !1249
+    sw       %ra  %sp  14                  # !1249
+    addi     %sp  %sp  15                  # !1249
+    jal      ~min_caml_fhalf               # !1249
+    addi     %sp  %sp  -15                 # !1249
+    lw       %ra  %sp  14                  # !1249
+    flw      %f1  %sp  6                   # !1249
+    fsub     %f0  %f1  %f0                 # !1249
+    lw       %r1  %sp  3                   # !1249
+    fsw      %f0  %r1  1                   # !1249
+    flw      %f0  %sp  1                   # !1250
+    flw      %f1  %f0  2                   # !1250
+    lw       %r2  %sp  0                   # !1250
+    fsw      %f1  %sp  14                  # !1250
+    movz     %r1  %r2  %zero               # !1250
+    sw       %ra  %sp  15                  # !1250
+    addi     %sp  %sp  16                  # !1250
+    jal      ~o_param_r1.2557              # !1250
+    addi     %sp  %sp  -16                 # !1250
+    lw       %ra  %sp  15                  # !1250
+    flw      %f1  %sp  14                  # !1250
+    fmul     %f0  %f1  %f0                 # !1250
+    flw      %f1  %sp  1                   # !1250
+    flw      %f2  %f1  0                   # !1250
+    lw       %r1  %sp  0                   # !1250
+    fsw      %f0  %sp  15                  # !1250
+    fsw      %f2  %sp  16                  # !1250
+    sw       %ra  %sp  17                  # !1250
+    addi     %sp  %sp  18                  # !1250
+    jal      ~o_param_r3.2561              # !1250
+    addi     %sp  %sp  -18                 # !1250
+    lw       %ra  %sp  17                  # !1250
+    flw      %f1  %sp  16                  # !1250
+    fmul     %f0  %f1  %f0                 # !1250
+    flw      %f1  %sp  15                  # !1250
+    fadd     %f0  %f1  %f0                 # !1250
+    sw       %ra  %sp  17                  # !1250
+    addi     %sp  %sp  18                  # !1250
+    jal      ~min_caml_fhalf               # !1250
+    addi     %sp  %sp  -18                 # !1250
+    lw       %ra  %sp  17                  # !1250
+    flw      %f1  %sp  8                   # !1250
+    fsub     %f0  %f1  %f0                 # !1250
+    lw       %r1  %sp  3                   # !1250
+    fsw      %f0  %r1  2                   # !1250
+    flw      %f0  %sp  1                   # !1251
+    flw      %f1  %f0  1                   # !1251
+    lw       %r2  %sp  0                   # !1251
+    fsw      %f1  %sp  17                  # !1251
+    movz     %r1  %r2  %zero               # !1251
+    sw       %ra  %sp  18                  # !1251
+    addi     %sp  %sp  19                  # !1251
+    jal      ~o_param_r1.2557              # !1251
+    addi     %sp  %sp  -19                 # !1251
+    lw       %ra  %sp  18                  # !1251
+    flw      %f1  %sp  17                  # !1251
+    fmul     %f0  %f1  %f0                 # !1251
+    flw      %f1  %sp  1                   # !1251
+    flw      %f1  %f1  0                   # !1251
+    lw       %r1  %sp  0                   # !1251
+    fsw      %f0  %sp  18                  # !1251
+    fsw      %f1  %sp  19                  # !1251
+    sw       %ra  %sp  20                  # !1251
+    addi     %sp  %sp  21                  # !1251
+    jal      ~o_param_r2.2559              # !1251
+    addi     %sp  %sp  -21                 # !1251
+    lw       %ra  %sp  20                  # !1251
+    flw      %f1  %sp  19                  # !1251
+    fmul     %f0  %f1  %f0                 # !1251
+    flw      %f1  %sp  18                  # !1251
+    fadd     %f0  %f1  %f0                 # !1251
+    sw       %ra  %sp  20                  # !1251
+    addi     %sp  %sp  21                  # !1251
+    jal      ~min_caml_fhalf               # !1251
+    addi     %sp  %sp  -21                 # !1251
+    lw       %ra  %sp  20                  # !1251
+    flw      %f1  %sp  10                  # !1251
+    fsub     %f0  %f1  %f0                 # !1251
+    lw       %r1  %sp  3                   # !1251
+    fsw      %f0  %r1  3                   # !1251
+    j        ~beq_cont.9389                # !1248
+beq_then.9388:
+    lw       %r1  %sp  3                   # !1253
+    flw      %f0  %sp  6                   # !1253
+    fsw      %f0  %r1  1                   # !1253
+    flw      %f0  %sp  8                   # !1254
+    fsw      %f0  %r1  2                   # !1254
+    flw      %f0  %sp  10                  # !1255
+    fsw      %f0  %r1  3                   # !1255
+beq_cont.9389:
+    flw      %f0  %sp  4                   # !1257
+    sw       %ra  %sp  20                  # !1257
+    addi     %sp  %sp  21                  # !1257
+    jal      ~min_caml_fiszero             # !1257
+    addi     %sp  %sp  -21                 # !1257
+    lw       %ra  %sp  20                  # !1257
+    lw       %r2  %sp  2                   # !1257
+    beq      %r1  %r2  beq_then.9390       # !1257
+    j        ~beq_cont.9391                # !1257
+beq_then.9390:
+    flui     %f0  508                      # !1258
+    fli      %f0  0                        # !1258
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    fdiv %f0 %f0 %f1                       # !1196
-    fsw %f0 %r1 4                          # !1196
-    j ~fbeq_cont.8719                      # !1195
-fbeq_then.8718:
-fbeq_cont.8719:
-    jr %ra                                 # !1198
-iter_setup_dirvec_constants.2643:
-    lw %r3 %r27 1                          # !1203
-    addi %r4 %zero 0                       # !1204
-    blt %r2 %r4 blt_then.8720              # !1204
-    lwv %r3 %r3 %r2                        # !1205
-    sw %r27 %sp 0                          # !1206
-    sw %r2 %sp 1                           # !1206
-    sw %r3 %sp 2                           # !1206
-    sw %r1 %sp 3                           # !1206
-    sw %ra %sp 4                           # !1206
-    addi %sp %sp 5                         # !1206
-    jal ~d_const.2519                      # !1206
-    addi %sp %sp -5                        # !1206
-    lw %ra %sp 4                           # !1206
-    lw %r2 %sp 3                           # !1207
-    sw %r1 %sp 4                           # !1207
-    movz %r1 %r2 %zero                     # !1207
-    sw %ra %sp 5                           # !1207
-    addi %sp %sp 6                         # !1207
-    jal ~d_vec.2517                        # !1207
-    addi %sp %sp -6                        # !1207
-    lw %ra %sp 5                           # !1207
-    lw %r2 %sp 2                           # !1208
-    sw %r1 %sp 5                           # !1208
-    movz %r1 %r2 %zero                     # !1208
-    sw %ra %sp 6                           # !1208
-    addi %sp %sp 7                         # !1208
-    jal ~o_form.2458                       # !1208
-    addi %sp %sp -7                        # !1208
-    lw %ra %sp 6                           # !1208
-    addi %r2 %zero 1                       # !1209
-    beq %r1 %r2 beq_then.8721              # !1209
-    addi %r2 %zero 2                       # !1211
-    beq %r1 %r2 beq_then.8723              # !1211
-    lw %r1 %sp 5                           # !1214
-    lw %r2 %sp 2                           # !1214
-    sw %ra %sp 6                           # !1214
-    addi %sp %sp 7                         # !1214
-    jal ~setup_second_table.2640           # !1214
-    addi %sp %sp -7                        # !1214
-    lw %ra %sp 6                           # !1214
-    lw %r2 %sp 1                           # !1214
-    lw %r3 %sp 4                           # !1214
-    swv %r1 %r3 %r2                        # !1214
-    j ~beq_cont.8724                       # !1211
-beq_then.8723:
-    lw %r1 %sp 5                           # !1212
-    lw %r2 %sp 2                           # !1212
-    sw %ra %sp 6                           # !1212
-    addi %sp %sp 7                         # !1212
-    jal ~setup_surface_table.2637          # !1212
-    addi %sp %sp -7                        # !1212
-    lw %ra %sp 6                           # !1212
-    lw %r2 %sp 1                           # !1212
-    lw %r3 %sp 4                           # !1212
-    swv %r1 %r3 %r2                        # !1212
-beq_cont.8724:
-    j ~beq_cont.8722                       # !1209
-beq_then.8721:
-    lw %r1 %sp 5                           # !1210
-    lw %r2 %sp 2                           # !1210
-    sw %ra %sp 6                           # !1210
-    addi %sp %sp 7                         # !1210
-    jal ~setup_rect_table.2634             # !1210
-    addi %sp %sp -7                        # !1210
-    lw %ra %sp 6                           # !1210
-    lw %r2 %sp 1                           # !1210
-    lw %r3 %sp 4                           # !1210
-    swv %r1 %r3 %r2                        # !1210
-beq_cont.8722:
-    addi %r2 %r2 -1                        # !1216
-    lw %r1 %sp 3                           # !1216
-    lw %r27 %sp 0                          # !1216
-    lw %r28 %r27 0                         # !1216
-    jr %r28                                # !1216
-blt_then.8720:
-    jr %ra                                 # !1217
-setup_dirvec_constants.2646:
-    lw %r2 %r27 2                          # !1220
-    lw %r27 %r27 1                         # !1220
-    lw %r2 %r2 0                           # !1221
-    addi %r2 %r2 -1                        # !1221
-    lw %r28 %r27 0                         # !1221
-    jr %r28                                # !1221
-setup_startp_constants.2648:
-    lw %r3 %r27 1                          # !1228
-    addi %r4 %zero 0                       # !1229
-    blt %r2 %r4 blt_then.8726              # !1229
-    lwv %r3 %r3 %r2                        # !1230
-    sw %r27 %sp 0                          # !1231
-    sw %r2 %sp 1                           # !1231
-    sw %r1 %sp 2                           # !1231
-    sw %r3 %sp 3                           # !1231
-    movz %r1 %r3 %zero                     # !1231
-    sw %ra %sp 4                           # !1231
-    addi %sp %sp 5                         # !1231
-    jal ~o_param_ctbl.2496                 # !1231
-    addi %sp %sp -5                        # !1231
-    lw %ra %sp 4                           # !1231
-    lw %r2 %sp 3                           # !1232
-    sw %r1 %sp 4                           # !1232
-    movz %r1 %r2 %zero                     # !1232
-    sw %ra %sp 5                           # !1232
-    addi %sp %sp 6                         # !1232
-    jal ~o_form.2458                       # !1232
-    addi %sp %sp -6                        # !1232
-    lw %ra %sp 5                           # !1232
-    flw %f0 %sp 2                          # !1233
-    flw %f1 %f0 0                          # !1233
-    lw %r2 %sp 3                           # !1233
-    sw %r1 %sp 5                           # !1233
-    fsw %f1 %sp 6                          # !1233
-    movz %r1 %r2 %zero                     # !1233
-    sw %ra %sp 7                           # !1233
-    addi %sp %sp 8                         # !1233
-    jal ~o_param_x.2474                    # !1233
-    addi %sp %sp -8                        # !1233
-    lw %ra %sp 7                           # !1233
-    flw %f1 %sp 6                          # !1233
-    fsub %f0 %f1 %f0                       # !1233
-    lw %r1 %sp 4                           # !1233
-    fsw %f0 %r1 0                          # !1233
-    flw %f0 %sp 2                          # !1234
-    flw %f1 %f0 1                          # !1234
-    lw %r2 %sp 3                           # !1234
-    fsw %f1 %sp 7                          # !1234
-    movz %r1 %r2 %zero                     # !1234
-    sw %ra %sp 8                           # !1234
-    addi %sp %sp 9                         # !1234
-    jal ~o_param_y.2476                    # !1234
-    addi %sp %sp -9                        # !1234
-    lw %ra %sp 8                           # !1234
-    flw %f1 %sp 7                          # !1234
-    fsub %f0 %f1 %f0                       # !1234
-    lw %r1 %sp 4                           # !1234
-    fsw %f0 %r1 1                          # !1234
-    addi %r2 %zero 2                       # !1235
-    flw %f0 %sp 2                          # !1235
-    flw %f1 %f0 2                          # !1235
-    lw %r3 %sp 3                           # !1235
-    sw %r2 %sp 8                           # !1235
-    fsw %f1 %sp 9                          # !1235
-    movz %r1 %r3 %zero                     # !1235
-    sw %ra %sp 10                          # !1235
-    addi %sp %sp 11                        # !1235
-    jal ~o_param_z.2478                    # !1235
-    addi %sp %sp -11                       # !1235
-    lw %ra %sp 10                          # !1235
-    flw %f1 %sp 9                          # !1235
-    fsub %f0 %f1 %f0                       # !1235
-    lw %r1 %sp 4                           # !1235
-    fsw %f0 %r1 2                          # !1235
-    lw %r2 %sp 8                           # !1236
-    lw %r3 %sp 5                           # !1236
-    beq %r3 %r2 beq_then.8727              # !1236
-    blt %r2 %r3 blt_then.8729              # !1239
-    j ~blt_cont.8730                       # !1239
-blt_then.8729:
-    flw %f0 %r1 0                          # !1240
-    flw %f1 %r1 1                          # !1240
-    flw %f2 %r1 2                          # !1240
-    lw %r2 %sp 3                           # !1240
-    movz %r1 %r2 %zero                     # !1240
-    sw %ra %sp 10                          # !1240
-    addi %sp %sp 11                        # !1240
-    jal ~quadratic.2571                    # !1240
-    addi %sp %sp -11                       # !1240
-    lw %ra %sp 10                          # !1240
-    addi %r1 %zero 3                       # !1241
-    lw %r2 %sp 5                           # !1241
-    beq %r2 %r1 beq_then.8731              # !1241
-    j ~beq_cont.8732                       # !1241
-beq_then.8731:
-    flui %f1 508                           # !1241
-    fli %f1 0                              # !1241
+    flw      %f1  %sp  4                   # !1258
+    fdiv     %f0  %f0  %f1                 # !1258
+    lw       %r1  %sp  3                   # !1258
+    fsw      %f0  %r1  4                   # !1258
+beq_cont.9391:
+    lw       %r1  %sp  3                   # !1260
+    jr       %ra                           # !1260
+iter_setup_dirvec_constants.2710:
+    lw       %r3  %r27  1                  # !1265
+    addi     %r4  %zero  0                 # !1266
+    blt      %r2  %r4  blt_then.9392       # !1266
+    lwv      %r3  %r3  %r2                 # !1267
+    sw       %r27  %sp  0                  # !1268
+    sw       %r2  %sp  1                   # !1268
+    sw       %r3  %sp  2                   # !1268
+    sw       %r1  %sp  3                   # !1268
+    sw       %ra  %sp  4                   # !1268
+    addi     %sp  %sp  5                   # !1268
+    jal      ~d_const.2586                 # !1268
+    addi     %sp  %sp  -5                  # !1268
+    lw       %ra  %sp  4                   # !1268
+    lw       %r2  %sp  3                   # !1269
+    sw       %r1  %sp  4                   # !1269
+    movz     %r1  %r2  %zero               # !1269
+    sw       %ra  %sp  5                   # !1269
+    addi     %sp  %sp  6                   # !1269
+    jal      ~d_vec.2584                   # !1269
+    addi     %sp  %sp  -6                  # !1269
+    lw       %ra  %sp  5                   # !1269
+    lw       %r2  %sp  2                   # !1270
+    sw       %r1  %sp  5                   # !1270
+    movz     %r1  %r2  %zero               # !1270
+    sw       %ra  %sp  6                   # !1270
+    addi     %sp  %sp  7                   # !1270
+    jal      ~o_form.2525                  # !1270
+    addi     %sp  %sp  -7                  # !1270
+    lw       %ra  %sp  6                   # !1270
+    addi     %r2  %zero  1                 # !1271
+    beq      %r1  %r2  beq_then.9393       # !1271
+    addi     %r2  %zero  2                 # !1273
+    beq      %r1  %r2  beq_then.9395       # !1273
+    lw       %r1  %sp  5                   # !1276
+    lw       %r2  %sp  2                   # !1276
+    sw       %ra  %sp  6                   # !1276
+    addi     %sp  %sp  7                   # !1276
+    jal      ~setup_second_table.2707      # !1276
+    addi     %sp  %sp  -7                  # !1276
+    lw       %ra  %sp  6                   # !1276
+    lw       %r2  %sp  1                   # !1276
+    lw       %r3  %sp  4                   # !1276
+    swv      %r1  %r3  %r2                 # !1276
+    j        ~beq_cont.9396                # !1273
+beq_then.9395:
+    lw       %r1  %sp  5                   # !1274
+    lw       %r2  %sp  2                   # !1274
+    sw       %ra  %sp  6                   # !1274
+    addi     %sp  %sp  7                   # !1274
+    jal      ~setup_surface_table.2704     # !1274
+    addi     %sp  %sp  -7                  # !1274
+    lw       %ra  %sp  6                   # !1274
+    lw       %r2  %sp  1                   # !1274
+    lw       %r3  %sp  4                   # !1274
+    swv      %r1  %r3  %r2                 # !1274
+beq_cont.9396:
+    j        ~beq_cont.9394                # !1271
+beq_then.9393:
+    lw       %r1  %sp  5                   # !1272
+    lw       %r2  %sp  2                   # !1272
+    sw       %ra  %sp  6                   # !1272
+    addi     %sp  %sp  7                   # !1272
+    jal      ~setup_rect_table.2701        # !1272
+    addi     %sp  %sp  -7                  # !1272
+    lw       %ra  %sp  6                   # !1272
+    lw       %r2  %sp  1                   # !1272
+    lw       %r3  %sp  4                   # !1272
+    swv      %r1  %r3  %r2                 # !1272
+beq_cont.9394:
+    addi     %r2  %r2  -1                  # !1278
+    lw       %r1  %sp  3                   # !1278
+    lw       %r27  %sp  0                  # !1278
+    lw       %r28  %r27  0                 # !1278
+    jr       %r28                          # !1278
+blt_then.9392:
+    jr       %ra                           # !1279
+setup_dirvec_constants.2713:
+    lw       %r2  %r27  2                  # !1282
+    lw       %r27  %r27  1                 # !1282
+    lw       %r2  %r2  0                   # !1283
+    addi     %r2  %r2  -1                  # !1283
+    lw       %r28  %r27  0                 # !1283
+    jr       %r28                          # !1283
+setup_startp_constants.2715:
+    lw       %r3  %r27  1                  # !1290
+    addi     %r4  %zero  0                 # !1291
+    blt      %r2  %r4  blt_then.9398       # !1291
+    lwv      %r3  %r3  %r2                 # !1292
+    sw       %r27  %sp  0                  # !1293
+    sw       %r2  %sp  1                   # !1293
+    sw       %r1  %sp  2                   # !1293
+    sw       %r3  %sp  3                   # !1293
+    movz     %r1  %r3  %zero               # !1293
+    sw       %ra  %sp  4                   # !1293
+    addi     %sp  %sp  5                   # !1293
+    jal      ~o_param_ctbl.2563            # !1293
+    addi     %sp  %sp  -5                  # !1293
+    lw       %ra  %sp  4                   # !1293
+    lw       %r2  %sp  3                   # !1294
+    sw       %r1  %sp  4                   # !1294
+    movz     %r1  %r2  %zero               # !1294
+    sw       %ra  %sp  5                   # !1294
+    addi     %sp  %sp  6                   # !1294
+    jal      ~o_form.2525                  # !1294
+    addi     %sp  %sp  -6                  # !1294
+    lw       %ra  %sp  5                   # !1294
+    flw      %f0  %sp  2                   # !1295
+    flw      %f1  %f0  0                   # !1295
+    lw       %r2  %sp  3                   # !1295
+    sw       %r1  %sp  5                   # !1295
+    fsw      %f1  %sp  6                   # !1295
+    movz     %r1  %r2  %zero               # !1295
+    sw       %ra  %sp  7                   # !1295
+    addi     %sp  %sp  8                   # !1295
+    jal      ~o_param_x.2541               # !1295
+    addi     %sp  %sp  -8                  # !1295
+    lw       %ra  %sp  7                   # !1295
+    flw      %f1  %sp  6                   # !1295
+    fsub     %f0  %f1  %f0                 # !1295
+    lw       %r1  %sp  4                   # !1295
+    fsw      %f0  %r1  0                   # !1295
+    flw      %f0  %sp  2                   # !1296
+    flw      %f1  %f0  1                   # !1296
+    lw       %r2  %sp  3                   # !1296
+    fsw      %f1  %sp  7                   # !1296
+    movz     %r1  %r2  %zero               # !1296
+    sw       %ra  %sp  8                   # !1296
+    addi     %sp  %sp  9                   # !1296
+    jal      ~o_param_y.2543               # !1296
+    addi     %sp  %sp  -9                  # !1296
+    lw       %ra  %sp  8                   # !1296
+    flw      %f1  %sp  7                   # !1296
+    fsub     %f0  %f1  %f0                 # !1296
+    lw       %r1  %sp  4                   # !1296
+    fsw      %f0  %r1  1                   # !1296
+    addi     %r2  %zero  2                 # !1297
+    flw      %f0  %sp  2                   # !1297
+    flw      %f1  %f0  2                   # !1297
+    lw       %r3  %sp  3                   # !1297
+    sw       %r2  %sp  8                   # !1297
+    fsw      %f1  %sp  9                   # !1297
+    movz     %r1  %r3  %zero               # !1297
+    sw       %ra  %sp  10                  # !1297
+    addi     %sp  %sp  11                  # !1297
+    jal      ~o_param_z.2545               # !1297
+    addi     %sp  %sp  -11                 # !1297
+    lw       %ra  %sp  10                  # !1297
+    flw      %f1  %sp  9                   # !1297
+    fsub     %f0  %f1  %f0                 # !1297
+    lw       %r1  %sp  4                   # !1297
+    fsw      %f0  %r1  2                   # !1297
+    lw       %r2  %sp  8                   # !1298
+    lw       %r3  %sp  5                   # !1298
+    beq      %r3  %r2  beq_then.9399       # !1298
+    blt      %r2  %r3  blt_then.9401       # !1301
+    j        ~blt_cont.9402                # !1301
+blt_then.9401:
+    flw      %f0  %r1  0                   # !1302
+    flw      %f1  %r1  1                   # !1302
+    flw      %f2  %r1  2                   # !1302
+    lw       %r2  %sp  3                   # !1302
+    movz     %r1  %r2  %zero               # !1302
+    sw       %ra  %sp  10                  # !1302
+    addi     %sp  %sp  11                  # !1302
+    jal      ~quadratic.2638               # !1302
+    addi     %sp  %sp  -11                 # !1302
+    lw       %ra  %sp  10                  # !1302
+    addi     %r1  %zero  3                 # !1303
+    lw       %r2  %sp  5                   # !1303
+    beq      %r2  %r1  beq_then.9403       # !1303
+    j        ~beq_cont.9404                # !1303
+beq_then.9403:
+    flui     %f1  508                      # !1303
+    fli      %f1  0                        # !1303
     ++
     fli 1.000000
     => flui %f1 0b00111111100
        fli  %f1 0b000000000000000000000
     ++
-    fsub %f0 %f0 %f1                       # !1241
-beq_cont.8732:
-    lw %r1 %sp 4                           # !1241
-    fsw %f0 %r1 3                          # !1241
-blt_cont.8730:
-    j ~beq_cont.8728                       # !1236
-beq_then.8727:
-    lw %r2 %sp 3                           # !1238
-    movz %r1 %r2 %zero                     # !1238
-    sw %ra %sp 10                          # !1238
-    addi %sp %sp 11                        # !1238
-    jal ~o_param_abc.2472                  # !1238
-    addi %sp %sp -11                       # !1238
-    lw %ra %sp 10                          # !1238
-    flw %f0 %sp 4                          # !1238
-    flw %f1 %f0 0                          # !1238
-    flw %f2 %f0 1                          # !1238
-    flw %f3 %f0 2                          # !1238
-    fmovz %f0 %f1 %zero                    # !1238
-    fmovz %f1 %f2 %zero                    # !1238
-    fmovz %f2 %f3 %zero                    # !1238
-    sw %ra %sp 10                          # !1238
-    addi %sp %sp 11                        # !1238
-    jal ~veciprod2.2437                    # !1238
-    addi %sp %sp -11                       # !1238
-    lw %ra %sp 10                          # !1238
-    lw %r1 %sp 4                           # !1237
-    fsw %f0 %r1 3                          # !1237
-beq_cont.8728:
-    lw %r1 %sp 1                           # !1243
-    addi %r2 %r1 -1                        # !1243
-    lw %r1 %sp 2                           # !1243
-    lw %r27 %sp 0                          # !1243
-    lw %r28 %r27 0                         # !1243
-    jr %r28                                # !1243
-blt_then.8726:
-    jr %ra                                 # !1244
-setup_startp.2651:
-    lw %r2 %r27 3                          # !1247
-    lw %r3 %r27 2                          # !1247
-    lw %r4 %r27 1                          # !1247
-    sw %r1 %sp 0                           # !1248
-    sw %r3 %sp 1                           # !1248
-    sw %r4 %sp 2                           # !1248
-    movz %r28 %r2 %zero                    # !1248
-    movz %r2 %r1 %zero                     # !1248
-    movz %r1 %r28 %zero                    # !1248
-    sw %ra %sp 3                           # !1248
-    addi %sp %sp 4                         # !1248
-    jal ~veccpy.2428                       # !1248
-    addi %sp %sp -4                        # !1248
-    lw %ra %sp 3                           # !1248
-    lw %r1 %sp 2                           # !1249
-    lw %r1 %r1 0                           # !1249
-    addi %r2 %r1 -1                        # !1249
-    lw %r1 %sp 0                           # !1249
-    lw %r27 %sp 1                          # !1249
-    lw %r28 %r27 0                         # !1249
-    jr %r28                                # !1249
-is_rect_outside.2653:
-    fsw %f2 %sp 0                          # !1261
-    fsw %f1 %sp 1                          # !1261
-    sw %r1 %sp 2                           # !1261
-    fsw %f0 %sp 3                          # !1261
-    sw %ra %sp 4                           # !1261
-    addi %sp %sp 5                         # !1261
-    jal ~o_param_a.2466                    # !1261
-    addi %sp %sp -5                        # !1261
-    lw %ra %sp 4                           # !1261
-    flw %f1 %sp 3                          # !1261
-    fabs %f1 %f1                           # !1261
-    fblt %f1 %f0 fblt_then.8734            # !1261
-    addi %r1 %zero 0                       # !1265
-    j ~fblt_cont.8735                      # !1261
-fblt_then.8734:
-    lw %r1 %sp 2                           # !1262
-    sw %ra %sp 4                           # !1262
-    addi %sp %sp 5                         # !1262
-    jal ~o_param_b.2468                    # !1262
-    addi %sp %sp -5                        # !1262
-    lw %ra %sp 4                           # !1262
-    flw %f1 %sp 1                          # !1262
-    fabs %f1 %f1                           # !1262
-    fblt %f1 %f0 fblt_then.8736            # !1262
-    addi %r1 %zero 0                       # !1264
-    j ~fblt_cont.8737                      # !1262
-fblt_then.8736:
-    lw %r1 %sp 2                           # !1263
-    sw %ra %sp 4                           # !1263
-    addi %sp %sp 5                         # !1263
-    jal ~o_param_c.2470                    # !1263
-    addi %sp %sp -5                        # !1263
-    lw %ra %sp 4                           # !1263
-    flw %f1 %sp 0                          # !1263
-    fabs %f1 %f1                           # !1263
-    fblt %f1 %f0 fblt_then.8738            # !1263
-    addi %r1 %zero 0                       # !1263
-    j ~fblt_cont.8739                      # !1263
-fblt_then.8738:
-    addi %r1 %zero 1                       # !1263
-fblt_cont.8739:
-fblt_cont.8737:
-fblt_cont.8735:
-    addi %r2 %zero 0                       # !1260
-    beq %r1 %r2 beq_then.8740              # !1260
-    lw %r1 %sp 2                           # !1266
-    j ~o_isinvert.2462                     # !1266
-beq_then.8740:
-    lw %r1 %sp 2                           # !1266
-    sw %r2 %sp 4                           # !1266
-    sw %ra %sp 5                           # !1266
-    addi %sp %sp 6                         # !1266
-    jal ~o_isinvert.2462                   # !1266
-    addi %sp %sp -6                        # !1266
-    lw %ra %sp 5                           # !1266
-    lw %r2 %sp 4                           # !1266
-    beq %r1 %r2 beq_then.8741              # !1266
-    movz %r1 %r2 %zero                     # !1266
-    jr %ra                                 # !1266
-beq_then.8741:
-    addi %r1 %zero 1                       # !1266
-    jr %ra                                 # !1266
-is_plane_outside.2658:
-    sw %r1 %sp 0                           # !1271
-    fsw %f2 %sp 1                          # !1271
-    fsw %f1 %sp 2                          # !1271
-    fsw %f0 %sp 3                          # !1271
-    sw %ra %sp 4                           # !1271
-    addi %sp %sp 5                         # !1271
-    jal ~o_param_abc.2472                  # !1271
-    addi %sp %sp -5                        # !1271
-    lw %ra %sp 4                           # !1271
-    flw %f0 %sp 3                          # !1271
-    flw %f1 %sp 2                          # !1271
-    flw %f2 %sp 1                          # !1271
-    sw %ra %sp 4                           # !1271
-    addi %sp %sp 5                         # !1271
-    jal ~veciprod2.2437                    # !1271
-    addi %sp %sp -5                        # !1271
-    lw %ra %sp 4                           # !1271
-    lw %r1 %sp 0                           # !1272
-    fsw %f0 %sp 4                          # !1272
-    sw %ra %sp 5                           # !1272
-    addi %sp %sp 6                         # !1272
-    jal ~o_isinvert.2462                   # !1272
-    addi %sp %sp -6                        # !1272
-    lw %ra %sp 5                           # !1272
-    flui %f0 0                             # !1272
-    fli %f0 0                              # !1272
-    ++
-    fli 0.000000
-    => flui %f0 0b00000000000
-       fli  %f0 0b000000000000000000000
-    ++
-    flw %f1 %sp 4                          # !1272
-    fblt %f1 %f0 fblt_then.8742            # !1272
-    addi %r2 %zero 0                       # !1272
-    j ~fblt_cont.8743                      # !1272
-fblt_then.8742:
-    addi %r2 %zero 1                       # !1272
-fblt_cont.8743:
-    sw %ra %sp 5                           # !1272
-    addi %sp %sp 6                         # !1272
-    jal ~xor.2407                          # !1272
-    addi %sp %sp -6                        # !1272
-    lw %ra %sp 5                           # !1272
-    addi %r2 %zero 0                       # !1272
-    beq %r1 %r2 beq_then.8744              # !1272
-    movz %r1 %r2 %zero                     # !1272
-    jr %ra                                 # !1272
-beq_then.8744:
-    addi %r1 %zero 1                       # !1272
-    jr %ra                                 # !1272
-is_second_outside.2663:
-    sw %r1 %sp 0                           # !1277
-    sw %ra %sp 1                           # !1277
-    addi %sp %sp 2                         # !1277
-    jal ~quadratic.2571                    # !1277
-    addi %sp %sp -2                        # !1277
-    lw %ra %sp 1                           # !1277
-    lw %r1 %sp 0                           # !1278
-    fsw %f0 %sp 1                          # !1278
-    sw %ra %sp 2                           # !1278
-    addi %sp %sp 3                         # !1278
-    jal ~o_form.2458                       # !1278
-    addi %sp %sp -3                        # !1278
-    lw %ra %sp 2                           # !1278
-    addi %r2 %zero 3                       # !1278
-    beq %r1 %r2 beq_then.8745              # !1278
-    flw %f0 %sp 1                          # !1278
-    j ~beq_cont.8746                       # !1278
-beq_then.8745:
-    flui %f0 508                           # !1278
-    fli %f0 0                              # !1278
+    fsub     %f0  %f0  %f1                 # !1303
+beq_cont.9404:
+    lw       %r1  %sp  4                   # !1303
+    fsw      %f0  %r1  3                   # !1303
+blt_cont.9402:
+    j        ~beq_cont.9400                # !1298
+beq_then.9399:
+    lw       %r2  %sp  3                   # !1300
+    movz     %r1  %r2  %zero               # !1300
+    sw       %ra  %sp  10                  # !1300
+    addi     %sp  %sp  11                  # !1300
+    jal      ~o_param_abc.2539             # !1300
+    addi     %sp  %sp  -11                 # !1300
+    lw       %ra  %sp  10                  # !1300
+    flw      %f0  %sp  4                   # !1300
+    flw      %f1  %f0  0                   # !1300
+    flw      %f2  %f0  1                   # !1300
+    flw      %f3  %f0  2                   # !1300
+    fmovz    %f0  %f1  %zero               # !1300
+    fmovz    %f1  %f2  %zero               # !1300
+    fmovz    %f2  %f3  %zero               # !1300
+    sw       %ra  %sp  10                  # !1300
+    addi     %sp  %sp  11                  # !1300
+    jal      ~veciprod2.2504               # !1300
+    addi     %sp  %sp  -11                 # !1300
+    lw       %ra  %sp  10                  # !1300
+    lw       %r1  %sp  4                   # !1299
+    fsw      %f0  %r1  3                   # !1299
+beq_cont.9400:
+    lw       %r1  %sp  1                   # !1305
+    addi     %r2  %r1  -1                  # !1305
+    lw       %r1  %sp  2                   # !1305
+    lw       %r27  %sp  0                  # !1305
+    lw       %r28  %r27  0                 # !1305
+    jr       %r28                          # !1305
+blt_then.9398:
+    jr       %ra                           # !1306
+setup_startp.2718:
+    lw       %r2  %r27  3                  # !1309
+    lw       %r3  %r27  2                  # !1309
+    lw       %r4  %r27  1                  # !1309
+    sw       %r1  %sp  0                   # !1310
+    sw       %r3  %sp  1                   # !1310
+    sw       %r4  %sp  2                   # !1310
+    movz     %r28  %r2  %zero              # !1310
+    movz     %r2  %r1  %zero               # !1310
+    movz     %r1  %r28  %zero              # !1310
+    sw       %ra  %sp  3                   # !1310
+    addi     %sp  %sp  4                   # !1310
+    jal      ~veccpy.2495                  # !1310
+    addi     %sp  %sp  -4                  # !1310
+    lw       %ra  %sp  3                   # !1310
+    lw       %r1  %sp  2                   # !1311
+    lw       %r1  %r1  0                   # !1311
+    addi     %r2  %r1  -1                  # !1311
+    lw       %r1  %sp  0                   # !1311
+    lw       %r27  %sp  1                  # !1311
+    lw       %r28  %r27  0                 # !1311
+    jr       %r28                          # !1311
+is_rect_outside.2720:
+    fsw      %f2  %sp  0                   # !1323
+    fsw      %f1  %sp  1                   # !1323
+    sw       %r1  %sp  2                   # !1323
+    sw       %ra  %sp  3                   # !1323
+    addi     %sp  %sp  4                   # !1323
+    jal      ~min_caml_fabs                # !1323
+    addi     %sp  %sp  -4                  # !1323
+    lw       %ra  %sp  3                   # !1323
+    lw       %r1  %sp  2                   # !1323
+    fsw      %f0  %sp  3                   # !1323
+    sw       %ra  %sp  4                   # !1323
+    addi     %sp  %sp  5                   # !1323
+    jal      ~o_param_a.2533               # !1323
+    addi     %sp  %sp  -5                  # !1323
+    lw       %ra  %sp  4                   # !1323
+    fmovz    %f1  %f0  %zero               # !1323
+    flw      %f0  %sp  3                   # !1323
+    sw       %ra  %sp  4                   # !1323
+    addi     %sp  %sp  5                   # !1323
+    jal      ~min_caml_fless               # !1323
+    addi     %sp  %sp  -5                  # !1323
+    lw       %ra  %sp  4                   # !1323
+    addi     %r2  %zero  0                 # !1323
+    sw       %r2  %sp  4                   # !1323
+    beq      %r1  %r2  beq_then.9406       # !1323
+    flw      %f0  %sp  1                   # !1324
+    sw       %ra  %sp  5                   # !1324
+    addi     %sp  %sp  6                   # !1324
+    jal      ~min_caml_fabs                # !1324
+    addi     %sp  %sp  -6                  # !1324
+    lw       %ra  %sp  5                   # !1324
+    lw       %r1  %sp  2                   # !1324
+    fsw      %f0  %sp  5                   # !1324
+    sw       %ra  %sp  6                   # !1324
+    addi     %sp  %sp  7                   # !1324
+    jal      ~o_param_b.2535               # !1324
+    addi     %sp  %sp  -7                  # !1324
+    lw       %ra  %sp  6                   # !1324
+    fmovz    %f1  %f0  %zero               # !1324
+    flw      %f0  %sp  5                   # !1324
+    sw       %ra  %sp  6                   # !1324
+    addi     %sp  %sp  7                   # !1324
+    jal      ~min_caml_fless               # !1324
+    addi     %sp  %sp  -7                  # !1324
+    lw       %ra  %sp  6                   # !1324
+    lw       %r2  %sp  4                   # !1324
+    beq      %r1  %r2  beq_then.9408       # !1324
+    flw      %f0  %sp  0                   # !1325
+    sw       %ra  %sp  6                   # !1325
+    addi     %sp  %sp  7                   # !1325
+    jal      ~min_caml_fabs                # !1325
+    addi     %sp  %sp  -7                  # !1325
+    lw       %ra  %sp  6                   # !1325
+    lw       %r1  %sp  2                   # !1325
+    fsw      %f0  %sp  6                   # !1325
+    sw       %ra  %sp  7                   # !1325
+    addi     %sp  %sp  8                   # !1325
+    jal      ~o_param_c.2537               # !1325
+    addi     %sp  %sp  -8                  # !1325
+    lw       %ra  %sp  7                   # !1325
+    fmovz    %f1  %f0  %zero               # !1325
+    flw      %f0  %sp  6                   # !1325
+    sw       %ra  %sp  7                   # !1325
+    addi     %sp  %sp  8                   # !1325
+    jal      ~min_caml_fless               # !1325
+    addi     %sp  %sp  -8                  # !1325
+    lw       %ra  %sp  7                   # !1325
+    j        ~beq_cont.9409                # !1324
+beq_then.9408:
+    movz     %r1  %r2  %zero               # !1326
+beq_cont.9409:
+    j        ~beq_cont.9407                # !1323
+beq_then.9406:
+    movz     %r1  %r2  %zero               # !1327
+beq_cont.9407:
+    lw       %r2  %sp  4                   # !1322
+    beq      %r1  %r2  beq_then.9410       # !1322
+    lw       %r1  %sp  2                   # !1328
+    j        ~o_isinvert.2529              # !1328
+beq_then.9410:
+    lw       %r1  %sp  2                   # !1328
+    sw       %ra  %sp  7                   # !1328
+    addi     %sp  %sp  8                   # !1328
+    jal      ~o_isinvert.2529              # !1328
+    addi     %sp  %sp  -8                  # !1328
+    lw       %ra  %sp  7                   # !1328
+    lw       %r2  %sp  4                   # !1328
+    beq      %r1  %r2  beq_then.9411       # !1328
+    movz     %r1  %r2  %zero               # !1328
+    jr       %ra                           # !1328
+beq_then.9411:
+    addi     %r1  %zero  1                 # !1328
+    jr       %ra                           # !1328
+is_plane_outside.2725:
+    sw       %r1  %sp  0                   # !1333
+    fsw      %f2  %sp  1                   # !1333
+    fsw      %f1  %sp  2                   # !1333
+    fsw      %f0  %sp  3                   # !1333
+    sw       %ra  %sp  4                   # !1333
+    addi     %sp  %sp  5                   # !1333
+    jal      ~o_param_abc.2539             # !1333
+    addi     %sp  %sp  -5                  # !1333
+    lw       %ra  %sp  4                   # !1333
+    flw      %f0  %sp  3                   # !1333
+    flw      %f1  %sp  2                   # !1333
+    flw      %f2  %sp  1                   # !1333
+    sw       %ra  %sp  4                   # !1333
+    addi     %sp  %sp  5                   # !1333
+    jal      ~veciprod2.2504               # !1333
+    addi     %sp  %sp  -5                  # !1333
+    lw       %ra  %sp  4                   # !1333
+    lw       %r1  %sp  0                   # !1334
+    fsw      %f0  %sp  4                   # !1334
+    sw       %ra  %sp  5                   # !1334
+    addi     %sp  %sp  6                   # !1334
+    jal      ~o_isinvert.2529              # !1334
+    addi     %sp  %sp  -6                  # !1334
+    lw       %ra  %sp  5                   # !1334
+    flw      %f0  %sp  4                   # !1334
+    sw       %r1  %sp  5                   # !1334
+    sw       %ra  %sp  6                   # !1334
+    addi     %sp  %sp  7                   # !1334
+    jal      ~min_caml_fisneg              # !1334
+    addi     %sp  %sp  -7                  # !1334
+    lw       %ra  %sp  6                   # !1334
+    movz     %r2  %r1  %zero               # !1334
+    lw       %r1  %sp  5                   # !1334
+    sw       %ra  %sp  6                   # !1334
+    addi     %sp  %sp  7                   # !1334
+    jal      ~xor.2474                     # !1334
+    addi     %sp  %sp  -7                  # !1334
+    lw       %ra  %sp  6                   # !1334
+    addi     %r2  %zero  0                 # !1334
+    beq      %r1  %r2  beq_then.9412       # !1334
+    movz     %r1  %r2  %zero               # !1334
+    jr       %ra                           # !1334
+beq_then.9412:
+    addi     %r1  %zero  1                 # !1334
+    jr       %ra                           # !1334
+is_second_outside.2730:
+    sw       %r1  %sp  0                   # !1339
+    sw       %ra  %sp  1                   # !1339
+    addi     %sp  %sp  2                   # !1339
+    jal      ~quadratic.2638               # !1339
+    addi     %sp  %sp  -2                  # !1339
+    lw       %ra  %sp  1                   # !1339
+    lw       %r1  %sp  0                   # !1340
+    fsw      %f0  %sp  1                   # !1340
+    sw       %ra  %sp  2                   # !1340
+    addi     %sp  %sp  3                   # !1340
+    jal      ~o_form.2525                  # !1340
+    addi     %sp  %sp  -3                  # !1340
+    lw       %ra  %sp  2                   # !1340
+    addi     %r2  %zero  3                 # !1340
+    beq      %r1  %r2  beq_then.9413       # !1340
+    flw      %f0  %sp  1                   # !1340
+    j        ~beq_cont.9414                # !1340
+beq_then.9413:
+    flui     %f0  508                      # !1340
+    fli      %f0  0                        # !1340
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    flw %f1 %sp 1                          # !1278
-    fsub %f0 %f1 %f0                       # !1278
-beq_cont.8746:
-    lw %r1 %sp 0                           # !1279
-    fsw %f0 %sp 2                          # !1279
-    sw %ra %sp 3                           # !1279
-    addi %sp %sp 4                         # !1279
-    jal ~o_isinvert.2462                   # !1279
-    addi %sp %sp -4                        # !1279
-    lw %ra %sp 3                           # !1279
-    flui %f0 0                             # !1279
-    fli %f0 0                              # !1279
-    ++
-    fli 0.000000
-    => flui %f0 0b00000000000
-       fli  %f0 0b000000000000000000000
-    ++
-    flw %f1 %sp 2                          # !1279
-    fblt %f1 %f0 fblt_then.8747            # !1279
-    addi %r2 %zero 0                       # !1279
-    j ~fblt_cont.8748                      # !1279
-fblt_then.8747:
-    addi %r2 %zero 1                       # !1279
-fblt_cont.8748:
-    sw %ra %sp 3                           # !1279
-    addi %sp %sp 4                         # !1279
-    jal ~xor.2407                          # !1279
-    addi %sp %sp -4                        # !1279
-    lw %ra %sp 3                           # !1279
-    addi %r2 %zero 0                       # !1279
-    beq %r1 %r2 beq_then.8749              # !1279
-    movz %r1 %r2 %zero                     # !1279
-    jr %ra                                 # !1279
-beq_then.8749:
-    addi %r1 %zero 1                       # !1279
-    jr %ra                                 # !1279
-is_outside.2668:
-    fsw %f2 %sp 0                          # !1284
-    fsw %f1 %sp 1                          # !1284
-    sw %r1 %sp 2                           # !1284
-    fsw %f0 %sp 3                          # !1284
-    sw %ra %sp 4                           # !1284
-    addi %sp %sp 5                         # !1284
-    jal ~o_param_x.2474                    # !1284
-    addi %sp %sp -5                        # !1284
-    lw %ra %sp 4                           # !1284
-    flw %f1 %sp 3                          # !1284
-    fsub %f0 %f1 %f0                       # !1284
-    lw %r1 %sp 2                           # !1285
-    fsw %f0 %sp 4                          # !1285
-    sw %ra %sp 5                           # !1285
-    addi %sp %sp 6                         # !1285
-    jal ~o_param_y.2476                    # !1285
-    addi %sp %sp -6                        # !1285
-    lw %ra %sp 5                           # !1285
-    flw %f1 %sp 1                          # !1285
-    fsub %f0 %f1 %f0                       # !1285
-    lw %r1 %sp 2                           # !1286
-    fsw %f0 %sp 5                          # !1286
-    sw %ra %sp 6                           # !1286
-    addi %sp %sp 7                         # !1286
-    jal ~o_param_z.2478                    # !1286
-    addi %sp %sp -7                        # !1286
-    lw %ra %sp 6                           # !1286
-    flw %f1 %sp 0                          # !1286
-    fsub %f0 %f1 %f0                       # !1286
-    lw %r1 %sp 2                           # !1287
-    fsw %f0 %sp 6                          # !1287
-    sw %ra %sp 7                           # !1287
-    addi %sp %sp 8                         # !1287
-    jal ~o_form.2458                       # !1287
-    addi %sp %sp -8                        # !1287
-    lw %ra %sp 7                           # !1287
-    addi %r2 %zero 1                       # !1288
-    beq %r1 %r2 beq_then.8750              # !1288
-    addi %r2 %zero 2                       # !1290
-    beq %r1 %r2 beq_then.8751              # !1290
-    flw %f0 %sp 4                          # !1293
-    flw %f1 %sp 5                          # !1293
-    flw %f2 %sp 6                          # !1293
-    lw %r1 %sp 2                           # !1293
-    j ~is_second_outside.2663              # !1293
-beq_then.8751:
-    flw %f0 %sp 4                          # !1291
-    flw %f1 %sp 5                          # !1291
-    flw %f2 %sp 6                          # !1291
-    lw %r1 %sp 2                           # !1291
-    j ~is_plane_outside.2658               # !1291
-beq_then.8750:
-    flw %f0 %sp 4                          # !1289
-    flw %f1 %sp 5                          # !1289
-    flw %f2 %sp 6                          # !1289
-    lw %r1 %sp 2                           # !1289
-    j ~is_rect_outside.2653                # !1289
-check_all_inside.2673:
-    lw %r3 %r27 1                          # !1297
-    lwv %r4 %r2 %r1                        # !1298
-    addi %r5 %zero -1                      # !1299
-    beq %r4 %r5 beq_then.8752              # !1299
-    lwv %r3 %r3 %r4                        # !1302
-    fsw %f2 %sp 0                          # !1302
-    fsw %f1 %sp 1                          # !1302
-    fsw %f0 %sp 2                          # !1302
-    sw %r2 %sp 3                           # !1302
-    sw %r27 %sp 4                          # !1302
-    sw %r1 %sp 5                           # !1302
-    movz %r1 %r3 %zero                     # !1302
-    sw %ra %sp 6                           # !1302
-    addi %sp %sp 7                         # !1302
-    jal ~is_outside.2668                   # !1302
-    addi %sp %sp -7                        # !1302
-    lw %ra %sp 6                           # !1302
-    addi %r2 %zero 0                       # !1301
-    beq %r1 %r2 beq_then.8753              # !1301
-    movz %r1 %r2 %zero                     # !1303
-    jr %ra                                 # !1303
-beq_then.8753:
-    lw %r1 %sp 5                           # !1305
-    addi %r1 %r1 1                         # !1305
-    flw %f0 %sp 2                          # !1305
-    flw %f1 %sp 1                          # !1305
-    flw %f2 %sp 0                          # !1305
-    lw %r2 %sp 3                           # !1305
-    lw %r27 %sp 4                          # !1305
-    lw %r28 %r27 0                         # !1305
-    jr %r28                                # !1305
-beq_then.8752:
-    addi %r1 %zero 1                       # !1300
-    jr %ra                                 # !1300
-shadow_check_and_group.2679:
-    lw %r3 %r27 7                          # !1317
-    lw %r4 %r27 6                          # !1317
-    lw %r5 %r27 5                          # !1317
-    lw %r6 %r27 4                          # !1317
-    lw %r7 %r27 3                          # !1317
-    lw %r8 %r27 2                          # !1317
-    lw %r9 %r27 1                          # !1317
-    lwv %r10 %r2 %r1                       # !1318
-    addi %r11 %zero -1                     # !1318
-    beq %r10 %r11 beq_then.8754            # !1318
-    lwv %r10 %r2 %r1                       # !1321
-    sw %r9 %sp 0                           # !1322
-    sw %r8 %sp 1                           # !1322
-    sw %r7 %sp 2                           # !1322
-    sw %r2 %sp 3                           # !1322
-    sw %r27 %sp 4                          # !1322
-    sw %r1 %sp 5                           # !1322
-    sw %r10 %sp 6                          # !1322
-    sw %r5 %sp 7                           # !1322
-    sw %r4 %sp 8                           # !1322
-    movz %r2 %r6 %zero                     # !1322
-    movz %r1 %r10 %zero                    # !1322
-    movz %r27 %r3 %zero                    # !1322
-    movz %r3 %r8 %zero                     # !1322
-    sw %ra %sp 9                           # !1322
-    addi %sp %sp 10                        # !1322
-    lw %r28 %r27 0                         # !1322
-    jalr %r28                              # !1322
-    addi %sp %sp -10                       # !1322
-    lw %ra %sp 9                           # !1322
-    addi %r2 %zero 0                       # !1323
-    flw %f0 %sp 8                          # !1323
-    flw %f0 %f0 0                          # !1323
-    beq %r1 %r2 beq_then.8755              # !1324
-    flui %f1 -526                          # !1324
-    fli %f1 838861                         # !1324
+    flw      %f1  %sp  1                   # !1340
+    fsub     %f0  %f1  %f0                 # !1340
+beq_cont.9414:
+    lw       %r1  %sp  0                   # !1341
+    fsw      %f0  %sp  2                   # !1341
+    sw       %ra  %sp  3                   # !1341
+    addi     %sp  %sp  4                   # !1341
+    jal      ~o_isinvert.2529              # !1341
+    addi     %sp  %sp  -4                  # !1341
+    lw       %ra  %sp  3                   # !1341
+    flw      %f0  %sp  2                   # !1341
+    sw       %r1  %sp  3                   # !1341
+    sw       %ra  %sp  4                   # !1341
+    addi     %sp  %sp  5                   # !1341
+    jal      ~min_caml_fisneg              # !1341
+    addi     %sp  %sp  -5                  # !1341
+    lw       %ra  %sp  4                   # !1341
+    movz     %r2  %r1  %zero               # !1341
+    lw       %r1  %sp  3                   # !1341
+    sw       %ra  %sp  4                   # !1341
+    addi     %sp  %sp  5                   # !1341
+    jal      ~xor.2474                     # !1341
+    addi     %sp  %sp  -5                  # !1341
+    lw       %ra  %sp  4                   # !1341
+    addi     %r2  %zero  0                 # !1341
+    beq      %r1  %r2  beq_then.9415       # !1341
+    movz     %r1  %r2  %zero               # !1341
+    jr       %ra                           # !1341
+beq_then.9415:
+    addi     %r1  %zero  1                 # !1341
+    jr       %ra                           # !1341
+is_outside.2735:
+    fsw      %f2  %sp  0                   # !1346
+    fsw      %f1  %sp  1                   # !1346
+    sw       %r1  %sp  2                   # !1346
+    fsw      %f0  %sp  3                   # !1346
+    sw       %ra  %sp  4                   # !1346
+    addi     %sp  %sp  5                   # !1346
+    jal      ~o_param_x.2541               # !1346
+    addi     %sp  %sp  -5                  # !1346
+    lw       %ra  %sp  4                   # !1346
+    flw      %f1  %sp  3                   # !1346
+    fsub     %f0  %f1  %f0                 # !1346
+    lw       %r1  %sp  2                   # !1347
+    fsw      %f0  %sp  4                   # !1347
+    sw       %ra  %sp  5                   # !1347
+    addi     %sp  %sp  6                   # !1347
+    jal      ~o_param_y.2543               # !1347
+    addi     %sp  %sp  -6                  # !1347
+    lw       %ra  %sp  5                   # !1347
+    flw      %f1  %sp  1                   # !1347
+    fsub     %f0  %f1  %f0                 # !1347
+    lw       %r1  %sp  2                   # !1348
+    fsw      %f0  %sp  5                   # !1348
+    sw       %ra  %sp  6                   # !1348
+    addi     %sp  %sp  7                   # !1348
+    jal      ~o_param_z.2545               # !1348
+    addi     %sp  %sp  -7                  # !1348
+    lw       %ra  %sp  6                   # !1348
+    flw      %f1  %sp  0                   # !1348
+    fsub     %f0  %f1  %f0                 # !1348
+    lw       %r1  %sp  2                   # !1349
+    fsw      %f0  %sp  6                   # !1349
+    sw       %ra  %sp  7                   # !1349
+    addi     %sp  %sp  8                   # !1349
+    jal      ~o_form.2525                  # !1349
+    addi     %sp  %sp  -8                  # !1349
+    lw       %ra  %sp  7                   # !1349
+    addi     %r2  %zero  1                 # !1350
+    beq      %r1  %r2  beq_then.9416       # !1350
+    addi     %r2  %zero  2                 # !1352
+    beq      %r1  %r2  beq_then.9417       # !1352
+    flw      %f0  %sp  4                   # !1355
+    flw      %f1  %sp  5                   # !1355
+    flw      %f2  %sp  6                   # !1355
+    lw       %r1  %sp  2                   # !1355
+    j        ~is_second_outside.2730       # !1355
+beq_then.9417:
+    flw      %f0  %sp  4                   # !1353
+    flw      %f1  %sp  5                   # !1353
+    flw      %f2  %sp  6                   # !1353
+    lw       %r1  %sp  2                   # !1353
+    j        ~is_plane_outside.2725        # !1353
+beq_then.9416:
+    flw      %f0  %sp  4                   # !1351
+    flw      %f1  %sp  5                   # !1351
+    flw      %f2  %sp  6                   # !1351
+    lw       %r1  %sp  2                   # !1351
+    j        ~is_rect_outside.2720         # !1351
+check_all_inside.2740:
+    lw       %r3  %r27  1                  # !1359
+    lwv      %r4  %r2  %r1                 # !1360
+    addi     %r5  %zero  -1                # !1361
+    beq      %r4  %r5  beq_then.9418       # !1361
+    lwv      %r3  %r3  %r4                 # !1364
+    fsw      %f2  %sp  0                   # !1364
+    fsw      %f1  %sp  1                   # !1364
+    fsw      %f0  %sp  2                   # !1364
+    sw       %r2  %sp  3                   # !1364
+    sw       %r27  %sp  4                  # !1364
+    sw       %r1  %sp  5                   # !1364
+    movz     %r1  %r3  %zero               # !1364
+    sw       %ra  %sp  6                   # !1364
+    addi     %sp  %sp  7                   # !1364
+    jal      ~is_outside.2735              # !1364
+    addi     %sp  %sp  -7                  # !1364
+    lw       %ra  %sp  6                   # !1364
+    addi     %r2  %zero  0                 # !1363
+    beq      %r1  %r2  beq_then.9419       # !1363
+    movz     %r1  %r2  %zero               # !1365
+    jr       %ra                           # !1365
+beq_then.9419:
+    lw       %r1  %sp  5                   # !1367
+    addi     %r1  %r1  1                   # !1367
+    flw      %f0  %sp  2                   # !1367
+    flw      %f1  %sp  1                   # !1367
+    flw      %f2  %sp  0                   # !1367
+    lw       %r2  %sp  3                   # !1367
+    lw       %r27  %sp  4                  # !1367
+    lw       %r28  %r27  0                 # !1367
+    jr       %r28                          # !1367
+beq_then.9418:
+    addi     %r1  %zero  1                 # !1362
+    jr       %ra                           # !1362
+shadow_check_and_group.2746:
+    lw       %r3  %r27  7                  # !1379
+    lw       %r4  %r27  6                  # !1379
+    lw       %r5  %r27  5                  # !1379
+    lw       %r6  %r27  4                  # !1379
+    lw       %r7  %r27  3                  # !1379
+    lw       %r8  %r27  2                  # !1379
+    lw       %r9  %r27  1                  # !1379
+    lwv      %r10  %r2  %r1                # !1380
+    addi     %r11  %zero  -1               # !1380
+    beq      %r10  %r11  beq_then.9420     # !1380
+    lwv      %r10  %r2  %r1                # !1383
+    sw       %r9  %sp  0                   # !1384
+    sw       %r8  %sp  1                   # !1384
+    sw       %r7  %sp  2                   # !1384
+    sw       %r2  %sp  3                   # !1384
+    sw       %r27  %sp  4                  # !1384
+    sw       %r1  %sp  5                   # !1384
+    sw       %r10  %sp  6                  # !1384
+    sw       %r5  %sp  7                   # !1384
+    sw       %r4  %sp  8                   # !1384
+    movz     %r2  %r6  %zero               # !1384
+    movz     %r1  %r10  %zero              # !1384
+    movz     %r27  %r3  %zero              # !1384
+    movz     %r3  %r8  %zero               # !1384
+    sw       %ra  %sp  9                   # !1384
+    addi     %sp  %sp  10                  # !1384
+    lw       %r28  %r27  0                 # !1384
+    jalr     %r28                          # !1384
+    addi     %sp  %sp  -10                 # !1384
+    lw       %ra  %sp  9                   # !1384
+    addi     %r2  %zero  0                 # !1385
+    flw      %f0  %sp  8                   # !1385
+    flw      %f0  %f0  0                   # !1385
+    fsw      %f0  %sp  9                   # !1386
+    sw       %r2  %sp  10                  # !1386
+    beq      %r1  %r2  beq_then.9421       # !1386
+    flui     %f1  -526                     # !1386
+    fli      %f1  838861                   # !1386
     ++
     fli -0.200000
     => flui %f1 0b10111110010
        fli  %f1 0b011001100110011001101
     ++
-    fblt %f0 %f1 fblt_then.8757            # !1324
-    movz %r1 %r2 %zero                     # !1324
-    j ~fblt_cont.8758                      # !1324
-fblt_then.8757:
-    addi %r1 %zero 1                       # !1324
-fblt_cont.8758:
-    j ~beq_cont.8756                       # !1324
-beq_then.8755:
-    movz %r1 %r2 %zero                     # !1324
-beq_cont.8756:
-    beq %r1 %r2 beq_then.8759              # !1324
-    flui %f1 481                           # !1327
-    fli %f1 251658                         # !1327
+    sw       %ra  %sp  11                  # !1386
+    addi     %sp  %sp  12                  # !1386
+    jal      ~min_caml_fless               # !1386
+    addi     %sp  %sp  -12                 # !1386
+    lw       %ra  %sp  11                  # !1386
+    j        ~beq_cont.9422                # !1386
+beq_then.9421:
+    movz     %r1  %r2  %zero               # !1386
+beq_cont.9422:
+    lw       %r2  %sp  10                  # !1386
+    beq      %r1  %r2  beq_then.9423       # !1386
+    flui     %f0  481                      # !1389
+    fli      %f0  251658                   # !1389
     ++
     fli 0.010000
-    => flui %f1 0b00111100001
-       fli  %f1 0b000111101011100001010
+    => flui %f0 0b00111100001
+       fli  %f0 0b000111101011100001010
     ++
-    fadd %f0 %f1 %f0                       # !1327
-    flw %f1 %sp 2                          # !1328
-    flw %f2 %f1 0                          # !1328
-    fmul %f2 %f2 %f0                       # !1328
-    flw %f3 %sp 1                          # !1328
-    flw %f4 %f3 0                          # !1328
-    fadd %f2 %f2 %f4                       # !1328
-    addi %r1 %zero 1                       # !1329
-    flw %f4 %f1 1                          # !1329
-    fmul %f4 %f4 %f0                       # !1329
-    flw %f5 %f3 1                          # !1329
-    fadd %f4 %f4 %f5                       # !1329
-    flw %f1 %f1 2                          # !1330
-    fmul %f0 %f1 %f0                       # !1330
-    flw %f1 %f3 2                          # !1330
-    fadd %f0 %f0 %f1                       # !1330
-    lw %r3 %sp 3                           # !1331
-    lw %r27 %sp 0                          # !1331
-    sw %r1 %sp 9                           # !1331
-    sw %r2 %sp 10                          # !1331
-    movz %r1 %r2 %zero                     # !1331
-    movz %r2 %r3 %zero                     # !1331
-    fmovz %f1 %f4 %zero                    # !1331
-    fmovz %f31 %f2 %zero                   # !1331
-    fmovz %f2 %f0 %zero                    # !1331
-    fmovz %f0 %f31 %zero                   # !1331
-    sw %ra %sp 11                          # !1331
-    addi %sp %sp 12                        # !1331
-    lw %r28 %r27 0                         # !1331
-    jalr %r28                              # !1331
-    addi %sp %sp -12                       # !1331
-    lw %ra %sp 11                          # !1331
-    lw %r2 %sp 10                          # !1331
-    beq %r1 %r2 beq_then.8760              # !1331
-    lw %r1 %sp 9                           # !1332
-    jr %ra                                 # !1332
-beq_then.8760:
-    lw %r1 %sp 5                           # !1334
-    addi %r1 %r1 1                         # !1334
-    lw %r2 %sp 3                           # !1334
-    lw %r27 %sp 4                          # !1334
-    lw %r28 %r27 0                         # !1334
-    jr %r28                                # !1334
-beq_then.8759:
-    lw %r1 %sp 6                           # !1340
-    lw %r3 %sp 7                           # !1340
-    lwv %r1 %r3 %r1                        # !1340
-    sw %r2 %sp 10                          # !1340
-    sw %ra %sp 11                          # !1340
-    addi %sp %sp 12                        # !1340
-    jal ~o_isinvert.2462                   # !1340
-    addi %sp %sp -12                       # !1340
-    lw %ra %sp 11                          # !1340
-    lw %r2 %sp 10                          # !1340
-    beq %r1 %r2 beq_then.8761              # !1340
-    lw %r1 %sp 5                           # !1341
-    addi %r1 %r1 1                         # !1341
-    lw %r2 %sp 3                           # !1341
-    lw %r27 %sp 4                          # !1341
-    lw %r28 %r27 0                         # !1341
-    jr %r28                                # !1341
-beq_then.8761:
-    movz %r1 %r2 %zero                     # !1343
-    jr %ra                                 # !1343
-beq_then.8754:
-    addi %r1 %zero 0                       # !1319
-    jr %ra                                 # !1319
-shadow_check_one_or_group.2682:
-    lw %r3 %r27 2                          # !1347
-    lw %r4 %r27 1                          # !1347
-    lwv %r5 %r2 %r1                        # !1348
-    addi %r6 %zero -1                      # !1349
-    beq %r5 %r6 beq_then.8762              # !1349
-    lwv %r4 %r4 %r5                        # !1352
-    addi %r5 %zero 0                       # !1353
-    sw %r2 %sp 0                           # !1353
-    sw %r27 %sp 1                          # !1353
-    sw %r1 %sp 2                           # !1353
-    sw %r5 %sp 3                           # !1353
-    movz %r2 %r4 %zero                     # !1353
-    movz %r1 %r5 %zero                     # !1353
-    movz %r27 %r3 %zero                    # !1353
-    sw %ra %sp 4                           # !1353
-    addi %sp %sp 5                         # !1353
-    lw %r28 %r27 0                         # !1353
-    jalr %r28                              # !1353
-    addi %sp %sp -5                        # !1353
-    lw %ra %sp 4                           # !1353
-    lw %r2 %sp 3                           # !1354
-    beq %r1 %r2 beq_then.8763              # !1354
-    addi %r1 %zero 1                       # !1355
-    jr %ra                                 # !1355
-beq_then.8763:
-    lw %r1 %sp 2                           # !1357
-    addi %r1 %r1 1                         # !1357
-    lw %r2 %sp 0                           # !1357
-    lw %r27 %sp 1                          # !1357
-    lw %r28 %r27 0                         # !1357
-    jr %r28                                # !1357
-beq_then.8762:
-    addi %r1 %zero 0                       # !1350
-    jr %ra                                 # !1350
-shadow_check_one_or_matrix.2685:
-    lw %r3 %r27 5                          # !1362
-    lw %r4 %r27 4                          # !1362
-    lw %r5 %r27 3                          # !1362
-    lw %r6 %r27 2                          # !1362
-    lw %r7 %r27 1                          # !1362
-    lwv %r8 %r2 %r1                        # !1363
-    addi %r9 %zero 0                       # !1364
-    lw %r10 %r8 0                          # !1364
-    addi %r11 %zero -1                     # !1365
-    beq %r10 %r11 beq_then.8764            # !1365
-    addi %r11 %zero 99                     # !1369
-    sw %r8 %sp 0                           # !1369
-    sw %r5 %sp 1                           # !1369
-    sw %r2 %sp 2                           # !1369
-    sw %r27 %sp 3                          # !1369
-    sw %r1 %sp 4                           # !1369
-    sw %r9 %sp 5                           # !1369
-    beq %r10 %r11 beq_then.8765            # !1369
-    sw %r4 %sp 6                           # !1372
-    movz %r2 %r6 %zero                     # !1372
-    movz %r1 %r10 %zero                    # !1372
-    movz %r27 %r3 %zero                    # !1372
-    movz %r3 %r7 %zero                     # !1372
-    sw %ra %sp 7                           # !1372
-    addi %sp %sp 8                         # !1372
-    lw %r28 %r27 0                         # !1372
-    jalr %r28                              # !1372
-    addi %sp %sp -8                        # !1372
-    lw %ra %sp 7                           # !1372
-    lw %r2 %sp 5                           # !1375
-    beq %r1 %r2 beq_then.8767              # !1375
-    flui %f0 -530                          # !1376
-    fli %f0 838861                         # !1376
+    flw      %f1  %sp  9                   # !1389
+    fadd     %f0  %f0  %f1                 # !1389
+    flw      %f1  %sp  2                   # !1390
+    flw      %f2  %f1  0                   # !1390
+    fmul     %f2  %f2  %f0                 # !1390
+    flw      %f3  %sp  1                   # !1390
+    flw      %f4  %f3  0                   # !1390
+    fadd     %f2  %f2  %f4                 # !1390
+    addi     %r1  %zero  1                 # !1391
+    flw      %f4  %f1  1                   # !1391
+    fmul     %f4  %f4  %f0                 # !1391
+    flw      %f5  %f3  1                   # !1391
+    fadd     %f4  %f4  %f5                 # !1391
+    flw      %f1  %f1  2                   # !1392
+    fmul     %f0  %f1  %f0                 # !1392
+    flw      %f1  %f3  2                   # !1392
+    fadd     %f0  %f0  %f1                 # !1392
+    lw       %r3  %sp  3                   # !1393
+    lw       %r27  %sp  0                  # !1393
+    sw       %r1  %sp  11                  # !1393
+    movz     %r1  %r2  %zero               # !1393
+    movz     %r2  %r3  %zero               # !1393
+    fmovz    %f1  %f4  %zero               # !1393
+    fmovz    %f31  %f2  %zero              # !1393
+    fmovz    %f2  %f0  %zero               # !1393
+    fmovz    %f0  %f31  %zero              # !1393
+    sw       %ra  %sp  12                  # !1393
+    addi     %sp  %sp  13                  # !1393
+    lw       %r28  %r27  0                 # !1393
+    jalr     %r28                          # !1393
+    addi     %sp  %sp  -13                 # !1393
+    lw       %ra  %sp  12                  # !1393
+    lw       %r2  %sp  10                  # !1393
+    beq      %r1  %r2  beq_then.9424       # !1393
+    lw       %r1  %sp  11                  # !1394
+    jr       %ra                           # !1394
+beq_then.9424:
+    lw       %r1  %sp  5                   # !1396
+    addi     %r1  %r1  1                   # !1396
+    lw       %r2  %sp  3                   # !1396
+    lw       %r27  %sp  4                  # !1396
+    lw       %r28  %r27  0                 # !1396
+    jr       %r28                          # !1396
+beq_then.9423:
+    lw       %r1  %sp  6                   # !1402
+    lw       %r3  %sp  7                   # !1402
+    lwv      %r1  %r3  %r1                 # !1402
+    sw       %ra  %sp  12                  # !1402
+    addi     %sp  %sp  13                  # !1402
+    jal      ~o_isinvert.2529              # !1402
+    addi     %sp  %sp  -13                 # !1402
+    lw       %ra  %sp  12                  # !1402
+    lw       %r2  %sp  10                  # !1402
+    beq      %r1  %r2  beq_then.9425       # !1402
+    lw       %r1  %sp  5                   # !1403
+    addi     %r1  %r1  1                   # !1403
+    lw       %r2  %sp  3                   # !1403
+    lw       %r27  %sp  4                  # !1403
+    lw       %r28  %r27  0                 # !1403
+    jr       %r28                          # !1403
+beq_then.9425:
+    movz     %r1  %r2  %zero               # !1405
+    jr       %ra                           # !1405
+beq_then.9420:
+    addi     %r1  %zero  0                 # !1381
+    jr       %ra                           # !1381
+shadow_check_one_or_group.2749:
+    lw       %r3  %r27  2                  # !1409
+    lw       %r4  %r27  1                  # !1409
+    lwv      %r5  %r2  %r1                 # !1410
+    addi     %r6  %zero  -1                # !1411
+    beq      %r5  %r6  beq_then.9426       # !1411
+    lwv      %r4  %r4  %r5                 # !1414
+    addi     %r5  %zero  0                 # !1415
+    sw       %r2  %sp  0                   # !1415
+    sw       %r27  %sp  1                  # !1415
+    sw       %r1  %sp  2                   # !1415
+    sw       %r5  %sp  3                   # !1415
+    movz     %r2  %r4  %zero               # !1415
+    movz     %r1  %r5  %zero               # !1415
+    movz     %r27  %r3  %zero              # !1415
+    sw       %ra  %sp  4                   # !1415
+    addi     %sp  %sp  5                   # !1415
+    lw       %r28  %r27  0                 # !1415
+    jalr     %r28                          # !1415
+    addi     %sp  %sp  -5                  # !1415
+    lw       %ra  %sp  4                   # !1415
+    lw       %r2  %sp  3                   # !1416
+    beq      %r1  %r2  beq_then.9427       # !1416
+    addi     %r1  %zero  1                 # !1417
+    jr       %ra                           # !1417
+beq_then.9427:
+    lw       %r1  %sp  2                   # !1419
+    addi     %r1  %r1  1                   # !1419
+    lw       %r2  %sp  0                   # !1419
+    lw       %r27  %sp  1                  # !1419
+    lw       %r28  %r27  0                 # !1419
+    jr       %r28                          # !1419
+beq_then.9426:
+    addi     %r1  %zero  0                 # !1412
+    jr       %ra                           # !1412
+shadow_check_one_or_matrix.2752:
+    lw       %r3  %r27  5                  # !1424
+    lw       %r4  %r27  4                  # !1424
+    lw       %r5  %r27  3                  # !1424
+    lw       %r6  %r27  2                  # !1424
+    lw       %r7  %r27  1                  # !1424
+    lwv      %r8  %r2  %r1                 # !1425
+    addi     %r9  %zero  0                 # !1426
+    lw       %r10  %r8  0                  # !1426
+    addi     %r11  %zero  -1               # !1427
+    beq      %r10  %r11  beq_then.9428     # !1427
+    addi     %r11  %zero  99               # !1431
+    sw       %r8  %sp  0                   # !1431
+    sw       %r5  %sp  1                   # !1431
+    sw       %r2  %sp  2                   # !1431
+    sw       %r27  %sp  3                  # !1431
+    sw       %r1  %sp  4                   # !1431
+    sw       %r9  %sp  5                   # !1431
+    beq      %r10  %r11  beq_then.9429     # !1431
+    sw       %r4  %sp  6                   # !1434
+    movz     %r2  %r6  %zero               # !1434
+    movz     %r1  %r10  %zero              # !1434
+    movz     %r27  %r3  %zero              # !1434
+    movz     %r3  %r7  %zero               # !1434
+    sw       %ra  %sp  7                   # !1434
+    addi     %sp  %sp  8                   # !1434
+    lw       %r28  %r27  0                 # !1434
+    jalr     %r28                          # !1434
+    addi     %sp  %sp  -8                  # !1434
+    lw       %ra  %sp  7                   # !1434
+    lw       %r2  %sp  5                   # !1437
+    beq      %r1  %r2  beq_then.9431       # !1437
+    flw      %f0  %sp  6                   # !1438
+    flw      %f0  %f0  0                   # !1438
+    flui     %f1  -530                     # !1438
+    fli      %f1  838861                   # !1438
+    ++
+    fli -0.100000
+    => flui %f1 0b10111101110
+       fli  %f1 0b011001100110011001101
+    ++
+    sw       %ra  %sp  7                   # !1438
+    addi     %sp  %sp  8                   # !1438
+    jal      ~min_caml_fless               # !1438
+    addi     %sp  %sp  -8                  # !1438
+    lw       %ra  %sp  7                   # !1438
+    lw       %r2  %sp  5                   # !1438
+    beq      %r1  %r2  beq_then.9433       # !1438
+    addi     %r1  %zero  1                 # !1439
+    lw       %r3  %sp  0                   # !1439
+    lw       %r27  %sp  1                  # !1439
+    sw       %r1  %sp  7                   # !1439
+    movz     %r2  %r3  %zero               # !1439
+    sw       %ra  %sp  8                   # !1439
+    addi     %sp  %sp  9                   # !1439
+    lw       %r28  %r27  0                 # !1439
+    jalr     %r28                          # !1439
+    addi     %sp  %sp  -9                  # !1439
+    lw       %ra  %sp  8                   # !1439
+    lw       %r2  %sp  5                   # !1439
+    beq      %r1  %r2  beq_then.9435       # !1439
+    lw       %r1  %sp  7                   # !1440
+    j        ~beq_cont.9436                # !1439
+beq_then.9435:
+    movz     %r1  %r2  %zero               # !1441
+beq_cont.9436:
+    j        ~beq_cont.9434                # !1438
+beq_then.9433:
+    movz     %r1  %r2  %zero               # !1442
+beq_cont.9434:
+    j        ~beq_cont.9432                # !1437
+beq_then.9431:
+    movz     %r1  %r2  %zero               # !1443
+beq_cont.9432:
+    j        ~beq_cont.9430                # !1431
+beq_then.9429:
+    addi     %r1  %zero  1                 # !1432
+beq_cont.9430:
+    lw       %r2  %sp  5                   # !1430
+    beq      %r1  %r2  beq_then.9437       # !1430
+    addi     %r1  %zero  1                 # !1445
+    lw       %r3  %sp  0                   # !1445
+    lw       %r27  %sp  1                  # !1445
+    sw       %r1  %sp  8                   # !1445
+    movz     %r2  %r3  %zero               # !1445
+    sw       %ra  %sp  9                   # !1445
+    addi     %sp  %sp  10                  # !1445
+    lw       %r28  %r27  0                 # !1445
+    jalr     %r28                          # !1445
+    addi     %sp  %sp  -10                 # !1445
+    lw       %ra  %sp  9                   # !1445
+    lw       %r2  %sp  5                   # !1445
+    beq      %r1  %r2  beq_then.9438       # !1445
+    lw       %r1  %sp  8                   # !1446
+    jr       %ra                           # !1446
+beq_then.9438:
+    lw       %r1  %sp  4                   # !1448
+    addi     %r1  %r1  1                   # !1448
+    lw       %r2  %sp  2                   # !1448
+    lw       %r27  %sp  3                  # !1448
+    lw       %r28  %r27  0                 # !1448
+    jr       %r28                          # !1448
+beq_then.9437:
+    lw       %r1  %sp  4                   # !1450
+    addi     %r1  %r1  1                   # !1450
+    lw       %r2  %sp  2                   # !1450
+    lw       %r27  %sp  3                  # !1450
+    lw       %r28  %r27  0                 # !1450
+    jr       %r28                          # !1450
+beq_then.9428:
+    movz     %r1  %r9  %zero               # !1428
+    jr       %ra                           # !1428
+solve_each_element.2755:
+    lw       %r4  %r27  9                  # !1460
+    lw       %r5  %r27  8                  # !1460
+    lw       %r6  %r27  7                  # !1460
+    lw       %r7  %r27  6                  # !1460
+    lw       %r8  %r27  5                  # !1460
+    lw       %r9  %r27  4                  # !1460
+    lw       %r10  %r27  3                 # !1460
+    lw       %r11  %r27  2                 # !1460
+    lw       %r12  %r27  1                 # !1460
+    lwv      %r13  %r2  %r1                # !1461
+    addi     %r14  %zero  -1               # !1462
+    beq      %r13  %r14  beq_then.9439     # !1462
+    sw       %r9  %sp  0                   # !1464
+    sw       %r11  %sp  1                  # !1464
+    sw       %r10  %sp  2                  # !1464
+    sw       %r12  %sp  3                  # !1464
+    sw       %r5  %sp  4                   # !1464
+    sw       %r4  %sp  5                   # !1464
+    sw       %r6  %sp  6                   # !1464
+    sw       %r3  %sp  7                   # !1464
+    sw       %r2  %sp  8                   # !1464
+    sw       %r27  %sp  9                  # !1464
+    sw       %r1  %sp  10                  # !1464
+    sw       %r13  %sp  11                 # !1464
+    sw       %r8  %sp  12                  # !1464
+    movz     %r2  %r3  %zero               # !1464
+    movz     %r1  %r13  %zero              # !1464
+    movz     %r27  %r7  %zero              # !1464
+    movz     %r3  %r5  %zero               # !1464
+    sw       %ra  %sp  13                  # !1464
+    addi     %sp  %sp  14                  # !1464
+    lw       %r28  %r27  0                 # !1464
+    jalr     %r28                          # !1464
+    addi     %sp  %sp  -14                 # !1464
+    lw       %ra  %sp  13                  # !1464
+    addi     %r2  %zero  0                 # !1465
+    beq      %r1  %r2  beq_then.9440       # !1465
+    flw      %f0  %sp  6                   # !1469
+    flw      %f1  %f0  0                   # !1469
+    flui     %f0  0                        # !1471
+    fli      %f0  0                        # !1471
+    ++
+    fli 0.000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
+    ++
+    sw       %r1  %sp  13                  # !1471
+    fsw      %f1  %sp  14                  # !1471
+    sw       %r2  %sp  15                  # !1471
+    sw       %ra  %sp  16                  # !1471
+    addi     %sp  %sp  17                  # !1471
+    jal      ~min_caml_fless               # !1471
+    addi     %sp  %sp  -17                 # !1471
+    lw       %ra  %sp  16                  # !1471
+    lw       %r2  %sp  15                  # !1471
+    beq      %r1  %r2  beq_then.9441       # !1471
+    flw      %f0  %sp  5                   # !1472
+    flw      %f1  %f0  0                   # !1472
+    flw      %f2  %sp  14                  # !1472
+    fmovz    %f0  %f2  %zero               # !1472
+    sw       %ra  %sp  16                  # !1472
+    addi     %sp  %sp  17                  # !1472
+    jal      ~min_caml_fless               # !1472
+    addi     %sp  %sp  -17                 # !1472
+    lw       %ra  %sp  16                  # !1472
+    lw       %r2  %sp  15                  # !1472
+    beq      %r1  %r2  beq_then.9443       # !1472
+    flui     %f0  481                      # !1474
+    fli      %f0  251658                   # !1474
+    ++
+    fli 0.010000
+    => flui %f0 0b00111100001
+       fli  %f0 0b000111101011100001010
+    ++
+    flw      %f1  %sp  14                  # !1474
+    fadd     %f0  %f0  %f1                 # !1474
+    flw      %f1  %sp  7                   # !1475
+    flw      %f2  %f1  0                   # !1475
+    fmul     %f2  %f2  %f0                 # !1475
+    flw      %f3  %sp  4                   # !1475
+    flw      %f4  %f3  0                   # !1475
+    fadd     %f2  %f2  %f4                 # !1475
+    flw      %f4  %f1  1                   # !1476
+    fmul     %f4  %f4  %f0                 # !1476
+    flw      %f5  %f3  1                   # !1476
+    fadd     %f4  %f4  %f5                 # !1476
+    flw      %f5  %f1  2                   # !1477
+    fmul     %f5  %f5  %f0                 # !1477
+    flw      %f3  %f3  2                   # !1477
+    fadd     %f3  %f5  %f3                 # !1477
+    lw       %r1  %sp  8                   # !1478
+    lw       %r27  %sp  3                  # !1478
+    fsw      %f3  %sp  16                  # !1478
+    fsw      %f4  %sp  17                  # !1478
+    fsw      %f2  %sp  18                  # !1478
+    fsw      %f0  %sp  19                  # !1478
+    movz     %r28  %r2  %zero              # !1478
+    movz     %r2  %r1  %zero               # !1478
+    movz     %r1  %r28  %zero              # !1478
+    fmovz    %f1  %f4  %zero               # !1478
+    fmovz    %f0  %f2  %zero               # !1478
+    fmovz    %f2  %f3  %zero               # !1478
+    sw       %ra  %sp  20                  # !1478
+    addi     %sp  %sp  21                  # !1478
+    lw       %r28  %r27  0                 # !1478
+    jalr     %r28                          # !1478
+    addi     %sp  %sp  -21                 # !1478
+    lw       %ra  %sp  20                  # !1478
+    lw       %r2  %sp  15                  # !1478
+    beq      %r1  %r2  beq_then.9445       # !1478
+    lw       %r1  %sp  5                   # !1480
+    flw      %f0  %sp  19                  # !1480
+    fsw      %f0  %r1  0                   # !1480
+    flw      %f0  %sp  18                  # !1481
+    flw      %f1  %sp  17                  # !1481
+    flw      %f2  %sp  16                  # !1481
+    lw       %r1  %sp  2                   # !1481
+    sw       %ra  %sp  20                  # !1481
+    addi     %sp  %sp  21                  # !1481
+    jal      ~vecset.2485                  # !1481
+    addi     %sp  %sp  -21                 # !1481
+    lw       %ra  %sp  20                  # !1481
+    lw       %r1  %sp  1                   # !1482
+    lw       %r2  %sp  11                  # !1482
+    sw       %r2  %r1  0                   # !1482
+    lw       %r1  %sp  0                   # !1483
+    lw       %r2  %sp  13                  # !1483
+    sw       %r2  %r1  0                   # !1483
+    j        ~beq_cont.9446                # !1478
+beq_then.9445:
+beq_cont.9446:
+    j        ~beq_cont.9444                # !1472
+beq_then.9443:
+beq_cont.9444:
+    j        ~beq_cont.9442                # !1471
+beq_then.9441:
+beq_cont.9442:
+    lw       %r1  %sp  10                  # !1489
+    addi     %r1  %r1  1                   # !1489
+    lw       %r2  %sp  8                   # !1489
+    lw       %r3  %sp  7                   # !1489
+    lw       %r27  %sp  9                  # !1489
+    lw       %r28  %r27  0                 # !1489
+    jr       %r28                          # !1489
+beq_then.9440:
+    lw       %r1  %sp  11                  # !1493
+    lw       %r3  %sp  12                  # !1493
+    lwv      %r1  %r3  %r1                 # !1493
+    sw       %r2  %sp  15                  # !1493
+    sw       %ra  %sp  20                  # !1493
+    addi     %sp  %sp  21                  # !1493
+    jal      ~o_isinvert.2529              # !1493
+    addi     %sp  %sp  -21                 # !1493
+    lw       %ra  %sp  20                  # !1493
+    lw       %r2  %sp  15                  # !1493
+    beq      %r1  %r2  beq_then.9447       # !1493
+    lw       %r1  %sp  10                  # !1494
+    addi     %r1  %r1  1                   # !1494
+    lw       %r2  %sp  8                   # !1494
+    lw       %r3  %sp  7                   # !1494
+    lw       %r27  %sp  9                  # !1494
+    lw       %r28  %r27  0                 # !1494
+    jr       %r28                          # !1494
+beq_then.9447:
+    jr       %ra                           # !1495
+beq_then.9439:
+    jr       %ra                           # !1462
+solve_one_or_network.2759:
+    lw       %r4  %r27  2                  # !1501
+    lw       %r5  %r27  1                  # !1501
+    lwv      %r6  %r2  %r1                 # !1502
+    addi     %r7  %zero  -1                # !1503
+    beq      %r6  %r7  beq_then.9450       # !1503
+    lwv      %r5  %r5  %r6                 # !1504
+    addi     %r6  %zero  0                 # !1505
+    sw       %r3  %sp  0                   # !1505
+    sw       %r2  %sp  1                   # !1505
+    sw       %r27  %sp  2                  # !1505
+    sw       %r1  %sp  3                   # !1505
+    movz     %r2  %r5  %zero               # !1505
+    movz     %r1  %r6  %zero               # !1505
+    movz     %r27  %r4  %zero              # !1505
+    sw       %ra  %sp  4                   # !1505
+    addi     %sp  %sp  5                   # !1505
+    lw       %r28  %r27  0                 # !1505
+    jalr     %r28                          # !1505
+    addi     %sp  %sp  -5                  # !1505
+    lw       %ra  %sp  4                   # !1505
+    lw       %r1  %sp  3                   # !1506
+    addi     %r1  %r1  1                   # !1506
+    lw       %r2  %sp  1                   # !1506
+    lw       %r3  %sp  0                   # !1506
+    lw       %r27  %sp  2                  # !1506
+    lw       %r28  %r27  0                 # !1506
+    jr       %r28                          # !1506
+beq_then.9450:
+    jr       %ra                           # !1507
+trace_or_matrix.2763:
+    lw       %r4  %r27  5                  # !1511
+    lw       %r5  %r27  4                  # !1511
+    lw       %r6  %r27  3                  # !1511
+    lw       %r7  %r27  2                  # !1511
+    lw       %r8  %r27  1                  # !1511
+    lwv      %r9  %r2  %r1                 # !1512
+    addi     %r10  %zero  0                # !1513
+    lw       %r11  %r9  0                  # !1513
+    addi     %r12  %zero  -1               # !1514
+    beq      %r11  %r12  beq_then.9452     # !1514
+    addi     %r12  %zero  99               # !1517
+    sw       %r3  %sp  0                   # !1517
+    sw       %r2  %sp  1                   # !1517
+    sw       %r27  %sp  2                  # !1517
+    sw       %r1  %sp  3                   # !1517
+    beq      %r11  %r12  beq_then.9453     # !1517
+    sw       %r9  %sp  4                   # !1522
+    sw       %r8  %sp  5                   # !1522
+    sw       %r4  %sp  6                   # !1522
+    sw       %r6  %sp  7                   # !1522
+    sw       %r10  %sp  8                  # !1522
+    movz     %r2  %r3  %zero               # !1522
+    movz     %r1  %r11  %zero              # !1522
+    movz     %r27  %r7  %zero              # !1522
+    movz     %r3  %r5  %zero               # !1522
+    sw       %ra  %sp  9                   # !1522
+    addi     %sp  %sp  10                  # !1522
+    lw       %r28  %r27  0                 # !1522
+    jalr     %r28                          # !1522
+    addi     %sp  %sp  -10                 # !1522
+    lw       %ra  %sp  9                   # !1522
+    lw       %r2  %sp  8                   # !1523
+    beq      %r1  %r2  beq_then.9455       # !1523
+    flw      %f0  %sp  7                   # !1524
+    flw      %f0  %f0  0                   # !1524
+    flw      %f1  %sp  6                   # !1525
+    flw      %f1  %f1  0                   # !1525
+    sw       %ra  %sp  9                   # !1525
+    addi     %sp  %sp  10                  # !1525
+    jal      ~min_caml_fless               # !1525
+    addi     %sp  %sp  -10                 # !1525
+    lw       %ra  %sp  9                   # !1525
+    lw       %r2  %sp  8                   # !1525
+    beq      %r1  %r2  beq_then.9457       # !1525
+    addi     %r1  %zero  1                 # !1526
+    lw       %r2  %sp  4                   # !1526
+    lw       %r3  %sp  0                   # !1526
+    lw       %r27  %sp  5                  # !1526
+    sw       %ra  %sp  9                   # !1526
+    addi     %sp  %sp  10                  # !1526
+    lw       %r28  %r27  0                 # !1526
+    jalr     %r28                          # !1526
+    addi     %sp  %sp  -10                 # !1526
+    lw       %ra  %sp  9                   # !1526
+    j        ~beq_cont.9458                # !1525
+beq_then.9457:
+beq_cont.9458:
+    j        ~beq_cont.9456                # !1523
+beq_then.9455:
+beq_cont.9456:
+    j        ~beq_cont.9454                # !1517
+beq_then.9453:
+    addi     %r4  %zero  1                 # !1518
+    movz     %r2  %r9  %zero               # !1518
+    movz     %r1  %r4  %zero               # !1518
+    movz     %r27  %r8  %zero              # !1518
+    sw       %ra  %sp  9                   # !1518
+    addi     %sp  %sp  10                  # !1518
+    lw       %r28  %r27  0                 # !1518
+    jalr     %r28                          # !1518
+    addi     %sp  %sp  -10                 # !1518
+    lw       %ra  %sp  9                   # !1518
+beq_cont.9454:
+    lw       %r1  %sp  3                   # !1530
+    addi     %r1  %r1  1                   # !1530
+    lw       %r2  %sp  1                   # !1530
+    lw       %r3  %sp  0                   # !1530
+    lw       %r27  %sp  2                  # !1530
+    lw       %r28  %r27  0                 # !1530
+    jr       %r28                          # !1530
+beq_then.9452:
+    jr       %ra                           # !1515
+judge_intersection.2767:
+    lw       %r2  %r27  3                  # !1538
+    lw       %r3  %r27  2                  # !1538
+    lw       %r4  %r27  1                  # !1538
+    addi     %r5  %zero  0                 # !1539
+    flui     %f0  627                      # !1539
+    fli      %f0  944936                   # !1539
+    ++
+    fli 1000000000.000000
+    => flui %f0 0b01001110011
+       fli  %f0 0b011100110101100101000
+    ++
+    fsw      %f0  %r3  0                   # !1539
+    lw       %r4  %r4  0                   # !1540
+    sw       %r5  %sp  0                   # !1540
+    sw       %r3  %sp  1                   # !1540
+    movz     %r3  %r1  %zero               # !1540
+    movz     %r27  %r2  %zero              # !1540
+    movz     %r2  %r4  %zero               # !1540
+    movz     %r1  %r5  %zero               # !1540
+    sw       %ra  %sp  2                   # !1540
+    addi     %sp  %sp  3                   # !1540
+    lw       %r28  %r27  0                 # !1540
+    jalr     %r28                          # !1540
+    addi     %sp  %sp  -3                  # !1540
+    lw       %ra  %sp  2                   # !1540
+    flw      %f0  %sp  1                   # !1541
+    flw      %f1  %f0  0                   # !1541
+    flui     %f0  -530                     # !1543
+    fli      %f0  838861                   # !1543
     ++
     fli -0.100000
     => flui %f0 0b10111101110
        fli  %f0 0b011001100110011001101
     ++
-    flw %f1 %sp 6                          # !1376
-    flw %f1 %f1 0                          # !1376
-    fblt %f1 %f0 fblt_then.8769            # !1376
-    movz %r1 %r2 %zero                     # !1380
-    j ~fblt_cont.8770                      # !1376
-fblt_then.8769:
-    addi %r1 %zero 1                       # !1377
-    lw %r3 %sp 0                           # !1377
-    lw %r27 %sp 1                          # !1377
-    sw %r1 %sp 7                           # !1377
-    movz %r2 %r3 %zero                     # !1377
-    sw %ra %sp 8                           # !1377
-    addi %sp %sp 9                         # !1377
-    lw %r28 %r27 0                         # !1377
-    jalr %r28                              # !1377
-    addi %sp %sp -9                        # !1377
-    lw %ra %sp 8                           # !1377
-    lw %r2 %sp 5                           # !1377
-    beq %r1 %r2 beq_then.8771              # !1377
-    lw %r1 %sp 7                           # !1378
-    j ~beq_cont.8772                       # !1377
-beq_then.8771:
-    movz %r1 %r2 %zero                     # !1379
-beq_cont.8772:
-fblt_cont.8770:
-    j ~beq_cont.8768                       # !1375
-beq_then.8767:
-    movz %r1 %r2 %zero                     # !1381
-beq_cont.8768:
-    j ~beq_cont.8766                       # !1369
-beq_then.8765:
-    addi %r1 %zero 1                       # !1370
-beq_cont.8766:
-    lw %r2 %sp 5                           # !1368
-    beq %r1 %r2 beq_then.8773              # !1368
-    addi %r1 %zero 1                       # !1383
-    lw %r3 %sp 0                           # !1383
-    lw %r27 %sp 1                          # !1383
-    sw %r1 %sp 8                           # !1383
-    movz %r2 %r3 %zero                     # !1383
-    sw %ra %sp 9                           # !1383
-    addi %sp %sp 10                        # !1383
-    lw %r28 %r27 0                         # !1383
-    jalr %r28                              # !1383
-    addi %sp %sp -10                       # !1383
-    lw %ra %sp 9                           # !1383
-    lw %r2 %sp 5                           # !1383
-    beq %r1 %r2 beq_then.8774              # !1383
-    lw %r1 %sp 8                           # !1384
-    jr %ra                                 # !1384
-beq_then.8774:
-    lw %r1 %sp 4                           # !1386
-    addi %r1 %r1 1                         # !1386
-    lw %r2 %sp 2                           # !1386
-    lw %r27 %sp 3                          # !1386
-    lw %r28 %r27 0                         # !1386
-    jr %r28                                # !1386
-beq_then.8773:
-    lw %r1 %sp 4                           # !1388
-    addi %r1 %r1 1                         # !1388
-    lw %r2 %sp 2                           # !1388
-    lw %r27 %sp 3                          # !1388
-    lw %r28 %r27 0                         # !1388
-    jr %r28                                # !1388
-beq_then.8764:
-    movz %r1 %r9 %zero                     # !1366
-    jr %ra                                 # !1366
-solve_each_element.2688:
-    lw %r4 %r27 9                          # !1398
-    lw %r5 %r27 8                          # !1398
-    lw %r6 %r27 7                          # !1398
-    lw %r7 %r27 6                          # !1398
-    lw %r8 %r27 5                          # !1398
-    lw %r9 %r27 4                          # !1398
-    lw %r10 %r27 3                         # !1398
-    lw %r11 %r27 2                         # !1398
-    lw %r12 %r27 1                         # !1398
-    lwv %r13 %r2 %r1                       # !1399
-    addi %r14 %zero -1                     # !1400
-    beq %r13 %r14 beq_then.8775            # !1400
-    sw %r9 %sp 0                           # !1402
-    sw %r11 %sp 1                          # !1402
-    sw %r10 %sp 2                          # !1402
-    sw %r12 %sp 3                          # !1402
-    sw %r5 %sp 4                           # !1402
-    sw %r4 %sp 5                           # !1402
-    sw %r6 %sp 6                           # !1402
-    sw %r3 %sp 7                           # !1402
-    sw %r2 %sp 8                           # !1402
-    sw %r27 %sp 9                          # !1402
-    sw %r1 %sp 10                          # !1402
-    sw %r13 %sp 11                         # !1402
-    sw %r8 %sp 12                          # !1402
-    movz %r2 %r3 %zero                     # !1402
-    movz %r1 %r13 %zero                    # !1402
-    movz %r27 %r7 %zero                    # !1402
-    movz %r3 %r5 %zero                     # !1402
-    sw %ra %sp 13                          # !1402
-    addi %sp %sp 14                        # !1402
-    lw %r28 %r27 0                         # !1402
-    jalr %r28                              # !1402
-    addi %sp %sp -14                       # !1402
-    lw %ra %sp 13                          # !1402
-    addi %r2 %zero 0                       # !1403
-    beq %r1 %r2 beq_then.8776              # !1403
-    flw %f0 %sp 6                          # !1407
-    flw %f0 %f0 0                          # !1407
-    flui %f1 0                             # !1409
-    fli %f1 0                              # !1409
-    ++
-    fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
-    ++
-    fblt %f1 %f0 fblt_then.8777            # !1409
-    j ~fblt_cont.8778                      # !1409
-fblt_then.8777:
-    flw %f1 %sp 5                          # !1410
-    flw %f2 %f1 0                          # !1410
-    fblt %f0 %f2 fblt_then.8779            # !1410
-    j ~fblt_cont.8780                      # !1410
-fblt_then.8779:
-    flui %f2 481                           # !1412
-    fli %f2 251658                         # !1412
-    ++
-    fli 0.010000
-    => flui %f2 0b00111100001
-       fli  %f2 0b000111101011100001010
-    ++
-    fadd %f0 %f2 %f0                       # !1412
-    flw %f2 %sp 7                          # !1413
-    flw %f3 %f2 0                          # !1413
-    fmul %f3 %f3 %f0                       # !1413
-    flw %f4 %sp 4                          # !1413
-    flw %f5 %f4 0                          # !1413
-    fadd %f3 %f3 %f5                       # !1413
-    flw %f5 %f2 1                          # !1414
-    fmul %f5 %f5 %f0                       # !1414
-    flw %f6 %f4 1                          # !1414
-    fadd %f5 %f5 %f6                       # !1414
-    flw %f6 %f2 2                          # !1415
-    fmul %f6 %f6 %f0                       # !1415
-    flw %f4 %f4 2                          # !1415
-    fadd %f4 %f6 %f4                       # !1415
-    lw %r3 %sp 8                           # !1416
-    lw %r27 %sp 3                          # !1416
-    sw %r1 %sp 13                          # !1416
-    fsw %f4 %sp 14                         # !1416
-    fsw %f5 %sp 15                         # !1416
-    fsw %f3 %sp 16                         # !1416
-    fsw %f0 %sp 17                         # !1416
-    sw %r2 %sp 18                          # !1416
-    movz %r1 %r2 %zero                     # !1416
-    movz %r2 %r3 %zero                     # !1416
-    fmovz %f2 %f4 %zero                    # !1416
-    fmovz %f1 %f5 %zero                    # !1416
-    fmovz %f0 %f3 %zero                    # !1416
-    sw %ra %sp 19                          # !1416
-    addi %sp %sp 20                        # !1416
-    lw %r28 %r27 0                         # !1416
-    jalr %r28                              # !1416
-    addi %sp %sp -20                       # !1416
-    lw %ra %sp 19                          # !1416
-    lw %r2 %sp 18                          # !1416
-    beq %r1 %r2 beq_then.8781              # !1416
-    lw %r1 %sp 5                           # !1418
-    flw %f0 %sp 17                         # !1418
-    fsw %f0 %r1 0                          # !1418
-    flw %f0 %sp 16                         # !1419
-    flw %f1 %sp 15                         # !1419
-    flw %f2 %sp 14                         # !1419
-    lw %r1 %sp 2                           # !1419
-    sw %ra %sp 19                          # !1419
-    addi %sp %sp 20                        # !1419
-    jal ~vecset.2418                       # !1419
-    addi %sp %sp -20                       # !1419
-    lw %ra %sp 19                          # !1419
-    lw %r1 %sp 1                           # !1420
-    lw %r2 %sp 11                          # !1420
-    sw %r2 %r1 0                           # !1420
-    lw %r1 %sp 0                           # !1421
-    lw %r2 %sp 13                          # !1421
-    sw %r2 %r1 0                           # !1421
-    j ~beq_cont.8782                       # !1416
-beq_then.8781:
-beq_cont.8782:
-fblt_cont.8780:
-fblt_cont.8778:
-    lw %r1 %sp 10                          # !1427
-    addi %r1 %r1 1                         # !1427
-    lw %r2 %sp 8                           # !1427
-    lw %r3 %sp 7                           # !1427
-    lw %r27 %sp 9                          # !1427
-    lw %r28 %r27 0                         # !1427
-    jr %r28                                # !1427
-beq_then.8776:
-    lw %r1 %sp 11                          # !1431
-    lw %r3 %sp 12                          # !1431
-    lwv %r1 %r3 %r1                        # !1431
-    sw %r2 %sp 18                          # !1431
-    sw %ra %sp 19                          # !1431
-    addi %sp %sp 20                        # !1431
-    jal ~o_isinvert.2462                   # !1431
-    addi %sp %sp -20                       # !1431
-    lw %ra %sp 19                          # !1431
-    lw %r2 %sp 18                          # !1431
-    beq %r1 %r2 beq_then.8783              # !1431
-    lw %r1 %sp 10                          # !1432
-    addi %r1 %r1 1                         # !1432
-    lw %r2 %sp 8                           # !1432
-    lw %r3 %sp 7                           # !1432
-    lw %r27 %sp 9                          # !1432
-    lw %r28 %r27 0                         # !1432
-    jr %r28                                # !1432
-beq_then.8783:
-    jr %ra                                 # !1433
-beq_then.8775:
-    jr %ra                                 # !1400
-solve_one_or_network.2692:
-    lw %r4 %r27 2                          # !1439
-    lw %r5 %r27 1                          # !1439
-    lwv %r6 %r2 %r1                        # !1440
-    addi %r7 %zero -1                      # !1441
-    beq %r6 %r7 beq_then.8786              # !1441
-    lwv %r5 %r5 %r6                        # !1442
-    addi %r6 %zero 0                       # !1443
-    sw %r3 %sp 0                           # !1443
-    sw %r2 %sp 1                           # !1443
-    sw %r27 %sp 2                          # !1443
-    sw %r1 %sp 3                           # !1443
-    movz %r2 %r5 %zero                     # !1443
-    movz %r1 %r6 %zero                     # !1443
-    movz %r27 %r4 %zero                    # !1443
-    sw %ra %sp 4                           # !1443
-    addi %sp %sp 5                         # !1443
-    lw %r28 %r27 0                         # !1443
-    jalr %r28                              # !1443
-    addi %sp %sp -5                        # !1443
-    lw %ra %sp 4                           # !1443
-    lw %r1 %sp 3                           # !1444
-    addi %r1 %r1 1                         # !1444
-    lw %r2 %sp 1                           # !1444
-    lw %r3 %sp 0                           # !1444
-    lw %r27 %sp 2                          # !1444
-    lw %r28 %r27 0                         # !1444
-    jr %r28                                # !1444
-beq_then.8786:
-    jr %ra                                 # !1445
-trace_or_matrix.2696:
-    lw %r4 %r27 5                          # !1449
-    lw %r5 %r27 4                          # !1449
-    lw %r6 %r27 3                          # !1449
-    lw %r7 %r27 2                          # !1449
-    lw %r8 %r27 1                          # !1449
-    lwv %r9 %r2 %r1                        # !1450
-    addi %r10 %zero 0                      # !1451
-    lw %r11 %r9 0                          # !1451
-    addi %r12 %zero -1                     # !1452
-    beq %r11 %r12 beq_then.8788            # !1452
-    addi %r12 %zero 99                     # !1455
-    sw %r3 %sp 0                           # !1455
-    sw %r2 %sp 1                           # !1455
-    sw %r27 %sp 2                          # !1455
-    sw %r1 %sp 3                           # !1455
-    beq %r11 %r12 beq_then.8789            # !1455
-    sw %r9 %sp 4                           # !1460
-    sw %r8 %sp 5                           # !1460
-    sw %r4 %sp 6                           # !1460
-    sw %r6 %sp 7                           # !1460
-    sw %r10 %sp 8                          # !1460
-    movz %r2 %r3 %zero                     # !1460
-    movz %r1 %r11 %zero                    # !1460
-    movz %r27 %r7 %zero                    # !1460
-    movz %r3 %r5 %zero                     # !1460
-    sw %ra %sp 9                           # !1460
-    addi %sp %sp 10                        # !1460
-    lw %r28 %r27 0                         # !1460
-    jalr %r28                              # !1460
-    addi %sp %sp -10                       # !1460
-    lw %ra %sp 9                           # !1460
-    lw %r2 %sp 8                           # !1461
-    beq %r1 %r2 beq_then.8791              # !1461
-    flw %f0 %sp 7                          # !1462
-    flw %f0 %f0 0                          # !1462
-    flw %f1 %sp 6                          # !1463
-    flw %f1 %f1 0                          # !1463
-    fblt %f0 %f1 fblt_then.8793            # !1463
-    j ~fblt_cont.8794                      # !1463
-fblt_then.8793:
-    addi %r1 %zero 1                       # !1464
-    lw %r2 %sp 4                           # !1464
-    lw %r3 %sp 0                           # !1464
-    lw %r27 %sp 5                          # !1464
-    sw %ra %sp 9                           # !1464
-    addi %sp %sp 10                        # !1464
-    lw %r28 %r27 0                         # !1464
-    jalr %r28                              # !1464
-    addi %sp %sp -10                       # !1464
-    lw %ra %sp 9                           # !1464
-fblt_cont.8794:
-    j ~beq_cont.8792                       # !1461
-beq_then.8791:
-beq_cont.8792:
-    j ~beq_cont.8790                       # !1455
-beq_then.8789:
-    addi %r4 %zero 1                       # !1456
-    movz %r2 %r9 %zero                     # !1456
-    movz %r1 %r4 %zero                     # !1456
-    movz %r27 %r8 %zero                    # !1456
-    sw %ra %sp 9                           # !1456
-    addi %sp %sp 10                        # !1456
-    lw %r28 %r27 0                         # !1456
-    jalr %r28                              # !1456
-    addi %sp %sp -10                       # !1456
-    lw %ra %sp 9                           # !1456
-beq_cont.8790:
-    lw %r1 %sp 3                           # !1468
-    addi %r1 %r1 1                         # !1468
-    lw %r2 %sp 1                           # !1468
-    lw %r3 %sp 0                           # !1468
-    lw %r27 %sp 2                          # !1468
-    lw %r28 %r27 0                         # !1468
-    jr %r28                                # !1468
-beq_then.8788:
-    jr %ra                                 # !1453
-judge_intersection.2700:
-    lw %r2 %r27 3                          # !1476
-    lw %r3 %r27 2                          # !1476
-    lw %r4 %r27 1                          # !1476
-    addi %r5 %zero 0                       # !1477
-    flui %f0 627                           # !1477
-    fli %f0 944936                         # !1477
-    ++
-    fli 1000000000.000000
-    => flui %f0 0b01001110011
-       fli  %f0 0b011100110101100101000
-    ++
-    fsw %f0 %r3 0                          # !1477
-    lw %r4 %r4 0                           # !1478
-    sw %r5 %sp 0                           # !1478
-    sw %r3 %sp 1                           # !1478
-    movz %r3 %r1 %zero                     # !1478
-    movz %r27 %r2 %zero                    # !1478
-    movz %r2 %r4 %zero                     # !1478
-    movz %r1 %r5 %zero                     # !1478
-    sw %ra %sp 2                           # !1478
-    addi %sp %sp 3                         # !1478
-    lw %r28 %r27 0                         # !1478
-    jalr %r28                              # !1478
-    addi %sp %sp -3                        # !1478
-    lw %ra %sp 2                           # !1478
-    flw %f0 %sp 1                          # !1479
-    flw %f0 %f0 0                          # !1479
-    flui %f1 -530                          # !1481
-    fli %f1 838861                         # !1481
-    ++
-    fli -0.100000
-    => flui %f1 0b10111101110
-       fli  %f1 0b011001100110011001101
-    ++
-    fblt %f1 %f0 fblt_then.8796            # !1481
-    lw %r1 %sp 0                           # !1483
-    jr %ra                                 # !1483
-fblt_then.8796:
-    flui %f1 613                           # !1482
-    fli %f1 -82912                         # !1482
+    fsw      %f1  %sp  2                   # !1543
+    sw       %ra  %sp  3                   # !1543
+    addi     %sp  %sp  4                   # !1543
+    jal      ~min_caml_fless               # !1543
+    addi     %sp  %sp  -4                  # !1543
+    lw       %ra  %sp  3                   # !1543
+    lw       %r2  %sp  0                   # !1543
+    beq      %r1  %r2  beq_then.9460       # !1543
+    flui     %f1  613                      # !1544
+    fli      %f1  -82912                   # !1544
     ++
     fli 100000000.000000
     => flui %f1 0b01001100101
        fli  %f1 0b111101011110000100000
     ++
-    fblt %f0 %f1 fblt_then.8797            # !1482
-    lw %r1 %sp 0                           # !1482
-    jr %ra                                 # !1482
-fblt_then.8797:
-    addi %r1 %zero 1                       # !1482
-    jr %ra                                 # !1482
-solve_each_element_fast.2702:
-    lw %r4 %r27 9                          # !1491
-    lw %r5 %r27 8                          # !1491
-    lw %r6 %r27 7                          # !1491
-    lw %r7 %r27 6                          # !1491
-    lw %r8 %r27 5                          # !1491
-    lw %r9 %r27 4                          # !1491
-    lw %r10 %r27 3                         # !1491
-    lw %r11 %r27 2                         # !1491
-    lw %r12 %r27 1                         # !1491
-    sw %r9 %sp 0                           # !1492
-    sw %r11 %sp 1                          # !1492
-    sw %r10 %sp 2                          # !1492
-    sw %r12 %sp 3                          # !1492
-    sw %r5 %sp 4                           # !1492
-    sw %r4 %sp 5                           # !1492
-    sw %r7 %sp 6                           # !1492
-    sw %r27 %sp 7                          # !1492
-    sw %r8 %sp 8                           # !1492
-    sw %r3 %sp 9                           # !1492
-    sw %r6 %sp 10                          # !1492
-    sw %r1 %sp 11                          # !1492
-    sw %r2 %sp 12                          # !1492
-    movz %r1 %r3 %zero                     # !1492
-    sw %ra %sp 13                          # !1492
-    addi %sp %sp 14                        # !1492
-    jal ~d_vec.2517                        # !1492
-    addi %sp %sp -14                       # !1492
-    lw %ra %sp 13                          # !1492
-    lw %r2 %sp 11                          # !1493
-    lw %r3 %sp 12                          # !1493
-    lwv %r4 %r3 %r2                        # !1493
-    addi %r5 %zero -1                      # !1494
-    beq %r4 %r5 beq_then.8798              # !1494
-    lw %r5 %sp 9                           # !1496
-    lw %r27 %sp 10                         # !1496
-    sw %r1 %sp 13                          # !1496
-    sw %r4 %sp 14                          # !1496
-    movz %r2 %r5 %zero                     # !1496
-    movz %r1 %r4 %zero                     # !1496
-    sw %ra %sp 15                          # !1496
-    addi %sp %sp 16                        # !1496
-    lw %r28 %r27 0                         # !1496
-    jalr %r28                              # !1496
-    addi %sp %sp -16                       # !1496
-    lw %ra %sp 15                          # !1496
-    addi %r2 %zero 0                       # !1497
-    beq %r1 %r2 beq_then.8799              # !1497
-    flw %f0 %sp 6                          # !1501
-    flw %f0 %f0 0                          # !1501
-    flui %f1 0                             # !1503
-    fli %f1 0                              # !1503
+    flw      %f0  %sp  2                   # !1544
+    j        ~min_caml_fless               # !1544
+beq_then.9460:
+    movz     %r1  %r2  %zero               # !1545
+    jr       %ra                           # !1545
+solve_each_element_fast.2769:
+    lw       %r4  %r27  9                  # !1553
+    lw       %r5  %r27  8                  # !1553
+    lw       %r6  %r27  7                  # !1553
+    lw       %r7  %r27  6                  # !1553
+    lw       %r8  %r27  5                  # !1553
+    lw       %r9  %r27  4                  # !1553
+    lw       %r10  %r27  3                 # !1553
+    lw       %r11  %r27  2                 # !1553
+    lw       %r12  %r27  1                 # !1553
+    sw       %r9  %sp  0                   # !1554
+    sw       %r11  %sp  1                  # !1554
+    sw       %r10  %sp  2                  # !1554
+    sw       %r12  %sp  3                  # !1554
+    sw       %r5  %sp  4                   # !1554
+    sw       %r4  %sp  5                   # !1554
+    sw       %r7  %sp  6                   # !1554
+    sw       %r27  %sp  7                  # !1554
+    sw       %r8  %sp  8                   # !1554
+    sw       %r3  %sp  9                   # !1554
+    sw       %r6  %sp  10                  # !1554
+    sw       %r1  %sp  11                  # !1554
+    sw       %r2  %sp  12                  # !1554
+    movz     %r1  %r3  %zero               # !1554
+    sw       %ra  %sp  13                  # !1554
+    addi     %sp  %sp  14                  # !1554
+    jal      ~d_vec.2584                   # !1554
+    addi     %sp  %sp  -14                 # !1554
+    lw       %ra  %sp  13                  # !1554
+    lw       %r2  %sp  11                  # !1555
+    lw       %r3  %sp  12                  # !1555
+    lwv      %r4  %r3  %r2                 # !1555
+    addi     %r5  %zero  -1                # !1556
+    beq      %r4  %r5  beq_then.9461       # !1556
+    lw       %r5  %sp  9                   # !1558
+    lw       %r27  %sp  10                 # !1558
+    sw       %r1  %sp  13                  # !1558
+    sw       %r4  %sp  14                  # !1558
+    movz     %r2  %r5  %zero               # !1558
+    movz     %r1  %r4  %zero               # !1558
+    sw       %ra  %sp  15                  # !1558
+    addi     %sp  %sp  16                  # !1558
+    lw       %r28  %r27  0                 # !1558
+    jalr     %r28                          # !1558
+    addi     %sp  %sp  -16                 # !1558
+    lw       %ra  %sp  15                  # !1558
+    addi     %r2  %zero  0                 # !1559
+    beq      %r1  %r2  beq_then.9462       # !1559
+    flw      %f0  %sp  6                   # !1563
+    flw      %f1  %f0  0                   # !1563
+    flui     %f0  0                        # !1565
+    fli      %f0  0                        # !1565
     ++
     fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
     ++
-    fblt %f1 %f0 fblt_then.8800            # !1503
-    j ~fblt_cont.8801                      # !1503
-fblt_then.8800:
-    flw %f1 %sp 5                          # !1504
-    flw %f2 %f1 0                          # !1504
-    fblt %f0 %f2 fblt_then.8802            # !1504
-    j ~fblt_cont.8803                      # !1504
-fblt_then.8802:
-    flui %f2 481                           # !1506
-    fli %f2 251658                         # !1506
+    sw       %r1  %sp  15                  # !1565
+    fsw      %f1  %sp  16                  # !1565
+    sw       %r2  %sp  17                  # !1565
+    sw       %ra  %sp  18                  # !1565
+    addi     %sp  %sp  19                  # !1565
+    jal      ~min_caml_fless               # !1565
+    addi     %sp  %sp  -19                 # !1565
+    lw       %ra  %sp  18                  # !1565
+    lw       %r2  %sp  17                  # !1565
+    beq      %r1  %r2  beq_then.9463       # !1565
+    flw      %f0  %sp  5                   # !1566
+    flw      %f1  %f0  0                   # !1566
+    flw      %f2  %sp  16                  # !1566
+    fmovz    %f0  %f2  %zero               # !1566
+    sw       %ra  %sp  18                  # !1566
+    addi     %sp  %sp  19                  # !1566
+    jal      ~min_caml_fless               # !1566
+    addi     %sp  %sp  -19                 # !1566
+    lw       %ra  %sp  18                  # !1566
+    lw       %r2  %sp  17                  # !1566
+    beq      %r1  %r2  beq_then.9465       # !1566
+    flui     %f0  481                      # !1568
+    fli      %f0  251658                   # !1568
     ++
     fli 0.010000
-    => flui %f2 0b00111100001
-       fli  %f2 0b000111101011100001010
+    => flui %f0 0b00111100001
+       fli  %f0 0b000111101011100001010
     ++
-    fadd %f0 %f2 %f0                       # !1506
-    flw %f2 %sp 13                         # !1507
-    flw %f3 %f2 0                          # !1507
-    fmul %f3 %f3 %f0                       # !1507
-    flw %f4 %sp 4                          # !1507
-    flw %f5 %f4 0                          # !1507
-    fadd %f3 %f3 %f5                       # !1507
-    flw %f5 %f2 1                          # !1508
-    fmul %f5 %f5 %f0                       # !1508
-    flw %f6 %f4 1                          # !1508
-    fadd %f5 %f5 %f6                       # !1508
-    flw %f2 %f2 2                          # !1509
-    fmul %f2 %f2 %f0                       # !1509
-    flw %f4 %f4 2                          # !1509
-    fadd %f2 %f2 %f4                       # !1509
-    lw %r3 %sp 12                          # !1510
-    lw %r27 %sp 3                          # !1510
-    sw %r1 %sp 15                          # !1510
-    fsw %f2 %sp 16                         # !1510
-    fsw %f5 %sp 17                         # !1510
-    fsw %f3 %sp 18                         # !1510
-    fsw %f0 %sp 19                         # !1510
-    sw %r2 %sp 20                          # !1510
-    movz %r1 %r2 %zero                     # !1510
-    movz %r2 %r3 %zero                     # !1510
-    fmovz %f1 %f5 %zero                    # !1510
-    fmovz %f0 %f3 %zero                    # !1510
-    sw %ra %sp 21                          # !1510
-    addi %sp %sp 22                        # !1510
-    lw %r28 %r27 0                         # !1510
-    jalr %r28                              # !1510
-    addi %sp %sp -22                       # !1510
-    lw %ra %sp 21                          # !1510
-    lw %r2 %sp 20                          # !1510
-    beq %r1 %r2 beq_then.8804              # !1510
-    lw %r1 %sp 5                           # !1512
-    flw %f0 %sp 19                         # !1512
-    fsw %f0 %r1 0                          # !1512
-    flw %f0 %sp 18                         # !1513
-    flw %f1 %sp 17                         # !1513
-    flw %f2 %sp 16                         # !1513
-    lw %r1 %sp 2                           # !1513
-    sw %ra %sp 21                          # !1513
-    addi %sp %sp 22                        # !1513
-    jal ~vecset.2418                       # !1513
-    addi %sp %sp -22                       # !1513
-    lw %ra %sp 21                          # !1513
-    lw %r1 %sp 1                           # !1514
-    lw %r2 %sp 14                          # !1514
-    sw %r2 %r1 0                           # !1514
-    lw %r1 %sp 0                           # !1515
-    lw %r2 %sp 15                          # !1515
-    sw %r2 %r1 0                           # !1515
-    j ~beq_cont.8805                       # !1510
-beq_then.8804:
-beq_cont.8805:
-fblt_cont.8803:
-fblt_cont.8801:
-    lw %r1 %sp 11                          # !1521
-    addi %r1 %r1 1                         # !1521
-    lw %r2 %sp 12                          # !1521
-    lw %r3 %sp 9                           # !1521
-    lw %r27 %sp 7                          # !1521
-    lw %r28 %r27 0                         # !1521
-    jr %r28                                # !1521
-beq_then.8799:
-    lw %r1 %sp 14                          # !1525
-    lw %r3 %sp 8                           # !1525
-    lwv %r1 %r3 %r1                        # !1525
-    sw %r2 %sp 20                          # !1525
-    sw %ra %sp 21                          # !1525
-    addi %sp %sp 22                        # !1525
-    jal ~o_isinvert.2462                   # !1525
-    addi %sp %sp -22                       # !1525
-    lw %ra %sp 21                          # !1525
-    lw %r2 %sp 20                          # !1525
-    beq %r1 %r2 beq_then.8806              # !1525
-    lw %r1 %sp 11                          # !1526
-    addi %r1 %r1 1                         # !1526
-    lw %r2 %sp 12                          # !1526
-    lw %r3 %sp 9                           # !1526
-    lw %r27 %sp 7                          # !1526
-    lw %r28 %r27 0                         # !1526
-    jr %r28                                # !1526
-beq_then.8806:
-    jr %ra                                 # !1527
-beq_then.8798:
-    jr %ra                                 # !1494
-solve_one_or_network_fast.2706:
-    lw %r4 %r27 2                          # !1532
-    lw %r5 %r27 1                          # !1532
-    lwv %r6 %r2 %r1                        # !1533
-    addi %r7 %zero -1                      # !1534
-    beq %r6 %r7 beq_then.8809              # !1534
-    lwv %r5 %r5 %r6                        # !1535
-    addi %r6 %zero 0                       # !1536
-    sw %r3 %sp 0                           # !1536
-    sw %r2 %sp 1                           # !1536
-    sw %r27 %sp 2                          # !1536
-    sw %r1 %sp 3                           # !1536
-    movz %r2 %r5 %zero                     # !1536
-    movz %r1 %r6 %zero                     # !1536
-    movz %r27 %r4 %zero                    # !1536
-    sw %ra %sp 4                           # !1536
-    addi %sp %sp 5                         # !1536
-    lw %r28 %r27 0                         # !1536
-    jalr %r28                              # !1536
-    addi %sp %sp -5                        # !1536
-    lw %ra %sp 4                           # !1536
-    lw %r1 %sp 3                           # !1537
-    addi %r1 %r1 1                         # !1537
-    lw %r2 %sp 1                           # !1537
-    lw %r3 %sp 0                           # !1537
-    lw %r27 %sp 2                          # !1537
-    lw %r28 %r27 0                         # !1537
-    jr %r28                                # !1537
-beq_then.8809:
-    jr %ra                                 # !1538
-trace_or_matrix_fast.2710:
-    lw %r4 %r27 4                          # !1542
-    lw %r5 %r27 3                          # !1542
-    lw %r6 %r27 2                          # !1542
-    lw %r7 %r27 1                          # !1542
-    lwv %r8 %r2 %r1                        # !1543
-    addi %r9 %zero 0                       # !1544
-    lw %r10 %r8 0                          # !1544
-    addi %r11 %zero -1                     # !1545
-    beq %r10 %r11 beq_then.8811            # !1545
-    addi %r11 %zero 99                     # !1548
-    sw %r3 %sp 0                           # !1548
-    sw %r2 %sp 1                           # !1548
-    sw %r27 %sp 2                          # !1548
-    sw %r1 %sp 3                           # !1548
-    beq %r10 %r11 beq_then.8812            # !1548
-    sw %r8 %sp 4                           # !1553
-    sw %r7 %sp 5                           # !1553
-    sw %r4 %sp 6                           # !1553
-    sw %r6 %sp 7                           # !1553
-    sw %r9 %sp 8                           # !1553
-    movz %r2 %r3 %zero                     # !1553
-    movz %r1 %r10 %zero                    # !1553
-    movz %r27 %r5 %zero                    # !1553
-    sw %ra %sp 9                           # !1553
-    addi %sp %sp 10                        # !1553
-    lw %r28 %r27 0                         # !1553
-    jalr %r28                              # !1553
-    addi %sp %sp -10                       # !1553
-    lw %ra %sp 9                           # !1553
-    lw %r2 %sp 8                           # !1554
-    beq %r1 %r2 beq_then.8814              # !1554
-    flw %f0 %sp 7                          # !1555
-    flw %f0 %f0 0                          # !1555
-    flw %f1 %sp 6                          # !1556
-    flw %f1 %f1 0                          # !1556
-    fblt %f0 %f1 fblt_then.8816            # !1556
-    j ~fblt_cont.8817                      # !1556
-fblt_then.8816:
-    addi %r1 %zero 1                       # !1557
-    lw %r2 %sp 4                           # !1557
-    lw %r3 %sp 0                           # !1557
-    lw %r27 %sp 5                          # !1557
-    sw %ra %sp 9                           # !1557
-    addi %sp %sp 10                        # !1557
-    lw %r28 %r27 0                         # !1557
-    jalr %r28                              # !1557
-    addi %sp %sp -10                       # !1557
-    lw %ra %sp 9                           # !1557
-fblt_cont.8817:
-    j ~beq_cont.8815                       # !1554
-beq_then.8814:
-beq_cont.8815:
-    j ~beq_cont.8813                       # !1548
-beq_then.8812:
-    addi %r4 %zero 1                       # !1549
-    movz %r2 %r8 %zero                     # !1549
-    movz %r1 %r4 %zero                     # !1549
-    movz %r27 %r7 %zero                    # !1549
-    sw %ra %sp 9                           # !1549
-    addi %sp %sp 10                        # !1549
-    lw %r28 %r27 0                         # !1549
-    jalr %r28                              # !1549
-    addi %sp %sp -10                       # !1549
-    lw %ra %sp 9                           # !1549
-beq_cont.8813:
-    lw %r1 %sp 3                           # !1561
-    addi %r1 %r1 1                         # !1561
-    lw %r2 %sp 1                           # !1561
-    lw %r3 %sp 0                           # !1561
-    lw %r27 %sp 2                          # !1561
-    lw %r28 %r27 0                         # !1561
-    jr %r28                                # !1561
-beq_then.8811:
-    jr %ra                                 # !1546
-judge_intersection_fast.2714:
-    lw %r2 %r27 3                          # !1566
-    lw %r3 %r27 2                          # !1566
-    lw %r4 %r27 1                          # !1566
-    addi %r5 %zero 0                       # !1568
-    flui %f0 627                           # !1568
-    fli %f0 944936                         # !1568
+    flw      %f1  %sp  16                  # !1568
+    fadd     %f0  %f0  %f1                 # !1568
+    flw      %f1  %sp  13                  # !1569
+    flw      %f2  %f1  0                   # !1569
+    fmul     %f2  %f2  %f0                 # !1569
+    flw      %f3  %sp  4                   # !1569
+    flw      %f4  %f3  0                   # !1569
+    fadd     %f2  %f2  %f4                 # !1569
+    flw      %f4  %f1  1                   # !1570
+    fmul     %f4  %f4  %f0                 # !1570
+    flw      %f5  %f3  1                   # !1570
+    fadd     %f4  %f4  %f5                 # !1570
+    flw      %f1  %f1  2                   # !1571
+    fmul     %f1  %f1  %f0                 # !1571
+    flw      %f3  %f3  2                   # !1571
+    fadd     %f1  %f1  %f3                 # !1571
+    lw       %r1  %sp  12                  # !1572
+    lw       %r27  %sp  3                  # !1572
+    fsw      %f1  %sp  18                  # !1572
+    fsw      %f4  %sp  19                  # !1572
+    fsw      %f2  %sp  20                  # !1572
+    fsw      %f0  %sp  21                  # !1572
+    movz     %r28  %r2  %zero              # !1572
+    movz     %r2  %r1  %zero               # !1572
+    movz     %r1  %r28  %zero              # !1572
+    fmovz    %f0  %f2  %zero               # !1572
+    fmovz    %f2  %f1  %zero               # !1572
+    fmovz    %f1  %f4  %zero               # !1572
+    sw       %ra  %sp  22                  # !1572
+    addi     %sp  %sp  23                  # !1572
+    lw       %r28  %r27  0                 # !1572
+    jalr     %r28                          # !1572
+    addi     %sp  %sp  -23                 # !1572
+    lw       %ra  %sp  22                  # !1572
+    lw       %r2  %sp  17                  # !1572
+    beq      %r1  %r2  beq_then.9467       # !1572
+    lw       %r1  %sp  5                   # !1574
+    flw      %f0  %sp  21                  # !1574
+    fsw      %f0  %r1  0                   # !1574
+    flw      %f0  %sp  20                  # !1575
+    flw      %f1  %sp  19                  # !1575
+    flw      %f2  %sp  18                  # !1575
+    lw       %r1  %sp  2                   # !1575
+    sw       %ra  %sp  22                  # !1575
+    addi     %sp  %sp  23                  # !1575
+    jal      ~vecset.2485                  # !1575
+    addi     %sp  %sp  -23                 # !1575
+    lw       %ra  %sp  22                  # !1575
+    lw       %r1  %sp  1                   # !1576
+    lw       %r2  %sp  14                  # !1576
+    sw       %r2  %r1  0                   # !1576
+    lw       %r1  %sp  0                   # !1577
+    lw       %r2  %sp  15                  # !1577
+    sw       %r2  %r1  0                   # !1577
+    j        ~beq_cont.9468                # !1572
+beq_then.9467:
+beq_cont.9468:
+    j        ~beq_cont.9466                # !1566
+beq_then.9465:
+beq_cont.9466:
+    j        ~beq_cont.9464                # !1565
+beq_then.9463:
+beq_cont.9464:
+    lw       %r1  %sp  11                  # !1583
+    addi     %r1  %r1  1                   # !1583
+    lw       %r2  %sp  12                  # !1583
+    lw       %r3  %sp  9                   # !1583
+    lw       %r27  %sp  7                  # !1583
+    lw       %r28  %r27  0                 # !1583
+    jr       %r28                          # !1583
+beq_then.9462:
+    lw       %r1  %sp  14                  # !1587
+    lw       %r3  %sp  8                   # !1587
+    lwv      %r1  %r3  %r1                 # !1587
+    sw       %r2  %sp  17                  # !1587
+    sw       %ra  %sp  22                  # !1587
+    addi     %sp  %sp  23                  # !1587
+    jal      ~o_isinvert.2529              # !1587
+    addi     %sp  %sp  -23                 # !1587
+    lw       %ra  %sp  22                  # !1587
+    lw       %r2  %sp  17                  # !1587
+    beq      %r1  %r2  beq_then.9469       # !1587
+    lw       %r1  %sp  11                  # !1588
+    addi     %r1  %r1  1                   # !1588
+    lw       %r2  %sp  12                  # !1588
+    lw       %r3  %sp  9                   # !1588
+    lw       %r27  %sp  7                  # !1588
+    lw       %r28  %r27  0                 # !1588
+    jr       %r28                          # !1588
+beq_then.9469:
+    jr       %ra                           # !1589
+beq_then.9461:
+    jr       %ra                           # !1556
+solve_one_or_network_fast.2773:
+    lw       %r4  %r27  2                  # !1594
+    lw       %r5  %r27  1                  # !1594
+    lwv      %r6  %r2  %r1                 # !1595
+    addi     %r7  %zero  -1                # !1596
+    beq      %r6  %r7  beq_then.9472       # !1596
+    lwv      %r5  %r5  %r6                 # !1597
+    addi     %r6  %zero  0                 # !1598
+    sw       %r3  %sp  0                   # !1598
+    sw       %r2  %sp  1                   # !1598
+    sw       %r27  %sp  2                  # !1598
+    sw       %r1  %sp  3                   # !1598
+    movz     %r2  %r5  %zero               # !1598
+    movz     %r1  %r6  %zero               # !1598
+    movz     %r27  %r4  %zero              # !1598
+    sw       %ra  %sp  4                   # !1598
+    addi     %sp  %sp  5                   # !1598
+    lw       %r28  %r27  0                 # !1598
+    jalr     %r28                          # !1598
+    addi     %sp  %sp  -5                  # !1598
+    lw       %ra  %sp  4                   # !1598
+    lw       %r1  %sp  3                   # !1599
+    addi     %r1  %r1  1                   # !1599
+    lw       %r2  %sp  1                   # !1599
+    lw       %r3  %sp  0                   # !1599
+    lw       %r27  %sp  2                  # !1599
+    lw       %r28  %r27  0                 # !1599
+    jr       %r28                          # !1599
+beq_then.9472:
+    jr       %ra                           # !1600
+trace_or_matrix_fast.2777:
+    lw       %r4  %r27  4                  # !1604
+    lw       %r5  %r27  3                  # !1604
+    lw       %r6  %r27  2                  # !1604
+    lw       %r7  %r27  1                  # !1604
+    lwv      %r8  %r2  %r1                 # !1605
+    addi     %r9  %zero  0                 # !1606
+    lw       %r10  %r8  0                  # !1606
+    addi     %r11  %zero  -1               # !1607
+    beq      %r10  %r11  beq_then.9474     # !1607
+    addi     %r11  %zero  99               # !1610
+    sw       %r3  %sp  0                   # !1610
+    sw       %r2  %sp  1                   # !1610
+    sw       %r27  %sp  2                  # !1610
+    sw       %r1  %sp  3                   # !1610
+    beq      %r10  %r11  beq_then.9475     # !1610
+    sw       %r8  %sp  4                   # !1615
+    sw       %r7  %sp  5                   # !1615
+    sw       %r4  %sp  6                   # !1615
+    sw       %r6  %sp  7                   # !1615
+    sw       %r9  %sp  8                   # !1615
+    movz     %r2  %r3  %zero               # !1615
+    movz     %r1  %r10  %zero              # !1615
+    movz     %r27  %r5  %zero              # !1615
+    sw       %ra  %sp  9                   # !1615
+    addi     %sp  %sp  10                  # !1615
+    lw       %r28  %r27  0                 # !1615
+    jalr     %r28                          # !1615
+    addi     %sp  %sp  -10                 # !1615
+    lw       %ra  %sp  9                   # !1615
+    lw       %r2  %sp  8                   # !1616
+    beq      %r1  %r2  beq_then.9477       # !1616
+    flw      %f0  %sp  7                   # !1617
+    flw      %f0  %f0  0                   # !1617
+    flw      %f1  %sp  6                   # !1618
+    flw      %f1  %f1  0                   # !1618
+    sw       %ra  %sp  9                   # !1618
+    addi     %sp  %sp  10                  # !1618
+    jal      ~min_caml_fless               # !1618
+    addi     %sp  %sp  -10                 # !1618
+    lw       %ra  %sp  9                   # !1618
+    lw       %r2  %sp  8                   # !1618
+    beq      %r1  %r2  beq_then.9479       # !1618
+    addi     %r1  %zero  1                 # !1619
+    lw       %r2  %sp  4                   # !1619
+    lw       %r3  %sp  0                   # !1619
+    lw       %r27  %sp  5                  # !1619
+    sw       %ra  %sp  9                   # !1619
+    addi     %sp  %sp  10                  # !1619
+    lw       %r28  %r27  0                 # !1619
+    jalr     %r28                          # !1619
+    addi     %sp  %sp  -10                 # !1619
+    lw       %ra  %sp  9                   # !1619
+    j        ~beq_cont.9480                # !1618
+beq_then.9479:
+beq_cont.9480:
+    j        ~beq_cont.9478                # !1616
+beq_then.9477:
+beq_cont.9478:
+    j        ~beq_cont.9476                # !1610
+beq_then.9475:
+    addi     %r4  %zero  1                 # !1611
+    movz     %r2  %r8  %zero               # !1611
+    movz     %r1  %r4  %zero               # !1611
+    movz     %r27  %r7  %zero              # !1611
+    sw       %ra  %sp  9                   # !1611
+    addi     %sp  %sp  10                  # !1611
+    lw       %r28  %r27  0                 # !1611
+    jalr     %r28                          # !1611
+    addi     %sp  %sp  -10                 # !1611
+    lw       %ra  %sp  9                   # !1611
+beq_cont.9476:
+    lw       %r1  %sp  3                   # !1623
+    addi     %r1  %r1  1                   # !1623
+    lw       %r2  %sp  1                   # !1623
+    lw       %r3  %sp  0                   # !1623
+    lw       %r27  %sp  2                  # !1623
+    lw       %r28  %r27  0                 # !1623
+    jr       %r28                          # !1623
+beq_then.9474:
+    jr       %ra                           # !1608
+judge_intersection_fast.2781:
+    lw       %r2  %r27  3                  # !1628
+    lw       %r3  %r27  2                  # !1628
+    lw       %r4  %r27  1                  # !1628
+    addi     %r5  %zero  0                 # !1630
+    flui     %f0  627                      # !1630
+    fli      %f0  944936                   # !1630
     ++
     fli 1000000000.000000
     => flui %f0 0b01001110011
        fli  %f0 0b011100110101100101000
     ++
-    fsw %f0 %r3 0                          # !1568
-    lw %r4 %r4 0                           # !1569
-    sw %r5 %sp 0                           # !1569
-    sw %r3 %sp 1                           # !1569
-    movz %r3 %r1 %zero                     # !1569
-    movz %r27 %r2 %zero                    # !1569
-    movz %r2 %r4 %zero                     # !1569
-    movz %r1 %r5 %zero                     # !1569
-    sw %ra %sp 2                           # !1569
-    addi %sp %sp 3                         # !1569
-    lw %r28 %r27 0                         # !1569
-    jalr %r28                              # !1569
-    addi %sp %sp -3                        # !1569
-    lw %ra %sp 2                           # !1569
-    flw %f0 %sp 1                          # !1570
-    flw %f0 %f0 0                          # !1570
-    flui %f1 -530                          # !1572
-    fli %f1 838861                         # !1572
+    fsw      %f0  %r3  0                   # !1630
+    lw       %r4  %r4  0                   # !1631
+    sw       %r5  %sp  0                   # !1631
+    sw       %r3  %sp  1                   # !1631
+    movz     %r3  %r1  %zero               # !1631
+    movz     %r27  %r2  %zero              # !1631
+    movz     %r2  %r4  %zero               # !1631
+    movz     %r1  %r5  %zero               # !1631
+    sw       %ra  %sp  2                   # !1631
+    addi     %sp  %sp  3                   # !1631
+    lw       %r28  %r27  0                 # !1631
+    jalr     %r28                          # !1631
+    addi     %sp  %sp  -3                  # !1631
+    lw       %ra  %sp  2                   # !1631
+    flw      %f0  %sp  1                   # !1632
+    flw      %f1  %f0  0                   # !1632
+    flui     %f0  -530                     # !1634
+    fli      %f0  838861                   # !1634
     ++
     fli -0.100000
-    => flui %f1 0b10111101110
-       fli  %f1 0b011001100110011001101
+    => flui %f0 0b10111101110
+       fli  %f0 0b011001100110011001101
     ++
-    fblt %f1 %f0 fblt_then.8819            # !1572
-    lw %r1 %sp 0                           # !1574
-    jr %ra                                 # !1574
-fblt_then.8819:
-    flui %f1 613                           # !1573
-    fli %f1 -82912                         # !1573
+    fsw      %f1  %sp  2                   # !1634
+    sw       %ra  %sp  3                   # !1634
+    addi     %sp  %sp  4                   # !1634
+    jal      ~min_caml_fless               # !1634
+    addi     %sp  %sp  -4                  # !1634
+    lw       %ra  %sp  3                   # !1634
+    lw       %r2  %sp  0                   # !1634
+    beq      %r1  %r2  beq_then.9482       # !1634
+    flui     %f1  613                      # !1635
+    fli      %f1  -82912                   # !1635
     ++
     fli 100000000.000000
     => flui %f1 0b01001100101
        fli  %f1 0b111101011110000100000
     ++
-    fblt %f0 %f1 fblt_then.8820            # !1573
-    lw %r1 %sp 0                           # !1573
-    jr %ra                                 # !1573
-fblt_then.8820:
-    addi %r1 %zero 1                       # !1573
-    jr %ra                                 # !1573
-get_nvector_rect.2716:
-    lw %r2 %r27 2                          # !1587
-    lw %r3 %r27 1                          # !1587
-    lw %r3 %r3 0                           # !1588
-    sw %r2 %sp 0                           # !1590
-    sw %r1 %sp 1                           # !1590
-    sw %r3 %sp 2                           # !1590
-    movz %r1 %r2 %zero                     # !1590
-    sw %ra %sp 3                           # !1590
-    addi %sp %sp 4                         # !1590
-    jal ~vecbzero.2426                     # !1590
-    addi %sp %sp -4                        # !1590
-    lw %ra %sp 3                           # !1590
-    lw %r1 %sp 2                           # !1591
-    addi %r1 %r1 -1                        # !1591
-    flw %f0 %sp 1                          # !1591
-    flwv %f0 %f0 %r1                       # !1591
-    sw %r1 %sp 3                           # !1591
-    sw %ra %sp 4                           # !1591
-    addi %sp %sp 5                         # !1591
-    jal ~sgn.2410                          # !1591
-    addi %sp %sp -5                        # !1591
-    lw %ra %sp 4                           # !1591
-    fneg %f0 %f0                           # !1591
-    lw %r1 %sp 3                           # !1591
-    lw %r2 %sp 0                           # !1591
-    fswv %f0 %r2 %r1                       # !1591
-    jr %ra                                 # !1591
-get_nvector_plane.2718:
-    lw %r2 %r27 1                          # !1595
-    sw %r1 %sp 0                           # !1597
-    sw %r2 %sp 1                           # !1597
-    sw %ra %sp 2                           # !1597
-    addi %sp %sp 3                         # !1597
-    jal ~o_param_a.2466                    # !1597
-    addi %sp %sp -3                        # !1597
-    lw %ra %sp 2                           # !1597
-    fneg %f0 %f0                           # !1597
-    lw %r1 %sp 1                           # !1597
-    fsw %f0 %r1 0                          # !1597
-    lw %r2 %sp 0                           # !1598
-    movz %r1 %r2 %zero                     # !1598
-    sw %ra %sp 2                           # !1598
-    addi %sp %sp 3                         # !1598
-    jal ~o_param_b.2468                    # !1598
-    addi %sp %sp -3                        # !1598
-    lw %ra %sp 2                           # !1598
-    fneg %f0 %f0                           # !1598
-    lw %r1 %sp 1                           # !1598
-    fsw %f0 %r1 1                          # !1598
-    lw %r2 %sp 0                           # !1599
-    movz %r1 %r2 %zero                     # !1599
-    sw %ra %sp 2                           # !1599
-    addi %sp %sp 3                         # !1599
-    jal ~o_param_c.2470                    # !1599
-    addi %sp %sp -3                        # !1599
-    lw %ra %sp 2                           # !1599
-    fneg %f0 %f0                           # !1599
-    lw %r1 %sp 1                           # !1599
-    fsw %f0 %r1 2                          # !1599
-    jr %ra                                 # !1599
-get_nvector_second.2720:
-    lw %r2 %r27 2                          # !1603
-    lw %r3 %r27 1                          # !1603
-    addi %r4 %zero 0                       # !1604
-    flw %f0 %r3 0                          # !1604
-    sw %r2 %sp 0                           # !1604
-    sw %r4 %sp 1                           # !1604
-    sw %r1 %sp 2                           # !1604
-    sw %r3 %sp 3                           # !1604
-    fsw %f0 %sp 4                          # !1604
-    sw %ra %sp 5                           # !1604
-    addi %sp %sp 6                         # !1604
-    jal ~o_param_x.2474                    # !1604
-    addi %sp %sp -6                        # !1604
-    lw %ra %sp 5                           # !1604
-    flw %f1 %sp 4                          # !1604
-    fsub %f0 %f1 %f0                       # !1604
-    flw %f1 %sp 3                          # !1605
-    flw %f2 %f1 1                          # !1605
-    lw %r1 %sp 2                           # !1605
-    fsw %f0 %sp 5                          # !1605
-    fsw %f2 %sp 6                          # !1605
-    sw %ra %sp 7                           # !1605
-    addi %sp %sp 8                         # !1605
-    jal ~o_param_y.2476                    # !1605
-    addi %sp %sp -8                        # !1605
-    lw %ra %sp 7                           # !1605
-    flw %f1 %sp 6                          # !1605
-    fsub %f0 %f1 %f0                       # !1605
-    flw %f1 %sp 3                          # !1606
-    flw %f1 %f1 2                          # !1606
-    lw %r1 %sp 2                           # !1606
-    fsw %f0 %sp 7                          # !1606
-    fsw %f1 %sp 8                          # !1606
-    sw %ra %sp 9                           # !1606
-    addi %sp %sp 10                        # !1606
-    jal ~o_param_z.2478                    # !1606
-    addi %sp %sp -10                       # !1606
-    lw %ra %sp 9                           # !1606
-    flw %f1 %sp 8                          # !1606
-    fsub %f0 %f1 %f0                       # !1606
-    lw %r1 %sp 2                           # !1608
-    fsw %f0 %sp 9                          # !1608
-    sw %ra %sp 10                          # !1608
-    addi %sp %sp 11                        # !1608
-    jal ~o_param_a.2466                    # !1608
-    addi %sp %sp -11                       # !1608
-    lw %ra %sp 10                          # !1608
-    flw %f1 %sp 5                          # !1608
-    fmul %f0 %f0 %f1                       # !1608
-    lw %r1 %sp 2                           # !1609
-    fsw %f0 %sp 10                         # !1609
-    sw %ra %sp 11                          # !1609
-    addi %sp %sp 12                        # !1609
-    jal ~o_param_b.2468                    # !1609
-    addi %sp %sp -12                       # !1609
-    lw %ra %sp 11                          # !1609
-    flw %f1 %sp 7                          # !1609
-    fmul %f0 %f0 %f1                       # !1609
-    lw %r1 %sp 2                           # !1610
-    fsw %f0 %sp 11                         # !1610
-    sw %ra %sp 12                          # !1610
-    addi %sp %sp 13                        # !1610
-    jal ~o_param_c.2470                    # !1610
-    addi %sp %sp -13                       # !1610
-    lw %ra %sp 12                          # !1610
-    flw %f1 %sp 9                          # !1610
-    fmul %f0 %f0 %f1                       # !1610
-    lw %r1 %sp 2                           # !1612
-    fsw %f0 %sp 12                         # !1612
-    sw %ra %sp 13                          # !1612
-    addi %sp %sp 14                        # !1612
-    jal ~o_isrot.2464                      # !1612
-    addi %sp %sp -14                       # !1612
-    lw %ra %sp 13                          # !1612
-    lw %r2 %sp 1                           # !1612
-    beq %r1 %r2 beq_then.8823              # !1612
-    lw %r1 %sp 2                           # !1617
-    sw %ra %sp 13                          # !1617
-    addi %sp %sp 14                        # !1617
-    jal ~o_param_r3.2494                   # !1617
-    addi %sp %sp -14                       # !1617
-    lw %ra %sp 13                          # !1617
-    flw %f1 %sp 7                          # !1617
-    fmul %f0 %f0 %f1                       # !1617
-    lw %r1 %sp 2                           # !1617
-    fsw %f0 %sp 13                         # !1617
-    sw %ra %sp 14                          # !1617
-    addi %sp %sp 15                        # !1617
-    jal ~o_param_r2.2492                   # !1617
-    addi %sp %sp -15                       # !1617
-    lw %ra %sp 14                          # !1617
-    flw %f1 %sp 9                          # !1617
-    fmul %f0 %f0 %f1                       # !1617
-    flw %f2 %sp 13                         # !1617
-    fadd %f0 %f2 %f0                       # !1617
-    flui %f2 504                           # !1617
-    fli %f2 0                              # !1617
-    ++
-    fli 0.500000
-    => flui %f2 0b00111111000
-       fli  %f2 0b000000000000000000000
-    ++
-    fmul %f0 %f0 %f2                       # !1617
-    flw %f3 %sp 10                         # !1617
-    fadd %f0 %f0 %f3                       # !1617
-    lw %r1 %sp 0                           # !1617
-    fsw %f0 %r1 0                          # !1617
-    lw %r2 %sp 2                           # !1618
-    fsw %f2 %sp 14                         # !1618
-    movz %r1 %r2 %zero                     # !1618
-    sw %ra %sp 15                          # !1618
-    addi %sp %sp 16                        # !1618
-    jal ~o_param_r3.2494                   # !1618
-    addi %sp %sp -16                       # !1618
-    lw %ra %sp 15                          # !1618
-    flw %f1 %sp 5                          # !1618
-    fmul %f0 %f0 %f1                       # !1618
-    lw %r1 %sp 2                           # !1618
-    fsw %f0 %sp 15                         # !1618
-    sw %ra %sp 16                          # !1618
-    addi %sp %sp 17                        # !1618
-    jal ~o_param_r1.2490                   # !1618
-    addi %sp %sp -17                       # !1618
-    lw %ra %sp 16                          # !1618
-    flw %f1 %sp 9                          # !1618
-    fmul %f0 %f0 %f1                       # !1618
-    flw %f1 %sp 15                         # !1618
-    fadd %f0 %f1 %f0                       # !1618
-    flw %f1 %sp 14                         # !1618
-    fmul %f0 %f1 %f0                       # !1618
-    flw %f2 %sp 11                         # !1618
-    fadd %f0 %f0 %f2                       # !1618
-    lw %r1 %sp 0                           # !1618
-    fsw %f0 %r1 1                          # !1618
-    lw %r2 %sp 2                           # !1619
-    movz %r1 %r2 %zero                     # !1619
-    sw %ra %sp 16                          # !1619
-    addi %sp %sp 17                        # !1619
-    jal ~o_param_r2.2492                   # !1619
-    addi %sp %sp -17                       # !1619
-    lw %ra %sp 16                          # !1619
-    flw %f1 %sp 5                          # !1619
-    fmul %f0 %f0 %f1                       # !1619
-    lw %r1 %sp 2                           # !1619
-    fsw %f0 %sp 16                         # !1619
-    sw %ra %sp 17                          # !1619
-    addi %sp %sp 18                        # !1619
-    jal ~o_param_r1.2490                   # !1619
-    addi %sp %sp -18                       # !1619
-    lw %ra %sp 17                          # !1619
-    flw %f1 %sp 7                          # !1619
-    fmul %f0 %f0 %f1                       # !1619
-    flw %f1 %sp 16                         # !1619
-    fadd %f0 %f1 %f0                       # !1619
-    flw %f1 %sp 14                         # !1619
-    fmul %f0 %f1 %f0                       # !1619
-    flw %f1 %sp 12                         # !1619
-    fadd %f0 %f0 %f1                       # !1619
-    lw %r1 %sp 0                           # !1619
-    fsw %f0 %r1 2                          # !1619
-    j ~beq_cont.8824                       # !1612
-beq_then.8823:
-    lw %r1 %sp 0                           # !1613
-    flw %f0 %sp 10                         # !1613
-    fsw %f0 %r1 0                          # !1613
-    flw %f0 %sp 11                         # !1614
-    fsw %f0 %r1 1                          # !1614
-    flw %f0 %sp 12                         # !1615
-    fsw %f0 %r1 2                          # !1615
-beq_cont.8824:
-    lw %r2 %sp 2                           # !1621
-    movz %r1 %r2 %zero                     # !1621
-    sw %ra %sp 17                          # !1621
-    addi %sp %sp 18                        # !1621
-    jal ~o_isinvert.2462                   # !1621
-    addi %sp %sp -18                       # !1621
-    lw %ra %sp 17                          # !1621
-    movz %r2 %r1 %zero                     # !1621
-    lw %r1 %sp 0                           # !1621
-    j ~vecunit_sgn.2431                    # !1621
-get_nvector.2722:
-    lw %r3 %r27 3                          # !1625
-    lw %r4 %r27 2                          # !1625
-    lw %r5 %r27 1                          # !1625
-    sw %r3 %sp 0                           # !1626
-    sw %r1 %sp 1                           # !1626
-    sw %r5 %sp 2                           # !1626
-    sw %r2 %sp 3                           # !1626
-    sw %r4 %sp 4                           # !1626
-    sw %ra %sp 5                           # !1626
-    addi %sp %sp 6                         # !1626
-    jal ~o_form.2458                       # !1626
-    addi %sp %sp -6                        # !1626
-    lw %ra %sp 5                           # !1626
-    addi %r2 %zero 1                       # !1627
-    beq %r1 %r2 beq_then.8825              # !1627
-    addi %r2 %zero 2                       # !1629
-    beq %r1 %r2 beq_then.8826              # !1629
-    lw %r1 %sp 1                           # !1632
-    lw %r27 %sp 0                          # !1632
-    lw %r28 %r27 0                         # !1632
-    jr %r28                                # !1632
-beq_then.8826:
-    lw %r1 %sp 1                           # !1630
-    lw %r27 %sp 2                          # !1630
-    lw %r28 %r27 0                         # !1630
-    jr %r28                                # !1630
-beq_then.8825:
-    lw %r1 %sp 3                           # !1628
-    lw %r27 %sp 4                          # !1628
-    lw %r28 %r27 0                         # !1628
-    jr %r28                                # !1628
-utexture.2725:
-    lw %r3 %r27 1                          # !1641
-    sw %r2 %sp 0                           # !1642
-    sw %r3 %sp 1                           # !1642
-    sw %r1 %sp 2                           # !1642
-    sw %ra %sp 3                           # !1642
-    addi %sp %sp 4                         # !1642
-    jal ~o_texturetype.2456                # !1642
-    addi %sp %sp -4                        # !1642
-    lw %ra %sp 3                           # !1642
-    addi %r2 %zero 0                       # !1644
-    lw %r3 %sp 2                           # !1644
-    sw %r2 %sp 3                           # !1644
-    sw %r1 %sp 4                           # !1644
-    movz %r1 %r3 %zero                     # !1644
-    sw %ra %sp 5                           # !1644
-    addi %sp %sp 6                         # !1644
-    jal ~o_color_red.2484                  # !1644
-    addi %sp %sp -6                        # !1644
-    lw %ra %sp 5                           # !1644
-    lw %r1 %sp 1                           # !1644
-    fsw %f0 %r1 0                          # !1644
-    addi %r2 %zero 1                       # !1645
-    lw %r3 %sp 2                           # !1645
-    sw %r2 %sp 5                           # !1645
-    movz %r1 %r3 %zero                     # !1645
-    sw %ra %sp 6                           # !1645
-    addi %sp %sp 7                         # !1645
-    jal ~o_color_green.2486                # !1645
-    addi %sp %sp -7                        # !1645
-    lw %ra %sp 6                           # !1645
-    lw %r1 %sp 1                           # !1645
-    fsw %f0 %r1 1                          # !1645
-    addi %r2 %zero 2                       # !1646
-    lw %r3 %sp 2                           # !1646
-    sw %r2 %sp 6                           # !1646
-    movz %r1 %r3 %zero                     # !1646
-    sw %ra %sp 7                           # !1646
-    addi %sp %sp 8                         # !1646
-    jal ~o_color_blue.2488                 # !1646
-    addi %sp %sp -8                        # !1646
-    lw %ra %sp 7                           # !1646
-    lw %r1 %sp 1                           # !1646
-    fsw %f0 %r1 2                          # !1646
-    lw %r2 %sp 5                           # !1647
-    lw %r3 %sp 4                           # !1647
-    beq %r3 %r2 beq_then.8827              # !1647
-    lw %r2 %sp 6                           # !1665
-    beq %r3 %r2 beq_then.8828              # !1665
-    addi %r2 %zero 3                       # !1672
-    beq %r3 %r2 beq_then.8829              # !1672
-    addi %r2 %zero 4                       # !1683
-    beq %r3 %r2 beq_then.8830              # !1683
-    jr %ra                                 # !1711
-beq_then.8830:
-    flw %f0 %sp 0                          # !1685
-    flw %f1 %f0 0                          # !1685
-    lw %r2 %sp 2                           # !1685
-    fsw %f1 %sp 7                          # !1685
-    movz %r1 %r2 %zero                     # !1685
-    sw %ra %sp 8                           # !1685
-    addi %sp %sp 9                         # !1685
-    jal ~o_param_x.2474                    # !1685
-    addi %sp %sp -9                        # !1685
-    lw %ra %sp 8                           # !1685
-    flw %f1 %sp 7                          # !1685
-    fsub %f0 %f1 %f0                       # !1685
-    lw %r1 %sp 2                           # !1685
-    fsw %f0 %sp 8                          # !1685
-    sw %ra %sp 9                           # !1685
-    addi %sp %sp 10                        # !1685
-    jal ~o_param_a.2466                    # !1685
-    addi %sp %sp -10                       # !1685
-    lw %ra %sp 9                           # !1685
-    fsqrt %f0 %f0                          # !1685
-    flw %f1 %sp 8                          # !1685
-    fmul %f0 %f1 %f0                       # !1685
-    flw %f1 %sp 0                          # !1686
-    flw %f2 %f1 2                          # !1686
-    lw %r1 %sp 2                           # !1686
-    fsw %f0 %sp 9                          # !1686
-    fsw %f2 %sp 10                         # !1686
-    sw %ra %sp 11                          # !1686
-    addi %sp %sp 12                        # !1686
-    jal ~o_param_z.2478                    # !1686
-    addi %sp %sp -12                       # !1686
-    lw %ra %sp 11                          # !1686
-    flw %f1 %sp 10                         # !1686
-    fsub %f0 %f1 %f0                       # !1686
-    lw %r1 %sp 2                           # !1686
-    fsw %f0 %sp 11                         # !1686
-    sw %ra %sp 12                          # !1686
-    addi %sp %sp 13                        # !1686
-    jal ~o_param_c.2470                    # !1686
-    addi %sp %sp -13                       # !1686
-    lw %ra %sp 12                          # !1686
-    fsqrt %f0 %f0                          # !1686
-    flw %f1 %sp 11                         # !1686
-    fmul %f0 %f1 %f0                       # !1686
-    flw %f1 %sp 9                          # !1687
-    fmul %f2 %f1 %f1                       # !1687
-    fmul %f3 %f0 %f0                       # !1687
-    fadd %f2 %f2 %f3                       # !1687
-    flui %f3 454                           # !1689
-    fli %f3 -936169                        # !1689
+    flw      %f0  %sp  2                   # !1635
+    j        ~min_caml_fless               # !1635
+beq_then.9482:
+    movz     %r1  %r2  %zero               # !1636
+    jr       %ra                           # !1636
+get_nvector_rect.2783:
+    lw       %r2  %r27  2                  # !1649
+    lw       %r3  %r27  1                  # !1649
+    lw       %r3  %r3  0                   # !1650
+    sw       %r2  %sp  0                   # !1652
+    sw       %r1  %sp  1                   # !1652
+    sw       %r3  %sp  2                   # !1652
+    movz     %r1  %r2  %zero               # !1652
+    sw       %ra  %sp  3                   # !1652
+    addi     %sp  %sp  4                   # !1652
+    jal      ~vecbzero.2493                # !1652
+    addi     %sp  %sp  -4                  # !1652
+    lw       %ra  %sp  3                   # !1652
+    lw       %r1  %sp  2                   # !1653
+    addi     %r1  %r1  -1                  # !1653
+    flw      %f0  %sp  1                   # !1653
+    flwv     %f0  %f0  %r1                 # !1653
+    sw       %r1  %sp  3                   # !1653
+    sw       %ra  %sp  4                   # !1653
+    addi     %sp  %sp  5                   # !1653
+    jal      ~sgn.2477                     # !1653
+    addi     %sp  %sp  -5                  # !1653
+    lw       %ra  %sp  4                   # !1653
+    sw       %ra  %sp  4                   # !1653
+    addi     %sp  %sp  5                   # !1653
+    jal      ~min_caml_fneg                # !1653
+    addi     %sp  %sp  -5                  # !1653
+    lw       %ra  %sp  4                   # !1653
+    lw       %r1  %sp  3                   # !1653
+    lw       %r2  %sp  0                   # !1653
+    fswv     %f0  %r2  %r1                 # !1653
+    jr       %ra                           # !1653
+get_nvector_plane.2785:
+    lw       %r2  %r27  1                  # !1657
+    sw       %r1  %sp  0                   # !1659
+    sw       %r2  %sp  1                   # !1659
+    sw       %ra  %sp  2                   # !1659
+    addi     %sp  %sp  3                   # !1659
+    jal      ~o_param_a.2533               # !1659
+    addi     %sp  %sp  -3                  # !1659
+    lw       %ra  %sp  2                   # !1659
+    sw       %ra  %sp  2                   # !1659
+    addi     %sp  %sp  3                   # !1659
+    jal      ~min_caml_fneg                # !1659
+    addi     %sp  %sp  -3                  # !1659
+    lw       %ra  %sp  2                   # !1659
+    lw       %r1  %sp  1                   # !1659
+    fsw      %f0  %r1  0                   # !1659
+    lw       %r2  %sp  0                   # !1660
+    movz     %r1  %r2  %zero               # !1660
+    sw       %ra  %sp  2                   # !1660
+    addi     %sp  %sp  3                   # !1660
+    jal      ~o_param_b.2535               # !1660
+    addi     %sp  %sp  -3                  # !1660
+    lw       %ra  %sp  2                   # !1660
+    sw       %ra  %sp  2                   # !1660
+    addi     %sp  %sp  3                   # !1660
+    jal      ~min_caml_fneg                # !1660
+    addi     %sp  %sp  -3                  # !1660
+    lw       %ra  %sp  2                   # !1660
+    lw       %r1  %sp  1                   # !1660
+    fsw      %f0  %r1  1                   # !1660
+    lw       %r2  %sp  0                   # !1661
+    movz     %r1  %r2  %zero               # !1661
+    sw       %ra  %sp  2                   # !1661
+    addi     %sp  %sp  3                   # !1661
+    jal      ~o_param_c.2537               # !1661
+    addi     %sp  %sp  -3                  # !1661
+    lw       %ra  %sp  2                   # !1661
+    sw       %ra  %sp  2                   # !1661
+    addi     %sp  %sp  3                   # !1661
+    jal      ~min_caml_fneg                # !1661
+    addi     %sp  %sp  -3                  # !1661
+    lw       %ra  %sp  2                   # !1661
+    lw       %r1  %sp  1                   # !1661
+    fsw      %f0  %r1  2                   # !1661
+    jr       %ra                           # !1661
+get_nvector_second.2787:
+    lw       %r2  %r27  2                  # !1665
+    lw       %r3  %r27  1                  # !1665
+    addi     %r4  %zero  0                 # !1666
+    flw      %f0  %r3  0                   # !1666
+    sw       %r2  %sp  0                   # !1666
+    sw       %r4  %sp  1                   # !1666
+    sw       %r1  %sp  2                   # !1666
+    sw       %r3  %sp  3                   # !1666
+    fsw      %f0  %sp  4                   # !1666
+    sw       %ra  %sp  5                   # !1666
+    addi     %sp  %sp  6                   # !1666
+    jal      ~o_param_x.2541               # !1666
+    addi     %sp  %sp  -6                  # !1666
+    lw       %ra  %sp  5                   # !1666
+    flw      %f1  %sp  4                   # !1666
+    fsub     %f0  %f1  %f0                 # !1666
+    flw      %f1  %sp  3                   # !1667
+    flw      %f2  %f1  1                   # !1667
+    lw       %r1  %sp  2                   # !1667
+    fsw      %f0  %sp  5                   # !1667
+    fsw      %f2  %sp  6                   # !1667
+    sw       %ra  %sp  7                   # !1667
+    addi     %sp  %sp  8                   # !1667
+    jal      ~o_param_y.2543               # !1667
+    addi     %sp  %sp  -8                  # !1667
+    lw       %ra  %sp  7                   # !1667
+    flw      %f1  %sp  6                   # !1667
+    fsub     %f0  %f1  %f0                 # !1667
+    flw      %f1  %sp  3                   # !1668
+    flw      %f1  %f1  2                   # !1668
+    lw       %r1  %sp  2                   # !1668
+    fsw      %f0  %sp  7                   # !1668
+    fsw      %f1  %sp  8                   # !1668
+    sw       %ra  %sp  9                   # !1668
+    addi     %sp  %sp  10                  # !1668
+    jal      ~o_param_z.2545               # !1668
+    addi     %sp  %sp  -10                 # !1668
+    lw       %ra  %sp  9                   # !1668
+    flw      %f1  %sp  8                   # !1668
+    fsub     %f0  %f1  %f0                 # !1668
+    lw       %r1  %sp  2                   # !1670
+    fsw      %f0  %sp  9                   # !1670
+    sw       %ra  %sp  10                  # !1670
+    addi     %sp  %sp  11                  # !1670
+    jal      ~o_param_a.2533               # !1670
+    addi     %sp  %sp  -11                 # !1670
+    lw       %ra  %sp  10                  # !1670
+    flw      %f1  %sp  5                   # !1670
+    fmul     %f0  %f0  %f1                 # !1670
+    lw       %r1  %sp  2                   # !1671
+    fsw      %f0  %sp  10                  # !1671
+    sw       %ra  %sp  11                  # !1671
+    addi     %sp  %sp  12                  # !1671
+    jal      ~o_param_b.2535               # !1671
+    addi     %sp  %sp  -12                 # !1671
+    lw       %ra  %sp  11                  # !1671
+    flw      %f1  %sp  7                   # !1671
+    fmul     %f0  %f0  %f1                 # !1671
+    lw       %r1  %sp  2                   # !1672
+    fsw      %f0  %sp  11                  # !1672
+    sw       %ra  %sp  12                  # !1672
+    addi     %sp  %sp  13                  # !1672
+    jal      ~o_param_c.2537               # !1672
+    addi     %sp  %sp  -13                 # !1672
+    lw       %ra  %sp  12                  # !1672
+    flw      %f1  %sp  9                   # !1672
+    fmul     %f0  %f0  %f1                 # !1672
+    lw       %r1  %sp  2                   # !1674
+    fsw      %f0  %sp  12                  # !1674
+    sw       %ra  %sp  13                  # !1674
+    addi     %sp  %sp  14                  # !1674
+    jal      ~o_isrot.2531                 # !1674
+    addi     %sp  %sp  -14                 # !1674
+    lw       %ra  %sp  13                  # !1674
+    lw       %r2  %sp  1                   # !1674
+    beq      %r1  %r2  beq_then.9485       # !1674
+    lw       %r1  %sp  2                   # !1679
+    sw       %ra  %sp  13                  # !1679
+    addi     %sp  %sp  14                  # !1679
+    jal      ~o_param_r3.2561              # !1679
+    addi     %sp  %sp  -14                 # !1679
+    lw       %ra  %sp  13                  # !1679
+    flw      %f1  %sp  7                   # !1679
+    fmul     %f0  %f0  %f1                 # !1679
+    lw       %r1  %sp  2                   # !1679
+    fsw      %f0  %sp  13                  # !1679
+    sw       %ra  %sp  14                  # !1679
+    addi     %sp  %sp  15                  # !1679
+    jal      ~o_param_r2.2559              # !1679
+    addi     %sp  %sp  -15                 # !1679
+    lw       %ra  %sp  14                  # !1679
+    flw      %f1  %sp  9                   # !1679
+    fmul     %f0  %f0  %f1                 # !1679
+    flw      %f2  %sp  13                  # !1679
+    fadd     %f0  %f2  %f0                 # !1679
+    sw       %ra  %sp  14                  # !1679
+    addi     %sp  %sp  15                  # !1679
+    jal      ~min_caml_fhalf               # !1679
+    addi     %sp  %sp  -15                 # !1679
+    lw       %ra  %sp  14                  # !1679
+    flw      %f1  %sp  10                  # !1679
+    fadd     %f0  %f0  %f1                 # !1679
+    lw       %r1  %sp  0                   # !1679
+    fsw      %f0  %r1  0                   # !1679
+    lw       %r2  %sp  2                   # !1680
+    movz     %r1  %r2  %zero               # !1680
+    sw       %ra  %sp  14                  # !1680
+    addi     %sp  %sp  15                  # !1680
+    jal      ~o_param_r3.2561              # !1680
+    addi     %sp  %sp  -15                 # !1680
+    lw       %ra  %sp  14                  # !1680
+    flw      %f1  %sp  5                   # !1680
+    fmul     %f0  %f0  %f1                 # !1680
+    lw       %r1  %sp  2                   # !1680
+    fsw      %f0  %sp  14                  # !1680
+    sw       %ra  %sp  15                  # !1680
+    addi     %sp  %sp  16                  # !1680
+    jal      ~o_param_r1.2557              # !1680
+    addi     %sp  %sp  -16                 # !1680
+    lw       %ra  %sp  15                  # !1680
+    flw      %f1  %sp  9                   # !1680
+    fmul     %f0  %f0  %f1                 # !1680
+    flw      %f1  %sp  14                  # !1680
+    fadd     %f0  %f1  %f0                 # !1680
+    sw       %ra  %sp  15                  # !1680
+    addi     %sp  %sp  16                  # !1680
+    jal      ~min_caml_fhalf               # !1680
+    addi     %sp  %sp  -16                 # !1680
+    lw       %ra  %sp  15                  # !1680
+    flw      %f1  %sp  11                  # !1680
+    fadd     %f0  %f0  %f1                 # !1680
+    lw       %r1  %sp  0                   # !1680
+    fsw      %f0  %r1  1                   # !1680
+    lw       %r2  %sp  2                   # !1681
+    movz     %r1  %r2  %zero               # !1681
+    sw       %ra  %sp  15                  # !1681
+    addi     %sp  %sp  16                  # !1681
+    jal      ~o_param_r2.2559              # !1681
+    addi     %sp  %sp  -16                 # !1681
+    lw       %ra  %sp  15                  # !1681
+    flw      %f1  %sp  5                   # !1681
+    fmul     %f0  %f0  %f1                 # !1681
+    lw       %r1  %sp  2                   # !1681
+    fsw      %f0  %sp  15                  # !1681
+    sw       %ra  %sp  16                  # !1681
+    addi     %sp  %sp  17                  # !1681
+    jal      ~o_param_r1.2557              # !1681
+    addi     %sp  %sp  -17                 # !1681
+    lw       %ra  %sp  16                  # !1681
+    flw      %f1  %sp  7                   # !1681
+    fmul     %f0  %f0  %f1                 # !1681
+    flw      %f1  %sp  15                  # !1681
+    fadd     %f0  %f1  %f0                 # !1681
+    sw       %ra  %sp  16                  # !1681
+    addi     %sp  %sp  17                  # !1681
+    jal      ~min_caml_fhalf               # !1681
+    addi     %sp  %sp  -17                 # !1681
+    lw       %ra  %sp  16                  # !1681
+    flw      %f1  %sp  12                  # !1681
+    fadd     %f0  %f0  %f1                 # !1681
+    lw       %r1  %sp  0                   # !1681
+    fsw      %f0  %r1  2                   # !1681
+    j        ~beq_cont.9486                # !1674
+beq_then.9485:
+    lw       %r1  %sp  0                   # !1675
+    flw      %f0  %sp  10                  # !1675
+    fsw      %f0  %r1  0                   # !1675
+    flw      %f0  %sp  11                  # !1676
+    fsw      %f0  %r1  1                   # !1676
+    flw      %f0  %sp  12                  # !1677
+    fsw      %f0  %r1  2                   # !1677
+beq_cont.9486:
+    lw       %r2  %sp  2                   # !1683
+    movz     %r1  %r2  %zero               # !1683
+    sw       %ra  %sp  16                  # !1683
+    addi     %sp  %sp  17                  # !1683
+    jal      ~o_isinvert.2529              # !1683
+    addi     %sp  %sp  -17                 # !1683
+    lw       %ra  %sp  16                  # !1683
+    movz     %r2  %r1  %zero               # !1683
+    lw       %r1  %sp  0                   # !1683
+    j        ~vecunit_sgn.2498             # !1683
+get_nvector.2789:
+    lw       %r3  %r27  3                  # !1687
+    lw       %r4  %r27  2                  # !1687
+    lw       %r5  %r27  1                  # !1687
+    sw       %r3  %sp  0                   # !1688
+    sw       %r1  %sp  1                   # !1688
+    sw       %r5  %sp  2                   # !1688
+    sw       %r2  %sp  3                   # !1688
+    sw       %r4  %sp  4                   # !1688
+    sw       %ra  %sp  5                   # !1688
+    addi     %sp  %sp  6                   # !1688
+    jal      ~o_form.2525                  # !1688
+    addi     %sp  %sp  -6                  # !1688
+    lw       %ra  %sp  5                   # !1688
+    addi     %r2  %zero  1                 # !1689
+    beq      %r1  %r2  beq_then.9487       # !1689
+    addi     %r2  %zero  2                 # !1691
+    beq      %r1  %r2  beq_then.9488       # !1691
+    lw       %r1  %sp  1                   # !1694
+    lw       %r27  %sp  0                  # !1694
+    lw       %r28  %r27  0                 # !1694
+    jr       %r28                          # !1694
+beq_then.9488:
+    lw       %r1  %sp  1                   # !1692
+    lw       %r27  %sp  2                  # !1692
+    lw       %r28  %r27  0                 # !1692
+    jr       %r28                          # !1692
+beq_then.9487:
+    lw       %r1  %sp  3                   # !1690
+    lw       %r27  %sp  4                  # !1690
+    lw       %r28  %r27  0                 # !1690
+    jr       %r28                          # !1690
+utexture.2792:
+    lw       %r3  %r27  1                  # !1703
+    sw       %r2  %sp  0                   # !1704
+    sw       %r3  %sp  1                   # !1704
+    sw       %r1  %sp  2                   # !1704
+    sw       %ra  %sp  3                   # !1704
+    addi     %sp  %sp  4                   # !1704
+    jal      ~o_texturetype.2523           # !1704
+    addi     %sp  %sp  -4                  # !1704
+    lw       %ra  %sp  3                   # !1704
+    addi     %r2  %zero  0                 # !1706
+    lw       %r3  %sp  2                   # !1706
+    sw       %r2  %sp  3                   # !1706
+    sw       %r1  %sp  4                   # !1706
+    movz     %r1  %r3  %zero               # !1706
+    sw       %ra  %sp  5                   # !1706
+    addi     %sp  %sp  6                   # !1706
+    jal      ~o_color_red.2551             # !1706
+    addi     %sp  %sp  -6                  # !1706
+    lw       %ra  %sp  5                   # !1706
+    lw       %r1  %sp  1                   # !1706
+    fsw      %f0  %r1  0                   # !1706
+    addi     %r2  %zero  1                 # !1707
+    lw       %r3  %sp  2                   # !1707
+    sw       %r2  %sp  5                   # !1707
+    movz     %r1  %r3  %zero               # !1707
+    sw       %ra  %sp  6                   # !1707
+    addi     %sp  %sp  7                   # !1707
+    jal      ~o_color_green.2553           # !1707
+    addi     %sp  %sp  -7                  # !1707
+    lw       %ra  %sp  6                   # !1707
+    lw       %r1  %sp  1                   # !1707
+    fsw      %f0  %r1  1                   # !1707
+    addi     %r2  %zero  2                 # !1708
+    lw       %r3  %sp  2                   # !1708
+    sw       %r2  %sp  6                   # !1708
+    movz     %r1  %r3  %zero               # !1708
+    sw       %ra  %sp  7                   # !1708
+    addi     %sp  %sp  8                   # !1708
+    jal      ~o_color_blue.2555            # !1708
+    addi     %sp  %sp  -8                  # !1708
+    lw       %ra  %sp  7                   # !1708
+    lw       %r1  %sp  1                   # !1708
+    fsw      %f0  %r1  2                   # !1708
+    lw       %r2  %sp  5                   # !1709
+    lw       %r3  %sp  4                   # !1709
+    beq      %r3  %r2  beq_then.9489       # !1709
+    lw       %r2  %sp  6                   # !1727
+    beq      %r3  %r2  beq_then.9490       # !1727
+    addi     %r2  %zero  3                 # !1734
+    beq      %r3  %r2  beq_then.9491       # !1734
+    addi     %r2  %zero  4                 # !1745
+    beq      %r3  %r2  beq_then.9492       # !1745
+    jr       %ra                           # !1773
+beq_then.9492:
+    flw      %f0  %sp  0                   # !1747
+    flw      %f1  %f0  0                   # !1747
+    lw       %r2  %sp  2                   # !1747
+    fsw      %f1  %sp  7                   # !1747
+    movz     %r1  %r2  %zero               # !1747
+    sw       %ra  %sp  8                   # !1747
+    addi     %sp  %sp  9                   # !1747
+    jal      ~o_param_x.2541               # !1747
+    addi     %sp  %sp  -9                  # !1747
+    lw       %ra  %sp  8                   # !1747
+    flw      %f1  %sp  7                   # !1747
+    fsub     %f0  %f1  %f0                 # !1747
+    lw       %r1  %sp  2                   # !1747
+    fsw      %f0  %sp  8                   # !1747
+    sw       %ra  %sp  9                   # !1747
+    addi     %sp  %sp  10                  # !1747
+    jal      ~o_param_a.2533               # !1747
+    addi     %sp  %sp  -10                 # !1747
+    lw       %ra  %sp  9                   # !1747
+    sw       %ra  %sp  9                   # !1747
+    addi     %sp  %sp  10                  # !1747
+    jal      ~min_caml_sqrt                # !1747
+    addi     %sp  %sp  -10                 # !1747
+    lw       %ra  %sp  9                   # !1747
+    flw      %f1  %sp  8                   # !1747
+    fmul     %f0  %f1  %f0                 # !1747
+    flw      %f1  %sp  0                   # !1748
+    flw      %f2  %f1  2                   # !1748
+    lw       %r1  %sp  2                   # !1748
+    fsw      %f0  %sp  9                   # !1748
+    fsw      %f2  %sp  10                  # !1748
+    sw       %ra  %sp  11                  # !1748
+    addi     %sp  %sp  12                  # !1748
+    jal      ~o_param_z.2545               # !1748
+    addi     %sp  %sp  -12                 # !1748
+    lw       %ra  %sp  11                  # !1748
+    flw      %f1  %sp  10                  # !1748
+    fsub     %f0  %f1  %f0                 # !1748
+    lw       %r1  %sp  2                   # !1748
+    fsw      %f0  %sp  11                  # !1748
+    sw       %ra  %sp  12                  # !1748
+    addi     %sp  %sp  13                  # !1748
+    jal      ~o_param_c.2537               # !1748
+    addi     %sp  %sp  -13                 # !1748
+    lw       %ra  %sp  12                  # !1748
+    sw       %ra  %sp  12                  # !1748
+    addi     %sp  %sp  13                  # !1748
+    jal      ~min_caml_sqrt                # !1748
+    addi     %sp  %sp  -13                 # !1748
+    lw       %ra  %sp  12                  # !1748
+    flw      %f1  %sp  11                  # !1748
+    fmul     %f0  %f1  %f0                 # !1748
+    flw      %f1  %sp  9                   # !1749
+    fsw      %f0  %sp  12                  # !1749
+    fmovz    %f0  %f1  %zero               # !1749
+    sw       %ra  %sp  13                  # !1749
+    addi     %sp  %sp  14                  # !1749
+    jal      ~min_caml_fsqr                # !1749
+    addi     %sp  %sp  -14                 # !1749
+    lw       %ra  %sp  13                  # !1749
+    flw      %f1  %sp  12                  # !1749
+    fsw      %f0  %sp  13                  # !1749
+    fmovz    %f0  %f1  %zero               # !1749
+    sw       %ra  %sp  14                  # !1749
+    addi     %sp  %sp  15                  # !1749
+    jal      ~min_caml_fsqr                # !1749
+    addi     %sp  %sp  -15                 # !1749
+    lw       %ra  %sp  14                  # !1749
+    flw      %f1  %sp  13                  # !1749
+    fadd     %f0  %f1  %f0                 # !1749
+    flw      %f1  %sp  9                   # !1751
+    fsw      %f0  %sp  14                  # !1751
+    fmovz    %f0  %f1  %zero               # !1751
+    sw       %ra  %sp  15                  # !1751
+    addi     %sp  %sp  16                  # !1751
+    jal      ~min_caml_fabs                # !1751
+    addi     %sp  %sp  -16                 # !1751
+    lw       %ra  %sp  15                  # !1751
+    flui     %f1  454                      # !1751
+    fli      %f1  -936169                  # !1751
     ++
     fli 0.000100
-    => flui %f3 0b00111000110
-       fli  %f3 0b100011011011100010111
+    => flui %f1 0b00111000110
+       fli  %f1 0b100011011011100010111
     ++
-    fabs %f4 %f1                           # !1689
-    fsw %f3 %sp 12                         # !1689
-    fsw %f2 %sp 13                         # !1689
-    fblt %f4 %f3 fblt_then.8832            # !1689
-    fdiv %f0 %f0 %f1                       # !1692
-    fabs %f0 %f0                           # !1692
-    sw %ra %sp 14                          # !1694
-    addi %sp %sp 15                        # !1694
-    jal ~min_caml_atan                     # !1694
-    addi %sp %sp -15                       # !1694
-    lw %ra %sp 14                          # !1694
-    flui %f1 527                           # !1694
-    fli %f1 -1048576                       # !1694
-    ++
-    fli 30.000000
-    => flui %f1 0b01000001111
-       fli  %f1 0b100000000000000000000
-    ++
-    fmul %f0 %f0 %f1                       # !1694
-    flui %f1 514                           # !1694
-    fli %f1 593883                         # !1694
-    ++
-    fli 3.141593
-    => flui %f1 0b01000000010
-       fli  %f1 0b010010000111111011011
-    ++
-    fdiv %f0 %f0 %f1                       # !1694
-    j ~fblt_cont.8833                      # !1689
-fblt_then.8832:
-    flui %f0 523                           # !1690
-    fli %f0 -1048576                       # !1690
+    fsw      %f1  %sp  15                  # !1751
+    sw       %ra  %sp  16                  # !1751
+    addi     %sp  %sp  17                  # !1751
+    jal      ~min_caml_fless               # !1751
+    addi     %sp  %sp  -17                 # !1751
+    lw       %ra  %sp  16                  # !1751
+    lw       %r2  %sp  3                   # !1751
+    beq      %r1  %r2  beq_then.9494       # !1751
+    flui     %f0  523                      # !1752
+    fli      %f0  -1048576                 # !1752
     ++
     fli 15.000000
     => flui %f0 0b01000001011
        fli  %f0 0b100000000000000000000
     ++
-fblt_cont.8833:
-    floor %f1 %f0                          # !1696
-    fsub %f0 %f0 %f1                       # !1696
-    flw %f1 %sp 0                          # !1698
-    flw %f1 %f1 1                          # !1698
-    lw %r1 %sp 2                           # !1698
-    fsw %f0 %sp 14                         # !1698
-    fsw %f1 %sp 15                         # !1698
-    sw %ra %sp 16                          # !1698
-    addi %sp %sp 17                        # !1698
-    jal ~o_param_y.2476                    # !1698
-    addi %sp %sp -17                       # !1698
-    lw %ra %sp 16                          # !1698
-    flw %f1 %sp 15                         # !1698
-    fsub %f0 %f1 %f0                       # !1698
-    lw %r1 %sp 2                           # !1698
-    fsw %f0 %sp 16                         # !1698
-    sw %ra %sp 17                          # !1698
-    addi %sp %sp 18                        # !1698
-    jal ~o_param_b.2468                    # !1698
-    addi %sp %sp -18                       # !1698
-    lw %ra %sp 17                          # !1698
-    fsqrt %f0 %f0                          # !1698
-    flw %f1 %sp 16                         # !1698
-    fmul %f0 %f1 %f0                       # !1698
-    flw %f1 %sp 13                         # !1700
-    fabs %f2 %f1                           # !1700
-    flw %f3 %sp 12                         # !1700
-    fblt %f2 %f3 fblt_then.8834            # !1700
-    fdiv %f0 %f0 %f1                       # !1703
-    fabs %f0 %f0                           # !1703
-    sw %ra %sp 17                          # !1704
-    addi %sp %sp 18                        # !1704
-    jal ~min_caml_atan                     # !1704
-    addi %sp %sp -18                       # !1704
-    lw %ra %sp 17                          # !1704
-    flui %f1 527                           # !1704
-    fli %f1 -1048576                       # !1704
+    j        ~beq_cont.9495                # !1751
+beq_then.9494:
+    flw      %f0  %sp  9                   # !1754
+    flw      %f1  %sp  12                  # !1754
+    fdiv     %f0  %f1  %f0                 # !1754
+    sw       %ra  %sp  16                  # !1754
+    addi     %sp  %sp  17                  # !1754
+    jal      ~min_caml_fabs                # !1754
+    addi     %sp  %sp  -17                 # !1754
+    lw       %ra  %sp  16                  # !1754
+    sw       %ra  %sp  16                  # !1756
+    addi     %sp  %sp  17                  # !1756
+    jal      ~atan.2442                    # !1756
+    addi     %sp  %sp  -17                 # !1756
+    lw       %ra  %sp  16                  # !1756
+    flui     %f1  527                      # !1756
+    fli      %f1  -1048576                 # !1756
     ++
     fli 30.000000
     => flui %f1 0b01000001111
        fli  %f1 0b100000000000000000000
     ++
-    fmul %f0 %f0 %f1                       # !1704
-    flui %f1 514                           # !1704
-    fli %f1 593883                         # !1704
+    fmul     %f0  %f0  %f1                 # !1756
+    flui     %f1  514                      # !1756
+    fli      %f1  593883                   # !1756
     ++
     fli 3.141593
     => flui %f1 0b01000000010
        fli  %f1 0b010010000111111011011
     ++
-    fdiv %f0 %f0 %f1                       # !1704
-    j ~fblt_cont.8835                      # !1700
-fblt_then.8834:
-    flui %f0 523                           # !1701
-    fli %f0 -1048576                       # !1701
+    fdiv     %f0  %f0  %f1                 # !1756
+beq_cont.9495:
+    fsw      %f0  %sp  16                  # !1758
+    sw       %ra  %sp  17                  # !1758
+    addi     %sp  %sp  18                  # !1758
+    jal      ~min_caml_floor               # !1758
+    addi     %sp  %sp  -18                 # !1758
+    lw       %ra  %sp  17                  # !1758
+    flw      %f1  %sp  16                  # !1758
+    fsub     %f0  %f1  %f0                 # !1758
+    flw      %f1  %sp  0                   # !1760
+    flw      %f1  %f1  1                   # !1760
+    lw       %r1  %sp  2                   # !1760
+    fsw      %f0  %sp  17                  # !1760
+    fsw      %f1  %sp  18                  # !1760
+    sw       %ra  %sp  19                  # !1760
+    addi     %sp  %sp  20                  # !1760
+    jal      ~o_param_y.2543               # !1760
+    addi     %sp  %sp  -20                 # !1760
+    lw       %ra  %sp  19                  # !1760
+    flw      %f1  %sp  18                  # !1760
+    fsub     %f0  %f1  %f0                 # !1760
+    lw       %r1  %sp  2                   # !1760
+    fsw      %f0  %sp  19                  # !1760
+    sw       %ra  %sp  20                  # !1760
+    addi     %sp  %sp  21                  # !1760
+    jal      ~o_param_b.2535               # !1760
+    addi     %sp  %sp  -21                 # !1760
+    lw       %ra  %sp  20                  # !1760
+    sw       %ra  %sp  20                  # !1760
+    addi     %sp  %sp  21                  # !1760
+    jal      ~min_caml_sqrt                # !1760
+    addi     %sp  %sp  -21                 # !1760
+    lw       %ra  %sp  20                  # !1760
+    flw      %f1  %sp  19                  # !1760
+    fmul     %f0  %f1  %f0                 # !1760
+    flw      %f1  %sp  14                  # !1762
+    fsw      %f0  %sp  20                  # !1762
+    fmovz    %f0  %f1  %zero               # !1762
+    sw       %ra  %sp  21                  # !1762
+    addi     %sp  %sp  22                  # !1762
+    jal      ~min_caml_fabs                # !1762
+    addi     %sp  %sp  -22                 # !1762
+    lw       %ra  %sp  21                  # !1762
+    flw      %f1  %sp  15                  # !1762
+    sw       %ra  %sp  21                  # !1762
+    addi     %sp  %sp  22                  # !1762
+    jal      ~min_caml_fless               # !1762
+    addi     %sp  %sp  -22                 # !1762
+    lw       %ra  %sp  21                  # !1762
+    lw       %r2  %sp  3                   # !1762
+    beq      %r1  %r2  beq_then.9496       # !1762
+    flui     %f0  523                      # !1763
+    fli      %f0  -1048576                 # !1763
     ++
     fli 15.000000
     => flui %f0 0b01000001011
        fli  %f0 0b100000000000000000000
     ++
-fblt_cont.8835:
-    floor %f1 %f0                          # !1706
-    fsub %f0 %f0 %f1                       # !1706
-    flui %f1 496                           # !1707
-    fli %f1 -419430                        # !1707
+    j        ~beq_cont.9497                # !1762
+beq_then.9496:
+    flw      %f0  %sp  14                  # !1765
+    flw      %f1  %sp  20                  # !1765
+    fdiv     %f0  %f1  %f0                 # !1765
+    sw       %ra  %sp  21                  # !1765
+    addi     %sp  %sp  22                  # !1765
+    jal      ~min_caml_fabs                # !1765
+    addi     %sp  %sp  -22                 # !1765
+    lw       %ra  %sp  21                  # !1765
+    sw       %ra  %sp  21                  # !1766
+    addi     %sp  %sp  22                  # !1766
+    jal      ~atan.2442                    # !1766
+    addi     %sp  %sp  -22                 # !1766
+    lw       %ra  %sp  21                  # !1766
+    flui     %f1  527                      # !1766
+    fli      %f1  -1048576                 # !1766
+    ++
+    fli 30.000000
+    => flui %f1 0b01000001111
+       fli  %f1 0b100000000000000000000
+    ++
+    fmul     %f0  %f0  %f1                 # !1766
+    flui     %f1  514                      # !1766
+    fli      %f1  593883                   # !1766
+    ++
+    fli 3.141593
+    => flui %f1 0b01000000010
+       fli  %f1 0b010010000111111011011
+    ++
+    fdiv     %f0  %f0  %f1                 # !1766
+beq_cont.9497:
+    fsw      %f0  %sp  21                  # !1768
+    sw       %ra  %sp  22                  # !1768
+    addi     %sp  %sp  23                  # !1768
+    jal      ~min_caml_floor               # !1768
+    addi     %sp  %sp  -23                 # !1768
+    lw       %ra  %sp  22                  # !1768
+    flw      %f1  %sp  21                  # !1768
+    fsub     %f0  %f1  %f0                 # !1768
+    flui     %f1  496                      # !1769
+    fli      %f1  -419430                  # !1769
     ++
     fli 0.150000
     => flui %f1 0b00111110000
        fli  %f1 0b110011001100110011010
     ++
-    flui %f2 504                           # !1707
-    fli %f2 0                              # !1707
+    flui     %f2  504                      # !1769
+    fli      %f2  0                        # !1769
     ++
     fli 0.500000
     => flui %f2 0b00111111000
        fli  %f2 0b000000000000000000000
     ++
-    flw %f3 %sp 14                         # !1707
-    fsub %f3 %f2 %f3                       # !1707
-    fmul %f3 %f3 %f3                       # !1707
-    fsub %f1 %f1 %f3                       # !1707
-    fsub %f0 %f2 %f0                       # !1707
-    fmul %f0 %f0 %f0                       # !1707
-    fsub %f0 %f1 %f0                       # !1707
-    flui %f1 0                             # !1708
-    fli %f1 0                              # !1708
+    flw      %f3  %sp  17                  # !1769
+    fsub     %f3  %f2  %f3                 # !1769
+    fsw      %f0  %sp  22                  # !1769
+    fsw      %f2  %sp  23                  # !1769
+    fsw      %f1  %sp  24                  # !1769
+    fmovz    %f0  %f3  %zero               # !1769
+    sw       %ra  %sp  25                  # !1769
+    addi     %sp  %sp  26                  # !1769
+    jal      ~min_caml_fsqr                # !1769
+    addi     %sp  %sp  -26                 # !1769
+    lw       %ra  %sp  25                  # !1769
+    flw      %f1  %sp  24                  # !1769
+    fsub     %f0  %f1  %f0                 # !1769
+    flw      %f1  %sp  22                  # !1769
+    flw      %f2  %sp  23                  # !1769
+    fsub     %f1  %f2  %f1                 # !1769
+    fsw      %f0  %sp  25                  # !1769
+    fmovz    %f0  %f1  %zero               # !1769
+    sw       %ra  %sp  26                  # !1769
+    addi     %sp  %sp  27                  # !1769
+    jal      ~min_caml_fsqr                # !1769
+    addi     %sp  %sp  -27                 # !1769
+    lw       %ra  %sp  26                  # !1769
+    flw      %f1  %sp  25                  # !1769
+    fsub     %f0  %f1  %f0                 # !1769
+    fsw      %f0  %sp  26                  # !1770
+    sw       %ra  %sp  27                  # !1770
+    addi     %sp  %sp  28                  # !1770
+    jal      ~min_caml_fisneg              # !1770
+    addi     %sp  %sp  -28                 # !1770
+    lw       %ra  %sp  27                  # !1770
+    lw       %r2  %sp  3                   # !1770
+    beq      %r1  %r2  beq_then.9498       # !1770
+    flui     %f0  0                        # !1770
+    fli      %f0  0                        # !1770
     ++
     fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
     ++
-    fblt %f0 %f1 fblt_then.8836            # !1708
-    j ~fblt_cont.8837                      # !1708
-fblt_then.8836:
-    fmovz %f0 %f1 %zero                    # !1708
-fblt_cont.8837:
-    flui %f1 539                           # !1709
-    fli %f1 -65536                         # !1709
+    j        ~beq_cont.9499                # !1770
+beq_then.9498:
+    flw      %f0  %sp  26                  # !1770
+beq_cont.9499:
+    flui     %f1  539                      # !1771
+    fli      %f1  -65536                   # !1771
     ++
     fli 255.000000
     => flui %f1 0b01000011011
        fli  %f1 0b111110000000000000000
     ++
-    fmul %f0 %f1 %f0                       # !1709
-    flui %f1 500                           # !1709
-    fli %f1 -419430                        # !1709
+    fmul     %f0  %f1  %f0                 # !1771
+    flui     %f1  500                      # !1771
+    fli      %f1  -419430                  # !1771
     ++
     fli 0.300000
     => flui %f1 0b00111110100
        fli  %f1 0b110011001100110011010
     ++
-    fdiv %f0 %f0 %f1                       # !1709
-    lw %r1 %sp 1                           # !1709
-    fsw %f0 %r1 2                          # !1709
-    jr %ra                                 # !1709
-beq_then.8829:
-    flw %f0 %sp 0                          # !1675
-    flw %f1 %f0 0                          # !1675
-    lw %r2 %sp 2                           # !1675
-    fsw %f1 %sp 17                         # !1675
-    movz %r1 %r2 %zero                     # !1675
-    sw %ra %sp 18                          # !1675
-    addi %sp %sp 19                        # !1675
-    jal ~o_param_x.2474                    # !1675
-    addi %sp %sp -19                       # !1675
-    lw %ra %sp 18                          # !1675
-    flw %f1 %sp 17                         # !1675
-    fsub %f0 %f1 %f0                       # !1675
-    flw %f1 %sp 0                          # !1676
-    flw %f1 %f1 2                          # !1676
-    lw %r1 %sp 2                           # !1676
-    fsw %f0 %sp 18                         # !1676
-    fsw %f1 %sp 19                         # !1676
-    sw %ra %sp 20                          # !1676
-    addi %sp %sp 21                        # !1676
-    jal ~o_param_z.2478                    # !1676
-    addi %sp %sp -21                       # !1676
-    lw %ra %sp 20                          # !1676
-    flw %f1 %sp 19                         # !1676
-    fsub %f0 %f1 %f0                       # !1676
-    flw %f1 %sp 18                         # !1677
-    fmul %f1 %f1 %f1                       # !1677
-    fmul %f0 %f0 %f0                       # !1677
-    fadd %f0 %f1 %f0                       # !1677
-    fsqrt %f0 %f0                          # !1677
-    flui %f1 521                           # !1677
-    fli %f1 0                              # !1677
+    fdiv     %f0  %f0  %f1                 # !1771
+    lw       %r1  %sp  1                   # !1771
+    fsw      %f0  %r1  2                   # !1771
+    jr       %ra                           # !1771
+beq_then.9491:
+    flw      %f0  %sp  0                   # !1737
+    flw      %f1  %f0  0                   # !1737
+    lw       %r2  %sp  2                   # !1737
+    fsw      %f1  %sp  27                  # !1737
+    movz     %r1  %r2  %zero               # !1737
+    sw       %ra  %sp  28                  # !1737
+    addi     %sp  %sp  29                  # !1737
+    jal      ~o_param_x.2541               # !1737
+    addi     %sp  %sp  -29                 # !1737
+    lw       %ra  %sp  28                  # !1737
+    flw      %f1  %sp  27                  # !1737
+    fsub     %f0  %f1  %f0                 # !1737
+    flw      %f1  %sp  0                   # !1738
+    flw      %f1  %f1  2                   # !1738
+    lw       %r1  %sp  2                   # !1738
+    fsw      %f0  %sp  28                  # !1738
+    fsw      %f1  %sp  29                  # !1738
+    sw       %ra  %sp  30                  # !1738
+    addi     %sp  %sp  31                  # !1738
+    jal      ~o_param_z.2545               # !1738
+    addi     %sp  %sp  -31                 # !1738
+    lw       %ra  %sp  30                  # !1738
+    flw      %f1  %sp  29                  # !1738
+    fsub     %f0  %f1  %f0                 # !1738
+    flw      %f1  %sp  28                  # !1739
+    fsw      %f0  %sp  30                  # !1739
+    fmovz    %f0  %f1  %zero               # !1739
+    sw       %ra  %sp  31                  # !1739
+    addi     %sp  %sp  32                  # !1739
+    jal      ~min_caml_fsqr                # !1739
+    addi     %sp  %sp  -32                 # !1739
+    lw       %ra  %sp  31                  # !1739
+    flw      %f1  %sp  30                  # !1739
+    fsw      %f0  %sp  31                  # !1739
+    fmovz    %f0  %f1  %zero               # !1739
+    sw       %ra  %sp  32                  # !1739
+    addi     %sp  %sp  33                  # !1739
+    jal      ~min_caml_fsqr                # !1739
+    addi     %sp  %sp  -33                 # !1739
+    lw       %ra  %sp  32                  # !1739
+    flw      %f1  %sp  31                  # !1739
+    fadd     %f0  %f1  %f0                 # !1739
+    sw       %ra  %sp  32                  # !1739
+    addi     %sp  %sp  33                  # !1739
+    jal      ~min_caml_sqrt                # !1739
+    addi     %sp  %sp  -33                 # !1739
+    lw       %ra  %sp  32                  # !1739
+    flui     %f1  521                      # !1739
+    fli      %f1  0                        # !1739
     ++
     fli 10.000000
     => flui %f1 0b01000001001
        fli  %f1 0b000000000000000000000
     ++
-    fdiv %f0 %f0 %f1                       # !1677
-    floor %f1 %f0                          # !1678
-    fsub %f0 %f0 %f1                       # !1678
-    flui %f1 514                           # !1678
-    fli %f1 593883                         # !1678
+    fdiv     %f0  %f0  %f1                 # !1739
+    fsw      %f0  %sp  32                  # !1740
+    sw       %ra  %sp  33                  # !1740
+    addi     %sp  %sp  34                  # !1740
+    jal      ~min_caml_floor               # !1740
+    addi     %sp  %sp  -34                 # !1740
+    lw       %ra  %sp  33                  # !1740
+    flw      %f1  %sp  32                  # !1740
+    fsub     %f0  %f1  %f0                 # !1740
+    flui     %f1  514                      # !1740
+    fli      %f1  593883                   # !1740
     ++
     fli 3.141593
     => flui %f1 0b01000000010
        fli  %f1 0b010010000111111011011
     ++
-    fmul %f0 %f0 %f1                       # !1678
-    fsw %f0 %sp 20                         # !1679
-    sw %ra %sp 21                          # !1679
-    addi %sp %sp 22                        # !1679
-    jal ~min_caml_cos                      # !1679
-    addi %sp %sp -22                       # !1679
-    lw %ra %sp 21                          # !1679
-    flw %f1 %sp 20                         # !1679
-    fsw %f0 %sp 21                         # !1679
-    fmovz %f0 %f1 %zero                    # !1679
-    sw %ra %sp 22                          # !1679
-    addi %sp %sp 23                        # !1679
-    jal ~min_caml_cos                      # !1679
-    addi %sp %sp -23                       # !1679
-    lw %ra %sp 22                          # !1679
-    flw %f1 %sp 21                         # !1679
-    fmul %f0 %f1 %f0                       # !1679
-    flui %f1 539                           # !1680
-    fli %f1 -65536                         # !1680
+    fmul     %f0  %f0  %f1                 # !1740
+    sw       %ra  %sp  33                  # !1741
+    addi     %sp  %sp  34                  # !1741
+    jal      ~cos.2440                     # !1741
+    addi     %sp  %sp  -34                 # !1741
+    lw       %ra  %sp  33                  # !1741
+    sw       %ra  %sp  33                  # !1741
+    addi     %sp  %sp  34                  # !1741
+    jal      ~min_caml_fsqr                # !1741
+    addi     %sp  %sp  -34                 # !1741
+    lw       %ra  %sp  33                  # !1741
+    flui     %f1  539                      # !1742
+    fli      %f1  -65536                   # !1742
     ++
     fli 255.000000
     => flui %f1 0b01000011011
        fli  %f1 0b111110000000000000000
     ++
-    fmul %f2 %f1 %f0                       # !1680
-    lw %r1 %sp 1                           # !1680
-    fsw %f2 %r1 1                          # !1680
-    flui %f2 508                           # !1681
-    fli %f2 0                              # !1681
+    fmul     %f2  %f1  %f0                 # !1742
+    lw       %r1  %sp  1                   # !1742
+    fsw      %f2  %r1  1                   # !1742
+    flui     %f2  508                      # !1743
+    fli      %f2  0                        # !1743
     ++
     fli 1.000000
     => flui %f2 0b00111111100
        fli  %f2 0b000000000000000000000
     ++
-    fsub %f0 %f2 %f0                       # !1681
-    fmul %f0 %f1 %f0                       # !1681
-    fsw %f0 %r1 2                          # !1681
-    jr %ra                                 # !1681
-beq_then.8828:
-    flw %f0 %sp 0                          # !1668
-    flw %f1 %f0 1                          # !1668
-    flui %f2 500                           # !1668
-    fli %f2 0                              # !1668
+    fsub     %f0  %f2  %f0                 # !1743
+    fmul     %f0  %f1  %f0                 # !1743
+    fsw      %f0  %r1  2                   # !1743
+    jr       %ra                           # !1743
+beq_then.9490:
+    flw      %f0  %sp  0                   # !1730
+    flw      %f0  %f0  1                   # !1730
+    flui     %f1  500                      # !1730
+    fli      %f1  0                        # !1730
     ++
     fli 0.250000
-    => flui %f2 0b00111110100
-       fli  %f2 0b000000000000000000000
+    => flui %f1 0b00111110100
+       fli  %f1 0b000000000000000000000
     ++
-    fmul %f1 %f1 %f2                       # !1668
-    fsw %f2 %sp 22                         # !1668
-    fmovz %f0 %f1 %zero                    # !1668
-    sw %ra %sp 23                          # !1668
-    addi %sp %sp 24                        # !1668
-    jal ~min_caml_sin                      # !1668
-    addi %sp %sp -24                       # !1668
-    lw %ra %sp 23                          # !1668
-    flw %f1 %sp 0                          # !1668
-    flw %f1 %f1 1                          # !1668
-    flw %f2 %sp 22                         # !1668
-    fmul %f1 %f2 %f1                       # !1668
-    fsw %f0 %sp 23                         # !1668
-    fmovz %f0 %f1 %zero                    # !1668
-    sw %ra %sp 24                          # !1668
-    addi %sp %sp 25                        # !1668
-    jal ~min_caml_sin                      # !1668
-    addi %sp %sp -25                       # !1668
-    lw %ra %sp 24                          # !1668
-    flw %f1 %sp 23                         # !1668
-    fmul %f0 %f1 %f0                       # !1668
-    flui %f1 539                           # !1669
-    fli %f1 -65536                         # !1669
+    fmul     %f0  %f0  %f1                 # !1730
+    sw       %ra  %sp  33                  # !1730
+    addi     %sp  %sp  34                  # !1730
+    jal      ~sin.2438                     # !1730
+    addi     %sp  %sp  -34                 # !1730
+    lw       %ra  %sp  33                  # !1730
+    sw       %ra  %sp  33                  # !1730
+    addi     %sp  %sp  34                  # !1730
+    jal      ~min_caml_fsqr                # !1730
+    addi     %sp  %sp  -34                 # !1730
+    lw       %ra  %sp  33                  # !1730
+    flui     %f1  539                      # !1731
+    fli      %f1  -65536                   # !1731
     ++
     fli 255.000000
     => flui %f1 0b01000011011
        fli  %f1 0b111110000000000000000
     ++
-    fmul %f2 %f1 %f0                       # !1669
-    lw %r1 %sp 1                           # !1669
-    fsw %f2 %r1 0                          # !1669
-    flui %f2 508                           # !1670
-    fli %f2 0                              # !1670
+    fmul     %f2  %f1  %f0                 # !1731
+    lw       %r1  %sp  1                   # !1731
+    fsw      %f2  %r1  0                   # !1731
+    flui     %f2  508                      # !1732
+    fli      %f2  0                        # !1732
     ++
     fli 1.000000
     => flui %f2 0b00111111100
        fli  %f2 0b000000000000000000000
     ++
-    fsub %f0 %f2 %f0                       # !1670
-    fmul %f0 %f1 %f0                       # !1670
-    fsw %f0 %r1 1                          # !1670
-    jr %ra                                 # !1670
-beq_then.8827:
-    flw %f0 %sp 0                          # !1650
-    flw %f1 %f0 0                          # !1650
-    lw %r3 %sp 2                           # !1650
-    fsw %f1 %sp 24                         # !1650
-    movz %r1 %r3 %zero                     # !1650
-    sw %ra %sp 25                          # !1650
-    addi %sp %sp 26                        # !1650
-    jal ~o_param_x.2474                    # !1650
-    addi %sp %sp -26                       # !1650
-    lw %ra %sp 25                          # !1650
-    flw %f1 %sp 24                         # !1650
-    fsub %f0 %f1 %f0                       # !1650
-    flui %f1 490                           # !1652
-    fli %f1 838861                         # !1652
+    fsub     %f0  %f2  %f0                 # !1732
+    fmul     %f0  %f1  %f0                 # !1732
+    fsw      %f0  %r1  1                   # !1732
+    jr       %ra                           # !1732
+beq_then.9489:
+    flw      %f0  %sp  0                   # !1712
+    flw      %f1  %f0  0                   # !1712
+    lw       %r2  %sp  2                   # !1712
+    fsw      %f1  %sp  33                  # !1712
+    movz     %r1  %r2  %zero               # !1712
+    sw       %ra  %sp  34                  # !1712
+    addi     %sp  %sp  35                  # !1712
+    jal      ~o_param_x.2541               # !1712
+    addi     %sp  %sp  -35                 # !1712
+    lw       %ra  %sp  34                  # !1712
+    flw      %f1  %sp  33                  # !1712
+    fsub     %f0  %f1  %f0                 # !1712
+    flui     %f1  490                      # !1714
+    fli      %f1  838861                   # !1714
     ++
     fli 0.050000
     => flui %f1 0b00111101010
        fli  %f1 0b011001100110011001101
     ++
-    fmul %f2 %f1 %f0                       # !1652
-    floor %f2 %f2                          # !1652
-    flui %f3 525                           # !1652
-    fli %f3 0                              # !1652
+    fmul     %f2  %f1  %f0                 # !1714
+    fsw      %f1  %sp  34                  # !1714
+    fsw      %f0  %sp  35                  # !1714
+    fmovz    %f0  %f2  %zero               # !1714
+    sw       %ra  %sp  36                  # !1714
+    addi     %sp  %sp  37                  # !1714
+    jal      ~min_caml_floor               # !1714
+    addi     %sp  %sp  -37                 # !1714
+    lw       %ra  %sp  36                  # !1714
+    flui     %f1  525                      # !1714
+    fli      %f1  0                        # !1714
     ++
     fli 20.000000
-    => flui %f3 0b01000001101
-       fli  %f3 0b000000000000000000000
+    => flui %f1 0b01000001101
+       fli  %f1 0b000000000000000000000
     ++
-    fmul %f2 %f2 %f3                       # !1652
-    flui %f4 521                           # !1653
-    fli %f4 0                              # !1653
+    fmul     %f0  %f0  %f1                 # !1714
+    flw      %f2  %sp  35                  # !1715
+    fsub     %f0  %f2  %f0                 # !1715
+    flui     %f2  521                      # !1715
+    fli      %f2  0                        # !1715
     ++
     fli 10.000000
-    => flui %f4 0b01000001001
-       fli  %f4 0b000000000000000000000
+    => flui %f2 0b01000001001
+       fli  %f2 0b000000000000000000000
     ++
-    fsub %f0 %f0 %f2                       # !1653
-    fblt %f0 %f4 fblt_then.8841            # !1653
-    lw %r1 %sp 3                           # !1653
-    j ~fblt_cont.8842                      # !1653
-fblt_then.8841:
-    lw %r1 %sp 5                           # !1653
-fblt_cont.8842:
-    flw %f0 %sp 0                          # !1655
-    flw %f0 %f0 2                          # !1655
-    lw %r2 %sp 2                           # !1655
-    sw %r1 %sp 25                          # !1655
-    fsw %f4 %sp 26                         # !1655
-    fsw %f3 %sp 27                         # !1655
-    fsw %f1 %sp 28                         # !1655
-    fsw %f0 %sp 29                         # !1655
-    movz %r1 %r2 %zero                     # !1655
-    sw %ra %sp 30                          # !1655
-    addi %sp %sp 31                        # !1655
-    jal ~o_param_z.2478                    # !1655
-    addi %sp %sp -31                       # !1655
-    lw %ra %sp 30                          # !1655
-    flw %f1 %sp 29                         # !1655
-    fsub %f0 %f1 %f0                       # !1655
-    flw %f1 %sp 28                         # !1657
-    fmul %f1 %f1 %f0                       # !1657
-    floor %f1 %f1                          # !1657
-    flw %f2 %sp 27                         # !1657
-    fmul %f1 %f2 %f1                       # !1657
-    fsub %f0 %f0 %f1                       # !1658
-    flw %f1 %sp 26                         # !1658
-    fblt %f0 %f1 fblt_then.8843            # !1658
-    lw %r1 %sp 3                           # !1658
-    j ~fblt_cont.8844                      # !1658
-fblt_then.8843:
-    lw %r1 %sp 5                           # !1658
-fblt_cont.8844:
-    lw %r2 %sp 3                           # !1661
-    lw %r3 %sp 25                          # !1661
-    beq %r3 %r2 beq_then.8845              # !1661
-    beq %r1 %r2 beq_then.8847              # !1662
-    flui %f0 539                           # !1662
-    fli %f0 -65536                         # !1662
-    ++
-    fli 255.000000
-    => flui %f0 0b01000011011
-       fli  %f0 0b111110000000000000000
-    ++
-    j ~beq_cont.8848                       # !1662
-beq_then.8847:
-    flui %f0 0                             # !1662
-    fli %f0 0                              # !1662
-    ++
-    fli 0.000000
-    => flui %f0 0b00000000000
-       fli  %f0 0b000000000000000000000
-    ++
-beq_cont.8848:
-    j ~beq_cont.8846                       # !1661
-beq_then.8845:
-    beq %r1 %r2 beq_then.8849              # !1663
-    flui %f0 0                             # !1663
-    fli %f0 0                              # !1663
-    ++
-    fli 0.000000
-    => flui %f0 0b00000000000
-       fli  %f0 0b000000000000000000000
-    ++
-    j ~beq_cont.8850                       # !1663
-beq_then.8849:
-    flui %f0 539                           # !1663
-    fli %f0 -65536                         # !1663
+    fsw      %f2  %sp  36                  # !1715
+    fsw      %f1  %sp  37                  # !1715
+    fmovz    %f1  %f2  %zero               # !1715
+    sw       %ra  %sp  38                  # !1715
+    addi     %sp  %sp  39                  # !1715
+    jal      ~min_caml_fless               # !1715
+    addi     %sp  %sp  -39                 # !1715
+    lw       %ra  %sp  38                  # !1715
+    flw      %f0  %sp  0                   # !1717
+    flw      %f0  %f0  2                   # !1717
+    lw       %r2  %sp  2                   # !1717
+    sw       %r1  %sp  38                  # !1717
+    fsw      %f0  %sp  39                  # !1717
+    movz     %r1  %r2  %zero               # !1717
+    sw       %ra  %sp  40                  # !1717
+    addi     %sp  %sp  41                  # !1717
+    jal      ~o_param_z.2545               # !1717
+    addi     %sp  %sp  -41                 # !1717
+    lw       %ra  %sp  40                  # !1717
+    flw      %f1  %sp  39                  # !1717
+    fsub     %f0  %f1  %f0                 # !1717
+    flw      %f1  %sp  34                  # !1719
+    fmul     %f1  %f1  %f0                 # !1719
+    fsw      %f0  %sp  40                  # !1719
+    fmovz    %f0  %f1  %zero               # !1719
+    sw       %ra  %sp  41                  # !1719
+    addi     %sp  %sp  42                  # !1719
+    jal      ~min_caml_floor               # !1719
+    addi     %sp  %sp  -42                 # !1719
+    lw       %ra  %sp  41                  # !1719
+    flw      %f1  %sp  37                  # !1719
+    fmul     %f0  %f1  %f0                 # !1719
+    flw      %f1  %sp  40                  # !1720
+    fsub     %f0  %f1  %f0                 # !1720
+    flw      %f1  %sp  36                  # !1720
+    sw       %ra  %sp  41                  # !1720
+    addi     %sp  %sp  42                  # !1720
+    jal      ~min_caml_fless               # !1720
+    addi     %sp  %sp  -42                 # !1720
+    lw       %ra  %sp  41                  # !1720
+    lw       %r2  %sp  3                   # !1723
+    lw       %r3  %sp  38                  # !1723
+    beq      %r3  %r2  beq_then.9503       # !1723
+    beq      %r1  %r2  beq_then.9505       # !1724
+    flui     %f0  539                      # !1724
+    fli      %f0  -65536                   # !1724
     ++
     fli 255.000000
     => flui %f0 0b01000011011
        fli  %f0 0b111110000000000000000
     ++
-beq_cont.8850:
-beq_cont.8846:
-    lw %r1 %sp 1                           # !1660
-    fsw %f0 %r1 1                          # !1660
-    jr %ra                                 # !1660
-add_light.2728:
-    lw %r2 %r27 2                          # !1719
-    lw %r1 %r27 1                          # !1719
-    flui %f3 0                             # !1722
-    fli %f3 0                              # !1722
+    j        ~beq_cont.9506                # !1724
+beq_then.9505:
+    flui     %f0  0                        # !1724
+    fli      %f0  0                        # !1724
     ++
     fli 0.000000
-    => flui %f3 0b00000000000
-       fli  %f3 0b000000000000000000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
     ++
-    sw %r1 %sp 0                           # !1722
-    fsw %f2 %sp 1                          # !1722
-    fsw %f3 %sp 2                          # !1722
-    fsw %f1 %sp 3                          # !1722
-    fblt %f3 %f0 fblt_then.8852            # !1722
-    j ~fblt_cont.8853                      # !1722
-fblt_then.8852:
-    sw %ra %sp 4                           # !1723
-    addi %sp %sp 5                         # !1723
-    jal ~vecaccum.2442                     # !1723
-    addi %sp %sp -5                        # !1723
-    lw %ra %sp 4                           # !1723
-fblt_cont.8853:
-    flw %f0 %sp 2                          # !1727
-    flw %f1 %sp 3                          # !1727
-    fblt %f0 %f1 fblt_then.8854            # !1727
-    jr %ra                                 # !1732
-fblt_then.8854:
-    fmul %f0 %f1 %f1                       # !1728
-    fmul %f0 %f0 %f0                       # !1728
-    flw %f1 %sp 1                          # !1728
-    fmul %f0 %f0 %f1                       # !1728
-    flw %f1 %sp 0                          # !1729
-    flw %f2 %f1 0                          # !1729
-    fadd %f2 %f2 %f0                       # !1729
-    fsw %f2 %f1 0                          # !1729
-    flw %f2 %f1 1                          # !1730
-    fadd %f2 %f2 %f0                       # !1730
-    fsw %f2 %f1 1                          # !1730
-    flw %f2 %f1 2                          # !1731
-    fadd %f0 %f2 %f0                       # !1731
-    fsw %f0 %f1 2                          # !1731
-    jr %ra                                 # !1731
-trace_reflections.2732:
-    lw %r3 %r27 8                          # !1736
-    lw %r4 %r27 7                          # !1736
-    lw %r5 %r27 6                          # !1736
-    lw %r6 %r27 5                          # !1736
-    lw %r7 %r27 4                          # !1736
-    lw %r8 %r27 3                          # !1736
-    lw %r9 %r27 2                          # !1736
-    lw %r10 %r27 1                         # !1736
-    addi %r11 %zero 0                      # !1738
-    blt %r1 %r11 blt_then.8857             # !1738
-    lwv %r4 %r4 %r1                        # !1739
-    sw %r27 %sp 0                          # !1740
-    sw %r1 %sp 1                           # !1740
-    fsw %f1 %sp 2                          # !1740
-    sw %r10 %sp 3                          # !1740
-    sw %r2 %sp 4                           # !1740
-    fsw %f0 %sp 5                          # !1740
-    sw %r6 %sp 6                           # !1740
-    sw %r3 %sp 7                           # !1740
-    sw %r5 %sp 8                           # !1740
-    sw %r4 %sp 9                           # !1740
-    sw %r8 %sp 10                          # !1740
-    sw %r9 %sp 11                          # !1740
-    sw %r11 %sp 12                         # !1740
-    sw %r7 %sp 13                          # !1740
-    movz %r1 %r4 %zero                     # !1740
-    sw %ra %sp 14                          # !1740
-    addi %sp %sp 15                        # !1740
-    jal ~r_dvec.2523                       # !1740
-    addi %sp %sp -15                       # !1740
-    lw %ra %sp 14                          # !1740
-    lw %r27 %sp 13                         # !1743
-    sw %r1 %sp 14                          # !1743
-    sw %ra %sp 15                          # !1743
-    addi %sp %sp 16                        # !1743
-    lw %r28 %r27 0                         # !1743
-    jalr %r28                              # !1743
-    addi %sp %sp -16                       # !1743
-    lw %ra %sp 15                          # !1743
-    lw %r2 %sp 12                          # !1743
-    beq %r1 %r2 beq_then.8858              # !1743
-    lw %r1 %sp 11                          # !1744
-    lw %r1 %r1 0                           # !1744
-    sll %r1 %r1 2                          # !1744
-    lw %r3 %sp 10                          # !1744
-    lw %r3 %r3 0                           # !1744
-    add %r1 %r1 %r3                        # !1744
-    lw %r3 %sp 9                           # !1745
-    sw %r1 %sp 15                          # !1745
-    movz %r1 %r3 %zero                     # !1745
-    sw %ra %sp 16                          # !1745
-    addi %sp %sp 17                        # !1745
-    jal ~r_surface_id.2521                 # !1745
-    addi %sp %sp -17                       # !1745
-    lw %ra %sp 16                          # !1745
-    lw %r2 %sp 15                          # !1745
-    beq %r2 %r1 beq_then.8860              # !1745
-    j ~beq_cont.8861                       # !1745
-beq_then.8860:
-    lw %r1 %sp 8                           # !1747
-    lw %r2 %r1 0                           # !1747
-    lw %r1 %sp 12                          # !1747
-    lw %r27 %sp 7                          # !1747
-    sw %ra %sp 16                          # !1747
-    addi %sp %sp 17                        # !1747
-    lw %r28 %r27 0                         # !1747
-    jalr %r28                              # !1747
-    addi %sp %sp -17                       # !1747
-    lw %ra %sp 16                          # !1747
-    lw %r2 %sp 12                          # !1747
-    beq %r1 %r2 beq_then.8862              # !1747
-    j ~beq_cont.8863                       # !1747
-beq_then.8862:
-    lw %r1 %sp 14                          # !1749
-    sw %ra %sp 16                          # !1749
-    addi %sp %sp 17                        # !1749
-    jal ~d_vec.2517                        # !1749
-    addi %sp %sp -17                       # !1749
-    lw %ra %sp 16                          # !1749
-    movz %r2 %r1 %zero                     # !1749
-    lw %r1 %sp 6                           # !1749
-    sw %ra %sp 16                          # !1749
-    addi %sp %sp 17                        # !1749
-    jal ~veciprod.2434                     # !1749
-    addi %sp %sp -17                       # !1749
-    lw %ra %sp 16                          # !1749
-    lw %r1 %sp 9                           # !1750
-    fsw %f0 %sp 16                         # !1750
-    sw %ra %sp 17                          # !1750
-    addi %sp %sp 18                        # !1750
-    jal ~r_bright.2525                     # !1750
-    addi %sp %sp -18                       # !1750
-    lw %ra %sp 17                          # !1750
-    flw %f1 %sp 5                          # !1751
-    fmul %f2 %f1 %f0                       # !1751
-    flw %f3 %sp 16                         # !1751
-    fmul %f2 %f2 %f3                       # !1751
-    lw %r1 %sp 14                          # !1752
-    fsw %f2 %sp 17                         # !1752
-    fsw %f0 %sp 18                         # !1752
-    sw %ra %sp 19                          # !1752
-    addi %sp %sp 20                        # !1752
-    jal ~d_vec.2517                        # !1752
-    addi %sp %sp -20                       # !1752
-    lw %ra %sp 19                          # !1752
-    movz %r2 %r1 %zero                     # !1752
-    lw %r1 %sp 4                           # !1752
-    sw %ra %sp 19                          # !1752
-    addi %sp %sp 20                        # !1752
-    jal ~veciprod.2434                     # !1752
-    addi %sp %sp -20                       # !1752
-    lw %ra %sp 19                          # !1752
-    flw %f1 %sp 18                         # !1752
-    fmul %f1 %f0 %f1                       # !1752
-    flw %f0 %sp 17                         # !1753
-    flw %f2 %sp 2                          # !1753
-    lw %r27 %sp 3                          # !1753
-    sw %ra %sp 19                          # !1753
-    addi %sp %sp 20                        # !1753
-    lw %r28 %r27 0                         # !1753
-    jalr %r28                              # !1753
-    addi %sp %sp -20                       # !1753
-    lw %ra %sp 19                          # !1753
-beq_cont.8863:
-beq_cont.8861:
-    j ~beq_cont.8859                       # !1743
-beq_then.8858:
-beq_cont.8859:
-    lw %r1 %sp 1                           # !1757
-    addi %r1 %r1 -1                        # !1757
-    flw %f0 %sp 5                          # !1757
-    flw %f1 %sp 2                          # !1757
-    lw %r2 %sp 4                           # !1757
-    lw %r27 %sp 0                          # !1757
-    lw %r28 %r27 0                         # !1757
-    jr %r28                                # !1757
-blt_then.8857:
-    jr %ra                                 # !1758
-trace_ray.2737:
-    lw %r4 %r27 20                         # !1765
-    lw %r5 %r27 19                         # !1765
-    lw %r6 %r27 18                         # !1765
-    lw %r7 %r27 17                         # !1765
-    lw %r8 %r27 16                         # !1765
-    lw %r9 %r27 15                         # !1765
-    lw %r10 %r27 14                        # !1765
-    lw %r11 %r27 13                        # !1765
-    lw %r12 %r27 12                        # !1765
-    lw %r13 %r27 11                        # !1765
-    lw %r14 %r27 10                        # !1765
-    lw %r15 %r27 9                         # !1765
-    lw %r16 %r27 8                         # !1765
-    lw %r17 %r27 7                         # !1765
-    lw %r18 %r27 6                         # !1765
-    lw %r19 %r27 5                         # !1765
-    lw %r20 %r27 4                         # !1765
-    lw %r21 %r27 3                         # !1765
-    lw %r22 %r27 2                         # !1765
-    lw %r23 %r27 1                         # !1765
-    addi %r24 %zero 4                      # !1766
-    blt %r24 %r1 blt_then.8865             # !1766
-    sw %r27 %sp 0                          # !1767
-    fsw %f1 %sp 1                          # !1767
-    sw %r6 %sp 2                           # !1767
-    sw %r24 %sp 3                          # !1767
-    sw %r5 %sp 4                           # !1767
-    sw %r15 %sp 5                          # !1767
-    sw %r10 %sp 6                          # !1767
-    sw %r23 %sp 7                          # !1767
-    sw %r9 %sp 8                           # !1767
-    sw %r12 %sp 9                          # !1767
-    sw %r14 %sp 10                         # !1767
-    sw %r7 %sp 11                          # !1767
-    sw %r3 %sp 12                          # !1767
-    sw %r18 %sp 13                         # !1767
-    sw %r4 %sp 14                          # !1767
-    sw %r19 %sp 15                         # !1767
-    sw %r8 %sp 16                          # !1767
-    sw %r21 %sp 17                         # !1767
-    sw %r13 %sp 18                         # !1767
-    sw %r20 %sp 19                         # !1767
-    sw %r11 %sp 20                         # !1767
-    sw %r22 %sp 21                         # !1767
-    fsw %f0 %sp 22                         # !1767
-    sw %r16 %sp 23                         # !1767
-    sw %r1 %sp 24                          # !1767
-    sw %r2 %sp 25                          # !1767
-    sw %r17 %sp 26                         # !1767
-    movz %r1 %r3 %zero                     # !1767
-    sw %ra %sp 27                          # !1767
-    addi %sp %sp 28                        # !1767
-    jal ~p_surface_ids.2502                # !1767
-    addi %sp %sp -28                       # !1767
-    lw %ra %sp 27                          # !1767
-    lw %r2 %sp 25                          # !1768
-    lw %r27 %sp 26                         # !1768
-    sw %r1 %sp 27                          # !1768
-    movz %r1 %r2 %zero                     # !1768
-    sw %ra %sp 28                          # !1768
-    addi %sp %sp 29                        # !1768
-    lw %r28 %r27 0                         # !1768
-    jalr %r28                              # !1768
-    addi %sp %sp -29                       # !1768
-    lw %ra %sp 28                          # !1768
-    addi %r2 %zero 0                       # !1768
-    beq %r1 %r2 beq_then.8866              # !1768
-    lw %r1 %sp 19                          # !1770
-    lw %r1 %r1 0                           # !1770
-    lw %r3 %sp 18                          # !1771
-    lwv %r3 %r3 %r1                        # !1771
-    sw %r2 %sp 28                          # !1772
-    sw %r1 %sp 29                          # !1772
-    sw %r3 %sp 30                          # !1772
-    movz %r1 %r3 %zero                     # !1772
-    sw %ra %sp 31                          # !1772
-    addi %sp %sp 32                        # !1772
-    jal ~o_reflectiontype.2460             # !1772
-    addi %sp %sp -32                       # !1772
-    lw %ra %sp 31                          # !1772
-    lw %r2 %sp 30                          # !1773
-    sw %r1 %sp 31                          # !1773
-    movz %r1 %r2 %zero                     # !1773
-    sw %ra %sp 32                          # !1773
-    addi %sp %sp 33                        # !1773
-    jal ~o_diffuse.2480                    # !1773
-    addi %sp %sp -33                       # !1773
-    lw %ra %sp 32                          # !1773
-    flw %f1 %sp 22                         # !1773
-    fmul %f0 %f0 %f1                       # !1773
-    lw %r1 %sp 30                          # !1775
-    lw %r2 %sp 25                          # !1775
-    lw %r27 %sp 17                         # !1775
-    fsw %f0 %sp 32                         # !1775
-    sw %ra %sp 33                          # !1775
-    addi %sp %sp 34                        # !1775
-    lw %r28 %r27 0                         # !1775
-    jalr %r28                              # !1775
-    addi %sp %sp -34                       # !1775
-    lw %ra %sp 33                          # !1775
-    lw %r1 %sp 16                          # !1776
-    lw %r2 %sp 15                          # !1776
-    sw %ra %sp 33                          # !1776
-    addi %sp %sp 34                        # !1776
-    jal ~veccpy.2428                       # !1776
-    addi %sp %sp -34                       # !1776
-    lw %ra %sp 33                          # !1776
-    lw %r1 %sp 30                          # !1777
-    lw %r2 %sp 15                          # !1777
-    lw %r27 %sp 14                         # !1777
-    sw %ra %sp 33                          # !1777
-    addi %sp %sp 34                        # !1777
-    lw %r28 %r27 0                         # !1777
-    jalr %r28                              # !1777
-    addi %sp %sp -34                       # !1777
-    lw %ra %sp 33                          # !1777
-    lw %r1 %sp 29                          # !1780
-    sll %r1 %r1 2                          # !1780
-    lw %r2 %sp 13                          # !1780
-    lw %r2 %r2 0                           # !1780
-    add %r1 %r1 %r2                        # !1780
-    lw %r2 %sp 24                          # !1780
-    lw %r3 %sp 27                          # !1780
-    swv %r1 %r3 %r2                        # !1780
-    lw %r1 %sp 12                          # !1781
-    sw %ra %sp 33                          # !1781
-    addi %sp %sp 34                        # !1781
-    jal ~p_intersection_points.2500        # !1781
-    addi %sp %sp -34                       # !1781
-    lw %ra %sp 33                          # !1781
-    lw %r2 %sp 24                          # !1782
-    lwv %r1 %r1 %r2                        # !1782
-    lw %r3 %sp 15                          # !1782
-    movz %r2 %r3 %zero                     # !1782
-    sw %ra %sp 33                          # !1782
-    addi %sp %sp 34                        # !1782
-    jal ~veccpy.2428                       # !1782
-    addi %sp %sp -34                       # !1782
-    lw %ra %sp 33                          # !1782
-    lw %r1 %sp 12                          # !1785
-    sw %ra %sp 33                          # !1785
-    addi %sp %sp 34                        # !1785
-    jal ~p_calc_diffuse.2504               # !1785
-    addi %sp %sp -34                       # !1785
-    lw %ra %sp 33                          # !1785
-    flui %f0 504                           # !1786
-    fli %f0 0                              # !1786
+beq_cont.9506:
+    j        ~beq_cont.9504                # !1723
+beq_then.9503:
+    beq      %r1  %r2  beq_then.9507       # !1725
+    flui     %f0  0                        # !1725
+    fli      %f0  0                        # !1725
+    ++
+    fli 0.000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
+    ++
+    j        ~beq_cont.9508                # !1725
+beq_then.9507:
+    flui     %f0  539                      # !1725
+    fli      %f0  -65536                   # !1725
+    ++
+    fli 255.000000
+    => flui %f0 0b01000011011
+       fli  %f0 0b111110000000000000000
+    ++
+beq_cont.9508:
+beq_cont.9504:
+    lw       %r1  %sp  1                   # !1722
+    fsw      %f0  %r1  1                   # !1722
+    jr       %ra                           # !1722
+add_light.2795:
+    lw       %r1  %r27  2                  # !1781
+    lw       %r2  %r27  1                  # !1781
+    fsw      %f2  %sp  0                   # !1784
+    fsw      %f1  %sp  1                   # !1784
+    fsw      %f0  %sp  2                   # !1784
+    sw       %r1  %sp  3                   # !1784
+    sw       %r2  %sp  4                   # !1784
+    sw       %ra  %sp  5                   # !1784
+    addi     %sp  %sp  6                   # !1784
+    jal      ~min_caml_fispos              # !1784
+    addi     %sp  %sp  -6                  # !1784
+    lw       %ra  %sp  5                   # !1784
+    addi     %r2  %zero  0                 # !1784
+    sw       %r2  %sp  5                   # !1784
+    beq      %r1  %r2  beq_then.9510       # !1784
+    flw      %f0  %sp  2                   # !1785
+    lw       %r1  %sp  4                   # !1785
+    lw       %r3  %sp  3                   # !1785
+    movz     %r2  %r3  %zero               # !1785
+    sw       %ra  %sp  6                   # !1785
+    addi     %sp  %sp  7                   # !1785
+    jal      ~vecaccum.2509                # !1785
+    addi     %sp  %sp  -7                  # !1785
+    lw       %ra  %sp  6                   # !1785
+    j        ~beq_cont.9511                # !1784
+beq_then.9510:
+beq_cont.9511:
+    flw      %f0  %sp  1                   # !1789
+    sw       %ra  %sp  6                   # !1789
+    addi     %sp  %sp  7                   # !1789
+    jal      ~min_caml_fispos              # !1789
+    addi     %sp  %sp  -7                  # !1789
+    lw       %ra  %sp  6                   # !1789
+    lw       %r2  %sp  5                   # !1789
+    beq      %r1  %r2  beq_then.9512       # !1789
+    flw      %f0  %sp  1                   # !1790
+    sw       %ra  %sp  6                   # !1790
+    addi     %sp  %sp  7                   # !1790
+    jal      ~min_caml_fsqr                # !1790
+    addi     %sp  %sp  -7                  # !1790
+    lw       %ra  %sp  6                   # !1790
+    sw       %ra  %sp  6                   # !1790
+    addi     %sp  %sp  7                   # !1790
+    jal      ~min_caml_fsqr                # !1790
+    addi     %sp  %sp  -7                  # !1790
+    lw       %ra  %sp  6                   # !1790
+    flw      %f1  %sp  0                   # !1790
+    fmul     %f0  %f0  %f1                 # !1790
+    flw      %f1  %sp  4                   # !1791
+    flw      %f2  %f1  0                   # !1791
+    fadd     %f2  %f2  %f0                 # !1791
+    fsw      %f2  %f1  0                   # !1791
+    flw      %f2  %f1  1                   # !1792
+    fadd     %f2  %f2  %f0                 # !1792
+    fsw      %f2  %f1  1                   # !1792
+    flw      %f2  %f1  2                   # !1793
+    fadd     %f0  %f2  %f0                 # !1793
+    fsw      %f0  %f1  2                   # !1793
+    jr       %ra                           # !1793
+beq_then.9512:
+    jr       %ra                           # !1794
+trace_reflections.2799:
+    lw       %r3  %r27  8                  # !1798
+    lw       %r4  %r27  7                  # !1798
+    lw       %r5  %r27  6                  # !1798
+    lw       %r6  %r27  5                  # !1798
+    lw       %r7  %r27  4                  # !1798
+    lw       %r8  %r27  3                  # !1798
+    lw       %r9  %r27  2                  # !1798
+    lw       %r10  %r27  1                 # !1798
+    addi     %r11  %zero  0                # !1800
+    blt      %r1  %r11  blt_then.9515      # !1800
+    lwv      %r4  %r4  %r1                 # !1801
+    sw       %r27  %sp  0                  # !1802
+    sw       %r1  %sp  1                   # !1802
+    fsw      %f1  %sp  2                   # !1802
+    sw       %r10  %sp  3                  # !1802
+    sw       %r2  %sp  4                   # !1802
+    fsw      %f0  %sp  5                   # !1802
+    sw       %r6  %sp  6                   # !1802
+    sw       %r3  %sp  7                   # !1802
+    sw       %r5  %sp  8                   # !1802
+    sw       %r4  %sp  9                   # !1802
+    sw       %r8  %sp  10                  # !1802
+    sw       %r9  %sp  11                  # !1802
+    sw       %r11  %sp  12                 # !1802
+    sw       %r7  %sp  13                  # !1802
+    movz     %r1  %r4  %zero               # !1802
+    sw       %ra  %sp  14                  # !1802
+    addi     %sp  %sp  15                  # !1802
+    jal      ~r_dvec.2590                  # !1802
+    addi     %sp  %sp  -15                 # !1802
+    lw       %ra  %sp  14                  # !1802
+    lw       %r27  %sp  13                 # !1805
+    sw       %r1  %sp  14                  # !1805
+    sw       %ra  %sp  15                  # !1805
+    addi     %sp  %sp  16                  # !1805
+    lw       %r28  %r27  0                 # !1805
+    jalr     %r28                          # !1805
+    addi     %sp  %sp  -16                 # !1805
+    lw       %ra  %sp  15                  # !1805
+    lw       %r2  %sp  12                  # !1805
+    beq      %r1  %r2  beq_then.9516       # !1805
+    lw       %r1  %sp  11                  # !1806
+    lw       %r1  %r1  0                   # !1806
+    sll      %r1  %r1  2                   # !1806
+    lw       %r3  %sp  10                  # !1806
+    lw       %r3  %r3  0                   # !1806
+    add      %r1  %r1  %r3                 # !1806
+    lw       %r3  %sp  9                   # !1807
+    sw       %r1  %sp  15                  # !1807
+    movz     %r1  %r3  %zero               # !1807
+    sw       %ra  %sp  16                  # !1807
+    addi     %sp  %sp  17                  # !1807
+    jal      ~r_surface_id.2588            # !1807
+    addi     %sp  %sp  -17                 # !1807
+    lw       %ra  %sp  16                  # !1807
+    lw       %r2  %sp  15                  # !1807
+    beq      %r2  %r1  beq_then.9518       # !1807
+    j        ~beq_cont.9519                # !1807
+beq_then.9518:
+    lw       %r1  %sp  8                   # !1809
+    lw       %r2  %r1  0                   # !1809
+    lw       %r1  %sp  12                  # !1809
+    lw       %r27  %sp  7                  # !1809
+    sw       %ra  %sp  16                  # !1809
+    addi     %sp  %sp  17                  # !1809
+    lw       %r28  %r27  0                 # !1809
+    jalr     %r28                          # !1809
+    addi     %sp  %sp  -17                 # !1809
+    lw       %ra  %sp  16                  # !1809
+    lw       %r2  %sp  12                  # !1809
+    beq      %r1  %r2  beq_then.9520       # !1809
+    j        ~beq_cont.9521                # !1809
+beq_then.9520:
+    lw       %r1  %sp  14                  # !1811
+    sw       %ra  %sp  16                  # !1811
+    addi     %sp  %sp  17                  # !1811
+    jal      ~d_vec.2584                   # !1811
+    addi     %sp  %sp  -17                 # !1811
+    lw       %ra  %sp  16                  # !1811
+    movz     %r2  %r1  %zero               # !1811
+    lw       %r1  %sp  6                   # !1811
+    sw       %ra  %sp  16                  # !1811
+    addi     %sp  %sp  17                  # !1811
+    jal      ~veciprod.2501                # !1811
+    addi     %sp  %sp  -17                 # !1811
+    lw       %ra  %sp  16                  # !1811
+    lw       %r1  %sp  9                   # !1812
+    fsw      %f0  %sp  16                  # !1812
+    sw       %ra  %sp  17                  # !1812
+    addi     %sp  %sp  18                  # !1812
+    jal      ~r_bright.2592                # !1812
+    addi     %sp  %sp  -18                 # !1812
+    lw       %ra  %sp  17                  # !1812
+    flw      %f1  %sp  5                   # !1813
+    fmul     %f2  %f1  %f0                 # !1813
+    flw      %f3  %sp  16                  # !1813
+    fmul     %f2  %f2  %f3                 # !1813
+    lw       %r1  %sp  14                  # !1814
+    fsw      %f2  %sp  17                  # !1814
+    fsw      %f0  %sp  18                  # !1814
+    sw       %ra  %sp  19                  # !1814
+    addi     %sp  %sp  20                  # !1814
+    jal      ~d_vec.2584                   # !1814
+    addi     %sp  %sp  -20                 # !1814
+    lw       %ra  %sp  19                  # !1814
+    movz     %r2  %r1  %zero               # !1814
+    lw       %r1  %sp  4                   # !1814
+    sw       %ra  %sp  19                  # !1814
+    addi     %sp  %sp  20                  # !1814
+    jal      ~veciprod.2501                # !1814
+    addi     %sp  %sp  -20                 # !1814
+    lw       %ra  %sp  19                  # !1814
+    flw      %f1  %sp  18                  # !1814
+    fmul     %f1  %f0  %f1                 # !1814
+    flw      %f0  %sp  17                  # !1815
+    flw      %f2  %sp  2                   # !1815
+    lw       %r27  %sp  3                  # !1815
+    sw       %ra  %sp  19                  # !1815
+    addi     %sp  %sp  20                  # !1815
+    lw       %r28  %r27  0                 # !1815
+    jalr     %r28                          # !1815
+    addi     %sp  %sp  -20                 # !1815
+    lw       %ra  %sp  19                  # !1815
+beq_cont.9521:
+beq_cont.9519:
+    j        ~beq_cont.9517                # !1805
+beq_then.9516:
+beq_cont.9517:
+    lw       %r1  %sp  1                   # !1819
+    addi     %r1  %r1  -1                  # !1819
+    flw      %f0  %sp  5                   # !1819
+    flw      %f1  %sp  2                   # !1819
+    lw       %r2  %sp  4                   # !1819
+    lw       %r27  %sp  0                  # !1819
+    lw       %r28  %r27  0                 # !1819
+    jr       %r28                          # !1819
+blt_then.9515:
+    jr       %ra                           # !1820
+trace_ray.2804:
+    lw       %r4  %r27  20                 # !1827
+    lw       %r5  %r27  19                 # !1827
+    lw       %r6  %r27  18                 # !1827
+    lw       %r7  %r27  17                 # !1827
+    lw       %r8  %r27  16                 # !1827
+    lw       %r9  %r27  15                 # !1827
+    lw       %r10  %r27  14                # !1827
+    lw       %r11  %r27  13                # !1827
+    lw       %r12  %r27  12                # !1827
+    lw       %r13  %r27  11                # !1827
+    lw       %r14  %r27  10                # !1827
+    lw       %r15  %r27  9                 # !1827
+    lw       %r16  %r27  8                 # !1827
+    lw       %r17  %r27  7                 # !1827
+    lw       %r18  %r27  6                 # !1827
+    lw       %r19  %r27  5                 # !1827
+    lw       %r20  %r27  4                 # !1827
+    lw       %r21  %r27  3                 # !1827
+    lw       %r22  %r27  2                 # !1827
+    lw       %r23  %r27  1                 # !1827
+    addi     %r24  %zero  4                # !1828
+    blt      %r24  %r1  blt_then.9523      # !1828
+    sw       %r27  %sp  0                  # !1829
+    fsw      %f1  %sp  1                   # !1829
+    sw       %r6  %sp  2                   # !1829
+    sw       %r24  %sp  3                  # !1829
+    sw       %r5  %sp  4                   # !1829
+    sw       %r15  %sp  5                  # !1829
+    sw       %r10  %sp  6                  # !1829
+    sw       %r23  %sp  7                  # !1829
+    sw       %r9  %sp  8                   # !1829
+    sw       %r12  %sp  9                  # !1829
+    sw       %r14  %sp  10                 # !1829
+    sw       %r7  %sp  11                  # !1829
+    sw       %r3  %sp  12                  # !1829
+    sw       %r18  %sp  13                 # !1829
+    sw       %r4  %sp  14                  # !1829
+    sw       %r19  %sp  15                 # !1829
+    sw       %r8  %sp  16                  # !1829
+    sw       %r21  %sp  17                 # !1829
+    sw       %r13  %sp  18                 # !1829
+    sw       %r20  %sp  19                 # !1829
+    sw       %r11  %sp  20                 # !1829
+    sw       %r22  %sp  21                 # !1829
+    fsw      %f0  %sp  22                  # !1829
+    sw       %r16  %sp  23                 # !1829
+    sw       %r1  %sp  24                  # !1829
+    sw       %r2  %sp  25                  # !1829
+    sw       %r17  %sp  26                 # !1829
+    movz     %r1  %r3  %zero               # !1829
+    sw       %ra  %sp  27                  # !1829
+    addi     %sp  %sp  28                  # !1829
+    jal      ~p_surface_ids.2569           # !1829
+    addi     %sp  %sp  -28                 # !1829
+    lw       %ra  %sp  27                  # !1829
+    lw       %r2  %sp  25                  # !1830
+    lw       %r27  %sp  26                 # !1830
+    sw       %r1  %sp  27                  # !1830
+    movz     %r1  %r2  %zero               # !1830
+    sw       %ra  %sp  28                  # !1830
+    addi     %sp  %sp  29                  # !1830
+    lw       %r28  %r27  0                 # !1830
+    jalr     %r28                          # !1830
+    addi     %sp  %sp  -29                 # !1830
+    lw       %ra  %sp  28                  # !1830
+    addi     %r2  %zero  0                 # !1830
+    beq      %r1  %r2  beq_then.9524       # !1830
+    lw       %r1  %sp  19                  # !1832
+    lw       %r1  %r1  0                   # !1832
+    lw       %r3  %sp  18                  # !1833
+    lwv      %r3  %r3  %r1                 # !1833
+    sw       %r2  %sp  28                  # !1834
+    sw       %r1  %sp  29                  # !1834
+    sw       %r3  %sp  30                  # !1834
+    movz     %r1  %r3  %zero               # !1834
+    sw       %ra  %sp  31                  # !1834
+    addi     %sp  %sp  32                  # !1834
+    jal      ~o_reflectiontype.2527        # !1834
+    addi     %sp  %sp  -32                 # !1834
+    lw       %ra  %sp  31                  # !1834
+    lw       %r2  %sp  30                  # !1835
+    sw       %r1  %sp  31                  # !1835
+    movz     %r1  %r2  %zero               # !1835
+    sw       %ra  %sp  32                  # !1835
+    addi     %sp  %sp  33                  # !1835
+    jal      ~o_diffuse.2547               # !1835
+    addi     %sp  %sp  -33                 # !1835
+    lw       %ra  %sp  32                  # !1835
+    flw      %f1  %sp  22                  # !1835
+    fmul     %f0  %f0  %f1                 # !1835
+    lw       %r1  %sp  30                  # !1837
+    lw       %r2  %sp  25                  # !1837
+    lw       %r27  %sp  17                 # !1837
+    fsw      %f0  %sp  32                  # !1837
+    sw       %ra  %sp  33                  # !1837
+    addi     %sp  %sp  34                  # !1837
+    lw       %r28  %r27  0                 # !1837
+    jalr     %r28                          # !1837
+    addi     %sp  %sp  -34                 # !1837
+    lw       %ra  %sp  33                  # !1837
+    lw       %r1  %sp  16                  # !1838
+    lw       %r2  %sp  15                  # !1838
+    sw       %ra  %sp  33                  # !1838
+    addi     %sp  %sp  34                  # !1838
+    jal      ~veccpy.2495                  # !1838
+    addi     %sp  %sp  -34                 # !1838
+    lw       %ra  %sp  33                  # !1838
+    lw       %r1  %sp  30                  # !1839
+    lw       %r2  %sp  15                  # !1839
+    lw       %r27  %sp  14                 # !1839
+    sw       %ra  %sp  33                  # !1839
+    addi     %sp  %sp  34                  # !1839
+    lw       %r28  %r27  0                 # !1839
+    jalr     %r28                          # !1839
+    addi     %sp  %sp  -34                 # !1839
+    lw       %ra  %sp  33                  # !1839
+    lw       %r1  %sp  29                  # !1842
+    sll      %r1  %r1  2                   # !1842
+    lw       %r2  %sp  13                  # !1842
+    lw       %r2  %r2  0                   # !1842
+    add      %r1  %r1  %r2                 # !1842
+    lw       %r2  %sp  24                  # !1842
+    lw       %r3  %sp  27                  # !1842
+    swv      %r1  %r3  %r2                 # !1842
+    lw       %r1  %sp  12                  # !1843
+    sw       %ra  %sp  33                  # !1843
+    addi     %sp  %sp  34                  # !1843
+    jal      ~p_intersection_points.2567   # !1843
+    addi     %sp  %sp  -34                 # !1843
+    lw       %ra  %sp  33                  # !1843
+    lw       %r2  %sp  24                  # !1844
+    lwv      %r1  %r1  %r2                 # !1844
+    lw       %r3  %sp  15                  # !1844
+    movz     %r2  %r3  %zero               # !1844
+    sw       %ra  %sp  33                  # !1844
+    addi     %sp  %sp  34                  # !1844
+    jal      ~veccpy.2495                  # !1844
+    addi     %sp  %sp  -34                 # !1844
+    lw       %ra  %sp  33                  # !1844
+    lw       %r1  %sp  12                  # !1847
+    sw       %ra  %sp  33                  # !1847
+    addi     %sp  %sp  34                  # !1847
+    jal      ~p_calc_diffuse.2571          # !1847
+    addi     %sp  %sp  -34                 # !1847
+    lw       %ra  %sp  33                  # !1847
+    lw       %r2  %sp  30                  # !1848
+    sw       %r1  %sp  33                  # !1848
+    movz     %r1  %r2  %zero               # !1848
+    sw       %ra  %sp  34                  # !1848
+    addi     %sp  %sp  35                  # !1848
+    jal      ~o_diffuse.2547               # !1848
+    addi     %sp  %sp  -35                 # !1848
+    lw       %ra  %sp  34                  # !1848
+    flui     %f1  504                      # !1848
+    fli      %f1  0                        # !1848
     ++
     fli 0.500000
-    => flui %f0 0b00111111000
-       fli  %f0 0b000000000000000000000
+    => flui %f1 0b00111111000
+       fli  %f1 0b000000000000000000000
     ++
-    lw %r2 %sp 30                          # !1786
-    sw %r1 %sp 33                          # !1786
-    fsw %f0 %sp 34                         # !1786
-    movz %r1 %r2 %zero                     # !1786
-    sw %ra %sp 35                          # !1786
-    addi %sp %sp 36                        # !1786
-    jal ~o_diffuse.2480                    # !1786
-    addi %sp %sp -36                       # !1786
-    lw %ra %sp 35                          # !1786
-    flw %f1 %sp 34                         # !1786
-    fblt %f0 %f1 fblt_then.8867            # !1786
-    addi %r1 %zero 1                       # !1789
-    lw %r2 %sp 24                          # !1789
-    lw %r3 %sp 33                          # !1789
-    swv %r1 %r3 %r2                        # !1789
-    lw %r1 %sp 12                          # !1790
-    sw %ra %sp 35                          # !1790
-    addi %sp %sp 36                        # !1790
-    jal ~p_energy.2506                     # !1790
-    addi %sp %sp -36                       # !1790
-    lw %ra %sp 35                          # !1790
-    lw %r2 %sp 24                          # !1791
-    lwv %r3 %r1 %r2                        # !1791
-    lw %r4 %sp 11                          # !1791
-    sw %r1 %sp 35                          # !1791
-    movz %r2 %r4 %zero                     # !1791
-    movz %r1 %r3 %zero                     # !1791
-    sw %ra %sp 36                          # !1791
-    addi %sp %sp 37                        # !1791
-    jal ~veccpy.2428                       # !1791
-    addi %sp %sp -37                       # !1791
-    lw %ra %sp 36                          # !1791
-    lw %r1 %sp 24                          # !1792
-    lw %r2 %sp 35                          # !1792
-    lwv %r2 %r2 %r1                        # !1792
-    flui %f0 476                           # !1792
-    fli %f0 0                              # !1792
+    sw       %ra  %sp  34                  # !1848
+    addi     %sp  %sp  35                  # !1848
+    jal      ~min_caml_fless               # !1848
+    addi     %sp  %sp  -35                 # !1848
+    lw       %ra  %sp  34                  # !1848
+    lw       %r2  %sp  28                  # !1848
+    beq      %r1  %r2  beq_then.9525       # !1848
+    lw       %r1  %sp  24                  # !1849
+    lw       %r3  %sp  33                  # !1849
+    swv      %r2  %r3  %r1                 # !1849
+    j        ~beq_cont.9526                # !1848
+beq_then.9525:
+    addi     %r1  %zero  1                 # !1851
+    lw       %r3  %sp  24                  # !1851
+    lw       %r4  %sp  33                  # !1851
+    swv      %r1  %r4  %r3                 # !1851
+    lw       %r1  %sp  12                  # !1852
+    sw       %ra  %sp  34                  # !1852
+    addi     %sp  %sp  35                  # !1852
+    jal      ~p_energy.2573                # !1852
+    addi     %sp  %sp  -35                 # !1852
+    lw       %ra  %sp  34                  # !1852
+    lw       %r2  %sp  24                  # !1853
+    lwv      %r3  %r1  %r2                 # !1853
+    lw       %r4  %sp  11                  # !1853
+    sw       %r1  %sp  34                  # !1853
+    movz     %r2  %r4  %zero               # !1853
+    movz     %r1  %r3  %zero               # !1853
+    sw       %ra  %sp  35                  # !1853
+    addi     %sp  %sp  36                  # !1853
+    jal      ~veccpy.2495                  # !1853
+    addi     %sp  %sp  -36                 # !1853
+    lw       %ra  %sp  35                  # !1853
+    lw       %r1  %sp  24                  # !1854
+    lw       %r2  %sp  34                  # !1854
+    lwv      %r2  %r2  %r1                 # !1854
+    flui     %f0  476                      # !1854
+    fli      %f0  0                        # !1854
     ++
     fli 0.003906
     => flui %f0 0b00111011100
        fli  %f0 0b000000000000000000000
     ++
-    flw %f1 %sp 32                         # !1792
-    fmul %f0 %f0 %f1                       # !1792
-    movz %r1 %r2 %zero                     # !1792
-    sw %ra %sp 36                          # !1792
-    addi %sp %sp 37                        # !1792
-    jal ~vecscale.2449                     # !1792
-    addi %sp %sp -37                       # !1792
-    lw %ra %sp 36                          # !1792
-    lw %r1 %sp 12                          # !1793
-    sw %ra %sp 36                          # !1793
-    addi %sp %sp 37                        # !1793
-    jal ~p_nvectors.2515                   # !1793
-    addi %sp %sp -37                       # !1793
-    lw %ra %sp 36                          # !1793
-    lw %r2 %sp 24                          # !1794
-    lwv %r1 %r1 %r2                        # !1794
-    lw %r3 %sp 10                          # !1794
-    movz %r2 %r3 %zero                     # !1794
-    sw %ra %sp 36                          # !1794
-    addi %sp %sp 37                        # !1794
-    jal ~veccpy.2428                       # !1794
-    addi %sp %sp -37                       # !1794
-    lw %ra %sp 36                          # !1794
-    j ~fblt_cont.8868                      # !1786
-fblt_then.8867:
-    lw %r1 %sp 24                          # !1787
-    lw %r2 %sp 33                          # !1787
-    lw %r3 %sp 28                          # !1787
-    swv %r3 %r2 %r1                        # !1787
-fblt_cont.8868:
-    flui %f0 -512                          # !1797
-    fli %f0 0                              # !1797
+    flw      %f1  %sp  32                  # !1854
+    fmul     %f0  %f0  %f1                 # !1854
+    movz     %r1  %r2  %zero               # !1854
+    sw       %ra  %sp  35                  # !1854
+    addi     %sp  %sp  36                  # !1854
+    jal      ~vecscale.2516                # !1854
+    addi     %sp  %sp  -36                 # !1854
+    lw       %ra  %sp  35                  # !1854
+    lw       %r1  %sp  12                  # !1855
+    sw       %ra  %sp  35                  # !1855
+    addi     %sp  %sp  36                  # !1855
+    jal      ~p_nvectors.2582              # !1855
+    addi     %sp  %sp  -36                 # !1855
+    lw       %ra  %sp  35                  # !1855
+    lw       %r2  %sp  24                  # !1856
+    lwv      %r1  %r1  %r2                 # !1856
+    lw       %r3  %sp  10                  # !1856
+    movz     %r2  %r3  %zero               # !1856
+    sw       %ra  %sp  35                  # !1856
+    addi     %sp  %sp  36                  # !1856
+    jal      ~veccpy.2495                  # !1856
+    addi     %sp  %sp  -36                 # !1856
+    lw       %ra  %sp  35                  # !1856
+beq_cont.9526:
+    flui     %f0  -512                     # !1859
+    fli      %f0  0                        # !1859
     ++
     fli -2.000000
     => flui %f0 0b11000000000
        fli  %f0 0b000000000000000000000
     ++
-    lw %r1 %sp 25                          # !1797
-    lw %r2 %sp 10                          # !1797
-    fsw %f0 %sp 36                         # !1797
-    sw %ra %sp 37                          # !1797
-    addi %sp %sp 38                        # !1797
-    jal ~veciprod.2434                     # !1797
-    addi %sp %sp -38                       # !1797
-    lw %ra %sp 37                          # !1797
-    flw %f1 %sp 36                         # !1797
-    fmul %f0 %f1 %f0                       # !1797
-    lw %r1 %sp 25                          # !1799
-    lw %r2 %sp 10                          # !1799
-    sw %ra %sp 37                          # !1799
-    addi %sp %sp 38                        # !1799
-    jal ~vecaccum.2442                     # !1799
-    addi %sp %sp -38                       # !1799
-    lw %ra %sp 37                          # !1799
-    lw %r1 %sp 30                          # !1801
-    sw %ra %sp 37                          # !1801
-    addi %sp %sp 38                        # !1801
-    jal ~o_hilight.2482                    # !1801
-    addi %sp %sp -38                       # !1801
-    lw %ra %sp 37                          # !1801
-    flw %f1 %sp 22                         # !1801
-    fmul %f0 %f0 %f1                       # !1801
-    lw %r1 %sp 9                           # !1804
-    lw %r2 %r1 0                           # !1804
-    lw %r1 %sp 28                          # !1804
-    lw %r27 %sp 8                          # !1804
-    fsw %f0 %sp 37                         # !1804
-    sw %ra %sp 38                          # !1804
-    addi %sp %sp 39                        # !1804
-    lw %r28 %r27 0                         # !1804
-    jalr %r28                              # !1804
-    addi %sp %sp -39                       # !1804
-    lw %ra %sp 38                          # !1804
-    lw %r2 %sp 28                          # !1804
-    beq %r1 %r2 beq_then.8869              # !1804
-    j ~beq_cont.8870                       # !1804
-beq_then.8869:
-    lw %r1 %sp 10                          # !1805
-    lw %r2 %sp 23                          # !1805
-    sw %ra %sp 38                          # !1805
-    addi %sp %sp 39                        # !1805
-    jal ~veciprod.2434                     # !1805
-    addi %sp %sp -39                       # !1805
-    lw %ra %sp 38                          # !1805
-    fneg %f0 %f0                           # !1805
-    flw %f1 %sp 32                         # !1805
-    fmul %f0 %f0 %f1                       # !1805
-    lw %r1 %sp 25                          # !1806
-    lw %r2 %sp 23                          # !1806
-    fsw %f0 %sp 38                         # !1806
-    sw %ra %sp 39                          # !1806
-    addi %sp %sp 40                        # !1806
-    jal ~veciprod.2434                     # !1806
-    addi %sp %sp -40                       # !1806
-    lw %ra %sp 39                          # !1806
-    fneg %f1 %f0                           # !1806
-    flw %f0 %sp 38                         # !1807
-    flw %f2 %sp 37                         # !1807
-    lw %r27 %sp 7                          # !1807
-    sw %ra %sp 39                          # !1807
-    addi %sp %sp 40                        # !1807
-    lw %r28 %r27 0                         # !1807
-    jalr %r28                              # !1807
-    addi %sp %sp -40                       # !1807
-    lw %ra %sp 39                          # !1807
-beq_cont.8870:
-    lw %r1 %sp 15                          # !1811
-    lw %r27 %sp 6                          # !1811
-    sw %ra %sp 39                          # !1811
-    addi %sp %sp 40                        # !1811
-    lw %r28 %r27 0                         # !1811
-    jalr %r28                              # !1811
-    addi %sp %sp -40                       # !1811
-    lw %ra %sp 39                          # !1811
-    lw %r1 %sp 5                           # !1812
-    lw %r1 %r1 0                           # !1812
-    addi %r1 %r1 -1                        # !1812
-    flw %f0 %sp 32                         # !1812
-    flw %f1 %sp 37                         # !1812
-    lw %r2 %sp 25                          # !1812
-    lw %r27 %sp 4                          # !1812
-    sw %ra %sp 39                          # !1812
-    addi %sp %sp 40                        # !1812
-    lw %r28 %r27 0                         # !1812
-    jalr %r28                              # !1812
-    addi %sp %sp -40                       # !1812
-    lw %ra %sp 39                          # !1812
-    flui %f0 494                           # !1815
-    fli %f0 838861                         # !1815
+    lw       %r1  %sp  25                  # !1859
+    lw       %r2  %sp  10                  # !1859
+    fsw      %f0  %sp  35                  # !1859
+    sw       %ra  %sp  36                  # !1859
+    addi     %sp  %sp  37                  # !1859
+    jal      ~veciprod.2501                # !1859
+    addi     %sp  %sp  -37                 # !1859
+    lw       %ra  %sp  36                  # !1859
+    flw      %f1  %sp  35                  # !1859
+    fmul     %f0  %f1  %f0                 # !1859
+    lw       %r1  %sp  25                  # !1861
+    lw       %r2  %sp  10                  # !1861
+    sw       %ra  %sp  36                  # !1861
+    addi     %sp  %sp  37                  # !1861
+    jal      ~vecaccum.2509                # !1861
+    addi     %sp  %sp  -37                 # !1861
+    lw       %ra  %sp  36                  # !1861
+    lw       %r1  %sp  30                  # !1863
+    sw       %ra  %sp  36                  # !1863
+    addi     %sp  %sp  37                  # !1863
+    jal      ~o_hilight.2549               # !1863
+    addi     %sp  %sp  -37                 # !1863
+    lw       %ra  %sp  36                  # !1863
+    flw      %f1  %sp  22                  # !1863
+    fmul     %f0  %f0  %f1                 # !1863
+    lw       %r1  %sp  9                   # !1866
+    lw       %r2  %r1  0                   # !1866
+    lw       %r1  %sp  28                  # !1866
+    lw       %r27  %sp  8                  # !1866
+    fsw      %f0  %sp  36                  # !1866
+    sw       %ra  %sp  37                  # !1866
+    addi     %sp  %sp  38                  # !1866
+    lw       %r28  %r27  0                 # !1866
+    jalr     %r28                          # !1866
+    addi     %sp  %sp  -38                 # !1866
+    lw       %ra  %sp  37                  # !1866
+    lw       %r2  %sp  28                  # !1866
+    beq      %r1  %r2  beq_then.9527       # !1866
+    j        ~beq_cont.9528                # !1866
+beq_then.9527:
+    lw       %r1  %sp  10                  # !1867
+    lw       %r3  %sp  23                  # !1867
+    movz     %r2  %r3  %zero               # !1867
+    sw       %ra  %sp  37                  # !1867
+    addi     %sp  %sp  38                  # !1867
+    jal      ~veciprod.2501                # !1867
+    addi     %sp  %sp  -38                 # !1867
+    lw       %ra  %sp  37                  # !1867
+    sw       %ra  %sp  37                  # !1867
+    addi     %sp  %sp  38                  # !1867
+    jal      ~min_caml_fneg                # !1867
+    addi     %sp  %sp  -38                 # !1867
+    lw       %ra  %sp  37                  # !1867
+    flw      %f1  %sp  32                  # !1867
+    fmul     %f0  %f0  %f1                 # !1867
+    lw       %r1  %sp  25                  # !1868
+    lw       %r2  %sp  23                  # !1868
+    fsw      %f0  %sp  37                  # !1868
+    sw       %ra  %sp  38                  # !1868
+    addi     %sp  %sp  39                  # !1868
+    jal      ~veciprod.2501                # !1868
+    addi     %sp  %sp  -39                 # !1868
+    lw       %ra  %sp  38                  # !1868
+    sw       %ra  %sp  38                  # !1868
+    addi     %sp  %sp  39                  # !1868
+    jal      ~min_caml_fneg                # !1868
+    addi     %sp  %sp  -39                 # !1868
+    lw       %ra  %sp  38                  # !1868
+    fmovz    %f1  %f0  %zero               # !1868
+    flw      %f0  %sp  37                  # !1869
+    flw      %f2  %sp  36                  # !1869
+    lw       %r27  %sp  7                  # !1869
+    sw       %ra  %sp  38                  # !1869
+    addi     %sp  %sp  39                  # !1869
+    lw       %r28  %r27  0                 # !1869
+    jalr     %r28                          # !1869
+    addi     %sp  %sp  -39                 # !1869
+    lw       %ra  %sp  38                  # !1869
+beq_cont.9528:
+    lw       %r1  %sp  15                  # !1873
+    lw       %r27  %sp  6                  # !1873
+    sw       %ra  %sp  38                  # !1873
+    addi     %sp  %sp  39                  # !1873
+    lw       %r28  %r27  0                 # !1873
+    jalr     %r28                          # !1873
+    addi     %sp  %sp  -39                 # !1873
+    lw       %ra  %sp  38                  # !1873
+    lw       %r1  %sp  5                   # !1874
+    lw       %r1  %r1  0                   # !1874
+    addi     %r1  %r1  -1                  # !1874
+    flw      %f0  %sp  32                  # !1874
+    flw      %f1  %sp  36                  # !1874
+    lw       %r2  %sp  25                  # !1874
+    lw       %r27  %sp  4                  # !1874
+    sw       %ra  %sp  38                  # !1874
+    addi     %sp  %sp  39                  # !1874
+    lw       %r28  %r27  0                 # !1874
+    jalr     %r28                          # !1874
+    addi     %sp  %sp  -39                 # !1874
+    lw       %ra  %sp  38                  # !1874
+    flui     %f0  494                      # !1877
+    fli      %f0  838861                   # !1877
     ++
     fli 0.100000
     => flui %f0 0b00111101110
        fli  %f0 0b011001100110011001101
     ++
-    flw %f1 %sp 22                         # !1815
-    fblt %f0 %f1 fblt_then.8871            # !1815
-    jr %ra                                 # !1826
-fblt_then.8871:
-    lw %r1 %sp 24                          # !1817
-    lw %r2 %sp 3                           # !1817
-    blt %r1 %r2 blt_then.8873              # !1817
-    j ~blt_cont.8874                       # !1817
-blt_then.8873:
-    addi %r2 %r1 1                         # !1818
-    addi %r3 %zero -1                      # !1818
-    lw %r4 %sp 27                          # !1818
-    swv %r3 %r4 %r2                        # !1818
-blt_cont.8874:
-    addi %r2 %zero 2                       # !1821
-    lw %r3 %sp 31                          # !1821
-    beq %r3 %r2 beq_then.8875              # !1821
-    jr %ra                                 # !1824
-beq_then.8875:
-    flui %f0 508                           # !1822
-    fli %f0 0                              # !1822
+    flw      %f1  %sp  22                  # !1877
+    sw       %ra  %sp  38                  # !1877
+    addi     %sp  %sp  39                  # !1877
+    jal      ~min_caml_fless               # !1877
+    addi     %sp  %sp  -39                 # !1877
+    lw       %ra  %sp  38                  # !1877
+    lw       %r2  %sp  28                  # !1877
+    beq      %r1  %r2  beq_then.9529       # !1877
+    lw       %r1  %sp  24                  # !1879
+    lw       %r2  %sp  3                   # !1879
+    blt      %r1  %r2  blt_then.9530       # !1879
+    j        ~blt_cont.9531                # !1879
+blt_then.9530:
+    addi     %r2  %r1  1                   # !1880
+    addi     %r3  %zero  -1                # !1880
+    lw       %r4  %sp  27                  # !1880
+    swv      %r3  %r4  %r2                 # !1880
+blt_cont.9531:
+    addi     %r2  %zero  2                 # !1883
+    lw       %r3  %sp  31                  # !1883
+    beq      %r3  %r2  beq_then.9532       # !1883
+    jr       %ra                           # !1886
+beq_then.9532:
+    flui     %f0  508                      # !1884
+    fli      %f0  0                        # !1884
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    lw %r2 %sp 30                          # !1822
-    fsw %f0 %sp 39                         # !1822
-    movz %r1 %r2 %zero                     # !1822
-    sw %ra %sp 40                          # !1822
-    addi %sp %sp 41                        # !1822
-    jal ~o_diffuse.2480                    # !1822
-    addi %sp %sp -41                       # !1822
-    lw %ra %sp 40                          # !1822
-    flw %f1 %sp 39                         # !1822
-    fsub %f0 %f1 %f0                       # !1822
-    flw %f1 %sp 22                         # !1822
-    fmul %f0 %f0 %f1                       # !1822
-    lw %r1 %sp 24                          # !1823
-    addi %r1 %r1 1                         # !1823
-    flw %f1 %sp 2                          # !1823
-    flw %f1 %f1 0                          # !1823
-    flw %f2 %sp 1                          # !1823
-    fadd %f1 %f1 %f2                       # !1823
-    lw %r2 %sp 25                          # !1823
-    lw %r3 %sp 12                          # !1823
-    lw %r27 %sp 0                          # !1823
-    lw %r28 %r27 0                         # !1823
-    jr %r28                                # !1823
-beq_then.8866:
-    addi %r1 %zero -1                      # !1831
-    lw %r3 %sp 24                          # !1831
-    lw %r4 %sp 27                          # !1831
-    swv %r1 %r4 %r3                        # !1831
-    beq %r3 %r2 beq_then.8877              # !1833
-    lw %r1 %sp 25                          # !1834
-    lw %r2 %sp 23                          # !1834
-    sw %ra %sp 40                          # !1834
-    addi %sp %sp 41                        # !1834
-    jal ~veciprod.2434                     # !1834
-    addi %sp %sp -41                       # !1834
-    lw %ra %sp 40                          # !1834
-    fneg %f0 %f0                           # !1834
-    flui %f1 0                             # !1836
-    fli %f1 0                              # !1836
+    lw       %r2  %sp  30                  # !1884
+    fsw      %f0  %sp  38                  # !1884
+    movz     %r1  %r2  %zero               # !1884
+    sw       %ra  %sp  39                  # !1884
+    addi     %sp  %sp  40                  # !1884
+    jal      ~o_diffuse.2547               # !1884
+    addi     %sp  %sp  -40                 # !1884
+    lw       %ra  %sp  39                  # !1884
+    flw      %f1  %sp  38                  # !1884
+    fsub     %f0  %f1  %f0                 # !1884
+    flw      %f1  %sp  22                  # !1884
+    fmul     %f0  %f0  %f1                 # !1884
+    lw       %r1  %sp  24                  # !1885
+    addi     %r1  %r1  1                   # !1885
+    flw      %f1  %sp  2                   # !1885
+    flw      %f1  %f1  0                   # !1885
+    flw      %f2  %sp  1                   # !1885
+    fadd     %f1  %f1  %f2                 # !1885
+    lw       %r2  %sp  25                  # !1885
+    lw       %r3  %sp  12                  # !1885
+    lw       %r27  %sp  0                  # !1885
+    lw       %r28  %r27  0                 # !1885
+    jr       %r28                          # !1885
+beq_then.9529:
+    jr       %ra                           # !1888
+beq_then.9524:
+    addi     %r1  %zero  -1                # !1893
+    lw       %r3  %sp  24                  # !1893
+    lw       %r4  %sp  27                  # !1893
+    swv      %r1  %r4  %r3                 # !1893
+    beq      %r3  %r2  beq_then.9535       # !1895
+    lw       %r1  %sp  25                  # !1896
+    lw       %r3  %sp  23                  # !1896
+    sw       %r2  %sp  28                  # !1896
+    movz     %r2  %r3  %zero               # !1896
+    sw       %ra  %sp  39                  # !1896
+    addi     %sp  %sp  40                  # !1896
+    jal      ~veciprod.2501                # !1896
+    addi     %sp  %sp  -40                 # !1896
+    lw       %ra  %sp  39                  # !1896
+    sw       %ra  %sp  39                  # !1896
+    addi     %sp  %sp  40                  # !1896
+    jal      ~min_caml_fneg                # !1896
+    addi     %sp  %sp  -40                 # !1896
+    lw       %ra  %sp  39                  # !1896
+    fsw      %f0  %sp  39                  # !1898
+    sw       %ra  %sp  40                  # !1898
+    addi     %sp  %sp  41                  # !1898
+    jal      ~min_caml_fispos              # !1898
+    addi     %sp  %sp  -41                 # !1898
+    lw       %ra  %sp  40                  # !1898
+    lw       %r2  %sp  28                  # !1898
+    beq      %r1  %r2  beq_then.9536       # !1898
+    flw      %f0  %sp  39                  # !1901
+    sw       %ra  %sp  40                  # !1901
+    addi     %sp  %sp  41                  # !1901
+    jal      ~min_caml_fsqr                # !1901
+    addi     %sp  %sp  -41                 # !1901
+    lw       %ra  %sp  40                  # !1901
+    flw      %f1  %sp  39                  # !1901
+    fmul     %f0  %f0  %f1                 # !1901
+    flw      %f1  %sp  22                  # !1901
+    fmul     %f0  %f0  %f1                 # !1901
+    flw      %f1  %sp  21                  # !1901
+    flw      %f1  %f1  0                   # !1901
+    fmul     %f0  %f0  %f1                 # !1901
+    flw      %f1  %sp  20                  # !1902
+    flw      %f2  %f1  0                   # !1902
+    fadd     %f2  %f2  %f0                 # !1902
+    fsw      %f2  %f1  0                   # !1902
+    flw      %f2  %f1  1                   # !1903
+    fadd     %f2  %f2  %f0                 # !1903
+    fsw      %f2  %f1  1                   # !1903
+    flw      %f2  %f1  2                   # !1904
+    fadd     %f0  %f2  %f0                 # !1904
+    fsw      %f0  %f1  2                   # !1904
+    jr       %ra                           # !1904
+beq_then.9536:
+    jr       %ra                           # !1906
+beq_then.9535:
+    jr       %ra                           # !1907
+blt_then.9523:
+    jr       %ra                           # !1909
+trace_diffuse_ray.2810:
+    lw       %r2  %r27  12                 # !1920
+    lw       %r3  %r27  11                 # !1920
+    lw       %r4  %r27  10                 # !1920
+    lw       %r5  %r27  9                  # !1920
+    lw       %r6  %r27  8                  # !1920
+    lw       %r7  %r27  7                  # !1920
+    lw       %r8  %r27  6                  # !1920
+    lw       %r9  %r27  5                  # !1920
+    lw       %r10  %r27  4                 # !1920
+    lw       %r11  %r27  3                 # !1920
+    lw       %r12  %r27  2                 # !1920
+    lw       %r13  %r27  1                 # !1920
+    sw       %r3  %sp  0                   # !1923
+    sw       %r13  %sp  1                  # !1923
+    fsw      %f0  %sp  2                   # !1923
+    sw       %r8  %sp  3                   # !1923
+    sw       %r7  %sp  4                   # !1923
+    sw       %r4  %sp  5                   # !1923
+    sw       %r5  %sp  6                   # !1923
+    sw       %r10  %sp  7                  # !1923
+    sw       %r2  %sp  8                   # !1923
+    sw       %r12  %sp  9                  # !1923
+    sw       %r1  %sp  10                  # !1923
+    sw       %r6  %sp  11                  # !1923
+    sw       %r11  %sp  12                 # !1923
+    movz     %r27  %r9  %zero              # !1923
+    sw       %ra  %sp  13                  # !1923
+    addi     %sp  %sp  14                  # !1923
+    lw       %r28  %r27  0                 # !1923
+    jalr     %r28                          # !1923
+    addi     %sp  %sp  -14                 # !1923
+    lw       %ra  %sp  13                  # !1923
+    addi     %r2  %zero  0                 # !1923
+    beq      %r1  %r2  beq_then.9541       # !1923
+    lw       %r1  %sp  12                  # !1924
+    lw       %r1  %r1  0                   # !1924
+    lw       %r3  %sp  11                  # !1924
+    lwv      %r1  %r3  %r1                 # !1924
+    lw       %r3  %sp  10                  # !1925
+    sw       %r2  %sp  13                  # !1925
+    sw       %r1  %sp  14                  # !1925
+    movz     %r1  %r3  %zero               # !1925
+    sw       %ra  %sp  15                  # !1925
+    addi     %sp  %sp  16                  # !1925
+    jal      ~d_vec.2584                   # !1925
+    addi     %sp  %sp  -16                 # !1925
+    lw       %ra  %sp  15                  # !1925
+    movz     %r2  %r1  %zero               # !1925
+    lw       %r1  %sp  14                  # !1925
+    lw       %r27  %sp  9                  # !1925
+    sw       %ra  %sp  15                  # !1925
+    addi     %sp  %sp  16                  # !1925
+    lw       %r28  %r27  0                 # !1925
+    jalr     %r28                          # !1925
+    addi     %sp  %sp  -16                 # !1925
+    lw       %ra  %sp  15                  # !1925
+    lw       %r1  %sp  14                  # !1926
+    lw       %r2  %sp  7                   # !1926
+    lw       %r27  %sp  8                  # !1926
+    sw       %ra  %sp  15                  # !1926
+    addi     %sp  %sp  16                  # !1926
+    lw       %r28  %r27  0                 # !1926
+    jalr     %r28                          # !1926
+    addi     %sp  %sp  -16                 # !1926
+    lw       %ra  %sp  15                  # !1926
+    lw       %r1  %sp  6                   # !1929
+    lw       %r2  %r1  0                   # !1929
+    lw       %r1  %sp  13                  # !1929
+    lw       %r27  %sp  5                  # !1929
+    sw       %ra  %sp  15                  # !1929
+    addi     %sp  %sp  16                  # !1929
+    lw       %r28  %r27  0                 # !1929
+    jalr     %r28                          # !1929
+    addi     %sp  %sp  -16                 # !1929
+    lw       %ra  %sp  15                  # !1929
+    lw       %r2  %sp  13                  # !1929
+    beq      %r1  %r2  beq_then.9542       # !1929
+    jr       %ra                           # !1933
+beq_then.9542:
+    lw       %r1  %sp  4                   # !1930
+    lw       %r3  %sp  3                   # !1930
+    movz     %r2  %r3  %zero               # !1930
+    sw       %ra  %sp  15                  # !1930
+    addi     %sp  %sp  16                  # !1930
+    jal      ~veciprod.2501                # !1930
+    addi     %sp  %sp  -16                 # !1930
+    lw       %ra  %sp  15                  # !1930
+    sw       %ra  %sp  15                  # !1930
+    addi     %sp  %sp  16                  # !1930
+    jal      ~min_caml_fneg                # !1930
+    addi     %sp  %sp  -16                 # !1930
+    lw       %ra  %sp  15                  # !1930
+    fsw      %f0  %sp  15                  # !1931
+    sw       %ra  %sp  16                  # !1931
+    addi     %sp  %sp  17                  # !1931
+    jal      ~min_caml_fispos              # !1931
+    addi     %sp  %sp  -17                 # !1931
+    lw       %ra  %sp  16                  # !1931
+    lw       %r2  %sp  13                  # !1931
+    beq      %r1  %r2  beq_then.9544       # !1931
+    flw      %f0  %sp  15                  # !1931
+    j        ~beq_cont.9545                # !1931
+beq_then.9544:
+    flui     %f0  0                        # !1931
+    fli      %f0  0                        # !1931
     ++
     fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
     ++
-    fblt %f1 %f0 fblt_then.8878            # !1836
-    jr %ra                                 # !1844
-fblt_then.8878:
-    fmul %f1 %f0 %f0                       # !1839
-    fmul %f0 %f1 %f0                       # !1839
-    flw %f1 %sp 22                         # !1839
-    fmul %f0 %f0 %f1                       # !1839
-    flw %f1 %sp 21                         # !1839
-    flw %f1 %f1 0                          # !1839
-    fmul %f0 %f0 %f1                       # !1839
-    flw %f1 %sp 20                         # !1840
-    flw %f2 %f1 0                          # !1840
-    fadd %f2 %f2 %f0                       # !1840
-    fsw %f2 %f1 0                          # !1840
-    flw %f2 %f1 1                          # !1841
-    fadd %f2 %f2 %f0                       # !1841
-    fsw %f2 %f1 1                          # !1841
-    flw %f2 %f1 2                          # !1842
-    fadd %f0 %f2 %f0                       # !1842
-    fsw %f0 %f1 2                          # !1842
-    jr %ra                                 # !1842
-beq_then.8877:
-    jr %ra                                 # !1845
-blt_then.8865:
-    jr %ra                                 # !1847
-trace_diffuse_ray.2743:
-    lw %r2 %r27 12                         # !1858
-    lw %r3 %r27 11                         # !1858
-    lw %r4 %r27 10                         # !1858
-    lw %r5 %r27 9                          # !1858
-    lw %r6 %r27 8                          # !1858
-    lw %r7 %r27 7                          # !1858
-    lw %r8 %r27 6                          # !1858
-    lw %r9 %r27 5                          # !1858
-    lw %r10 %r27 4                         # !1858
-    lw %r11 %r27 3                         # !1858
-    lw %r12 %r27 2                         # !1858
-    lw %r13 %r27 1                         # !1858
-    sw %r3 %sp 0                           # !1861
-    sw %r13 %sp 1                          # !1861
-    fsw %f0 %sp 2                          # !1861
-    sw %r8 %sp 3                           # !1861
-    sw %r7 %sp 4                           # !1861
-    sw %r4 %sp 5                           # !1861
-    sw %r5 %sp 6                           # !1861
-    sw %r10 %sp 7                          # !1861
-    sw %r2 %sp 8                           # !1861
-    sw %r12 %sp 9                          # !1861
-    sw %r1 %sp 10                          # !1861
-    sw %r6 %sp 11                          # !1861
-    sw %r11 %sp 12                         # !1861
-    movz %r27 %r9 %zero                    # !1861
-    sw %ra %sp 13                          # !1861
-    addi %sp %sp 14                        # !1861
-    lw %r28 %r27 0                         # !1861
-    jalr %r28                              # !1861
-    addi %sp %sp -14                       # !1861
-    lw %ra %sp 13                          # !1861
-    addi %r2 %zero 0                       # !1861
-    beq %r1 %r2 beq_then.8883              # !1861
-    lw %r1 %sp 12                          # !1862
-    lw %r1 %r1 0                           # !1862
-    lw %r3 %sp 11                          # !1862
-    lwv %r1 %r3 %r1                        # !1862
-    lw %r3 %sp 10                          # !1863
-    sw %r2 %sp 13                          # !1863
-    sw %r1 %sp 14                          # !1863
-    movz %r1 %r3 %zero                     # !1863
-    sw %ra %sp 15                          # !1863
-    addi %sp %sp 16                        # !1863
-    jal ~d_vec.2517                        # !1863
-    addi %sp %sp -16                       # !1863
-    lw %ra %sp 15                          # !1863
-    movz %r2 %r1 %zero                     # !1863
-    lw %r1 %sp 14                          # !1863
-    lw %r27 %sp 9                          # !1863
-    sw %ra %sp 15                          # !1863
-    addi %sp %sp 16                        # !1863
-    lw %r28 %r27 0                         # !1863
-    jalr %r28                              # !1863
-    addi %sp %sp -16                       # !1863
-    lw %ra %sp 15                          # !1863
-    lw %r1 %sp 14                          # !1864
-    lw %r2 %sp 7                           # !1864
-    lw %r27 %sp 8                          # !1864
-    sw %ra %sp 15                          # !1864
-    addi %sp %sp 16                        # !1864
-    lw %r28 %r27 0                         # !1864
-    jalr %r28                              # !1864
-    addi %sp %sp -16                       # !1864
-    lw %ra %sp 15                          # !1864
-    lw %r1 %sp 6                           # !1867
-    lw %r2 %r1 0                           # !1867
-    lw %r1 %sp 13                          # !1867
-    lw %r27 %sp 5                          # !1867
-    sw %ra %sp 15                          # !1867
-    addi %sp %sp 16                        # !1867
-    lw %r28 %r27 0                         # !1867
-    jalr %r28                              # !1867
-    addi %sp %sp -16                       # !1867
-    lw %ra %sp 15                          # !1867
-    lw %r2 %sp 13                          # !1867
-    beq %r1 %r2 beq_then.8884              # !1867
-    jr %ra                                 # !1871
-beq_then.8884:
-    lw %r1 %sp 4                           # !1868
-    lw %r2 %sp 3                           # !1868
-    sw %ra %sp 15                          # !1868
-    addi %sp %sp 16                        # !1868
-    jal ~veciprod.2434                     # !1868
-    addi %sp %sp -16                       # !1868
-    lw %ra %sp 15                          # !1868
-    fneg %f0 %f0                           # !1868
-    flui %f1 0                             # !1869
-    fli %f1 0                              # !1869
-    ++
-    fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
-    ++
-    fblt %f1 %f0 fblt_then.8886            # !1869
-    fmovz %f0 %f1 %zero                    # !1869
-    j ~fblt_cont.8887                      # !1869
-fblt_then.8886:
-fblt_cont.8887:
-    flw %f1 %sp 2                          # !1870
-    fmul %f0 %f0 %f1                       # !1870
-    lw %r1 %sp 14                          # !1870
-    fsw %f0 %sp 15                         # !1870
-    sw %ra %sp 16                          # !1870
-    addi %sp %sp 17                        # !1870
-    jal ~o_diffuse.2480                    # !1870
-    addi %sp %sp -17                       # !1870
-    lw %ra %sp 16                          # !1870
-    flw %f1 %sp 15                         # !1870
-    fmul %f0 %f1 %f0                       # !1870
-    lw %r1 %sp 1                           # !1870
-    lw %r2 %sp 0                           # !1870
-    j ~vecaccum.2442                       # !1870
-beq_then.8883:
-    jr %ra                                 # !1872
-iter_trace_diffuse_rays.2746:
-    lw %r5 %r27 1                          # !1877
-    addi %r6 %zero 0                       # !1878
-    blt %r4 %r6 blt_then.8889              # !1878
-    lwv %r6 %r1 %r4                        # !1879
-    sw %r3 %sp 0                           # !1879
-    sw %r27 %sp 1                          # !1879
-    sw %r5 %sp 2                           # !1879
-    sw %r4 %sp 3                           # !1879
-    sw %r1 %sp 4                           # !1879
-    sw %r2 %sp 5                           # !1879
-    movz %r1 %r6 %zero                     # !1879
-    sw %ra %sp 6                           # !1879
-    addi %sp %sp 7                         # !1879
-    jal ~d_vec.2517                        # !1879
-    addi %sp %sp -7                        # !1879
-    lw %ra %sp 6                           # !1879
-    lw %r2 %sp 5                           # !1879
-    sw %ra %sp 6                           # !1879
-    addi %sp %sp 7                         # !1879
-    jal ~veciprod.2434                     # !1879
-    addi %sp %sp -7                        # !1879
-    lw %ra %sp 6                           # !1879
-    flui %f1 0                             # !1883
-    fli %f1 0                              # !1883
-    ++
-    fli 0.000000
-    => flui %f1 0b00000000000
-       fli  %f1 0b000000000000000000000
-    ++
-    fblt %f0 %f1 fblt_then.8890            # !1883
-    lw %r1 %sp 3                           # !1886
-    lw %r2 %sp 4                           # !1886
-    lwv %r3 %r2 %r1                        # !1886
-    flui %f1 536                           # !1886
-    fli %f1 -655360                        # !1886
-    ++
-    fli 150.000000
-    => flui %f1 0b01000011000
-       fli  %f1 0b101100000000000000000
-    ++
-    fdiv %f0 %f0 %f1                       # !1886
-    lw %r27 %sp 2                          # !1886
-    movz %r1 %r3 %zero                     # !1886
-    sw %ra %sp 6                           # !1886
-    addi %sp %sp 7                         # !1886
-    lw %r28 %r27 0                         # !1886
-    jalr %r28                              # !1886
-    addi %sp %sp -7                        # !1886
-    lw %ra %sp 6                           # !1886
-    j ~fblt_cont.8891                      # !1883
-fblt_then.8890:
-    lw %r1 %sp 3                           # !1884
-    addi %r2 %r1 1                         # !1884
-    lw %r3 %sp 4                           # !1884
-    lwv %r2 %r3 %r2                        # !1884
-    flui %f1 -488                          # !1884
-    fli %f1 -655360                        # !1884
+beq_cont.9545:
+    flw      %f1  %sp  2                   # !1932
+    fmul     %f0  %f0  %f1                 # !1932
+    lw       %r1  %sp  14                  # !1932
+    fsw      %f0  %sp  16                  # !1932
+    sw       %ra  %sp  17                  # !1932
+    addi     %sp  %sp  18                  # !1932
+    jal      ~o_diffuse.2547               # !1932
+    addi     %sp  %sp  -18                 # !1932
+    lw       %ra  %sp  17                  # !1932
+    flw      %f1  %sp  16                  # !1932
+    fmul     %f0  %f1  %f0                 # !1932
+    lw       %r1  %sp  1                   # !1932
+    lw       %r2  %sp  0                   # !1932
+    j        ~vecaccum.2509                # !1932
+beq_then.9541:
+    jr       %ra                           # !1934
+iter_trace_diffuse_rays.2813:
+    lw       %r5  %r27  1                  # !1939
+    addi     %r6  %zero  0                 # !1940
+    blt      %r4  %r6  blt_then.9547       # !1940
+    lwv      %r7  %r1  %r4                 # !1941
+    sw       %r3  %sp  0                   # !1941
+    sw       %r27  %sp  1                  # !1941
+    sw       %r5  %sp  2                   # !1941
+    sw       %r4  %sp  3                   # !1941
+    sw       %r1  %sp  4                   # !1941
+    sw       %r6  %sp  5                   # !1941
+    sw       %r2  %sp  6                   # !1941
+    movz     %r1  %r7  %zero               # !1941
+    sw       %ra  %sp  7                   # !1941
+    addi     %sp  %sp  8                   # !1941
+    jal      ~d_vec.2584                   # !1941
+    addi     %sp  %sp  -8                  # !1941
+    lw       %ra  %sp  7                   # !1941
+    lw       %r2  %sp  6                   # !1941
+    sw       %ra  %sp  7                   # !1941
+    addi     %sp  %sp  8                   # !1941
+    jal      ~veciprod.2501                # !1941
+    addi     %sp  %sp  -8                  # !1941
+    lw       %ra  %sp  7                   # !1941
+    fsw      %f0  %sp  7                   # !1945
+    sw       %ra  %sp  8                   # !1945
+    addi     %sp  %sp  9                   # !1945
+    jal      ~min_caml_fisneg              # !1945
+    addi     %sp  %sp  -9                  # !1945
+    lw       %ra  %sp  8                   # !1945
+    lw       %r2  %sp  5                   # !1945
+    beq      %r1  %r2  beq_then.9548       # !1945
+    lw       %r1  %sp  3                   # !1946
+    addi     %r2  %r1  1                   # !1946
+    lw       %r3  %sp  4                   # !1946
+    lwv      %r2  %r3  %r2                 # !1946
+    flui     %f0  -488                     # !1946
+    fli      %f0  -655360                  # !1946
     ++
     fli -150.000000
-    => flui %f1 0b11000011000
-       fli  %f1 0b101100000000000000000
+    => flui %f0 0b11000011000
+       fli  %f0 0b101100000000000000000
     ++
-    fdiv %f0 %f0 %f1                       # !1884
-    lw %r27 %sp 2                          # !1884
-    movz %r1 %r2 %zero                     # !1884
-    sw %ra %sp 6                           # !1884
-    addi %sp %sp 7                         # !1884
-    lw %r28 %r27 0                         # !1884
-    jalr %r28                              # !1884
-    addi %sp %sp -7                        # !1884
-    lw %ra %sp 6                           # !1884
-fblt_cont.8891:
-    lw %r1 %sp 3                           # !1888
-    addi %r4 %r1 -2                        # !1888
-    lw %r1 %sp 4                           # !1888
-    lw %r2 %sp 5                           # !1888
-    lw %r3 %sp 0                           # !1888
-    lw %r27 %sp 1                          # !1888
-    lw %r28 %r27 0                         # !1888
-    jr %r28                                # !1888
-blt_then.8889:
-    jr %ra                                 # !1889
-trace_diffuse_rays.2751:
-    lw %r4 %r27 2                          # !1893
-    lw %r5 %r27 1                          # !1893
-    sw %r3 %sp 0                           # !1894
-    sw %r2 %sp 1                           # !1894
-    sw %r1 %sp 2                           # !1894
-    sw %r5 %sp 3                           # !1894
-    movz %r1 %r3 %zero                     # !1894
-    movz %r27 %r4 %zero                    # !1894
-    sw %ra %sp 4                           # !1894
-    addi %sp %sp 5                         # !1894
-    lw %r28 %r27 0                         # !1894
-    jalr %r28                              # !1894
-    addi %sp %sp -5                        # !1894
-    lw %ra %sp 4                           # !1894
-    addi %r4 %zero 118                     # !1898
-    lw %r1 %sp 2                           # !1898
-    lw %r2 %sp 1                           # !1898
-    lw %r3 %sp 0                           # !1898
-    lw %r27 %sp 3                          # !1898
-    lw %r28 %r27 0                         # !1898
-    jr %r28                                # !1898
-trace_diffuse_ray_80percent.2755:
-    lw %r4 %r27 2                          # !1903
-    lw %r5 %r27 1                          # !1903
-    addi %r6 %zero 0                       # !1905
-    sw %r3 %sp 0                           # !1905
-    sw %r2 %sp 1                           # !1905
-    sw %r4 %sp 2                           # !1905
-    sw %r5 %sp 3                           # !1905
-    sw %r1 %sp 4                           # !1905
-    beq %r1 %r6 beq_then.8893              # !1905
-    lw %r6 %r5 0                           # !1906
-    movz %r1 %r6 %zero                     # !1906
-    movz %r27 %r4 %zero                    # !1906
-    sw %ra %sp 5                           # !1906
-    addi %sp %sp 6                         # !1906
-    lw %r28 %r27 0                         # !1906
-    jalr %r28                              # !1906
-    addi %sp %sp -6                        # !1906
-    lw %ra %sp 5                           # !1906
-    j ~beq_cont.8894                       # !1905
-beq_then.8893:
-beq_cont.8894:
-    addi %r1 %zero 1                       # !1909
-    lw %r2 %sp 4                           # !1909
-    beq %r2 %r1 beq_then.8895              # !1909
-    lw %r1 %sp 3                           # !1910
-    lw %r3 %r1 1                           # !1910
-    lw %r4 %sp 1                           # !1910
-    lw %r5 %sp 0                           # !1910
-    lw %r27 %sp 2                          # !1910
-    movz %r2 %r4 %zero                     # !1910
-    movz %r1 %r3 %zero                     # !1910
-    movz %r3 %r5 %zero                     # !1910
-    sw %ra %sp 5                           # !1910
-    addi %sp %sp 6                         # !1910
-    lw %r28 %r27 0                         # !1910
-    jalr %r28                              # !1910
-    addi %sp %sp -6                        # !1910
-    lw %ra %sp 5                           # !1910
-    j ~beq_cont.8896                       # !1909
-beq_then.8895:
-beq_cont.8896:
-    addi %r1 %zero 2                       # !1913
-    lw %r2 %sp 4                           # !1913
-    beq %r2 %r1 beq_then.8897              # !1913
-    lw %r1 %sp 3                           # !1914
-    lw %r3 %r1 2                           # !1914
-    lw %r4 %sp 1                           # !1914
-    lw %r5 %sp 0                           # !1914
-    lw %r27 %sp 2                          # !1914
-    movz %r2 %r4 %zero                     # !1914
-    movz %r1 %r3 %zero                     # !1914
-    movz %r3 %r5 %zero                     # !1914
-    sw %ra %sp 5                           # !1914
-    addi %sp %sp 6                         # !1914
-    lw %r28 %r27 0                         # !1914
-    jalr %r28                              # !1914
-    addi %sp %sp -6                        # !1914
-    lw %ra %sp 5                           # !1914
-    j ~beq_cont.8898                       # !1913
-beq_then.8897:
-beq_cont.8898:
-    addi %r1 %zero 3                       # !1917
-    lw %r2 %sp 4                           # !1917
-    beq %r2 %r1 beq_then.8899              # !1917
-    lw %r1 %sp 3                           # !1918
-    lw %r3 %r1 3                           # !1918
-    lw %r4 %sp 1                           # !1918
-    lw %r5 %sp 0                           # !1918
-    lw %r27 %sp 2                          # !1918
-    movz %r2 %r4 %zero                     # !1918
-    movz %r1 %r3 %zero                     # !1918
-    movz %r3 %r5 %zero                     # !1918
-    sw %ra %sp 5                           # !1918
-    addi %sp %sp 6                         # !1918
-    lw %r28 %r27 0                         # !1918
-    jalr %r28                              # !1918
-    addi %sp %sp -6                        # !1918
-    lw %ra %sp 5                           # !1918
-    j ~beq_cont.8900                       # !1917
-beq_then.8899:
-beq_cont.8900:
-    addi %r1 %zero 4                       # !1921
-    lw %r2 %sp 4                           # !1921
-    beq %r2 %r1 beq_then.8901              # !1921
-    lw %r1 %sp 3                           # !1922
-    lw %r1 %r1 4                           # !1922
-    lw %r2 %sp 1                           # !1922
-    lw %r3 %sp 0                           # !1922
-    lw %r27 %sp 2                          # !1922
-    lw %r28 %r27 0                         # !1922
-    jr %r28                                # !1922
-beq_then.8901:
-    jr %ra                                 # !1923
-calc_diffuse_using_1point.2759:
-    lw %r3 %r27 3                          # !1929
-    lw %r4 %r27 2                          # !1929
-    lw %r5 %r27 1                          # !1929
-    sw %r4 %sp 0                           # !1931
-    sw %r3 %sp 1                           # !1931
-    sw %r5 %sp 2                           # !1931
-    sw %r2 %sp 3                           # !1931
-    sw %r1 %sp 4                           # !1931
-    sw %ra %sp 5                           # !1931
-    addi %sp %sp 6                         # !1931
-    jal ~p_received_ray_20percent.2508     # !1931
-    addi %sp %sp -6                        # !1931
-    lw %ra %sp 5                           # !1931
-    lw %r2 %sp 4                           # !1932
-    sw %r1 %sp 5                           # !1932
-    movz %r1 %r2 %zero                     # !1932
-    sw %ra %sp 6                           # !1932
-    addi %sp %sp 7                         # !1932
-    jal ~p_nvectors.2515                   # !1932
-    addi %sp %sp -7                        # !1932
-    lw %ra %sp 6                           # !1932
-    lw %r2 %sp 4                           # !1933
-    sw %r1 %sp 6                           # !1933
-    movz %r1 %r2 %zero                     # !1933
-    sw %ra %sp 7                           # !1933
-    addi %sp %sp 8                         # !1933
-    jal ~p_intersection_points.2500        # !1933
-    addi %sp %sp -8                        # !1933
-    lw %ra %sp 7                           # !1933
-    lw %r2 %sp 4                           # !1934
-    sw %r1 %sp 7                           # !1934
-    movz %r1 %r2 %zero                     # !1934
-    sw %ra %sp 8                           # !1934
-    addi %sp %sp 9                         # !1934
-    jal ~p_energy.2506                     # !1934
-    addi %sp %sp -9                        # !1934
-    lw %ra %sp 8                           # !1934
-    lw %r2 %sp 3                           # !1936
-    lw %r3 %sp 5                           # !1936
-    lwv %r3 %r3 %r2                        # !1936
-    lw %r4 %sp 2                           # !1936
-    sw %r1 %sp 8                           # !1936
-    movz %r2 %r3 %zero                     # !1936
-    movz %r1 %r4 %zero                     # !1936
-    sw %ra %sp 9                           # !1936
-    addi %sp %sp 10                        # !1936
-    jal ~veccpy.2428                       # !1936
-    addi %sp %sp -10                       # !1936
-    lw %ra %sp 9                           # !1936
-    lw %r1 %sp 4                           # !1938
-    sw %ra %sp 9                           # !1938
-    addi %sp %sp 10                        # !1938
-    jal ~p_group_id.2510                   # !1938
-    addi %sp %sp -10                       # !1938
-    lw %ra %sp 9                           # !1938
-    lw %r2 %sp 3                           # !1939
-    lw %r3 %sp 6                           # !1939
-    lwv %r3 %r3 %r2                        # !1939
-    lw %r4 %sp 7                           # !1940
-    lwv %r4 %r4 %r2                        # !1940
-    lw %r27 %sp 1                          # !1937
-    movz %r2 %r3 %zero                     # !1937
-    movz %r3 %r4 %zero                     # !1937
-    sw %ra %sp 9                           # !1937
-    addi %sp %sp 10                        # !1937
-    lw %r28 %r27 0                         # !1937
-    jalr %r28                              # !1937
-    addi %sp %sp -10                       # !1937
-    lw %ra %sp 9                           # !1937
-    lw %r1 %sp 3                           # !1941
-    lw %r2 %sp 8                           # !1941
-    lwv %r2 %r2 %r1                        # !1941
-    lw %r1 %sp 0                           # !1941
-    lw %r3 %sp 2                           # !1941
-    j ~vecaccumv.2452                      # !1941
-calc_diffuse_using_5points.2762:
-    lw %r6 %r27 2                          # !1948
-    lw %r7 %r27 1                          # !1948
-    lwv %r2 %r2 %r1                        # !1950
-    sw %r6 %sp 0                           # !1950
-    sw %r7 %sp 1                           # !1950
-    sw %r5 %sp 2                           # !1950
-    sw %r4 %sp 3                           # !1950
-    sw %r3 %sp 4                           # !1950
-    sw %r1 %sp 5                           # !1950
-    movz %r1 %r2 %zero                     # !1950
-    sw %ra %sp 6                           # !1950
-    addi %sp %sp 7                         # !1950
-    jal ~p_received_ray_20percent.2508     # !1950
-    addi %sp %sp -7                        # !1950
-    lw %ra %sp 6                           # !1950
-    lw %r2 %sp 5                           # !1951
-    addi %r3 %r2 -1                        # !1951
-    lw %r4 %sp 4                           # !1951
-    lwv %r3 %r4 %r3                        # !1951
-    sw %r1 %sp 6                           # !1951
-    movz %r1 %r3 %zero                     # !1951
-    sw %ra %sp 7                           # !1951
-    addi %sp %sp 8                         # !1951
-    jal ~p_received_ray_20percent.2508     # !1951
-    addi %sp %sp -8                        # !1951
-    lw %ra %sp 7                           # !1951
-    lw %r2 %sp 5                           # !1952
-    lw %r3 %sp 4                           # !1952
-    lwv %r4 %r3 %r2                        # !1952
-    sw %r1 %sp 7                           # !1952
-    movz %r1 %r4 %zero                     # !1952
-    sw %ra %sp 8                           # !1952
-    addi %sp %sp 9                         # !1952
-    jal ~p_received_ray_20percent.2508     # !1952
-    addi %sp %sp -9                        # !1952
-    lw %ra %sp 8                           # !1952
-    lw %r2 %sp 5                           # !1953
-    addi %r3 %r2 1                         # !1953
-    lw %r4 %sp 4                           # !1953
-    lwv %r3 %r4 %r3                        # !1953
-    sw %r1 %sp 8                           # !1953
-    movz %r1 %r3 %zero                     # !1953
-    sw %ra %sp 9                           # !1953
-    addi %sp %sp 10                        # !1953
-    jal ~p_received_ray_20percent.2508     # !1953
-    addi %sp %sp -10                       # !1953
-    lw %ra %sp 9                           # !1953
-    lw %r2 %sp 5                           # !1954
-    lw %r3 %sp 3                           # !1954
-    lwv %r3 %r3 %r2                        # !1954
-    sw %r1 %sp 9                           # !1954
-    movz %r1 %r3 %zero                     # !1954
-    sw %ra %sp 10                          # !1954
-    addi %sp %sp 11                        # !1954
-    jal ~p_received_ray_20percent.2508     # !1954
-    addi %sp %sp -11                       # !1954
-    lw %ra %sp 10                          # !1954
-    lw %r2 %sp 2                           # !1956
-    lw %r3 %sp 6                           # !1956
-    lwv %r3 %r3 %r2                        # !1956
-    lw %r4 %sp 1                           # !1956
-    sw %r1 %sp 10                          # !1956
-    movz %r2 %r3 %zero                     # !1956
-    movz %r1 %r4 %zero                     # !1956
-    sw %ra %sp 11                          # !1956
-    addi %sp %sp 12                        # !1956
-    jal ~veccpy.2428                       # !1956
-    addi %sp %sp -12                       # !1956
-    lw %ra %sp 11                          # !1956
-    lw %r1 %sp 2                           # !1957
-    lw %r2 %sp 7                           # !1957
-    lwv %r2 %r2 %r1                        # !1957
-    lw %r3 %sp 1                           # !1957
-    movz %r1 %r3 %zero                     # !1957
-    sw %ra %sp 11                          # !1957
-    addi %sp %sp 12                        # !1957
-    jal ~vecadd.2446                       # !1957
-    addi %sp %sp -12                       # !1957
-    lw %ra %sp 11                          # !1957
-    lw %r1 %sp 2                           # !1958
-    lw %r2 %sp 8                           # !1958
-    lwv %r2 %r2 %r1                        # !1958
-    lw %r3 %sp 1                           # !1958
-    movz %r1 %r3 %zero                     # !1958
-    sw %ra %sp 11                          # !1958
-    addi %sp %sp 12                        # !1958
-    jal ~vecadd.2446                       # !1958
-    addi %sp %sp -12                       # !1958
-    lw %ra %sp 11                          # !1958
-    lw %r1 %sp 2                           # !1959
-    lw %r2 %sp 9                           # !1959
-    lwv %r2 %r2 %r1                        # !1959
-    lw %r3 %sp 1                           # !1959
-    movz %r1 %r3 %zero                     # !1959
-    sw %ra %sp 11                          # !1959
-    addi %sp %sp 12                        # !1959
-    jal ~vecadd.2446                       # !1959
-    addi %sp %sp -12                       # !1959
-    lw %ra %sp 11                          # !1959
-    lw %r1 %sp 2                           # !1960
-    lw %r2 %sp 10                          # !1960
-    lwv %r2 %r2 %r1                        # !1960
-    lw %r3 %sp 1                           # !1960
-    movz %r1 %r3 %zero                     # !1960
-    sw %ra %sp 11                          # !1960
-    addi %sp %sp 12                        # !1960
-    jal ~vecadd.2446                       # !1960
-    addi %sp %sp -12                       # !1960
-    lw %ra %sp 11                          # !1960
-    lw %r1 %sp 5                           # !1962
-    lw %r2 %sp 4                           # !1962
-    lwv %r1 %r2 %r1                        # !1962
-    sw %ra %sp 11                          # !1962
-    addi %sp %sp 12                        # !1962
-    jal ~p_energy.2506                     # !1962
-    addi %sp %sp -12                       # !1962
-    lw %ra %sp 11                          # !1962
-    lw %r2 %sp 2                           # !1963
-    lwv %r2 %r1 %r2                        # !1963
-    lw %r1 %sp 0                           # !1963
-    lw %r3 %sp 1                           # !1963
-    j ~vecaccumv.2452                      # !1963
-do_without_neighbors.2768:
-    lw %r3 %r27 1                          # !1968
-    addi %r4 %zero 4                       # !1969
-    blt %r4 %r2 blt_then.8903              # !1969
-    sw %r27 %sp 0                          # !1971
-    sw %r3 %sp 1                           # !1971
-    sw %r1 %sp 2                           # !1971
-    sw %r2 %sp 3                           # !1971
-    sw %ra %sp 4                           # !1971
-    addi %sp %sp 5                         # !1971
-    jal ~p_surface_ids.2502                # !1971
-    addi %sp %sp -5                        # !1971
-    lw %ra %sp 4                           # !1971
-    addi %r2 %zero 0                       # !1972
-    lw %r3 %sp 3                           # !1972
-    lwv %r1 %r1 %r3                        # !1972
-    blt %r1 %r2 blt_then.8904              # !1972
-    lw %r1 %sp 2                           # !1973
-    sw %r2 %sp 4                           # !1973
-    sw %ra %sp 5                           # !1973
-    addi %sp %sp 6                         # !1973
-    jal ~p_calc_diffuse.2504               # !1973
-    addi %sp %sp -6                        # !1973
-    lw %ra %sp 5                           # !1973
-    lw %r2 %sp 3                           # !1974
-    lwv %r1 %r1 %r2                        # !1974
-    lw %r3 %sp 4                           # !1974
-    beq %r1 %r3 beq_then.8905              # !1974
-    lw %r1 %sp 2                           # !1975
-    lw %r27 %sp 1                          # !1975
-    sw %ra %sp 5                           # !1975
-    addi %sp %sp 6                         # !1975
-    lw %r28 %r27 0                         # !1975
-    jalr %r28                              # !1975
-    addi %sp %sp -6                        # !1975
-    lw %ra %sp 5                           # !1975
-    j ~beq_cont.8906                       # !1974
-beq_then.8905:
-beq_cont.8906:
-    lw %r1 %sp 3                           # !1977
-    addi %r2 %r1 1                         # !1977
-    lw %r1 %sp 2                           # !1977
-    lw %r27 %sp 0                          # !1977
-    lw %r28 %r27 0                         # !1977
-    jr %r28                                # !1977
-blt_then.8904:
-    jr %ra                                 # !1978
-blt_then.8903:
-    jr %ra                                 # !1979
-neighbors_exist.2771:
-    lw %r3 %r27 1                          # !1983
-    addi %r4 %zero 1                       # !1984
-    lw %r5 %r3 1                           # !1984
-    addi %r6 %r2 1                         # !1984
-    blt %r6 %r5 blt_then.8909              # !1984
-    addi %r1 %zero 0                       # !1992
-    jr %ra                                 # !1992
-blt_then.8909:
-    addi %r5 %zero 0                       # !1985
-    blt %r5 %r2 blt_then.8910              # !1985
-    movz %r1 %r5 %zero                     # !1991
-    jr %ra                                 # !1991
-blt_then.8910:
-    lw %r2 %r3 0                           # !1986
-    addi %r3 %r1 1                         # !1986
-    blt %r3 %r2 blt_then.8911              # !1986
-    movz %r1 %r5 %zero                     # !1990
-    jr %ra                                 # !1990
-blt_then.8911:
-    blt %r5 %r1 blt_then.8912              # !1987
-    movz %r1 %r5 %zero                     # !1989
-    jr %ra                                 # !1989
-blt_then.8912:
-    movz %r1 %r4 %zero                     # !1988
-    jr %ra                                 # !1988
-get_surface_id.2775:
-    sw %r2 %sp 0                           # !1996
-    sw %ra %sp 1                           # !1996
-    addi %sp %sp 2                         # !1996
-    jal ~p_surface_ids.2502                # !1996
-    addi %sp %sp -2                        # !1996
-    lw %ra %sp 1                           # !1996
-    lw %r2 %sp 0                           # !1997
-    lwv %r1 %r1 %r2                        # !1997
-    jr %ra                                 # !1997
-neighbors_are_available.2778:
-    lwv %r6 %r3 %r1                        # !2003
-    sw %r3 %sp 0                           # !2003
-    sw %r4 %sp 1                           # !2003
-    sw %r5 %sp 2                           # !2003
-    sw %r1 %sp 3                           # !2003
-    sw %r2 %sp 4                           # !2003
-    movz %r2 %r5 %zero                     # !2003
-    movz %r1 %r6 %zero                     # !2003
-    sw %ra %sp 5                           # !2003
-    addi %sp %sp 6                         # !2003
-    jal ~get_surface_id.2775               # !2003
-    addi %sp %sp -6                        # !2003
-    lw %ra %sp 5                           # !2003
-    lw %r2 %sp 3                           # !2005
-    lw %r3 %sp 4                           # !2005
-    lwv %r3 %r3 %r2                        # !2005
-    lw %r4 %sp 2                           # !2005
-    sw %r1 %sp 5                           # !2005
-    movz %r2 %r4 %zero                     # !2005
-    movz %r1 %r3 %zero                     # !2005
-    sw %ra %sp 6                           # !2005
-    addi %sp %sp 7                         # !2005
-    jal ~get_surface_id.2775               # !2005
-    addi %sp %sp -7                        # !2005
-    lw %ra %sp 6                           # !2005
-    lw %r2 %sp 5                           # !2005
-    beq %r1 %r2 beq_then.8913              # !2005
-    addi %r1 %zero 0                       # !2013
-    jr %ra                                 # !2013
-beq_then.8913:
-    lw %r1 %sp 3                           # !2006
-    lw %r3 %sp 1                           # !2006
-    lwv %r3 %r3 %r1                        # !2006
-    lw %r4 %sp 2                           # !2006
-    movz %r2 %r4 %zero                     # !2006
-    movz %r1 %r3 %zero                     # !2006
-    sw %ra %sp 6                           # !2006
-    addi %sp %sp 7                         # !2006
-    jal ~get_surface_id.2775               # !2006
-    addi %sp %sp -7                        # !2006
-    lw %ra %sp 6                           # !2006
-    lw %r2 %sp 5                           # !2006
-    beq %r1 %r2 beq_then.8914              # !2006
-    addi %r1 %zero 0                       # !2012
-    jr %ra                                 # !2012
-beq_then.8914:
-    addi %r1 %zero 1                       # !2007
-    lw %r3 %sp 3                           # !2007
-    addi %r4 %r3 -1                        # !2007
-    lw %r5 %sp 0                           # !2007
-    lwv %r4 %r5 %r4                        # !2007
-    lw %r6 %sp 2                           # !2007
-    sw %r1 %sp 6                           # !2007
-    movz %r2 %r6 %zero                     # !2007
-    movz %r1 %r4 %zero                     # !2007
-    sw %ra %sp 7                           # !2007
-    addi %sp %sp 8                         # !2007
-    jal ~get_surface_id.2775               # !2007
-    addi %sp %sp -8                        # !2007
-    lw %ra %sp 7                           # !2007
-    lw %r2 %sp 5                           # !2007
-    beq %r1 %r2 beq_then.8915              # !2007
-    addi %r1 %zero 0                       # !2011
-    jr %ra                                 # !2011
-beq_then.8915:
-    lw %r1 %sp 3                           # !2008
-    addi %r1 %r1 1                         # !2008
-    lw %r3 %sp 0                           # !2008
-    lwv %r1 %r3 %r1                        # !2008
-    lw %r3 %sp 2                           # !2008
-    movz %r2 %r3 %zero                     # !2008
-    sw %ra %sp 7                           # !2008
-    addi %sp %sp 8                         # !2008
-    jal ~get_surface_id.2775               # !2008
-    addi %sp %sp -8                        # !2008
-    lw %ra %sp 7                           # !2008
-    lw %r2 %sp 5                           # !2008
-    beq %r1 %r2 beq_then.8916              # !2008
-    addi %r1 %zero 0                       # !2010
-    jr %ra                                 # !2010
-beq_then.8916:
-    lw %r1 %sp 6                           # !2009
-    jr %ra                                 # !2009
-try_exploit_neighbors.2784:
-    lw %r7 %r27 2                          # !2020
-    lw %r8 %r27 1                          # !2020
-    lwv %r9 %r4 %r1                        # !2021
-    addi %r10 %zero 4                      # !2022
-    blt %r10 %r6 blt_then.8917             # !2022
-    addi %r10 %zero 0                      # !2025
-    sw %r2 %sp 0                           # !2025
-    sw %r27 %sp 1                          # !2025
-    sw %r8 %sp 2                           # !2025
-    sw %r9 %sp 3                           # !2025
-    sw %r7 %sp 4                           # !2025
-    sw %r6 %sp 5                           # !2025
-    sw %r5 %sp 6                           # !2025
-    sw %r4 %sp 7                           # !2025
-    sw %r3 %sp 8                           # !2025
-    sw %r1 %sp 9                           # !2025
-    sw %r10 %sp 10                         # !2025
-    movz %r2 %r6 %zero                     # !2025
-    movz %r1 %r9 %zero                     # !2025
-    sw %ra %sp 11                          # !2025
-    addi %sp %sp 12                        # !2025
-    jal ~get_surface_id.2775               # !2025
-    addi %sp %sp -12                       # !2025
-    lw %ra %sp 11                          # !2025
-    lw %r2 %sp 10                          # !2025
-    blt %r1 %r2 blt_then.8918              # !2025
-    lw %r1 %sp 9                           # !2027
-    lw %r3 %sp 8                           # !2027
-    lw %r4 %sp 7                           # !2027
-    lw %r5 %sp 6                           # !2027
-    lw %r6 %sp 5                           # !2027
-    movz %r2 %r3 %zero                     # !2027
-    movz %r3 %r4 %zero                     # !2027
-    movz %r4 %r5 %zero                     # !2027
-    movz %r5 %r6 %zero                     # !2027
-    sw %ra %sp 11                          # !2027
-    addi %sp %sp 12                        # !2027
-    jal ~neighbors_are_available.2778      # !2027
-    addi %sp %sp -12                       # !2027
-    lw %ra %sp 11                          # !2027
-    lw %r2 %sp 10                          # !2027
-    beq %r1 %r2 beq_then.8919              # !2027
-    lw %r1 %sp 3                           # !2030
-    sw %ra %sp 11                          # !2030
-    addi %sp %sp 12                        # !2030
-    jal ~p_calc_diffuse.2504               # !2030
-    addi %sp %sp -12                       # !2030
-    lw %ra %sp 11                          # !2030
-    lw %r5 %sp 5                           # !2031
-    lwv %r1 %r1 %r5                        # !2031
-    lw %r2 %sp 10                          # !2031
-    beq %r1 %r2 beq_then.8920              # !2031
-    lw %r1 %sp 9                           # !2032
-    lw %r2 %sp 8                           # !2032
-    lw %r3 %sp 7                           # !2032
-    lw %r4 %sp 6                           # !2032
-    lw %r27 %sp 2                          # !2032
-    sw %ra %sp 11                          # !2032
-    addi %sp %sp 12                        # !2032
-    lw %r28 %r27 0                         # !2032
-    jalr %r28                              # !2032
-    addi %sp %sp -12                       # !2032
-    lw %ra %sp 11                          # !2032
-    j ~beq_cont.8921                       # !2031
-beq_then.8920:
-beq_cont.8921:
-    lw %r1 %sp 5                           # !2036
-    addi %r6 %r1 1                         # !2036
-    lw %r1 %sp 9                           # !2036
-    lw %r2 %sp 0                           # !2036
-    lw %r3 %sp 8                           # !2036
-    lw %r4 %sp 7                           # !2036
-    lw %r5 %sp 6                           # !2036
-    lw %r27 %sp 1                          # !2036
-    lw %r28 %r27 0                         # !2036
-    jr %r28                                # !2036
-beq_then.8919:
-    lw %r1 %sp 9                           # !2039
-    lw %r2 %sp 7                           # !2039
-    lwv %r1 %r2 %r1                        # !2039
-    lw %r2 %sp 5                           # !2039
-    lw %r27 %sp 4                          # !2039
-    lw %r28 %r27 0                         # !2039
-    jr %r28                                # !2039
-blt_then.8918:
-    jr %ra                                 # !2040
-blt_then.8917:
-    jr %ra                                 # !2041
-write_ppm_header.2791:
-    lw %r2 %r27 1                          # !2047
-    setl %r3 ~min_caml_io_char             # !2049
-    addi %r4 %zero 80                      # !2049
-    sw %r4 %r3 0                           # !2049
-    addi %r1 %r1 48                        # !2050
-    sw %r1 %r3 0                           # !2050
-    addi %r1 %zero 10                      # !2051
-    sw %r1 %r3 0                           # !2051
-    setl %r4 ~min_caml_io_int              # !2052
-    lw %r5 %r2 0                           # !2052
-    sw %r5 %r4 0                           # !2052
-    addi %r5 %zero 32                      # !2053
-    sw %r5 %r3 0                           # !2053
-    lw %r2 %r2 1                           # !2054
-    sw %r2 %r4 0                           # !2054
-    sw %r5 %r3 0                           # !2055
-    addi %r2 %zero 255                     # !2056
-    sw %r2 %r4 0                           # !2056
-    sw %r1 %r3 0                           # !2057
-    jr %ra                                 # !2057
-write_rgb_element_int.2793:
-    ftoi %r1 %f0                           # !2062
-    addi %r2 %zero 255                     # !2063
-    blt %r2 %r1 blt_then.8925              # !2063
-    addi %r2 %zero 0                       # !2063
-    blt %r1 %r2 blt_then.8927              # !2063
-    j ~blt_cont.8928                       # !2063
-blt_then.8927:
-    movz %r1 %r2 %zero                     # !2063
-blt_cont.8928:
-    j ~blt_cont.8926                       # !2063
-blt_then.8925:
-    movz %r1 %r2 %zero                     # !2063
-blt_cont.8926:
-    setl %r2 ~min_caml_io_int              # !2064
-    sw %r1 %r2 0                           # !2064
-    jr %ra                                 # !2064
-write_rgb_element_char.2795:
-    ftoi %r1 %f0                           # !2068
-    addi %r2 %zero 255                     # !2069
-    blt %r2 %r1 blt_then.8930              # !2069
-    addi %r2 %zero 0                       # !2069
-    blt %r1 %r2 blt_then.8932              # !2069
-    j ~blt_cont.8933                       # !2069
-blt_then.8932:
-    movz %r1 %r2 %zero                     # !2069
-blt_cont.8933:
-    j ~blt_cont.8931                       # !2069
-blt_then.8930:
-    movz %r1 %r2 %zero                     # !2069
-blt_cont.8931:
-    setl %r2 ~min_caml_io_char             # !2070
-    sw %r1 %r2 0                           # !2070
-    jr %ra                                 # !2070
-write_rgb.2797:
-    lw %r2 %r27 1                          # !2073
-    addi %r3 %zero 3                       # !2074
-    beq %r1 %r3 beq_then.8935              # !2074
-    flw %f0 %r2 0                          # !2082
-    sw %r2 %sp 0                           # !2082
-    sw %ra %sp 1                           # !2082
-    addi %sp %sp 2                         # !2082
-    jal ~write_rgb_element_char.2795       # !2082
-    addi %sp %sp -2                        # !2082
-    lw %ra %sp 1                           # !2082
-    flw %f0 %sp 0                          # !2083
-    flw %f1 %f0 1                          # !2083
-    fmovz %f0 %f1 %zero                    # !2083
-    sw %ra %sp 1                           # !2083
-    addi %sp %sp 2                         # !2083
-    jal ~write_rgb_element_char.2795       # !2083
-    addi %sp %sp -2                        # !2083
-    lw %ra %sp 1                           # !2083
-    flw %f0 %sp 0                          # !2084
-    flw %f0 %f0 2                          # !2084
-    j ~write_rgb_element_char.2795         # !2084
-beq_then.8935:
-    flw %f0 %r2 0                          # !2075
-    sw %r2 %sp 0                           # !2075
-    sw %ra %sp 1                           # !2075
-    addi %sp %sp 2                         # !2075
-    jal ~write_rgb_element_int.2793        # !2075
-    addi %sp %sp -2                        # !2075
-    lw %ra %sp 1                           # !2075
-    setl %r1 ~min_caml_io_char             # !2076
-    addi %r2 %zero 32                      # !2076
-    sw %r2 %r1 0                           # !2076
-    flw %f0 %sp 0                          # !2077
-    flw %f1 %f0 1                          # !2077
-    sw %r1 %sp 1                           # !2077
-    sw %r2 %sp 2                           # !2077
-    fmovz %f0 %f1 %zero                    # !2077
-    sw %ra %sp 3                           # !2077
-    addi %sp %sp 4                         # !2077
-    jal ~write_rgb_element_int.2793        # !2077
-    addi %sp %sp -4                        # !2077
-    lw %ra %sp 3                           # !2077
-    lw %r1 %sp 1                           # !2078
-    lw %r2 %sp 2                           # !2078
-    sw %r2 %r1 0                           # !2078
-    flw %f0 %sp 0                          # !2079
-    flw %f0 %f0 2                          # !2079
-    sw %ra %sp 3                           # !2079
-    addi %sp %sp 4                         # !2079
-    jal ~write_rgb_element_int.2793        # !2079
-    addi %sp %sp -4                        # !2079
-    lw %ra %sp 3                           # !2079
-    addi %r1 %zero 10                      # !2080
-    lw %r2 %sp 1                           # !2080
-    sw %r1 %r2 0                           # !2080
-    jr %ra                                 # !2080
-pretrace_diffuse_rays.2799:
-    lw %r3 %r27 3                          # !2096
-    lw %r4 %r27 2                          # !2096
-    lw %r5 %r27 1                          # !2096
-    addi %r6 %zero 4                       # !2097
-    blt %r6 %r2 blt_then.8937              # !2097
-    sw %r27 %sp 0                          # !2100
-    sw %r3 %sp 1                           # !2100
-    sw %r4 %sp 2                           # !2100
-    sw %r5 %sp 3                           # !2100
-    sw %r2 %sp 4                           # !2100
-    sw %r1 %sp 5                           # !2100
-    sw %ra %sp 6                           # !2100
-    addi %sp %sp 7                         # !2100
-    jal ~get_surface_id.2775               # !2100
-    addi %sp %sp -7                        # !2100
-    lw %ra %sp 6                           # !2100
-    addi %r2 %zero 0                       # !2101
-    blt %r1 %r2 blt_then.8938              # !2101
-    lw %r1 %sp 5                           # !2103
-    sw %r2 %sp 6                           # !2103
-    sw %ra %sp 7                           # !2103
-    addi %sp %sp 8                         # !2103
-    jal ~p_calc_diffuse.2504               # !2103
-    addi %sp %sp -8                        # !2103
-    lw %ra %sp 7                           # !2103
-    lw %r2 %sp 4                           # !2104
-    lwv %r1 %r1 %r2                        # !2104
-    lw %r3 %sp 6                           # !2104
-    beq %r1 %r3 beq_then.8939              # !2104
-    lw %r1 %sp 5                           # !2105
-    sw %ra %sp 7                           # !2105
-    addi %sp %sp 8                         # !2105
-    jal ~p_group_id.2510                   # !2105
-    addi %sp %sp -8                        # !2105
-    lw %ra %sp 7                           # !2105
-    lw %r2 %sp 3                           # !2106
-    sw %r1 %sp 7                           # !2106
-    movz %r1 %r2 %zero                     # !2106
-    sw %ra %sp 8                           # !2106
-    addi %sp %sp 9                         # !2106
-    jal ~vecbzero.2426                     # !2106
-    addi %sp %sp -9                        # !2106
-    lw %ra %sp 8                           # !2106
-    lw %r1 %sp 5                           # !2110
-    sw %ra %sp 8                           # !2110
-    addi %sp %sp 9                         # !2110
-    jal ~p_nvectors.2515                   # !2110
-    addi %sp %sp -9                        # !2110
-    lw %ra %sp 8                           # !2110
-    lw %r2 %sp 5                           # !2111
-    sw %r1 %sp 8                           # !2111
-    movz %r1 %r2 %zero                     # !2111
-    sw %ra %sp 9                           # !2111
-    addi %sp %sp 10                        # !2111
-    jal ~p_intersection_points.2500        # !2111
-    addi %sp %sp -10                       # !2111
-    lw %ra %sp 9                           # !2111
-    lw %r2 %sp 7                           # !2113
-    lw %r3 %sp 2                           # !2113
-    lwv %r2 %r3 %r2                        # !2113
-    lw %r3 %sp 4                           # !2114
-    lw %r4 %sp 8                           # !2114
-    lwv %r4 %r4 %r3                        # !2114
-    lwv %r1 %r1 %r3                        # !2115
-    lw %r27 %sp 1                          # !2112
-    movz %r3 %r1 %zero                     # !2112
-    movz %r1 %r2 %zero                     # !2112
-    movz %r2 %r4 %zero                     # !2112
-    sw %ra %sp 9                           # !2112
-    addi %sp %sp 10                        # !2112
-    lw %r28 %r27 0                         # !2112
-    jalr %r28                              # !2112
-    addi %sp %sp -10                       # !2112
-    lw %ra %sp 9                           # !2112
-    lw %r1 %sp 5                           # !2116
-    sw %ra %sp 9                           # !2116
-    addi %sp %sp 10                        # !2116
-    jal ~p_received_ray_20percent.2508     # !2116
-    addi %sp %sp -10                       # !2116
-    lw %ra %sp 9                           # !2116
-    lw %r2 %sp 4                           # !2117
-    lwv %r1 %r1 %r2                        # !2117
-    lw %r3 %sp 3                           # !2117
-    movz %r2 %r3 %zero                     # !2117
-    sw %ra %sp 9                           # !2117
-    addi %sp %sp 10                        # !2117
-    jal ~veccpy.2428                       # !2117
-    addi %sp %sp -10                       # !2117
-    lw %ra %sp 9                           # !2117
-    j ~beq_cont.8940                       # !2104
-beq_then.8939:
-beq_cont.8940:
-    lw %r1 %sp 4                           # !2119
-    addi %r2 %r1 1                         # !2119
-    lw %r1 %sp 5                           # !2119
-    lw %r27 %sp 0                          # !2119
-    lw %r28 %r27 0                         # !2119
-    jr %r28                                # !2119
-blt_then.8938:
-    jr %ra                                 # !2120
-blt_then.8937:
-    jr %ra                                 # !2121
-pretrace_pixels.2802:
-    lw %r4 %r27 9                          # !2126
-    lw %r5 %r27 8                          # !2126
-    lw %r6 %r27 7                          # !2126
-    lw %r7 %r27 6                          # !2126
-    lw %r8 %r27 5                          # !2126
-    lw %r9 %r27 4                          # !2126
-    lw %r10 %r27 3                         # !2126
-    lw %r11 %r27 2                         # !2126
-    lw %r12 %r27 1                         # !2126
-    addi %r13 %zero 0                      # !2127
-    blt %r2 %r13 blt_then.8943             # !2127
-    flw %f3 %r8 0                          # !2129
-    lw %r8 %r12 0                          # !2129
-    sub %r8 %r2 %r8                        # !2129
-    itof %f4 %r8                           # !2129
-    fmul %f3 %f3 %f4                       # !2129
-    flw %f4 %r7 0                          # !2130
-    fmul %f4 %f4 %f3                       # !2130
-    fadd %f4 %f4 %f0                       # !2130
-    fsw %f4 %r10 0                         # !2130
-    addi %r8 %zero 1                       # !2131
-    flw %f4 %r7 1                          # !2131
-    fmul %f4 %f4 %f3                       # !2131
-    fadd %f4 %f4 %f1                       # !2131
-    fsw %f4 %r10 1                         # !2131
-    flw %f4 %r7 2                          # !2132
-    fmul %f3 %f4 %f3                       # !2132
-    fadd %f3 %f3 %f2                       # !2132
-    fsw %f3 %r10 2                         # !2132
-    fsw %f2 %sp 0                          # !2133
-    fsw %f1 %sp 1                          # !2133
-    fsw %f0 %sp 2                          # !2133
-    sw %r27 %sp 3                          # !2133
-    sw %r8 %sp 4                           # !2133
-    sw %r11 %sp 5                          # !2133
-    sw %r3 %sp 6                           # !2133
-    sw %r10 %sp 7                          # !2133
-    sw %r13 %sp 8                          # !2133
-    sw %r5 %sp 9                           # !2133
-    sw %r2 %sp 10                          # !2133
-    sw %r1 %sp 11                          # !2133
-    sw %r4 %sp 12                          # !2133
-    sw %r6 %sp 13                          # !2133
-    sw %r9 %sp 14                          # !2133
-    movz %r2 %r13 %zero                    # !2133
-    movz %r1 %r10 %zero                    # !2133
-    sw %ra %sp 15                          # !2133
-    addi %sp %sp 16                        # !2133
-    jal ~vecunit_sgn.2431                  # !2133
-    addi %sp %sp -16                       # !2133
-    lw %ra %sp 15                          # !2133
-    lw %r1 %sp 14                          # !2134
-    sw %ra %sp 15                          # !2134
-    addi %sp %sp 16                        # !2134
-    jal ~vecbzero.2426                     # !2134
-    addi %sp %sp -16                       # !2134
-    lw %ra %sp 15                          # !2134
-    lw %r1 %sp 13                          # !2135
-    lw %r2 %sp 12                          # !2135
-    sw %ra %sp 15                          # !2135
-    addi %sp %sp 16                        # !2135
-    jal ~veccpy.2428                       # !2135
-    addi %sp %sp -16                       # !2135
-    lw %ra %sp 15                          # !2135
-    flui %f0 508                           # !2138
-    fli %f0 0                              # !2138
+    flw      %f1  %sp  7                   # !1946
+    fdiv     %f0  %f1  %f0                 # !1946
+    lw       %r27  %sp  2                  # !1946
+    movz     %r1  %r2  %zero               # !1946
+    sw       %ra  %sp  8                   # !1946
+    addi     %sp  %sp  9                   # !1946
+    lw       %r28  %r27  0                 # !1946
+    jalr     %r28                          # !1946
+    addi     %sp  %sp  -9                  # !1946
+    lw       %ra  %sp  8                   # !1946
+    j        ~beq_cont.9549                # !1945
+beq_then.9548:
+    lw       %r1  %sp  3                   # !1948
+    lw       %r2  %sp  4                   # !1948
+    lwv      %r3  %r2  %r1                 # !1948
+    flui     %f0  536                      # !1948
+    fli      %f0  -655360                  # !1948
+    ++
+    fli 150.000000
+    => flui %f0 0b01000011000
+       fli  %f0 0b101100000000000000000
+    ++
+    flw      %f1  %sp  7                   # !1948
+    fdiv     %f0  %f1  %f0                 # !1948
+    lw       %r27  %sp  2                  # !1948
+    movz     %r1  %r3  %zero               # !1948
+    sw       %ra  %sp  8                   # !1948
+    addi     %sp  %sp  9                   # !1948
+    lw       %r28  %r27  0                 # !1948
+    jalr     %r28                          # !1948
+    addi     %sp  %sp  -9                  # !1948
+    lw       %ra  %sp  8                   # !1948
+beq_cont.9549:
+    lw       %r1  %sp  3                   # !1950
+    addi     %r4  %r1  -2                  # !1950
+    lw       %r1  %sp  4                   # !1950
+    lw       %r2  %sp  6                   # !1950
+    lw       %r3  %sp  0                   # !1950
+    lw       %r27  %sp  1                  # !1950
+    lw       %r28  %r27  0                 # !1950
+    jr       %r28                          # !1950
+blt_then.9547:
+    jr       %ra                           # !1951
+trace_diffuse_rays.2818:
+    lw       %r4  %r27  2                  # !1955
+    lw       %r5  %r27  1                  # !1955
+    sw       %r3  %sp  0                   # !1956
+    sw       %r2  %sp  1                   # !1956
+    sw       %r1  %sp  2                   # !1956
+    sw       %r5  %sp  3                   # !1956
+    movz     %r1  %r3  %zero               # !1956
+    movz     %r27  %r4  %zero              # !1956
+    sw       %ra  %sp  4                   # !1956
+    addi     %sp  %sp  5                   # !1956
+    lw       %r28  %r27  0                 # !1956
+    jalr     %r28                          # !1956
+    addi     %sp  %sp  -5                  # !1956
+    lw       %ra  %sp  4                   # !1956
+    addi     %r4  %zero  118               # !1960
+    lw       %r1  %sp  2                   # !1960
+    lw       %r2  %sp  1                   # !1960
+    lw       %r3  %sp  0                   # !1960
+    lw       %r27  %sp  3                  # !1960
+    lw       %r28  %r27  0                 # !1960
+    jr       %r28                          # !1960
+trace_diffuse_ray_80percent.2822:
+    lw       %r4  %r27  2                  # !1965
+    lw       %r5  %r27  1                  # !1965
+    addi     %r6  %zero  0                 # !1967
+    sw       %r3  %sp  0                   # !1967
+    sw       %r2  %sp  1                   # !1967
+    sw       %r4  %sp  2                   # !1967
+    sw       %r5  %sp  3                   # !1967
+    sw       %r1  %sp  4                   # !1967
+    beq      %r1  %r6  beq_then.9551       # !1967
+    lw       %r6  %r5  0                   # !1968
+    movz     %r1  %r6  %zero               # !1968
+    movz     %r27  %r4  %zero              # !1968
+    sw       %ra  %sp  5                   # !1968
+    addi     %sp  %sp  6                   # !1968
+    lw       %r28  %r27  0                 # !1968
+    jalr     %r28                          # !1968
+    addi     %sp  %sp  -6                  # !1968
+    lw       %ra  %sp  5                   # !1968
+    j        ~beq_cont.9552                # !1967
+beq_then.9551:
+beq_cont.9552:
+    addi     %r1  %zero  1                 # !1971
+    lw       %r2  %sp  4                   # !1971
+    beq      %r2  %r1  beq_then.9553       # !1971
+    lw       %r1  %sp  3                   # !1972
+    lw       %r3  %r1  1                   # !1972
+    lw       %r4  %sp  1                   # !1972
+    lw       %r5  %sp  0                   # !1972
+    lw       %r27  %sp  2                  # !1972
+    movz     %r2  %r4  %zero               # !1972
+    movz     %r1  %r3  %zero               # !1972
+    movz     %r3  %r5  %zero               # !1972
+    sw       %ra  %sp  5                   # !1972
+    addi     %sp  %sp  6                   # !1972
+    lw       %r28  %r27  0                 # !1972
+    jalr     %r28                          # !1972
+    addi     %sp  %sp  -6                  # !1972
+    lw       %ra  %sp  5                   # !1972
+    j        ~beq_cont.9554                # !1971
+beq_then.9553:
+beq_cont.9554:
+    addi     %r1  %zero  2                 # !1975
+    lw       %r2  %sp  4                   # !1975
+    beq      %r2  %r1  beq_then.9555       # !1975
+    lw       %r1  %sp  3                   # !1976
+    lw       %r3  %r1  2                   # !1976
+    lw       %r4  %sp  1                   # !1976
+    lw       %r5  %sp  0                   # !1976
+    lw       %r27  %sp  2                  # !1976
+    movz     %r2  %r4  %zero               # !1976
+    movz     %r1  %r3  %zero               # !1976
+    movz     %r3  %r5  %zero               # !1976
+    sw       %ra  %sp  5                   # !1976
+    addi     %sp  %sp  6                   # !1976
+    lw       %r28  %r27  0                 # !1976
+    jalr     %r28                          # !1976
+    addi     %sp  %sp  -6                  # !1976
+    lw       %ra  %sp  5                   # !1976
+    j        ~beq_cont.9556                # !1975
+beq_then.9555:
+beq_cont.9556:
+    addi     %r1  %zero  3                 # !1979
+    lw       %r2  %sp  4                   # !1979
+    beq      %r2  %r1  beq_then.9557       # !1979
+    lw       %r1  %sp  3                   # !1980
+    lw       %r3  %r1  3                   # !1980
+    lw       %r4  %sp  1                   # !1980
+    lw       %r5  %sp  0                   # !1980
+    lw       %r27  %sp  2                  # !1980
+    movz     %r2  %r4  %zero               # !1980
+    movz     %r1  %r3  %zero               # !1980
+    movz     %r3  %r5  %zero               # !1980
+    sw       %ra  %sp  5                   # !1980
+    addi     %sp  %sp  6                   # !1980
+    lw       %r28  %r27  0                 # !1980
+    jalr     %r28                          # !1980
+    addi     %sp  %sp  -6                  # !1980
+    lw       %ra  %sp  5                   # !1980
+    j        ~beq_cont.9558                # !1979
+beq_then.9557:
+beq_cont.9558:
+    addi     %r1  %zero  4                 # !1983
+    lw       %r2  %sp  4                   # !1983
+    beq      %r2  %r1  beq_then.9559       # !1983
+    lw       %r1  %sp  3                   # !1984
+    lw       %r1  %r1  4                   # !1984
+    lw       %r2  %sp  1                   # !1984
+    lw       %r3  %sp  0                   # !1984
+    lw       %r27  %sp  2                  # !1984
+    lw       %r28  %r27  0                 # !1984
+    jr       %r28                          # !1984
+beq_then.9559:
+    jr       %ra                           # !1985
+calc_diffuse_using_1point.2826:
+    lw       %r3  %r27  3                  # !1991
+    lw       %r4  %r27  2                  # !1991
+    lw       %r5  %r27  1                  # !1991
+    sw       %r4  %sp  0                   # !1993
+    sw       %r3  %sp  1                   # !1993
+    sw       %r5  %sp  2                   # !1993
+    sw       %r2  %sp  3                   # !1993
+    sw       %r1  %sp  4                   # !1993
+    sw       %ra  %sp  5                   # !1993
+    addi     %sp  %sp  6                   # !1993
+    jal      ~p_received_ray_20percent.2575# !1993
+    addi     %sp  %sp  -6                  # !1993
+    lw       %ra  %sp  5                   # !1993
+    lw       %r2  %sp  4                   # !1994
+    sw       %r1  %sp  5                   # !1994
+    movz     %r1  %r2  %zero               # !1994
+    sw       %ra  %sp  6                   # !1994
+    addi     %sp  %sp  7                   # !1994
+    jal      ~p_nvectors.2582              # !1994
+    addi     %sp  %sp  -7                  # !1994
+    lw       %ra  %sp  6                   # !1994
+    lw       %r2  %sp  4                   # !1995
+    sw       %r1  %sp  6                   # !1995
+    movz     %r1  %r2  %zero               # !1995
+    sw       %ra  %sp  7                   # !1995
+    addi     %sp  %sp  8                   # !1995
+    jal      ~p_intersection_points.2567   # !1995
+    addi     %sp  %sp  -8                  # !1995
+    lw       %ra  %sp  7                   # !1995
+    lw       %r2  %sp  4                   # !1996
+    sw       %r1  %sp  7                   # !1996
+    movz     %r1  %r2  %zero               # !1996
+    sw       %ra  %sp  8                   # !1996
+    addi     %sp  %sp  9                   # !1996
+    jal      ~p_energy.2573                # !1996
+    addi     %sp  %sp  -9                  # !1996
+    lw       %ra  %sp  8                   # !1996
+    lw       %r2  %sp  3                   # !1998
+    lw       %r3  %sp  5                   # !1998
+    lwv      %r3  %r3  %r2                 # !1998
+    lw       %r4  %sp  2                   # !1998
+    sw       %r1  %sp  8                   # !1998
+    movz     %r2  %r3  %zero               # !1998
+    movz     %r1  %r4  %zero               # !1998
+    sw       %ra  %sp  9                   # !1998
+    addi     %sp  %sp  10                  # !1998
+    jal      ~veccpy.2495                  # !1998
+    addi     %sp  %sp  -10                 # !1998
+    lw       %ra  %sp  9                   # !1998
+    lw       %r1  %sp  4                   # !2000
+    sw       %ra  %sp  9                   # !2000
+    addi     %sp  %sp  10                  # !2000
+    jal      ~p_group_id.2577              # !2000
+    addi     %sp  %sp  -10                 # !2000
+    lw       %ra  %sp  9                   # !2000
+    lw       %r2  %sp  3                   # !2001
+    lw       %r3  %sp  6                   # !2001
+    lwv      %r3  %r3  %r2                 # !2001
+    lw       %r4  %sp  7                   # !2002
+    lwv      %r4  %r4  %r2                 # !2002
+    lw       %r27  %sp  1                  # !1999
+    movz     %r2  %r3  %zero               # !1999
+    movz     %r3  %r4  %zero               # !1999
+    sw       %ra  %sp  9                   # !1999
+    addi     %sp  %sp  10                  # !1999
+    lw       %r28  %r27  0                 # !1999
+    jalr     %r28                          # !1999
+    addi     %sp  %sp  -10                 # !1999
+    lw       %ra  %sp  9                   # !1999
+    lw       %r1  %sp  3                   # !2003
+    lw       %r2  %sp  8                   # !2003
+    lwv      %r2  %r2  %r1                 # !2003
+    lw       %r1  %sp  0                   # !2003
+    lw       %r3  %sp  2                   # !2003
+    j        ~vecaccumv.2519               # !2003
+calc_diffuse_using_5points.2829:
+    lw       %r6  %r27  2                  # !2010
+    lw       %r7  %r27  1                  # !2010
+    lwv      %r2  %r2  %r1                 # !2012
+    sw       %r6  %sp  0                   # !2012
+    sw       %r7  %sp  1                   # !2012
+    sw       %r5  %sp  2                   # !2012
+    sw       %r4  %sp  3                   # !2012
+    sw       %r3  %sp  4                   # !2012
+    sw       %r1  %sp  5                   # !2012
+    movz     %r1  %r2  %zero               # !2012
+    sw       %ra  %sp  6                   # !2012
+    addi     %sp  %sp  7                   # !2012
+    jal      ~p_received_ray_20percent.2575# !2012
+    addi     %sp  %sp  -7                  # !2012
+    lw       %ra  %sp  6                   # !2012
+    lw       %r2  %sp  5                   # !2013
+    addi     %r3  %r2  -1                  # !2013
+    lw       %r4  %sp  4                   # !2013
+    lwv      %r3  %r4  %r3                 # !2013
+    sw       %r1  %sp  6                   # !2013
+    movz     %r1  %r3  %zero               # !2013
+    sw       %ra  %sp  7                   # !2013
+    addi     %sp  %sp  8                   # !2013
+    jal      ~p_received_ray_20percent.2575# !2013
+    addi     %sp  %sp  -8                  # !2013
+    lw       %ra  %sp  7                   # !2013
+    lw       %r2  %sp  5                   # !2014
+    lw       %r3  %sp  4                   # !2014
+    lwv      %r4  %r3  %r2                 # !2014
+    sw       %r1  %sp  7                   # !2014
+    movz     %r1  %r4  %zero               # !2014
+    sw       %ra  %sp  8                   # !2014
+    addi     %sp  %sp  9                   # !2014
+    jal      ~p_received_ray_20percent.2575# !2014
+    addi     %sp  %sp  -9                  # !2014
+    lw       %ra  %sp  8                   # !2014
+    lw       %r2  %sp  5                   # !2015
+    addi     %r3  %r2  1                   # !2015
+    lw       %r4  %sp  4                   # !2015
+    lwv      %r3  %r4  %r3                 # !2015
+    sw       %r1  %sp  8                   # !2015
+    movz     %r1  %r3  %zero               # !2015
+    sw       %ra  %sp  9                   # !2015
+    addi     %sp  %sp  10                  # !2015
+    jal      ~p_received_ray_20percent.2575# !2015
+    addi     %sp  %sp  -10                 # !2015
+    lw       %ra  %sp  9                   # !2015
+    lw       %r2  %sp  5                   # !2016
+    lw       %r3  %sp  3                   # !2016
+    lwv      %r3  %r3  %r2                 # !2016
+    sw       %r1  %sp  9                   # !2016
+    movz     %r1  %r3  %zero               # !2016
+    sw       %ra  %sp  10                  # !2016
+    addi     %sp  %sp  11                  # !2016
+    jal      ~p_received_ray_20percent.2575# !2016
+    addi     %sp  %sp  -11                 # !2016
+    lw       %ra  %sp  10                  # !2016
+    lw       %r2  %sp  2                   # !2018
+    lw       %r3  %sp  6                   # !2018
+    lwv      %r3  %r3  %r2                 # !2018
+    lw       %r4  %sp  1                   # !2018
+    sw       %r1  %sp  10                  # !2018
+    movz     %r2  %r3  %zero               # !2018
+    movz     %r1  %r4  %zero               # !2018
+    sw       %ra  %sp  11                  # !2018
+    addi     %sp  %sp  12                  # !2018
+    jal      ~veccpy.2495                  # !2018
+    addi     %sp  %sp  -12                 # !2018
+    lw       %ra  %sp  11                  # !2018
+    lw       %r1  %sp  2                   # !2019
+    lw       %r2  %sp  7                   # !2019
+    lwv      %r2  %r2  %r1                 # !2019
+    lw       %r3  %sp  1                   # !2019
+    movz     %r1  %r3  %zero               # !2019
+    sw       %ra  %sp  11                  # !2019
+    addi     %sp  %sp  12                  # !2019
+    jal      ~vecadd.2513                  # !2019
+    addi     %sp  %sp  -12                 # !2019
+    lw       %ra  %sp  11                  # !2019
+    lw       %r1  %sp  2                   # !2020
+    lw       %r2  %sp  8                   # !2020
+    lwv      %r2  %r2  %r1                 # !2020
+    lw       %r3  %sp  1                   # !2020
+    movz     %r1  %r3  %zero               # !2020
+    sw       %ra  %sp  11                  # !2020
+    addi     %sp  %sp  12                  # !2020
+    jal      ~vecadd.2513                  # !2020
+    addi     %sp  %sp  -12                 # !2020
+    lw       %ra  %sp  11                  # !2020
+    lw       %r1  %sp  2                   # !2021
+    lw       %r2  %sp  9                   # !2021
+    lwv      %r2  %r2  %r1                 # !2021
+    lw       %r3  %sp  1                   # !2021
+    movz     %r1  %r3  %zero               # !2021
+    sw       %ra  %sp  11                  # !2021
+    addi     %sp  %sp  12                  # !2021
+    jal      ~vecadd.2513                  # !2021
+    addi     %sp  %sp  -12                 # !2021
+    lw       %ra  %sp  11                  # !2021
+    lw       %r1  %sp  2                   # !2022
+    lw       %r2  %sp  10                  # !2022
+    lwv      %r2  %r2  %r1                 # !2022
+    lw       %r3  %sp  1                   # !2022
+    movz     %r1  %r3  %zero               # !2022
+    sw       %ra  %sp  11                  # !2022
+    addi     %sp  %sp  12                  # !2022
+    jal      ~vecadd.2513                  # !2022
+    addi     %sp  %sp  -12                 # !2022
+    lw       %ra  %sp  11                  # !2022
+    lw       %r1  %sp  5                   # !2024
+    lw       %r2  %sp  4                   # !2024
+    lwv      %r1  %r2  %r1                 # !2024
+    sw       %ra  %sp  11                  # !2024
+    addi     %sp  %sp  12                  # !2024
+    jal      ~p_energy.2573                # !2024
+    addi     %sp  %sp  -12                 # !2024
+    lw       %ra  %sp  11                  # !2024
+    lw       %r2  %sp  2                   # !2025
+    lwv      %r2  %r1  %r2                 # !2025
+    lw       %r1  %sp  0                   # !2025
+    lw       %r3  %sp  1                   # !2025
+    j        ~vecaccumv.2519               # !2025
+do_without_neighbors.2835:
+    lw       %r3  %r27  1                  # !2030
+    addi     %r4  %zero  4                 # !2031
+    blt      %r4  %r2  blt_then.9561       # !2031
+    sw       %r27  %sp  0                  # !2033
+    sw       %r3  %sp  1                   # !2033
+    sw       %r1  %sp  2                   # !2033
+    sw       %r2  %sp  3                   # !2033
+    sw       %ra  %sp  4                   # !2033
+    addi     %sp  %sp  5                   # !2033
+    jal      ~p_surface_ids.2569           # !2033
+    addi     %sp  %sp  -5                  # !2033
+    lw       %ra  %sp  4                   # !2033
+    addi     %r2  %zero  0                 # !2034
+    lw       %r3  %sp  3                   # !2034
+    lwv      %r1  %r1  %r3                 # !2034
+    blt      %r1  %r2  blt_then.9562       # !2034
+    lw       %r1  %sp  2                   # !2035
+    sw       %r2  %sp  4                   # !2035
+    sw       %ra  %sp  5                   # !2035
+    addi     %sp  %sp  6                   # !2035
+    jal      ~p_calc_diffuse.2571          # !2035
+    addi     %sp  %sp  -6                  # !2035
+    lw       %ra  %sp  5                   # !2035
+    lw       %r2  %sp  3                   # !2036
+    lwv      %r1  %r1  %r2                 # !2036
+    lw       %r3  %sp  4                   # !2036
+    beq      %r1  %r3  beq_then.9563       # !2036
+    lw       %r1  %sp  2                   # !2037
+    lw       %r27  %sp  1                  # !2037
+    sw       %ra  %sp  5                   # !2037
+    addi     %sp  %sp  6                   # !2037
+    lw       %r28  %r27  0                 # !2037
+    jalr     %r28                          # !2037
+    addi     %sp  %sp  -6                  # !2037
+    lw       %ra  %sp  5                   # !2037
+    j        ~beq_cont.9564                # !2036
+beq_then.9563:
+beq_cont.9564:
+    lw       %r1  %sp  3                   # !2039
+    addi     %r2  %r1  1                   # !2039
+    lw       %r1  %sp  2                   # !2039
+    lw       %r27  %sp  0                  # !2039
+    lw       %r28  %r27  0                 # !2039
+    jr       %r28                          # !2039
+blt_then.9562:
+    jr       %ra                           # !2040
+blt_then.9561:
+    jr       %ra                           # !2041
+neighbors_exist.2838:
+    lw       %r3  %r27  1                  # !2045
+    addi     %r4  %zero  1                 # !2046
+    lw       %r5  %r3  1                   # !2046
+    addi     %r6  %r2  1                   # !2046
+    blt      %r6  %r5  blt_then.9567       # !2046
+    addi     %r1  %zero  0                 # !2054
+    jr       %ra                           # !2054
+blt_then.9567:
+    addi     %r5  %zero  0                 # !2047
+    blt      %r5  %r2  blt_then.9568       # !2047
+    movz     %r1  %r5  %zero               # !2053
+    jr       %ra                           # !2053
+blt_then.9568:
+    lw       %r2  %r3  0                   # !2048
+    addi     %r3  %r1  1                   # !2048
+    blt      %r3  %r2  blt_then.9569       # !2048
+    movz     %r1  %r5  %zero               # !2052
+    jr       %ra                           # !2052
+blt_then.9569:
+    blt      %r5  %r1  blt_then.9570       # !2049
+    movz     %r1  %r5  %zero               # !2051
+    jr       %ra                           # !2051
+blt_then.9570:
+    movz     %r1  %r4  %zero               # !2050
+    jr       %ra                           # !2050
+get_surface_id.2842:
+    sw       %r2  %sp  0                   # !2058
+    sw       %ra  %sp  1                   # !2058
+    addi     %sp  %sp  2                   # !2058
+    jal      ~p_surface_ids.2569           # !2058
+    addi     %sp  %sp  -2                  # !2058
+    lw       %ra  %sp  1                   # !2058
+    lw       %r2  %sp  0                   # !2059
+    lwv      %r1  %r1  %r2                 # !2059
+    jr       %ra                           # !2059
+neighbors_are_available.2845:
+    lwv      %r6  %r3  %r1                 # !2065
+    sw       %r3  %sp  0                   # !2065
+    sw       %r4  %sp  1                   # !2065
+    sw       %r5  %sp  2                   # !2065
+    sw       %r1  %sp  3                   # !2065
+    sw       %r2  %sp  4                   # !2065
+    movz     %r2  %r5  %zero               # !2065
+    movz     %r1  %r6  %zero               # !2065
+    sw       %ra  %sp  5                   # !2065
+    addi     %sp  %sp  6                   # !2065
+    jal      ~get_surface_id.2842          # !2065
+    addi     %sp  %sp  -6                  # !2065
+    lw       %ra  %sp  5                   # !2065
+    lw       %r2  %sp  3                   # !2067
+    lw       %r3  %sp  4                   # !2067
+    lwv      %r3  %r3  %r2                 # !2067
+    lw       %r4  %sp  2                   # !2067
+    sw       %r1  %sp  5                   # !2067
+    movz     %r2  %r4  %zero               # !2067
+    movz     %r1  %r3  %zero               # !2067
+    sw       %ra  %sp  6                   # !2067
+    addi     %sp  %sp  7                   # !2067
+    jal      ~get_surface_id.2842          # !2067
+    addi     %sp  %sp  -7                  # !2067
+    lw       %ra  %sp  6                   # !2067
+    lw       %r2  %sp  5                   # !2067
+    beq      %r1  %r2  beq_then.9571       # !2067
+    addi     %r1  %zero  0                 # !2075
+    jr       %ra                           # !2075
+beq_then.9571:
+    lw       %r1  %sp  3                   # !2068
+    lw       %r3  %sp  1                   # !2068
+    lwv      %r3  %r3  %r1                 # !2068
+    lw       %r4  %sp  2                   # !2068
+    movz     %r2  %r4  %zero               # !2068
+    movz     %r1  %r3  %zero               # !2068
+    sw       %ra  %sp  6                   # !2068
+    addi     %sp  %sp  7                   # !2068
+    jal      ~get_surface_id.2842          # !2068
+    addi     %sp  %sp  -7                  # !2068
+    lw       %ra  %sp  6                   # !2068
+    lw       %r2  %sp  5                   # !2068
+    beq      %r1  %r2  beq_then.9572       # !2068
+    addi     %r1  %zero  0                 # !2074
+    jr       %ra                           # !2074
+beq_then.9572:
+    addi     %r1  %zero  1                 # !2069
+    lw       %r3  %sp  3                   # !2069
+    addi     %r4  %r3  -1                  # !2069
+    lw       %r5  %sp  0                   # !2069
+    lwv      %r4  %r5  %r4                 # !2069
+    lw       %r6  %sp  2                   # !2069
+    sw       %r1  %sp  6                   # !2069
+    movz     %r2  %r6  %zero               # !2069
+    movz     %r1  %r4  %zero               # !2069
+    sw       %ra  %sp  7                   # !2069
+    addi     %sp  %sp  8                   # !2069
+    jal      ~get_surface_id.2842          # !2069
+    addi     %sp  %sp  -8                  # !2069
+    lw       %ra  %sp  7                   # !2069
+    lw       %r2  %sp  5                   # !2069
+    beq      %r1  %r2  beq_then.9573       # !2069
+    addi     %r1  %zero  0                 # !2073
+    jr       %ra                           # !2073
+beq_then.9573:
+    lw       %r1  %sp  3                   # !2070
+    addi     %r1  %r1  1                   # !2070
+    lw       %r3  %sp  0                   # !2070
+    lwv      %r1  %r3  %r1                 # !2070
+    lw       %r3  %sp  2                   # !2070
+    movz     %r2  %r3  %zero               # !2070
+    sw       %ra  %sp  7                   # !2070
+    addi     %sp  %sp  8                   # !2070
+    jal      ~get_surface_id.2842          # !2070
+    addi     %sp  %sp  -8                  # !2070
+    lw       %ra  %sp  7                   # !2070
+    lw       %r2  %sp  5                   # !2070
+    beq      %r1  %r2  beq_then.9574       # !2070
+    addi     %r1  %zero  0                 # !2072
+    jr       %ra                           # !2072
+beq_then.9574:
+    lw       %r1  %sp  6                   # !2071
+    jr       %ra                           # !2071
+try_exploit_neighbors.2851:
+    lw       %r7  %r27  2                  # !2082
+    lw       %r8  %r27  1                  # !2082
+    lwv      %r9  %r4  %r1                 # !2083
+    addi     %r10  %zero  4                # !2084
+    blt      %r10  %r6  blt_then.9575      # !2084
+    addi     %r10  %zero  0                # !2087
+    sw       %r2  %sp  0                   # !2087
+    sw       %r27  %sp  1                  # !2087
+    sw       %r8  %sp  2                   # !2087
+    sw       %r9  %sp  3                   # !2087
+    sw       %r7  %sp  4                   # !2087
+    sw       %r6  %sp  5                   # !2087
+    sw       %r5  %sp  6                   # !2087
+    sw       %r4  %sp  7                   # !2087
+    sw       %r3  %sp  8                   # !2087
+    sw       %r1  %sp  9                   # !2087
+    sw       %r10  %sp  10                 # !2087
+    movz     %r2  %r6  %zero               # !2087
+    movz     %r1  %r9  %zero               # !2087
+    sw       %ra  %sp  11                  # !2087
+    addi     %sp  %sp  12                  # !2087
+    jal      ~get_surface_id.2842          # !2087
+    addi     %sp  %sp  -12                 # !2087
+    lw       %ra  %sp  11                  # !2087
+    lw       %r2  %sp  10                  # !2087
+    blt      %r1  %r2  blt_then.9576       # !2087
+    lw       %r1  %sp  9                   # !2089
+    lw       %r3  %sp  8                   # !2089
+    lw       %r4  %sp  7                   # !2089
+    lw       %r5  %sp  6                   # !2089
+    lw       %r6  %sp  5                   # !2089
+    movz     %r2  %r3  %zero               # !2089
+    movz     %r3  %r4  %zero               # !2089
+    movz     %r4  %r5  %zero               # !2089
+    movz     %r5  %r6  %zero               # !2089
+    sw       %ra  %sp  11                  # !2089
+    addi     %sp  %sp  12                  # !2089
+    jal      ~neighbors_are_available.2845 # !2089
+    addi     %sp  %sp  -12                 # !2089
+    lw       %ra  %sp  11                  # !2089
+    lw       %r2  %sp  10                  # !2089
+    beq      %r1  %r2  beq_then.9577       # !2089
+    lw       %r1  %sp  3                   # !2092
+    sw       %ra  %sp  11                  # !2092
+    addi     %sp  %sp  12                  # !2092
+    jal      ~p_calc_diffuse.2571          # !2092
+    addi     %sp  %sp  -12                 # !2092
+    lw       %ra  %sp  11                  # !2092
+    lw       %r5  %sp  5                   # !2093
+    lwv      %r1  %r1  %r5                 # !2093
+    lw       %r2  %sp  10                  # !2093
+    beq      %r1  %r2  beq_then.9578       # !2093
+    lw       %r1  %sp  9                   # !2094
+    lw       %r2  %sp  8                   # !2094
+    lw       %r3  %sp  7                   # !2094
+    lw       %r4  %sp  6                   # !2094
+    lw       %r27  %sp  2                  # !2094
+    sw       %ra  %sp  11                  # !2094
+    addi     %sp  %sp  12                  # !2094
+    lw       %r28  %r27  0                 # !2094
+    jalr     %r28                          # !2094
+    addi     %sp  %sp  -12                 # !2094
+    lw       %ra  %sp  11                  # !2094
+    j        ~beq_cont.9579                # !2093
+beq_then.9578:
+beq_cont.9579:
+    lw       %r1  %sp  5                   # !2098
+    addi     %r6  %r1  1                   # !2098
+    lw       %r1  %sp  9                   # !2098
+    lw       %r2  %sp  0                   # !2098
+    lw       %r3  %sp  8                   # !2098
+    lw       %r4  %sp  7                   # !2098
+    lw       %r5  %sp  6                   # !2098
+    lw       %r27  %sp  1                  # !2098
+    lw       %r28  %r27  0                 # !2098
+    jr       %r28                          # !2098
+beq_then.9577:
+    lw       %r1  %sp  9                   # !2101
+    lw       %r2  %sp  7                   # !2101
+    lwv      %r1  %r2  %r1                 # !2101
+    lw       %r2  %sp  5                   # !2101
+    lw       %r27  %sp  4                  # !2101
+    lw       %r28  %r27  0                 # !2101
+    jr       %r28                          # !2101
+blt_then.9576:
+    jr       %ra                           # !2102
+blt_then.9575:
+    jr       %ra                           # !2103
+write_ppm_header.2858:
+    lw       %r2  %r27  1                  # !2109
+    addi     %r3  %zero  80                # !2111
+    sw       %r2  %sp  0                   # !2111
+    sw       %r1  %sp  1                   # !2111
+    movz     %r1  %r3  %zero               # !2111
+    sw       %ra  %sp  2                   # !2111
+    addi     %sp  %sp  3                   # !2111
+    jal      ~min_caml_print_char          # !2111
+    addi     %sp  %sp  -3                  # !2111
+    lw       %ra  %sp  2                   # !2111
+    lw       %r1  %sp  1                   # !2112
+    addi     %r1  %r1  48                  # !2112
+    sw       %ra  %sp  2                   # !2112
+    addi     %sp  %sp  3                   # !2112
+    jal      ~min_caml_print_char          # !2112
+    addi     %sp  %sp  -3                  # !2112
+    lw       %ra  %sp  2                   # !2112
+    addi     %r1  %zero  10                # !2113
+    sw       %r1  %sp  2                   # !2113
+    sw       %ra  %sp  3                   # !2113
+    addi     %sp  %sp  4                   # !2113
+    jal      ~min_caml_print_char          # !2113
+    addi     %sp  %sp  -4                  # !2113
+    lw       %ra  %sp  3                   # !2113
+    lw       %r1  %sp  0                   # !2114
+    lw       %r2  %r1  0                   # !2114
+    movz     %r1  %r2  %zero               # !2114
+    sw       %ra  %sp  3                   # !2114
+    addi     %sp  %sp  4                   # !2114
+    jal      ~min_caml_print_int           # !2114
+    addi     %sp  %sp  -4                  # !2114
+    lw       %ra  %sp  3                   # !2114
+    addi     %r1  %zero  32                # !2115
+    sw       %r1  %sp  3                   # !2115
+    sw       %ra  %sp  4                   # !2115
+    addi     %sp  %sp  5                   # !2115
+    jal      ~min_caml_print_char          # !2115
+    addi     %sp  %sp  -5                  # !2115
+    lw       %ra  %sp  4                   # !2115
+    lw       %r1  %sp  0                   # !2116
+    lw       %r1  %r1  1                   # !2116
+    sw       %ra  %sp  4                   # !2116
+    addi     %sp  %sp  5                   # !2116
+    jal      ~min_caml_print_int           # !2116
+    addi     %sp  %sp  -5                  # !2116
+    lw       %ra  %sp  4                   # !2116
+    lw       %r1  %sp  3                   # !2117
+    sw       %ra  %sp  4                   # !2117
+    addi     %sp  %sp  5                   # !2117
+    jal      ~min_caml_print_char          # !2117
+    addi     %sp  %sp  -5                  # !2117
+    lw       %ra  %sp  4                   # !2117
+    addi     %r1  %zero  255               # !2118
+    sw       %ra  %sp  4                   # !2118
+    addi     %sp  %sp  5                   # !2118
+    jal      ~min_caml_print_int           # !2118
+    addi     %sp  %sp  -5                  # !2118
+    lw       %ra  %sp  4                   # !2118
+    lw       %r1  %sp  2                   # !2119
+    j        ~min_caml_print_char          # !2119
+write_rgb_element_int.2860:
+    sw       %ra  %sp  0                   # !2124
+    addi     %sp  %sp  1                   # !2124
+    jal      ~min_caml_int_of_float        # !2124
+    addi     %sp  %sp  -1                  # !2124
+    lw       %ra  %sp  0                   # !2124
+    addi     %r2  %zero  255               # !2125
+    blt      %r2  %r1  blt_then.9582       # !2125
+    addi     %r2  %zero  0                 # !2125
+    blt      %r1  %r2  blt_then.9584       # !2125
+    j        ~blt_cont.9585                # !2125
+blt_then.9584:
+    movz     %r1  %r2  %zero               # !2125
+blt_cont.9585:
+    j        ~blt_cont.9583                # !2125
+blt_then.9582:
+    movz     %r1  %r2  %zero               # !2125
+blt_cont.9583:
+    j        ~min_caml_print_int           # !2126
+write_rgb_element_char.2862:
+    sw       %ra  %sp  0                   # !2130
+    addi     %sp  %sp  1                   # !2130
+    jal      ~min_caml_int_of_float        # !2130
+    addi     %sp  %sp  -1                  # !2130
+    lw       %ra  %sp  0                   # !2130
+    addi     %r2  %zero  255               # !2131
+    blt      %r2  %r1  blt_then.9586       # !2131
+    addi     %r2  %zero  0                 # !2131
+    blt      %r1  %r2  blt_then.9588       # !2131
+    j        ~blt_cont.9589                # !2131
+blt_then.9588:
+    movz     %r1  %r2  %zero               # !2131
+blt_cont.9589:
+    j        ~blt_cont.9587                # !2131
+blt_then.9586:
+    movz     %r1  %r2  %zero               # !2131
+blt_cont.9587:
+    j        ~min_caml_print_char          # !2132
+write_rgb.2864:
+    lw       %r2  %r27  1                  # !2135
+    addi     %r3  %zero  3                 # !2136
+    beq      %r1  %r3  beq_then.9590       # !2136
+    flw      %f0  %r2  0                   # !2144
+    sw       %r2  %sp  0                   # !2144
+    sw       %ra  %sp  1                   # !2144
+    addi     %sp  %sp  2                   # !2144
+    jal      ~write_rgb_element_char.2862  # !2144
+    addi     %sp  %sp  -2                  # !2144
+    lw       %ra  %sp  1                   # !2144
+    flw      %f0  %sp  0                   # !2145
+    flw      %f1  %f0  1                   # !2145
+    fmovz    %f0  %f1  %zero               # !2145
+    sw       %ra  %sp  1                   # !2145
+    addi     %sp  %sp  2                   # !2145
+    jal      ~write_rgb_element_char.2862  # !2145
+    addi     %sp  %sp  -2                  # !2145
+    lw       %ra  %sp  1                   # !2145
+    flw      %f0  %sp  0                   # !2146
+    flw      %f0  %f0  2                   # !2146
+    j        ~write_rgb_element_char.2862  # !2146
+beq_then.9590:
+    flw      %f0  %r2  0                   # !2137
+    sw       %r2  %sp  0                   # !2137
+    sw       %ra  %sp  1                   # !2137
+    addi     %sp  %sp  2                   # !2137
+    jal      ~write_rgb_element_int.2860   # !2137
+    addi     %sp  %sp  -2                  # !2137
+    lw       %ra  %sp  1                   # !2137
+    addi     %r1  %zero  32                # !2138
+    sw       %r1  %sp  1                   # !2138
+    sw       %ra  %sp  2                   # !2138
+    addi     %sp  %sp  3                   # !2138
+    jal      ~min_caml_print_char          # !2138
+    addi     %sp  %sp  -3                  # !2138
+    lw       %ra  %sp  2                   # !2138
+    flw      %f0  %sp  0                   # !2139
+    flw      %f1  %f0  1                   # !2139
+    fmovz    %f0  %f1  %zero               # !2139
+    sw       %ra  %sp  2                   # !2139
+    addi     %sp  %sp  3                   # !2139
+    jal      ~write_rgb_element_int.2860   # !2139
+    addi     %sp  %sp  -3                  # !2139
+    lw       %ra  %sp  2                   # !2139
+    lw       %r1  %sp  1                   # !2140
+    sw       %ra  %sp  2                   # !2140
+    addi     %sp  %sp  3                   # !2140
+    jal      ~min_caml_print_char          # !2140
+    addi     %sp  %sp  -3                  # !2140
+    lw       %ra  %sp  2                   # !2140
+    flw      %f0  %sp  0                   # !2141
+    flw      %f0  %f0  2                   # !2141
+    sw       %ra  %sp  2                   # !2141
+    addi     %sp  %sp  3                   # !2141
+    jal      ~write_rgb_element_int.2860   # !2141
+    addi     %sp  %sp  -3                  # !2141
+    lw       %ra  %sp  2                   # !2141
+    addi     %r1  %zero  10                # !2142
+    j        ~min_caml_print_char          # !2142
+pretrace_diffuse_rays.2866:
+    lw       %r3  %r27  3                  # !2158
+    lw       %r4  %r27  2                  # !2158
+    lw       %r5  %r27  1                  # !2158
+    addi     %r6  %zero  4                 # !2159
+    blt      %r6  %r2  blt_then.9591       # !2159
+    sw       %r27  %sp  0                  # !2162
+    sw       %r3  %sp  1                   # !2162
+    sw       %r4  %sp  2                   # !2162
+    sw       %r5  %sp  3                   # !2162
+    sw       %r2  %sp  4                   # !2162
+    sw       %r1  %sp  5                   # !2162
+    sw       %ra  %sp  6                   # !2162
+    addi     %sp  %sp  7                   # !2162
+    jal      ~get_surface_id.2842          # !2162
+    addi     %sp  %sp  -7                  # !2162
+    lw       %ra  %sp  6                   # !2162
+    addi     %r2  %zero  0                 # !2163
+    blt      %r1  %r2  blt_then.9592       # !2163
+    lw       %r1  %sp  5                   # !2165
+    sw       %r2  %sp  6                   # !2165
+    sw       %ra  %sp  7                   # !2165
+    addi     %sp  %sp  8                   # !2165
+    jal      ~p_calc_diffuse.2571          # !2165
+    addi     %sp  %sp  -8                  # !2165
+    lw       %ra  %sp  7                   # !2165
+    lw       %r2  %sp  4                   # !2166
+    lwv      %r1  %r1  %r2                 # !2166
+    lw       %r3  %sp  6                   # !2166
+    beq      %r1  %r3  beq_then.9593       # !2166
+    lw       %r1  %sp  5                   # !2167
+    sw       %ra  %sp  7                   # !2167
+    addi     %sp  %sp  8                   # !2167
+    jal      ~p_group_id.2577              # !2167
+    addi     %sp  %sp  -8                  # !2167
+    lw       %ra  %sp  7                   # !2167
+    lw       %r2  %sp  3                   # !2168
+    sw       %r1  %sp  7                   # !2168
+    movz     %r1  %r2  %zero               # !2168
+    sw       %ra  %sp  8                   # !2168
+    addi     %sp  %sp  9                   # !2168
+    jal      ~vecbzero.2493                # !2168
+    addi     %sp  %sp  -9                  # !2168
+    lw       %ra  %sp  8                   # !2168
+    lw       %r1  %sp  5                   # !2172
+    sw       %ra  %sp  8                   # !2172
+    addi     %sp  %sp  9                   # !2172
+    jal      ~p_nvectors.2582              # !2172
+    addi     %sp  %sp  -9                  # !2172
+    lw       %ra  %sp  8                   # !2172
+    lw       %r2  %sp  5                   # !2173
+    sw       %r1  %sp  8                   # !2173
+    movz     %r1  %r2  %zero               # !2173
+    sw       %ra  %sp  9                   # !2173
+    addi     %sp  %sp  10                  # !2173
+    jal      ~p_intersection_points.2567   # !2173
+    addi     %sp  %sp  -10                 # !2173
+    lw       %ra  %sp  9                   # !2173
+    lw       %r2  %sp  7                   # !2175
+    lw       %r3  %sp  2                   # !2175
+    lwv      %r2  %r3  %r2                 # !2175
+    lw       %r3  %sp  4                   # !2176
+    lw       %r4  %sp  8                   # !2176
+    lwv      %r4  %r4  %r3                 # !2176
+    lwv      %r1  %r1  %r3                 # !2177
+    lw       %r27  %sp  1                  # !2174
+    movz     %r3  %r1  %zero               # !2174
+    movz     %r1  %r2  %zero               # !2174
+    movz     %r2  %r4  %zero               # !2174
+    sw       %ra  %sp  9                   # !2174
+    addi     %sp  %sp  10                  # !2174
+    lw       %r28  %r27  0                 # !2174
+    jalr     %r28                          # !2174
+    addi     %sp  %sp  -10                 # !2174
+    lw       %ra  %sp  9                   # !2174
+    lw       %r1  %sp  5                   # !2178
+    sw       %ra  %sp  9                   # !2178
+    addi     %sp  %sp  10                  # !2178
+    jal      ~p_received_ray_20percent.2575# !2178
+    addi     %sp  %sp  -10                 # !2178
+    lw       %ra  %sp  9                   # !2178
+    lw       %r2  %sp  4                   # !2179
+    lwv      %r1  %r1  %r2                 # !2179
+    lw       %r3  %sp  3                   # !2179
+    movz     %r2  %r3  %zero               # !2179
+    sw       %ra  %sp  9                   # !2179
+    addi     %sp  %sp  10                  # !2179
+    jal      ~veccpy.2495                  # !2179
+    addi     %sp  %sp  -10                 # !2179
+    lw       %ra  %sp  9                   # !2179
+    j        ~beq_cont.9594                # !2166
+beq_then.9593:
+beq_cont.9594:
+    lw       %r1  %sp  4                   # !2181
+    addi     %r2  %r1  1                   # !2181
+    lw       %r1  %sp  5                   # !2181
+    lw       %r27  %sp  0                  # !2181
+    lw       %r28  %r27  0                 # !2181
+    jr       %r28                          # !2181
+blt_then.9592:
+    jr       %ra                           # !2182
+blt_then.9591:
+    jr       %ra                           # !2183
+pretrace_pixels.2869:
+    lw       %r4  %r27  9                  # !2188
+    lw       %r5  %r27  8                  # !2188
+    lw       %r6  %r27  7                  # !2188
+    lw       %r7  %r27  6                  # !2188
+    lw       %r8  %r27  5                  # !2188
+    lw       %r9  %r27  4                  # !2188
+    lw       %r10  %r27  3                 # !2188
+    lw       %r11  %r27  2                 # !2188
+    lw       %r12  %r27  1                 # !2188
+    addi     %r13  %zero  0                # !2189
+    blt      %r2  %r13  blt_then.9597      # !2189
+    flw      %f3  %r8  0                   # !2191
+    lw       %r8  %r12  0                  # !2191
+    sub      %r8  %r2  %r8                 # !2191
+    sw       %r27  %sp  0                  # !2191
+    sw       %r11  %sp  1                  # !2191
+    sw       %r3  %sp  2                   # !2191
+    sw       %r5  %sp  3                   # !2191
+    sw       %r2  %sp  4                   # !2191
+    sw       %r1  %sp  5                   # !2191
+    sw       %r4  %sp  6                   # !2191
+    sw       %r6  %sp  7                   # !2191
+    sw       %r9  %sp  8                   # !2191
+    sw       %r13  %sp  9                  # !2191
+    fsw      %f2  %sp  10                  # !2191
+    fsw      %f1  %sp  11                  # !2191
+    sw       %r10  %sp  12                 # !2191
+    fsw      %f0  %sp  13                  # !2191
+    sw       %r7  %sp  14                  # !2191
+    fsw      %f3  %sp  15                  # !2191
+    movz     %r1  %r8  %zero               # !2191
+    sw       %ra  %sp  16                  # !2191
+    addi     %sp  %sp  17                  # !2191
+    jal      ~min_caml_float_of_int        # !2191
+    addi     %sp  %sp  -17                 # !2191
+    lw       %ra  %sp  16                  # !2191
+    flw      %f1  %sp  15                  # !2191
+    fmul     %f0  %f1  %f0                 # !2191
+    flw      %f1  %sp  14                  # !2192
+    flw      %f2  %f1  0                   # !2192
+    fmul     %f2  %f2  %f0                 # !2192
+    flw      %f3  %sp  13                  # !2192
+    fadd     %f2  %f2  %f3                 # !2192
+    lw       %r1  %sp  12                  # !2192
+    fsw      %f2  %r1  0                   # !2192
+    addi     %r2  %zero  1                 # !2193
+    flw      %f2  %f1  1                   # !2193
+    fmul     %f2  %f2  %f0                 # !2193
+    flw      %f4  %sp  11                  # !2193
+    fadd     %f2  %f2  %f4                 # !2193
+    fsw      %f2  %r1  1                   # !2193
+    flw      %f1  %f1  2                   # !2194
+    fmul     %f0  %f1  %f0                 # !2194
+    flw      %f1  %sp  10                  # !2194
+    fadd     %f0  %f0  %f1                 # !2194
+    fsw      %f0  %r1  2                   # !2194
+    lw       %r3  %sp  9                   # !2195
+    sw       %r2  %sp  16                  # !2195
+    movz     %r2  %r3  %zero               # !2195
+    sw       %ra  %sp  17                  # !2195
+    addi     %sp  %sp  18                  # !2195
+    jal      ~vecunit_sgn.2498             # !2195
+    addi     %sp  %sp  -18                 # !2195
+    lw       %ra  %sp  17                  # !2195
+    lw       %r1  %sp  8                   # !2196
+    sw       %ra  %sp  17                  # !2196
+    addi     %sp  %sp  18                  # !2196
+    jal      ~vecbzero.2493                # !2196
+    addi     %sp  %sp  -18                 # !2196
+    lw       %ra  %sp  17                  # !2196
+    lw       %r1  %sp  7                   # !2197
+    lw       %r2  %sp  6                   # !2197
+    sw       %ra  %sp  17                  # !2197
+    addi     %sp  %sp  18                  # !2197
+    jal      ~veccpy.2495                  # !2197
+    addi     %sp  %sp  -18                 # !2197
+    lw       %ra  %sp  17                  # !2197
+    flui     %f0  508                      # !2200
+    fli      %f0  0                        # !2200
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    lw %r1 %sp 10                          # !2138
-    lw %r2 %sp 11                          # !2138
-    lwv %r3 %r2 %r1                        # !2138
-    flui %f1 0                             # !2138
-    fli %f1 0                              # !2138
+    lw       %r1  %sp  4                   # !2200
+    lw       %r2  %sp  5                   # !2200
+    lwv      %r3  %r2  %r1                 # !2200
+    flui     %f1  0                        # !2200
+    fli      %f1  0                        # !2200
     ++
     fli 0.000000
     => flui %f1 0b00000000000
        fli  %f1 0b000000000000000000000
     ++
-    lw %r4 %sp 8                           # !2138
-    lw %r5 %sp 7                           # !2138
-    lw %r27 %sp 9                          # !2138
-    movz %r2 %r5 %zero                     # !2138
-    movz %r1 %r4 %zero                     # !2138
-    sw %ra %sp 15                          # !2138
-    addi %sp %sp 16                        # !2138
-    lw %r28 %r27 0                         # !2138
-    jalr %r28                              # !2138
-    addi %sp %sp -16                       # !2138
-    lw %ra %sp 15                          # !2138
-    lw %r1 %sp 10                          # !2139
-    lw %r2 %sp 11                          # !2139
-    lwv %r3 %r2 %r1                        # !2139
-    movz %r1 %r3 %zero                     # !2139
-    sw %ra %sp 15                          # !2139
-    addi %sp %sp 16                        # !2139
-    jal ~p_rgb.2498                        # !2139
-    addi %sp %sp -16                       # !2139
-    lw %ra %sp 15                          # !2139
-    lw %r2 %sp 14                          # !2139
-    sw %ra %sp 15                          # !2139
-    addi %sp %sp 16                        # !2139
-    jal ~veccpy.2428                       # !2139
-    addi %sp %sp -16                       # !2139
-    lw %ra %sp 15                          # !2139
-    lw %r1 %sp 10                          # !2140
-    lw %r2 %sp 11                          # !2140
-    lwv %r3 %r2 %r1                        # !2140
-    lw %r4 %sp 6                           # !2140
-    movz %r2 %r4 %zero                     # !2140
-    movz %r1 %r3 %zero                     # !2140
-    sw %ra %sp 15                          # !2140
-    addi %sp %sp 16                        # !2140
-    jal ~p_set_group_id.2512               # !2140
-    addi %sp %sp -16                       # !2140
-    lw %ra %sp 15                          # !2140
-    lw %r1 %sp 10                          # !2143
-    lw %r2 %sp 11                          # !2143
-    lwv %r3 %r2 %r1                        # !2143
-    lw %r4 %sp 8                           # !2143
-    lw %r27 %sp 5                          # !2143
-    movz %r2 %r4 %zero                     # !2143
-    movz %r1 %r3 %zero                     # !2143
-    sw %ra %sp 15                          # !2143
-    addi %sp %sp 16                        # !2143
-    lw %r28 %r27 0                         # !2143
-    jalr %r28                              # !2143
-    addi %sp %sp -16                       # !2143
-    lw %ra %sp 15                          # !2143
-    lw %r1 %sp 10                          # !2145
-    addi %r1 %r1 -1                        # !2145
-    lw %r2 %sp 6                           # !2145
-    lw %r3 %sp 4                           # !2145
-    sw %r1 %sp 15                          # !2145
-    movz %r1 %r2 %zero                     # !2145
-    movz %r2 %r3 %zero                     # !2145
-    sw %ra %sp 16                          # !2145
-    addi %sp %sp 17                        # !2145
-    jal ~add_mod5.2415                     # !2145
-    addi %sp %sp -17                       # !2145
-    lw %ra %sp 16                          # !2145
-    movz %r3 %r1 %zero                     # !2145
-    flw %f0 %sp 2                          # !2145
-    flw %f1 %sp 1                          # !2145
-    flw %f2 %sp 0                          # !2145
-    lw %r1 %sp 11                          # !2145
-    lw %r2 %sp 15                          # !2145
-    lw %r27 %sp 3                          # !2145
-    lw %r28 %r27 0                         # !2145
-    jr %r28                                # !2145
-blt_then.8943:
-    jr %ra                                 # !2147
-pretrace_line.2809:
-    lw %r4 %r27 6                          # !2151
-    lw %r5 %r27 5                          # !2151
-    lw %r6 %r27 4                          # !2151
-    lw %r7 %r27 3                          # !2151
-    lw %r8 %r27 2                          # !2151
-    lw %r9 %r27 1                          # !2151
-    flw %f0 %r6 0                          # !2152
-    lw %r6 %r9 1                           # !2152
-    sub %r2 %r2 %r6                        # !2152
-    itof %f1 %r2                           # !2152
-    fmul %f0 %f0 %f1                       # !2152
-    flw %f1 %r5 0                          # !2155
-    fmul %f1 %f1 %f0                       # !2155
-    flw %f2 %r4 0                          # !2155
-    fadd %f1 %f1 %f2                       # !2155
-    flw %f2 %r5 1                          # !2156
-    fmul %f2 %f2 %f0                       # !2156
-    flw %f3 %r4 1                          # !2156
-    fadd %f2 %f2 %f3                       # !2156
-    flw %f3 %r5 2                          # !2157
-    fmul %f0 %f3 %f0                       # !2157
-    flw %f3 %r4 2                          # !2157
-    fadd %f0 %f0 %f3                       # !2157
-    lw %r2 %r8 0                           # !2158
-    addi %r2 %r2 -1                        # !2158
-    movz %r27 %r7 %zero                    # !2158
-    fmovz %f31 %f2 %zero                   # !2158
-    fmovz %f2 %f0 %zero                    # !2158
-    fmovz %f0 %f1 %zero                    # !2158
-    fmovz %f1 %f31 %zero                   # !2158
-    lw %r28 %r27 0                         # !2158
-    jr %r28                                # !2158
-scan_pixel.2813:
-    lw %r7 %r27 6                          # !2167
-    lw %r8 %r27 5                          # !2167
-    lw %r9 %r27 4                          # !2167
-    lw %r10 %r27 3                         # !2167
-    lw %r11 %r27 2                         # !2167
-    lw %r12 %r27 1                         # !2167
-    addi %r13 %zero 0                      # !2168
-    lw %r11 %r11 0                         # !2168
-    blt %r1 %r11 blt_then.8945             # !2168
-    jr %ra                                 # !2183
-blt_then.8945:
-    lwv %r11 %r4 %r1                       # !2171
-    sw %r27 %sp 0                          # !2171
-    sw %r6 %sp 1                           # !2171
-    sw %r7 %sp 2                           # !2171
-    sw %r3 %sp 3                           # !2171
-    sw %r8 %sp 4                           # !2171
-    sw %r12 %sp 5                          # !2171
-    sw %r4 %sp 6                           # !2171
-    sw %r13 %sp 7                          # !2171
-    sw %r5 %sp 8                           # !2171
-    sw %r2 %sp 9                           # !2171
-    sw %r1 %sp 10                          # !2171
-    sw %r10 %sp 11                         # !2171
-    sw %r9 %sp 12                          # !2171
-    movz %r1 %r11 %zero                    # !2171
-    sw %ra %sp 13                          # !2171
-    addi %sp %sp 14                        # !2171
-    jal ~p_rgb.2498                        # !2171
-    addi %sp %sp -14                       # !2171
-    lw %ra %sp 13                          # !2171
-    movz %r2 %r1 %zero                     # !2171
-    lw %r1 %sp 12                          # !2171
-    sw %ra %sp 13                          # !2171
-    addi %sp %sp 14                        # !2171
-    jal ~veccpy.2428                       # !2171
-    addi %sp %sp -14                       # !2171
-    lw %ra %sp 13                          # !2171
-    lw %r1 %sp 10                          # !2174
-    lw %r2 %sp 9                           # !2174
-    lw %r3 %sp 8                           # !2174
-    lw %r27 %sp 11                         # !2174
-    sw %ra %sp 13                          # !2174
-    addi %sp %sp 14                        # !2174
-    lw %r28 %r27 0                         # !2174
-    jalr %r28                              # !2174
-    addi %sp %sp -14                       # !2174
-    lw %ra %sp 13                          # !2174
-    lw %r2 %sp 7                           # !2174
-    beq %r1 %r2 beq_then.8947              # !2174
-    lw %r1 %sp 10                          # !2175
-    lw %r3 %sp 9                           # !2175
-    lw %r4 %sp 3                           # !2175
-    lw %r5 %sp 6                           # !2175
-    lw %r6 %sp 8                           # !2175
-    lw %r27 %sp 4                          # !2175
-    movz %r28 %r6 %zero                    # !2175
-    movz %r6 %r2 %zero                     # !2175
-    movz %r2 %r3 %zero                     # !2175
-    movz %r3 %r4 %zero                     # !2175
-    movz %r4 %r5 %zero                     # !2175
-    movz %r5 %r28 %zero                    # !2175
-    sw %ra %sp 13                          # !2175
-    addi %sp %sp 14                        # !2175
-    lw %r28 %r27 0                         # !2175
-    jalr %r28                              # !2175
-    addi %sp %sp -14                       # !2175
-    lw %ra %sp 13                          # !2175
-    j ~beq_cont.8948                       # !2174
-beq_then.8947:
-    lw %r1 %sp 10                          # !2177
-    lw %r3 %sp 6                           # !2177
-    lwv %r4 %r3 %r1                        # !2177
-    lw %r27 %sp 5                          # !2177
-    movz %r1 %r4 %zero                     # !2177
-    sw %ra %sp 13                          # !2177
-    addi %sp %sp 14                        # !2177
-    lw %r28 %r27 0                         # !2177
-    jalr %r28                              # !2177
-    addi %sp %sp -14                       # !2177
-    lw %ra %sp 13                          # !2177
-beq_cont.8948:
-    lw %r1 %sp 1                           # !2180
-    lw %r27 %sp 2                          # !2180
-    sw %ra %sp 13                          # !2180
-    addi %sp %sp 14                        # !2180
-    lw %r28 %r27 0                         # !2180
-    jalr %r28                              # !2180
-    addi %sp %sp -14                       # !2180
-    lw %ra %sp 13                          # !2180
-    lw %r1 %sp 10                          # !2182
-    addi %r1 %r1 1                         # !2182
-    lw %r2 %sp 9                           # !2182
-    lw %r3 %sp 3                           # !2182
-    lw %r4 %sp 6                           # !2182
-    lw %r5 %sp 8                           # !2182
-    lw %r6 %sp 1                           # !2182
-    lw %r27 %sp 0                          # !2182
-    lw %r28 %r27 0                         # !2182
-    jr %r28                                # !2182
-scan_line.2820:
-    lw %r7 %r27 3                          # !2187
-    lw %r8 %r27 2                          # !2187
-    lw %r9 %r27 1                          # !2187
-    lw %r10 %r9 1                          # !2189
-    blt %r1 %r10 blt_then.8949             # !2187
-    jr %ra                                 # !2196
-blt_then.8949:
-    lw %r9 %r9 1                           # !2191
-    addi %r9 %r9 -1                        # !2191
-    sw %r27 %sp 0                          # !2191
-    sw %r5 %sp 1                           # !2191
-    sw %r6 %sp 2                           # !2191
-    sw %r4 %sp 3                           # !2191
-    sw %r3 %sp 4                           # !2191
-    sw %r2 %sp 5                           # !2191
-    sw %r1 %sp 6                           # !2191
-    sw %r7 %sp 7                           # !2191
-    blt %r1 %r9 blt_then.8951              # !2191
-    j ~blt_cont.8952                       # !2191
-blt_then.8951:
-    addi %r9 %r1 1                         # !2192
-    movz %r3 %r5 %zero                     # !2192
-    movz %r2 %r9 %zero                     # !2192
-    movz %r1 %r4 %zero                     # !2192
-    movz %r27 %r8 %zero                    # !2192
-    sw %ra %sp 8                           # !2192
-    addi %sp %sp 9                         # !2192
-    lw %r28 %r27 0                         # !2192
-    jalr %r28                              # !2192
-    addi %sp %sp -9                        # !2192
-    lw %ra %sp 8                           # !2192
-blt_cont.8952:
-    addi %r1 %zero 0                       # !2194
-    lw %r2 %sp 6                           # !2194
-    lw %r3 %sp 5                           # !2194
-    lw %r4 %sp 4                           # !2194
-    lw %r5 %sp 3                           # !2194
-    lw %r6 %sp 2                           # !2194
-    lw %r27 %sp 7                          # !2194
-    sw %ra %sp 8                           # !2194
-    addi %sp %sp 9                         # !2194
-    lw %r28 %r27 0                         # !2194
-    jalr %r28                              # !2194
-    addi %sp %sp -9                        # !2194
-    lw %ra %sp 8                           # !2194
-    lw %r1 %sp 6                           # !2195
-    addi %r1 %r1 1                         # !2195
-    addi %r2 %zero 2                       # !2195
-    lw %r3 %sp 1                           # !2195
-    sw %r1 %sp 8                           # !2195
-    movz %r1 %r3 %zero                     # !2195
-    sw %ra %sp 9                           # !2195
-    addi %sp %sp 10                        # !2195
-    jal ~add_mod5.2415                     # !2195
-    addi %sp %sp -10                       # !2195
-    lw %ra %sp 9                           # !2195
-    movz %r5 %r1 %zero                     # !2195
-    lw %r1 %sp 8                           # !2195
-    lw %r2 %sp 4                           # !2195
-    lw %r3 %sp 3                           # !2195
-    lw %r4 %sp 5                           # !2195
-    lw %r6 %sp 2                           # !2195
-    lw %r27 %sp 0                          # !2195
-    lw %r28 %r27 0                         # !2195
-    jr %r28                                # !2195
-create_float5x3array.2827:
-    addi %r1 %zero 3                       # !2206
-    flui %f0 0                             # !2206
-    fli %f0 0                              # !2206
+    lw       %r4  %sp  9                   # !2200
+    lw       %r5  %sp  12                  # !2200
+    lw       %r27  %sp  3                  # !2200
+    movz     %r2  %r5  %zero               # !2200
+    movz     %r1  %r4  %zero               # !2200
+    sw       %ra  %sp  17                  # !2200
+    addi     %sp  %sp  18                  # !2200
+    lw       %r28  %r27  0                 # !2200
+    jalr     %r28                          # !2200
+    addi     %sp  %sp  -18                 # !2200
+    lw       %ra  %sp  17                  # !2200
+    lw       %r1  %sp  4                   # !2201
+    lw       %r2  %sp  5                   # !2201
+    lwv      %r3  %r2  %r1                 # !2201
+    movz     %r1  %r3  %zero               # !2201
+    sw       %ra  %sp  17                  # !2201
+    addi     %sp  %sp  18                  # !2201
+    jal      ~p_rgb.2565                   # !2201
+    addi     %sp  %sp  -18                 # !2201
+    lw       %ra  %sp  17                  # !2201
+    lw       %r2  %sp  8                   # !2201
+    sw       %ra  %sp  17                  # !2201
+    addi     %sp  %sp  18                  # !2201
+    jal      ~veccpy.2495                  # !2201
+    addi     %sp  %sp  -18                 # !2201
+    lw       %ra  %sp  17                  # !2201
+    lw       %r1  %sp  4                   # !2202
+    lw       %r2  %sp  5                   # !2202
+    lwv      %r3  %r2  %r1                 # !2202
+    lw       %r4  %sp  2                   # !2202
+    movz     %r2  %r4  %zero               # !2202
+    movz     %r1  %r3  %zero               # !2202
+    sw       %ra  %sp  17                  # !2202
+    addi     %sp  %sp  18                  # !2202
+    jal      ~p_set_group_id.2579          # !2202
+    addi     %sp  %sp  -18                 # !2202
+    lw       %ra  %sp  17                  # !2202
+    lw       %r1  %sp  4                   # !2205
+    lw       %r2  %sp  5                   # !2205
+    lwv      %r3  %r2  %r1                 # !2205
+    lw       %r4  %sp  9                   # !2205
+    lw       %r27  %sp  1                  # !2205
+    movz     %r2  %r4  %zero               # !2205
+    movz     %r1  %r3  %zero               # !2205
+    sw       %ra  %sp  17                  # !2205
+    addi     %sp  %sp  18                  # !2205
+    lw       %r28  %r27  0                 # !2205
+    jalr     %r28                          # !2205
+    addi     %sp  %sp  -18                 # !2205
+    lw       %ra  %sp  17                  # !2205
+    lw       %r1  %sp  4                   # !2207
+    addi     %r1  %r1  -1                  # !2207
+    lw       %r2  %sp  2                   # !2207
+    lw       %r3  %sp  16                  # !2207
+    sw       %r1  %sp  17                  # !2207
+    movz     %r1  %r2  %zero               # !2207
+    movz     %r2  %r3  %zero               # !2207
+    sw       %ra  %sp  18                  # !2207
+    addi     %sp  %sp  19                  # !2207
+    jal      ~add_mod5.2482                # !2207
+    addi     %sp  %sp  -19                 # !2207
+    lw       %ra  %sp  18                  # !2207
+    movz     %r3  %r1  %zero               # !2207
+    flw      %f0  %sp  13                  # !2207
+    flw      %f1  %sp  11                  # !2207
+    flw      %f2  %sp  10                  # !2207
+    lw       %r1  %sp  5                   # !2207
+    lw       %r2  %sp  17                  # !2207
+    lw       %r27  %sp  0                  # !2207
+    lw       %r28  %r27  0                 # !2207
+    jr       %r28                          # !2207
+blt_then.9597:
+    jr       %ra                           # !2209
+pretrace_line.2876:
+    lw       %r4  %r27  6                  # !2213
+    lw       %r5  %r27  5                  # !2213
+    lw       %r6  %r27  4                  # !2213
+    lw       %r7  %r27  3                  # !2213
+    lw       %r8  %r27  2                  # !2213
+    lw       %r9  %r27  1                  # !2213
+    flw      %f0  %r6  0                   # !2214
+    lw       %r6  %r9  1                   # !2214
+    sub      %r2  %r2  %r6                 # !2214
+    sw       %r3  %sp  0                   # !2214
+    sw       %r1  %sp  1                   # !2214
+    sw       %r7  %sp  2                   # !2214
+    sw       %r8  %sp  3                   # !2214
+    sw       %r4  %sp  4                   # !2214
+    sw       %r5  %sp  5                   # !2214
+    fsw      %f0  %sp  6                   # !2214
+    movz     %r1  %r2  %zero               # !2214
+    sw       %ra  %sp  7                   # !2214
+    addi     %sp  %sp  8                   # !2214
+    jal      ~min_caml_float_of_int        # !2214
+    addi     %sp  %sp  -8                  # !2214
+    lw       %ra  %sp  7                   # !2214
+    flw      %f1  %sp  6                   # !2214
+    fmul     %f0  %f1  %f0                 # !2214
+    flw      %f1  %sp  5                   # !2217
+    flw      %f2  %f1  0                   # !2217
+    fmul     %f2  %f2  %f0                 # !2217
+    flw      %f3  %sp  4                   # !2217
+    flw      %f4  %f3  0                   # !2217
+    fadd     %f2  %f2  %f4                 # !2217
+    flw      %f4  %f1  1                   # !2218
+    fmul     %f4  %f4  %f0                 # !2218
+    flw      %f5  %f3  1                   # !2218
+    fadd     %f4  %f4  %f5                 # !2218
+    flw      %f1  %f1  2                   # !2219
+    fmul     %f0  %f1  %f0                 # !2219
+    flw      %f1  %f3  2                   # !2219
+    fadd     %f0  %f0  %f1                 # !2219
+    lw       %r1  %sp  3                   # !2220
+    lw       %r1  %r1  0                   # !2220
+    addi     %r2  %r1  -1                  # !2220
+    lw       %r1  %sp  1                   # !2220
+    lw       %r3  %sp  0                   # !2220
+    lw       %r27  %sp  2                  # !2220
+    fmovz    %f1  %f4  %zero               # !2220
+    fmovz    %f31  %f2  %zero              # !2220
+    fmovz    %f2  %f0  %zero               # !2220
+    fmovz    %f0  %f31  %zero              # !2220
+    lw       %r28  %r27  0                 # !2220
+    jr       %r28                          # !2220
+scan_pixel.2880:
+    lw       %r7  %r27  6                  # !2229
+    lw       %r8  %r27  5                  # !2229
+    lw       %r9  %r27  4                  # !2229
+    lw       %r10  %r27  3                 # !2229
+    lw       %r11  %r27  2                 # !2229
+    lw       %r12  %r27  1                 # !2229
+    addi     %r13  %zero  0                # !2230
+    lw       %r11  %r11  0                 # !2230
+    blt      %r1  %r11  blt_then.9599      # !2230
+    jr       %ra                           # !2245
+blt_then.9599:
+    lwv      %r11  %r4  %r1                # !2233
+    sw       %r27  %sp  0                  # !2233
+    sw       %r6  %sp  1                   # !2233
+    sw       %r7  %sp  2                   # !2233
+    sw       %r3  %sp  3                   # !2233
+    sw       %r8  %sp  4                   # !2233
+    sw       %r12  %sp  5                  # !2233
+    sw       %r4  %sp  6                   # !2233
+    sw       %r13  %sp  7                  # !2233
+    sw       %r5  %sp  8                   # !2233
+    sw       %r2  %sp  9                   # !2233
+    sw       %r1  %sp  10                  # !2233
+    sw       %r10  %sp  11                 # !2233
+    sw       %r9  %sp  12                  # !2233
+    movz     %r1  %r11  %zero              # !2233
+    sw       %ra  %sp  13                  # !2233
+    addi     %sp  %sp  14                  # !2233
+    jal      ~p_rgb.2565                   # !2233
+    addi     %sp  %sp  -14                 # !2233
+    lw       %ra  %sp  13                  # !2233
+    movz     %r2  %r1  %zero               # !2233
+    lw       %r1  %sp  12                  # !2233
+    sw       %ra  %sp  13                  # !2233
+    addi     %sp  %sp  14                  # !2233
+    jal      ~veccpy.2495                  # !2233
+    addi     %sp  %sp  -14                 # !2233
+    lw       %ra  %sp  13                  # !2233
+    lw       %r1  %sp  10                  # !2236
+    lw       %r2  %sp  9                   # !2236
+    lw       %r3  %sp  8                   # !2236
+    lw       %r27  %sp  11                 # !2236
+    sw       %ra  %sp  13                  # !2236
+    addi     %sp  %sp  14                  # !2236
+    lw       %r28  %r27  0                 # !2236
+    jalr     %r28                          # !2236
+    addi     %sp  %sp  -14                 # !2236
+    lw       %ra  %sp  13                  # !2236
+    lw       %r2  %sp  7                   # !2236
+    beq      %r1  %r2  beq_then.9601       # !2236
+    lw       %r1  %sp  10                  # !2237
+    lw       %r3  %sp  9                   # !2237
+    lw       %r4  %sp  3                   # !2237
+    lw       %r5  %sp  6                   # !2237
+    lw       %r6  %sp  8                   # !2237
+    lw       %r27  %sp  4                  # !2237
+    movz     %r28  %r6  %zero              # !2237
+    movz     %r6  %r2  %zero               # !2237
+    movz     %r2  %r3  %zero               # !2237
+    movz     %r3  %r4  %zero               # !2237
+    movz     %r4  %r5  %zero               # !2237
+    movz     %r5  %r28  %zero              # !2237
+    sw       %ra  %sp  13                  # !2237
+    addi     %sp  %sp  14                  # !2237
+    lw       %r28  %r27  0                 # !2237
+    jalr     %r28                          # !2237
+    addi     %sp  %sp  -14                 # !2237
+    lw       %ra  %sp  13                  # !2237
+    j        ~beq_cont.9602                # !2236
+beq_then.9601:
+    lw       %r1  %sp  10                  # !2239
+    lw       %r3  %sp  6                   # !2239
+    lwv      %r4  %r3  %r1                 # !2239
+    lw       %r27  %sp  5                  # !2239
+    movz     %r1  %r4  %zero               # !2239
+    sw       %ra  %sp  13                  # !2239
+    addi     %sp  %sp  14                  # !2239
+    lw       %r28  %r27  0                 # !2239
+    jalr     %r28                          # !2239
+    addi     %sp  %sp  -14                 # !2239
+    lw       %ra  %sp  13                  # !2239
+beq_cont.9602:
+    lw       %r1  %sp  1                   # !2242
+    lw       %r27  %sp  2                  # !2242
+    sw       %ra  %sp  13                  # !2242
+    addi     %sp  %sp  14                  # !2242
+    lw       %r28  %r27  0                 # !2242
+    jalr     %r28                          # !2242
+    addi     %sp  %sp  -14                 # !2242
+    lw       %ra  %sp  13                  # !2242
+    lw       %r1  %sp  10                  # !2244
+    addi     %r1  %r1  1                   # !2244
+    lw       %r2  %sp  9                   # !2244
+    lw       %r3  %sp  3                   # !2244
+    lw       %r4  %sp  6                   # !2244
+    lw       %r5  %sp  8                   # !2244
+    lw       %r6  %sp  1                   # !2244
+    lw       %r27  %sp  0                  # !2244
+    lw       %r28  %r27  0                 # !2244
+    jr       %r28                          # !2244
+scan_line.2887:
+    lw       %r7  %r27  3                  # !2249
+    lw       %r8  %r27  2                  # !2249
+    lw       %r9  %r27  1                  # !2249
+    lw       %r10  %r9  1                  # !2251
+    blt      %r1  %r10  blt_then.9603      # !2249
+    jr       %ra                           # !2258
+blt_then.9603:
+    lw       %r9  %r9  1                   # !2253
+    addi     %r9  %r9  -1                  # !2253
+    sw       %r27  %sp  0                  # !2253
+    sw       %r5  %sp  1                   # !2253
+    sw       %r6  %sp  2                   # !2253
+    sw       %r4  %sp  3                   # !2253
+    sw       %r3  %sp  4                   # !2253
+    sw       %r2  %sp  5                   # !2253
+    sw       %r1  %sp  6                   # !2253
+    sw       %r7  %sp  7                   # !2253
+    blt      %r1  %r9  blt_then.9605       # !2253
+    j        ~blt_cont.9606                # !2253
+blt_then.9605:
+    addi     %r9  %r1  1                   # !2254
+    movz     %r3  %r5  %zero               # !2254
+    movz     %r2  %r9  %zero               # !2254
+    movz     %r1  %r4  %zero               # !2254
+    movz     %r27  %r8  %zero              # !2254
+    sw       %ra  %sp  8                   # !2254
+    addi     %sp  %sp  9                   # !2254
+    lw       %r28  %r27  0                 # !2254
+    jalr     %r28                          # !2254
+    addi     %sp  %sp  -9                  # !2254
+    lw       %ra  %sp  8                   # !2254
+blt_cont.9606:
+    addi     %r1  %zero  0                 # !2256
+    lw       %r2  %sp  6                   # !2256
+    lw       %r3  %sp  5                   # !2256
+    lw       %r4  %sp  4                   # !2256
+    lw       %r5  %sp  3                   # !2256
+    lw       %r6  %sp  2                   # !2256
+    lw       %r27  %sp  7                  # !2256
+    sw       %ra  %sp  8                   # !2256
+    addi     %sp  %sp  9                   # !2256
+    lw       %r28  %r27  0                 # !2256
+    jalr     %r28                          # !2256
+    addi     %sp  %sp  -9                  # !2256
+    lw       %ra  %sp  8                   # !2256
+    lw       %r1  %sp  6                   # !2257
+    addi     %r1  %r1  1                   # !2257
+    addi     %r2  %zero  2                 # !2257
+    lw       %r3  %sp  1                   # !2257
+    sw       %r1  %sp  8                   # !2257
+    movz     %r1  %r3  %zero               # !2257
+    sw       %ra  %sp  9                   # !2257
+    addi     %sp  %sp  10                  # !2257
+    jal      ~add_mod5.2482                # !2257
+    addi     %sp  %sp  -10                 # !2257
+    lw       %ra  %sp  9                   # !2257
+    movz     %r5  %r1  %zero               # !2257
+    lw       %r1  %sp  8                   # !2257
+    lw       %r2  %sp  4                   # !2257
+    lw       %r3  %sp  3                   # !2257
+    lw       %r4  %sp  5                   # !2257
+    lw       %r6  %sp  2                   # !2257
+    lw       %r27  %sp  0                  # !2257
+    lw       %r28  %r27  0                 # !2257
+    jr       %r28                          # !2257
+create_float5x3array.2894:
+    addi     %r1  %zero  3                 # !2268
+    flui     %f0  0                        # !2268
+    fli      %f0  0                        # !2268
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    fsw %f0 %sp 0                          # !2206
-    sw %r1 %sp 1                           # !2206
-    sw %ra %sp 2                           # !2206
-    addi %sp %sp 3                         # !2206
-    jal ~min_caml_create_float_array       # !2206
-    addi %sp %sp -3                        # !2206
-    lw %ra %sp 2                           # !2206
-    movz %r2 %r1 %zero                     # !2206
-    addi %r1 %zero 5                       # !2207
-    sw %ra %sp 2                           # !2207
-    addi %sp %sp 3                         # !2207
-    jal ~min_caml_create_array             # !2207
-    addi %sp %sp -3                        # !2207
-    lw %ra %sp 2                           # !2207
-    flw %f0 %sp 0                          # !2208
-    lw %r2 %sp 1                           # !2208
-    sw %r1 %sp 2                           # !2208
-    movz %r1 %r2 %zero                     # !2208
-    sw %ra %sp 3                           # !2208
-    addi %sp %sp 4                         # !2208
-    jal ~min_caml_create_float_array       # !2208
-    addi %sp %sp -4                        # !2208
-    lw %ra %sp 3                           # !2208
-    lw %r2 %sp 2                           # !2208
-    sw %r1 %r2 1                           # !2208
-    flw %f0 %sp 0                          # !2209
-    lw %r1 %sp 1                           # !2209
-    sw %ra %sp 3                           # !2209
-    addi %sp %sp 4                         # !2209
-    jal ~min_caml_create_float_array       # !2209
-    addi %sp %sp -4                        # !2209
-    lw %ra %sp 3                           # !2209
-    lw %r2 %sp 2                           # !2209
-    sw %r1 %r2 2                           # !2209
-    flw %f0 %sp 0                          # !2210
-    lw %r1 %sp 1                           # !2210
-    sw %ra %sp 3                           # !2210
-    addi %sp %sp 4                         # !2210
-    jal ~min_caml_create_float_array       # !2210
-    addi %sp %sp -4                        # !2210
-    lw %ra %sp 3                           # !2210
-    lw %r2 %sp 2                           # !2210
-    sw %r1 %r2 3                           # !2210
-    flw %f0 %sp 0                          # !2211
-    lw %r1 %sp 1                           # !2211
-    sw %ra %sp 3                           # !2211
-    addi %sp %sp 4                         # !2211
-    jal ~min_caml_create_float_array       # !2211
-    addi %sp %sp -4                        # !2211
-    lw %ra %sp 3                           # !2211
-    lw %r2 %sp 2                           # !2211
-    sw %r1 %r2 4                           # !2211
-    movz %r1 %r2 %zero                     # !2212
-    jr %ra                                 # !2212
-create_pixel.2829:
-    addi %r1 %zero 3                       # !2218
-    flui %f0 0                             # !2218
-    fli %f0 0                              # !2218
+    fsw      %f0  %sp  0                   # !2268
+    sw       %r1  %sp  1                   # !2268
+    sw       %ra  %sp  2                   # !2268
+    addi     %sp  %sp  3                   # !2268
+    jal      ~min_caml_create_float_array  # !2268
+    addi     %sp  %sp  -3                  # !2268
+    lw       %ra  %sp  2                   # !2268
+    movz     %r2  %r1  %zero               # !2268
+    addi     %r1  %zero  5                 # !2269
+    sw       %ra  %sp  2                   # !2269
+    addi     %sp  %sp  3                   # !2269
+    jal      ~min_caml_create_array        # !2269
+    addi     %sp  %sp  -3                  # !2269
+    lw       %ra  %sp  2                   # !2269
+    flw      %f0  %sp  0                   # !2270
+    lw       %r2  %sp  1                   # !2270
+    sw       %r1  %sp  2                   # !2270
+    movz     %r1  %r2  %zero               # !2270
+    sw       %ra  %sp  3                   # !2270
+    addi     %sp  %sp  4                   # !2270
+    jal      ~min_caml_create_float_array  # !2270
+    addi     %sp  %sp  -4                  # !2270
+    lw       %ra  %sp  3                   # !2270
+    lw       %r2  %sp  2                   # !2270
+    sw       %r1  %r2  1                   # !2270
+    flw      %f0  %sp  0                   # !2271
+    lw       %r1  %sp  1                   # !2271
+    sw       %ra  %sp  3                   # !2271
+    addi     %sp  %sp  4                   # !2271
+    jal      ~min_caml_create_float_array  # !2271
+    addi     %sp  %sp  -4                  # !2271
+    lw       %ra  %sp  3                   # !2271
+    lw       %r2  %sp  2                   # !2271
+    sw       %r1  %r2  2                   # !2271
+    flw      %f0  %sp  0                   # !2272
+    lw       %r1  %sp  1                   # !2272
+    sw       %ra  %sp  3                   # !2272
+    addi     %sp  %sp  4                   # !2272
+    jal      ~min_caml_create_float_array  # !2272
+    addi     %sp  %sp  -4                  # !2272
+    lw       %ra  %sp  3                   # !2272
+    lw       %r2  %sp  2                   # !2272
+    sw       %r1  %r2  3                   # !2272
+    flw      %f0  %sp  0                   # !2273
+    lw       %r1  %sp  1                   # !2273
+    sw       %ra  %sp  3                   # !2273
+    addi     %sp  %sp  4                   # !2273
+    jal      ~min_caml_create_float_array  # !2273
+    addi     %sp  %sp  -4                  # !2273
+    lw       %ra  %sp  3                   # !2273
+    lw       %r2  %sp  2                   # !2273
+    sw       %r1  %r2  4                   # !2273
+    movz     %r1  %r2  %zero               # !2274
+    jr       %ra                           # !2274
+create_pixel.2896:
+    addi     %r1  %zero  3                 # !2280
+    flui     %f0  0                        # !2280
+    fli      %f0  0                        # !2280
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    sw %ra %sp 0                           # !2218
-    addi %sp %sp 1                         # !2218
-    jal ~min_caml_create_float_array       # !2218
-    addi %sp %sp -1                        # !2218
-    lw %ra %sp 0                           # !2218
-    sw %r1 %sp 0                           # !2219
-    sw %ra %sp 1                           # !2219
-    addi %sp %sp 2                         # !2219
-    jal ~create_float5x3array.2827         # !2219
-    addi %sp %sp -2                        # !2219
-    lw %ra %sp 1                           # !2219
-    addi %r2 %zero 5                       # !2220
-    addi %r3 %zero 0                       # !2220
-    sw %r1 %sp 1                           # !2220
-    sw %r3 %sp 2                           # !2220
-    sw %r2 %sp 3                           # !2220
-    movz %r1 %r2 %zero                     # !2220
-    movz %r2 %r3 %zero                     # !2220
-    sw %ra %sp 4                           # !2220
-    addi %sp %sp 5                         # !2220
-    jal ~min_caml_create_array             # !2220
-    addi %sp %sp -5                        # !2220
-    lw %ra %sp 4                           # !2220
-    lw %r2 %sp 3                           # !2221
-    lw %r3 %sp 2                           # !2221
-    sw %r1 %sp 4                           # !2221
-    movz %r1 %r2 %zero                     # !2221
-    movz %r2 %r3 %zero                     # !2221
-    sw %ra %sp 5                           # !2221
-    addi %sp %sp 6                         # !2221
-    jal ~min_caml_create_array             # !2221
-    addi %sp %sp -6                        # !2221
-    lw %ra %sp 5                           # !2221
-    sw %r1 %sp 5                           # !2222
-    sw %ra %sp 6                           # !2222
-    addi %sp %sp 7                         # !2222
-    jal ~create_float5x3array.2827         # !2222
-    addi %sp %sp -7                        # !2222
-    lw %ra %sp 6                           # !2222
-    sw %r1 %sp 6                           # !2223
-    sw %ra %sp 7                           # !2223
-    addi %sp %sp 8                         # !2223
-    jal ~create_float5x3array.2827         # !2223
-    addi %sp %sp -8                        # !2223
-    lw %ra %sp 7                           # !2223
-    addi %r2 %zero 1                       # !2224
-    lw %r3 %sp 2                           # !2224
-    sw %r1 %sp 7                           # !2224
-    movz %r1 %r2 %zero                     # !2224
-    movz %r2 %r3 %zero                     # !2224
-    sw %ra %sp 8                           # !2224
-    addi %sp %sp 9                         # !2224
-    jal ~min_caml_create_array             # !2224
-    addi %sp %sp -9                        # !2224
-    lw %ra %sp 8                           # !2224
-    sw %r1 %sp 8                           # !2225
-    sw %ra %sp 9                           # !2225
-    addi %sp %sp 10                        # !2225
-    jal ~create_float5x3array.2827         # !2225
-    addi %sp %sp -10                       # !2225
-    lw %ra %sp 9                           # !2225
-    movz %r2 %hp %zero                     # !2226
-    addi %hp %hp -8                        # !2226
-    sw %r1 %r2 -7                          # !2226
-    lw %r1 %sp 8                           # !2226
-    sw %r1 %r2 -6                          # !2226
-    lw %r1 %sp 7                           # !2226
-    sw %r1 %r2 -5                          # !2226
-    lw %r1 %sp 6                           # !2226
-    sw %r1 %r2 -4                          # !2226
-    lw %r1 %sp 5                           # !2226
-    sw %r1 %r2 -3                          # !2226
-    lw %r1 %sp 4                           # !2226
-    sw %r1 %r2 -2                          # !2226
-    lw %r1 %sp 1                           # !2226
-    sw %r1 %r2 -1                          # !2226
-    lw %r1 %sp 0                           # !2226
-    sw %r1 %r2 0                           # !2226
-    movz %r1 %r2 %zero                     # !2226
-    jr %ra                                 # !2226
-init_line_elements.2831:
-    addi %r3 %zero 0                       # !2231
-    blt %r2 %r3 blt_then.8953              # !2231
-    sw %r2 %sp 0                           # !2232
-    sw %r1 %sp 1                           # !2232
-    sw %ra %sp 2                           # !2232
-    addi %sp %sp 3                         # !2232
-    jal ~create_pixel.2829                 # !2232
-    addi %sp %sp -3                        # !2232
-    lw %ra %sp 2                           # !2232
-    lw %r2 %sp 0                           # !2232
-    lw %r3 %sp 1                           # !2232
-    swv %r1 %r3 %r2                        # !2232
-    addi %r2 %r2 -1                        # !2233
-    movz %r1 %r3 %zero                     # !2233
-    j ~init_line_elements.2831             # !2233
-blt_then.8953:
-    jr %ra                                 # !2235
-create_pixelline.2834:
-    lw %r1 %r27 1                          # !2239
-    lw %r2 %r1 0                           # !2240
-    sw %r1 %sp 0                           # !2240
-    sw %r2 %sp 1                           # !2240
-    sw %ra %sp 2                           # !2240
-    addi %sp %sp 3                         # !2240
-    jal ~create_pixel.2829                 # !2240
-    addi %sp %sp -3                        # !2240
-    lw %ra %sp 2                           # !2240
-    movz %r2 %r1 %zero                     # !2240
-    lw %r1 %sp 1                           # !2240
-    sw %ra %sp 2                           # !2240
-    addi %sp %sp 3                         # !2240
-    jal ~min_caml_create_array             # !2240
-    addi %sp %sp -3                        # !2240
-    lw %ra %sp 2                           # !2240
-    lw %r2 %sp 0                           # !2241
-    lw %r2 %r2 0                           # !2241
-    addi %r2 %r2 -2                        # !2241
-    j ~init_line_elements.2831             # !2241
-tan.2836:
-    fsw %f0 %sp 0                          # !2254
-    sw %ra %sp 1                           # !2254
-    addi %sp %sp 2                         # !2254
-    jal ~min_caml_sin                      # !2254
-    addi %sp %sp -2                        # !2254
-    lw %ra %sp 1                           # !2254
-    flw %f1 %sp 0                          # !2254
-    fsw %f0 %sp 1                          # !2254
-    fmovz %f0 %f1 %zero                    # !2254
-    sw %ra %sp 2                           # !2254
-    addi %sp %sp 3                         # !2254
-    jal ~min_caml_cos                      # !2254
-    addi %sp %sp -3                        # !2254
-    lw %ra %sp 2                           # !2254
-    flw %f1 %sp 1                          # !2254
-    fdiv %f0 %f1 %f0                       # !2254
-    jr %ra                                 # !2254
-adjust_position.2838:
-    fmul %f0 %f0 %f0                       # !2259
-    flui %f2 494                           # !2259
-    fli %f2 838861                         # !2259
+    sw       %ra  %sp  0                   # !2280
+    addi     %sp  %sp  1                   # !2280
+    jal      ~min_caml_create_float_array  # !2280
+    addi     %sp  %sp  -1                  # !2280
+    lw       %ra  %sp  0                   # !2280
+    sw       %r1  %sp  0                   # !2281
+    sw       %ra  %sp  1                   # !2281
+    addi     %sp  %sp  2                   # !2281
+    jal      ~create_float5x3array.2894    # !2281
+    addi     %sp  %sp  -2                  # !2281
+    lw       %ra  %sp  1                   # !2281
+    addi     %r2  %zero  5                 # !2282
+    addi     %r3  %zero  0                 # !2282
+    sw       %r1  %sp  1                   # !2282
+    sw       %r3  %sp  2                   # !2282
+    sw       %r2  %sp  3                   # !2282
+    movz     %r1  %r2  %zero               # !2282
+    movz     %r2  %r3  %zero               # !2282
+    sw       %ra  %sp  4                   # !2282
+    addi     %sp  %sp  5                   # !2282
+    jal      ~min_caml_create_array        # !2282
+    addi     %sp  %sp  -5                  # !2282
+    lw       %ra  %sp  4                   # !2282
+    lw       %r2  %sp  3                   # !2283
+    lw       %r3  %sp  2                   # !2283
+    sw       %r1  %sp  4                   # !2283
+    movz     %r1  %r2  %zero               # !2283
+    movz     %r2  %r3  %zero               # !2283
+    sw       %ra  %sp  5                   # !2283
+    addi     %sp  %sp  6                   # !2283
+    jal      ~min_caml_create_array        # !2283
+    addi     %sp  %sp  -6                  # !2283
+    lw       %ra  %sp  5                   # !2283
+    sw       %r1  %sp  5                   # !2284
+    sw       %ra  %sp  6                   # !2284
+    addi     %sp  %sp  7                   # !2284
+    jal      ~create_float5x3array.2894    # !2284
+    addi     %sp  %sp  -7                  # !2284
+    lw       %ra  %sp  6                   # !2284
+    sw       %r1  %sp  6                   # !2285
+    sw       %ra  %sp  7                   # !2285
+    addi     %sp  %sp  8                   # !2285
+    jal      ~create_float5x3array.2894    # !2285
+    addi     %sp  %sp  -8                  # !2285
+    lw       %ra  %sp  7                   # !2285
+    addi     %r2  %zero  1                 # !2286
+    lw       %r3  %sp  2                   # !2286
+    sw       %r1  %sp  7                   # !2286
+    movz     %r1  %r2  %zero               # !2286
+    movz     %r2  %r3  %zero               # !2286
+    sw       %ra  %sp  8                   # !2286
+    addi     %sp  %sp  9                   # !2286
+    jal      ~min_caml_create_array        # !2286
+    addi     %sp  %sp  -9                  # !2286
+    lw       %ra  %sp  8                   # !2286
+    sw       %r1  %sp  8                   # !2287
+    sw       %ra  %sp  9                   # !2287
+    addi     %sp  %sp  10                  # !2287
+    jal      ~create_float5x3array.2894    # !2287
+    addi     %sp  %sp  -10                 # !2287
+    lw       %ra  %sp  9                   # !2287
+    movz     %r2  %hp  %zero               # !2288
+    addi     %hp  %hp  -8                  # !2288
+    sw       %r1  %r2  -7                  # !2288
+    lw       %r1  %sp  8                   # !2288
+    sw       %r1  %r2  -6                  # !2288
+    lw       %r1  %sp  7                   # !2288
+    sw       %r1  %r2  -5                  # !2288
+    lw       %r1  %sp  6                   # !2288
+    sw       %r1  %r2  -4                  # !2288
+    lw       %r1  %sp  5                   # !2288
+    sw       %r1  %r2  -3                  # !2288
+    lw       %r1  %sp  4                   # !2288
+    sw       %r1  %r2  -2                  # !2288
+    lw       %r1  %sp  1                   # !2288
+    sw       %r1  %r2  -1                  # !2288
+    lw       %r1  %sp  0                   # !2288
+    sw       %r1  %r2  0                   # !2288
+    movz     %r1  %r2  %zero               # !2288
+    jr       %ra                           # !2288
+init_line_elements.2898:
+    addi     %r3  %zero  0                 # !2293
+    blt      %r2  %r3  blt_then.9607       # !2293
+    sw       %r2  %sp  0                   # !2294
+    sw       %r1  %sp  1                   # !2294
+    sw       %ra  %sp  2                   # !2294
+    addi     %sp  %sp  3                   # !2294
+    jal      ~create_pixel.2896            # !2294
+    addi     %sp  %sp  -3                  # !2294
+    lw       %ra  %sp  2                   # !2294
+    lw       %r2  %sp  0                   # !2294
+    lw       %r3  %sp  1                   # !2294
+    swv      %r1  %r3  %r2                 # !2294
+    addi     %r2  %r2  -1                  # !2295
+    movz     %r1  %r3  %zero               # !2295
+    j        ~init_line_elements.2898      # !2295
+blt_then.9607:
+    jr       %ra                           # !2297
+create_pixelline.2901:
+    lw       %r1  %r27  1                  # !2301
+    lw       %r2  %r1  0                   # !2302
+    sw       %r1  %sp  0                   # !2302
+    sw       %r2  %sp  1                   # !2302
+    sw       %ra  %sp  2                   # !2302
+    addi     %sp  %sp  3                   # !2302
+    jal      ~create_pixel.2896            # !2302
+    addi     %sp  %sp  -3                  # !2302
+    lw       %ra  %sp  2                   # !2302
+    movz     %r2  %r1  %zero               # !2302
+    lw       %r1  %sp  1                   # !2302
+    sw       %ra  %sp  2                   # !2302
+    addi     %sp  %sp  3                   # !2302
+    jal      ~min_caml_create_array        # !2302
+    addi     %sp  %sp  -3                  # !2302
+    lw       %ra  %sp  2                   # !2302
+    lw       %r2  %sp  0                   # !2303
+    lw       %r2  %r2  0                   # !2303
+    addi     %r2  %r2  -2                  # !2303
+    j        ~init_line_elements.2898      # !2303
+tan.2903:
+    fsw      %f0  %sp  0                   # !2316
+    sw       %ra  %sp  1                   # !2316
+    addi     %sp  %sp  2                   # !2316
+    jal      ~sin.2438                     # !2316
+    addi     %sp  %sp  -2                  # !2316
+    lw       %ra  %sp  1                   # !2316
+    flw      %f1  %sp  0                   # !2316
+    fsw      %f0  %sp  1                   # !2316
+    fmovz    %f0  %f1  %zero               # !2316
+    sw       %ra  %sp  2                   # !2316
+    addi     %sp  %sp  3                   # !2316
+    jal      ~cos.2440                     # !2316
+    addi     %sp  %sp  -3                  # !2316
+    lw       %ra  %sp  2                   # !2316
+    flw      %f1  %sp  1                   # !2316
+    fdiv     %f0  %f1  %f0                 # !2316
+    jr       %ra                           # !2316
+adjust_position.2905:
+    fmul     %f0  %f0  %f0                 # !2321
+    flui     %f2  494                      # !2321
+    fli      %f2  838861                   # !2321
     ++
     fli 0.100000
     => flui %f2 0b00111101110
        fli  %f2 0b011001100110011001101
     ++
-    fadd %f0 %f0 %f2                       # !2259
-    fsqrt %f0 %f0                          # !2259
-    flui %f2 508                           # !2260
-    fli %f2 0                              # !2260
+    fadd     %f0  %f0  %f2                 # !2321
+    fsw      %f1  %sp  0                   # !2321
+    sw       %ra  %sp  1                   # !2321
+    addi     %sp  %sp  2                   # !2321
+    jal      ~min_caml_sqrt                # !2321
+    addi     %sp  %sp  -2                  # !2321
+    lw       %ra  %sp  1                   # !2321
+    flui     %f1  508                      # !2322
+    fli      %f1  0                        # !2322
     ++
     fli 1.000000
-    => flui %f2 0b00111111100
-       fli  %f2 0b000000000000000000000
+    => flui %f1 0b00111111100
+       fli  %f1 0b000000000000000000000
     ++
-    fdiv %f2 %f2 %f0                       # !2260
-    fsw %f0 %sp 0                          # !2261
-    fsw %f1 %sp 1                          # !2261
-    fmovz %f0 %f2 %zero                    # !2261
-    sw %ra %sp 2                           # !2261
-    addi %sp %sp 3                         # !2261
-    jal ~min_caml_atan                     # !2261
-    addi %sp %sp -3                        # !2261
-    lw %ra %sp 2                           # !2261
-    flw %f1 %sp 1                          # !2262
-    fmul %f0 %f1 %f0                       # !2262
-    sw %ra %sp 2                           # !2262
-    addi %sp %sp 3                         # !2262
-    jal ~tan.2836                          # !2262
-    addi %sp %sp -3                        # !2262
-    lw %ra %sp 2                           # !2262
-    flw %f1 %sp 0                          # !2263
-    fmul %f0 %f1 %f0                       # !2263
-    jr %ra                                 # !2263
-calc_dirvec.2841:
-    lw %r4 %r27 1                          # !2267
-    addi %r5 %zero 5                       # !2268
-    blt %r1 %r5 blt_then.8954              # !2268
-    fmul %f2 %f0 %f0                       # !2269
-    fmul %f3 %f1 %f1                       # !2269
-    fadd %f2 %f2 %f3                       # !2269
-    flui %f3 508                           # !2269
-    fli %f3 0                              # !2269
+    fdiv     %f1  %f1  %f0                 # !2322
+    fsw      %f0  %sp  1                   # !2323
+    fmovz    %f0  %f1  %zero               # !2323
+    sw       %ra  %sp  2                   # !2323
+    addi     %sp  %sp  3                   # !2323
+    jal      ~atan.2442                    # !2323
+    addi     %sp  %sp  -3                  # !2323
+    lw       %ra  %sp  2                   # !2323
+    flw      %f1  %sp  0                   # !2324
+    fmul     %f0  %f1  %f0                 # !2324
+    sw       %ra  %sp  2                   # !2324
+    addi     %sp  %sp  3                   # !2324
+    jal      ~tan.2903                     # !2324
+    addi     %sp  %sp  -3                  # !2324
+    lw       %ra  %sp  2                   # !2324
+    flw      %f1  %sp  1                   # !2325
+    fmul     %f0  %f1  %f0                 # !2325
+    jr       %ra                           # !2325
+calc_dirvec.2908:
+    lw       %r4  %r27  1                  # !2329
+    addi     %r5  %zero  5                 # !2330
+    blt      %r1  %r5  blt_then.9608       # !2330
+    sw       %r3  %sp  0                   # !2331
+    sw       %r2  %sp  1                   # !2331
+    sw       %r4  %sp  2                   # !2331
+    fsw      %f0  %sp  3                   # !2331
+    fsw      %f1  %sp  4                   # !2331
+    sw       %ra  %sp  5                   # !2331
+    addi     %sp  %sp  6                   # !2331
+    jal      ~min_caml_fsqr                # !2331
+    addi     %sp  %sp  -6                  # !2331
+    lw       %ra  %sp  5                   # !2331
+    flw      %f1  %sp  4                   # !2331
+    fsw      %f0  %sp  5                   # !2331
+    fmovz    %f0  %f1  %zero               # !2331
+    sw       %ra  %sp  6                   # !2331
+    addi     %sp  %sp  7                   # !2331
+    jal      ~min_caml_fsqr                # !2331
+    addi     %sp  %sp  -7                  # !2331
+    lw       %ra  %sp  6                   # !2331
+    flw      %f1  %sp  5                   # !2331
+    fadd     %f0  %f1  %f0                 # !2331
+    flui     %f1  508                      # !2331
+    fli      %f1  0                        # !2331
     ++
     fli 1.000000
-    => flui %f3 0b00111111100
-       fli  %f3 0b000000000000000000000
+    => flui %f1 0b00111111100
+       fli  %f1 0b000000000000000000000
     ++
-    fadd %f2 %f2 %f3                       # !2269
-    fsqrt %f2 %f2                          # !2269
-    fdiv %f0 %f0 %f2                       # !2270
-    fdiv %f1 %f1 %f2                       # !2271
-    fdiv %f2 %f3 %f2                       # !2272
-    lwv %r1 %r4 %r2                        # !2275
-    lwv %r2 %r1 %r3                        # !2276
-    sw %r1 %sp 0                           # !2276
-    sw %r3 %sp 1                           # !2276
-    fsw %f2 %sp 2                          # !2276
-    fsw %f1 %sp 3                          # !2276
-    fsw %f0 %sp 4                          # !2276
-    movz %r1 %r2 %zero                     # !2276
-    sw %ra %sp 5                           # !2276
-    addi %sp %sp 6                         # !2276
-    jal ~d_vec.2517                        # !2276
-    addi %sp %sp -6                        # !2276
-    lw %ra %sp 5                           # !2276
-    flw %f0 %sp 4                          # !2276
-    flw %f1 %sp 3                          # !2276
-    flw %f2 %sp 2                          # !2276
-    sw %ra %sp 5                           # !2276
-    addi %sp %sp 6                         # !2276
-    jal ~vecset.2418                       # !2276
-    addi %sp %sp -6                        # !2276
-    lw %ra %sp 5                           # !2276
-    lw %r1 %sp 1                           # !2277
-    addi %r2 %r1 40                        # !2277
-    lw %r3 %sp 0                           # !2277
-    lwv %r2 %r3 %r2                        # !2277
-    movz %r1 %r2 %zero                     # !2277
-    sw %ra %sp 5                           # !2277
-    addi %sp %sp 6                         # !2277
-    jal ~d_vec.2517                        # !2277
-    addi %sp %sp -6                        # !2277
-    lw %ra %sp 5                           # !2277
-    flw %f0 %sp 3                          # !2277
-    fneg %f2 %f0                           # !2277
-    flw %f1 %sp 4                          # !2277
-    flw %f3 %sp 2                          # !2277
-    fsw %f2 %sp 5                          # !2277
-    fmovz %f0 %f1 %zero                    # !2277
-    fmovz %f1 %f3 %zero                    # !2277
-    sw %ra %sp 6                           # !2277
-    addi %sp %sp 7                         # !2277
-    jal ~vecset.2418                       # !2277
-    addi %sp %sp -7                        # !2277
-    lw %ra %sp 6                           # !2277
-    lw %r1 %sp 1                           # !2278
-    addi %r2 %r1 80                        # !2278
-    lw %r3 %sp 0                           # !2278
-    lwv %r2 %r3 %r2                        # !2278
-    movz %r1 %r2 %zero                     # !2278
-    sw %ra %sp 6                           # !2278
-    addi %sp %sp 7                         # !2278
-    jal ~d_vec.2517                        # !2278
-    addi %sp %sp -7                        # !2278
-    lw %ra %sp 6                           # !2278
-    flw %f0 %sp 4                          # !2278
-    fneg %f1 %f0                           # !2278
-    flw %f2 %sp 2                          # !2278
-    flw %f3 %sp 5                          # !2278
-    fsw %f1 %sp 6                          # !2278
-    fmovz %f0 %f2 %zero                    # !2278
-    fmovz %f2 %f3 %zero                    # !2278
-    sw %ra %sp 7                           # !2278
-    addi %sp %sp 8                         # !2278
-    jal ~vecset.2418                       # !2278
-    addi %sp %sp -8                        # !2278
-    lw %ra %sp 7                           # !2278
-    lw %r1 %sp 1                           # !2279
-    addi %r2 %r1 1                         # !2279
-    lw %r3 %sp 0                           # !2279
-    lwv %r2 %r3 %r2                        # !2279
-    movz %r1 %r2 %zero                     # !2279
-    sw %ra %sp 7                           # !2279
-    addi %sp %sp 8                         # !2279
-    jal ~d_vec.2517                        # !2279
-    addi %sp %sp -8                        # !2279
-    lw %ra %sp 7                           # !2279
-    flw %f0 %sp 2                          # !2279
-    fneg %f2 %f0                           # !2279
-    flw %f0 %sp 6                          # !2279
-    flw %f1 %sp 5                          # !2279
-    fsw %f2 %sp 7                          # !2279
-    sw %ra %sp 8                           # !2279
-    addi %sp %sp 9                         # !2279
-    jal ~vecset.2418                       # !2279
-    addi %sp %sp -9                        # !2279
-    lw %ra %sp 8                           # !2279
-    lw %r1 %sp 1                           # !2280
-    addi %r2 %r1 41                        # !2280
-    lw %r3 %sp 0                           # !2280
-    lwv %r2 %r3 %r2                        # !2280
-    movz %r1 %r2 %zero                     # !2280
-    sw %ra %sp 8                           # !2280
-    addi %sp %sp 9                         # !2280
-    jal ~d_vec.2517                        # !2280
-    addi %sp %sp -9                        # !2280
-    lw %ra %sp 8                           # !2280
-    flw %f0 %sp 6                          # !2280
-    flw %f1 %sp 7                          # !2280
-    flw %f2 %sp 3                          # !2280
-    sw %ra %sp 8                           # !2280
-    addi %sp %sp 9                         # !2280
-    jal ~vecset.2418                       # !2280
-    addi %sp %sp -9                        # !2280
-    lw %ra %sp 8                           # !2280
-    lw %r1 %sp 1                           # !2281
-    addi %r1 %r1 81                        # !2281
-    lw %r2 %sp 0                           # !2281
-    lwv %r1 %r2 %r1                        # !2281
-    sw %ra %sp 8                           # !2281
-    addi %sp %sp 9                         # !2281
-    jal ~d_vec.2517                        # !2281
-    addi %sp %sp -9                        # !2281
-    lw %ra %sp 8                           # !2281
-    flw %f0 %sp 7                          # !2281
-    flw %f1 %sp 4                          # !2281
-    flw %f2 %sp 3                          # !2281
-    j ~vecset.2418                         # !2281
-blt_then.8954:
-    fsw %f2 %sp 8                          # !2283
-    sw %r3 %sp 1                           # !2283
-    sw %r2 %sp 9                           # !2283
-    sw %r27 %sp 10                         # !2283
-    fsw %f3 %sp 11                         # !2283
-    sw %r1 %sp 12                          # !2283
-    fmovz %f0 %f1 %zero                    # !2283
-    fmovz %f1 %f2 %zero                    # !2283
-    sw %ra %sp 13                          # !2283
-    addi %sp %sp 14                        # !2283
-    jal ~adjust_position.2838              # !2283
-    addi %sp %sp -14                       # !2283
-    lw %ra %sp 13                          # !2283
-    lw %r1 %sp 12                          # !2284
-    addi %r1 %r1 1                         # !2284
-    flw %f1 %sp 11                         # !2284
-    fsw %f0 %sp 13                         # !2284
-    sw %r1 %sp 14                          # !2284
-    sw %ra %sp 15                          # !2284
-    addi %sp %sp 16                        # !2284
-    jal ~adjust_position.2838              # !2284
-    addi %sp %sp -16                       # !2284
-    lw %ra %sp 15                          # !2284
-    fmovz %f1 %f0 %zero                    # !2284
-    flw %f0 %sp 13                         # !2284
-    flw %f2 %sp 8                          # !2284
-    flw %f3 %sp 11                         # !2284
-    lw %r1 %sp 14                          # !2284
-    lw %r2 %sp 9                           # !2284
-    lw %r3 %sp 1                           # !2284
-    lw %r27 %sp 10                         # !2284
-    lw %r28 %r27 0                         # !2284
-    jr %r28                                # !2284
-calc_dirvecs.2849:
-    lw %r4 %r27 1                          # !2288
-    addi %r5 %zero 0                       # !2289
-    blt %r1 %r5 blt_then.8955              # !2289
-    itof %f1 %r1                           # !2291
-    flui %f2 498                           # !2291
-    fli %f2 838861                         # !2291
-    ++
-    fli 0.200000
-    => flui %f2 0b00111110010
-       fli  %f2 0b011001100110011001101
-    ++
-    fmul %f1 %f1 %f2                       # !2291
-    flui %f2 507                           # !2291
-    fli %f2 419430                         # !2291
-    ++
-    fli 0.900000
-    => flui %f2 0b00111111011
-       fli  %f2 0b001100110011001100110
-    ++
-    fsub %f2 %f1 %f2                       # !2291
-    flui %f3 0                             # !2292
-    fli %f3 0                              # !2292
-    ++
-    fli 0.000000
-    => flui %f3 0b00000000000
-       fli  %f3 0b000000000000000000000
-    ++
-    sw %r27 %sp 0                          # !2292
-    sw %r1 %sp 1                           # !2292
-    fsw %f0 %sp 2                          # !2292
-    fsw %f3 %sp 3                          # !2292
-    sw %r2 %sp 4                           # !2292
-    sw %r5 %sp 5                           # !2292
-    sw %r4 %sp 6                           # !2292
-    sw %r3 %sp 7                           # !2292
-    fsw %f1 %sp 8                          # !2292
-    movz %r1 %r5 %zero                     # !2292
-    movz %r27 %r4 %zero                    # !2292
-    fmovz %f1 %f3 %zero                    # !2292
-    fmovz %f31 %f3 %zero                   # !2292
-    fmovz %f3 %f0 %zero                    # !2292
-    fmovz %f0 %f31 %zero                   # !2292
-    sw %ra %sp 9                           # !2292
-    addi %sp %sp 10                        # !2292
-    lw %r28 %r27 0                         # !2292
-    jalr %r28                              # !2292
-    addi %sp %sp -10                       # !2292
-    lw %ra %sp 9                           # !2292
-    flui %f0 494                           # !2294
-    fli %f0 838861                         # !2294
-    ++
-    fli 0.100000
-    => flui %f0 0b00111101110
-       fli  %f0 0b011001100110011001101
-    ++
-    flw %f1 %sp 8                          # !2294
-    fadd %f2 %f1 %f0                       # !2294
-    lw %r1 %sp 7                           # !2295
-    addi %r3 %r1 2                         # !2295
-    flw %f0 %sp 3                          # !2295
-    flw %f3 %sp 2                          # !2295
-    lw %r2 %sp 5                           # !2295
-    lw %r4 %sp 4                           # !2295
-    lw %r27 %sp 6                          # !2295
-    movz %r1 %r2 %zero                     # !2295
-    movz %r2 %r4 %zero                     # !2295
-    fmovz %f1 %f0 %zero                    # !2295
-    sw %ra %sp 9                           # !2295
-    addi %sp %sp 10                        # !2295
-    lw %r28 %r27 0                         # !2295
-    jalr %r28                              # !2295
-    addi %sp %sp -10                       # !2295
-    lw %ra %sp 9                           # !2295
-    addi %r2 %zero 1                       # !2297
-    lw %r1 %sp 1                           # !2297
-    addi %r1 %r1 -1                        # !2297
-    lw %r3 %sp 4                           # !2297
-    sw %r1 %sp 9                           # !2297
-    movz %r1 %r3 %zero                     # !2297
-    sw %ra %sp 10                          # !2297
-    addi %sp %sp 11                        # !2297
-    jal ~add_mod5.2415                     # !2297
-    addi %sp %sp -11                       # !2297
-    lw %ra %sp 10                          # !2297
-    movz %r2 %r1 %zero                     # !2297
-    flw %f0 %sp 2                          # !2297
-    lw %r1 %sp 9                           # !2297
-    lw %r3 %sp 7                           # !2297
-    lw %r27 %sp 0                          # !2297
-    lw %r28 %r27 0                         # !2297
-    jr %r28                                # !2297
-blt_then.8955:
-    jr %ra                                 # !2298
-calc_dirvec_rows.2854:
-    lw %r4 %r27 1                          # !2302
-    addi %r5 %zero 0                       # !2303
-    blt %r1 %r5 blt_then.8957              # !2303
-    itof %f0 %r1                           # !2304
-    flui %f1 498                           # !2304
-    fli %f1 838861                         # !2304
+    fadd     %f0  %f0  %f1                 # !2331
+    fsw      %f1  %sp  6                   # !2331
+    sw       %ra  %sp  7                   # !2331
+    addi     %sp  %sp  8                   # !2331
+    jal      ~min_caml_sqrt                # !2331
+    addi     %sp  %sp  -8                  # !2331
+    lw       %ra  %sp  7                   # !2331
+    flw      %f1  %sp  3                   # !2332
+    fdiv     %f1  %f1  %f0                 # !2332
+    flw      %f2  %sp  4                   # !2333
+    fdiv     %f2  %f2  %f0                 # !2333
+    flw      %f3  %sp  6                   # !2334
+    fdiv     %f0  %f3  %f0                 # !2334
+    lw       %r1  %sp  1                   # !2337
+    lw       %r2  %sp  2                   # !2337
+    lwv      %r1  %r2  %r1                 # !2337
+    lw       %r2  %sp  0                   # !2338
+    lwv      %r3  %r1  %r2                 # !2338
+    sw       %r1  %sp  7                   # !2338
+    fsw      %f0  %sp  8                   # !2338
+    fsw      %f2  %sp  9                   # !2338
+    fsw      %f1  %sp  10                  # !2338
+    movz     %r1  %r3  %zero               # !2338
+    sw       %ra  %sp  11                  # !2338
+    addi     %sp  %sp  12                  # !2338
+    jal      ~d_vec.2584                   # !2338
+    addi     %sp  %sp  -12                 # !2338
+    lw       %ra  %sp  11                  # !2338
+    flw      %f0  %sp  10                  # !2338
+    flw      %f1  %sp  9                   # !2338
+    flw      %f2  %sp  8                   # !2338
+    sw       %ra  %sp  11                  # !2338
+    addi     %sp  %sp  12                  # !2338
+    jal      ~vecset.2485                  # !2338
+    addi     %sp  %sp  -12                 # !2338
+    lw       %ra  %sp  11                  # !2338
+    lw       %r1  %sp  0                   # !2339
+    addi     %r2  %r1  40                  # !2339
+    lw       %r3  %sp  7                   # !2339
+    lwv      %r2  %r3  %r2                 # !2339
+    movz     %r1  %r2  %zero               # !2339
+    sw       %ra  %sp  11                  # !2339
+    addi     %sp  %sp  12                  # !2339
+    jal      ~d_vec.2584                   # !2339
+    addi     %sp  %sp  -12                 # !2339
+    lw       %ra  %sp  11                  # !2339
+    flw      %f0  %sp  9                   # !2339
+    sw       %r1  %sp  11                  # !2339
+    sw       %ra  %sp  12                  # !2339
+    addi     %sp  %sp  13                  # !2339
+    jal      ~min_caml_fneg                # !2339
+    addi     %sp  %sp  -13                 # !2339
+    lw       %ra  %sp  12                  # !2339
+    fmovz    %f2  %f0  %zero               # !2339
+    flw      %f0  %sp  10                  # !2339
+    flw      %f1  %sp  8                   # !2339
+    lw       %r1  %sp  11                  # !2339
+    sw       %ra  %sp  12                  # !2339
+    addi     %sp  %sp  13                  # !2339
+    jal      ~vecset.2485                  # !2339
+    addi     %sp  %sp  -13                 # !2339
+    lw       %ra  %sp  12                  # !2339
+    lw       %r1  %sp  0                   # !2340
+    addi     %r2  %r1  80                  # !2340
+    lw       %r3  %sp  7                   # !2340
+    lwv      %r2  %r3  %r2                 # !2340
+    movz     %r1  %r2  %zero               # !2340
+    sw       %ra  %sp  12                  # !2340
+    addi     %sp  %sp  13                  # !2340
+    jal      ~d_vec.2584                   # !2340
+    addi     %sp  %sp  -13                 # !2340
+    lw       %ra  %sp  12                  # !2340
+    flw      %f0  %sp  10                  # !2340
+    sw       %r1  %sp  12                  # !2340
+    sw       %ra  %sp  13                  # !2340
+    addi     %sp  %sp  14                  # !2340
+    jal      ~min_caml_fneg                # !2340
+    addi     %sp  %sp  -14                 # !2340
+    lw       %ra  %sp  13                  # !2340
+    flw      %f1  %sp  9                   # !2340
+    fsw      %f0  %sp  13                  # !2340
+    fmovz    %f0  %f1  %zero               # !2340
+    sw       %ra  %sp  14                  # !2340
+    addi     %sp  %sp  15                  # !2340
+    jal      ~min_caml_fneg                # !2340
+    addi     %sp  %sp  -15                 # !2340
+    lw       %ra  %sp  14                  # !2340
+    fmovz    %f2  %f0  %zero               # !2340
+    flw      %f0  %sp  8                   # !2340
+    flw      %f1  %sp  13                  # !2340
+    lw       %r1  %sp  12                  # !2340
+    sw       %ra  %sp  14                  # !2340
+    addi     %sp  %sp  15                  # !2340
+    jal      ~vecset.2485                  # !2340
+    addi     %sp  %sp  -15                 # !2340
+    lw       %ra  %sp  14                  # !2340
+    lw       %r1  %sp  0                   # !2341
+    addi     %r2  %r1  1                   # !2341
+    lw       %r3  %sp  7                   # !2341
+    lwv      %r2  %r3  %r2                 # !2341
+    movz     %r1  %r2  %zero               # !2341
+    sw       %ra  %sp  14                  # !2341
+    addi     %sp  %sp  15                  # !2341
+    jal      ~d_vec.2584                   # !2341
+    addi     %sp  %sp  -15                 # !2341
+    lw       %ra  %sp  14                  # !2341
+    flw      %f0  %sp  10                  # !2341
+    sw       %r1  %sp  14                  # !2341
+    sw       %ra  %sp  15                  # !2341
+    addi     %sp  %sp  16                  # !2341
+    jal      ~min_caml_fneg                # !2341
+    addi     %sp  %sp  -16                 # !2341
+    lw       %ra  %sp  15                  # !2341
+    flw      %f1  %sp  9                   # !2341
+    fsw      %f0  %sp  15                  # !2341
+    fmovz    %f0  %f1  %zero               # !2341
+    sw       %ra  %sp  16                  # !2341
+    addi     %sp  %sp  17                  # !2341
+    jal      ~min_caml_fneg                # !2341
+    addi     %sp  %sp  -17                 # !2341
+    lw       %ra  %sp  16                  # !2341
+    flw      %f1  %sp  8                   # !2341
+    fsw      %f0  %sp  16                  # !2341
+    fmovz    %f0  %f1  %zero               # !2341
+    sw       %ra  %sp  17                  # !2341
+    addi     %sp  %sp  18                  # !2341
+    jal      ~min_caml_fneg                # !2341
+    addi     %sp  %sp  -18                 # !2341
+    lw       %ra  %sp  17                  # !2341
+    fmovz    %f2  %f0  %zero               # !2341
+    flw      %f0  %sp  15                  # !2341
+    flw      %f1  %sp  16                  # !2341
+    lw       %r1  %sp  14                  # !2341
+    sw       %ra  %sp  17                  # !2341
+    addi     %sp  %sp  18                  # !2341
+    jal      ~vecset.2485                  # !2341
+    addi     %sp  %sp  -18                 # !2341
+    lw       %ra  %sp  17                  # !2341
+    lw       %r1  %sp  0                   # !2342
+    addi     %r2  %r1  41                  # !2342
+    lw       %r3  %sp  7                   # !2342
+    lwv      %r2  %r3  %r2                 # !2342
+    movz     %r1  %r2  %zero               # !2342
+    sw       %ra  %sp  17                  # !2342
+    addi     %sp  %sp  18                  # !2342
+    jal      ~d_vec.2584                   # !2342
+    addi     %sp  %sp  -18                 # !2342
+    lw       %ra  %sp  17                  # !2342
+    flw      %f0  %sp  10                  # !2342
+    sw       %r1  %sp  17                  # !2342
+    sw       %ra  %sp  18                  # !2342
+    addi     %sp  %sp  19                  # !2342
+    jal      ~min_caml_fneg                # !2342
+    addi     %sp  %sp  -19                 # !2342
+    lw       %ra  %sp  18                  # !2342
+    flw      %f1  %sp  8                   # !2342
+    fsw      %f0  %sp  18                  # !2342
+    fmovz    %f0  %f1  %zero               # !2342
+    sw       %ra  %sp  19                  # !2342
+    addi     %sp  %sp  20                  # !2342
+    jal      ~min_caml_fneg                # !2342
+    addi     %sp  %sp  -20                 # !2342
+    lw       %ra  %sp  19                  # !2342
+    fmovz    %f1  %f0  %zero               # !2342
+    flw      %f0  %sp  18                  # !2342
+    flw      %f2  %sp  9                   # !2342
+    lw       %r1  %sp  17                  # !2342
+    sw       %ra  %sp  19                  # !2342
+    addi     %sp  %sp  20                  # !2342
+    jal      ~vecset.2485                  # !2342
+    addi     %sp  %sp  -20                 # !2342
+    lw       %ra  %sp  19                  # !2342
+    lw       %r1  %sp  0                   # !2343
+    addi     %r1  %r1  81                  # !2343
+    lw       %r2  %sp  7                   # !2343
+    lwv      %r1  %r2  %r1                 # !2343
+    sw       %ra  %sp  19                  # !2343
+    addi     %sp  %sp  20                  # !2343
+    jal      ~d_vec.2584                   # !2343
+    addi     %sp  %sp  -20                 # !2343
+    lw       %ra  %sp  19                  # !2343
+    flw      %f0  %sp  8                   # !2343
+    sw       %r1  %sp  19                  # !2343
+    sw       %ra  %sp  20                  # !2343
+    addi     %sp  %sp  21                  # !2343
+    jal      ~min_caml_fneg                # !2343
+    addi     %sp  %sp  -21                 # !2343
+    lw       %ra  %sp  20                  # !2343
+    flw      %f1  %sp  10                  # !2343
+    flw      %f2  %sp  9                   # !2343
+    lw       %r1  %sp  19                  # !2343
+    j        ~vecset.2485                  # !2343
+blt_then.9608:
+    fsw      %f2  %sp  20                  # !2345
+    sw       %r3  %sp  0                   # !2345
+    sw       %r2  %sp  1                   # !2345
+    sw       %r27  %sp  21                 # !2345
+    fsw      %f3  %sp  22                  # !2345
+    sw       %r1  %sp  23                  # !2345
+    fmovz    %f0  %f1  %zero               # !2345
+    fmovz    %f1  %f2  %zero               # !2345
+    sw       %ra  %sp  24                  # !2345
+    addi     %sp  %sp  25                  # !2345
+    jal      ~adjust_position.2905         # !2345
+    addi     %sp  %sp  -25                 # !2345
+    lw       %ra  %sp  24                  # !2345
+    lw       %r1  %sp  23                  # !2346
+    addi     %r1  %r1  1                   # !2346
+    flw      %f1  %sp  22                  # !2346
+    fsw      %f0  %sp  24                  # !2346
+    sw       %r1  %sp  25                  # !2346
+    sw       %ra  %sp  26                  # !2346
+    addi     %sp  %sp  27                  # !2346
+    jal      ~adjust_position.2905         # !2346
+    addi     %sp  %sp  -27                 # !2346
+    lw       %ra  %sp  26                  # !2346
+    fmovz    %f1  %f0  %zero               # !2346
+    flw      %f0  %sp  24                  # !2346
+    flw      %f2  %sp  20                  # !2346
+    flw      %f3  %sp  22                  # !2346
+    lw       %r1  %sp  25                  # !2346
+    lw       %r2  %sp  1                   # !2346
+    lw       %r3  %sp  0                   # !2346
+    lw       %r27  %sp  21                 # !2346
+    lw       %r28  %r27  0                 # !2346
+    jr       %r28                          # !2346
+calc_dirvecs.2916:
+    lw       %r4  %r27  1                  # !2350
+    addi     %r5  %zero  0                 # !2351
+    blt      %r1  %r5  blt_then.9609       # !2351
+    sw       %r27  %sp  0                  # !2353
+    sw       %r1  %sp  1                   # !2353
+    fsw      %f0  %sp  2                   # !2353
+    sw       %r3  %sp  3                   # !2353
+    sw       %r2  %sp  4                   # !2353
+    sw       %r5  %sp  5                   # !2353
+    sw       %r4  %sp  6                   # !2353
+    sw       %ra  %sp  7                   # !2353
+    addi     %sp  %sp  8                   # !2353
+    jal      ~min_caml_float_of_int        # !2353
+    addi     %sp  %sp  -8                  # !2353
+    lw       %ra  %sp  7                   # !2353
+    flui     %f1  498                      # !2353
+    fli      %f1  838861                   # !2353
     ++
     fli 0.200000
     => flui %f1 0b00111110010
        fli  %f1 0b011001100110011001101
     ++
-    fmul %f0 %f0 %f1                       # !2304
-    flui %f1 507                           # !2304
-    fli %f1 419430                         # !2304
+    fmul     %f0  %f0  %f1                 # !2353
+    flui     %f2  507                      # !2353
+    fli      %f2  419430                   # !2353
     ++
     fli 0.900000
-    => flui %f1 0b00111111011
-       fli  %f1 0b001100110011001100110
+    => flui %f2 0b00111111011
+       fli  %f2 0b001100110011001100110
     ++
-    fsub %f0 %f0 %f1                       # !2304
-    addi %r5 %zero 4                       # !2305
-    sw %r27 %sp 0                          # !2305
-    sw %r3 %sp 1                           # !2305
-    sw %r2 %sp 2                           # !2305
-    sw %r1 %sp 3                           # !2305
-    movz %r1 %r5 %zero                     # !2305
-    movz %r27 %r4 %zero                    # !2305
-    sw %ra %sp 4                           # !2305
-    addi %sp %sp 5                         # !2305
-    lw %r28 %r27 0                         # !2305
-    jalr %r28                              # !2305
-    addi %sp %sp -5                        # !2305
-    lw %ra %sp 4                           # !2305
-    lw %r1 %sp 3                           # !2306
-    addi %r1 %r1 -1                        # !2306
-    addi %r2 %zero 2                       # !2306
-    lw %r3 %sp 2                           # !2306
-    sw %r1 %sp 4                           # !2306
-    movz %r1 %r3 %zero                     # !2306
-    sw %ra %sp 5                           # !2306
-    addi %sp %sp 6                         # !2306
-    jal ~add_mod5.2415                     # !2306
-    addi %sp %sp -6                        # !2306
-    lw %ra %sp 5                           # !2306
-    movz %r2 %r1 %zero                     # !2306
-    lw %r1 %sp 1                           # !2306
-    addi %r3 %r1 4                         # !2306
-    lw %r1 %sp 4                           # !2306
-    lw %r27 %sp 0                          # !2306
-    lw %r28 %r27 0                         # !2306
-    jr %r28                                # !2306
-blt_then.8957:
-    jr %ra                                 # !2307
-create_dirvec.2858:
-    lw %r1 %r27 1                          # !2315
-    addi %r2 %zero 3                       # !2316
-    flui %f0 0                             # !2316
-    fli %f0 0                              # !2316
+    fsub     %f2  %f0  %f2                 # !2353
+    flui     %f0  0                        # !2354
+    fli      %f0  0                        # !2354
     ++
     fli 0.000000
     => flui %f0 0b00000000000
        fli  %f0 0b000000000000000000000
     ++
-    sw %r1 %sp 0                           # !2316
-    movz %r1 %r2 %zero                     # !2316
-    sw %ra %sp 1                           # !2316
-    addi %sp %sp 2                         # !2316
-    jal ~min_caml_create_float_array       # !2316
-    addi %sp %sp -2                        # !2316
-    lw %ra %sp 1                           # !2316
-    movz %r2 %r1 %zero                     # !2316
-    lw %r1 %sp 0                           # !2317
-    lw %r1 %r1 0                           # !2317
-    sw %r2 %sp 1                           # !2317
-    sw %ra %sp 2                           # !2317
-    addi %sp %sp 3                         # !2317
-    jal ~min_caml_create_array             # !2317
-    addi %sp %sp -3                        # !2317
-    lw %ra %sp 2                           # !2317
-    movz %r2 %hp %zero                     # !2318
-    addi %hp %hp -2                        # !2318
-    sw %r1 %r2 -1                          # !2318
-    lw %r1 %sp 1                           # !2318
-    sw %r1 %r2 0                           # !2318
-    movz %r1 %r2 %zero                     # !2318
-    jr %ra                                 # !2318
-create_dirvec_elements.2860:
-    lw %r3 %r27 1                          # !2321
-    addi %r4 %zero 0                       # !2322
-    blt %r2 %r4 blt_then.8959              # !2322
-    sw %r27 %sp 0                          # !2323
-    sw %r2 %sp 1                           # !2323
-    sw %r1 %sp 2                           # !2323
-    movz %r27 %r3 %zero                    # !2323
-    sw %ra %sp 3                           # !2323
-    addi %sp %sp 4                         # !2323
-    lw %r28 %r27 0                         # !2323
-    jalr %r28                              # !2323
-    addi %sp %sp -4                        # !2323
-    lw %ra %sp 3                           # !2323
-    lw %r2 %sp 1                           # !2323
-    lw %r3 %sp 2                           # !2323
-    swv %r1 %r3 %r2                        # !2323
-    addi %r2 %r2 -1                        # !2324
-    lw %r27 %sp 0                          # !2324
-    movz %r1 %r3 %zero                     # !2324
-    lw %r28 %r27 0                         # !2324
-    jr %r28                                # !2324
-blt_then.8959:
-    jr %ra                                 # !2325
-create_dirvecs.2863:
-    lw %r2 %r27 3                          # !2328
-    lw %r3 %r27 2                          # !2328
-    lw %r4 %r27 1                          # !2328
-    addi %r5 %zero 0                       # !2329
-    blt %r1 %r5 blt_then.8961              # !2329
-    addi %r5 %zero 120                     # !2330
-    sw %r27 %sp 0                          # !2330
-    sw %r3 %sp 1                           # !2330
-    sw %r1 %sp 2                           # !2330
-    sw %r2 %sp 3                           # !2330
-    sw %r5 %sp 4                           # !2330
-    movz %r27 %r4 %zero                    # !2330
-    sw %ra %sp 5                           # !2330
-    addi %sp %sp 6                         # !2330
-    lw %r28 %r27 0                         # !2330
-    jalr %r28                              # !2330
-    addi %sp %sp -6                        # !2330
-    lw %ra %sp 5                           # !2330
-    movz %r2 %r1 %zero                     # !2330
-    lw %r1 %sp 4                           # !2330
-    sw %ra %sp 5                           # !2330
-    addi %sp %sp 6                         # !2330
-    jal ~min_caml_create_array             # !2330
-    addi %sp %sp -6                        # !2330
-    lw %ra %sp 5                           # !2330
-    lw %r2 %sp 2                           # !2330
-    lw %r3 %sp 3                           # !2330
-    swv %r1 %r3 %r2                        # !2330
-    lwv %r1 %r3 %r2                        # !2331
-    addi %r3 %zero 118                     # !2331
-    lw %r27 %sp 1                          # !2331
-    movz %r2 %r3 %zero                     # !2331
-    sw %ra %sp 5                           # !2331
-    addi %sp %sp 6                         # !2331
-    lw %r28 %r27 0                         # !2331
-    jalr %r28                              # !2331
-    addi %sp %sp -6                        # !2331
-    lw %ra %sp 5                           # !2331
-    lw %r1 %sp 2                           # !2332
-    addi %r1 %r1 -1                        # !2332
-    lw %r27 %sp 0                          # !2332
-    lw %r28 %r27 0                         # !2332
-    jr %r28                                # !2332
-blt_then.8961:
-    jr %ra                                 # !2333
-init_dirvec_constants.2865:
-    lw %r3 %r27 1                          # !2340
-    addi %r4 %zero 0                       # !2341
-    blt %r2 %r4 blt_then.8963              # !2341
-    lwv %r4 %r1 %r2                        # !2342
-    sw %r1 %sp 0                           # !2342
-    sw %r27 %sp 1                          # !2342
-    sw %r2 %sp 2                           # !2342
-    movz %r1 %r4 %zero                     # !2342
-    movz %r27 %r3 %zero                    # !2342
-    sw %ra %sp 3                           # !2342
-    addi %sp %sp 4                         # !2342
-    lw %r28 %r27 0                         # !2342
-    jalr %r28                              # !2342
-    addi %sp %sp -4                        # !2342
-    lw %ra %sp 3                           # !2342
-    lw %r1 %sp 2                           # !2343
-    addi %r2 %r1 -1                        # !2343
-    lw %r1 %sp 0                           # !2343
-    lw %r27 %sp 1                          # !2343
-    lw %r28 %r27 0                         # !2343
-    jr %r28                                # !2343
-blt_then.8963:
-    jr %ra                                 # !2344
-init_vecset_constants.2868:
-    lw %r2 %r27 2                          # !2347
-    lw %r3 %r27 1                          # !2347
-    addi %r4 %zero 0                       # !2348
-    blt %r1 %r4 blt_then.8965              # !2348
-    lwv %r3 %r3 %r1                        # !2349
-    addi %r4 %zero 119                     # !2349
-    sw %r27 %sp 0                          # !2349
-    sw %r1 %sp 1                           # !2349
-    movz %r1 %r3 %zero                     # !2349
-    movz %r27 %r2 %zero                    # !2349
-    movz %r2 %r4 %zero                     # !2349
-    sw %ra %sp 2                           # !2349
-    addi %sp %sp 3                         # !2349
-    lw %r28 %r27 0                         # !2349
-    jalr %r28                              # !2349
-    addi %sp %sp -3                        # !2349
-    lw %ra %sp 2                           # !2349
-    lw %r1 %sp 1                           # !2350
-    addi %r1 %r1 -1                        # !2350
-    lw %r27 %sp 0                          # !2350
-    lw %r28 %r27 0                         # !2350
-    jr %r28                                # !2350
-blt_then.8965:
-    jr %ra                                 # !2351
-init_dirvecs.2870:
-    lw %r1 %r27 3                          # !2354
-    lw %r2 %r27 2                          # !2354
-    lw %r3 %r27 1                          # !2354
-    addi %r4 %zero 4                       # !2355
-    sw %r4 %sp 0                           # !2355
-    sw %r1 %sp 1                           # !2355
-    sw %r3 %sp 2                           # !2355
-    movz %r1 %r4 %zero                     # !2355
-    movz %r27 %r2 %zero                    # !2355
-    sw %ra %sp 3                           # !2355
-    addi %sp %sp 4                         # !2355
-    lw %r28 %r27 0                         # !2355
-    jalr %r28                              # !2355
-    addi %sp %sp -4                        # !2355
-    lw %ra %sp 3                           # !2355
-    addi %r1 %zero 9                       # !2356
-    addi %r2 %zero 0                       # !2356
-    lw %r27 %sp 2                          # !2356
-    movz %r3 %r2 %zero                     # !2356
-    sw %ra %sp 3                           # !2356
-    addi %sp %sp 4                         # !2356
-    lw %r28 %r27 0                         # !2356
-    jalr %r28                              # !2356
-    addi %sp %sp -4                        # !2356
-    lw %ra %sp 3                           # !2356
-    lw %r1 %sp 0                           # !2357
-    lw %r27 %sp 1                          # !2357
-    lw %r28 %r27 0                         # !2357
-    jr %r28                                # !2357
-add_reflection.2872:
-    lw %r3 %r27 3                          # !2365
-    lw %r4 %r27 2                          # !2365
-    lw %r27 %r27 1                         # !2365
-    sw %r1 %sp 0                           # !2366
-    sw %r4 %sp 1                           # !2366
-    sw %r2 %sp 2                           # !2366
-    fsw %f0 %sp 3                          # !2366
-    sw %r3 %sp 4                           # !2366
-    fsw %f3 %sp 5                          # !2366
-    fsw %f2 %sp 6                          # !2366
-    fsw %f1 %sp 7                          # !2366
-    sw %ra %sp 8                           # !2366
-    addi %sp %sp 9                         # !2366
-    lw %r28 %r27 0                         # !2366
-    jalr %r28                              # !2366
-    addi %sp %sp -9                        # !2366
-    lw %ra %sp 8                           # !2366
-    sw %r1 %sp 8                           # !2367
-    sw %ra %sp 9                           # !2367
-    addi %sp %sp 10                        # !2367
-    jal ~d_vec.2517                        # !2367
-    addi %sp %sp -10                       # !2367
-    lw %ra %sp 9                           # !2367
-    flw %f0 %sp 7                          # !2367
-    flw %f1 %sp 6                          # !2367
-    flw %f2 %sp 5                          # !2367
-    sw %ra %sp 9                           # !2367
-    addi %sp %sp 10                        # !2367
-    jal ~vecset.2418                       # !2367
-    addi %sp %sp -10                       # !2367
-    lw %ra %sp 9                           # !2367
-    lw %r1 %sp 8                           # !2368
-    lw %r27 %sp 4                          # !2368
-    sw %ra %sp 9                           # !2368
-    addi %sp %sp 10                        # !2368
-    lw %r28 %r27 0                         # !2368
-    jalr %r28                              # !2368
-    addi %sp %sp -10                       # !2368
-    lw %ra %sp 9                           # !2368
-    movz %r1 %hp %zero                     # !2370
-    addi %hp %hp -3                        # !2370
-    flw %f0 %sp 3                          # !2370
-    fsw %f0 %r1 -2                         # !2370
-    lw %r2 %sp 8                           # !2370
-    sw %r2 %r1 -1                          # !2370
-    lw %r2 %sp 2                           # !2370
-    sw %r2 %r1 0                           # !2370
-    lw %r2 %sp 0                           # !2370
-    lw %r3 %sp 1                           # !2370
-    swv %r1 %r3 %r2                        # !2370
-    jr %ra                                 # !2370
-setup_rect_reflection.2879:
-    lw %r3 %r27 3                          # !2374
-    lw %r4 %r27 2                          # !2374
-    lw %r5 %r27 1                          # !2374
-    sll %r1 %r1 2                          # !2375
-    lw %r6 %r3 0                           # !2376
-    flui %f0 508                           # !2377
-    fli %f0 0                              # !2377
+    flw      %f3  %sp  2                   # !2354
+    lw       %r1  %sp  5                   # !2354
+    lw       %r2  %sp  4                   # !2354
+    lw       %r3  %sp  3                   # !2354
+    lw       %r27  %sp  6                  # !2354
+    fsw      %f0  %sp  7                   # !2354
+    fsw      %f1  %sp  8                   # !2354
+    fmovz    %f1  %f0  %zero               # !2354
+    sw       %ra  %sp  9                   # !2354
+    addi     %sp  %sp  10                  # !2354
+    lw       %r28  %r27  0                 # !2354
+    jalr     %r28                          # !2354
+    addi     %sp  %sp  -10                 # !2354
+    lw       %ra  %sp  9                   # !2354
+    lw       %r1  %sp  1                   # !2356
+    sw       %ra  %sp  9                   # !2356
+    addi     %sp  %sp  10                  # !2356
+    jal      ~min_caml_float_of_int        # !2356
+    addi     %sp  %sp  -10                 # !2356
+    lw       %ra  %sp  9                   # !2356
+    flw      %f1  %sp  8                   # !2356
+    fmul     %f0  %f1  %f0                 # !2356
+    flui     %f1  494                      # !2356
+    fli      %f1  838861                   # !2356
+    ++
+    fli 0.100000
+    => flui %f1 0b00111101110
+       fli  %f1 0b011001100110011001101
+    ++
+    fadd     %f2  %f0  %f1                 # !2356
+    lw       %r1  %sp  3                   # !2357
+    addi     %r3  %r1  2                   # !2357
+    flw      %f0  %sp  7                   # !2357
+    flw      %f3  %sp  2                   # !2357
+    lw       %r2  %sp  5                   # !2357
+    lw       %r4  %sp  4                   # !2357
+    lw       %r27  %sp  6                  # !2357
+    movz     %r1  %r2  %zero               # !2357
+    movz     %r2  %r4  %zero               # !2357
+    fmovz    %f1  %f0  %zero               # !2357
+    sw       %ra  %sp  9                   # !2357
+    addi     %sp  %sp  10                  # !2357
+    lw       %r28  %r27  0                 # !2357
+    jalr     %r28                          # !2357
+    addi     %sp  %sp  -10                 # !2357
+    lw       %ra  %sp  9                   # !2357
+    addi     %r2  %zero  1                 # !2359
+    lw       %r1  %sp  1                   # !2359
+    addi     %r1  %r1  -1                  # !2359
+    lw       %r3  %sp  4                   # !2359
+    sw       %r1  %sp  9                   # !2359
+    movz     %r1  %r3  %zero               # !2359
+    sw       %ra  %sp  10                  # !2359
+    addi     %sp  %sp  11                  # !2359
+    jal      ~add_mod5.2482                # !2359
+    addi     %sp  %sp  -11                 # !2359
+    lw       %ra  %sp  10                  # !2359
+    movz     %r2  %r1  %zero               # !2359
+    flw      %f0  %sp  2                   # !2359
+    lw       %r1  %sp  9                   # !2359
+    lw       %r3  %sp  3                   # !2359
+    lw       %r27  %sp  0                  # !2359
+    lw       %r28  %r27  0                 # !2359
+    jr       %r28                          # !2359
+blt_then.9609:
+    jr       %ra                           # !2360
+calc_dirvec_rows.2921:
+    lw       %r4  %r27  1                  # !2364
+    addi     %r5  %zero  0                 # !2365
+    blt      %r1  %r5  blt_then.9611       # !2365
+    sw       %r27  %sp  0                  # !2366
+    sw       %r1  %sp  1                   # !2366
+    sw       %r3  %sp  2                   # !2366
+    sw       %r2  %sp  3                   # !2366
+    sw       %r4  %sp  4                   # !2366
+    sw       %ra  %sp  5                   # !2366
+    addi     %sp  %sp  6                   # !2366
+    jal      ~min_caml_float_of_int        # !2366
+    addi     %sp  %sp  -6                  # !2366
+    lw       %ra  %sp  5                   # !2366
+    flui     %f1  498                      # !2366
+    fli      %f1  838861                   # !2366
+    ++
+    fli 0.200000
+    => flui %f1 0b00111110010
+       fli  %f1 0b011001100110011001101
+    ++
+    fmul     %f0  %f0  %f1                 # !2366
+    flui     %f1  507                      # !2366
+    fli      %f1  419430                   # !2366
+    ++
+    fli 0.900000
+    => flui %f1 0b00111111011
+       fli  %f1 0b001100110011001100110
+    ++
+    fsub     %f0  %f0  %f1                 # !2366
+    addi     %r1  %zero  4                 # !2367
+    lw       %r2  %sp  3                   # !2367
+    lw       %r3  %sp  2                   # !2367
+    lw       %r27  %sp  4                  # !2367
+    sw       %ra  %sp  5                   # !2367
+    addi     %sp  %sp  6                   # !2367
+    lw       %r28  %r27  0                 # !2367
+    jalr     %r28                          # !2367
+    addi     %sp  %sp  -6                  # !2367
+    lw       %ra  %sp  5                   # !2367
+    lw       %r1  %sp  1                   # !2368
+    addi     %r1  %r1  -1                  # !2368
+    addi     %r2  %zero  2                 # !2368
+    lw       %r3  %sp  3                   # !2368
+    sw       %r1  %sp  5                   # !2368
+    movz     %r1  %r3  %zero               # !2368
+    sw       %ra  %sp  6                   # !2368
+    addi     %sp  %sp  7                   # !2368
+    jal      ~add_mod5.2482                # !2368
+    addi     %sp  %sp  -7                  # !2368
+    lw       %ra  %sp  6                   # !2368
+    movz     %r2  %r1  %zero               # !2368
+    lw       %r1  %sp  2                   # !2368
+    addi     %r3  %r1  4                   # !2368
+    lw       %r1  %sp  5                   # !2368
+    lw       %r27  %sp  0                  # !2368
+    lw       %r28  %r27  0                 # !2368
+    jr       %r28                          # !2368
+blt_then.9611:
+    jr       %ra                           # !2369
+create_dirvec.2925:
+    lw       %r1  %r27  1                  # !2377
+    addi     %r2  %zero  3                 # !2378
+    flui     %f0  0                        # !2378
+    fli      %f0  0                        # !2378
+    ++
+    fli 0.000000
+    => flui %f0 0b00000000000
+       fli  %f0 0b000000000000000000000
+    ++
+    sw       %r1  %sp  0                   # !2378
+    movz     %r1  %r2  %zero               # !2378
+    sw       %ra  %sp  1                   # !2378
+    addi     %sp  %sp  2                   # !2378
+    jal      ~min_caml_create_float_array  # !2378
+    addi     %sp  %sp  -2                  # !2378
+    lw       %ra  %sp  1                   # !2378
+    movz     %r2  %r1  %zero               # !2378
+    lw       %r1  %sp  0                   # !2379
+    lw       %r1  %r1  0                   # !2379
+    sw       %r2  %sp  1                   # !2379
+    sw       %ra  %sp  2                   # !2379
+    addi     %sp  %sp  3                   # !2379
+    jal      ~min_caml_create_array        # !2379
+    addi     %sp  %sp  -3                  # !2379
+    lw       %ra  %sp  2                   # !2379
+    movz     %r2  %hp  %zero               # !2380
+    addi     %hp  %hp  -2                  # !2380
+    sw       %r1  %r2  -1                  # !2380
+    lw       %r1  %sp  1                   # !2380
+    sw       %r1  %r2  0                   # !2380
+    movz     %r1  %r2  %zero               # !2380
+    jr       %ra                           # !2380
+create_dirvec_elements.2927:
+    lw       %r3  %r27  1                  # !2383
+    addi     %r4  %zero  0                 # !2384
+    blt      %r2  %r4  blt_then.9613       # !2384
+    sw       %r27  %sp  0                  # !2385
+    sw       %r2  %sp  1                   # !2385
+    sw       %r1  %sp  2                   # !2385
+    movz     %r27  %r3  %zero              # !2385
+    sw       %ra  %sp  3                   # !2385
+    addi     %sp  %sp  4                   # !2385
+    lw       %r28  %r27  0                 # !2385
+    jalr     %r28                          # !2385
+    addi     %sp  %sp  -4                  # !2385
+    lw       %ra  %sp  3                   # !2385
+    lw       %r2  %sp  1                   # !2385
+    lw       %r3  %sp  2                   # !2385
+    swv      %r1  %r3  %r2                 # !2385
+    addi     %r2  %r2  -1                  # !2386
+    lw       %r27  %sp  0                  # !2386
+    movz     %r1  %r3  %zero               # !2386
+    lw       %r28  %r27  0                 # !2386
+    jr       %r28                          # !2386
+blt_then.9613:
+    jr       %ra                           # !2387
+create_dirvecs.2930:
+    lw       %r2  %r27  3                  # !2390
+    lw       %r3  %r27  2                  # !2390
+    lw       %r4  %r27  1                  # !2390
+    addi     %r5  %zero  0                 # !2391
+    blt      %r1  %r5  blt_then.9615       # !2391
+    addi     %r5  %zero  120               # !2392
+    sw       %r27  %sp  0                  # !2392
+    sw       %r3  %sp  1                   # !2392
+    sw       %r1  %sp  2                   # !2392
+    sw       %r2  %sp  3                   # !2392
+    sw       %r5  %sp  4                   # !2392
+    movz     %r27  %r4  %zero              # !2392
+    sw       %ra  %sp  5                   # !2392
+    addi     %sp  %sp  6                   # !2392
+    lw       %r28  %r27  0                 # !2392
+    jalr     %r28                          # !2392
+    addi     %sp  %sp  -6                  # !2392
+    lw       %ra  %sp  5                   # !2392
+    movz     %r2  %r1  %zero               # !2392
+    lw       %r1  %sp  4                   # !2392
+    sw       %ra  %sp  5                   # !2392
+    addi     %sp  %sp  6                   # !2392
+    jal      ~min_caml_create_array        # !2392
+    addi     %sp  %sp  -6                  # !2392
+    lw       %ra  %sp  5                   # !2392
+    lw       %r2  %sp  2                   # !2392
+    lw       %r3  %sp  3                   # !2392
+    swv      %r1  %r3  %r2                 # !2392
+    lwv      %r1  %r3  %r2                 # !2393
+    addi     %r3  %zero  118               # !2393
+    lw       %r27  %sp  1                  # !2393
+    movz     %r2  %r3  %zero               # !2393
+    sw       %ra  %sp  5                   # !2393
+    addi     %sp  %sp  6                   # !2393
+    lw       %r28  %r27  0                 # !2393
+    jalr     %r28                          # !2393
+    addi     %sp  %sp  -6                  # !2393
+    lw       %ra  %sp  5                   # !2393
+    lw       %r1  %sp  2                   # !2394
+    addi     %r1  %r1  -1                  # !2394
+    lw       %r27  %sp  0                  # !2394
+    lw       %r28  %r27  0                 # !2394
+    jr       %r28                          # !2394
+blt_then.9615:
+    jr       %ra                           # !2395
+init_dirvec_constants.2932:
+    lw       %r3  %r27  1                  # !2402
+    addi     %r4  %zero  0                 # !2403
+    blt      %r2  %r4  blt_then.9617       # !2403
+    lwv      %r4  %r1  %r2                 # !2404
+    sw       %r1  %sp  0                   # !2404
+    sw       %r27  %sp  1                  # !2404
+    sw       %r2  %sp  2                   # !2404
+    movz     %r1  %r4  %zero               # !2404
+    movz     %r27  %r3  %zero              # !2404
+    sw       %ra  %sp  3                   # !2404
+    addi     %sp  %sp  4                   # !2404
+    lw       %r28  %r27  0                 # !2404
+    jalr     %r28                          # !2404
+    addi     %sp  %sp  -4                  # !2404
+    lw       %ra  %sp  3                   # !2404
+    lw       %r1  %sp  2                   # !2405
+    addi     %r2  %r1  -1                  # !2405
+    lw       %r1  %sp  0                   # !2405
+    lw       %r27  %sp  1                  # !2405
+    lw       %r28  %r27  0                 # !2405
+    jr       %r28                          # !2405
+blt_then.9617:
+    jr       %ra                           # !2406
+init_vecset_constants.2935:
+    lw       %r2  %r27  2                  # !2409
+    lw       %r3  %r27  1                  # !2409
+    addi     %r4  %zero  0                 # !2410
+    blt      %r1  %r4  blt_then.9619       # !2410
+    lwv      %r3  %r3  %r1                 # !2411
+    addi     %r4  %zero  119               # !2411
+    sw       %r27  %sp  0                  # !2411
+    sw       %r1  %sp  1                   # !2411
+    movz     %r1  %r3  %zero               # !2411
+    movz     %r27  %r2  %zero              # !2411
+    movz     %r2  %r4  %zero               # !2411
+    sw       %ra  %sp  2                   # !2411
+    addi     %sp  %sp  3                   # !2411
+    lw       %r28  %r27  0                 # !2411
+    jalr     %r28                          # !2411
+    addi     %sp  %sp  -3                  # !2411
+    lw       %ra  %sp  2                   # !2411
+    lw       %r1  %sp  1                   # !2412
+    addi     %r1  %r1  -1                  # !2412
+    lw       %r27  %sp  0                  # !2412
+    lw       %r28  %r27  0                 # !2412
+    jr       %r28                          # !2412
+blt_then.9619:
+    jr       %ra                           # !2413
+init_dirvecs.2937:
+    lw       %r1  %r27  3                  # !2416
+    lw       %r2  %r27  2                  # !2416
+    lw       %r3  %r27  1                  # !2416
+    addi     %r4  %zero  4                 # !2417
+    sw       %r4  %sp  0                   # !2417
+    sw       %r1  %sp  1                   # !2417
+    sw       %r3  %sp  2                   # !2417
+    movz     %r1  %r4  %zero               # !2417
+    movz     %r27  %r2  %zero              # !2417
+    sw       %ra  %sp  3                   # !2417
+    addi     %sp  %sp  4                   # !2417
+    lw       %r28  %r27  0                 # !2417
+    jalr     %r28                          # !2417
+    addi     %sp  %sp  -4                  # !2417
+    lw       %ra  %sp  3                   # !2417
+    addi     %r1  %zero  9                 # !2418
+    addi     %r2  %zero  0                 # !2418
+    lw       %r27  %sp  2                  # !2418
+    movz     %r3  %r2  %zero               # !2418
+    sw       %ra  %sp  3                   # !2418
+    addi     %sp  %sp  4                   # !2418
+    lw       %r28  %r27  0                 # !2418
+    jalr     %r28                          # !2418
+    addi     %sp  %sp  -4                  # !2418
+    lw       %ra  %sp  3                   # !2418
+    lw       %r1  %sp  0                   # !2419
+    lw       %r27  %sp  1                  # !2419
+    lw       %r28  %r27  0                 # !2419
+    jr       %r28                          # !2419
+add_reflection.2939:
+    lw       %r3  %r27  3                  # !2427
+    lw       %r4  %r27  2                  # !2427
+    lw       %r27  %r27  1                 # !2427
+    sw       %r1  %sp  0                   # !2428
+    sw       %r4  %sp  1                   # !2428
+    sw       %r2  %sp  2                   # !2428
+    fsw      %f0  %sp  3                   # !2428
+    sw       %r3  %sp  4                   # !2428
+    fsw      %f3  %sp  5                   # !2428
+    fsw      %f2  %sp  6                   # !2428
+    fsw      %f1  %sp  7                   # !2428
+    sw       %ra  %sp  8                   # !2428
+    addi     %sp  %sp  9                   # !2428
+    lw       %r28  %r27  0                 # !2428
+    jalr     %r28                          # !2428
+    addi     %sp  %sp  -9                  # !2428
+    lw       %ra  %sp  8                   # !2428
+    sw       %r1  %sp  8                   # !2429
+    sw       %ra  %sp  9                   # !2429
+    addi     %sp  %sp  10                  # !2429
+    jal      ~d_vec.2584                   # !2429
+    addi     %sp  %sp  -10                 # !2429
+    lw       %ra  %sp  9                   # !2429
+    flw      %f0  %sp  7                   # !2429
+    flw      %f1  %sp  6                   # !2429
+    flw      %f2  %sp  5                   # !2429
+    sw       %ra  %sp  9                   # !2429
+    addi     %sp  %sp  10                  # !2429
+    jal      ~vecset.2485                  # !2429
+    addi     %sp  %sp  -10                 # !2429
+    lw       %ra  %sp  9                   # !2429
+    lw       %r1  %sp  8                   # !2430
+    lw       %r27  %sp  4                  # !2430
+    sw       %ra  %sp  9                   # !2430
+    addi     %sp  %sp  10                  # !2430
+    lw       %r28  %r27  0                 # !2430
+    jalr     %r28                          # !2430
+    addi     %sp  %sp  -10                 # !2430
+    lw       %ra  %sp  9                   # !2430
+    movz     %r1  %hp  %zero               # !2432
+    addi     %hp  %hp  -3                  # !2432
+    flw      %f0  %sp  3                   # !2432
+    fsw      %f0  %r1  -2                  # !2432
+    lw       %r2  %sp  8                   # !2432
+    sw       %r2  %r1  -1                  # !2432
+    lw       %r2  %sp  2                   # !2432
+    sw       %r2  %r1  0                   # !2432
+    lw       %r2  %sp  0                   # !2432
+    lw       %r3  %sp  1                   # !2432
+    swv      %r1  %r3  %r2                 # !2432
+    jr       %ra                           # !2432
+setup_rect_reflection.2946:
+    lw       %r3  %r27  3                  # !2436
+    lw       %r4  %r27  2                  # !2436
+    lw       %r5  %r27  1                  # !2436
+    sll      %r1  %r1  2                   # !2437
+    lw       %r6  %r3  0                   # !2438
+    flui     %f0  508                      # !2439
+    fli      %f0  0                        # !2439
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    sw %r3 %sp 0                           # !2377
-    sw %r6 %sp 1                           # !2377
-    sw %r5 %sp 2                           # !2377
-    sw %r1 %sp 3                           # !2377
-    sw %r4 %sp 4                           # !2377
-    fsw %f0 %sp 5                          # !2377
-    movz %r1 %r2 %zero                     # !2377
-    sw %ra %sp 6                           # !2377
-    addi %sp %sp 7                         # !2377
-    jal ~o_diffuse.2480                    # !2377
-    addi %sp %sp -7                        # !2377
-    lw %ra %sp 6                           # !2377
-    flw %f1 %sp 5                          # !2377
-    fsub %f0 %f1 %f0                       # !2377
-    flw %f1 %sp 4                          # !2378
-    flw %f2 %f1 0                          # !2378
-    fneg %f2 %f2                           # !2378
-    flw %f3 %f1 1                          # !2379
-    fneg %f3 %f3                           # !2379
-    flw %f4 %f1 2                          # !2380
-    fneg %f4 %f4                           # !2380
-    lw %r1 %sp 3                           # !2381
-    addi %r2 %r1 1                         # !2381
-    flw %f5 %f1 0                          # !2381
-    lw %r3 %sp 1                           # !2381
-    lw %r27 %sp 2                          # !2381
-    fsw %f3 %sp 6                          # !2381
-    fsw %f4 %sp 7                          # !2381
-    fsw %f2 %sp 8                          # !2381
-    fsw %f0 %sp 9                          # !2381
-    movz %r1 %r3 %zero                     # !2381
-    fmovz %f2 %f3 %zero                    # !2381
-    fmovz %f1 %f5 %zero                    # !2381
-    fmovz %f3 %f4 %zero                    # !2381
-    sw %ra %sp 10                          # !2381
-    addi %sp %sp 11                        # !2381
-    lw %r28 %r27 0                         # !2381
-    jalr %r28                              # !2381
-    addi %sp %sp -11                       # !2381
-    lw %ra %sp 10                          # !2381
-    lw %r1 %sp 1                           # !2382
-    addi %r2 %r1 1                         # !2382
-    lw %r3 %sp 3                           # !2382
-    addi %r4 %r3 2                         # !2382
-    flw %f0 %sp 4                          # !2382
-    flw %f2 %f0 1                          # !2382
-    flw %f1 %sp 9                          # !2382
-    flw %f3 %sp 8                          # !2382
-    flw %f4 %sp 7                          # !2382
-    lw %r27 %sp 2                          # !2382
-    movz %r1 %r2 %zero                     # !2382
-    movz %r2 %r4 %zero                     # !2382
-    fmovz %f0 %f1 %zero                    # !2382
-    fmovz %f1 %f3 %zero                    # !2382
-    fmovz %f3 %f4 %zero                    # !2382
-    sw %ra %sp 10                          # !2382
-    addi %sp %sp 11                        # !2382
-    lw %r28 %r27 0                         # !2382
-    jalr %r28                              # !2382
-    addi %sp %sp -11                       # !2382
-    lw %ra %sp 10                          # !2382
-    lw %r1 %sp 1                           # !2383
-    addi %r2 %r1 2                         # !2383
-    lw %r3 %sp 3                           # !2383
-    addi %r3 %r3 3                         # !2383
-    flw %f0 %sp 4                          # !2383
-    flw %f3 %f0 2                          # !2383
-    flw %f0 %sp 9                          # !2383
-    flw %f1 %sp 8                          # !2383
-    flw %f2 %sp 6                          # !2383
-    lw %r27 %sp 2                          # !2383
-    movz %r1 %r2 %zero                     # !2383
-    movz %r2 %r3 %zero                     # !2383
-    sw %ra %sp 10                          # !2383
-    addi %sp %sp 11                        # !2383
-    lw %r28 %r27 0                         # !2383
-    jalr %r28                              # !2383
-    addi %sp %sp -11                       # !2383
-    lw %ra %sp 10                          # !2383
-    lw %r1 %sp 1                           # !2384
-    addi %r1 %r1 3                         # !2384
-    lw %r2 %sp 0                           # !2384
-    sw %r1 %r2 0                           # !2384
-    jr %ra                                 # !2384
-setup_surface_reflection.2882:
-    lw %r3 %r27 3                          # !2388
-    lw %r4 %r27 2                          # !2388
-    lw %r5 %r27 1                          # !2388
-    sll %r1 %r1 2                          # !2389
-    addi %r1 %r1 1                         # !2389
-    lw %r6 %r3 0                           # !2390
-    flui %f0 508                           # !2391
-    fli %f0 0                              # !2391
+    sw       %r3  %sp  0                   # !2439
+    sw       %r6  %sp  1                   # !2439
+    sw       %r5  %sp  2                   # !2439
+    sw       %r1  %sp  3                   # !2439
+    sw       %r4  %sp  4                   # !2439
+    fsw      %f0  %sp  5                   # !2439
+    movz     %r1  %r2  %zero               # !2439
+    sw       %ra  %sp  6                   # !2439
+    addi     %sp  %sp  7                   # !2439
+    jal      ~o_diffuse.2547               # !2439
+    addi     %sp  %sp  -7                  # !2439
+    lw       %ra  %sp  6                   # !2439
+    flw      %f1  %sp  5                   # !2439
+    fsub     %f0  %f1  %f0                 # !2439
+    flw      %f1  %sp  4                   # !2440
+    flw      %f2  %f1  0                   # !2440
+    fsw      %f0  %sp  6                   # !2440
+    fmovz    %f0  %f2  %zero               # !2440
+    sw       %ra  %sp  7                   # !2440
+    addi     %sp  %sp  8                   # !2440
+    jal      ~min_caml_fneg                # !2440
+    addi     %sp  %sp  -8                  # !2440
+    lw       %ra  %sp  7                   # !2440
+    flw      %f1  %sp  4                   # !2441
+    flw      %f2  %f1  1                   # !2441
+    fsw      %f0  %sp  7                   # !2441
+    fmovz    %f0  %f2  %zero               # !2441
+    sw       %ra  %sp  8                   # !2441
+    addi     %sp  %sp  9                   # !2441
+    jal      ~min_caml_fneg                # !2441
+    addi     %sp  %sp  -9                  # !2441
+    lw       %ra  %sp  8                   # !2441
+    flw      %f1  %sp  4                   # !2442
+    flw      %f2  %f1  2                   # !2442
+    fsw      %f0  %sp  8                   # !2442
+    fmovz    %f0  %f2  %zero               # !2442
+    sw       %ra  %sp  9                   # !2442
+    addi     %sp  %sp  10                  # !2442
+    jal      ~min_caml_fneg                # !2442
+    addi     %sp  %sp  -10                 # !2442
+    lw       %ra  %sp  9                   # !2442
+    fmovz    %f3  %f0  %zero               # !2442
+    lw       %r1  %sp  3                   # !2443
+    addi     %r2  %r1  1                   # !2443
+    flw      %f0  %sp  4                   # !2443
+    flw      %f1  %f0  0                   # !2443
+    flw      %f2  %sp  6                   # !2443
+    flw      %f4  %sp  8                   # !2443
+    lw       %r3  %sp  1                   # !2443
+    lw       %r27  %sp  2                  # !2443
+    fsw      %f3  %sp  9                   # !2443
+    movz     %r1  %r3  %zero               # !2443
+    fmovz    %f0  %f2  %zero               # !2443
+    fmovz    %f2  %f4  %zero               # !2443
+    sw       %ra  %sp  10                  # !2443
+    addi     %sp  %sp  11                  # !2443
+    lw       %r28  %r27  0                 # !2443
+    jalr     %r28                          # !2443
+    addi     %sp  %sp  -11                 # !2443
+    lw       %ra  %sp  10                  # !2443
+    lw       %r1  %sp  1                   # !2444
+    addi     %r2  %r1  1                   # !2444
+    lw       %r3  %sp  3                   # !2444
+    addi     %r4  %r3  2                   # !2444
+    flw      %f0  %sp  4                   # !2444
+    flw      %f2  %f0  1                   # !2444
+    flw      %f1  %sp  6                   # !2444
+    flw      %f3  %sp  7                   # !2444
+    flw      %f4  %sp  9                   # !2444
+    lw       %r27  %sp  2                  # !2444
+    movz     %r1  %r2  %zero               # !2444
+    movz     %r2  %r4  %zero               # !2444
+    fmovz    %f0  %f1  %zero               # !2444
+    fmovz    %f1  %f3  %zero               # !2444
+    fmovz    %f3  %f4  %zero               # !2444
+    sw       %ra  %sp  10                  # !2444
+    addi     %sp  %sp  11                  # !2444
+    lw       %r28  %r27  0                 # !2444
+    jalr     %r28                          # !2444
+    addi     %sp  %sp  -11                 # !2444
+    lw       %ra  %sp  10                  # !2444
+    lw       %r1  %sp  1                   # !2445
+    addi     %r2  %r1  2                   # !2445
+    lw       %r3  %sp  3                   # !2445
+    addi     %r3  %r3  3                   # !2445
+    flw      %f0  %sp  4                   # !2445
+    flw      %f3  %f0  2                   # !2445
+    flw      %f0  %sp  6                   # !2445
+    flw      %f1  %sp  7                   # !2445
+    flw      %f2  %sp  8                   # !2445
+    lw       %r27  %sp  2                  # !2445
+    movz     %r1  %r2  %zero               # !2445
+    movz     %r2  %r3  %zero               # !2445
+    sw       %ra  %sp  10                  # !2445
+    addi     %sp  %sp  11                  # !2445
+    lw       %r28  %r27  0                 # !2445
+    jalr     %r28                          # !2445
+    addi     %sp  %sp  -11                 # !2445
+    lw       %ra  %sp  10                  # !2445
+    lw       %r1  %sp  1                   # !2446
+    addi     %r1  %r1  3                   # !2446
+    lw       %r2  %sp  0                   # !2446
+    sw       %r1  %r2  0                   # !2446
+    jr       %ra                           # !2446
+setup_surface_reflection.2949:
+    lw       %r3  %r27  3                  # !2450
+    lw       %r4  %r27  2                  # !2450
+    lw       %r5  %r27  1                  # !2450
+    sll      %r1  %r1  2                   # !2451
+    addi     %r1  %r1  1                   # !2451
+    lw       %r6  %r3  0                   # !2452
+    flui     %f0  508                      # !2453
+    fli      %f0  0                        # !2453
     ++
     fli 1.000000
     => flui %f0 0b00111111100
        fli  %f0 0b000000000000000000000
     ++
-    sw %r3 %sp 0                           # !2391
-    sw %r1 %sp 1                           # !2391
-    sw %r6 %sp 2                           # !2391
-    sw %r5 %sp 3                           # !2391
-    sw %r4 %sp 4                           # !2391
-    sw %r2 %sp 5                           # !2391
-    fsw %f0 %sp 6                          # !2391
-    movz %r1 %r2 %zero                     # !2391
-    sw %ra %sp 7                           # !2391
-    addi %sp %sp 8                         # !2391
-    jal ~o_diffuse.2480                    # !2391
-    addi %sp %sp -8                        # !2391
-    lw %ra %sp 7                           # !2391
-    flw %f1 %sp 6                          # !2391
-    fsub %f0 %f1 %f0                       # !2391
-    lw %r1 %sp 5                           # !2392
-    fsw %f0 %sp 7                          # !2392
-    sw %ra %sp 8                           # !2392
-    addi %sp %sp 9                         # !2392
-    jal ~o_param_abc.2472                  # !2392
-    addi %sp %sp -9                        # !2392
-    lw %ra %sp 8                           # !2392
-    movz %r2 %r1 %zero                     # !2392
-    lw %r1 %sp 4                           # !2392
-    sw %ra %sp 8                           # !2392
-    addi %sp %sp 9                         # !2392
-    jal ~veciprod.2434                     # !2392
-    addi %sp %sp -9                        # !2392
-    lw %ra %sp 8                           # !2392
-    flui %f1 512                           # !2395
-    fli %f1 0                              # !2395
+    sw       %r3  %sp  0                   # !2453
+    sw       %r1  %sp  1                   # !2453
+    sw       %r6  %sp  2                   # !2453
+    sw       %r5  %sp  3                   # !2453
+    sw       %r4  %sp  4                   # !2453
+    sw       %r2  %sp  5                   # !2453
+    fsw      %f0  %sp  6                   # !2453
+    movz     %r1  %r2  %zero               # !2453
+    sw       %ra  %sp  7                   # !2453
+    addi     %sp  %sp  8                   # !2453
+    jal      ~o_diffuse.2547               # !2453
+    addi     %sp  %sp  -8                  # !2453
+    lw       %ra  %sp  7                   # !2453
+    flw      %f1  %sp  6                   # !2453
+    fsub     %f0  %f1  %f0                 # !2453
+    lw       %r1  %sp  5                   # !2454
+    fsw      %f0  %sp  7                   # !2454
+    sw       %ra  %sp  8                   # !2454
+    addi     %sp  %sp  9                   # !2454
+    jal      ~o_param_abc.2539             # !2454
+    addi     %sp  %sp  -9                  # !2454
+    lw       %ra  %sp  8                   # !2454
+    movz     %r2  %r1  %zero               # !2454
+    lw       %r1  %sp  4                   # !2454
+    sw       %ra  %sp  8                   # !2454
+    addi     %sp  %sp  9                   # !2454
+    jal      ~veciprod.2501                # !2454
+    addi     %sp  %sp  -9                  # !2454
+    lw       %ra  %sp  8                   # !2454
+    flui     %f1  512                      # !2457
+    fli      %f1  0                        # !2457
     ++
     fli 2.000000
     => flui %f1 0b01000000000
        fli  %f1 0b000000000000000000000
     ++
-    lw %r1 %sp 5                           # !2395
-    fsw %f0 %sp 8                          # !2395
-    fsw %f1 %sp 9                          # !2395
-    sw %ra %sp 10                          # !2395
-    addi %sp %sp 11                        # !2395
-    jal ~o_param_a.2466                    # !2395
-    addi %sp %sp -11                       # !2395
-    lw %ra %sp 10                          # !2395
-    flw %f1 %sp 9                          # !2395
-    fmul %f0 %f1 %f0                       # !2395
-    flw %f2 %sp 8                          # !2395
-    fmul %f0 %f0 %f2                       # !2395
-    flw %f3 %sp 4                          # !2395
-    flw %f4 %f3 0                          # !2395
-    fsub %f0 %f0 %f4                       # !2395
-    lw %r1 %sp 5                           # !2396
-    fsw %f0 %sp 10                         # !2396
-    sw %ra %sp 11                          # !2396
-    addi %sp %sp 12                        # !2396
-    jal ~o_param_b.2468                    # !2396
-    addi %sp %sp -12                       # !2396
-    lw %ra %sp 11                          # !2396
-    flw %f1 %sp 9                          # !2396
-    fmul %f0 %f1 %f0                       # !2396
-    flw %f2 %sp 8                          # !2396
-    fmul %f0 %f0 %f2                       # !2396
-    flw %f3 %sp 4                          # !2396
-    flw %f4 %f3 1                          # !2396
-    fsub %f0 %f0 %f4                       # !2396
-    lw %r1 %sp 5                           # !2397
-    fsw %f0 %sp 11                         # !2397
-    sw %ra %sp 12                          # !2397
-    addi %sp %sp 13                        # !2397
-    jal ~o_param_c.2470                    # !2397
-    addi %sp %sp -13                       # !2397
-    lw %ra %sp 12                          # !2397
-    flw %f1 %sp 9                          # !2397
-    fmul %f0 %f1 %f0                       # !2397
-    flw %f1 %sp 8                          # !2397
-    fmul %f0 %f0 %f1                       # !2397
-    flw %f1 %sp 4                          # !2397
-    flw %f1 %f1 2                          # !2397
-    fsub %f3 %f0 %f1                       # !2397
-    flw %f0 %sp 7                          # !2394
-    flw %f1 %sp 10                         # !2394
-    flw %f2 %sp 11                         # !2394
-    lw %r1 %sp 2                           # !2394
-    lw %r2 %sp 1                           # !2394
-    lw %r27 %sp 3                          # !2394
-    sw %ra %sp 12                          # !2394
-    addi %sp %sp 13                        # !2394
-    lw %r28 %r27 0                         # !2394
-    jalr %r28                              # !2394
-    addi %sp %sp -13                       # !2394
-    lw %ra %sp 12                          # !2394
-    lw %r1 %sp 2                           # !2398
-    addi %r1 %r1 1                         # !2398
-    lw %r2 %sp 0                           # !2398
-    sw %r1 %r2 0                           # !2398
-    jr %ra                                 # !2398
-setup_reflections.2885:
-    lw %r2 %r27 3                          # !2403
-    lw %r3 %r27 2                          # !2403
-    lw %r4 %r27 1                          # !2403
-    addi %r5 %zero 0                       # !2404
-    blt %r1 %r5 blt_then.8970              # !2404
-    lwv %r4 %r4 %r1                        # !2405
-    sw %r2 %sp 0                           # !2406
-    sw %r1 %sp 1                           # !2406
-    sw %r3 %sp 2                           # !2406
-    sw %r4 %sp 3                           # !2406
-    movz %r1 %r4 %zero                     # !2406
-    sw %ra %sp 4                           # !2406
-    addi %sp %sp 5                         # !2406
-    jal ~o_reflectiontype.2460             # !2406
-    addi %sp %sp -5                        # !2406
-    lw %ra %sp 4                           # !2406
-    addi %r2 %zero 2                       # !2406
-    beq %r1 %r2 beq_then.8971              # !2406
-    jr %ra                                 # !2416
-beq_then.8971:
-    flui %f0 508                           # !2407
-    fli %f0 0                              # !2407
+    lw       %r1  %sp  5                   # !2457
+    fsw      %f0  %sp  8                   # !2457
+    fsw      %f1  %sp  9                   # !2457
+    sw       %ra  %sp  10                  # !2457
+    addi     %sp  %sp  11                  # !2457
+    jal      ~o_param_a.2533               # !2457
+    addi     %sp  %sp  -11                 # !2457
+    lw       %ra  %sp  10                  # !2457
+    flw      %f1  %sp  9                   # !2457
+    fmul     %f0  %f1  %f0                 # !2457
+    flw      %f2  %sp  8                   # !2457
+    fmul     %f0  %f0  %f2                 # !2457
+    flw      %f3  %sp  4                   # !2457
+    flw      %f4  %f3  0                   # !2457
+    fsub     %f0  %f0  %f4                 # !2457
+    lw       %r1  %sp  5                   # !2458
+    fsw      %f0  %sp  10                  # !2458
+    sw       %ra  %sp  11                  # !2458
+    addi     %sp  %sp  12                  # !2458
+    jal      ~o_param_b.2535               # !2458
+    addi     %sp  %sp  -12                 # !2458
+    lw       %ra  %sp  11                  # !2458
+    flw      %f1  %sp  9                   # !2458
+    fmul     %f0  %f1  %f0                 # !2458
+    flw      %f2  %sp  8                   # !2458
+    fmul     %f0  %f0  %f2                 # !2458
+    flw      %f3  %sp  4                   # !2458
+    flw      %f4  %f3  1                   # !2458
+    fsub     %f0  %f0  %f4                 # !2458
+    lw       %r1  %sp  5                   # !2459
+    fsw      %f0  %sp  11                  # !2459
+    sw       %ra  %sp  12                  # !2459
+    addi     %sp  %sp  13                  # !2459
+    jal      ~o_param_c.2537               # !2459
+    addi     %sp  %sp  -13                 # !2459
+    lw       %ra  %sp  12                  # !2459
+    flw      %f1  %sp  9                   # !2459
+    fmul     %f0  %f1  %f0                 # !2459
+    flw      %f1  %sp  8                   # !2459
+    fmul     %f0  %f0  %f1                 # !2459
+    flw      %f1  %sp  4                   # !2459
+    flw      %f1  %f1  2                   # !2459
+    fsub     %f3  %f0  %f1                 # !2459
+    flw      %f0  %sp  7                   # !2456
+    flw      %f1  %sp  10                  # !2456
+    flw      %f2  %sp  11                  # !2456
+    lw       %r1  %sp  2                   # !2456
+    lw       %r2  %sp  1                   # !2456
+    lw       %r27  %sp  3                  # !2456
+    sw       %ra  %sp  12                  # !2456
+    addi     %sp  %sp  13                  # !2456
+    lw       %r28  %r27  0                 # !2456
+    jalr     %r28                          # !2456
+    addi     %sp  %sp  -13                 # !2456
+    lw       %ra  %sp  12                  # !2456
+    lw       %r1  %sp  2                   # !2460
+    addi     %r1  %r1  1                   # !2460
+    lw       %r2  %sp  0                   # !2460
+    sw       %r1  %r2  0                   # !2460
+    jr       %ra                           # !2460
+setup_reflections.2952:
+    lw       %r2  %r27  3                  # !2465
+    lw       %r3  %r27  2                  # !2465
+    lw       %r4  %r27  1                  # !2465
+    addi     %r5  %zero  0                 # !2466
+    blt      %r1  %r5  blt_then.9624       # !2466
+    lwv      %r4  %r4  %r1                 # !2467
+    sw       %r2  %sp  0                   # !2468
+    sw       %r1  %sp  1                   # !2468
+    sw       %r3  %sp  2                   # !2468
+    sw       %r5  %sp  3                   # !2468
+    sw       %r4  %sp  4                   # !2468
+    movz     %r1  %r4  %zero               # !2468
+    sw       %ra  %sp  5                   # !2468
+    addi     %sp  %sp  6                   # !2468
+    jal      ~o_reflectiontype.2527        # !2468
+    addi     %sp  %sp  -6                  # !2468
+    lw       %ra  %sp  5                   # !2468
+    addi     %r2  %zero  2                 # !2468
+    beq      %r1  %r2  beq_then.9625       # !2468
+    jr       %ra                           # !2478
+beq_then.9625:
+    lw       %r1  %sp  4                   # !2469
+    sw       %r2  %sp  5                   # !2469
+    sw       %ra  %sp  6                   # !2469
+    addi     %sp  %sp  7                   # !2469
+    jal      ~o_diffuse.2547               # !2469
+    addi     %sp  %sp  -7                  # !2469
+    lw       %ra  %sp  6                   # !2469
+    flui     %f1  508                      # !2469
+    fli      %f1  0                        # !2469
     ++
     fli 1.000000
-    => flui %f0 0b00111111100
-       fli  %f0 0b000000000000000000000
+    => flui %f1 0b00111111100
+       fli  %f1 0b000000000000000000000
     ++
-    lw %r1 %sp 3                           # !2407
-    sw %r2 %sp 4                           # !2407
-    fsw %f0 %sp 5                          # !2407
-    sw %ra %sp 6                           # !2407
-    addi %sp %sp 7                         # !2407
-    jal ~o_diffuse.2480                    # !2407
-    addi %sp %sp -7                        # !2407
-    lw %ra %sp 6                           # !2407
-    flw %f1 %sp 5                          # !2407
-    fblt %f0 %f1 fblt_then.8973            # !2407
-    jr %ra                                 # !2415
-fblt_then.8973:
-    lw %r1 %sp 3                           # !2408
-    sw %ra %sp 6                           # !2408
-    addi %sp %sp 7                         # !2408
-    jal ~o_form.2458                       # !2408
-    addi %sp %sp -7                        # !2408
-    lw %ra %sp 6                           # !2408
-    addi %r2 %zero 1                       # !2410
-    beq %r1 %r2 beq_then.8975              # !2410
-    lw %r2 %sp 4                           # !2412
-    beq %r1 %r2 beq_then.8976              # !2412
-    jr %ra                                 # !2414
-beq_then.8976:
-    lw %r1 %sp 1                           # !2413
-    lw %r2 %sp 3                           # !2413
-    lw %r27 %sp 0                          # !2413
-    lw %r28 %r27 0                         # !2413
-    jr %r28                                # !2413
-beq_then.8975:
-    lw %r1 %sp 1                           # !2411
-    lw %r2 %sp 3                           # !2411
-    lw %r27 %sp 2                          # !2411
-    lw %r28 %r27 0                         # !2411
-    jr %r28                                # !2411
-blt_then.8970:
-    jr %ra                                 # !2417
-rt.2887:
-    lw %r4 %r27 14                         # !2425
-    lw %r5 %r27 13                         # !2425
-    lw %r6 %r27 12                         # !2425
-    lw %r7 %r27 11                         # !2425
-    lw %r8 %r27 10                         # !2425
-    lw %r9 %r27 9                          # !2425
-    lw %r10 %r27 8                         # !2425
-    lw %r11 %r27 7                         # !2425
-    lw %r12 %r27 6                         # !2425
-    lw %r13 %r27 5                         # !2425
-    lw %r14 %r27 4                         # !2425
-    lw %r15 %r27 3                         # !2425
-    lw %r16 %r27 2                         # !2425
-    lw %r27 %r27 1                         # !2425
-    addi %r17 %zero 0                      # !2426
-    sw %r1 %r15 0                          # !2426
-    sw %r2 %r15 1                          # !2427
-    sra %r15 %r1 1                         # !2428
-    sw %r15 %r16 0                         # !2428
-    sra %r2 %r2 1                          # !2429
-    sw %r2 %r16 1                          # !2429
-    flui %f0 536                           # !2430
-    fli %f0 0                              # !2430
+    sw       %ra  %sp  6                   # !2469
+    addi     %sp  %sp  7                   # !2469
+    jal      ~min_caml_fless               # !2469
+    addi     %sp  %sp  -7                  # !2469
+    lw       %ra  %sp  6                   # !2469
+    lw       %r2  %sp  3                   # !2469
+    beq      %r1  %r2  beq_then.9627       # !2469
+    lw       %r1  %sp  4                   # !2470
+    sw       %ra  %sp  6                   # !2470
+    addi     %sp  %sp  7                   # !2470
+    jal      ~o_form.2525                  # !2470
+    addi     %sp  %sp  -7                  # !2470
+    lw       %ra  %sp  6                   # !2470
+    addi     %r2  %zero  1                 # !2472
+    beq      %r1  %r2  beq_then.9628       # !2472
+    lw       %r2  %sp  5                   # !2474
+    beq      %r1  %r2  beq_then.9629       # !2474
+    jr       %ra                           # !2476
+beq_then.9629:
+    lw       %r1  %sp  1                   # !2475
+    lw       %r2  %sp  4                   # !2475
+    lw       %r27  %sp  0                  # !2475
+    lw       %r28  %r27  0                 # !2475
+    jr       %r28                          # !2475
+beq_then.9628:
+    lw       %r1  %sp  1                   # !2473
+    lw       %r2  %sp  4                   # !2473
+    lw       %r27  %sp  2                  # !2473
+    lw       %r28  %r27  0                 # !2473
+    jr       %r28                          # !2473
+beq_then.9627:
+    jr       %ra                           # !2477
+blt_then.9624:
+    jr       %ra                           # !2479
+rt.2954:
+    lw       %r4  %r27  14                 # !2487
+    lw       %r5  %r27  13                 # !2487
+    lw       %r6  %r27  12                 # !2487
+    lw       %r7  %r27  11                 # !2487
+    lw       %r8  %r27  10                 # !2487
+    lw       %r9  %r27  9                  # !2487
+    lw       %r10  %r27  8                 # !2487
+    lw       %r11  %r27  7                 # !2487
+    lw       %r12  %r27  6                 # !2487
+    lw       %r13  %r27  5                 # !2487
+    lw       %r14  %r27  4                 # !2487
+    lw       %r15  %r27  3                 # !2487
+    lw       %r16  %r27  2                 # !2487
+    lw       %r17  %r27  1                 # !2487
+    addi     %r18  %zero  0                # !2488
+    sw       %r1  %r15  0                  # !2488
+    sw       %r2  %r15  1                  # !2489
+    sra      %r15  %r1  1                  # !2490
+    sw       %r15  %r16  0                 # !2490
+    sra      %r2  %r2  1                   # !2491
+    sw       %r2  %r16  1                  # !2491
+    flui     %f0  536                      # !2492
+    fli      %f0  0                        # !2492
     ++
     fli 128.000000
     => flui %f0 0b01000011000
        fli  %f0 0b000000000000000000000
     ++
-    itof %f1 %r1                           # !2430
-    fdiv %f0 %f0 %f1                       # !2430
-    fsw %f0 %r7 0                          # !2430
-    sw %r8 %sp 0                           # !2431
-    sw %r17 %sp 1                          # !2431
-    sw %r10 %sp 2                          # !2431
-    sw %r5 %sp 3                           # !2431
-    sw %r11 %sp 4                          # !2431
-    sw %r6 %sp 5                           # !2431
-    sw %r13 %sp 6                          # !2431
-    sw %r12 %sp 7                          # !2431
-    sw %r14 %sp 8                          # !2431
-    sw %r3 %sp 9                           # !2431
-    sw %r4 %sp 10                          # !2431
-    sw %r9 %sp 11                          # !2431
-    sw %r27 %sp 12                         # !2431
-    sw %ra %sp 13                          # !2431
-    addi %sp %sp 14                        # !2431
-    lw %r28 %r27 0                         # !2431
-    jalr %r28                              # !2431
-    addi %sp %sp -14                       # !2431
-    lw %ra %sp 13                          # !2431
-    lw %r27 %sp 12                         # !2432
-    sw %r1 %sp 13                          # !2432
-    sw %ra %sp 14                          # !2432
-    addi %sp %sp 15                        # !2432
-    lw %r28 %r27 0                         # !2432
-    jalr %r28                              # !2432
-    addi %sp %sp -15                       # !2432
-    lw %ra %sp 14                          # !2432
-    lw %r27 %sp 12                         # !2433
-    sw %r1 %sp 14                          # !2433
-    sw %ra %sp 15                          # !2433
-    addi %sp %sp 16                        # !2433
-    lw %r28 %r27 0                         # !2433
-    jalr %r28                              # !2433
-    addi %sp %sp -16                       # !2433
-    lw %ra %sp 15                          # !2433
-    lw %r27 %sp 11                         # !2434
-    sw %r1 %sp 15                          # !2434
-    sw %ra %sp 16                          # !2434
-    addi %sp %sp 17                        # !2434
-    lw %r28 %r27 0                         # !2434
-    jalr %r28                              # !2434
-    addi %sp %sp -17                       # !2434
-    lw %ra %sp 16                          # !2434
-    lw %r1 %sp 9                           # !2435
-    lw %r27 %sp 10                         # !2435
-    sw %ra %sp 16                          # !2435
-    addi %sp %sp 17                        # !2435
-    lw %r28 %r27 0                         # !2435
-    jalr %r28                              # !2435
-    addi %sp %sp -17                       # !2435
-    lw %ra %sp 16                          # !2435
-    lw %r27 %sp 8                          # !2436
-    sw %ra %sp 16                          # !2436
-    addi %sp %sp 17                        # !2436
-    lw %r28 %r27 0                         # !2436
-    jalr %r28                              # !2436
-    addi %sp %sp -17                       # !2436
-    lw %ra %sp 16                          # !2436
-    lw %r1 %sp 7                           # !2437
-    sw %ra %sp 16                          # !2437
-    addi %sp %sp 17                        # !2437
-    jal ~d_vec.2517                        # !2437
-    addi %sp %sp -17                       # !2437
-    lw %ra %sp 16                          # !2437
-    lw %r2 %sp 6                           # !2437
-    sw %ra %sp 16                          # !2437
-    addi %sp %sp 17                        # !2437
-    jal ~veccpy.2428                       # !2437
-    addi %sp %sp -17                       # !2437
-    lw %ra %sp 16                          # !2437
-    lw %r1 %sp 7                           # !2438
-    lw %r27 %sp 5                          # !2438
-    sw %ra %sp 16                          # !2438
-    addi %sp %sp 17                        # !2438
-    lw %r28 %r27 0                         # !2438
-    jalr %r28                              # !2438
-    addi %sp %sp -17                       # !2438
-    lw %ra %sp 16                          # !2438
-    lw %r1 %sp 4                           # !2439
-    lw %r1 %r1 0                           # !2439
-    addi %r1 %r1 -1                        # !2439
-    lw %r27 %sp 3                          # !2439
-    sw %ra %sp 16                          # !2439
-    addi %sp %sp 17                        # !2439
-    lw %r28 %r27 0                         # !2439
-    jalr %r28                              # !2439
-    addi %sp %sp -17                       # !2439
-    lw %ra %sp 16                          # !2439
-    lw %r1 %sp 14                          # !2440
-    lw %r2 %sp 1                           # !2440
-    lw %r27 %sp 2                          # !2440
-    movz %r3 %r2 %zero                     # !2440
-    sw %ra %sp 16                          # !2440
-    addi %sp %sp 17                        # !2440
-    lw %r28 %r27 0                         # !2440
-    jalr %r28                              # !2440
-    addi %sp %sp -17                       # !2440
-    lw %ra %sp 16                          # !2440
-    addi %r5 %zero 2                       # !2441
-    lw %r1 %sp 1                           # !2441
-    lw %r2 %sp 13                          # !2441
-    lw %r3 %sp 14                          # !2441
-    lw %r4 %sp 15                          # !2441
-    lw %r6 %sp 9                           # !2441
-    lw %r27 %sp 0                          # !2441
-    lw %r28 %r27 0                         # !2441
-    jr %r28                                # !2441
+    sw       %r8  %sp  0                   # !2492
+    sw       %r18  %sp  1                  # !2492
+    sw       %r10  %sp  2                  # !2492
+    sw       %r5  %sp  3                   # !2492
+    sw       %r11  %sp  4                  # !2492
+    sw       %r6  %sp  5                   # !2492
+    sw       %r13  %sp  6                  # !2492
+    sw       %r12  %sp  7                  # !2492
+    sw       %r14  %sp  8                  # !2492
+    sw       %r3  %sp  9                   # !2492
+    sw       %r4  %sp  10                  # !2492
+    sw       %r9  %sp  11                  # !2492
+    sw       %r17  %sp  12                 # !2492
+    sw       %r7  %sp  13                  # !2492
+    fsw      %f0  %sp  14                  # !2492
+    sw       %ra  %sp  15                  # !2492
+    addi     %sp  %sp  16                  # !2492
+    jal      ~min_caml_float_of_int        # !2492
+    addi     %sp  %sp  -16                 # !2492
+    lw       %ra  %sp  15                  # !2492
+    flw      %f1  %sp  14                  # !2492
+    fdiv     %f0  %f1  %f0                 # !2492
+    lw       %r1  %sp  13                  # !2492
+    fsw      %f0  %r1  0                   # !2492
+    lw       %r27  %sp  12                 # !2493
+    sw       %ra  %sp  15                  # !2493
+    addi     %sp  %sp  16                  # !2493
+    lw       %r28  %r27  0                 # !2493
+    jalr     %r28                          # !2493
+    addi     %sp  %sp  -16                 # !2493
+    lw       %ra  %sp  15                  # !2493
+    lw       %r27  %sp  12                 # !2494
+    sw       %r1  %sp  15                  # !2494
+    sw       %ra  %sp  16                  # !2494
+    addi     %sp  %sp  17                  # !2494
+    lw       %r28  %r27  0                 # !2494
+    jalr     %r28                          # !2494
+    addi     %sp  %sp  -17                 # !2494
+    lw       %ra  %sp  16                  # !2494
+    lw       %r27  %sp  12                 # !2495
+    sw       %r1  %sp  16                  # !2495
+    sw       %ra  %sp  17                  # !2495
+    addi     %sp  %sp  18                  # !2495
+    lw       %r28  %r27  0                 # !2495
+    jalr     %r28                          # !2495
+    addi     %sp  %sp  -18                 # !2495
+    lw       %ra  %sp  17                  # !2495
+    lw       %r27  %sp  11                 # !2496
+    sw       %r1  %sp  17                  # !2496
+    sw       %ra  %sp  18                  # !2496
+    addi     %sp  %sp  19                  # !2496
+    lw       %r28  %r27  0                 # !2496
+    jalr     %r28                          # !2496
+    addi     %sp  %sp  -19                 # !2496
+    lw       %ra  %sp  18                  # !2496
+    lw       %r1  %sp  9                   # !2497
+    lw       %r27  %sp  10                 # !2497
+    sw       %ra  %sp  18                  # !2497
+    addi     %sp  %sp  19                  # !2497
+    lw       %r28  %r27  0                 # !2497
+    jalr     %r28                          # !2497
+    addi     %sp  %sp  -19                 # !2497
+    lw       %ra  %sp  18                  # !2497
+    lw       %r27  %sp  8                  # !2498
+    sw       %ra  %sp  18                  # !2498
+    addi     %sp  %sp  19                  # !2498
+    lw       %r28  %r27  0                 # !2498
+    jalr     %r28                          # !2498
+    addi     %sp  %sp  -19                 # !2498
+    lw       %ra  %sp  18                  # !2498
+    lw       %r1  %sp  7                   # !2499
+    sw       %ra  %sp  18                  # !2499
+    addi     %sp  %sp  19                  # !2499
+    jal      ~d_vec.2584                   # !2499
+    addi     %sp  %sp  -19                 # !2499
+    lw       %ra  %sp  18                  # !2499
+    lw       %r2  %sp  6                   # !2499
+    sw       %ra  %sp  18                  # !2499
+    addi     %sp  %sp  19                  # !2499
+    jal      ~veccpy.2495                  # !2499
+    addi     %sp  %sp  -19                 # !2499
+    lw       %ra  %sp  18                  # !2499
+    lw       %r1  %sp  7                   # !2500
+    lw       %r27  %sp  5                  # !2500
+    sw       %ra  %sp  18                  # !2500
+    addi     %sp  %sp  19                  # !2500
+    lw       %r28  %r27  0                 # !2500
+    jalr     %r28                          # !2500
+    addi     %sp  %sp  -19                 # !2500
+    lw       %ra  %sp  18                  # !2500
+    lw       %r1  %sp  4                   # !2501
+    lw       %r1  %r1  0                   # !2501
+    addi     %r1  %r1  -1                  # !2501
+    lw       %r27  %sp  3                  # !2501
+    sw       %ra  %sp  18                  # !2501
+    addi     %sp  %sp  19                  # !2501
+    lw       %r28  %r27  0                 # !2501
+    jalr     %r28                          # !2501
+    addi     %sp  %sp  -19                 # !2501
+    lw       %ra  %sp  18                  # !2501
+    lw       %r1  %sp  16                  # !2502
+    lw       %r2  %sp  1                   # !2502
+    lw       %r27  %sp  2                  # !2502
+    movz     %r3  %r2  %zero               # !2502
+    sw       %ra  %sp  18                  # !2502
+    addi     %sp  %sp  19                  # !2502
+    lw       %r28  %r27  0                 # !2502
+    jalr     %r28                          # !2502
+    addi     %sp  %sp  -19                 # !2502
+    lw       %ra  %sp  18                  # !2502
+    addi     %r5  %zero  2                 # !2503
+    lw       %r1  %sp  1                   # !2503
+    lw       %r2  %sp  15                  # !2503
+    lw       %r3  %sp  16                  # !2503
+    lw       %r4  %sp  17                  # !2503
+    lw       %r6  %sp  9                   # !2503
+    lw       %r27  %sp  0                  # !2503
+    lw       %r28  %r27  0                 # !2503
+    jr       %r28                          # !2503

@@ -97,7 +97,7 @@ rule token = parse
     { LESS_MINUS }
 | ';'
     { SEMICOLON }
-| "fequal"
+(* | "fequal"
     { FEQUAL }
 | "fless"
     { FLESS }
@@ -130,7 +130,7 @@ rule token = parse
 | "read_float"
     { READ_FLOAT }
 | "read_int"
-    { READ_INT }
+    { READ_INT } *)
 | eof
     { EOF }
 (* | lower (digit|lower|upper|'_')* 
