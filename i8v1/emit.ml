@@ -111,8 +111,8 @@ and g' oc (dest, e) = (* 各命令のアセンブリ生成 (caml2html: emit_gpri
   | NonTail(x), Li(i) -> (* iが16bitで表せないとき *)
       let bits = Int32.of_int i in
       let h, l = divide_imm bits in
-      print_inst oc "li" [x; Int32.to_string h] e.loc;
-      print_inst oc "lui" [x; Int32.to_string l] e.loc;
+      print_inst oc "li" [x; Int32.to_string l] e.loc;
+      print_inst oc "lui" [x; Int32.to_string h] e.loc;
       print_block_comment oc [
         Printf.sprintf "li %d" i;
         Printf.sprintf "=> li  %s 0b%s" x (String.sub (int32_to_bitstring l) 11 21);
