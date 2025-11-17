@@ -4,17 +4,23 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    addi     %r1  %zero  30                # !66
-    sw       %ra  %sp  0                   # !66
-    addi     %sp  %sp  -1                  # !66
-    jal      ~fib.87                       # !66
-    addi     %sp  %sp  1                   # !66
-    lw       %ra  %sp  0                   # !66
-    sw       %ra  %sp  0                   # !66
-    addi     %sp  %sp  -1                  # !66
-    jal      ~min_caml_print_int           # !66
-    addi     %sp  %sp  1                   # !66
-    lw       %ra  %sp  0                   # !66
+    lui      %r1  -1                       # !4
+    li       %r1  -8                       # !4
+    ++
+    li 4294967288
+    => lui %r1 0b11111111111
+       li  %r1 0b111111111111111111000
+    ++
+    addi     %r2  %zero  30                # !4
+    sw       %r1  %sp  0                   # !4
+    movz     %r1  %r2  %zero               # !4
+    sw       %ra  %sp  -1                  # !4
+    addi     %sp  %sp  -2                  # !4
+    jal      ~fib.12                       # !4
+    addi     %sp  %sp  2                   # !4
+    lw       %ra  %sp  -1                  # !4
+    lw       %r2  %sp  0                   # !4
+    sw       %r1  %r2  0                   # !4
     j        ~inf_loop                     # !0
 inf_loop:
     j        ~inf_loop                     # !0
@@ -22,68 +28,28 @@ inf_loop:
 ++
 These are function definitions.
 ++
-fib.87:
-    addi     %r2  %zero  1                 # !64
-    blt      %r2  %r1  blt_then.192        # !64
-    jr       %ra                           # !64
-blt_then.192:
-    addi     %r2  %r1  -1                  # !65
-    sw       %r1  %sp  0                   # !65
-    movz     %r1  %r2  %zero               # !65
-    sw       %ra  %sp  -1                  # !65
-    addi     %sp  %sp  -2                  # !65
-    jal      ~fib.87                       # !65
-    addi     %sp  %sp  2                   # !65
-    lw       %ra  %sp  -1                  # !65
-    lw       %r2  %sp  0                   # !65
-    addi     %r2  %r2  -2                  # !65
-    sw       %r1  %sp  -1                  # !65
-    movz     %r1  %r2  %zero               # !65
-    sw       %ra  %sp  -2                  # !65
-    addi     %sp  %sp  -3                  # !65
-    jal      ~fib.87                       # !65
-    addi     %sp  %sp  3                   # !65
-    lw       %ra  %sp  -2                  # !65
-    lw       %r2  %sp  -1                  # !65
-    add      %r1  %r2  %r1                 # !65
-    jr       %ra                           # !65
-++
-Array routines for the i8v1 architecture.
-++
-min_caml_create_array:
-    sw       %ra  %sp  0
-    sw       %r1  %sp  -1
-    addi     %sp  %sp  -2
-    jal      ~create_array_loop
-    addi     %sp  %sp  2
-    lw       %ra  %sp  0
-    lw       %r2  %sp  -1
-    movz     %r1  %hp  %zero
-    add      %hp  %hp  %r2
-    jr       %ra
-create_array_loop:
-    blt      %zero  %r1  create_array_loop_blt_then
-    jr       %ra
-create_array_loop_blt_then:
-    addi     %r1  %r1  -1
-    swv      %r2  %hp  %r1
-    j        ~create_array_loop
-
-min_caml_create_float_array:
-    sw       %ra  %sp  0
-    sw       %r1  %sp  -1
-    addi     %sp  %sp  -2
-    jal      ~create_float_array_loop
-    addi     %sp  %sp  2
-    lw       %ra  %sp  0
-    lw       %r2  %sp  -1
-    movz     %r1  %hp  %zero
-    add      %hp  %hp  %r2
-    jr       %ra
-create_float_array_loop:
-    blt      %zero  %r1  create_float_array_loop_blt_then
-    jr       %ra
-create_float_array_loop_blt_then:
-    addi     %r1  %r1  -1
-    fswv     %f0  %hp  %r1
-    j        ~create_float_array_loop
+fib.12:
+    addi     %r2  %zero  1                 # !2
+    blt      %r2  %r1  blt_then.29         # !2
+    jr       %ra                           # !2
+blt_then.29:
+    addi     %r2  %r1  -1                  # !3
+    sw       %r1  %sp  0                   # !3
+    movz     %r1  %r2  %zero               # !3
+    sw       %ra  %sp  -1                  # !3
+    addi     %sp  %sp  -2                  # !3
+    jal      ~fib.12                       # !3
+    addi     %sp  %sp  2                   # !3
+    lw       %ra  %sp  -1                  # !3
+    lw       %r2  %sp  0                   # !3
+    addi     %r2  %r2  -2                  # !3
+    sw       %r1  %sp  -1                  # !3
+    movz     %r1  %r2  %zero               # !3
+    sw       %ra  %sp  -2                  # !3
+    addi     %sp  %sp  -3                  # !3
+    jal      ~fib.12                       # !3
+    addi     %sp  %sp  3                   # !3
+    lw       %ra  %sp  -2                  # !3
+    lw       %r2  %sp  -1                  # !3
+    add      %r1  %r2  %r1                 # !3
+    jr       %ra                           # !3

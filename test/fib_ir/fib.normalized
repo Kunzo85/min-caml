@@ -1,337 +1,40 @@
-(LetRec fmod:(Float -> Float -> Float) x:Float y:Float =
-  (Let Td3:Float =
-    (Let Td2:Float =
-      (Let Td1:Float =
-        (FDiv x y)
-      In
-      floor Td1)
-    In
-    (FMul Td2 y))
-  In
-  (FSub x Td3))
-In
-(LetRec reduce_to_pi:(Float -> Float) x:Float =
-  (Let pi:Float =
-    3.14159265359
-  In
-  (Let two_pi:Float =
-    (Let Td4:Float =
-      2.
-    In
-    (FMul Td4 pi))
-  In
-  (Let r:Float =
-    (fmod x two_pi)
-  In
-  (If (LE r pi) Then
-    (Let Td5:Float =
-      (FNeg pi)
-    In
-    (If (LE Td5 r) Then
-      r
-    Else
-      (FAdd r two_pi)))
-  Else
-    (FSub r two_pi)))))
-In
-(LetRec sin:(Float -> Float) x:Float =
-  (Let pi:Float =
-    3.14159265359
-  In
-  (Let half_pi:Float =
-    (Let Td6:Float =
-      0.5
-    In
-    (FMul Td6 pi))
-  In
-  (Let x:Float =
-    (reduce_to_pi x)
-  In
-  (Let x:Float =
-    (If (LE x half_pi) Then
-      (Let Td7:Float =
-        (FNeg half_pi)
-      In
-      (If (LE Td7 x) Then
-        x
-      Else
-        (Let Td8:Float =
-          (FNeg pi)
-        In
-        (FSub Td8 x))))
-    Else
-      (FSub pi x))
-  In
-  (Let x2:Float =
-    (FMul x x)
-  In
-  (Let a3:Float =
-    (Let Td10:Float =
-      (Let Td9:Float =
-        1.
-      In
-      (FNeg Td9))
-    In
-    (Let Td11:Float =
-      6.
-    In
-    (FDiv Td10 Td11)))
-  In
-  (Let a5:Float =
-    (Let Td12:Float =
-      1.
-    In
-    (Let Td13:Float =
-      120.
-    In
-    (FDiv Td12 Td13)))
-  In
-  (Let a7:Float =
-    (Let Td15:Float =
-      (Let Td14:Float =
-        1.
-      In
-      (FNeg Td14))
-    In
-    (Let Td16:Float =
-      5040.
-    In
-    (FDiv Td15 Td16)))
-  In
-  (Let a9:Float =
-    (Let Td17:Float =
-      1.
-    In
-    (Let Td18:Float =
-      362880.
-    In
-    (FDiv Td17 Td18)))
-  In
-  (Let a11:Float =
-    (Let Td20:Float =
-      (Let Td19:Float =
-        1.
-      In
-      (FNeg Td19))
-    In
-    (Let Td21:Float =
-      39916800.
-    In
-    (FDiv Td20 Td21)))
-  In
-  (Let Td31:Float =
-    (Let Td22:Float =
-      (FMul x x2)
-    In
-    (Let Td30:Float =
-      (Let Td29:Float =
-        (Let Td28:Float =
-          (Let Td27:Float =
-            (Let Td26:Float =
-              (Let Td25:Float =
-                (Let Td24:Float =
-                  (Let Td23:Float =
-                    (FMul x2 a11)
-                  In
-                  (FAdd a9 Td23))
-                In
-                (FMul x2 Td24))
-              In
-              (FAdd a7 Td25))
-            In
-            (FMul x2 Td26))
-          In
-          (FAdd a5 Td27))
-        In
-        (FMul x2 Td28))
-      In
-      (FAdd a3 Td29))
-    In
-    (FMul Td22 Td30)))
-  In
-  (FAdd x Td31))))))))))))
-In
-(LetRec cos:(Float -> Float) x:Float =
-  (Let pi:Float =
-    3.14159265359
-  In
-  (Let half_pi:Float =
-    (Let Td32:Float =
-      0.5
-    In
-    (FMul Td32 pi))
-  In
-  (Let Td33:Float =
-    (FSub half_pi x)
-  In
-  (sin Td33))))
-In
-(LetRec atan:(Float -> Float) x:Float =
-  (Let pi:Float =
-    3.14159265359
-  In
-  (Let half_pi:Float =
-    (Let Td34:Float =
-      0.5
-    In
-    (FMul Td34 pi))
-  In
-  (LetRec atan_poly:(Float -> Float) x:Float =
-    (Let x2:Float =
-      (FMul x x)
-    In
-    (Let a3:Float =
-      (Let Td36:Float =
-        (Let Td35:Float =
-          1.
-        In
-        (FNeg Td35))
-      In
-      (Let Td37:Float =
-        3.
-      In
-      (FDiv Td36 Td37)))
-    In
-    (Let a5:Float =
-      (Let Td38:Float =
-        1.
-      In
-      (Let Td39:Float =
-        5.
-      In
-      (FDiv Td38 Td39)))
-    In
-    (Let a7:Float =
-      (Let Td41:Float =
-        (Let Td40:Float =
-          1.
-        In
-        (FNeg Td40))
-      In
-      (Let Td42:Float =
-        7.
-      In
-      (FDiv Td41 Td42)))
-    In
-    (Let a9:Float =
-      (Let Td43:Float =
-        1.
-      In
-      (Let Td44:Float =
-        9.
-      In
-      (FDiv Td43 Td44)))
-    In
-    (Let a11:Float =
-      (Let Td46:Float =
-        (Let Td45:Float =
-          1.
-        In
-        (FNeg Td45))
-      In
-      (Let Td47:Float =
-        11.
-      In
-      (FDiv Td46 Td47)))
-    In
-    (Let Td57:Float =
-      (Let Td48:Float =
-        (FMul x x2)
-      In
-      (Let Td56:Float =
-        (Let Td55:Float =
-          (Let Td54:Float =
-            (Let Td53:Float =
-              (Let Td52:Float =
-                (Let Td51:Float =
-                  (Let Td50:Float =
-                    (Let Td49:Float =
-                      (FMul x2 a11)
-                    In
-                    (FAdd a9 Td49))
-                  In
-                  (FMul x2 Td50))
-                In
-                (FAdd a7 Td51))
-              In
-              (FMul x2 Td52))
-            In
-            (FAdd a5 Td53))
-          In
-          (FMul x2 Td54))
-        In
-        (FAdd a3 Td55))
-      In
-      (FMul Td48 Td56)))
-    In
-    (FAdd x Td57))))))))
-  In
-  (Let Td58:Float =
-    1.
-  In
-  (If (LE x Td58) Then
-    (Let Td59:Float =
-      -1.
-    In
-    (If (LE Td59 x) Then
-      (atan_poly x)
-    Else
-      (Let Td60:Float =
-        (FNeg half_pi)
-      In
-      (Let Td63:Float =
-        (Let Td62:Float =
-          (Let Td61:Float =
-            1.
-          In
-          (FDiv Td61 x))
-        In
-        (atan_poly Td62))
-      In
-      (FSub Td60 Td63)))))
-  Else
-    (Let Td66:Float =
-      (Let Td65:Float =
-        (Let Td64:Float =
-          1.
-        In
-        (FDiv Td64 x))
-      In
-      (atan_poly Td65))
-    In
-    (FSub half_pi Td66)))))))
-In
 (LetRec fib:(Int -> Int) n:Int =
-  (Let Ti67:Int =
+  (Let Ti1:Int =
     1
   In
-  (If (LE n Ti67) Then
+  (If (LE n Ti1) Then
     n
   Else
-    (Let Ti70:Int =
-      (Let Ti69:Int =
-        (Let Ti68:Int =
+    (Let Ti4:Int =
+      (Let Ti3:Int =
+        (Let Ti2:Int =
           1
         In
-        (Sub n Ti68))
+        (Sub n Ti2))
       In
-      (fib Ti69))
+      (fib Ti3))
     In
-    (Let Ti73:Int =
-      (Let Ti72:Int =
-        (Let Ti71:Int =
+    (Let Ti7:Int =
+      (Let Ti6:Int =
+        (Let Ti5:Int =
           2
         In
-        (Sub n Ti71))
+        (Sub n Ti5))
       In
-      (fib Ti72))
+      (fib Ti6))
     In
-    (Add Ti70 Ti73)))))
+    (Add Ti4 Ti7)))))
 In
-(Let Ti75:Int =
-  (Let Ti74:Int =
+(Let Ta8:Array(Int) =
+  (Ext_Array io_int)
+In
+(Let Ti9:Int =
+  0
+In
+(Let Ti11:Int =
+  (Let Ti10:Int =
     30
   In
-  (fib Ti74))
+  (fib Ti10))
 In
-print_int Ti75)))))))
+(Ta8.(Ti9) <- Ti11)))))

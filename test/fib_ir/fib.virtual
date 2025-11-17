@@ -1,34 +1,40 @@
 Toplevel Functions:
-Function fib.87 Args(n.88) FArgs() Ret:Int =
-  (Let Ti67.91:Int =
+Function fib.12 Args(n.13) FArgs() Ret:Int =
+  (Let Ti1.18:Int =
     Li(1)
   In
-  (IfLE n.88 Ti67.91 Then
-    Mr(n.88)
+  (IfLE n.13 Ti1.18 Then
+    Mr(n.13)
   Else
-    (Let Ti69.96:Int =
-      Sub(n.88, Ti67.91)
+    (Let Ti3.23:Int =
+      Sub(n.13, Ti1.18)
     In
-    (Let Ti70.92:Int =
-      CallDir(fib.87, [Ti69.96], [])
+    (Let Ti4.19:Int =
+      CallDir(fib.12, [Ti3.23], [])
     In
-    (Let Ti71.95:Int =
+    (Let Ti5.22:Int =
       Li(2)
     In
-    (Let Ti72.94:Int =
-      Sub(n.88, Ti71.95)
+    (Let Ti6.21:Int =
+      Sub(n.13, Ti5.22)
     In
-    (Let Ti73.93:Int =
-      CallDir(fib.87, [Ti72.94], [])
+    (Let Ti7.20:Int =
+      CallDir(fib.12, [Ti6.21], [])
     In
-    Add(Ti70.92, Ti73.93))))))))
+    Add(Ti4.19, Ti7.20))))))))
 
 Main Expression:
-(Let Ti74.90:Int =
+(Let Ta8.14:Array(Int) =
+  Li(4294967288)
+In
+(Let Ti9.15:Int =
+  Li(0)
+In
+(Let Ti10.17:Int =
   Li(30)
 In
-(Let Ti75.89:Int =
-  CallDir(fib.87, [Ti74.90], [])
+(Let Ti11.16:Int =
+  CallDir(fib.12, [Ti10.17], [])
 In
-CallDir(min_caml_print_int, [Ti75.89], [])))
+Store(Ti11.16, Ta8.14, Ti9.15)))))
 

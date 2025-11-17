@@ -58,5 +58,12 @@ let rec atan x =
   else atan_poly x
 in
 
+(* let rec floor x =
+  let xi = int_of_float x in
+  let xf = float_of_int xi in
+  if xf > x then float_of_int (xi - 1)
+  else xf
+in *)
+
 (**************** ここまで外部ライブラリ ****************)
 

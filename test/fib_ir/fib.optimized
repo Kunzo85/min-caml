@@ -1,31 +1,37 @@
-(LetRec fib.87:(Int -> Int) n.88:Int =
-  (Let Ti67.91:Int =
+(LetRec fib.12:(Int -> Int) n.13:Int =
+  (Let Ti1.18:Int =
     1
   In
-  (If (LE n.88 Ti67.91) Then
-    n.88
+  (If (LE n.13 Ti1.18) Then
+    n.13
   Else
-    (Let Ti69.96:Int =
-      (Sub n.88 Ti67.91)
+    (Let Ti3.23:Int =
+      (Sub n.13 Ti1.18)
     In
-    (Let Ti70.92:Int =
-      (fib.87 Ti69.96)
+    (Let Ti4.19:Int =
+      (fib.12 Ti3.23)
     In
-    (Let Ti71.95:Int =
+    (Let Ti5.22:Int =
       2
     In
-    (Let Ti72.94:Int =
-      (Sub n.88 Ti71.95)
+    (Let Ti6.21:Int =
+      (Sub n.13 Ti5.22)
     In
-    (Let Ti73.93:Int =
-      (fib.87 Ti72.94)
+    (Let Ti7.20:Int =
+      (fib.12 Ti6.21)
     In
-    (Add Ti70.92 Ti73.93))))))))
+    (Add Ti4.19 Ti7.20))))))))
 In
-(Let Ti74.90:Int =
+(Let Ta8.14:Array(Int) =
+  (Ext_Array io_int)
+In
+(Let Ti9.15:Int =
+  0
+In
+(Let Ti10.17:Int =
   30
 In
-(Let Ti75.89:Int =
-  (fib.87 Ti74.90)
+(Let Ti11.16:Int =
+  (fib.12 Ti10.17)
 In
-print_int Ti75.89)))
+(Ta8.14.(Ti9.15) <- Ti11.16))))))

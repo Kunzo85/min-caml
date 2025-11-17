@@ -1,5 +1,5 @@
 Toplevel Functions:
-Function fib.87 Args(%r1) FArgs() Ret:Int =
+Function fib.12 Args(%r1) FArgs() Ret:Int =
   (Let %r2:Int =
     Li(1)
   In
@@ -9,35 +9,44 @@ Function fib.87 Args(%r1) FArgs() Ret:Int =
     (Let %r2:Int =
       Add(%r1, -1)
     In
-    (Let Tu189:Unit =
-      Save(%r1, n.88)
+    (Let Tu25:Unit =
+      Save(%r1, n.13)
     In
     (Let %r1:Int =
-      CallDir(fib.87, [%r2], [])
+      CallDir(fib.12, [%r2], [])
     In
     (Let %r2:Int =
-      Restore(n.88)
+      Restore(n.13)
     In
     (Let %r2:Int =
       Add(%r2, -2)
     In
-    (Let Tu190:Unit =
-      Save(%r1, Ti70.92)
+    (Let Tu26:Unit =
+      Save(%r1, Ti4.19)
     In
     (Let %r1:Int =
-      CallDir(fib.87, [%r2], [])
+      CallDir(fib.12, [%r2], [])
     In
     (Let %r2:Int =
-      Restore(Ti70.92)
+      Restore(Ti4.19)
     In
     Add(%r2, %r1)))))))))))
 
 Main Expression:
-(Let %r1:Int =
+(Let %r1:Array(Int) =
+  Li(4294967288)
+In
+(Let %r2:Int =
   Li(30)
 In
-(Let %r1:Int =
-  CallDir(fib.87, [%r1], [])
+(Let Tu28:Unit =
+  Save(%r1, Ta8.14)
 In
-CallDir(min_caml_print_int, [%r1], [])))
+(Let %r1:Int =
+  CallDir(fib.12, [%r2], [])
+In
+(Let %r2:Int =
+  Restore(Ta8.14)
+In
+Store(%r1, %r2, 0))))))
 
