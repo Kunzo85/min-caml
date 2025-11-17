@@ -257,29 +257,35 @@ In
         atan_poly
         x))))))
 In
-(LetRec fib:Var(?) n:Var(?) =
-  (If
-    (LE
-      n
-      1)
-  Then
-    n
-  Else
-    (Add
-      (App
-        fib
-        (Sub
-          n
-          1))
-      (App
-        fib
-        (Sub
-          n
-          2))))
+(LetRec f:Var(?) x:Var(?) =
+  (Add
+    x
+    1)
+In
+(Let a:Var(?) =
+  (App
+    f
+    10)
+In
+(LetRec g:Var(?) x:Var(?) =
+  (Add
+    x
+    a)
+In
+(LetRec h:Var(?) x:Var(?) =
+  (App
+    g
+    (App
+      f
+      x))
 In
 (Put
   io_int
   0
-  (App
-    fib
-    10))))))))
+  (Add
+    (App
+      h
+      5)
+    (App
+      g
+      10))))))))))))

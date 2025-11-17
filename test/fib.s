@@ -4,23 +4,23 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    lui      %r1  -1                       # !4
-    li       %r1  -8                       # !4
+    li       %r1  -8                       # !73
+    lui      %r1  -1                       # !73
     ++
     li 4294967288
-    => lui %r1 0b11111111111
-       li  %r1 0b111111111111111111000
+    => li  %r1 0b111111111111111111000
+       lui %r1 0b11111111111
     ++
-    addi     %r2  %zero  30                # !4
-    sw       %r1  %sp  0                   # !4
-    movz     %r1  %r2  %zero               # !4
-    sw       %ra  %sp  -1                  # !4
-    addi     %sp  %sp  -2                  # !4
-    jal      ~fib.12                       # !4
-    addi     %sp  %sp  2                   # !4
-    lw       %ra  %sp  -1                  # !4
-    lw       %r2  %sp  0                   # !4
-    sw       %r1  %r2  0                   # !4
+    addi     %r2  %zero  10                # !73
+    sw       %r1  %sp  0                   # !73
+    movz     %r1  %r2  %zero               # !73
+    sw       %ra  %sp  -1                  # !73
+    addi     %sp  %sp  -2                  # !73
+    jal      ~fib.89                       # !73
+    addi     %sp  %sp  2                   # !73
+    lw       %ra  %sp  -1                  # !73
+    lw       %r2  %sp  0                   # !73
+    sw       %r1  %r2  0                   # !73
     j        ~inf_loop                     # !0
 inf_loop:
     j        ~inf_loop                     # !0
@@ -28,28 +28,68 @@ inf_loop:
 ++
 These are function definitions.
 ++
-fib.12:
-    addi     %r2  %zero  1                 # !2
-    blt      %r2  %r1  blt_then.29         # !2
-    jr       %ra                           # !2
-blt_then.29:
-    addi     %r2  %r1  -1                  # !3
-    sw       %r1  %sp  0                   # !3
-    movz     %r1  %r2  %zero               # !3
-    sw       %ra  %sp  -1                  # !3
-    addi     %sp  %sp  -2                  # !3
-    jal      ~fib.12                       # !3
-    addi     %sp  %sp  2                   # !3
-    lw       %ra  %sp  -1                  # !3
-    lw       %r2  %sp  0                   # !3
-    addi     %r2  %r2  -2                  # !3
-    sw       %r1  %sp  -1                  # !3
-    movz     %r1  %r2  %zero               # !3
-    sw       %ra  %sp  -2                  # !3
-    addi     %sp  %sp  -3                  # !3
-    jal      ~fib.12                       # !3
-    addi     %sp  %sp  3                   # !3
-    lw       %ra  %sp  -2                  # !3
-    lw       %r2  %sp  -1                  # !3
-    add      %r1  %r2  %r1                 # !3
-    jr       %ra                           # !3
+fib.89:
+    addi     %r2  %zero  1                 # !71
+    blt      %r2  %r1  blt_then.197        # !71
+    jr       %ra                           # !71
+blt_then.197:
+    addi     %r2  %r1  -1                  # !72
+    sw       %r1  %sp  0                   # !72
+    movz     %r1  %r2  %zero               # !72
+    sw       %ra  %sp  -1                  # !72
+    addi     %sp  %sp  -2                  # !72
+    jal      ~fib.89                       # !72
+    addi     %sp  %sp  2                   # !72
+    lw       %ra  %sp  -1                  # !72
+    lw       %r2  %sp  0                   # !72
+    addi     %r2  %r2  -2                  # !72
+    sw       %r1  %sp  -1                  # !72
+    movz     %r1  %r2  %zero               # !72
+    sw       %ra  %sp  -2                  # !72
+    addi     %sp  %sp  -3                  # !72
+    jal      ~fib.89                       # !72
+    addi     %sp  %sp  3                   # !72
+    lw       %ra  %sp  -2                  # !72
+    lw       %r2  %sp  -1                  # !72
+    add      %r1  %r2  %r1                 # !72
+    jr       %ra                           # !72
+++
+Array routines for the i8v1 architecture.
+++
+min_caml_create_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_array_loop:
+    blt      %zero  %r1  create_array_loop_blt_then
+    jr       %ra
+create_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    swv      %r2  %hp  %r1
+    j        ~create_array_loop
+
+min_caml_create_float_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_float_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_float_array_loop:
+    blt      %zero  %r1  create_float_array_loop_blt_then
+    jr       %ra
+create_float_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    fswv     %f0  %hp  %r1
+    j        ~create_float_array_loop

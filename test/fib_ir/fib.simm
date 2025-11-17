@@ -1,34 +1,34 @@
 Toplevel Functions:
-Function fib.12 Args(n.13) FArgs() Ret:Int =
-  (Let Ti1.18:Int =
+Function fib.89 Args(n.90) FArgs() Ret:Int =
+  (Let Ti67.95:Int =
     Li(1)
   In
-  (IfLE n.13 Ti1.18 Then
-    Mr(n.13)
+  (IfLE n.90 Ti67.95 Then
+    Mr(n.90)
   Else
-    (Let Ti3.23:Int =
-      Add(n.13, -1)
+    (Let Ti69.100:Int =
+      Add(n.90, -1)
     In
-    (Let Ti4.19:Int =
-      CallDir(fib.12, [Ti3.23], [])
+    (Let Ti70.96:Int =
+      CallDir(fib.89, [Ti69.100], [])
     In
-    (Let Ti6.21:Int =
-      Add(n.13, -2)
+    (Let Ti72.98:Int =
+      Add(n.90, -2)
     In
-    (Let Ti7.20:Int =
-      CallDir(fib.12, [Ti6.21], [])
+    (Let Ti73.97:Int =
+      CallDir(fib.89, [Ti72.98], [])
     In
-    Add(Ti4.19, Ti7.20)))))))
+    Add(Ti70.96, Ti73.97)))))))
 
 Main Expression:
-(Let Ta8.14:Array(Int) =
+(Let Ta74.91:Array(Int) =
   Li(4294967288)
 In
-(Let Ti10.17:Int =
-  Li(30)
+(Let Ti76.94:Int =
+  Li(10)
 In
-(Let Ti11.16:Int =
-  CallDir(fib.12, [Ti10.17], [])
+(Let Ti77.93:Int =
+  CallDir(fib.89, [Ti76.94], [])
 In
-Store(Ti11.16, Ta8.14, 0))))
+Store(Ti77.93, Ta74.91, 0))))
 

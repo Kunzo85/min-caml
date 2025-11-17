@@ -1,0 +1,45 @@
+Toplevel Functions:
+Function f.88:(Int -> Int) Args(x.89:Int) Formal_fv() =
+  (Let Ti67.104:Int =
+    1
+  In
+  Add(Ti67.104, x.89))
+
+Function g.91:(Int -> Int) Args(x.92:Int) Formal_fv(a.90:Int) =
+  Add(a.90, x.92)
+
+Function h.93:(Int -> Int) Args(x.94:Int) Formal_fv(g.91:(Int -> Int)) =
+  (Let Ti69.102:Int =
+    (AppDir(f.88 x.94))
+  In
+  (AppCls(g.91 Ti69.102)))
+
+Main Expression:
+(Let Ti68.103:Int =
+  10
+In
+(Let a.90:Int =
+  (AppDir(f.88 Ti68.103))
+In
+(MakeCls g.91:(Int -> Int) = <entry = g.91; actual_fv = { a.90 }> In
+(MakeCls h.93:(Int -> Int) = <entry = h.93; actual_fv = { g.91 }> In
+(Let Ta70.95:Array(Int) =
+  (ExtArray(io_int))
+In
+(Let Ti71.96:Int =
+  0
+In
+(Let Ti72.101:Int =
+  5
+In
+(Let Ti73.98:Int =
+  (AppCls(h.93 Ti72.101))
+In
+(Let Ti75.99:Int =
+  (AppCls(g.91 Ti68.103))
+In
+(Let Ti76.97:Int =
+  Add(Ti73.98, Ti75.99)
+In
+(Ta70.95.(Ti71.96) <- Ti76.97)))))))))))
+

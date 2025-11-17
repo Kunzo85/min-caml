@@ -301,43 +301,46 @@ In
     In
     (FSub half_pi Td66)))))))
 In
-(LetRec fib:(Int -> Int) n:Int =
+(LetRec f:(Int -> Int) x:Int =
   (Let Ti67:Int =
     1
   In
-  (If (LE n Ti67) Then
-    n
-  Else
-    (Let Ti70:Int =
-      (Let Ti69:Int =
-        (Let Ti68:Int =
-          1
-        In
-        (Sub n Ti68))
-      In
-      (fib Ti69))
-    In
-    (Let Ti73:Int =
-      (Let Ti72:Int =
-        (Let Ti71:Int =
-          2
-        In
-        (Sub n Ti71))
-      In
-      (fib Ti72))
-    In
-    (Add Ti70 Ti73)))))
+  (Add x Ti67))
 In
-(Let Ta74:Array(Int) =
-  (Ext_Array io_int)
-In
-(Let Ti75:Int =
-  0
-In
-(Let Ti77:Int =
-  (Let Ti76:Int =
+(Let a:Int =
+  (Let Ti68:Int =
     10
   In
-  (fib Ti76))
+  (f Ti68))
 In
-(Ta74.(Ti75) <- Ti77))))))))))
+(LetRec g:(Int -> Int) x:Int =
+  (Add x a)
+In
+(LetRec h:(Int -> Int) x:Int =
+  (Let Ti69:Int =
+    (f x)
+  In
+  (g Ti69))
+In
+(Let Ta70:Array(Int) =
+  (Ext_Array io_int)
+In
+(Let Ti71:Int =
+  0
+In
+(Let Ti76:Int =
+  (Let Ti73:Int =
+    (Let Ti72:Int =
+      5
+    In
+    (h Ti72))
+  In
+  (Let Ti75:Int =
+    (Let Ti74:Int =
+      10
+    In
+    (g Ti74))
+  In
+  (Add Ti73 Ti75)))
+In
+(Ta70.(Ti71) <- Ti76)))))))))))))

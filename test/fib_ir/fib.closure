@@ -1,40 +1,40 @@
 Toplevel Functions:
-Function fib.12:(Int -> Int) Args(n.13:Int) Formal_fv() =
-  (Let Ti1.18:Int =
+Function fib.89:(Int -> Int) Args(n.90:Int) Formal_fv() =
+  (Let Ti67.95:Int =
     1
   In
-  (If (LE n.13 Ti1.18) Then
-    n.13
+  (If (LE n.90 Ti67.95) Then
+    n.90
   Else
-    (Let Ti3.23:Int =
-      Sub(n.13, Ti1.18)
+    (Let Ti69.100:Int =
+      Sub(n.90, Ti67.95)
     In
-    (Let Ti4.19:Int =
-      (AppDir(fib.12 Ti3.23))
+    (Let Ti70.96:Int =
+      (AppDir(fib.89 Ti69.100))
     In
-    (Let Ti5.22:Int =
+    (Let Ti71.99:Int =
       2
     In
-    (Let Ti6.21:Int =
-      Sub(n.13, Ti5.22)
+    (Let Ti72.98:Int =
+      Sub(n.90, Ti71.99)
     In
-    (Let Ti7.20:Int =
-      (AppDir(fib.12 Ti6.21))
+    (Let Ti73.97:Int =
+      (AppDir(fib.89 Ti72.98))
     In
-    Add(Ti4.19, Ti7.20))))))))
+    Add(Ti70.96, Ti73.97))))))))
 
 Main Expression:
-(Let Ta8.14:Array(Int) =
+(Let Ta74.91:Array(Int) =
   (ExtArray(io_int))
 In
-(Let Ti9.15:Int =
+(Let Ti75.92:Int =
   0
 In
-(Let Ti10.17:Int =
-  30
+(Let Ti76.94:Int =
+  10
 In
-(Let Ti11.16:Int =
-  (AppDir(fib.12 Ti10.17))
+(Let Ti77.93:Int =
+  (AppDir(fib.89 Ti76.94))
 In
-(Ta8.14.(Ti9.15) <- Ti11.16)))))
+(Ta74.91.(Ti75.92) <- Ti77.93)))))
 

@@ -4,70 +4,116 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    addi     %r1  %zero  10             # !2
-    sw       %r1  %sp  0                # !2
-    sw       %ra  %sp  1                # !2
-    addi     %sp  %sp  2                # !2
-    jal      ~f.9                       # !2
-    addi     %sp  %sp  -2               # !2
-    lw       %ra  %sp  1                # !2
-    movz     %r2  %hp  %zero            # !3
-    addi     %hp  %hp  -2               # !3
-    setl     %r3  ~g.12                 # !3
-    sw       %r3  %r2  0                # !3
-    sw       %r1  %r2  -1               # !3
-    movz     %r27  %hp  %zero           # !4
-    addi     %hp  %hp  -2               # !4
-    setl     %r1  ~h.14                 # !4
-    sw       %r1  %r27  0               # !4
-    sw       %r2  %r27  -1              # !4
-    addi     %r1  %zero  5              # !5
-    sw       %r2  %sp  1                # !5
-    sw       %ra  %sp  2                # !5
-    addi     %sp  %sp  3                # !5
-    lw       %r28  %r27  0              # !5
-    jalr     %r28                       # !5
-    addi     %sp  %sp  -3               # !5
-    lw       %ra  %sp  2                # !5
-    lw       %r2  %sp  0                # !5
-    lw       %r27  %sp  1               # !5
-    sw       %r1  %sp  2                # !5
-    movz     %r1  %r2  %zero            # !5
-    sw       %ra  %sp  3                # !5
-    addi     %sp  %sp  4                # !5
-    lw       %r28  %r27  0              # !5
-    jalr     %r28                       # !5
-    addi     %sp  %sp  -4               # !5
-    lw       %ra  %sp  3                # !5
-    lw       %r2  %sp  2                # !5
-    add      %r1  %r2  %r1              # !5
-    sw       %ra  %sp  3                # !5
-    addi     %sp  %sp  4                # !5
-    jal      ~min_caml_print_int        # !5
-    addi     %sp  %sp  -4               # !5
-    lw       %ra  %sp  3                # !5
-    j        ~inf_loop                  # !0
+    addi     %r1  %zero  10                # !71
+    sw       %r1  %sp  0                   # !71
+    sw       %ra  %sp  -1                  # !71
+    addi     %sp  %sp  -2                  # !71
+    jal      ~f.88                         # !71
+    addi     %sp  %sp  2                   # !71
+    lw       %ra  %sp  -1                  # !71
+    movz     %r2  %hp  %zero               # !72
+    addi     %hp  %hp  2                   # !72
+    setl     %r3  ~g.91                    # !72
+    sw       %r3  %r2  0                   # !72
+    sw       %r1  %r2  1                   # !72
+    movz     %r27  %hp  %zero              # !73
+    addi     %hp  %hp  2                   # !73
+    setl     %r1  ~h.93                    # !73
+    sw       %r1  %r27  0                  # !73
+    sw       %r2  %r27  1                  # !73
+    lui      %r1  -1                       # !74
+    li       %r1  -8                       # !74
+    ++
+    li 4294967288
+    => lui %r1 0b11111111111
+       li  %r1 0b111111111111111111000
+    ++
+    addi     %r3  %zero  5                 # !74
+    sw       %r1  %sp  -1                  # !74
+    sw       %r2  %sp  -2                  # !74
+    movz     %r1  %r3  %zero               # !74
+    sw       %ra  %sp  -3                  # !74
+    addi     %sp  %sp  -4                  # !74
+    lw       %r28  %r27  0                 # !74
+    jalr     %r28                          # !74
+    addi     %sp  %sp  4                   # !74
+    lw       %ra  %sp  -3                  # !74
+    lw       %r2  %sp  0                   # !74
+    lw       %r27  %sp  -2                 # !74
+    sw       %r1  %sp  -3                  # !74
+    movz     %r1  %r2  %zero               # !74
+    sw       %ra  %sp  -4                  # !74
+    addi     %sp  %sp  -5                  # !74
+    lw       %r28  %r27  0                 # !74
+    jalr     %r28                          # !74
+    addi     %sp  %sp  5                   # !74
+    lw       %ra  %sp  -4                  # !74
+    lw       %r2  %sp  -3                  # !74
+    add      %r1  %r2  %r1                 # !74
+    lw       %r2  %sp  -1                  # !74
+    sw       %r1  %r2  0                   # !74
+    j        ~inf_loop                     # !0
 inf_loop:
-    j        ~inf_loop                  # !0
+    j        ~inf_loop                     # !0
 
 ++
 These are function definitions.
 ++
-f.9:
-    addi     %r1  %r1  1                # !1
-    jr       %ra                        # !1
-g.12:
-    lw       %r2  %r27  1               # !3
-    add      %r1  %r2  %r1              # !3
-    jr       %ra                        # !3
-h.14:
-    lw       %r2  %r27  1               # !4
-    sw       %r2  %sp  0                # !4
-    sw       %ra  %sp  1                # !4
-    addi     %sp  %sp  2                # !4
-    jal      ~f.9                       # !4
-    addi     %sp  %sp  -2               # !4
-    lw       %ra  %sp  1                # !4
-    lw       %r27  %sp  0               # !4
-    lw       %r28  %r27  0              # !4
-    jr       %r28                       # !4
+f.88:
+    addi     %r1  %r1  1                   # !70
+    jr       %ra                           # !70
+g.91:
+    lw       %r2  %r27  1                  # !72
+    add      %r1  %r2  %r1                 # !72
+    jr       %ra                           # !72
+h.93:
+    lw       %r2  %r27  1                  # !73
+    sw       %r2  %sp  0                   # !73
+    sw       %ra  %sp  -1                  # !73
+    addi     %sp  %sp  -2                  # !73
+    jal      ~f.88                         # !73
+    addi     %sp  %sp  2                   # !73
+    lw       %ra  %sp  -1                  # !73
+    lw       %r27  %sp  0                  # !73
+    lw       %r28  %r27  0                 # !73
+    jr       %r28                          # !73
+++
+Array routines for the i8v1 architecture.
+++
+min_caml_create_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_array_loop:
+    blt      %zero  %r1  create_array_loop_blt_then
+    jr       %ra
+create_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    swv      %r2  %hp  %r1
+    j        ~create_array_loop
+
+min_caml_create_float_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_float_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_float_array_loop:
+    blt      %zero  %r1  create_float_array_loop_blt_then
+    jr       %ra
+create_float_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    fswv     %f0  %hp  %r1
+    j        ~create_float_array_loop

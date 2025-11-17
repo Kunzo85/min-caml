@@ -1,0 +1,103 @@
+Toplevel Functions:
+Function f.88 Args(%r1) FArgs() Ret:Int =
+  Add(%r1, 1)
+
+Function g.91 Args(%r1) FArgs() Ret:Int =
+  (Let %r2:Int =
+    Load(%r27, 1)
+  In
+  Add(%r2, %r1))
+
+Function h.93 Args(%r1) FArgs() Ret:Int =
+  (Let %r2:(Int -> Int) =
+    Load(%r27, 1)
+  In
+  (Let Tu202:Unit =
+    Save(%r2, g.91)
+  In
+  (Let %r1:Int =
+    CallDir(f.88, [%r1], [])
+  In
+  (Let %r27:Int =
+    Restore(g.91)
+  In
+  CallCls(%r27, [%r1], [])))))
+
+Main Expression:
+(Let %r1:Int =
+  Li(10)
+In
+(Let Tu204:Unit =
+  Save(%r1, Ti68.103)
+In
+(Let %r1:Int =
+  CallDir(f.88, [%r1], [])
+In
+(Let %r2:(Int -> Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, 2)
+In
+(Let %r3:Int =
+  SetL(g.91)
+In
+(Let %zero:Unit =
+  Store(%r3, %r2, 0)
+In
+(Let %zero:Unit =
+  Store(%r1, %r2, 1)
+In
+(Let %r27:(Int -> Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, 2)
+In
+(Let %r1:Int =
+  SetL(h.93)
+In
+(Let %zero:Unit =
+  Store(%r1, %r27, 0)
+In
+(Let %zero:Unit =
+  Store(%r2, %r27, 1)
+In
+(Let %r1:Array(Int) =
+  Li(4294967288)
+In
+(Let %r3:Int =
+  Li(5)
+In
+(Let Tu206:Unit =
+  Save(%r1, Ta70.95)
+In
+(Let Tu205:Unit =
+  Save(%r2, g.91)
+In
+(Let %r1:Int =
+  CallCls(%r27, [%r3], [])
+In
+(Let %r2:Int =
+  Restore(Ti68.103)
+In
+(Let %r27:Int =
+  Restore(g.91)
+In
+(Let Tu207:Unit =
+  Save(%r1, Ti73.98)
+In
+(Let %r1:Int =
+  CallCls(%r27, [%r2], [])
+In
+(Let %r2:Int =
+  Restore(Ti73.98)
+In
+(Let %r1:Int =
+  Add(%r2, %r1)
+In
+(Let %r2:Int =
+  Restore(Ta70.95)
+In
+Store(%r1, %r2, 0))))))))))))))))))))))))))
+

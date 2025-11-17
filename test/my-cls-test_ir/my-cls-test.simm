@@ -1,0 +1,73 @@
+Toplevel Functions:
+Function f.88 Args(x.89) FArgs() Ret:Int =
+  Add(x.89, 1)
+
+Function g.91 Args(x.92) FArgs() Ret:Int =
+  (Let a.90:Int =
+    Load(g.91, 1)
+  In
+  Add(a.90, x.92))
+
+Function h.93 Args(x.94) FArgs() Ret:Int =
+  (Let g.91:(Int -> Int) =
+    Load(h.93, 1)
+  In
+  (Let Ti69.102:Int =
+    CallDir(f.88, [x.94], [])
+  In
+  CallCls(g.91, [Ti69.102], [])))
+
+Main Expression:
+(Let Ti68.103:Int =
+  Li(10)
+In
+(Let a.90:Int =
+  CallDir(f.88, [Ti68.103], [])
+In
+(Let g.91:(Int -> Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, 2)
+In
+(Let l.200:Int =
+  SetL(g.91)
+In
+(Let Tu201:Unit =
+  Store(l.200, g.91, 0)
+In
+(Let Tu199:Unit =
+  Store(a.90, g.91, 1)
+In
+(Let h.93:(Int -> Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, 2)
+In
+(Let l.197:Int =
+  SetL(h.93)
+In
+(Let Tu198:Unit =
+  Store(l.197, h.93, 0)
+In
+(Let Tu196:Unit =
+  Store(g.91, h.93, 1)
+In
+(Let Ta70.95:Array(Int) =
+  Li(4294967288)
+In
+(Let Ti72.101:Int =
+  Li(5)
+In
+(Let Ti73.98:Int =
+  CallCls(h.93, [Ti72.101], [])
+In
+(Let Ti75.99:Int =
+  CallCls(g.91, [Ti68.103], [])
+In
+(Let Ti76.97:Int =
+  Add(Ti73.98, Ti75.99)
+In
+Store(Ti76.97, Ta70.95, 0))))))))))))))))))
+

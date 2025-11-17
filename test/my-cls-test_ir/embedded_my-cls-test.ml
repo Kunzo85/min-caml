@@ -67,7 +67,8 @@ in *)
 
 (**************** ここまで外部ライブラリ ****************)
 
-let rec fib n =
-  if n <= 1 then n else
-  fib (n - 1) + fib (n - 2) in
-print_int (fib 10)
+let rec f x = x + 1 in
+let a = f 10 in
+let rec g x = x + a in
+let rec h x = g (f x) in
+print_int (h 5 + g 10)

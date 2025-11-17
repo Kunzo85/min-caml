@@ -1,0 +1,40 @@
+(LetRec f.88:(Int -> Int) x.89:Int =
+  (Let Ti67.104:Int =
+    1
+  In
+  (Add Ti67.104 x.89))
+In
+(Let Ti68.103:Int =
+  10
+In
+(Let a.90:Int =
+  (f.88 Ti68.103)
+In
+(LetRec g.91:(Int -> Int) x.92:Int =
+  (Add a.90 x.92)
+In
+(LetRec h.93:(Int -> Int) x.94:Int =
+  (Let Ti69.102:Int =
+    (f.88 x.94)
+  In
+  (g.91 Ti69.102))
+In
+(Let Ta70.95:Array(Int) =
+  (Ext_Array io_int)
+In
+(Let Ti71.96:Int =
+  0
+In
+(Let Ti72.101:Int =
+  5
+In
+(Let Ti73.98:Int =
+  (h.93 Ti72.101)
+In
+(Let Ti75.99:Int =
+  (g.91 Ti68.103)
+In
+(Let Ti76.97:Int =
+  (Add Ti73.98 Ti75.99)
+In
+(Ta70.95.(Ti71.96) <- Ti76.97))))))))))))
