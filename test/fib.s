@@ -4,13 +4,7 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    li       %r1  -8                       # !73
-    lui      %r1  -1                       # !73
-    ++
-    li 4294967288
-    => li  %r1 0b111111111111111111000
-       lui %r1 0b11111111111
-    ++
+    addi     %r1  %zero  -2                # !73
     addi     %r2  %zero  10                # !73
     sw       %r1  %sp  0                   # !73
     movz     %r1  %r2  %zero               # !73

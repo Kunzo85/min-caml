@@ -1626,13 +1626,7 @@ read_screen_settings.2606:
     lw       %r3  %r27  3                  # !684
     lw       %r4  %r27  2                  # !684
     lw       %r5  %r27  1                  # !684
-    li       %r6  -8                       # !687
-    lui      %r6  -1                       # !687
-    ++
-    li 4294967288
-    => li  %r6 0b111111111111111111000
-       lui %r6 0b11111111111
-    ++
+    addi     %r6  %zero  -2                # !687
     flw      %f0  %r6  0                   # !687
     fsw      %f0  %r5  0                   # !687
     flw      %f0  %r6  0                   # !688
@@ -1752,13 +1746,7 @@ read_screen_settings.2606:
 read_light.2608:
     lw       %r1  %r27  2                  # !717
     lw       %r2  %r27  1                  # !717
-    li       %r3  -8                       # !722
-    lui      %r3  -1                       # !722
-    ++
-    li 4294967288
-    => li  %r3 0b111111111111111111000
-       lui %r3 0b11111111111
-    ++
+    addi     %r3  %zero  -2                # !722
     flw      %f0  %r3  0                   # !722
     sw       %r2  %sp  0                   # !722
     sw       %r3  %sp  -1                  # !722
@@ -1967,13 +1955,7 @@ rotate_quadratic_matrix.2610:
     jr       %ra                           # !775
 read_nth_object.2613:
     lw       %r2  %r27  1                  # !780
-    li       %r3  -8                       # !782
-    lui      %r3  -1                       # !782
-    ++
-    li 4294967288
-    => li  %r3 0b111111111111111111000
-       lui %r3 0b11111111111
-    ++
+    addi     %r3  %zero  -2                # !782
     addi     %r4  %zero  0                 # !782
     lw       %r5  %r3  0                   # !782
     addi     %r6  %zero  -1                # !783
@@ -2004,13 +1986,7 @@ read_nth_object.2613:
     jal      ~min_caml_create_float_array  # !789
     addi     %sp  %sp  10                  # !789
     lw       %ra  %sp  -9                  # !789
-    li       %r2  -8                       # !790
-    lui      %r2  -1                       # !790
-    ++
-    li 4294967288
-    => li  %r2 0b111111111111111111000
-       lui %r2 0b11111111111
-    ++
+    addi     %r2  %zero  -2                # !790
     flw      %f0  %r2  0                   # !790
     fsw      %f0  %r1  0                   # !790
     addi     %r3  %zero  1                 # !791
@@ -2300,13 +2276,7 @@ read_all_object.2617:
     lw       %r28  %r27  0                 # !873
     jr       %r28                          # !873
 read_net_item.2619:
-    li       %r2  -8                       # !880
-    lui      %r2  -1                       # !880
-    ++
-    li 4294967288
-    => li  %r2 0b111111111111111111000
-       lui %r2 0b11111111111
-    ++
+    addi     %r2  %zero  -2                # !880
     lw       %r2  %r2  0                   # !880
     addi     %r3  %zero  -1                # !881
     beq      %r2  %r3  beq_then.8823       # !881
@@ -7796,26 +7766,14 @@ blt_then.9099:
     jr       %ra                           # !2110
 write_ppm_header.2868:
     lw       %r2  %r27  1                  # !2116
-    li       %r3  -4                       # !2118
-    lui      %r3  -1                       # !2118
-    ++
-    li 4294967292
-    => li  %r3 0b111111111111111111100
-       lui %r3 0b11111111111
-    ++
+    addi     %r3  %zero  -1                # !2118
     addi     %r4  %zero  80                # !2118
     sw       %r4  %r3  0                   # !2118
     addi     %r1  %r1  48                  # !2119
     sw       %r1  %r3  0                   # !2119
     addi     %r1  %zero  10                # !2120
     sw       %r1  %r3  0                   # !2120
-    li       %r4  -8                       # !2121
-    lui      %r4  -1                       # !2121
-    ++
-    li 4294967288
-    => li  %r4 0b111111111111111111000
-       lui %r4 0b11111111111
-    ++
+    addi     %r4  %zero  -2                # !2121
     lw       %r5  %r2  0                   # !2121
     sw       %r5  %r4  0                   # !2121
     addi     %r5  %zero  32                # !2122
@@ -7841,13 +7799,7 @@ blt_cont.9110:
 blt_then.9107:
     movz     %r1  %r2  %zero               # !2132
 blt_cont.9108:
-    li       %r2  -8                       # !2133
-    lui      %r2  -1                       # !2133
-    ++
-    li 4294967288
-    => li  %r2 0b111111111111111111000
-       lui %r2 0b11111111111
-    ++
+    addi     %r2  %zero  -2                # !2133
     sw       %r1  %r2  0                   # !2133
     jr       %ra                           # !2133
 write_rgb_element_char.2872:
@@ -7864,13 +7816,7 @@ blt_cont.9115:
 blt_then.9112:
     movz     %r1  %r2  %zero               # !2138
 blt_cont.9113:
-    li       %r2  -4                       # !2139
-    lui      %r2  -1                       # !2139
-    ++
-    li 4294967292
-    => li  %r2 0b111111111111111111100
-       lui %r2 0b11111111111
-    ++
+    addi     %r2  %zero  -1                # !2139
     sw       %r1  %r2  0                   # !2139
     jr       %ra                           # !2139
 write_rgb.2874:
@@ -7903,13 +7849,7 @@ beq_then.9117:
     jal      ~write_rgb_element_int.2870   # !2144
     addi     %sp  %sp  2                   # !2144
     lw       %ra  %sp  -1                  # !2144
-    li       %r1  -4                       # !2145
-    lui      %r1  -1                       # !2145
-    ++
-    li 4294967292
-    => li  %r1 0b111111111111111111100
-       lui %r1 0b11111111111
-    ++
+    addi     %r1  %zero  -1                # !2145
     addi     %r2  %zero  32                # !2145
     sw       %r2  %r1  0                   # !2145
     flw      %f0  %sp  0                   # !2146

@@ -25,7 +25,7 @@ Function fib.89 Args() FArgs(x.90) Ret:Float =
 
 Main Expression:
 (Let Ta74.91:Array(Float) =
-  Li(4294967288)
+  Li(-2)
 In
 (Let Ti75.92:Int =
   Li(0)

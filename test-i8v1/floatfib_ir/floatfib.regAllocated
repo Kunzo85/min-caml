@@ -43,7 +43,7 @@ Function fib.89 Args() FArgs(%f0) Ret:Float =
 
 Main Expression:
 (Let %r1:Array(Float) =
-  Li(4294967288)
+  Li(-2)
 In
 (Let %f0:Float =
   FLi(10.)

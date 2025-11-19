@@ -130,7 +130,7 @@ In
   Store(%r1, %r27, 1)
 In
 (Let %r1:Array(Int) =
-  Li(4294967288)
+  Li(-2)
 In
 (Let %r2:Int =
   Li(50)

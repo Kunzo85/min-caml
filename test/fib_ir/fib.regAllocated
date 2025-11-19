@@ -34,7 +34,7 @@ Function fib.89 Args(%r1) FArgs() Ret:Int =
 
 Main Expression:
 (Let %r1:Array(Int) =
-  Li(4294967288)
+  Li(-2)
 In
 (Let %r2:Int =
   Li(10)

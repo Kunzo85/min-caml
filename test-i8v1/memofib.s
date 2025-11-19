@@ -16,13 +16,7 @@ min_caml_start:
     setl     %r2  ~fib.104                 # !71
     sw       %r2  %r27  0                  # !71
     sw       %r1  %r27  1                  # !71
-    li       %r1  -8                       # !80
-    lui      %r1  -1                       # !80
-    ++
-    li 4294967288
-    => li  %r1 0b111111111111111111000
-       lui %r1 0b11111111111
-    ++
+    addi     %r1  %zero  -2                # !80
     addi     %r2  %zero  50                # !80
     sw       %r1  %sp  0                   # !80
     movz     %r1  %r2  %zero               # !80

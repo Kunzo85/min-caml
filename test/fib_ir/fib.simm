@@ -22,7 +22,7 @@ Function fib.89 Args(n.90) FArgs() Ret:Int =
 
 Main Expression:
 (Let Ta74.91:Array(Int) =
-  Li(4294967288)
+  Li(-2)
 In
 (Let Ti76.94:Int =
   Li(10)
