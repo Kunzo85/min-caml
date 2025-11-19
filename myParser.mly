@@ -57,6 +57,7 @@ let update_loc t = { node = t.node; loc = loc_of_rule () }
 %token FLOAT_OF_INT
 %token PRINT_CHAR
 %token PRINT_INT
+%token PRINT_FLOAT
 %token READ_FLOAT
 %token READ_INT
 
@@ -197,6 +198,9 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
 | PRINT_INT simple_exp
     %prec prec_app
     { add_loc (Put(add_loc (Var("io_int")), add_loc (Int(0)), $2)) }
+| PRINT_FLOAT simple_exp
+    %prec prec_app
+    { add_loc (Put(add_loc (Var("io_float")), add_loc (Int(0)), $2)) }
 | READ_FLOAT LPAREN RPAREN
     %prec prec_app
     { add_loc (Get(add_loc (Var("io_float")), add_loc (Int(0)))) }

@@ -127,6 +127,8 @@ rule token = parse
     { PRINT_CHAR }
 | "print_int"
     { PRINT_INT }
+| "print_float"
+    { PRINT_FLOAT }
 | "read_float"
     { READ_FLOAT }
 | "read_int"
