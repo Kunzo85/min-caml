@@ -4,34 +4,28 @@ Target machine: I8 version 1
 THIS IS MAIN ENTRY POINT!
 ++
 min_caml_start:
-    addi     %r1  %zero  5                 # !1
-    addi     %r2  %zero  0                 # !1
-    sw       %r2  %sp  0                   # !1
-    sw       %ra  %sp  -1                  # !1
-    addi     %sp  %sp  -2                  # !1
-    jal      ~min_caml_create_array        # !1
-    addi     %sp  %sp  2                   # !1
-    lw       %ra  %sp  -1                  # !1
-    addi     %r2  %zero  2                 # !3
-    sw       %r2  %r1  0                   # !3
-    lw       %r2  %r1  0                   # !4
-    lw       %r1  %r1  0                   # !4
-    beq      %r2  %r1  beq_then.27         # !4
-    lw       %r1  %sp  0                   # !4
-    sw       %ra  %sp  -1                  # !4
-    addi     %sp  %sp  -2                  # !4
-    jal      ~min_caml_print_int           # !4
-    addi     %sp  %sp  2                   # !4
-    lw       %ra  %sp  -1                  # !4
-    j        ~beq_cont.28                  # !4
-beq_then.27:
-    addi     %r1  %zero  1                 # !4
-    sw       %ra  %sp  -1                  # !4
-    addi     %sp  %sp  -2                  # !4
-    jal      ~min_caml_print_int           # !4
-    addi     %sp  %sp  2                   # !4
-    lw       %ra  %sp  -1                  # !4
-beq_cont.28:
+    addi     %r1  %zero  5                 # !70
+    addi     %r2  %zero  0                 # !70
+    sw       %r2  %sp  0                   # !70
+    sw       %ra  %sp  -1                  # !70
+    addi     %sp  %sp  -2                  # !70
+    jal      ~min_caml_create_array        # !70
+    addi     %sp  %sp  2                   # !70
+    lw       %ra  %sp  -1                  # !70
+    addi     %r2  %zero  2                 # !72
+    sw       %r2  %r1  0                   # !72
+    lw       %r2  %r1  0                   # !73
+    lw       %r1  %r1  0                   # !73
+    beq      %r2  %r1  beq_then.203        # !73
+    addi     %r1  %zero  -2                # !73
+    lw       %r2  %sp  0                   # !73
+    sw       %r2  %r1  0                   # !73
+    j        ~beq_cont.204                 # !73
+beq_then.203:
+    addi     %r1  %zero  -2                # !73
+    addi     %r2  %zero  1                 # !73
+    sw       %r2  %r1  0                   # !73
+beq_cont.204:
     j        ~inf_loop                     # !0
 inf_loop:
     j        ~inf_loop                     # !0

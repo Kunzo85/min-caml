@@ -1,3 +1,262 @@
+(LetRec fmod:Var(?) x:Var(?) y:Var(?) =
+  (FSub
+    x
+    (FMul
+      (Floor
+        (FDiv
+          x
+          y))
+      y))
+In
+(LetRec reduce_to_pi:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let two_pi:Var(?) =
+    (FMul
+      2.
+      pi)
+  In
+  (Let r:Var(?) =
+    (App
+      fmod
+      x
+      two_pi)
+  In
+  (If
+    (Not
+      (LE
+        r
+        pi))
+  Then
+    (FSub
+      r
+      two_pi)
+  Else
+    (If
+      (Not
+        (LE
+          (FNeg
+            pi)
+          r))
+    Then
+      (FAdd
+        r
+        two_pi)
+    Else
+      r)))))
+In
+(LetRec sin:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let half_pi:Var(?) =
+    (FMul
+      0.5
+      pi)
+  In
+  (Let x:Var(?) =
+    (App
+      reduce_to_pi
+      x)
+  In
+  (Let x:Var(?) =
+    (If
+      (Not
+        (LE
+          x
+          half_pi))
+    Then
+      (FSub
+        pi
+        x)
+    Else
+      (If
+        (Not
+          (LE
+            (FNeg
+              half_pi)
+            x))
+      Then
+        (FSub
+          (FNeg
+            pi)
+          x)
+      Else
+        x))
+  In
+  (Let x2:Var(?) =
+    (FMul
+      x
+      x)
+  In
+  (Let a3:Var(?) =
+    (FDiv
+      (FNeg
+        1.)
+      6.)
+  In
+  (Let a5:Var(?) =
+    (FDiv
+      1.
+      120.)
+  In
+  (Let a7:Var(?) =
+    (FDiv
+      (FNeg
+        1.)
+      5040.)
+  In
+  (Let a9:Var(?) =
+    (FDiv
+      1.
+      362880.)
+  In
+  (Let a11:Var(?) =
+    (FDiv
+      (FNeg
+        1.)
+      39916800.)
+  In
+  (FAdd
+    x
+    (FMul
+      (FMul
+        x
+        x2)
+      (FAdd
+        a3
+        (FMul
+          x2
+          (FAdd
+            a5
+            (FMul
+              x2
+              (FAdd
+                a7
+                (FMul
+                  x2
+                  (FAdd
+                    a9
+                    (FMul
+                      x2
+                      a11))))))))))))))))))))
+In
+(LetRec cos:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let half_pi:Var(?) =
+    (FMul
+      0.5
+      pi)
+  In
+  (App
+    sin
+    (FSub
+      half_pi
+      x))))
+In
+(LetRec atan:Var(?) x:Var(?) =
+  (Let pi:Var(?) =
+    3.14159265359
+  In
+  (Let half_pi:Var(?) =
+    (FMul
+      0.5
+      pi)
+  In
+  (LetRec atan_poly:Var(?) x:Var(?) =
+    (Let x2:Var(?) =
+      (FMul
+        x
+        x)
+    In
+    (Let a3:Var(?) =
+      (FDiv
+        (FNeg
+          1.)
+        3.)
+    In
+    (Let a5:Var(?) =
+      (FDiv
+        1.
+        5.)
+    In
+    (Let a7:Var(?) =
+      (FDiv
+        (FNeg
+          1.)
+        7.)
+    In
+    (Let a9:Var(?) =
+      (FDiv
+        1.
+        9.)
+    In
+    (Let a11:Var(?) =
+      (FDiv
+        (FNeg
+          1.)
+        11.)
+    In
+    (FAdd
+      x
+      (FMul
+        (FMul
+          x
+          x2)
+        (FAdd
+          a3
+          (FMul
+            x2
+            (FAdd
+              a5
+              (FMul
+                x2
+                (FAdd
+                  a7
+                  (FMul
+                    x2
+                    (FAdd
+                      a9
+                      (FMul
+                        x2
+                        a11))))))))))))))))
+  In
+  (If
+    (Not
+      (LE
+        x
+        1.))
+  Then
+    (FSub
+      half_pi
+      (App
+        atan_poly
+        (FDiv
+          1.
+          x)))
+  Else
+    (If
+      (Not
+        (LE
+          -1.
+          x))
+    Then
+      (FSub
+        (FNeg
+          half_pi)
+        (App
+          atan_poly
+          (FDiv
+            1.
+            x)))
+    Else
+      (App
+        atan_poly
+        x))))))
+In
 (Let a:Var(?) =
   (Array
     5
@@ -21,10 +280,12 @@ In
       b
       0))
 Then
-  (App
-    print_int
+  (Put
+    io_int
+    0
     1)
 Else
-  (App
-    print_int
-    0)))))
+  (Put
+    io_int
+    0
+    0))))))))))

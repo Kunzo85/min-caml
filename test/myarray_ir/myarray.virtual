@@ -2,32 +2,38 @@ Toplevel Functions:
 
 
 Main Expression:
-(Let Ti2.23:Int =
+(Let Ti68.108:Int =
   Li(5)
 In
-(Let Ti3.24:Int =
+(Let Ti69.109:Int =
   Li(0)
 In
-(Let a.12:Array(Int) =
-  CallDir(min_caml_create_array, [Ti2.23; Ti3.24], [])
+(Let a.93:Array(Int) =
+  CallDir(min_caml_create_array, [Ti68.108; Ti69.109], [])
 In
-(Let Ti5.22:Int =
+(Let Ti71.107:Int =
   Li(2)
 In
-(Let Tu1.14:Unit =
-  Store(Ti5.22, a.12, Ti3.24)
+(Let Tu1.95:Unit =
+  Store(Ti71.107, a.93, Ti69.109)
 In
-(Let Ti7.15:Int =
-  Load(a.12, Ti3.24)
+(Let Ti73.96:Int =
+  Load(a.93, Ti69.109)
 In
-(Let Ti9.16:Int =
-  Load(a.12, Ti3.24)
+(Let Ti75.97:Int =
+  Load(a.93, Ti69.109)
 In
-(IfEq Ti7.15 Ti9.16 Then
-  (Let Ti10.18:Int =
+(IfEq Ti73.96 Ti75.97 Then
+  (Let Ta76.101:Array(Int) =
+    Li(-2)
+  In
+  (Let Ti78.103:Int =
     Li(1)
   In
-  CallDir(min_caml_print_int, [Ti10.18], []))
+  Store(Ti78.103, Ta76.101, Ti69.109)))
 Else
-  CallDir(min_caml_print_int, [Ti3.24], [])))))))))
+  (Let Ta79.98:Array(Int) =
+    Li(-2)
+  In
+  Store(Ti69.109, Ta79.98, Ti69.109))))))))))
 

@@ -1,0 +1,325 @@
+min_caml_start:
+    addi     %r1  %zero  5                 
+    addi     %r2  %zero  0                 
+    sw       %r2  %sp  0                   
+    sw       %ra  %sp  -1                  
+    addi     %sp  %sp  -2                  
+    jal      ~min_caml_create_array        
+    addi     %sp  %sp  2                   
+    lw       %ra  %sp  -1                  
+    addi     %r2  %zero  2                 
+    sw       %r2  %r1  0                   
+    lw       %r2  %r1  0                   
+    lw       %r1  %r1  0                   
+    beq      %r2  %r1  beq_then.203        
+    addi     %r1  %zero  -2                
+    lw       %r2  %sp  0                   
+    sw       %r2  %r1  0                   
+    j        ~beq_cont.204                 
+beq_then.203:
+    addi     %r1  %zero  -2                
+    addi     %r2  %zero  1                 
+    sw       %r2  %r1  0                   
+beq_cont.204:
+    j        ~inf_loop                     
+inf_loop:
+    j        ~inf_loop                     
+min_caml_create_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_array_loop:
+    blt      %zero  %r1  create_array_loop_blt_then
+    jr       %ra
+create_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    swv      %r2  %hp  %r1
+    j        ~create_array_loop
+min_caml_create_float_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_float_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_float_array_loop:
+    blt      %zero  %r1  create_float_array_loop_blt_then
+    jr       %ra
+create_float_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    fswv     %f0  %hp  %r1
+    j        ~create_float_array_loop
+////////////////////////////////////////////////////////
+Expanded Code after Pseudo Instruction Expansion:
+min_caml_start:
+    addi     %r1  %zero  5                 
+    addi     %r2  %zero  0                 
+    sw       %r2  %sp  0                   
+    sw       %ra  %sp  -1                  
+    addi     %sp  %sp  -2                  
+    jal      ~min_caml_create_array        
+    addi     %sp  %sp  2                   
+    lw       %ra  %sp  -1                  
+    addi     %r2  %zero  2                 
+    sw       %r2  %r1  0                   
+    lw       %r2  %r1  0                   
+    lw       %r1  %r1  0                   
+    beq      %r2  %r1  beq_then.203        
+    addi     %r1  %zero  -2                
+    lw       %r2  %sp  0                   
+    sw       %r2  %r1  0                   
+    j        ~beq_cont.204                 
+beq_then.203:
+    addi     %r1  %zero  -2                
+    addi     %r2  %zero  1                 
+    sw       %r2  %r1  0                   
+beq_cont.204:
+    j        ~inf_loop                     
+inf_loop:
+    j        ~inf_loop                     
+min_caml_create_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_array_loop:
+    blt      %zero  %r1  create_array_loop_blt_then
+    jr       %ra
+create_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    swv      %r2  %hp  %r1
+    j        ~create_array_loop
+min_caml_create_float_array:
+    sw       %ra  %sp  0
+    sw       %r1  %sp  -1
+    addi     %sp  %sp  -2
+    jal      ~create_float_array_loop
+    addi     %sp  %sp  2
+    lw       %ra  %sp  0
+    lw       %r2  %sp  -1
+    movz     %r1  %hp  %zero
+    add      %hp  %hp  %r2
+    jr       %ra
+create_float_array_loop:
+    blt      %zero  %r1  create_float_array_loop_blt_then
+    jr       %ra
+create_float_array_loop_blt_then:
+    addi     %r1  %r1  -1
+    fswv     %f0  %hp  %r1
+    j        ~create_float_array_loop
+////////////////////////////////////////////////////////
+Debug: ラベルのみの行検出: min_caml_start at PC=0
+Debug: ラベルのみの行検出: beq_then.203 at PC=17
+Debug: ラベルのみの行検出: beq_cont.204 at PC=20
+Debug: ラベルのみの行検出: inf_loop at PC=21
+Debug: ラベルのみの行検出: min_caml_create_array at PC=22
+Debug: ラベルのみの行検出: create_array_loop at PC=32
+Debug: ラベルのみの行検出: create_array_loop_blt_then at PC=34
+Debug: ラベルのみの行検出: min_caml_create_float_array at PC=37
+Debug: ラベルのみの行検出: create_float_array_loop at PC=47
+Debug: ラベルのみの行検出: create_float_array_loop_blt_then at PC=49
+シンボルテーブル:
+シンボル名: %zero, アドレス: 0
+シンボル名: %r1, アドレス: 1
+シンボル名: %r2, アドレス: 2
+シンボル名: %r3, アドレス: 3
+シンボル名: %r4, アドレス: 4
+シンボル名: %r5, アドレス: 5
+シンボル名: %r6, アドレス: 6
+シンボル名: %r7, アドレス: 7
+シンボル名: %r8, アドレス: 8
+シンボル名: %r9, アドレス: 9
+シンボル名: %r10, アドレス: 10
+シンボル名: %r11, アドレス: 11
+シンボル名: %r12, アドレス: 12
+シンボル名: %r13, アドレス: 13
+シンボル名: %r14, アドレス: 14
+シンボル名: %r15, アドレス: 15
+シンボル名: %r16, アドレス: 16
+シンボル名: %r17, アドレス: 17
+シンボル名: %r18, アドレス: 18
+シンボル名: %r19, アドレス: 19
+シンボル名: %r20, アドレス: 20
+シンボル名: %r21, アドレス: 21
+シンボル名: %r22, アドレス: 22
+シンボル名: %r23, アドレス: 23
+シンボル名: %r24, アドレス: 24
+シンボル名: %r25, アドレス: 25
+シンボル名: %r26, アドレス: 26
+シンボル名: %r27, アドレス: 27
+シンボル名: %r28, アドレス: 28
+シンボル名: %sp, アドレス: 29
+シンボル名: %hp, アドレス: 30
+シンボル名: %ra, アドレス: 31
+シンボル名: %f0, アドレス: 0
+シンボル名: %f1, アドレス: 1
+シンボル名: %f2, アドレス: 2
+シンボル名: %f3, アドレス: 3
+シンボル名: %f4, アドレス: 4
+シンボル名: %f5, アドレス: 5
+シンボル名: %f6, アドレス: 6
+シンボル名: %f7, アドレス: 7
+シンボル名: %f8, アドレス: 8
+シンボル名: %f9, アドレス: 9
+シンボル名: %f10, アドレス: 10
+シンボル名: %f11, アドレス: 11
+シンボル名: %f12, アドレス: 12
+シンボル名: %f13, アドレス: 13
+シンボル名: %f14, アドレス: 14
+シンボル名: %f15, アドレス: 15
+シンボル名: %f16, アドレス: 16
+シンボル名: %f17, アドレス: 17
+シンボル名: %f18, アドレス: 18
+シンボル名: %f19, アドレス: 19
+シンボル名: %f20, アドレス: 20
+シンボル名: %f21, アドレス: 21
+シンボル名: %f22, アドレス: 22
+シンボル名: %f23, アドレス: 23
+シンボル名: %f24, アドレス: 24
+シンボル名: %f25, アドレス: 25
+シンボル名: %f26, アドレス: 26
+シンボル名: %f27, アドレス: 27
+シンボル名: %f28, アドレス: 28
+シンボル名: %f29, アドレス: 29
+シンボル名: %f30, アドレス: 30
+シンボル名: %f31, アドレス: 31
+ラベルテーブル:
+ラベル名: min_caml_start, アドレス: 0
+ラベル名: beq_then.203, アドレス: 17
+ラベル名: beq_cont.204, アドレス: 20
+ラベル名: inf_loop, アドレス: 21
+ラベル名: min_caml_create_array, アドレス: 22
+ラベル名: create_array_loop, アドレス: 32
+ラベル名: create_array_loop_blt_then, アドレス: 34
+ラベル名: min_caml_create_float_array, アドレス: 37
+ラベル名: create_float_array_loop, アドレス: 47
+ラベル名: create_float_array_loop_blt_then, アドレス: 49
+////////////////////////////////////////////////////////
+Parser Test
+////////////////////////////////////////////////////////
+Parser output:
+$0:addi 1 0 5
+$1:addi 2 0 0
+$2:sw 2 29 0
+$3:sw 31 29 -1
+$4:addi 29 29 -2
+$5:jal -2097130
+$6:addi 29 29 2
+$7:lw 31 29 -1
+$8:addi 2 0 2
+$9:sw 2 1 0
+$10:lw 2 1 0
+$11:lw 1 1 0
+$12:beq 2 1 5
+$13:addi 1 0 -2
+$14:lw 2 29 0
+$15:sw 2 1 0
+$16:j -2097132
+$17:addi 1 0 -2
+$18:addi 2 0 1
+$19:sw 2 1 0
+$20:j -2097131
+$21:j -2097131
+$22:sw 31 29 0
+$23:sw 1 29 -1
+$24:addi 29 29 -2
+$25:jal -2097120
+$26:addi 29 29 2
+$27:lw 31 29 0
+$28:lw 2 29 -1
+$29:movz 1 30 0
+$30:add 30 30 2
+$31:jr 31
+$32:blt 0 1 2
+$33:jr 31
+$34:addi 1 1 -1
+$35:swv 2 30 1
+$36:j -2097120
+$37:sw 31 29 0
+$38:sw 1 29 -1
+$39:addi 29 29 -2
+$40:jal -2097105
+$41:addi 29 29 2
+$42:lw 31 29 0
+$43:lw 2 29 -1
+$44:movz 1 30 0
+$45:add 30 30 2
+$46:jr 31
+$47:blt 0 1 2
+$48:jr 31
+$49:addi 1 1 -1
+$50:fswv 0 30 1
+$51:j -2097105
+////////////////////////////////////////////////////////
+Code Generator Output: 
+01100100001000000000000000000101
+01100100010000000000000000000000
+11001000010111010000000000000000
+11001011111111011111111111111111
+01100111101111011111111111111110
+11110011111000000000000000010110
+01100111101111010000000000000010
+11000011111111011111111111111111
+01100100010000000000000000000010
+11001000010000010000000000000000
+11000000010000010000000000000000
+11000000001000010000000000000000
+11100000010000010000000000000101
+01100100001000001111111111111110
+11000000010111010000000000000000
+11001000010000010000000000000000
+11110000000000000000000000010100
+01100100001000001111111111111110
+01100100010000000000000000000001
+11001000010000010000000000000000
+11110000000000000000000000010101
+11110000000000000000000000010101
+11001011111111010000000000000000
+11001000001111011111111111111111
+01100111101111011111111111111110
+11110011111000000000000000100000
+01100111101111010000000000000010
+11000011111111010000000000000000
+11000000010111011111111111111111
+10000000001111100000000000000000
+00000111110111100001000000000001
+11111000000111110000000000000000
+11101000000000010000000000000010
+11111000000111110000000000000000
+01100100001000011111111111111111
+11011000010111100000100000000000
+11110000000000000000000000100000
+11001011111111010000000000000000
+11001000001111011111111111111111
+01100111101111011111111111111110
+11110011111000000000000000101111
+01100111101111010000000000000010
+11000011111111010000000000000000
+11000000010111011111111111111111
+10000000001111100000000000000000
+00000111110111100001000000000001
+11111000000111110000000000000000
+11101000000000010000000000000010
+11111000000111110000000000000000
+01100100001000011111111111111111
+11011100000111100000100000000000
+11110000000000000000000000101111
+////////////////////////////////////////////////////////
+Assemble was completed / output:  /Users/yuyatanaka/Lecture/min-caml/test/myarray.bin and /Users/yuyatanaka/Lecture/min-caml/test/myarray_little.txt
