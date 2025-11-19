@@ -68,8 +68,8 @@ let reg_sp = "%sp" (* stack pointer. r29 *)
 let reg_hp = "%hp" (* heap pointer (caml2html: sparcasm_reghp). r30 *)
 let reg_ra = "%ra" (* return address. r31 *)
 let is_reg x = (x.[0] = '%')
-let mmio_char = 0xfffffffc (* memory-mapped I/O address for char *) (* 後で変更！ *)
-let mmio_word = 0xfffffff8 (* memory-mapped I/O address for int *) (* 後で変更！ *)
+let mmio_char = -1 (* memory-mapped I/O address for char. 0xfffffffc / 4 *)
+let mmio_word = -2  (* memory-mapped I/O address for int. 0xfffffff8 / 4 *)
 
 (* super-tenuki *)
 let rec remove_and_uniq xs = function
