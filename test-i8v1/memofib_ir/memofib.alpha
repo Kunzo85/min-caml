@@ -1,0 +1,397 @@
+(LetRec fmod.92:(Float -> Float -> Float) x.93:Float y.94:Float =
+  (Let Td4.220:Float =
+    (Let Td3.221:Float =
+      (Let Td2.222:Float =
+        (FDiv x.93 y.94)
+      In
+      (Floor Td2.222))
+    In
+    (FMul Td3.221 y.94))
+  In
+  (FSub x.93 Td4.220))
+In
+(LetRec reduce_to_pi.95:(Float -> Float) x.96:Float =
+  (Let pi.215:Float =
+    3.14159265359
+  In
+  (Let two_pi.216:Float =
+    (Let Td5.219:Float =
+      2.
+    In
+    (FMul Td5.219 pi.215))
+  In
+  (Let r.217:Float =
+    (fmod.92 x.96 two_pi.216)
+  In
+  (If (LE r.217 pi.215) Then
+    (Let Td6.218:Float =
+      (FNeg pi.215)
+    In
+    (If (LE Td6.218 r.217) Then
+      r.217
+    Else
+      (FAdd r.217 two_pi.216)))
+  Else
+    (FSub r.217 two_pi.216)))))
+In
+(LetRec sin.97:(Float -> Float) x.98:Float =
+  (Let pi.179:Float =
+    3.14159265359
+  In
+  (Let half_pi.180:Float =
+    (Let Td7.214:Float =
+      0.5
+    In
+    (FMul Td7.214 pi.179))
+  In
+  (Let x.181:Float =
+    (reduce_to_pi.95 x.98)
+  In
+  (Let x.182:Float =
+    (If (LE x.181 half_pi.180) Then
+      (Let Td8.212:Float =
+        (FNeg half_pi.180)
+      In
+      (If (LE Td8.212 x.181) Then
+        x.181
+      Else
+        (Let Td9.213:Float =
+          (FNeg pi.179)
+        In
+        (FSub Td9.213 x.181))))
+    Else
+      (FSub pi.179 x.181))
+  In
+  (Let x2.183:Float =
+    (FMul x.182 x.182)
+  In
+  (Let a3.184:Float =
+    (Let Td11.209:Float =
+      (Let Td10.211:Float =
+        1.
+      In
+      (FNeg Td10.211))
+    In
+    (Let Td12.210:Float =
+      6.
+    In
+    (FDiv Td11.209 Td12.210)))
+  In
+  (Let a5.185:Float =
+    (Let Td13.207:Float =
+      1.
+    In
+    (Let Td14.208:Float =
+      120.
+    In
+    (FDiv Td13.207 Td14.208)))
+  In
+  (Let a7.186:Float =
+    (Let Td16.204:Float =
+      (Let Td15.206:Float =
+        1.
+      In
+      (FNeg Td15.206))
+    In
+    (Let Td17.205:Float =
+      5040.
+    In
+    (FDiv Td16.204 Td17.205)))
+  In
+  (Let a9.187:Float =
+    (Let Td18.202:Float =
+      1.
+    In
+    (Let Td19.203:Float =
+      362880.
+    In
+    (FDiv Td18.202 Td19.203)))
+  In
+  (Let a11.188:Float =
+    (Let Td21.199:Float =
+      (Let Td20.201:Float =
+        1.
+      In
+      (FNeg Td20.201))
+    In
+    (Let Td22.200:Float =
+      39916800.
+    In
+    (FDiv Td21.199 Td22.200)))
+  In
+  (Let Td32.189:Float =
+    (Let Td23.190:Float =
+      (FMul x.182 x2.183)
+    In
+    (Let Td31.191:Float =
+      (Let Td30.192:Float =
+        (Let Td29.193:Float =
+          (Let Td28.194:Float =
+            (Let Td27.195:Float =
+              (Let Td26.196:Float =
+                (Let Td25.197:Float =
+                  (Let Td24.198:Float =
+                    (FMul x2.183 a11.188)
+                  In
+                  (FAdd a9.187 Td24.198))
+                In
+                (FMul x2.183 Td25.197))
+              In
+              (FAdd a7.186 Td26.196))
+            In
+            (FMul x2.183 Td27.195))
+          In
+          (FAdd a5.185 Td28.194))
+        In
+        (FMul x2.183 Td29.193))
+      In
+      (FAdd a3.184 Td30.192))
+    In
+    (FMul Td23.190 Td31.191)))
+  In
+  (FAdd x.182 Td32.189))))))))))))
+In
+(LetRec cos.99:(Float -> Float) x.100:Float =
+  (Let pi.175:Float =
+    3.14159265359
+  In
+  (Let half_pi.176:Float =
+    (Let Td33.178:Float =
+      0.5
+    In
+    (FMul Td33.178 pi.175))
+  In
+  (Let Td34.177:Float =
+    (FSub half_pi.176 x.100)
+  In
+  (sin.97 Td34.177))))
+In
+(LetRec atan.101:(Float -> Float) x.102:Float =
+  (Let pi.132:Float =
+    3.14159265359
+  In
+  (Let half_pi.133:Float =
+    (Let Td35.174:Float =
+      0.5
+    In
+    (FMul Td35.174 pi.132))
+  In
+  (LetRec atan_poly.134:(Float -> Float) x.135:Float =
+    (Let x2.145:Float =
+      (FMul x.135 x.135)
+    In
+    (Let a3.146:Float =
+      (Let Td37.171:Float =
+        (Let Td36.173:Float =
+          1.
+        In
+        (FNeg Td36.173))
+      In
+      (Let Td38.172:Float =
+        3.
+      In
+      (FDiv Td37.171 Td38.172)))
+    In
+    (Let a5.147:Float =
+      (Let Td39.169:Float =
+        1.
+      In
+      (Let Td40.170:Float =
+        5.
+      In
+      (FDiv Td39.169 Td40.170)))
+    In
+    (Let a7.148:Float =
+      (Let Td42.166:Float =
+        (Let Td41.168:Float =
+          1.
+        In
+        (FNeg Td41.168))
+      In
+      (Let Td43.167:Float =
+        7.
+      In
+      (FDiv Td42.166 Td43.167)))
+    In
+    (Let a9.149:Float =
+      (Let Td44.164:Float =
+        1.
+      In
+      (Let Td45.165:Float =
+        9.
+      In
+      (FDiv Td44.164 Td45.165)))
+    In
+    (Let a11.150:Float =
+      (Let Td47.161:Float =
+        (Let Td46.163:Float =
+          1.
+        In
+        (FNeg Td46.163))
+      In
+      (Let Td48.162:Float =
+        11.
+      In
+      (FDiv Td47.161 Td48.162)))
+    In
+    (Let Td58.151:Float =
+      (Let Td49.152:Float =
+        (FMul x.135 x2.145)
+      In
+      (Let Td57.153:Float =
+        (Let Td56.154:Float =
+          (Let Td55.155:Float =
+            (Let Td54.156:Float =
+              (Let Td53.157:Float =
+                (Let Td52.158:Float =
+                  (Let Td51.159:Float =
+                    (Let Td50.160:Float =
+                      (FMul x2.145 a11.150)
+                    In
+                    (FAdd a9.149 Td50.160))
+                  In
+                  (FMul x2.145 Td51.159))
+                In
+                (FAdd a7.148 Td52.158))
+              In
+              (FMul x2.145 Td53.157))
+            In
+            (FAdd a5.147 Td54.156))
+          In
+          (FMul x2.145 Td55.155))
+        In
+        (FAdd a3.146 Td56.154))
+      In
+      (FMul Td49.152 Td57.153)))
+    In
+    (FAdd x.135 Td58.151))))))))
+  In
+  (Let Td59.136:Float =
+    1.
+  In
+  (If (LE x.102 Td59.136) Then
+    (Let Td60.140:Float =
+      -1.
+    In
+    (If (LE Td60.140 x.102) Then
+      (atan_poly.134 x.102)
+    Else
+      (Let Td61.141:Float =
+        (FNeg half_pi.133)
+      In
+      (Let Td64.142:Float =
+        (Let Td63.143:Float =
+          (Let Td62.144:Float =
+            1.
+          In
+          (FDiv Td62.144 x.102))
+        In
+        (atan_poly.134 Td63.143))
+      In
+      (FSub Td61.141 Td64.142)))))
+  Else
+    (Let Td67.137:Float =
+      (Let Td66.138:Float =
+        (Let Td65.139:Float =
+          1.
+        In
+        (FDiv Td65.139 x.102))
+      In
+      (atan_poly.134 Td66.138))
+    In
+    (FSub half_pi.133 Td67.137)))))))
+In
+(Let memo.103:Array(Int) =
+  (Let Ti68.129:Int =
+    100
+  In
+  (Let Ti70.130:Int =
+    (Let Ti69.131:Int =
+      1
+    In
+    (Neg Ti69.131))
+  In
+  create_array Ti68.129 Ti70.130))
+In
+(LetRec fib.104:(Int -> Int) n.105:Int =
+  (Let Ti71.110:Int =
+    1
+  In
+  (If (LE n.105 Ti71.110) Then
+    n.105
+  Else
+    (Let Ti72.111:Int =
+      100
+    In
+    (If (LE Ti72.111 n.105) Then
+      (Let Ti75.123:Int =
+        (Let Ti74.127:Int =
+          (Let Ti73.128:Int =
+            1
+          In
+          (Sub n.105 Ti73.128))
+        In
+        (fib.104 Ti74.127))
+      In
+      (Let Ti78.124:Int =
+        (Let Ti77.125:Int =
+          (Let Ti76.126:Int =
+            2
+          In
+          (Sub n.105 Ti76.126))
+        In
+        (fib.104 Ti77.125))
+      In
+      (Add Ti75.123 Ti78.124)))
+    Else
+      (Let Ti79.112:Int =
+        (memo.103.(n.105))
+      In
+      (Let Ti81.113:Int =
+        (Let Ti80.122:Int =
+          1
+        In
+        (Neg Ti80.122))
+      In
+      (If (EQ Ti79.112 Ti81.113) Then
+        (Let result.114:Int =
+          (Let Ti84.116:Int =
+            (Let Ti83.120:Int =
+              (Let Ti82.121:Int =
+                1
+              In
+              (Sub n.105 Ti82.121))
+            In
+            (fib.104 Ti83.120))
+          In
+          (Let Ti87.117:Int =
+            (Let Ti86.118:Int =
+              (Let Ti85.119:Int =
+                2
+              In
+              (Sub n.105 Ti85.119))
+            In
+            (fib.104 Ti86.118))
+          In
+          (Add Ti84.116 Ti87.117)))
+        In
+        (Let Tu1.115:Unit =
+          (memo.103.(n.105) <- result.114)
+        In
+        result.114))
+      Else
+        (memo.103.(n.105)))))))))
+In
+(Let Ta88.106:Array(Int) =
+  (Ext_Array io_int)
+In
+(Let Ti89.107:Int =
+  0
+In
+(Let Ti91.108:Int =
+  (Let Ti90.109:Int =
+    50
+  In
+  (fib.104 Ti90.109))
+In
+(Ta88.106.(Ti89.107) <- Ti91.108)))))))))))

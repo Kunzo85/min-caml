@@ -1,0 +1,40 @@
+Toplevel Functions:
+Function fib.89:(Float -> Float) Args(x.90:Float) Formal_fv() =
+  (Let Td67.95:Float =
+    2.
+  In
+  (If (LE Td67.95 x.90) Then
+    (Let Td68.101:Float =
+      1.
+    In
+    (Let Td69.100:Float =
+      FSub(x.90, Td68.101)
+    In
+    (Let Td70.96:Float =
+      (AppDir(fib.89 Td69.100))
+    In
+    (Let Td72.98:Float =
+      FSub(x.90, Td67.95)
+    In
+    (Let Td73.97:Float =
+      (AppDir(fib.89 Td72.98))
+    In
+    FAdd(Td70.96, Td73.97))))))
+  Else
+    x.90))
+
+Main Expression:
+(Let Ta74.91:Array(Float) =
+  (ExtArray(io_float))
+In
+(Let Ti75.92:Int =
+  0
+In
+(Let Td76.94:Float =
+  10.
+In
+(Let Td77.93:Float =
+  (AppDir(fib.89 Td76.94))
+In
+(Ta74.91.(Ti75.92) <- Td77.93)))))
+

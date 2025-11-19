@@ -1,0 +1,61 @@
+Toplevel Functions:
+Function fib.89 Args() FArgs(%f0) Ret:Float =
+  (Let %f1:Float =
+    FLi(2.)
+  In
+  (IfFLE %f1 %f0 Then
+    (Let %f2:Float =
+      FLi(1.)
+    In
+    (Let %f2:Float =
+      FSub(%f0, %f2)
+    In
+    (Let Tu194:Unit =
+      Save(%f1, Td67.95)
+    In
+    (Let Tu193:Unit =
+      Save(%f0, x.90)
+    In
+    (Let %f0:Float =
+      CallDir(fib.89, [], [%f2])
+    In
+    (Let %f1:Float =
+      Restore(Td67.95)
+    In
+    (Let %f2:Float =
+      Restore(x.90)
+    In
+    (Let %f1:Float =
+      FSub(%f2, %f1)
+    In
+    (Let Tu195:Unit =
+      Save(%f0, Td70.96)
+    In
+    (Let %f0:Float =
+      CallDir(fib.89, [], [%f1])
+    In
+    (Let %f1:Float =
+      Restore(Td70.96)
+    In
+    FAdd(%f1, %f0))))))))))))
+  Else
+    FMr(%f0)))
+
+Main Expression:
+(Let %r1:Array(Float) =
+  Li(4294967288)
+In
+(Let %f0:Float =
+  FLi(10.)
+In
+(Let Tu197:Unit =
+  Save(%r1, Ta74.91)
+In
+(Let %f0:Float =
+  CallDir(fib.89, [], [%f0])
+In
+(Let %r1:Int =
+  Restore(Ta74.91)
+In
+FStore(%f0, %r1, 0))))))
+

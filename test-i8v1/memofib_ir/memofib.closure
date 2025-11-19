@@ -1,0 +1,86 @@
+Toplevel Functions:
+Function fib.104:(Int -> Int) Args(n.105:Int) Formal_fv(memo.103:Array(Int)) =
+  (Let Ti71.110:Int =
+    1
+  In
+  (If (LE n.105 Ti71.110) Then
+    n.105
+  Else
+    (Let Ti72.111:Int =
+      100
+    In
+    (If (LE Ti72.111 n.105) Then
+      (Let Ti74.127:Int =
+        Sub(n.105, Ti71.110)
+      In
+      (Let Ti75.123:Int =
+        (AppCls(fib.104 Ti74.127))
+      In
+      (Let Ti76.126:Int =
+        2
+      In
+      (Let Ti77.125:Int =
+        Sub(n.105, Ti76.126)
+      In
+      (Let Ti78.124:Int =
+        (AppCls(fib.104 Ti77.125))
+      In
+      Add(Ti75.123, Ti78.124))))))
+    Else
+      (Let Ti79.112:Int =
+        (memo.103.(n.105))
+      In
+      (Let Ti81.113:Int =
+        -1
+      In
+      (If (EQ Ti79.112 Ti81.113) Then
+        (Let Ti83.120:Int =
+          Sub(n.105, Ti71.110)
+        In
+        (Let Ti84.116:Int =
+          (AppCls(fib.104 Ti83.120))
+        In
+        (Let Ti85.119:Int =
+          2
+        In
+        (Let Ti86.118:Int =
+          Sub(n.105, Ti85.119)
+        In
+        (Let Ti87.117:Int =
+          (AppCls(fib.104 Ti86.118))
+        In
+        (Let result.114:Int =
+          Add(Ti84.116, Ti87.117)
+        In
+        (Let Tu1.115:Unit =
+          (memo.103.(n.105) <- result.114)
+        In
+        result.114)))))))
+      Else
+        (memo.103.(n.105)))))))))
+
+Main Expression:
+(Let Ti68.129:Int =
+  100
+In
+(Let Ti70.130:Int =
+  -1
+In
+(Let memo.103:Array(Int) =
+  (AppDir(min_caml_create_array Ti68.129 Ti70.130))
+In
+(MakeCls fib.104:(Int -> Int) = <entry = fib.104; actual_fv = { memo.103 }> In
+(Let Ta88.106:Array(Int) =
+  (ExtArray(io_int))
+In
+(Let Ti89.107:Int =
+  0
+In
+(Let Ti90.109:Int =
+  50
+In
+(Let Ti91.108:Int =
+  (AppCls(fib.104 Ti90.109))
+In
+(Ta88.106.(Ti89.107) <- Ti91.108)))))))))
+

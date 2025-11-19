@@ -1,0 +1,37 @@
+Toplevel Functions:
+Function fib.89 Args() FArgs(x.90) Ret:Float =
+  (Let Td67.95:Float =
+    FLi(2.)
+  In
+  (IfFLE Td67.95 x.90 Then
+    (Let Td68.101:Float =
+      FLi(1.)
+    In
+    (Let Td69.100:Float =
+      FSub(x.90, Td68.101)
+    In
+    (Let Td70.96:Float =
+      CallDir(fib.89, [], [Td69.100])
+    In
+    (Let Td72.98:Float =
+      FSub(x.90, Td67.95)
+    In
+    (Let Td73.97:Float =
+      CallDir(fib.89, [], [Td72.98])
+    In
+    FAdd(Td70.96, Td73.97))))))
+  Else
+    FMr(x.90)))
+
+Main Expression:
+(Let Ta74.91:Array(Float) =
+  Li(4294967288)
+In
+(Let Td76.94:Float =
+  FLi(10.)
+In
+(Let Td77.93:Float =
+  CallDir(fib.89, [], [Td76.94])
+In
+FStore(Td77.93, Ta74.91, 0))))
+

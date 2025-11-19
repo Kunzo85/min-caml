@@ -1,0 +1,103 @@
+Toplevel Functions:
+Function fib.104 Args(n.105) FArgs() Ret:Int =
+  (Let memo.103:Array(Int) =
+    Load(fib.104, 1)
+  In
+  (Let Ti71.110:Int =
+    Li(1)
+  In
+  (IfLE n.105 Ti71.110 Then
+    Mr(n.105)
+  Else
+    (Let Ti72.111:Int =
+      Li(100)
+    In
+    (IfLE Ti72.111 n.105 Then
+      (Let Ti74.127:Int =
+        Sub(n.105, Ti71.110)
+      In
+      (Let Ti75.123:Int =
+        CallCls(fib.104, [Ti74.127], [])
+      In
+      (Let Ti76.126:Int =
+        Li(2)
+      In
+      (Let Ti77.125:Int =
+        Sub(n.105, Ti76.126)
+      In
+      (Let Ti78.124:Int =
+        CallCls(fib.104, [Ti77.125], [])
+      In
+      Add(Ti75.123, Ti78.124))))))
+    Else
+      (Let Ti79.112:Int =
+        Load(memo.103, n.105)
+      In
+      (Let Ti81.113:Int =
+        Li(-1)
+      In
+      (IfEq Ti79.112 Ti81.113 Then
+        (Let Ti83.120:Int =
+          Sub(n.105, Ti71.110)
+        In
+        (Let Ti84.116:Int =
+          CallCls(fib.104, [Ti83.120], [])
+        In
+        (Let Ti85.119:Int =
+          Li(2)
+        In
+        (Let Ti86.118:Int =
+          Sub(n.105, Ti85.119)
+        In
+        (Let Ti87.117:Int =
+          CallCls(fib.104, [Ti86.118], [])
+        In
+        (Let result.114:Int =
+          Add(Ti84.116, Ti87.117)
+        In
+        (Let Tu1.115:Unit =
+          Store(result.114, memo.103, n.105)
+        In
+        Mr(result.114))))))))
+      Else
+        Load(memo.103, n.105)))))))))
+
+Main Expression:
+(Let Ti68.129:Int =
+  Li(100)
+In
+(Let Ti70.130:Int =
+  Li(-1)
+In
+(Let memo.103:Array(Int) =
+  CallDir(min_caml_create_array, [Ti68.129; Ti70.130], [])
+In
+(Let fib.104:(Int -> Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, 2)
+In
+(Let l.224:Int =
+  SetL(fib.104)
+In
+(Let Tu225:Unit =
+  Store(l.224, fib.104, 0)
+In
+(Let Tu223:Unit =
+  Store(memo.103, fib.104, 1)
+In
+(Let Ta88.106:Array(Int) =
+  Li(4294967288)
+In
+(Let Ti89.107:Int =
+  Li(0)
+In
+(Let Ti90.109:Int =
+  Li(50)
+In
+(Let Ti91.108:Int =
+  CallCls(fib.104, [Ti90.109], [])
+In
+Store(Ti91.108, Ta88.106, Ti89.107)))))))))))))
+

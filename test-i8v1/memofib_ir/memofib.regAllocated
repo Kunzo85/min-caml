@@ -1,0 +1,148 @@
+Toplevel Functions:
+Function fib.104 Args(%r1) FArgs() Ret:Int =
+  (Let %r2:Array(Int) =
+    Load(%r27, 1)
+  In
+  (Let %r3:Int =
+    Li(1)
+  In
+  (IfLE %r1 %r3 Then
+    Mr(%r1)
+  Else
+    (Let %r3:Int =
+      Li(100)
+    In
+    (IfLE %r3 %r1 Then
+      (Let %r2:Int =
+        Add(%r1, -1)
+      In
+      (Let Tu227:Unit =
+        Save(%r27, fib.104)
+      In
+      (Let Tu226:Unit =
+        Save(%r1, n.105)
+      In
+      (Let %r1:Int =
+        CallCls(%r27, [%r2], [])
+      In
+      (Let %r2:Int =
+        Restore(n.105)
+      In
+      (Let %r2:Int =
+        Add(%r2, -2)
+      In
+      (Let %r27:Int =
+        Restore(fib.104)
+      In
+      (Let Tu228:Unit =
+        Save(%r1, Ti75.123)
+      In
+      (Let %r1:Int =
+        CallCls(%r27, [%r2], [])
+      In
+      (Let %r2:Int =
+        Restore(Ti75.123)
+      In
+      Add(%r2, %r1)))))))))))
+    Else
+      (Let %r3:Int =
+        Load(%r2, %r1)
+      In
+      (Let %r4:Int =
+        Li(-1)
+      In
+      (IfEq %r3 %r4 Then
+        (Let %r3:Int =
+          Add(%r1, -1)
+        In
+        (Let Tu231:Unit =
+          Save(%r2, memo.103)
+        In
+        (Let Tu230:Unit =
+          Save(%r27, fib.104)
+        In
+        (Let Tu229:Unit =
+          Save(%r1, n.105)
+        In
+        (Let %r1:Int =
+          CallCls(%r27, [%r3], [])
+        In
+        (Let %r2:Int =
+          Restore(n.105)
+        In
+        (Let %r3:Int =
+          Add(%r2, -2)
+        In
+        (Let %r27:Int =
+          Restore(fib.104)
+        In
+        (Let Tu233:Unit =
+          Save(%r2, n.105)
+        In
+        (Let Tu232:Unit =
+          Save(%r1, Ti84.116)
+        In
+        (Let %r1:Int =
+          CallCls(%r27, [%r3], [])
+        In
+        (Let %r2:Int =
+          Restore(Ti84.116)
+        In
+        (Let %r1:Int =
+          Add(%r2, %r1)
+        In
+        (Let %r2:Int =
+          Restore(n.105)
+        In
+        (Let %r3:Int =
+          Restore(memo.103)
+        In
+        (Let %zero:Unit =
+          Store(%r1, %r3, %r2)
+        In
+        Mr(%r1)))))))))))))))))
+      Else
+        Load(%r2, %r1)))))))))
+
+Main Expression:
+(Let %r1:Int =
+  Li(100)
+In
+(Let %r2:Int =
+  Li(-1)
+In
+(Let %r1:Array(Int) =
+  CallDir(min_caml_create_array, [%r1; %r2], [])
+In
+(Let %r27:(Int -> Int) =
+  Mr(%hp)
+In
+(Let %hp:Int =
+  Add(%hp, 2)
+In
+(Let %r2:Int =
+  SetL(fib.104)
+In
+(Let %zero:Unit =
+  Store(%r2, %r27, 0)
+In
+(Let %zero:Unit =
+  Store(%r1, %r27, 1)
+In
+(Let %r1:Array(Int) =
+  Li(4294967288)
+In
+(Let %r2:Int =
+  Li(50)
+In
+(Let Tu235:Unit =
+  Save(%r1, Ta88.106)
+In
+(Let %r1:Int =
+  CallCls(%r27, [%r2], [])
+In
+(Let %r2:Int =
+  Restore(Ta88.106)
+In
+Store(%r1, %r2, 0))))))))))))))
+
